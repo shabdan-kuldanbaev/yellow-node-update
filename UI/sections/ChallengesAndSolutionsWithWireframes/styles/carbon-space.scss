@@ -1,0 +1,9 @@
+.carbon-space {
+  &.firstSectionView {
+    background: $carbonSpaceGradient;
+  }
+
+  &.secondSectionView {
+    background: $gray0;
+  }
+}

@@ -21,6 +21,7 @@ export const useHeader = ({ introSection }) => {
     CASE_STUDIES.beautonomy,
     CASE_STUDIES.famlicious,
     CASE_STUDIES.bionorica,
+    CASE_STUDIES.carbonSpace,
   ].includes(project)
     ? 'light'
     : 'dark';

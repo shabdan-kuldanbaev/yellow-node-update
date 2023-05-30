@@ -32,6 +32,8 @@
   }
 
   [data-description] {
+    color: $gray0;
+    opacity: 0.7;
     max-width: 700px;
   }
 
@@ -52,7 +54,7 @@
 .portfolio {
   padding: 120px 0;
   overflow: hidden;
-  background-color: $gray900;
+  background-color: $forexAccent;
   transition: background-color $changing-portfolio-color ease;
 
   .bottomOfPortfolio {
@@ -87,7 +89,7 @@
   }
 
   &.firstBlock {
-    background-color: $gray900;
+    background-color: $forexAccent;
   }
 
   &.secondBlock {

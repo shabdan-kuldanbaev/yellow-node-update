@@ -1,0 +1,168 @@
+.carbon-space {
+  padding: 120px 0;
+  background: $carbonSpaceGradient;
+
+  .sectionTitle {
+    margin: 0 auto 48px;
+    max-width: 677px;
+
+    @include below-tablet {
+      margin: 0 auto 24px;
+      padding: 0 16px;
+    }
+  }
+
+  [data-title] {
+    text-align: center;
+  }
+
+  [data-description] {
+    margin: 0 auto;
+    text-align: center;
+    max-width: unset;
+  }
+
+  .contentWrapper {
+    margin: 0 auto;
+    max-width: $default-content-width;
+  }
+
+  .introSection {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .introText {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+  }
+
+  .introList {
+    @include flex(row, space-between);
+
+    margin: 0 0 60px -24px;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include tablet {
+      margin: 0 0 32px;
+    }
+  }
+
+  .listItem {
+    @include flex(row, space-between, center);
+
+    position: relative;
+    margin: 0 0 0 24px;
+    padding: 16px 24px 16px 32px;
+    background-color: $gray0;
+    border-radius: 50px;
+
+    p {
+      @include fontSize(16px, 150%);
+
+      margin: 0 0 0 5px;
+      white-space: nowrap;
+    }
+
+    span {
+      @include fontSize(16px, 150%);
+
+      color: $gray400;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 3px;
+      height: 24px;
+      top: 50%;
+      left: 24px;
+      transform: translateY(-50%);
+      background-color: $carbonSpaceAccent;
+      border-radius: 20px;
+    }
+
+    @include below-tablet {
+      margin: 0 0 0 16px;
+    }
+  }
+
+  .imageContainer {
+    margin: 0 auto;
+    width: 100%;
+    height: 462px;
+    max-width: $wide-content-width;
+
+    @include phone {
+      height: 235px;
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    border: 1px solid $gray100;
+    box-shadow: 0 8px 35px 0 #6e78821a;
+    border-radius: 30px;
+    overflow: hidden;
+
+    &-1 {
+      bottom: 0;
+      left: 16px;
+      width: 410px;
+      height: 252px;
+      z-index: 2;
+
+      @include phone {
+        width: 214px;
+        height: 132px;
+      }
+    }
+
+    &-2 {
+      width: 492px;
+      height: 300px;
+      bottom: 162px;
+      right: 50%;
+      transform: translateX(50%);
+      z-index: 1;
+
+      @include phone {
+        bottom: 79px;
+        right: 16px;
+        width: 257px;
+        height: 157px;
+        transform: unset;
+      }
+    }
+
+    &-3 {
+      width: 470px;
+      height: 262px;
+      right: 0;
+      bottom: 36px;
+      z-index: 3;
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &-4 {
+      width: 3001px;
+      height: 1063px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @include below-tablet {
+    padding: 88px 0 60px;
+  }
+}
