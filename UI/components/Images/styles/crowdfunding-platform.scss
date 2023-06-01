@@ -1,0 +1,9 @@
+.crowdfunding-platform {
+  &.firstSectionView {
+    .image {
+      height: 144px;
+      width: 100%;
+      max-width: $wide-content-width;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.crowdfunding-platform {
+  background: $crowdfundingPlatformPrimary;
+  padding-bottom: 60px;
+
+  [data-title] {
+    @include fontSize(14px);
+
+    color: $gray0;
+    font-weight: 400;
+  }
+
+  @include tablet {
+    padding-bottom: 30px;
+  }
+}
