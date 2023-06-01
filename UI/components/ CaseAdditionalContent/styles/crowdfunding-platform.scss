@@ -1,0 +1,23 @@
+.crowdfunding-platform {
+  width: 100%;
+  margin-bottom: 48px;
+
+  .container {
+    max-width: none;
+    width: 100%;
+  }
+
+  .listContainer {
+    @include flex(row, space-between, center);
+
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .listItem {
+    @include fontSize(14px);
+
+    color: $gray0;
+  }
+}
