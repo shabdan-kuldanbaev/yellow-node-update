@@ -4,6 +4,26 @@
       height: 144px;
       width: 100%;
       max-width: $wide-content-width;
+
+      @include tablet {
+        width: 950px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      height: 383px;
+      width: 100%;
+      max-width: $wide-content-width;
+
+      img {
+        object-fit: fill;
+      }
+
+      @include tablet {
+        height: 244px;
+      }
     }
   }
 }
