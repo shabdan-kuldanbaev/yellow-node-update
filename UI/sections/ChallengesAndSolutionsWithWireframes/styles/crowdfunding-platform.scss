@@ -1,5 +1,6 @@
 .crowdfunding-platform {
-  &.firstSectionView {
+  &.firstSectionView,
+  &.secondSectionView {
     background: $crowdfundingPlatformPrimary;
 
     [data-title] {
@@ -8,5 +9,9 @@
       color: $gray0;
       font-weight: 400;
     }
+  }
+
+  &.secondSectionView {
+    background: $crowdfundingPlatformSecondary;
   }
 }
