@@ -1,23 +1,64 @@
 .crowdfunding-platform {
-  width: 100%;
-  margin-bottom: 48px;
-
-  .container {
-    max-width: none;
+  &.firstSectionView {
     width: 100%;
+    margin-bottom: 48px;
+
+    .container {
+      max-width: none;
+      width: 100%;
+    }
+
+    .listContainer {
+      @include flex(row, space-between, center);
+
+      width: 100%;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .listItem {
+      @include fontSize(14px);
+
+      color: $gray0;
+    }
   }
 
-  .listContainer {
-    @include flex(row, space-between, center);
+  &.secondSectionView {
+    @include flex(column, flex-start, stretch);
 
-    width: 100%;
-    list-style: none;
-    padding-left: 0;
-  }
+    .container + .container {
+      margin-top: 24px;
+    }
 
-  .listItem {
-    @include fontSize(14px);
+    .title {
+      @include fontSize(20px);
 
-    color: $gray0;
+      font-weight: 400;
+      color: $gray0;
+      margin-bottom: 6px;
+    }
+
+    .listContainer {
+      color: $gray500;
+      padding-left: 14px;
+    }
+
+    .listItem {
+      @include fontSize(14px, 150%);
+
+      & + .listItem {
+        margin-top: 6px;
+      }
+    }
+
+    @include tablet {
+      .container {
+        max-width: none;
+      }
+
+      .title {
+        text-align: center;
+      }
+    }
   }
 }

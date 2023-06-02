@@ -17,6 +17,7 @@ const Animated = dynamic(() => import('UI/containers/Animated'));
 const ProjectIdea = (props) => {
   const {
     type,
+    view,
     title,
     sectionTitle,
     sectionDescription,
@@ -32,7 +33,7 @@ const ProjectIdea = (props) => {
   } = useProjectIdea(props);
 
   return (
-    <section className={cn(styles[type], styles.container)}>
+    <section className={cn(styles[type], styles.container, styles[view])}>
       {sectionTitle && (
         <SectionTitle
           title={sectionTitle}
@@ -76,6 +77,7 @@ const ProjectIdea = (props) => {
             <CaseAdditionalContent
               data={additionalContent}
               type={type}
+              view={view}
             />
           </Animated>
         </div>

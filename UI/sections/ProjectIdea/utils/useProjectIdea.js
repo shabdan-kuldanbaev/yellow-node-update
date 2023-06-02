@@ -7,6 +7,7 @@ export const useProjectIdea = ({ type, data }) => {
     title: sectionTitle,
     subtitle: sectionSubtitle,
     description: sectionDescription,
+    view,
   } = data;
 
   const {
@@ -41,5 +42,6 @@ export const useProjectIdea = ({ type, data }) => {
     teamListProps,
     imageUrl,
     textContent,
+    view,
   };
 };

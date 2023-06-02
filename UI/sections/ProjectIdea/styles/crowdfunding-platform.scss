@@ -1,55 +1,156 @@
 .crowdfunding-platform {
-  background: $crowdfundingPlatformPrimary;
-  margin: 0 auto;
-
-  .contentContainer {
-    margin-bottom: 0;
-  }
-
-  .descriptionContainer {
-    flex: 1 1 auto;
-    flex-direction: column-reverse;
-    max-width: $default-content-width;
+  &.firstSectionView {
+    background: $crowdfundingPlatformPrimary;
     margin: 0 auto;
+
+    .contentContainer {
+      margin-bottom: 0;
+    }
+
+    .descriptionContainer {
+      flex: 1 1 auto;
+      flex-direction: column-reverse;
+      max-width: $default-content-width;
+      margin: 0 auto;
+    }
+
+    .descriptionIntro {
+      @include flex(row, space-between, flex-start, wrap);
+
+      max-height: 300px;
+
+      & > *:first-child {
+        flex: 0 0 100%;
+
+        p {
+          max-width: 100%;
+        }
+      }
+
+      .title {
+        font-weight: 400;
+        color: $gray0;
+      }
+
+      .sectionName {
+        color: $crowdfundingPlatformAccent;
+      }
+
+      & > *:last-child {
+        max-width: 378px;
+        color: $gray500;
+
+        p + p {
+          margin-top: 16px;
+        }
+
+        @include tablet {
+          max-width: none;
+        }
+      }
+
+      @include tablet {
+        @include flex(column, space-between, center);
+      }
+    }
   }
 
-  .descriptionIntro {
-    @include flex(row, space-between, flex-start, wrap);
+  &.secondSectionView {
+    background: $crowdfundingPlatformPrimary;
 
-    max-height: 300px;
+    .titleStyle {
+      [data-title] {
+        @include fontSize(14px);
 
-    & > *:first-child {
-      flex: 0 0 100%;
-
-      p {
-        max-width: 100%;
+        color: $gray0;
+        font-weight: 400;
       }
     }
 
     .title {
-      font-weight: 400;
+      @include fontSize(38px);
+
       color: $gray0;
+      font-weight: 400;
     }
 
-    .sectionName {
-      color: $crowdfundingPlatformAccent;
+    .contentContainer {
+      background: $crowdfundingPlatformSecondary;
+      margin: 0 auto;
+      align-items: stretch;
     }
 
-    & > *:last-child {
-      max-width: 378px;
-      color: $gray500;
+    .descriptionContainer {
+      @include flex(row, space-between, stretch);
 
-      p + p {
-        margin-top: 16px;
+      margin-left: 0;
+      padding: 60px;
+      width: 100%;
+      max-width: none;
+      position: relative;
+
+      & > * {
+        max-width: 265px;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        background: $gray600;
+        width: 2px;
+        height: calc(100% - 120px);
+        left: 50%;
       }
 
       @include tablet {
-        max-width: none;
+        flex-direction: column;
+        padding: 32px 40px;
+        width: auto;
+
+        & > * {
+          max-width: none;
+
+          &:last-child {
+            order: 3;
+          }
+        }
+
+        &::before {
+          position: static;
+          order: 2;
+          height: 2px;
+          width: auto;
+          margin-bottom: 32px;
+        }
       }
     }
 
-    @include tablet {
-      @include flex(column, space-between, center);
+    .descriptionIntro {
+      @include tablet {
+        margin-bottom: 16px;
+        order: 1;
+      }
+    }
+
+    ul {
+      margin: 0;
+      color: $gray500;
+
+      @include tablet {
+        @include flex(column, flex-start, center);
+      }
+    }
+
+    li {
+      @include fontSize(14px, 150%);
+
+      & + .listItem {
+        margin-top: 6px;
+      }
+
+      p {
+        margin: 0;
+      }
     }
   }
 }
