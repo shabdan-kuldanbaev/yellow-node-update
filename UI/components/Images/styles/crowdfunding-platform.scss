@@ -53,4 +53,18 @@
       }
     }
   }
+
+  &.fourthSectionView {
+    overflow: hidden;
+    padding-top: 0;
+
+    .image {
+      width: 120%;
+      height: 244px;
+
+      @include tablet {
+        height: 130px;
+      }
+    }
+  }
 }
