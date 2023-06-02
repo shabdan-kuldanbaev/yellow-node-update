@@ -1,0 +1,12 @@
+.crowdfunding-platform {
+  &.firstSectionView {
+    background: $crowdfundingPlatformPrimary;
+
+    [data-title] {
+      @include fontSize(14px);
+
+      color: $gray0;
+      font-weight: 400;
+    }
+  }
+}
