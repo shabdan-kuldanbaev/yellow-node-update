@@ -293,6 +293,7 @@ export const CASE_STUDIES = {
   mobileBudgetingApp: 'mobile-budgeting-app',
   forexTradingPlatform: 'forex-trading-platform',
   carbonSpace: 'carbon-space',
+  metapix: 'metapix',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
