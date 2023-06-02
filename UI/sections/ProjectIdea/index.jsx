@@ -9,6 +9,7 @@ import Typography from 'UI/components/Typography';
 import CaseAdditionalContent from 'UI/components/ CaseAdditionalContent';
 import SectionTitle from 'UI/components/SectionTitle';
 import CaseImageContent from 'UI/components/CaseImageContent';
+import Illustration from 'UI/components/Illustration';
 import { useProjectIdea } from './utils/useProjectIdea';
 import styles from './styles.module.scss';
 
@@ -30,10 +31,18 @@ const ProjectIdea = (props) => {
     featuresProps,
     teamListProps,
     textContent,
+    background,
   } = useProjectIdea(props);
 
   return (
     <section className={cn(styles[type], styles.container, styles[view])}>
+      {background && (
+        <Illustration
+          src={background.url}
+          alt=""
+          className={styles.background}
+        />
+      )}
       {sectionTitle && (
         <SectionTitle
           title={sectionTitle}
