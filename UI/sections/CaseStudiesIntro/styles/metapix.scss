@@ -93,7 +93,7 @@
     }
 
     .image {
-      right: -30%;
+      right: 0;
       width: 456px;
     }
 
@@ -103,6 +103,13 @@
 
     .experience > p {
       @include fontSize(20px, 150%);
+    }
+  }
+
+  @include phone {
+    .image {
+      right: -30%;
+      width: 456px;
     }
   }
 }
