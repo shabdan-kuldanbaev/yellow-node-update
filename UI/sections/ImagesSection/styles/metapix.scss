@@ -38,6 +38,7 @@
       padding: 30px 16px;
 
       .titleStyle {
+        align-items: start;
         margin-bottom: 24px;
         padding-top: 32px;
       }
@@ -56,12 +57,20 @@
     }
   }
 
+  &.thirdSectionView {
+    padding-bottom: 120px;
+
+    @include below-tablet {
+      padding-bottom: 60px;
+    }
+  }
+
   &.fifthSectionView {
-    .titleStyle div {
-      margin-left: auto;
+    .titleStyle {
+      @include flex(column, initial, end);
 
       @include below-tablet {
-        margin-left: unset;
+        align-items: start;
       }
     }
   }
