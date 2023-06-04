@@ -1,0 +1,34 @@
+.metapix {
+  &.firstSectionView,
+  &.secondSectionView {
+    padding: 0;
+    background: $metapixPrimary;
+
+    .sectionTitle {
+      display: none;
+    }
+
+    .contentWrapper {
+      max-width: $macbook-thirteen;
+    }
+
+    .prototype {
+      position: static;
+      width: 100%;
+      height: 750px;
+      transform: unset;
+
+      img {
+        object-fit: cover;
+      }
+
+      @include tablet {
+        height: 500px;
+      }
+
+      @include phone {
+        height: 370px;
+      }
+    }
+  }
+}
