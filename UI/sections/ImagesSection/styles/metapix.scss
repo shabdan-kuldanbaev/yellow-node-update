@@ -1,0 +1,65 @@
+.metapix {
+  padding: 60px 16px;
+  background: $metapixPrimary;
+
+  .titleStyle {
+    margin-bottom: 32px;
+    padding-top: 40px;
+    max-width: $wide-content-width;
+    border-top: 1px solid $gray700;
+
+    & > div {
+      max-width: 481px;
+      width: 100%;
+    }
+  }
+
+  [data-title] {
+    @include fontSize(16px, 150%);
+
+    margin-bottom: 8px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: left;
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray400;
+    text-align: left;
+  }
+
+  &.firstSectionView {
+    .titleStyle {
+      @include flex(column, initial, end);
+    }
+
+    @include below-tablet {
+      padding: 30px 16px;
+
+      .titleStyle {
+        margin-bottom: 24px;
+        padding-top: 32px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    padding-bottom: 120px;
+
+    .titleStyle {
+      @include flex(column, initial, start);
+    }
+
+    @include below-tablet {
+      padding-bottom: 60px;
+    }
+  }
+
+  @include below-tablet {
+    .titleStyle {
+      margin-bottom: 24px;
+      padding-top: 32px;
+    }
+  }
+}
