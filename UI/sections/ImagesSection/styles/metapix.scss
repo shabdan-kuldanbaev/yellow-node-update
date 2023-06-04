@@ -56,6 +56,16 @@
     }
   }
 
+  &.fifthSectionView {
+    .titleStyle div {
+      margin-left: auto;
+
+      @include below-tablet {
+        margin-left: unset;
+      }
+    }
+  }
+
   @include below-tablet {
     .titleStyle {
       margin-bottom: 24px;
