@@ -55,12 +55,19 @@
   }
 
   &.fourthSectionView {
-    overflow: hidden;
     padding-top: 0;
+    max-width: $wide-content-width;
+    margin: 0 auto;
+    overflow: visible;
 
     .image {
-      width: 120%;
+      width: 1900px;
       height: 244px;
+      margin-left: 0;
+
+      img {
+        object-position: left;
+      }
 
       @include tablet {
         height: 130px;
