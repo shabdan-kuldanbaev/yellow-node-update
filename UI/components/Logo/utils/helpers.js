@@ -34,7 +34,7 @@ export const BLACK_LOGO_TYPE = [
   'famlicious',
   'bionorica',
   'beautonomy',
-  'carbon-space',
+  'analytics-for-carbon-tracking',
 ];
 
 export const WHITE_TEXT_LOGO = [
