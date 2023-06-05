@@ -1,4 +1,8 @@
 .crowdfunding-platform {
+  ul li::marker {
+    color: $crowdfundingPlatformAccent;
+  }
+
   &.firstSectionView {
     background: $crowdfundingPlatformPrimary;
     margin: 0 auto;
@@ -75,14 +79,15 @@
     }
 
     .contentContainer {
-      background: $crowdfundingPlatformSecondary;
       margin: 0 auto;
       align-items: stretch;
+      max-width: $default-content-width;
     }
 
     .descriptionContainer {
       @include flex(row, space-between, stretch);
 
+      background: $crowdfundingPlatformSecondary;
       margin-left: 0;
       padding: 60px;
       width: 100%;

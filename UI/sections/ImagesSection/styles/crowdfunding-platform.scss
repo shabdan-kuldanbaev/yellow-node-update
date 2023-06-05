@@ -9,11 +9,11 @@
     font-weight: 400;
   }
 
-  @include tablet {
-    padding-bottom: 30px;
-  }
-
   &.fourthSectionView {
     padding-top: 0;
+  }
+
+  @include tablet {
+    padding-bottom: 30px;
   }
 }
