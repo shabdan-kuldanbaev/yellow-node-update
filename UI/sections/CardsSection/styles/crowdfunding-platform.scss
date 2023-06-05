@@ -36,6 +36,8 @@
     }
 
     p {
+      @include fontSize(14px);
+
       color: $gray500;
 
       b {
