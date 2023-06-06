@@ -2,6 +2,5 @@ export const transparentImages = ['blackbird'];
 
 export const darkButtons = [
   'blackbird',
-  'fusionmarkets',
-  'fusion-markets',
+  'forex-trading-platform',
 ];

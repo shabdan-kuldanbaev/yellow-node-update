@@ -12,7 +12,7 @@ const WhatMakesUsSpecial = ({ makingUsSpecial }) => makingUsSpecial && (
   <section className={styles.makingUsSpecial}>
     <SectionTitle
       title="What makes us special"
-      className={styles.titleStyle}
+      styleContainer={styles.titleStyle}
     />
     <div className={styles.specialThings}>
       {makingUsSpecial && makingUsSpecial.map((special, index) => {

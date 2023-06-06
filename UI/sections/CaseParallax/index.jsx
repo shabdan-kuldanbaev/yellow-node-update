@@ -1,5 +1,5 @@
-import cn from 'classnames';
 import PropTypes from 'prop-types';
+import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
 import Illustration from 'UI/components/Illustration';
@@ -11,15 +11,20 @@ const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const CaseParallax = (props) => {
   const {
+    type,
+    view,
     sectionTitles,
-    imageUrl,
     bundleImages,
     contentList,
     className,
+    paralaxProps,
   } = useParallaxProps(props);
 
   return (
-    <section className={className}>
+    <section
+      key={`${type}/${view}`}
+      className={className}
+    >
       <SectionTitle {...sectionTitles}>
         {!!contentList?.length
           && (
@@ -29,7 +34,10 @@ const CaseParallax = (props) => {
             >
               <ul className={styles.listContainer}>
                 {contentList.map((item) => (
-                  <li className={styles.listItem}>
+                  <li
+                    key={item}
+                    className={styles.listItem}
+                  >
                     {item}
                   </li>
                 ))}
@@ -37,12 +45,10 @@ const CaseParallax = (props) => {
             </Animated>
           )}
       </SectionTitle>
-      <div
-        style={{ backgroundImage: `url(${imageUrl})` }}
-        className={styles.parallaxImage}
-      >
+      <div {...paralaxProps}>
         {bundleImages?.map((src, index) => (
           <Illustration
+            key={index}
             lazyBoundary="2000px"
             src={src}
             className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}

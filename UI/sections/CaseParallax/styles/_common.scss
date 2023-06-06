@@ -1,13 +1,19 @@
 .parallaxSection {
-  .parallaxImage {
-    @include centeredBackgroundImage;
-
-    background-attachment: fixed;
-    height: 100vh;
-  }
-
   .bundleImage {
     user-select: none;
     pointer-events: none;
+  }
+
+  .parallaxImage {
+    @supports (-webkit-touch-callout: none) {
+      background-attachment: unset;
+    }
+
+    position: relative;
+    height: 400px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
   }
 }

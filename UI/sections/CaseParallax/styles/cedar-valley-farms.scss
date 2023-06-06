@@ -17,5 +17,10 @@
 
     width: 650px;
     height: 650px;
+
+    @include below-tablet {
+      width: 350px;
+      height: 350px;
+    }
   }
 }

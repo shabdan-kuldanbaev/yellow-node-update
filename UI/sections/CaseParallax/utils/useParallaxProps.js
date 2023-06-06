@@ -29,12 +29,21 @@ export default ({ data, type }) => {
   const className = cn(styles.parallaxSection, styles[type], styles[view]);
   const bundleImages = imagesBundles?.map((img) => getFileUrl(img));
 
+  const paralaxProps = {
+    className: styles.parallaxImage,
+    style: {
+      backgroundImage: `url(${imageUrl})`,
+    },
+  };
+
   return {
-    imageUrl,
+    type,
+    view,
     contentList,
     className,
     bundleImages,
     sectionTitles,
+    paralaxProps,
     ...rest,
   };
 };
