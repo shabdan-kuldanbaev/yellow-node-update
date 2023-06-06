@@ -43,10 +43,13 @@
 
       .infoContainer {
         order: 0;
-        margin: 0 auto;
 
-        * {
-          text-align: center;
+        @include tablet {
+          margin: 0 auto;
+
+          * {
+            text-align: center;
+          }
         }
       }
 
