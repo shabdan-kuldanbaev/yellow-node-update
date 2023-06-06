@@ -94,23 +94,23 @@
     }
   }
 
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
   @include tablet {
     padding: 120px 32px;
   }
 
   @include phone {
     padding: 60px 16px;
-  }
-}
-
-.background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-
-  img {
-    object-fit: cover;
   }
 }
