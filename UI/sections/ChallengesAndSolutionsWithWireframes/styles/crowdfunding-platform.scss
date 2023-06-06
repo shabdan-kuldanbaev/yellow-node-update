@@ -14,4 +14,10 @@
   &.secondSectionView {
     background: $crowdfundingPlatformSecondary;
   }
+
+  @include below-tablet {
+    .background {
+      display: none;
+    }
+  }
 }
