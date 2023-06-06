@@ -1,30 +1,32 @@
 .why-us {
-  padding: 0;
-  background-color: $gray900;
+  &.firstSectionView {
+    padding: 0;
+    background-color: $gray900;
 
-  .sectionTitle {
-    display: none;
-  }
-
-  .contentWrapper {
-    max-width: $macbook-fifteen;
-  }
-
-  .video {
-    object-fit: cover;
-    width: 100%;
-    height: 681px;
-
-    @include tablet {
-      height: 500px;
+    .sectionTitle {
+      display: none;
     }
 
-    @include below-tablet {
-      height: 400px;
+    .contentWrapper {
+      max-width: $macbook-fifteen;
     }
 
-    @include phone {
-      height: 302px;
+    .video {
+      object-fit: cover;
+      width: 100%;
+      height: 681px;
+
+      @include tablet {
+        height: 500px;
+      }
+
+      @include below-tablet {
+        height: 400px;
+      }
+
+      @include phone {
+        height: 302px;
+      }
     }
   }
 }
