@@ -12,6 +12,7 @@ const Challenges = dynamic(() => import('UI/sections/ChallengesAndSolutionsWithW
 const Tabs = dynamic(() => import('UI/sections/TabsSection'));
 const Gallery = dynamic(() => import('UI/sections/GallerySection'));
 const Intro = dynamic(() => import('UI/sections/CaseStudiesIntro'));
+const Results = dynamic(() => import('UI/sections/ResultsSection'));
 
 export const WhyUsCommon = ({ introSection, ...props }) => {
   const {
@@ -84,6 +85,13 @@ export const WhyUsCommon = ({ introSection, ...props }) => {
       />
     );
 
+  case WHY_US_TYPE.results:
+    return (
+      <Results
+        type={type}
+        data={section.fields}
+      />
+    );
   default:
     return null;
   }
