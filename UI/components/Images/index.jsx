@@ -41,6 +41,7 @@ const Images = (props) => {
             intersectedClasses={cn({ [styles.active]: index })}
           >
             <Illustration
+              priority
               transparent
               className={cn(styles.image, styles[`image-${index + 1}`])}
               height={imageHeight}
