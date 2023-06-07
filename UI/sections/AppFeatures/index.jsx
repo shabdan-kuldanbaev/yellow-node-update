@@ -53,7 +53,12 @@ const AppFeatures = (props) => {
         >
           <div className={styles.imageContainer}>
             <Illustration {...imageSrc} />
-            {isPromoImage && <FigmaPrototype src={promoSrc} />}
+            {isPromoImage && (
+              <FigmaPrototype
+                src={promoSrc}
+                className={styles.prototype}
+              />
+            )}
           </div>
         </Animated>
       </div>

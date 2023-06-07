@@ -19,4 +19,17 @@
       margin: 0 auto;
     }
   }
+
+  .imageBundle {
+    position: absolute;
+    left: 300px;
+    top: 50%;
+    width: 532px;
+    height: 114px;
+    transform: translateY(-45%);
+
+    @include tablet {
+      display: none;
+    }
+  }
 }
