@@ -14,8 +14,6 @@ const Images = (props) => {
     type,
     view,
     imagesUrl,
-    classes,
-    imageHeight,
   } = useImages(props);
 
   if (!imagesUrl) {
@@ -29,7 +27,6 @@ const Images = (props) => {
     >
       <div className={cn(
         styles[type],
-        styles[classes],
         styles[view],
         styles.container,
       )}
@@ -43,7 +40,7 @@ const Images = (props) => {
             <Illustration
               transparent
               className={cn(styles.image, styles[`image-${index + 1}`])}
-              height={imageHeight}
+              unoptimized
               src={url}
               alt={alt}
             />
