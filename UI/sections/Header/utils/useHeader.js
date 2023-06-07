@@ -21,6 +21,7 @@ export const useHeader = ({ introSection }) => {
     CASE_STUDIES.beautonomy,
     CASE_STUDIES.famlicious,
     CASE_STUDIES.bionorica,
+    CASE_STUDIES.carbonSpace,
   ].includes(project)
     ? 'light'
     : 'dark';
@@ -50,7 +51,7 @@ export const useHeader = ({ introSection }) => {
         const intro = introSection.current.getBoundingClientRect();
 
         if (isPageWithTransparentHeader) {
-          setIsPageScrolledDown(intro.bottom < 65);
+          setIsPageScrolledDown(intro.top < -200);
           setIsLogoTextHidden(intro.top < -200);
         }
 

@@ -5,12 +5,15 @@
   }
 
   .parallaxImage {
+    @supports (-webkit-touch-callout: none) {
+      background-attachment: unset;
+    }
+
     position: relative;
     height: 400px;
     width: 100%;
-    background-position-y: 0%;
-    background-position-x: 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
   }
 }

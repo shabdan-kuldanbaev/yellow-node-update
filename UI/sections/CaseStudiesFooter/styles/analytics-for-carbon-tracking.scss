@@ -1,0 +1,36 @@
+.analytics-for-carbon-tracking {
+  background: $carbonSpaceGradient;
+
+  .nextProjectContainer {
+    .more,
+    [data-description] {
+      color: $gray900;
+    }
+
+    [data-title] {
+      color: $gray400;
+    }
+
+    .more {
+      border: 1px solid $gray900;
+    }
+  }
+
+  .question {
+    color: $gray900;
+  }
+
+  .iconLink {
+    path {
+      fill: $gray900;
+    }
+
+    circle {
+      stroke: $gray300;
+    }
+  }
+
+  .link {
+    color: $gray400;
+  }
+}

@@ -1,0 +1,13 @@
+.analytics-for-carbon-tracking {
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    height: 820px;
+
+    @include tablet {
+      height: 520px;
+    }
+  }
+}

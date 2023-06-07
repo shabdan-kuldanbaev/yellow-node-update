@@ -25,6 +25,7 @@ const CaseStudiesIntro = (props) => {
     imagesBundlesWithUrls,
     imageBackgroundTitle,
     isVideo,
+    contentList,
   } = useCaseStudiesIntro(props);
 
   return (
@@ -60,6 +61,17 @@ const CaseStudiesIntro = (props) => {
           </SectionTitle>
           <div className={styles.introText}>
             <ContentfulParser document={introText} />
+            <div className={styles.introList}>
+              {contentList?.map(({ title: itemTitle, text }) => (
+                <div
+                  key={itemTitle}
+                  className={styles.listItem}
+                >
+                  <span>{itemTitle}</span>
+                  <ContentfulParser document={text} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className={styles.imageContainer}>

@@ -27,6 +27,7 @@ export const WHITE_LOGO_TYPE = [
   'mobile-budgeting-app',
   'forex-trading-platform',
   'crowdfunding-platform',
+  'metapix',
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -34,6 +35,7 @@ export const BLACK_LOGO_TYPE = [
   'famlicious',
   'bionorica',
   'beautonomy',
+  'analytics-for-carbon-tracking',
 ];
 
 export const WHITE_TEXT_LOGO = [
@@ -68,6 +70,7 @@ export const WHITE_TEXT_LOGO = [
   'mobile-budgeting-app',
   'forex-trading-platform',
   'crowdfunding-platform',
+  'metapix',
 ];
 
 export const getLogoType = (type) => {
