@@ -43,6 +43,7 @@ const Images = (props) => {
             <Illustration
               priority
               transparent
+              unoptimized
               className={cn(styles.image, styles[`image-${index + 1}`])}
               height={imageHeight}
               src={url}

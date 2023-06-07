@@ -1,13 +1,24 @@
 .why-us {
   &.firstSectionView {
+    position: relative;
     padding: 0;
     background-color: $gray900;
 
     .sectionTitle {
-      display: none;
+      position: absolute;
+      top: 120px;
+      left: 50%;
+      z-index: 2;
+      transform: translateX(-50%);
+      margin: 0;
+    }
+
+    [data-title] {
+      color: $gray0;
     }
 
     .contentWrapper {
+      z-index: 1;
       max-width: 100%;
     }
 
@@ -15,6 +26,26 @@
       object-fit: cover;
       width: 100%;
       height: auto;
+    }
+
+    .video-2 {
+      display: none;
+    }
+
+    @include tablet {
+      .sectionTitle {
+        top: 60px;
+      }
+    }
+
+    @include phone {
+      .video-1 {
+        display: none;
+      }
+
+      .video-2 {
+        display: block;
+      }
     }
   }
 }

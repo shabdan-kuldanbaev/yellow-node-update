@@ -20,7 +20,7 @@ export const useResultsSection = ({ data, type }) => {
 
   const isResultVideo = isContentVideo(type);
   const moduleData = getDocumentFields(get(contentModules, '[0]', {}));
-  const prototypeUrl = getFileUrl(images?.[0]);
+  const prototypesUrl = (images || []).map(getFileUrl);
   const screenUrl = getFileUrl(moduleData?.images?.[0]);
   const imagesBundles = moduleData?.imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
 
@@ -29,7 +29,7 @@ export const useResultsSection = ({ data, type }) => {
     type,
     title,
     description,
-    prototypeUrl,
+    prototypesUrl,
     screenUrl,
     imagesBundles,
     sectionStyle,
