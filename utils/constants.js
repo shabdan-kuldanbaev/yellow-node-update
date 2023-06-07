@@ -292,6 +292,7 @@ export const CASE_STUDIES = {
   cedar: 'cedar-valley-farms',
   mobileBudgetingApp: 'mobile-budgeting-app',
   forexTradingPlatform: 'forex-trading-platform',
+  metapix: 'metapix',
   carbonSpace: 'analytics-for-carbon-tracking',
 };
 

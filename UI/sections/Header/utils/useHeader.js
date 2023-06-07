@@ -51,7 +51,7 @@ export const useHeader = ({ introSection }) => {
         const intro = introSection.current.getBoundingClientRect();
 
         if (isPageWithTransparentHeader) {
-          setIsPageScrolledDown(intro.bottom < 65);
+          setIsPageScrolledDown(intro.top < -200);
           setIsLogoTextHidden(intro.top < -200);
         }
 
