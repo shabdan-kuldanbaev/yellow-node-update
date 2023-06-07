@@ -38,21 +38,13 @@ class MyDocument extends Document {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin="true"
+            crossOrigin
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
-            rel="preload"
-            as="style"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Roboto:wght@400;700;900&display=swap"
             rel="stylesheet"
           />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
-            rel="stylesheet"
-          />
+
           <Script
             id="gtm-script"
             strategy="lazyOnload"
