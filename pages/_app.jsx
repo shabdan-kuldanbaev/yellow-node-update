@@ -9,7 +9,6 @@ import smoothscroll from 'smoothscroll-polyfill';
 import { wrapper } from 'redux/store';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import Layout from 'UI/containers/Layout';
-import { loadDuck } from 'UI/components/Duck/DuckWrapper/utils/helpers';
 import { AppContext } from 'utils/appContext';
 import { customTheme } from 'styles/muiTheme';
 import 'animate.css/animate.min.css';
@@ -39,14 +38,6 @@ function App({ Component, pageProps }) {
     }
 
     smoothscroll.polyfill();
-  }, []);
-
-  useEffect(() => {
-    (async () => {
-      const duck = await loadDuck();
-
-      setContextData((prev) => ({ ...prev, duck }));
-    })();
   }, []);
 
   useEffect(() => {
