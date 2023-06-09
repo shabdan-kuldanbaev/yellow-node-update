@@ -3,6 +3,7 @@ import cn from 'classnames';
 import ChallengesAndSolutions from 'UI/components/ChallengesAndSolutions';
 import SectionTitle from 'UI/components/SectionTitle';
 import Wireframes from 'UI/components/Wireframes';
+import Illustration from 'UI/components/Illustration';
 import { useChallengesAndSolutionsWithWireframes } from './utils/useChallengesAndSolutionsWithWireframes';
 import styles from './styles.module.scss';
 
@@ -16,6 +17,7 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
     subtitle,
     description,
     sectionStyle,
+    background,
   } = useChallengesAndSolutionsWithWireframes(props);
 
   return (
@@ -32,6 +34,12 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
       }
       style={sectionStyle}
     >
+      {background && (
+        <Illustration
+          src={background.url}
+          className={styles.background}
+        />
+      )}
       <SectionTitle
         type={type}
         title={title}

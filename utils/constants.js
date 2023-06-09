@@ -249,6 +249,7 @@ export const CASE_STUDIES_TYPES = {
   feedback: 'feedback',
   process: 'case-study-process',
   cardsWithOverlay: 'cards-with-overlay',
+  cards: 'cards',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -292,6 +293,7 @@ export const CASE_STUDIES = {
   cedar: 'cedar-valley-farms',
   mobileBudgetingApp: 'mobile-budgeting-app',
   forexTradingPlatform: 'forex-trading-platform',
+  crowdfundingPlatform: 'crowdfunding-platform',
   metapix: 'metapix',
   carbonSpace: 'analytics-for-carbon-tracking',
 };

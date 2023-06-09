@@ -1,12 +1,18 @@
 import get from 'lodash/get';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getImage,
+} from 'utils/helper';
 
 export const useProjectIdea = ({ type, data }) => {
   const {
     title: sectionTitle,
     subtitle: sectionSubtitle,
     description: sectionDescription,
+    view,
+    background,
   } = data;
 
   const {
@@ -41,5 +47,7 @@ export const useProjectIdea = ({ type, data }) => {
     teamListProps,
     imageUrl,
     textContent,
+    view,
+    background: getImage(background),
   };
 };

@@ -26,6 +26,7 @@ export const WHITE_LOGO_TYPE = [
   'cedar-valley-farms',
   'mobile-budgeting-app',
   'forex-trading-platform',
+  'crowdfunding-platform',
   'metapix',
 ];
 
@@ -68,6 +69,7 @@ export const WHITE_TEXT_LOGO = [
   'mobile-bank-application',
   'mobile-budgeting-app',
   'forex-trading-platform',
+  'crowdfunding-platform',
   'metapix',
 ];
 
