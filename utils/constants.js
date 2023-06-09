@@ -294,6 +294,7 @@ export const CASE_STUDIES = {
   forexTradingPlatform: 'forex-trading-platform',
   metapix: 'metapix',
   carbonSpace: 'analytics-for-carbon-tracking',
+  p2pLoans: 'web-p2p-lending-platform',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {

@@ -1,0 +1,25 @@
+.web-p2p-lending-platform {
+  background: $p2pAccent;
+
+  .introSection {
+    @include flex(column, flex-start, center);
+  }
+
+  .sectionTitle {
+    [data-title] {
+      @include fontSize(14px);
+
+      font-weight: 400;
+      color: $gray0;
+      opacity: 0.7;
+    }
+
+    [data-description] {
+      @include fontSize(56px);
+
+      color: $gray0;
+      font-weight: 400;
+      max-width: 807px;
+    }
+  }
+}
