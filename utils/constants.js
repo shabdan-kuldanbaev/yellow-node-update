@@ -249,6 +249,7 @@ export const CASE_STUDIES_TYPES = {
   feedback: 'feedback',
   process: 'case-study-process',
   cardsWithOverlay: 'cards-with-overlay',
+  cards: 'cards',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {

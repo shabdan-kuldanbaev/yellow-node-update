@@ -7,7 +7,12 @@ const CaseAdditionalContent = ({
   data,
   view,
 }) => (
-  <div className={cn(styles[type], styles.additionalContent, styles[view])}>
+  <div className={cn(
+    styles.additionalContent,
+    styles[type],
+    styles[view],
+  )}
+  >
     {data?.map(({ title, description, contentList }, index) => (
       <div
         key={title}
