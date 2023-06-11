@@ -1,0 +1,54 @@
+.chat-solutions {
+  padding: 120px 16px;
+
+  .contentContainer {
+    margin: 0 auto;
+    max-width: $wide-content-width;
+  }
+
+  .title {
+    @include fontSize(16px, 130%);
+
+    margin: 0 0 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
+    color: #6144d6;
+  }
+
+  .descriptionContainer {
+    @include flex(row, space-between, start);
+
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+
+    & > div {
+      max-width: 687px;
+      width: 100%;
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .descriptionIntro {
+    margin: 0;
+
+    p {
+      @include fontSize(16px, 150%);
+
+      color: $gray900;
+      text-align: left;
+    }
+
+    @include tablet {
+      margin: 0 auto 16px;
+    }
+  }
+
+  @include below-tablet {
+    padding: 60px 16px;
+  }
+}
