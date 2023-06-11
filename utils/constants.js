@@ -296,6 +296,7 @@ export const CASE_STUDIES = {
   crowdfundingPlatform: 'crowdfunding-platform',
   metapix: 'metapix',
   carbonSpace: 'analytics-for-carbon-tracking',
+  chatSolutions: 'chat-solutions',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -332,6 +333,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.cedar).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileBudgetingApp).path,
   ROUTES.project.getRoute(CASE_STUDIES.forexTradingPlatform).path,
+  ROUTES.project.getRoute(CASE_STUDIES.chatSolutions).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.whyUs.path,
