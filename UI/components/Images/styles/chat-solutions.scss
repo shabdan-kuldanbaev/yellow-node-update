@@ -57,6 +57,24 @@
   }
 
   &.thirdSectionView {
+    max-width: 100%;
+    width: 100%;
+
+    .image {
+      width: 100%;
+      height: 800px;
+
+      img {
+        object-fit: cover;
+      }
+
+      @include below-tablet {
+        height: 438px;
+      }
+    }
+  }
+
+  &.fourthSectionView {
     position: absolute;
     top: 0;
     left: 0;

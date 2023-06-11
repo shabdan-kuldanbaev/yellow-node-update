@@ -21,6 +21,14 @@
   }
 
   &.thirdSectionView {
+    padding: 0;
+
+    .titleStyle {
+      display: none;
+    }
+  }
+
+  &.fourthSectionView {
     position: relative;
     z-index: 1;
     padding: 275px 0;
