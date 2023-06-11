@@ -1,0 +1,19 @@
+.chat-solutions {
+  &.thirdSectionView {
+    @include flex(column, center, center);
+
+    background-color: $gray0;
+
+    [data-title] {
+      @include fontSize(16px, 130%);
+
+      margin: 0 auto;
+      color: $chatSolutionsBlue;
+      text-transform: uppercase;
+    }
+
+    @include phone {
+      display: block;
+    }
+  }
+}
