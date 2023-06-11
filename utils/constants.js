@@ -333,7 +333,6 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.cedar).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileBudgetingApp).path,
   ROUTES.project.getRoute(CASE_STUDIES.forexTradingPlatform).path,
-  ROUTES.project.getRoute(CASE_STUDIES.chatSolutions).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.whyUs.path,
@@ -371,6 +370,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.pwaDevelopmentServices.path,
   ROUTES.whyUs.path,
   CASE_STUDIES.openSense,
+  CASE_STUDIES.chatSolutions,
 ];
 
 export const PAGES_WITH_GRAY_HEADER = [
