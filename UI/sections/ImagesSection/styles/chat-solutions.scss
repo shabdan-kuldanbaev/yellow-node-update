@@ -1,0 +1,89 @@
+.chat-solutions {
+  &.firstSectionView {
+    padding: 0;
+    background: $marketplaceGradient;
+
+    .titleStyle {
+      display: none;
+    }
+  }
+
+  &.secondSectionView {
+    padding: 120px 0;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include tablet {
+      padding: 60px 0;
+    }
+  }
+
+  &.thirdSectionView {
+    position: relative;
+    z-index: 1;
+    padding: 275px 0;
+
+    .titleStyle {
+      @include flex(column, start);
+
+      z-index: 2;
+      padding: 0 40px;
+      max-width: $wide-content-width;
+    }
+
+    [data-title] {
+      @include fontSize(16px, 130%);
+
+      margin: 0 0 16px;
+      color: $chatSolutionsBlue;
+      font-weight: 700;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    [data-description] {
+      position: relative;
+      margin: 0 0 11px;
+      padding-left: 14px;
+      color: $gray900;
+      text-align: left;
+
+      &:last-child {
+        margin: 0;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 6px;
+        height: 6px;
+        background: $marketplaceGradient;
+        border-radius: 50%;
+      }
+    }
+
+    @include tablet {
+      padding: 60px 0 0;
+
+      .titleStyle {
+        @include flex(column, center, center);
+
+        margin: 0 auto 24px;
+        padding: 0 16px;
+
+        & > div:last-child {
+          @include flex(column, center, center);
+        }
+      }
+
+      [data-description] {
+        text-align: center;
+      }
+    }
+  }
+}
