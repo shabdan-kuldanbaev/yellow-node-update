@@ -296,7 +296,7 @@ export const CASE_STUDIES = {
   crowdfundingPlatform: 'crowdfunding-platform',
   metapix: 'metapix',
   carbonSpace: 'analytics-for-carbon-tracking',
-  chatSolutions: 'chat-solutions',
+  chatSolutions: 'web-chat-for-mediums',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
