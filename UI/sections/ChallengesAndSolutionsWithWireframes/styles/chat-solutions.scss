@@ -1,4 +1,26 @@
 .chat-solutions {
+  &.firstSectionView {
+    padding: 0 16px 120px;
+    overflow: unset;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include below-tablet {
+      padding-bottom: 60px;
+    }
+  }
+
+  &.secondSectionView {
+    padding: 0 16px;
+    background-color: $chatSolutionsWhite;
+
+    .titleStyle {
+      display: none;
+    }
+  }
+
   &.thirdSectionView {
     @include flex(column, center, center);
 
