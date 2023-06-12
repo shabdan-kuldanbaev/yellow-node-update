@@ -38,11 +38,9 @@ const Images = (props) => {
             intersectedClasses={cn({ [styles.active]: index })}
           >
             <Illustration
-              priority
               transparent
               unoptimized
               className={cn(styles.image, styles[`image-${index + 1}`])}
-              unoptimized
               src={url}
               alt={alt}
             />
