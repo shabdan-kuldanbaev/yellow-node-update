@@ -1,0 +1,13 @@
+.web-p2p-lending-platform {
+  &.firstSectionView {
+    .image {
+      height: 165px;
+      width: 100%;
+      max-width: $wide-content-width;
+
+      @include tablet {
+        width: 950px;
+      }
+    }
+  }
+}
