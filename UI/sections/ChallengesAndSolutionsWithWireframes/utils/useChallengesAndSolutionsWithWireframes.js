@@ -1,14 +1,13 @@
-import get from 'lodash/get';
-import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
+import { getImage } from 'utils/helper';
 
 export const useChallengesAndSolutionsWithWireframes = ({ data, type }) => {
-  const sectionBackgroundImage = getOptimizedContentfulImage(
-    getFileUrl(get(data, 'background', {})),
-    { fm: 'png' },
-  );
-  const sectionStyle = sectionBackgroundImage ? { backgroundImage: `url(${sectionBackgroundImage})` } : {};
   const {
-    title, subtitle, description, view, images,
+    title,
+    subtitle,
+    description,
+    view,
+    images,
+    background,
   } = data;
 
   return {
@@ -19,6 +18,6 @@ export const useChallengesAndSolutionsWithWireframes = ({ data, type }) => {
     title,
     subtitle,
     description,
-    sectionStyle,
+    background: getImage(background),
   };
 };

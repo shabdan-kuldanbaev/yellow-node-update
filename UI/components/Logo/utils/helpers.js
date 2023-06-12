@@ -26,6 +26,7 @@ export const WHITE_LOGO_TYPE = [
   'cedar-valley-farms',
   'mobile-budgeting-app',
   'forex-trading-platform',
+  'crowdfunding-platform',
   'metapix',
 ];
 
@@ -35,6 +36,7 @@ export const BLACK_LOGO_TYPE = [
   'bionorica',
   'beautonomy',
   'analytics-for-carbon-tracking',
+  'web-chat-for-mediums',
 ];
 
 export const WHITE_TEXT_LOGO = [
@@ -68,6 +70,7 @@ export const WHITE_TEXT_LOGO = [
   'mobile-bank-application',
   'mobile-budgeting-app',
   'forex-trading-platform',
+  'crowdfunding-platform',
   'metapix',
 ];
 

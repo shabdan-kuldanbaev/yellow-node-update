@@ -2,6 +2,7 @@
   @include flex(column, center, center);
 
   padding: 120px 40px;
+  position: relative;
 
   .mobileAdditionalInformation {
     flex-direction: column;
@@ -90,6 +91,18 @@
 
     @include phone {
       @include flex(column);
+    }
+  }
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    img {
+      object-fit: cover;
     }
   }
 
