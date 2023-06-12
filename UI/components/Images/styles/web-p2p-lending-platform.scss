@@ -10,4 +10,15 @@
       }
     }
   }
+
+  &.secondSectionView {
+    .image {
+      max-width: $wide-content-width;
+      width: 100%;
+
+      @include tablet {
+        height: 200px;
+      }
+    }
+  }
 }
