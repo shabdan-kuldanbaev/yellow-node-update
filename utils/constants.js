@@ -296,6 +296,7 @@ export const CASE_STUDIES = {
   crowdfundingPlatform: 'crowdfunding-platform',
   metapix: 'metapix',
   carbonSpace: 'analytics-for-carbon-tracking',
+  chatSolutions: 'web-chat-for-mediums',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -369,6 +370,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.pwaDevelopmentServices.path,
   ROUTES.whyUs.path,
   CASE_STUDIES.openSense,
+  CASE_STUDIES.chatSolutions,
 ];
 
 export const PAGES_WITH_GRAY_HEADER = [

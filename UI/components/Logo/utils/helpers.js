@@ -36,6 +36,7 @@ export const BLACK_LOGO_TYPE = [
   'bionorica',
   'beautonomy',
   'analytics-for-carbon-tracking',
+  'web-chat-for-mediums',
 ];
 
 export const WHITE_TEXT_LOGO = [
