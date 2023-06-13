@@ -1,0 +1,21 @@
+.metapix {
+  &.firstSectionView {
+    .contentContainer {
+      max-width: $wide-content-width;
+    }
+
+    .infoContainer {
+      p {
+        &:nth-child(1)::before {
+          content: 'Problem: ';
+          color: $gray0;
+        }
+
+        &:nth-child(2)::before {
+          content: 'Solution: ';
+          color: $gray0;
+        }
+      }
+    }
+  }
+}
