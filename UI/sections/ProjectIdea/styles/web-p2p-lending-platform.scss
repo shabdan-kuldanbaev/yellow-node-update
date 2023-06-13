@@ -1,0 +1,65 @@
+.web-p2p-lending-platform {
+  &.firstSectionView {
+    .contentContainer {
+      align-items: stretch;
+
+      & > *:first-child {
+        flex: 0 1 584px;
+
+        & > * {
+          height: 100%;
+        }
+      }
+
+      @include tablet {
+        @include flex(column-reverse, flex-start, stretch);
+      }
+    }
+
+    .descriptionContainer {
+      background: $gray50;
+      border-radius: 50px;
+      padding: 120px 48px;
+      margin-left: 32px;
+      flex: 1 1 auto;
+
+      .descriptionIntro {
+        margin-bottom: 0;
+
+        @include tablet {
+          margin-bottom: 0;
+        }
+      }
+
+      @include tablet {
+        margin: 0 auto 32px;
+        max-width: none;
+        padding: 60px 16px;
+      }
+    }
+
+    .sectionName {
+      @include fontSize(16px);
+
+      font-weight: 400;
+    }
+
+    .title {
+      @include fontSize(28px);
+
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .description {
+      b {
+        font-weight: 400;
+        color: $gray900;
+      }
+    }
+
+    @include tablet {
+      padding: 60px 16px 30px;
+    }
+  }
+}
