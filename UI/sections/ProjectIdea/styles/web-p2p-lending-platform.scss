@@ -1,7 +1,12 @@
 .web-p2p-lending-platform {
   &.firstSectionView {
+    & > *:last-child {
+      display: none;
+    }
+
     .contentContainer {
       align-items: stretch;
+      margin-bottom: 0;
 
       & > *:first-child {
         flex: 0 1 584px;
