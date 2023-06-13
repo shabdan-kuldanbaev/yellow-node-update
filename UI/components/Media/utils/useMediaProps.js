@@ -18,6 +18,7 @@ export default ({
     alt,
     src: url,
     layout: 'fill',
+    lazyBoundary: '700px',
     loader: isStatic
       ? ({ src }) => src
       : (args) => getContentfulImage({ transparent, ...args, ...loaderParams }),
