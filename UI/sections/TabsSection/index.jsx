@@ -74,6 +74,7 @@ const TabsSection = (props) => {
                     >
                       {imageUrl && (
                         <Illustration
+                          priority
                           unoptimized
                           src={imageUrl.url}
                           className={styles.blockImage}
