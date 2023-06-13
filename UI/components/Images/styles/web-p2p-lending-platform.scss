@@ -21,4 +21,41 @@
       }
     }
   }
+
+  &.thirdSectionView {
+    overflow: visible;
+    position: static;
+
+    .image-1 {
+      width: 100%;
+      max-width: $default-content-width;
+      height: 90vw;
+      max-height: 706px;
+      margin-top: -40px;
+      overflow: visible;
+    }
+
+    .image-2,
+    .image-3 {
+      position: absolute;
+    }
+
+    .image-3 {
+      left: -50px;
+      top: -30px;
+      width: 450px;
+      height: 500px;
+
+      @include tablet {
+        left: -60px;
+      }
+    }
+
+    .image-2 {
+      right: 0;
+      bottom: 0;
+      width: 450px;
+      height: 500px;
+    }
+  }
 }
