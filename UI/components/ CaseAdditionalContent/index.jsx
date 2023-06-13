@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import PropTypes from 'prop-types';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import styles from './styles.module.scss';
 
 const CaseAdditionalContent = ({
@@ -13,7 +14,12 @@ const CaseAdditionalContent = ({
     styles[view],
   )}
   >
-    {data?.map(({ title, description, contentList }, index) => (
+    {data?.map(({
+      title,
+      description,
+      contentList,
+      text,
+    }, index) => (
       <div
         key={title}
         className={cn(styles.container, styles[`container-${index + 1}`])}
@@ -40,6 +46,7 @@ const CaseAdditionalContent = ({
             ))}
           </ul>
         )}
+        {text && <ContentfulParser document={text} />}
       </div>
     ))}
   </div>

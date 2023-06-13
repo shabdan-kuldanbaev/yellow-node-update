@@ -67,4 +67,67 @@
       padding: 60px 16px 30px;
     }
   }
+
+  &.secondSectionView {
+    .title {
+      @include fontSize(16px);
+
+      color: $gray400;
+      font-weight: 400;
+
+      @include tablet {
+        text-align: left;
+      }
+    }
+
+    .description {
+      @include fontSize(28px);
+
+      color: $gray900;
+
+      @include tablet {
+        @include fontSize(24px);
+
+        text-align: left;
+      }
+    }
+
+    .descriptionContainer {
+      max-width: $wide-content-width;
+      margin-bottom: 0;
+
+      * {
+        max-width: none;
+        text-align: left;
+        width: 100%;
+      }
+    }
+
+    .contentContainer {
+      margin-bottom: 0;
+    }
+
+    ul {
+      margin: 0;
+      list-style: none;
+      padding-left: 0;
+      color: $gray400;
+
+      li,
+      p {
+        @include fontSize(16px);
+
+        margin: 0;
+      }
+
+      b {
+        font-weight: 400;
+        color: $gray900;
+      }
+
+      @include tablet {
+        text-align: left;
+      }
+    }
+  }
 }
