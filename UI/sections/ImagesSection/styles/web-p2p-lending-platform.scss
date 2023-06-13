@@ -18,6 +18,7 @@
 
   &.secondSectionView {
     padding-top: 0;
+    padding-bottom: 0;
 
     @include tablet {
       padding: 0 16px 60px;
@@ -48,6 +49,27 @@
       [data-description] {
         max-width: 548px;
         margin-top: 8px;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @include p2pSectionCard;
+
+    background: $gray50;
+
+    .titleStyle {
+      [data-title] {
+        @include fontSize(28px);
+
+        color: $gray900;
+        text-align: center;
+      }
+
+      [data-subtitle] {
+        margin-top: 24px;
+        color: $gray400;
+        max-width: 548px;
       }
     }
   }
