@@ -12,10 +12,11 @@ const ResultsSection = (props) => {
     type,
     title,
     description,
+    prototypesUrl,
     screenUrl,
     imagesBundles,
     sectionStyle,
-    assets,
+    isResultVideo,
   } = useResultsSection(props);
 
   return (
@@ -36,7 +37,27 @@ const ResultsSection = (props) => {
           src={screenUrl}
           alt={screenUrl}
         />
-        {assets.map((file) => file)}
+        {isResultVideo
+          ? (
+            prototypesUrl.map((url, index) => (
+              <Video
+                src={url}
+                className={cn(styles.video, styles[`video-${index + 1}`])}
+              />
+            ))
+          )
+          : (
+            prototypesUrl.map((url, index) => (
+              <Illustration
+                unoptimized
+                transparent
+                className={cn(styles.prototype, styles[`prototype-${index + 1}`])}
+                src={url}
+                alt={url}
+              />
+            ))
+
+          )}
         {imagesBundles?.map((bundleUrl, index) => (
           <Illustration
             className={cn(styles.imageBundle, styles[`imageBundle-${index + 1}`])}
