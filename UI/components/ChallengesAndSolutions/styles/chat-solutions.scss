@@ -1,0 +1,225 @@
+.web-chat-for-mediums {
+  .image {
+    width: 298px;
+    height: 600px;
+  }
+
+  &.firstSectionView {
+    .contentContainer {
+      margin: 0 auto;
+      gap: unset;
+
+      * {
+        margin: 0;
+      }
+
+      h2 {
+        @include fontSize(16px, 130%);
+
+        margin: 0 0 16px;
+        color: $chatSolutionsBlue;
+        text-transform: uppercase;
+      }
+
+      p {
+        color: $gray900;
+      }
+
+      &-1 {
+        margin: 0 auto 24px;
+
+        .infoContainer {
+          margin-right: 32px;
+        }
+
+        .image {
+          margin-top: -120px;
+        }
+      }
+
+      &-2 {
+        margin: 0 auto 120px;
+
+        .infoContainer {
+          margin-left: 32px;
+        }
+      }
+
+      &-3 {
+        @include flex(column, center, center);
+
+        * {
+          max-width: 588px;
+          text-align: center;
+        }
+      }
+    }
+
+    @include phone {
+      .contentContainer {
+        .infoContainer {
+          margin: 0 auto;
+        }
+
+        &-1 {
+          margin-bottom: 40px;
+
+          .images {
+            margin-bottom: 16px;
+            order: 1;
+          }
+
+          .infoContainer {
+            order: 2;
+          }
+
+          .image {
+            margin: -60px auto 0;
+          }
+        }
+
+        &-2 {
+          margin-bottom: 40px;
+
+          .infoContainer {
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer {
+      margin: 0 auto;
+      gap: unset;
+
+      * {
+        margin: 0;
+      }
+
+      h2 {
+        @include fontSize(16px, 130%);
+
+        margin: 0 0 16px;
+        color: $chatSolutionsBlue;
+        text-transform: uppercase;
+      }
+
+      p {
+        color: $gray900;
+      }
+
+      &-1 {
+        margin-top: -120px;
+
+        .infoContainer {
+          margin-left: 32px;
+          order: 1;
+        }
+      }
+
+      &-2 {
+        margin-bottom: -120px;
+
+        .infoContainer {
+          margin-right: 32px;
+          order: unset;
+        }
+      }
+
+      @include phone {
+        &-1 {
+          margin-top: -160px;
+
+          .images {
+            margin-bottom: 16px;
+          }
+
+          .infoContainer {
+            margin: 0 auto 40px;
+          }
+        }
+
+        &-2 {
+          margin: 0 auto;
+
+          .images {
+            margin-bottom: 16px;
+          }
+
+          .infoContainer {
+            margin: 0 auto 60px;
+            order: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @include flex(row, center, initial);
+
+    margin: 0 0 -32px -32px;
+    max-width: $wide-content-width;
+
+    .contentContainer {
+      @include flex(column, start, start);
+
+      margin: 0 0 32px 32px;
+      padding: 32px;
+      max-width: 378px;
+      width: 100%;
+      gap: unset;
+      background-color: $gray50;
+      border-radius: 30px;
+      box-sizing: border-box;
+
+      * {
+        margin: 0;
+        max-width: 100%;
+      }
+
+      h2 {
+        @include fontSize(16px, 130%);
+
+        margin: 0 0 16px;
+        color: $chatSolutionsBlue;
+        font-weight: 700;
+        text-align: left;
+        text-transform: uppercase;
+      }
+
+      p {
+        position: relative;
+        text-align: left;
+
+        &:first-child::before {
+          content: 'Problem: ';
+          color: $gray900;
+        }
+
+        &:nth-child(2)::before {
+          content: 'Solution: ';
+          color: $gray900;
+        }
+      }
+    }
+
+    @include tablet {
+      flex-wrap: wrap;
+    }
+
+    @include phone {
+      display: block;
+      max-width: unset;
+      margin: 0;
+
+      .contentContainer {
+        margin: 0 auto;
+        max-width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.crowdfunding-platform {
+  &.firstSectionView,
+  &.secondSectionView {
+    background: $crowdfundingPlatformPrimary;
+
+    [data-title] {
+      @include fontSize(14px);
+
+      color: $gray0;
+      font-weight: 400;
+    }
+  }
+
+  &.secondSectionView {
+    background: $crowdfundingPlatformSecondary;
+  }
+
+  @include below-tablet {
+    .background {
+      display: none;
+    }
+  }
+}

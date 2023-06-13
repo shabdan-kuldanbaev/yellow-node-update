@@ -58,6 +58,8 @@ const CaseStudiesCommon = (props) => {
     return <CaseProcess {...props} />;
   case CASE_STUDIES_TYPES.prototype:
     return <CasePrototype {...props} />;
+  case CASE_STUDIES_TYPES.cards:
+    return <CardsSection {...props} />;
   case CASE_STUDIES_TYPES.cardsWithOverlay:
     return (
       <CardsSection

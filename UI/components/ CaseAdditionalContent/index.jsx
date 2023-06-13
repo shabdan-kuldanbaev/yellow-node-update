@@ -5,8 +5,14 @@ import styles from './styles.module.scss';
 const CaseAdditionalContent = ({
   type,
   data,
+  view,
 }) => (
-  <div className={cn(styles[type], styles.additionalContent)}>
+  <div className={cn(
+    styles.additionalContent,
+    styles[type],
+    styles[view],
+  )}
+  >
     {data?.map(({ title, description, contentList }, index) => (
       <div
         key={title}

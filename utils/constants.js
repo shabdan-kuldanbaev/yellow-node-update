@@ -250,6 +250,7 @@ export const CASE_STUDIES_TYPES = {
   feedback: 'feedback',
   process: 'case-study-process',
   cardsWithOverlay: 'cards-with-overlay',
+  cards: 'cards',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -293,8 +294,10 @@ export const CASE_STUDIES = {
   cedar: 'cedar-valley-farms',
   mobileBudgetingApp: 'mobile-budgeting-app',
   forexTradingPlatform: 'forex-trading-platform',
+  crowdfundingPlatform: 'crowdfunding-platform',
   metapix: 'metapix',
   carbonSpace: 'analytics-for-carbon-tracking',
+  chatSolutions: 'web-chat-for-mediums',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -368,6 +371,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.pwaDevelopmentServices.path,
   ROUTES.whyUs.path,
   CASE_STUDIES.openSense,
+  CASE_STUDIES.chatSolutions,
 ];
 
 export const PAGES_WITH_GRAY_HEADER = [
