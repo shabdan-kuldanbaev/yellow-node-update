@@ -31,8 +31,9 @@
       max-width: $default-content-width;
       height: 90vw;
       max-height: 706px;
-      margin-top: -40px;
       overflow: visible;
+      box-shadow: 0 4px 40px rgb($gray1000, 0.25);
+      border-radius: 20px;
     }
 
     .image-2,
@@ -60,13 +61,16 @@
   }
 
   &.fourthSectionView {
+    overflow: visible;
+
     .image {
       width: 100%;
       max-width: $default-content-width;
       height: 90vw;
       max-height: 706px;
-      margin-top: -40px;
       overflow: visible;
+      box-shadow: 0 4px 40px rgb($gray1000, 0.06);
+      border-radius: 20px;
     }
   }
 
