@@ -11,7 +11,7 @@ const Video = ({ src, className }) => {
   return (
     <video
       ref={ref}
-      autoPlay
+      autoPlay="autoplay"
       loop
       muted
       className={className}
