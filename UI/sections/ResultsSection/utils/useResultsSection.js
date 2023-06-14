@@ -1,5 +1,6 @@
 import get from 'lodash/get';
 import { getDocumentFields, getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
+import { useEffect, useRef } from 'react';
 import { isContentVideo } from './resultsHelper';
 
 export const useResultsSection = ({ data, type }) => {
@@ -11,6 +12,8 @@ export const useResultsSection = ({ data, type }) => {
     view,
     background,
   } = data;
+
+  const ref = useRef(null);
 
   const sectionBackgroundImage = getOptimizedContentfulImage(
     getFileUrl(background),
@@ -24,7 +27,12 @@ export const useResultsSection = ({ data, type }) => {
   const screenUrl = getFileUrl(moduleData?.images?.[0]);
   const imagesBundles = moduleData?.imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
 
+  useEffect(() => {
+    ref?.current?.play();
+  }, [ref]);
+
   return {
+    ref,
     view,
     type,
     title,
