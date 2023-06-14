@@ -19,10 +19,27 @@ export const useResultsSection = ({ data, type }) => {
   const sectionStyle = sectionBackgroundImage ? { backgroundImage: `url(${sectionBackgroundImage})` } : {};
 
   const isResultVideo = isContentVideo(type);
-  const moduleData = getDocumentFields(get(contentModules, '[0]', {}));
+  const {
+    contentModules: moduleData,
+    images: screenImages,
+    imagesBundles: bundlesImages,
+  } = getDocumentFields(
+    get(contentModules, '[0]', {}),
+    [
+      'contentModules',
+      'images',
+      'imagesBundles',
+    ],
+  );
   const prototypesUrl = (images || []).map(getFileUrl);
-  const screenUrl = getFileUrl(moduleData?.images?.[0]);
-  const imagesBundles = moduleData?.imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
+  const screenUrl = getFileUrl(screenImages?.[0]);
+  const imagesBundles = bundlesImages?.map((bundle) => getFileUrl(bundle)) || [];
+
+  const links = moduleData?.map((module) => {
+    const { url: src, title: alt } = getDocumentFields(module, ['url', 'title']);
+
+    return { src, alt };
+  });
 
   return {
     view,
@@ -34,5 +51,6 @@ export const useResultsSection = ({ data, type }) => {
     imagesBundles,
     sectionStyle,
     isResultVideo,
+    links,
   };
 };

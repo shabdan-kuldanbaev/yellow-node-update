@@ -13,6 +13,7 @@ const ResultsSection = (props) => {
     title,
     description,
     prototypesUrl,
+    links,
     screenUrl,
     imagesBundles,
     sectionStyle,
@@ -58,6 +59,20 @@ const ResultsSection = (props) => {
             ))
 
           )}
+        {links?.map(({ src, alt }, index) => (
+          <iframe
+            title="video"
+            src={src}
+            className={cn(styles.iframe, styles[`iframe-${index + 1}`])}
+            allow="autoplay"
+            frameBorder="0"
+            allowfullscreen
+            loading="lazy"
+            width="100%"
+            height="100%"
+            alt={alt}
+          />
+        ))}
         {imagesBundles?.map((bundleUrl, index) => (
           <Illustration
             className={cn(styles.imageBundle, styles[`imageBundle-${index + 1}`])}
