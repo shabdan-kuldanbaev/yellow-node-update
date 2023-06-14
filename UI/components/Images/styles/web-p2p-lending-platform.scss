@@ -58,6 +58,14 @@
       width: 450px;
       height: 500px;
     }
+
+    @include tablet {
+      aspect-ratio: 994/706;
+
+      .image-1 {
+        height: 100%;
+      }
+    }
   }
 
   &.fourthSectionView {
@@ -71,6 +79,14 @@
       overflow: visible;
       box-shadow: 0 4px 40px rgb($gray1000, 0.06);
       border-radius: 20px;
+    }
+
+    @include tablet {
+      aspect-ratio: 994/706;
+
+      .image-1 {
+        height: 100%;
+      }
     }
   }
 
@@ -111,6 +127,14 @@
 
       img {
         object-fit: cover;
+      }
+    }
+
+    @include tablet {
+      aspect-ratio: 994/706;
+
+      .image-1 {
+        height: 100%;
       }
     }
   }

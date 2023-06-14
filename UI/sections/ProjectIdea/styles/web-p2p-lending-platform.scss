@@ -14,6 +14,11 @@
         & > * {
           height: 100%;
         }
+
+        @include tablet {
+          aspect-ratio: 584/484;
+          flex-basis: auto;
+        }
       }
 
       @include tablet {
@@ -144,6 +149,11 @@
 
         & > * {
           height: 100%;
+        }
+
+        @include tablet {
+          aspect-ratio: 584/548;
+          flex-basis: auto;
         }
       }
 
