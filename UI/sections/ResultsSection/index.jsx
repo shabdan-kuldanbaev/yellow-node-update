@@ -8,7 +8,6 @@ import styles from './styles.module.scss';
 
 const ResultsSection = (props) => {
   const {
-    ref,
     view,
     type,
     title,
@@ -42,7 +41,6 @@ const ResultsSection = (props) => {
           ? (
             prototypesUrl.map((url, index) => (
               <Video
-                ref={ref}
                 src={url}
                 className={cn(styles.video, styles[`video-${index + 1}`])}
               />

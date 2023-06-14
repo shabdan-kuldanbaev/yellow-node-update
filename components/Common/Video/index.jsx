@@ -1,13 +1,7 @@
 import PropTypes from 'prop-types';
 
-const Video = ({
-  ref,
-  src,
-  className,
-  ...rest
-}) => (
+const Video = ({ src, className }) => (
   <video
-    ref={ref}
     autoPlay
     loop
     muted
