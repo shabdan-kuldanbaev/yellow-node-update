@@ -14,19 +14,17 @@
       max-width: $macbook-fifteen;
     }
 
-    .iframe {
+    .video {
+      object-fit: cover;
+      width: 100%;
       height: 750px;
 
       @include tablet {
-        height: 568px;
-      }
-
-      @include below-tablet {
-        height: 426px;
+        height: 500px;
       }
 
       @include phone {
-        height: 210px;
+        height: 370px;
       }
     }
   }
