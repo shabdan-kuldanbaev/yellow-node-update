@@ -29,7 +29,7 @@ export const useProjectIdea = ({ type, data }) => {
   const featuresProps = getDocumentFields(get(data, 'contentModules[0]'));
   const teamListProps = getDocumentFields(get(data, 'contentModules[2]'));
   const imageContent = getDocumentFields(get(data, 'contentModules[3]', {}));
-  const additionalContent = contentModules?.map((con) => getDocumentFields(con, ['title', 'contentList', 'description']));
+  const additionalContent = contentModules?.map((con) => getDocumentFields(con, ['title', 'contentList', 'description', 'text']));
   const textContent = imageContent?.contentModules?.map((con) => getDocumentFields(con, ['title', 'contentList', 'description']));
   const imageUrl = getFileUrl(imageContent?.images?.[0]);
 
