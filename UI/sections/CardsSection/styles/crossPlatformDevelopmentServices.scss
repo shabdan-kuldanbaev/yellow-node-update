@@ -70,6 +70,21 @@
         }
       }
     }
+
+    .callToAction {
+      background: none;
+      border: none;
+      min-height: auto;
+      padding: 48px 0 0;
+
+      button {
+        margin: 0 auto;
+      }
+
+      @include below-tablet {
+        padding-top: 24px;
+      }
+    }
   }
 
   &.fifthSectionView {
