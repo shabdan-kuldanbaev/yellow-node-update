@@ -27,7 +27,7 @@ export const WHITE_LOGO_TYPE = [
   'mobile-budgeting-app',
   'forex-trading-platform',
   'crowdfunding-platform',
-  'metapix',
+  'cctv-footage-analytics',
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -71,7 +71,7 @@ export const WHITE_TEXT_LOGO = [
   'mobile-budgeting-app',
   'forex-trading-platform',
   'crowdfunding-platform',
-  'metapix',
+  'cctv-footage-analytics',
 ];
 
 export const getLogoType = (type) => {
