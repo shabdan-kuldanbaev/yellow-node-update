@@ -35,10 +35,14 @@
   }
 
   &.fourthSectionView {
+    padding: 60px 16px;
+
     .sectionTitle {
       @include flex(column, initial, end);
 
-      padding: 0;
+      padding: 40px 0 0;
+      max-width: $wide-content-width;
+      border-top: 1px solid $gray700;
 
       & > div {
         max-width: 481px;
@@ -90,6 +94,13 @@
       height: auto;
       border-radius: 0;
       object-fit: cover;
+    }
+
+    @include below-tablet {
+      .sectionTitle {
+        margin-bottom: 24px;
+        padding-top: 32px;
+      }
     }
   }
 }
