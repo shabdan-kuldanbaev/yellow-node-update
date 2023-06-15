@@ -30,7 +30,7 @@
   .images {
     flex: 0 1 900px;
     margin-right: -124px;
-    box-shadow: 0 4px 40px rgb($gray1000, 0.25);
+    box-shadow: 0 4px 40px rgb($gray1000, 0.08);
     border-radius: 20px;
 
     @include tablet {
