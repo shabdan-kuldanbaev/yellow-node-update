@@ -138,27 +138,4 @@
       }
     }
   }
-
-  &.sixthSectionView {
-    margin: 0 auto;
-    max-width: $wide-content-width;
-    overflow: unset;
-
-    .image {
-      width: 100%;
-      height: 784px;
-
-      @include tablet {
-        height: 600px;
-      }
-
-      @include tablet {
-        height: 400px;
-      }
-
-      @include phone {
-        height: 224px;
-      }
-    }
-  }
 }
