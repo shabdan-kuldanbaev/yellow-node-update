@@ -297,6 +297,7 @@ export const CASE_STUDIES = {
   crowdfundingPlatform: 'crowdfunding-platform',
   metapix: 'cctv-footage-analytics',
   carbonSpace: 'analytics-for-carbon-tracking',
+  p2pLoans: 'web-p2p-lending-platform',
   chatSolutions: 'web-chat-for-mediums',
 };
 
