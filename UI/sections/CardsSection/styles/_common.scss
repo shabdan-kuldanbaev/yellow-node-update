@@ -107,6 +107,20 @@
       width: 100%;
     }
   }
+
+  .callToAction {
+    margin: 48px auto 0;
+    padding: 40px 60px;
+    max-width: $default-content-width;
+
+    h3 {
+      @include fontSize(24px);
+    }
+
+    @include below-tablet {
+      margin-top: 60px;
+    }
+  }
 }
 
 .contentWrapper {
@@ -134,13 +148,4 @@
   background: transparent;
   border: none;
   padding: 0;
-}
-
-.callToAction {
-  margin: 48px auto 0;
-  max-width: $default-content-width;
-
-  @include below-tablet {
-    margin-top: 60px;
-  }
 }

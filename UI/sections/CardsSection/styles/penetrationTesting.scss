@@ -39,7 +39,7 @@
       background-color: $gray0;
       border: none;
       height: 215px;
-      margin-top: 48px;
+      max-width: $default-content-width;
 
       & > div {
         max-width: 535px;
