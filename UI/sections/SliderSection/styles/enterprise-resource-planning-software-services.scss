@@ -14,4 +14,16 @@
       }
     }
   }
+
+  .callToAction {
+    margin-top: 48px;
+
+    & > div {
+      max-width: 384px;
+
+      @include below-tablet {
+        max-width: none;
+      }
+    }
+  }
 }
