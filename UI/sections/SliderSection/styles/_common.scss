@@ -47,4 +47,13 @@
     color: $gray900;
     font-weight: 700;
   }
+
+  .callToAction {
+    margin-top: 48px;
+    border: none;
+
+    @include below-tablet {
+      margin-top: 60px;
+    }
+  }
 }

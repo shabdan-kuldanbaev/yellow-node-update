@@ -1,6 +1,9 @@
 .cross-platform-development-services {
-  [data-title],
+  [data-title] {
+    max-width: 890px;
+  }
+
   [data-description] {
-    max-width: 786px;
+    max-width: 675px;
   }
 }

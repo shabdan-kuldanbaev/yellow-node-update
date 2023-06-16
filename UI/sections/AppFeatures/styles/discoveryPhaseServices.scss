@@ -9,7 +9,7 @@
       margin: 0;
 
       h2 {
-        max-width: 540px;
+        max-width: 610px;
         margin-bottom: 32px;
 
         @include below-tablet {
@@ -33,7 +33,7 @@
       max-width: 687px;
 
       @include tablet {
-         margin: 0 auto;
+        margin: 0 auto;
       }
     }
 
