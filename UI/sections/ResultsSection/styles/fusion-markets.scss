@@ -11,7 +11,7 @@
   }
 
   &.firstSectionView {
-    .prototype {
+    .media {
       position: static;
       transform: scale(1.1);
       width: 100%;
@@ -35,7 +35,7 @@
       display: none;
     }
 
-    .prototype {
+    .media {
       position: static;
       transform: unset;
       width: 100%;
@@ -60,7 +60,7 @@
       max-width: 728px;
     }
 
-    .prototype {
+    .media {
       position: static;
       transform: unset;
       width: 100%;

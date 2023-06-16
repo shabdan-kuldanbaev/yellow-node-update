@@ -1,6 +1,9 @@
 import get from 'lodash/get';
-import { getDocumentFields, getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
-import { isContentVideo } from './resultsHelper';
+import {
+  getFileUrl,
+  getDocumentFields,
+  getOptimizedContentfulImage,
+} from 'utils/helper';
 
 export const useResultsSection = ({ data, type }) => {
   const {
@@ -18,9 +21,7 @@ export const useResultsSection = ({ data, type }) => {
   );
   const sectionStyle = sectionBackgroundImage ? { backgroundImage: `url(${sectionBackgroundImage})` } : {};
 
-  const isResultVideo = isContentVideo(type);
   const moduleData = getDocumentFields(get(contentModules, '[0]', {}));
-  const prototypesUrl = (images || []).map(getFileUrl);
   const screenUrl = getFileUrl(moduleData?.images?.[0]);
   const imagesBundles = moduleData?.imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
 
@@ -29,10 +30,9 @@ export const useResultsSection = ({ data, type }) => {
     type,
     title,
     description,
-    prototypesUrl,
     screenUrl,
     imagesBundles,
+    images,
     sectionStyle,
-    isResultVideo,
   };
 };

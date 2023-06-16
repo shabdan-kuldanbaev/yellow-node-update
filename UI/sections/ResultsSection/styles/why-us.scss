@@ -22,13 +22,13 @@
       max-width: 100%;
     }
 
-    .video {
+    .media {
       object-fit: cover;
       width: 100%;
       height: auto;
     }
 
-    .video-2 {
+    .media-2 {
       display: none;
     }
 
@@ -39,11 +39,11 @@
     }
 
     @include phone {
-      .video-1 {
+      .media-1 {
         display: none;
       }
 
-      .video-2 {
+      .media-2 {
         display: block;
       }
     }

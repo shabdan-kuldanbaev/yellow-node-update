@@ -3,6 +3,7 @@ import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
 import Video from 'components/Common/Video';
 import Illustration from 'UI/components/Illustration';
+import Media from 'UI/components/Media';
 import { useResultsSection } from './utils/useResultsSection';
 import styles from './styles.module.scss';
 
@@ -12,11 +13,10 @@ const ResultsSection = (props) => {
     type,
     title,
     description,
-    prototypesUrl,
     screenUrl,
     imagesBundles,
     sectionStyle,
-    isResultVideo,
+    images,
   } = useResultsSection(props);
 
   return (
@@ -37,27 +37,13 @@ const ResultsSection = (props) => {
           src={screenUrl}
           alt={screenUrl}
         />
-        {isResultVideo
-          ? (
-            prototypesUrl.map((url, index) => (
-              <Video
-                src={url}
-                className={cn(styles.video, styles[`video-${index + 1}`])}
-              />
-            ))
-          )
-          : (
-            prototypesUrl.map((url, index) => (
-              <Illustration
-                unoptimized
-                transparent
-                className={cn(styles.prototype, styles[`prototype-${index + 1}`])}
-                src={url}
-                alt={url}
-              />
-            ))
-
-          )}
+        {images?.map((image, index) => (
+          <Media
+            key={`${index + 1}`}
+            asset={image}
+            className={cn(styles.media, styles[`media-${index + 1}`])}
+          />
+        ))}
         {imagesBundles?.map((bundleUrl, index) => (
           <Illustration
             className={cn(styles.imageBundle, styles[`imageBundle-${index + 1}`])}
