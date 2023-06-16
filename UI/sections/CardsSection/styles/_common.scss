@@ -135,3 +135,12 @@
   border: none;
   padding: 0;
 }
+
+.callToAction {
+  margin: 48px auto 0;
+  max-width: $default-content-width;
+
+  @include below-tablet {
+    margin-top: 60px;
+  }
+}
