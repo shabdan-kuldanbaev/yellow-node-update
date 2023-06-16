@@ -1,4 +1,4 @@
-@import 'styles/utils/_mixins';
+@import 'styles/utils/mixins';
 
 .review {
   @include flex(column, space-between, stretch);
@@ -47,22 +47,22 @@
   color: $gray400;
 }
 
-.oppsites {
+.oppsites .logo {
   width: 109px;
   height: 22px;
 }
 
-.famlicious {
+.famlicious .logo {
   width: 114px;
   height: 18px;
 }
 
-.separate-us {
+.separate-us .logo {
   width: 122px;
   height: 31px;
 }
 
-.blackbird {
+.blackbird .logo {
   height: 40px;
   width: 40px;
   position: relative;
@@ -78,26 +78,94 @@
   }
 }
 
-.qkss {
+.qkss .logo {
   width: 100px;
   height: 35px;
   transform: scale(2.7);
 }
 
-.coverium {
+.coverium .logo {
   width: 120px;
   height: 40px;
   transform: scale(2.7);
 }
 
-.hyvery-inc {
+.hyvery-inc .logo {
   width: 100px;
   height: 40px;
   transform: scale(2.3);
 }
 
-.dealstryker {
+.dealstryker .logo {
   width: 80px;
   height: 40px;
   transform: scale(2);
+}
+
+.weffect .logo {
+  width: 70px;
+
+  & > span {
+    margin: -15px !important;
+  }
+}
+
+.natp {
+  .position {
+    margin-right: -10px;
+  }
+
+  .logo {
+    width: 76px;
+    height: 30px;
+    overflow: hidden;
+
+    & > span {
+      margin: -40px !important;
+    }
+  }
+}
+
+.racefully .logo {
+  width: 30px;
+  height: 30px;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    content: 'Racefully';
+    font-weight: bold;
+    left: 120%;
+    color: #39e1f4;
+  }
+}
+
+.smartpath {
+  .logo {
+    width: 50px;
+
+    & > span {
+      margin: -15px !important;
+    }
+  }
+}
+
+.speeddigital {
+  .logo {
+    width: 30px;
+    height: 30px;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      content: 'Speed Digital';
+      font-weight: bold;
+      left: 130%;
+      width: 125px;
+      color: #f9971b;
+    }
+  }
 }
