@@ -11,16 +11,18 @@ const Media = (props) => {
     isVideo,
     className,
     imageProps,
+    ...rest
   } = useMediaProps(props);
 
   if (isVideo) {
     return (
       <video
+        muted
         autoPlay
         loop
-        muted
         playsInline
         className={className}
+        {...rest}
       >
         <source
           src={url}
@@ -39,6 +41,9 @@ const Media = (props) => {
 
 Media.propTypes = {
   asset: PropTypes.instanceOf(Object).isRequired,
+  autoPlay: PropTypes.bool,
+  loop: PropTypes.bool,
+  playsInline: PropTypes.bool,
   layout: PropTypes.oneOf([
     'fill',
     'intrinsic',
