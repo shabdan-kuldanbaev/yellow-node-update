@@ -2,10 +2,14 @@
   padding: 60px 0 120px;
 
   &.thirdSectionView {
-    padding: 120px 0 60px;
+    padding: 120px 16px 60px;
+
+    .titleStyle {
+      max-width: 614px;
+    }
 
     @include tablet {
-      padding: 60px 0;
+      padding: 60px 16px;
     }
   }
 
