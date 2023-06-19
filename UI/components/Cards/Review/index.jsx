@@ -21,12 +21,18 @@ const Review = (props) => {
   } = useReview(props);
 
   return (
-    <CardContainer className={cn(styles.review, className)}>
+    <CardContainer className={cn(
+      styles.review,
+      className,
+      styles[companyTitle],
+    )}
+    >
       <div className={styles.content}>
         <Illustration
           src={companyLogo}
           alt={`${companyTitle} logo`}
-          className={cn(styles.logo, styles[companyTitle])}
+          className={cn(styles.logo)}
+          unoptimized
         />
 
         <ContentfulParser document={text} />
