@@ -1,7 +1,7 @@
 import get from 'lodash/get';
-import cn from 'classnames';
 import { getContentfulImage } from 'UI/components/Illustration/utils/helpers';
 import { getImage } from 'utils/helper';
+import { videoFormats } from './helpers';
 
 export default ({
   asset,
@@ -12,7 +12,7 @@ export default ({
   ...rest
 }) => {
   const { file: { contentType } } = get(asset, 'fields', {});
-  const isVideo = contentType === 'video/';
+  const isVideo = videoFormats(contentType);
   const { url, alt } = getImage(asset);
 
   const imageProps = {
