@@ -59,6 +59,10 @@
       margin: 0 0 12px;
       white-space: pre-line;
       color: $gray400;
+
+      &:last-child {
+        margin: 0;
+      }
     }
 
     .listContainer {

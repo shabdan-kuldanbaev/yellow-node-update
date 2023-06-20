@@ -136,7 +136,12 @@
       max-width: 790px;
 
       .title {
+        margin: 0;
         color: $gray0;
+      }
+
+      @include below-tablet {
+        gap: 16px;
       }
     }
   }

@@ -1,7 +1,12 @@
 .meateater {
   &.firstSectionView {
+    padding: 0 16px;
+
     .image {
       &-1 {
+        width: $default-content-width;
+        height: 484px;
+
         @include phone {
           display: none;
         }
