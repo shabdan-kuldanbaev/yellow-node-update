@@ -42,7 +42,6 @@ const Images = (props) => {
               transparent
               unoptimized
               className={cn(styles.image, styles[`image-${index + 1}`])}
-              unoptimized
               src={url}
               alt={alt}
             />
