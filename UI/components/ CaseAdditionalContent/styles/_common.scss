@@ -33,16 +33,20 @@
   .listItem {
     @include fontSize(18px, 180%);
 
+    &:last-child {
+      margin: 0;
+    }
+
     @include phone {
       text-align: center;
     }
   }
 
-  @include phone {
-    min-width: 240px;
-  }
-
   @include tablet {
     @include flex(column, center, center);
+  }
+
+  @include phone {
+    min-width: 240px;
   }
 }

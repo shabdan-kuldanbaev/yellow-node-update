@@ -31,5 +31,19 @@
       top: 50%;
       transform: translateY(-50%);
     }
+
+    @include tablet {
+      white-space: nowrap;
+    }
+  }
+
+  @include tablet {
+    .container {
+      margin-bottom: 24px;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
   }
 }

@@ -2,13 +2,15 @@
   padding: 120px 0 0;
 
   .contentContainer {
-    margin: 0 auto;
-    padding: 0 40px 120px;
+    margin: 0 auto 120px;
+    padding: 0 16px;
+    max-width: $default-content-width;
+    box-sizing: border-box;
 
     @include tablet {
-      width: initial;
+      margin-bottom: 60px;
+      max-width: $max-mobile-size;
       flex-direction: column;
-      padding-bottom: 60px;
     }
   }
 

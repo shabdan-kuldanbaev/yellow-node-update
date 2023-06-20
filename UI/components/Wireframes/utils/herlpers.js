@@ -38,7 +38,9 @@ export const IMAGE_SIZES = {
     default: 478,
   },
   beautonomy: 600,
-  meateater: 600,
+  meateater: {
+    default: 470,
+  },
   'separate-us': {
     default: 440,
   },
@@ -118,5 +120,8 @@ export const MOBILE_IMAGE_SIZES = {
   },
   'forex-trading-platform': {
     default: 228,
+  },
+  meateater: {
+    default: 211,
   },
 };
