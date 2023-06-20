@@ -10,7 +10,7 @@ import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
-const Review = dynamic(() => import('UI/components/Cards/Review'), { ssr: false });
+const Review = dynamic(() => import('UI/components/Cards/Review'));
 
 const ReviewsSection = (props) => {
   const {

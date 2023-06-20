@@ -205,6 +205,7 @@ export const WHY_US_TYPE = {
   challenges: 'case-study-challenges',
   tabs: 'app-development-tabs-section',
   gallery: 'app-development-gallery',
+  results: 'case-study-results',
 };
 
 export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
@@ -294,7 +295,7 @@ export const CASE_STUDIES = {
   mobileBudgetingApp: 'mobile-budgeting-app',
   forexTradingPlatform: 'forex-trading-platform',
   crowdfundingPlatform: 'crowdfunding-platform',
-  metapix: 'metapix',
+  metapix: 'cctv-footage-analytics',
   carbonSpace: 'analytics-for-carbon-tracking',
   p2pLoans: 'web-p2p-lending-platform',
   chatSolutions: 'web-chat-for-mediums',

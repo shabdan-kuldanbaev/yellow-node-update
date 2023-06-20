@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
 import CardContainer from 'UI/containers/CardContainer';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import CallToAction from 'UI/components/CallToAction';
 import { getSliderProps } from './utils/sliderHelper';
 import styles from './styles.module.scss';
 
@@ -18,13 +19,18 @@ SwiperCore.use([
   Mousewheel,
 ]);
 
-const SliderSection = ({ sectionData, type }) => {
+const SliderSection = ({
+  sectionData,
+  type,
+  handleOnCTAClick,
+}) => {
   const {
     title,
     subtitle,
     description,
     slides,
     params,
+    ctaLink,
   } = getSliderProps(sectionData);
 
   if (!slides || !slides.length) {
@@ -66,6 +72,19 @@ const SliderSection = ({ sectionData, type }) => {
             </Swiper>
           </Animated>
         </CardContainer>
+
+        {ctaLink && (
+          <Animated
+            {...REVEAL_ANIMATION_PROPS}
+            transitionDelay={50}
+          >
+            <CallToAction
+              data={ctaLink}
+              handleOnClick={handleOnCTAClick}
+              className={styles.callToAction}
+            />
+          </Animated>
+        )}
       </div>
     </section>
   );
