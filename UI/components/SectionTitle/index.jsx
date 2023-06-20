@@ -22,6 +22,7 @@ const SectionTitle = ({
   className,
   children,
 }) => {
+  const titleSegments = title?.split('||');
   const descriptionParagraphs = description?.split('||');
 
   return (
@@ -32,21 +33,37 @@ const SectionTitle = ({
       titleStyle,
     )}
     >
-      <Animated
-        {...REVEAL_ANIMATION_PROPS}
-        transitionDelay={50}
-      >
-        <Typography
-          data-title
-          isBold
-          size={TYPOGRAPHY_SIZE.headline38}
-          mobileSize={TYPOGRAPHY_SIZE.headline24}
-          variant={titleVariant}
-          className={styles.title}
+      {title && (
+        <Animated
+          {...REVEAL_ANIMATION_PROPS}
+          transitionDelay={50}
         >
-          {title}
-        </Typography>
-      </Animated>
+
+          <Typography
+            data-title
+            isBold
+            size={TYPOGRAPHY_SIZE.headline38}
+            mobileSize={TYPOGRAPHY_SIZE.headline24}
+            variant={titleVariant}
+            className={styles.title}
+          >
+            {titleSegments.length === 1
+              ? title
+              : titleSegments.map((segment) => (
+                <Typography
+                  data-title
+                  isBold
+                  size={TYPOGRAPHY_SIZE.headline38}
+                  mobileSize={TYPOGRAPHY_SIZE.headline24}
+                  variant="span"
+                  className={styles.title}
+                >
+                  {segment}
+                </Typography>
+              ))}
+          </Typography>
+        </Animated>
+      )}
       {subtitle && (
         <Animated
           {...REVEAL_ANIMATION_PROPS}

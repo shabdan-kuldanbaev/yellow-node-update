@@ -11,6 +11,7 @@ import { handleError } from 'utils/error';
 const excludedPages = [
   'signature-generator',
   'not-found',
+  'book-a-call',
 ];
 
 const getDate = (date) => dayjs(date).format('YYYY-MM-DD');
@@ -32,7 +33,6 @@ export const getServerSideProps = async ({ res }) => {
     const [
       articles,
       pages,
-      blogTags,
     ] = await Promise.all([
       contentfulClient.getEntries({
         contentType: 'article',
@@ -46,14 +46,6 @@ export const getServerSideProps = async ({ res }) => {
         searchType: '[match]',
         additionalQueryParams: {
           'fields.slug[nin]': excludedPages.join(','),
-          select: ['fields.slug', 'sys.updatedAt'],
-        },
-      }),
-      contentfulClient.getEntries({
-        contentType: 'tag',
-        searchType: '[match]',
-        additionalQueryParams: {
-          'fields.type': 'article',
           select: ['fields.slug', 'sys.updatedAt'],
         },
       }),
@@ -77,15 +69,6 @@ export const getServerSideProps = async ({ res }) => {
       });
     });
 
-    const blogTagLinks = blogTags.items.map((tag) => {
-      const { slug, 'sys.updatedAt': updatedAt } = getDocumentFields(tag, ['slug', 'sys.updatedAt']);
-
-      return ({
-        path: ROUTES.blog.getRoute(slug).path,
-        updatedAt: getDate(Date.parse(updatedAt)),
-      });
-    });
-
     const feedObject = {
       urlset: {
         '@xmlns': 'https://www.sitemaps.org/schemas/sitemap/0.9',
@@ -105,7 +88,6 @@ export const getServerSideProps = async ({ res }) => {
       ...buildUrlObject([
         ...pageLinks,
         ...postLinks,
-        ...blogTagLinks,
       ]),
     );
 
