@@ -1,0 +1,24 @@
+.kitchen-equipment-customizer {
+  &.firstSectionView {
+    margin: 0 auto;
+    max-width: $default-content-width;
+    overflow: hidden;
+
+    .image {
+      width: 100%;
+      height: 621px;
+
+      @include tablet {
+        height: 486px;
+      }
+
+      @include below-tablet {
+        height: 351px;
+      }
+
+      @include phone {
+        height: 215px;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.kitchen-equipment-customizer {
+  &.firstSectionView {
+    padding: 120px 32px;
+    background-color: $gray800;
+
+    .titleStyle {
+      max-width: $default-content-width;
+
+      & > div:last-child {
+        @include flex(row, space-between, start);
+
+        @include below-tablet {
+          @include flex(column, start, initial);
+        }
+      }
+    }
+
+    [data-title] {
+      @include fontSize(24px, 130%);
+
+      margin: 0 auto 8px;
+      max-width: 100%;
+      color: $gray0;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    [data-description] {
+      margin: 0;
+      max-width: 481px;
+      color: $gray500;
+      text-align: left;
+
+      &:first-child {
+        margin-right: 32px;
+
+        @include below-tablet {
+          margin-right: 0;
+          margin-bottom: 24px;
+        }
+      }
+    }
+
+    @include below-tablet {
+      padding: 60px 16px;
+    }
+  }
+}
