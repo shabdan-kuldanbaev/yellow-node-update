@@ -25,4 +25,9 @@ export const CARD_ANIMATION = {
       ...BOUNCE_ANIMATION_PROPS,
     },
   },
+  [CASE_STUDIES.kitchenEquipment]: {
+    firstSectionView: {
+      ...BOUNCE_ANIMATION_PROPS,
+    },
+  },
 };
