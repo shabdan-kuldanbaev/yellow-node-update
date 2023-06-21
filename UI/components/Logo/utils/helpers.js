@@ -28,6 +28,7 @@ export const WHITE_LOGO_TYPE = [
   'forex-trading-platform',
   'crowdfunding-platform',
   'cctv-footage-analytics',
+  'kitchen-equipment-customizer',
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -72,6 +73,7 @@ export const WHITE_TEXT_LOGO = [
   'forex-trading-platform',
   'crowdfunding-platform',
   'cctv-footage-analytics',
+  'kitchen-equipment-customizer',
 ];
 
 export const getLogoType = (type) => {
