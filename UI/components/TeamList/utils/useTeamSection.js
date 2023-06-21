@@ -9,7 +9,7 @@ export const useTeamSection = ({ type, data }) => {
     imagesBundles,
   } = data;
   const specialTeamList = contentModules?.map((module) => {
-    const { contentList: list, title: listTitle } = getDocumentFields(module);
+    const { contentList: list, title: listTitle } = getDocumentFields(module, ['contentList', 'title']);
 
     return { list, listTitle };
   });

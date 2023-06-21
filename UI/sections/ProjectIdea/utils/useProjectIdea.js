@@ -13,6 +13,7 @@ export const useProjectIdea = ({ type, data }) => {
     description: sectionDescription,
     view,
     background,
+    images,
   } = data;
 
   const {
@@ -20,16 +21,36 @@ export const useProjectIdea = ({ type, data }) => {
     subtitle,
     text,
     contentModules,
-  } = getDocumentFields(get(data, 'contentModules[1]', {}));
+  } = getDocumentFields(get(data, 'contentModules[1]', {}), [
+    'title',
+    'subtitle',
+    'text',
+    'contentModules',
+  ]);
   const delayedAnimation = {
     ...ANIMATION_CASE_STUDY_PROPS,
     delay: 50,
   };
 
-  const featuresProps = getDocumentFields(get(data, 'contentModules[0]'));
-  const teamListProps = getDocumentFields(get(data, 'contentModules[2]'));
-  const imageContent = getDocumentFields(get(data, 'contentModules[3]', {}));
-  const additionalContent = contentModules?.map((con) => getDocumentFields(con, ['title', 'contentList', 'description', 'text']));
+  const featuresProps = getDocumentFields(get(data, 'contentModules[0]', {}), ['contentModules']);
+  const teamListProps = getDocumentFields(
+    get(data, 'contentModules[2]', {}),
+    [
+      'title',
+      'contentModules',
+      'contentList',
+      'imagesBundles',
+    ],
+  );
+  const imageContent = getDocumentFields(get(data, 'contentModules[3]', {}), ['contentModules', 'images']);
+  const additionalContent = contentModules?.map(
+    (con) => getDocumentFields(con, [
+      'title',
+      'contentList',
+      'description',
+      'text',
+    ]),
+  );
   const textContent = imageContent?.contentModules?.map((con) => getDocumentFields(con, ['title', 'contentList', 'description']));
   const imageUrl = getFileUrl(imageContent?.images?.[0]);
 
@@ -49,5 +70,6 @@ export const useProjectIdea = ({ type, data }) => {
     textContent,
     view,
     background: getImage(background),
+    images,
   };
 };
