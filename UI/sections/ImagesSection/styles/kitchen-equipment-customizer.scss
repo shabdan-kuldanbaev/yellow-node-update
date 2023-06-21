@@ -45,4 +45,17 @@
       padding: 60px 16px;
     }
   }
+
+  &.secondSectionView {
+    padding: 24px 40px 60px;
+    background-color: $kitchenSecondary;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include below-tablet {
+      padding: 19px 16px 30px;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 .kitchen-equipment-customizer {
   &.firstSectionView {
     padding: 120px 0 24px;
+    background-color: $kitchenSecondary;
 
     .titleStyle {
       max-width: $wide-content-width;
