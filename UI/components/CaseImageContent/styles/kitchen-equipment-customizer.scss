@@ -20,6 +20,8 @@
 
   .textContainer {
     .title {
+      @include fontSize(24px, 130%);
+
       margin: 0;
     }
 
