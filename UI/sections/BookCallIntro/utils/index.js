@@ -1,3 +1,4 @@
+import { useCalendlyEventListener } from 'react-calendly';
 import { getDocumentFields } from 'utils/helper';
 
 export default function useProps({
@@ -18,6 +19,12 @@ export default function useProps({
   );
 
   const { url: calendlyEventUrl } = getDocumentFields(contentModules[1], ['url']);
+
+  useCalendlyEventListener({
+    onEventScheduled: (e) => {
+      window.gtag('event', 'book_call_from_videoask');
+    },
+  });
 
   return {
     title,
