@@ -299,6 +299,7 @@ export const CASE_STUDIES = {
   carbonSpace: 'analytics-for-carbon-tracking',
   p2pLoans: 'web-p2p-lending-platform',
   chatSolutions: 'web-chat-for-mediums',
+  kitchenEquipment: 'kitchen-equipment-customizer',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -335,6 +336,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.cedar).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileBudgetingApp).path,
   ROUTES.project.getRoute(CASE_STUDIES.forexTradingPlatform).path,
+  ROUTES.project.getRoute(CASE_STUDIES.kitchenEquipment).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.whyUs.path,
@@ -373,6 +375,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.whyUs.path,
   CASE_STUDIES.openSense,
   CASE_STUDIES.chatSolutions,
+  CASE_STUDIES.kitchenEquipment,
 ];
 
 export const PAGES_WITH_GRAY_HEADER = [

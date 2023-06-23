@@ -1,0 +1,21 @@
+.kitchen-equipment-customizer {
+  @include flex(column, initial, start);
+
+  .container {
+    @include flex(row);
+
+    .title {
+      @include fontSize(16px, 150%);
+
+      margin: 0;
+      color: $gray400;
+      font-weight: 400;
+    }
+
+    .description {
+      @include fontSize(16px, 150%);
+
+      margin: 0 0 0 5px;
+    }
+  }
+}

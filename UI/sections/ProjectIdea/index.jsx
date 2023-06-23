@@ -10,6 +10,7 @@ import CaseAdditionalContent from 'UI/components/ CaseAdditionalContent';
 import SectionTitle from 'UI/components/SectionTitle';
 import CaseImageContent from 'UI/components/CaseImageContent';
 import Illustration from 'UI/components/Illustration';
+import Media from 'UI/components/Media';
 import { useProjectIdea } from './utils/useProjectIdea';
 import styles from './styles.module.scss';
 
@@ -32,6 +33,7 @@ const ProjectIdea = (props) => {
     teamListProps,
     textContent,
     background,
+    images,
   } = useProjectIdea(props);
 
   return (
@@ -90,6 +92,13 @@ const ProjectIdea = (props) => {
             />
           </Animated>
         </div>
+        {images?.map((file, index) => (
+          <Media
+            key={`media=${index + 1}`}
+            asset={file}
+            className={cn(styles.media, styles[`media-${index + 1}`])}
+          />
+        ))}
       </div>
       {teamListProps && (
         <TeamList

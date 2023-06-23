@@ -1,0 +1,66 @@
+.kitchen-equipment-customizer {
+  background-color: rgb(0 0 0 / 80%);
+  background-blend-mode: darken;
+  background-position: center;
+  background-size: cover;
+
+  .contentWrapper {
+    margin-bottom: 48px;
+  }
+
+  .sectionTitle {
+    margin: 0;
+  }
+
+  [data-title] {
+    @include fontSize(46px, 120%);
+
+    margin: 0 auto;
+    color: $gray0;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  [data-description] {
+    margin: 8px auto 0;
+    text-align: center;
+  }
+
+  .introSection {
+    @include flex(column, center, center);
+
+    margin: 0 auto;
+    max-width: $default-content-width;
+  }
+
+  .imageContainer {
+    width: 100%;
+    height: 622px;
+  }
+
+  @include tablet {
+    .imageContainer {
+      height: 487px;
+    }
+  }
+
+  @include below-tablet {
+    [data-title] {
+      @include fontSize(32px, 130%);
+    }
+
+    .contentWrapper {
+      margin-bottom: 32px;
+    }
+
+    .imageContainer {
+      height: 352px;
+    }
+  }
+
+  @include phone {
+    .imageContainer {
+      height: 215px;
+    }
+  }
+}

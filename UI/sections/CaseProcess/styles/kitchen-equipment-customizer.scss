@@ -1,0 +1,60 @@
+.kitchen-equipment-customizer {
+  &.firstSectionView {
+    padding: 120px 0 24px;
+    background-color: $kitchenSecondary;
+
+    .titleStyle {
+      max-width: $wide-content-width;
+
+      [data-title] {
+        @include fontSize(24px, 130%);
+
+        margin: 0 0 24px;
+        padding: 0 16px;
+        text-align: left;
+        font-weight: 400;
+      }
+    }
+
+    .container {
+      @include flex(row, end);
+
+      padding: 0 16px;
+      max-width: $wide-content-width;
+    }
+
+    .stepsContainer {
+      @include flex(row, end, center, wrap);
+
+      position: relative;
+      right: inherit;
+      margin: 0 0 -16px -16px;
+      width: $default-content-width;
+
+      & > div {
+        margin: 0 0 16px 16px;
+      }
+
+      .step {
+        padding: 16px 32px;
+        border: 1px solid $gray900;
+        border-radius: 80px;
+        white-space: pre;
+
+        .stepTitle {
+          @include fontSize(16px, 150%);
+
+          font-weight: normal;
+        }
+      }
+
+      @include tablet {
+        right: 0;
+      }
+    }
+
+    @include below-tablet {
+      padding: 60px 0 19px;
+    }
+  }
+}

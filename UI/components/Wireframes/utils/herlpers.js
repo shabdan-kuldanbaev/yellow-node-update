@@ -76,6 +76,9 @@ export const IMAGE_SIZES = {
   'forex-trading-platform': {
     default: 560,
   },
+  'kitchen-equipment-customizer': {
+    default: 622,
+  },
 };
 
 export const MOBILE_IMAGE_SIZES = {
@@ -123,5 +126,8 @@ export const MOBILE_IMAGE_SIZES = {
   },
   meateater: {
     default: 211,
+  },
+  'kitchen-equipment-customizer': {
+    default: 206,
   },
 };
