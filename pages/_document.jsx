@@ -56,6 +56,21 @@ class MyDocument extends Document {
             })(window,document,'script','dataLayer','${GTM_ID}');`,
             }}
           />
+
+          <Script
+            id="gtag-script"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GTM_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+            }}
+          />
         </Head>
         <body>
           <noscript dangerouslySetInnerHTML={{
