@@ -34,4 +34,14 @@
       }
     }
   }
+
+  &.thirdSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+  }
 }
