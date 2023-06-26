@@ -81,7 +81,7 @@
 
 .buttonWrapper {
   @include below-tablet {
-    @include flex(row, center, center)
+    @include flex(row, center, center);
   }
 }
 

@@ -351,6 +351,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.prototypingServices.path,
   ROUTES.penetrationTesting.path,
   ROUTES.pwaDevelopmentServices.path,
+  ROUTES.softwareDevelopmentColumbus.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
@@ -372,6 +373,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.crossPlatformDevelopmentServices.path,
   ROUTES.prototypingServices.path,
   ROUTES.pwaDevelopmentServices.path,
+  ROUTES.softwareDevelopmentColumbus.path,
   ROUTES.whyUs.path,
   CASE_STUDIES.openSense,
   CASE_STUDIES.chatSolutions,

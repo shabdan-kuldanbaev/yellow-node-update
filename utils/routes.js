@@ -411,6 +411,12 @@ export const routes = {
     dynamicPath: '/pwa-development-services',
     slug: 'pwa-development-services',
   },
+  softwareDevelopmentColumbus: {
+    title: 'Custom Software Development Company in Columbus, Ohio',
+    path: '/software-development-columbus',
+    dynamicPath: '/software-development-columbus',
+    slug: 'software-development-columbus',
+  },
   bookCall: {
     title: '',
     path: '/book-a-call',
