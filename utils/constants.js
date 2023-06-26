@@ -300,6 +300,7 @@ export const CASE_STUDIES = {
   p2pLoans: 'web-p2p-lending-platform',
   chatSolutions: 'web-chat-for-mediums',
   kitchenEquipment: 'kitchen-equipment-customizer',
+  radioPlato: 'mobile-music-app',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {

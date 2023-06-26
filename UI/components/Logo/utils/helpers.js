@@ -29,6 +29,7 @@ export const WHITE_LOGO_TYPE = [
   'crowdfunding-platform',
   'cctv-footage-analytics',
   'kitchen-equipment-customizer',
+  'mobile-music-app',
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -74,6 +75,7 @@ export const WHITE_TEXT_LOGO = [
   'crowdfunding-platform',
   'cctv-footage-analytics',
   'kitchen-equipment-customizer',
+  'mobile-music-app',
 ];
 
 export const getLogoType = (type) => {
