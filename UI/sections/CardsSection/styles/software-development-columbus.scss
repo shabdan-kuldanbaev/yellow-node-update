@@ -1,0 +1,15 @@
+.software-development-columbus {
+  &.firstSectionView {
+    background: $gray50;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .callToAction {
+      & > div {
+        max-width: none;
+      }
+    }
+  }
+}
