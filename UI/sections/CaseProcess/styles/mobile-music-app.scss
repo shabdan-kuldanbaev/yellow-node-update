@@ -86,4 +86,98 @@
       }
     }
   }
+
+  &.secondSectionView {
+    background-color: $gray1000;
+
+    .titleStyle {
+      @include flex(row, space-between, center, wrap);
+
+      position: relative;
+      max-width: $default-content-width;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 123px;
+        right: 40px;
+        top: 10px;
+        height: 1px;
+        background-color: $gray0;
+      }
+
+      & > div:nth-child(1),
+      & > div:nth-child(2) {
+        width: 50%;
+      }
+    }
+
+    [data-title],
+    [data-subtitle] {
+      @include fontSize(16px, 140%);
+
+      margin: 0;
+      max-width: unset;
+      color: $gray0;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    [data-title] {
+      text-align: left;
+    }
+
+    [data-subtitle] {
+      text-align: right;
+    }
+
+    .stepsContainer {
+      margin: 0;
+
+      & > div {
+        margin: 0;
+        width: 50%;
+      }
+    }
+
+    .step-1 {
+      @include flex(row, start);
+
+      p {
+        margin: 0;
+        max-width: 382px;
+        color: $gray0;
+        opacity: 0.9;
+      }
+    }
+
+    .step-2 {
+      @include flex(row, end);
+
+      .stepImage {
+        width: 272px;
+        height: 550px;
+      }
+    }
+
+    @include below-tablet {
+      .stepsContainer {
+        @include flex(column, center, center);
+
+        & > div {
+          width: 100%;
+        }
+      }
+
+      .step-1 {
+        @include flex(row, center);
+
+        margin-bottom: 24px;
+      }
+
+      .step-2 {
+        @include flex(row, center);
+      }
+    }
+  }
 }
