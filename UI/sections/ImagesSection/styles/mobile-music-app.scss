@@ -20,16 +20,16 @@
   }
 
   &.secondSectionView {
-    position: relative;
     padding: 120px 40px;
     height: 850px;
+    background-position: center;
+    background-size: cover;
     box-sizing: border-box;
 
     .titleStyle {
       @include flex(row, space-between, center);
 
       position: relative;
-      z-index: 2;
       margin: 0 auto 48px;
       max-width: $default-content-width;
       width: 100%;
