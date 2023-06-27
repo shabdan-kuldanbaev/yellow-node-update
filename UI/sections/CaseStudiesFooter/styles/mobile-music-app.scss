@@ -1,0 +1,35 @@
+.mobile-music-app {
+  background-color: $radioPlatoAccent;
+
+  .nextProjectContainer {
+    .more,
+    [data-description] {
+      color: $gray1000;
+    }
+
+    [data-title] {
+      color: $gray1000;
+      opacity: 0.7;
+    }
+
+    .more {
+      border: 1px solid $gray1000;
+    }
+  }
+
+  .question {
+    color: $gray1000;
+  }
+
+  .iconLink {
+    svg {
+      path {
+        fill: $gray1000;
+      }
+
+      circle {
+        stroke: $gray1000;
+      }
+    }
+  }
+}
