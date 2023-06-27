@@ -417,6 +417,18 @@ export const routes = {
     dynamicPath: '/software-development-columbus',
     slug: 'software-development-columbus',
   },
+  softwareDevelopmentWashington: {
+    title: 'Custom Software Development Company in Washington, D.C.',
+    path: '/software-development-washington',
+    dynamicPath: '/software-development-washington',
+    slug: 'software-development-washington',
+  },
+  softwareDevelopmentOklahoma: {
+    title: 'Software Development Company in Oklahoma City',
+    path: '/software-development-oklahoma',
+    dynamicPath: '/software-development-oklahoma',
+    slug: 'software-development-oklahoma',
+  },
   bookCall: {
     title: '',
     path: '/book-a-call',

@@ -1,4 +1,6 @@
-.software-development-columbus {
+.software-development-columbus,
+.software-development-washington,
+.software-development-oklahoma {
   &.firstSectionView {
     background: $gray50;
 
@@ -8,7 +10,7 @@
 
     .callToAction {
       & > div {
-        max-width: none;
+        max-width: 535px;
       }
     }
   }
