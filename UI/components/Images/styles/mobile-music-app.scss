@@ -27,13 +27,19 @@
     }
   }
 
-  &.thirdSectionView {
+  &.thirdSectionView,
+  &.fourthSectionView {
     overflow-y: hidden;
+    scroll-behavior: smooth;
 
     .image {
       margin: 0;
       width: $macbook-thirteen;
       height: 630px;
+
+      img {
+        object-fit: cover;
+      }
     }
 
     &::-webkit-scrollbar {
@@ -43,10 +49,20 @@
     @include tablet {
       height: 570px;
     }
+  }
 
+  &.thirdSectionView {
     @include phone {
       .image {
-        margin-left: -60px;
+        width: 1320px;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @include phone {
+      .image {
+        width: 1090px;
       }
     }
   }
