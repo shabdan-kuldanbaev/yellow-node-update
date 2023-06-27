@@ -115,9 +115,11 @@
     }
   }
 
-  &.fourthSectionView {
+  &.fourthSectionView,
+  &.fifthSectionView,
+  &.sixthSectionView,
+  &.seventhSectionView {
     padding: 120px 0 0;
-    background-color: $radioPlatoAccent;
 
     .titleStyle {
       @include flex(row, space-between, center, wrap);
@@ -179,6 +181,35 @@
 
     @include tablet {
       padding: 60px 0 0;
+    }
+  }
+
+  &.fourthSectionView {
+    background-color: $radioPlatoAccent;
+  }
+
+  &.sixthSectionView,
+  &.seventhSectionView {
+    background-color: $gray1000;
+
+    .titleStyle::after {
+      background-color: $gray0;
+    }
+
+    [data-title],
+    [data-subtitle] {
+      color: $gray0;
+    }
+
+    [data-description] {
+      color: $gray0;
+      opacity: 0.9;
+    }
+  }
+
+  &.seventhSectionView {
+    .titleStyle::after {
+      left: 209px;
     }
   }
 }
