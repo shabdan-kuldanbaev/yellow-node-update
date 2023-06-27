@@ -21,7 +21,7 @@ export const useResultsSection = ({ data, type }) => {
   );
   const sectionStyle = sectionBackgroundImage ? { backgroundImage: `url(${sectionBackgroundImage})` } : {};
 
-  const moduleData = getDocumentFields(get(contentModules, '[0]', {}));
+  const moduleData = getDocumentFields(get(contentModules, '[0]', {}), ['images', 'imagesBundles']);
   const screenUrl = getFileUrl(moduleData?.images?.[0]);
   const imagesBundles = moduleData?.imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
 
