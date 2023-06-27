@@ -1,0 +1,102 @@
+.mobile-music-app {
+  &.firstSectionView {
+    @include flex(column-reverse);
+
+    padding: 120px 40px;
+
+    .titleStyle {
+      margin: 0 auto;
+    }
+
+    [data-description] {
+      margin: 0;
+      color: $gray1000;
+      opacity: 0.6;
+    }
+
+    @include below-tablet {
+      padding: 60px 16px;
+    }
+  }
+
+  &.secondSectionView {
+    position: relative;
+    padding: 120px 40px;
+    height: 850px;
+    box-sizing: border-box;
+
+    .titleStyle {
+      @include flex(row, space-between, center);
+
+      position: relative;
+      z-index: 2;
+      margin: 0 auto 48px;
+      max-width: $default-content-width;
+      width: 100%;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 144px;
+        right: 40px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1px;
+        background-color: $gray0;
+      }
+
+      @include below-tablet {
+        margin: 0 auto 24px;
+      }
+    }
+
+    [data-title] {
+      @include fontSize(16px, 150%);
+
+      overflow: hidden;
+      margin: 0;
+      max-width: unset;
+      color: $gray0;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    [data-subtitle] {
+      @include fontSize(16px, 150%);
+
+      margin: 0;
+      max-width: unset;
+      color: $gray0;
+      font-weight: 600;
+    }
+
+    .textContainer {
+      position: relative;
+      z-index: 2;
+      margin: 0 auto;
+      max-width: $default-content-width;
+
+      ul {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        li {
+          @include fontSize(16px, 150%);
+
+          margin: 0;
+          color: $gray0;
+          opacity: 0.9;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    @include tablet {
+      padding: 60px 16px;
+      height: 610px;
+    }
+  }
+}
