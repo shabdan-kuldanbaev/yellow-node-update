@@ -26,4 +26,28 @@
       margin: 0 auto 24px;
     }
   }
+
+  &.thirdSectionView {
+    overflow-y: hidden;
+
+    .image {
+      margin: 0;
+      width: $macbook-thirteen;
+      height: 630px;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include tablet {
+      height: 570px;
+    }
+
+    @include phone {
+      .image {
+        margin-left: -60px;
+      }
+    }
+  }
 }

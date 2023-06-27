@@ -99,4 +99,19 @@
       height: 610px;
     }
   }
+
+  &.thirdSectionView {
+    padding: 120px 0 0;
+
+    [data-description] {
+      margin: 0;
+      padding: 0 16px;
+      color: $gray1000;
+      opacity: 0.6;
+    }
+
+    @include tablet {
+      padding: 60px 0 0;
+    }
+  }
 }
