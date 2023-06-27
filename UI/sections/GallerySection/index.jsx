@@ -20,6 +20,7 @@ const GallerySection = (props) => {
     slides,
     link,
     handleOnCTAClick,
+    ctaData,
   } = useGallerySection(props);
 
   return (
@@ -53,6 +54,7 @@ const GallerySection = (props) => {
           buttonTitle={link.buttonTitle}
           className={styles.callToAction}
           handleOnClick={handleOnCTAClick}
+          data={ctaData}
         />
       )}
     </section>

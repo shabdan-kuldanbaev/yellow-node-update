@@ -21,6 +21,7 @@ export default ({
     files: rawFiles,
     type,
     isOpenFeedbackForm,
+    url: ctaUrl,
   } = getDocumentFields(data, [
     'title',
     'subtitle',
@@ -30,6 +31,7 @@ export default ({
     'type',
     'files',
     'isOpenFeedbackForm',
+    'url',
   ]);
 
   const [
@@ -56,6 +58,7 @@ export default ({
     downloadLink: files[0],
     isOpenFeedbackForm,
     slug,
+    ctaUrl,
     ...props,
   };
 };

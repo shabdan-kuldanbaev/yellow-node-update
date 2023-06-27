@@ -26,6 +26,7 @@ const CallToAction = (props) => {
     isOpenFeedbackForm,
     handleOnClick,
     slug,
+    ctaUrl,
   } = useProps(props);
 
   return (
@@ -80,6 +81,7 @@ const CallToAction = (props) => {
               subtitle={subtitle}
               buttonTitle={buttonTitle}
               handleOnClick={handleOnClick}
+              url={ctaUrl}
             />
           );
         default:
@@ -89,6 +91,7 @@ const CallToAction = (props) => {
               subtitle={subtitle}
               buttonTitle={buttonTitle}
               handleOnClick={handleOnClick}
+              url={ctaUrl}
             />
           );
         }
