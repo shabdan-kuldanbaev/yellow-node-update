@@ -58,6 +58,7 @@
     @include flex(row);
 
     span {
+      padding-right: 5px;
       color: $gray400;
     }
 
