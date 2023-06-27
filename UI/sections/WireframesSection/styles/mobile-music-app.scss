@@ -65,4 +65,17 @@
       padding: 60px 0;
     }
   }
+
+  &.secondSectionView {
+    padding: 120px 0;
+    background-color: $gray1000;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include below-tablet {
+      padding: 60px 0;
+    }
+  }
 }
