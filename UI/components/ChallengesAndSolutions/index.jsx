@@ -40,18 +40,18 @@ const ChallengesAndSolutions = (props) => {
           imagesBundles,
           subtitle,
           contentList,
-          imageUrl,
-          subImageUrl,
+          image,
+          subImage,
         }, index) => (
           <div
-            key={title || imageUrl}
+            key={title || image}
             className={cn(
               styles.contentContainer,
               styles[`contentContainer-${index + 1}`],
               { [styles.special]: isSpecial },
             )}
           >
-            {(!imageUrl && title) && (
+            {(!image && title) && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.infoContainer, styles.separatedTitle)}>
                   <Typography
@@ -67,18 +67,18 @@ const ChallengesAndSolutions = (props) => {
               className={cn(
                 styles.infoContainer,
                 styles[`infoContainer-${index + 1}`],
-                { [styles.centrefy]: imageUrl },
+                { [styles.centrefy]: image },
               )}
             >
-              {subImageUrl && (
+              {subImage && (
                 <Illustration
                   transparent
                   className={styles.subImage}
-                  src={subImageUrl}
-                  alt={title}
+                  src={subImage.img}
+                  alt={subImage.alt}
                 />
               )}
-              {imageUrl && subtitle && (
+              {image && subtitle && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div>
                     <Typography
@@ -90,7 +90,7 @@ const ChallengesAndSolutions = (props) => {
                   </div>
                 </Animated>
               )}
-              {imageUrl && (
+              {image && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div>
                     <Typography
@@ -125,28 +125,28 @@ const ChallengesAndSolutions = (props) => {
                 </ul>
               )}
             </div>
-            {imageUrl && (
+            {image && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.images, styles[`images-${index + 1}`])}>
                   <Illustration
                     transparent
                     className={cn(styles.image, styles[`image-${index + 1}`])}
-                    src={imageUrl}
-                    alt={title}
+                    src={image.url}
+                    alt={image.alt}
                   />
-                  {imagesBundles?.map((bundleUrl, imagesBundlesIndex) => (
+                  {imagesBundles?.map((imageBundle, imagesBundlesIndex) => (
                     <Illustration
                       transparent
                       className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
-                      src={bundleUrl}
-                      alt=""
-                      key={`bundles-images/${bundleUrl}`}
+                      src={imageBundle.url}
+                      alt={imageBundle.alt}
+                      key={`bundles-images/${imageBundle.url}`}
                     />
                   ))}
                 </div>
               </Animated>
             )}
-            {!imageUrl && imagesBundles?.map((bundleUrl, imagesBundlesIndex) => (
+            {!image && imagesBundles?.map((bundleUrl, imagesBundlesIndex) => (
               <Illustration
                 transparent
                 className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
