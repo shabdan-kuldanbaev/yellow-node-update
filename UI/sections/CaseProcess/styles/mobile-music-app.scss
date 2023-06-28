@@ -233,8 +233,8 @@
       margin: 0 0 -32px -32px;
 
       & > div {
-        flex: 0 0 100%;
         max-width: 481px;
+        width: 100%;
         margin: 0 0 32px 32px;
 
         @include below-tablet {
@@ -252,7 +252,7 @@
     }
 
     .step {
-      @include flex(column);
+      @include flex(column, initial, start);
 
       padding: 40px;
       border: 1px solid $gray1000;
@@ -262,14 +262,19 @@
         @include fontSize(24px, 130%);
 
         margin-bottom: 24px;
-        flex-grow: 1;
         font-weight: 400;
         text-align: left;
         white-space: nowrap;
+
+        @include below-tablet {
+          white-space: normal;
+        }
       }
 
       p {
         margin: 0;
+        width: 100%;
+        word-wrap: break-word;
 
         &:nth-of-type(1)::before {
           content: 'Problem: ';
