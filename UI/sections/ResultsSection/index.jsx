@@ -41,7 +41,12 @@ const ResultsSection = (props) => {
           src={screenUrl}
           alt={screenUrl}
         />
-        {prototypeLink && <FigmaPrototype src={prototypeLink} />}
+        {prototypeLink && (
+          <FigmaPrototype
+            src={prototypeLink}
+            className={styles.figmaPrototype}
+          />
+        )}
         {images?.map((image, index) => (
           <Media
             key={`${index + 1}`}
