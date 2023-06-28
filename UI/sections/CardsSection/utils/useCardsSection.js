@@ -7,7 +7,7 @@ import {
   selectIsMobile,
   selectIsTablet,
 } from 'redux/selectors/layout';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { getDocumentFields, getImage } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import Card from 'UI/components/Cards/Card';
 import Overlay from 'UI/containers/Overlay';
@@ -48,11 +48,11 @@ const cardMapper = (withOverlay) => (card) => {
       'slug',
     ]);
 
-    const previewUrl = getFileUrl(previewImageUrl);
+    const image = getImage(previewImageUrl);
 
     return {
       url: `${PAGES.blog}/${slug}`,
-      image: previewUrl,
+      image,
       title,
       children: <span>Read more</span>,
     };
@@ -76,7 +76,7 @@ const cardMapper = (withOverlay) => (card) => {
       'contentModules',
     ],
   );
-  const image = getFileUrl(get(images, '[0]'));
+  const image = getImage(get(images, '[0]'));
   const icon = get(contentList, '[0]');
   const url = get(cardContent, '[0].fields.url');
 
