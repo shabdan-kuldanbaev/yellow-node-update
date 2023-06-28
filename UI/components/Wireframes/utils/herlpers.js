@@ -81,7 +81,7 @@ export const IMAGE_SIZES = {
   },
   'mobile-music-app': {
     firstSectionView: 600,
-    secondSectionView: 140,
+    secondSectionView: 100,
   },
 };
 
@@ -136,6 +136,6 @@ export const MOBILE_IMAGE_SIZES = {
   },
   'mobile-music-app': {
     firstSectionView: 600,
-    secondSectionView: 60,
+    secondSectionView: 40,
   },
 };

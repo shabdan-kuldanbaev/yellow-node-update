@@ -70,6 +70,7 @@
       color: $gray0;
       font-weight: 500;
       text-align: left;
+      text-transform: uppercase;
 
       @include below-tablet {
         @include fontSize(32px, 120%);
