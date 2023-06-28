@@ -51,4 +51,29 @@
       }
     }
   }
+
+  &.secondSectionView {
+    background-position: center;
+    background-size: cover;
+
+    .sectionTitle {
+      margin: 0 auto;
+      padding: 400px 0 0;
+      max-width: $wide-content-width;
+    }
+
+    [data-title] {
+      @include fontSize(64px, 120%);
+
+      margin: 0;
+      max-width: 666px;
+      color: $gray0;
+      font-weight: 500;
+      text-align: left;
+
+      @include below-tablet {
+        @include fontSize(32px, 120%);
+      }
+    }
+  }
 }
