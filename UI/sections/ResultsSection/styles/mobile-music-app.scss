@@ -77,4 +77,74 @@
       }
     }
   }
+
+  &.thirdSectionView {
+    background-color: $gray1000;
+
+    .sectionTitle {
+      @include flex(row, space-between, center, wrap);
+
+      position: relative;
+      max-width: $default-content-width;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 123px;
+        right: 40px;
+        top: 10px;
+        height: 1px;
+        background-color: $gray0;
+      }
+
+      & > div:nth-child(1),
+      & > div:nth-child(2) {
+        width: 50%;
+      }
+    }
+
+    [data-title],
+    [data-subtitle] {
+      @include fontSize(16px, 140%);
+
+      margin: 0;
+      max-width: unset;
+      color: $gray0;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    [data-title] {
+      text-align: left;
+    }
+
+    [data-subtitle] {
+      text-align: right;
+    }
+
+    [data-description] {
+      margin-top: 48px;
+      max-width: 382px;
+      text-align: left;
+
+      &:last-child {
+        margin-top: 16px;
+      }
+
+      @include tablet {
+        margin-top: 24px;
+      }
+    }
+
+    .contentWrapper {
+      @include flex(row, end, initial);
+
+      margin-top: -285px;
+
+      @include tablet {
+        margin-top: 0;
+        justify-content: center;
+      }
+    }
+  }
 }
