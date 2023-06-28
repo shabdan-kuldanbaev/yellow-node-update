@@ -17,7 +17,7 @@ const CaseStudiesIntro = (props) => {
     introSection,
     experiences,
     appLogoUrl,
-    appBackgroundImageUrl,
+    appBackgroundImage,
     title,
     subtitle,
     description,
@@ -77,7 +77,7 @@ const CaseStudiesIntro = (props) => {
         <div className={styles.imageContainer}>
           {isVideo ? (
             <Video
-              src={appBackgroundImageUrl}
+              src={appBackgroundImage.url}
               className={styles.video}
             />
           ) : (
@@ -85,19 +85,18 @@ const CaseStudiesIntro = (props) => {
               priority
               transparent
               className={styles.image}
-              src={appBackgroundImageUrl}
-              alt={appBackgroundImageUrl}
+              src={appBackgroundImage.url}
+              alt={appBackgroundImage.alt}
             />
           )}
         </div>
-        {imagesBundlesWithUrls?.map((bundleUrl, index) => (
+        {imagesBundlesWithUrls?.map((image, index) => (
           <Illustration
             priority
             transparent
             className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
-            src={bundleUrl}
-            alt={title}
-            key={`intro-images-bundles/${bundleUrl}`}
+            src={image.url}
+            key={`intro-images-bundles/${image.url}`}
           />
         ))}
       </div>
