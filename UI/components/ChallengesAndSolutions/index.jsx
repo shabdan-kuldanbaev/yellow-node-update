@@ -125,15 +125,16 @@ const ChallengesAndSolutions = (props) => {
                 </ul>
               )}
             </div>
-            {image.url && (
+            {(image.url || !!imagesBundles.length) && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.images, styles[`images-${index + 1}`])}>
-                  <Illustration
-                    transparent
-                    className={cn(styles.image, styles[`image-${index + 1}`])}
-                    src={image.url}
-                    alt={image.alt}
-                  />
+                  {image.url && (
+                    <Illustration
+                      className={cn(styles.image, styles[`image-${index + 1}`])}
+                      src={image.url}
+                      alt={image.alt}
+                    />
+                  )}
                   {imagesBundles?.map((imageBundle, imagesBundlesIndex) => (
                     <Illustration
                       transparent
