@@ -2,7 +2,11 @@ import get from 'lodash/get';
 import { useSelector } from 'react-redux';
 import { selectIsMobile } from 'redux/selectors/layout';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
-import { getDocumentFields, getFileUrl, getImage } from 'utils/helper';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getImage,
+} from 'utils/helper';
 
 export const useChallengesAndSolutions = ({
   data,
