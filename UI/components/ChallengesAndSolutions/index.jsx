@@ -125,7 +125,7 @@ const ChallengesAndSolutions = (props) => {
                 </ul>
               )}
             </div>
-            {image && (
+            {image.url && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.images, styles[`images-${index + 1}`])}>
                   <Illustration

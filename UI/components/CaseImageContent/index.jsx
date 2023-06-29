@@ -18,8 +18,8 @@ const CaseImageContent = ({
         {image && (
           <Illustration
             className={styles.image}
-            src={image}
-            alt={type}
+            src={image.url}
+            alt={image.alt}
           />
         )}
         <div className={styles.container}>
