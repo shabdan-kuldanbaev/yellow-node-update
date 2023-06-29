@@ -27,7 +27,7 @@ const ProjectIdea = (props) => {
     subtitle,
     text,
     additionalContent,
-    imageUrl,
+    image,
     delayedAnimation,
     featuresProps,
     teamListProps,
@@ -60,7 +60,7 @@ const ProjectIdea = (props) => {
         />
         <CaseImageContent
           type={type}
-          image={imageUrl}
+          image={image}
           textContent={textContent}
         />
         <div className={styles.descriptionContainer}>

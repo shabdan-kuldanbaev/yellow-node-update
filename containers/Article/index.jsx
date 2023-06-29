@@ -129,7 +129,7 @@ const ArticleContainer = ({
           disableSidePadding
           disableBottomPadding
         >
-          {faqList.length && (
+          {!!faqList.length && (
             <FAQ
               isArticalPage
               faqList={faqList}

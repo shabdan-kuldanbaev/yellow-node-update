@@ -1,5 +1,9 @@
 import get from 'lodash/get';
-import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
+import {
+  getFileUrl,
+  getImage,
+  getOptimizedContentfulImage,
+} from 'utils/helper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { STEP_TITLE_ANIMATION, CARD_ANIMATION } from './animations';
 
@@ -13,7 +17,7 @@ export default ({ data, type }) => {
     view,
   } = data;
 
-  const images = imagesData?.map((module) => getFileUrl(module));
+  const images = imagesData?.map((module) => getImage(module));
 
   const steps = contentModules?.map(({ fields }) => {
     const {
@@ -23,7 +27,7 @@ export default ({ data, type }) => {
       text,
     } = fields;
     const imageBundles = fields.imagesBundles?.map((bundle) => getFileUrl(bundle));
-    const image = getFileUrl(fields.images?.[0]);
+    const image = getImage(fields.images?.[0]);
 
     return {
       imageBundles,
