@@ -7,7 +7,7 @@ export default (props) => {
   const {
     textarea,
     style,
-    classname,
+    className: classNameProp,
     errorMessage,
     attached,
     register,
@@ -31,7 +31,7 @@ export default (props) => {
     maxLength,
   });
 
-  const className = cn(classname, styles.input, {
+  const className = cn(classNameProp, styles.input, {
     [styles[style]]: style,
     [styles.attached]: attached,
   });

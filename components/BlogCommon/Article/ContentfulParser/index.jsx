@@ -12,7 +12,7 @@ import LinkWrapper from 'components/Common/LinkWrapper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,
-  getFileUrl,
+  getImage,
   rootUrl,
 } from 'utils/helper';
 import cn from 'classnames';
@@ -40,14 +40,13 @@ const ContentfulParser = ({ document }) => {
 
         switch (id) {
         case 'image': {
-          const { articleSingleImageType, image, title } = getDocumentFields(
+          const { articleSingleImageType, image: rawImage, title } = getDocumentFields(
             get(node, 'data.target', ''),
             ['articleSingleImageType', 'image', 'title'],
           );
-          const { description: imageDescription } = getDocumentFields(image, ['description']);
-          const imageUrl = getFileUrl(image);
+          const image = getImage(rawImage);
 
-          return articleSingleImageType && imageUrl && (
+          return articleSingleImageType && image.url && (
             <div className={styles.imageWrapper}>
               <div className={cn({
                 [styles.normalImage]: articleSingleImageType === 'normal',
@@ -56,9 +55,8 @@ const ContentfulParser = ({ document }) => {
               >
                 <Animated type={ANIMATED_TYPE.imageZoom}>
                   <Illustration
-                    src={imageUrl}
-                    alt={imageDescription}
-                    title={imageDescription}
+                    src={image.url}
+                    alt={image.alt}
                     className={styles.image}
                   />
                 </Animated>

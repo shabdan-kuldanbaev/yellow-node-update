@@ -303,13 +303,17 @@
 
   &.fifthSectionView {
     .contentContainer {
-      @include flex(row, initial, initial, wrap);
+      @include flex(column, initial, stretch);
 
       grid-gap: 0;
       max-width: 790px;
 
       .infoContainer {
-        max-width: 379px;
+        @include flex(row, space-between);
+
+        width: 100%;
+        flex-grow: 1;
+        max-width: none;
         order: initial;
 
         .title {
@@ -326,6 +330,20 @@
 
         p:last-of-type {
           margin-bottom: 22px;
+        }
+
+        & > :nth-child(2) {
+          max-width: calc(50% - 16px);
+          margin-left: 32px;
+
+          @include below-tablet {
+            max-width: none;
+            margin: 0 auto;
+          }
+        }
+
+        @include below-tablet {
+          @include flex(column, space-between, center);
         }
       }
     }

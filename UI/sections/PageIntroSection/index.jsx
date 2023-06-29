@@ -17,7 +17,7 @@ const PageIntroSection = (props) => {
     type,
     title,
     description,
-    imageUrl,
+    image,
     buttonTitle,
     figuresData,
     introSection,
@@ -73,9 +73,10 @@ const PageIntroSection = (props) => {
             )}
           </div>
           <Animated {...REVEAL_ANIMATION_PROPS}>
-            {imageUrl && (
+            {image && (
               <Illustration
-                src={imageUrl}
+                src={image.url}
+                alt={image.alt}
                 className={styles.pageImage}
                 transparent
                 priority

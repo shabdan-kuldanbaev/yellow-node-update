@@ -142,7 +142,7 @@ export const getImage = (file) => {
   const imageData = get(file, 'fields', {});
 
   const url = addHttpsToUrl(imageData.file?.url);
-  const alt = imageData.description || url;
+  const alt = imageData.description || imageData.title || '';
 
   return {
     ...imageData.file?.details.image,
