@@ -30,6 +30,12 @@ const useProps = ({ downloadLink, ...props }) => {
     window.open(downloadLink, '_newtab');
   });
 
+  console.log({
+    isSuccess,
+    values: getValues(),
+    isValid,
+  });
+
   const isButtonDisabled = !isSuccess && (!getValues().name || !getValues().lastName || !getValues().email || !isValid);
 
   return {
