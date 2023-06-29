@@ -1,5 +1,9 @@
 import get from 'lodash/get';
-import { getFileUrl, getImage, getOptimizedContentfulImage } from 'utils/helper';
+import {
+  getFileUrl,
+  getImage,
+  getOptimizedContentfulImage,
+} from 'utils/helper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { STEP_TITLE_ANIMATION, CARD_ANIMATION } from './animations';
 
