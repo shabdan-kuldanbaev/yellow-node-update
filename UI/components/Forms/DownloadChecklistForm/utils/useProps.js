@@ -2,7 +2,11 @@ import { useForm } from 'react-hook-form';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 
 const useProps = ({ downloadLink, ...props }) => {
-  const [subscribe, { data, isSuccess, error }] = useSubscribeMutation({
+  const [subscribe, {
+    data,
+    error,
+    isLoading,
+  }] = useSubscribeMutation({
     fixedCacheKey: SUBSCRIPTION_CASH_KEY,
   });
 
@@ -12,9 +16,11 @@ const useProps = ({ downloadLink, ...props }) => {
     register,
     handleSubmit,
     reset,
+    clearErrors,
     formState: {
-      dirtyFields,
+      touchedFields,
       isValid,
+      isDirty,
     },
     getValues,
   } = useForm({ reValidateMode: 'onBlur' });
@@ -30,12 +36,12 @@ const useProps = ({ downloadLink, ...props }) => {
     window.open(downloadLink, '_newtab');
   });
 
-  const isButtonDisabled = !isSuccess && (!getValues().name || !getValues().lastName || !getValues().email || !isValid);
+  const isButtonDisabled = !isDirty || isLoading || !isValid;
 
   return {
     ...props,
     register,
-    dirtyFields,
+    touchedFields,
     isButtonDisabled,
     message,
     handleButtonClick,
