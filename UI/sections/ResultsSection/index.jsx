@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
-import Video from 'components/Common/Video';
 import Illustration from 'UI/components/Illustration';
 import Media from 'UI/components/Media';
-import FigmaPrototype from 'components/Common/FigmaPrototype';
 import { useResultsSection } from './utils/useResultsSection';
 import styles from './styles.module.scss';
+
+const FigmaPrototype = dynamic(() => import('components/Common/FigmaPrototype'));
 
 const ResultsSection = (props) => {
   const {

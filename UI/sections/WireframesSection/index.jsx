@@ -13,14 +13,11 @@ const WireframesSection = (props) => {
     images,
     description,
     subtitle,
-    sectionStyle,
+    sectionProps,
   } = useWireframesSection(props);
 
   return (
-    <section
-      className={cn(styles[type], styles[view], styles.container)}
-      style={sectionStyle}
-    >
+    <section {...sectionProps}>
       <SectionTitle
         title={title}
         subtitle={subtitle}
