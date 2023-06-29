@@ -9,7 +9,7 @@ const DownloadChecklistForm = (props) => {
     register,
     isButtonDisabled,
     handleButtonClick,
-    dirtyFields,
+    touchedFields,
     message,
   } = useProps(props);
 
@@ -20,23 +20,23 @@ const DownloadChecklistForm = (props) => {
         register={register}
         placeholder="Name *"
         errorMessage="Required field"
-        required={dirtyFields?.name}
-        classname={styles.input}
+        required={touchedFields?.name}
+        className={styles.input}
       />
       <TextField
         name="lastName"
         register={register}
         placeholder="Last Name *"
         errorMessage="Required field"
-        required={dirtyFields?.lastName}
-        classname={styles.input}
+        required={touchedFields?.lastName}
+        className={styles.input}
       />
       <TextField
         name="email"
         register={register}
         placeholder="Email *"
         errorMessage="Incorrect email address"
-        required={dirtyFields?.email}
+        required={touchedFields?.email}
         type="email"
         className={styles.input}
       />
