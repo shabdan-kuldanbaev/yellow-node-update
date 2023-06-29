@@ -1,25 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
+import PropTypes from 'prop-types';
+import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
-import FigmaPrototype from 'components/Common/FigmaPrototype';
-import AppFeaturesItem from 'UI/components/AppFeaturesItem';
+import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useAppFeatures } from './utils/useAppFeatures';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const AppFeaturesItem = dynamic(() => import('UI/components/AppFeaturesItem'));
+const FigmaPrototype = dynamic(() => import('components/Common/FigmaPrototype'));
 
 const AppFeatures = (props) => {
   const {
     type,
     view,
-    title,
-    subtitle,
-    description,
+    className,
+    titleProps,
     imageSrc,
     activeIndex,
     handleOnClick,
     itemsData,
-    promoImages,
+    promoSrc,
+    logoImage,
     isPromoImage,
   } = useAppFeatures(props);
 
@@ -28,21 +31,11 @@ const AppFeatures = (props) => {
   }
 
   return (
-    <section
-      className={cn(
-        styles.section,
-        styles[type],
-        styles[view],
-      )}
-    >
+    <section className={className}>
       <div className={styles.container}>
         <div className={styles.sectionContainer}>
-          <SectionTitle
-            title={title}
-            subtitle={subtitle}
-            description={description}
-            className={styles.titleWrapper}
-          />
+          <Illustration {...logoImage} />
+          <SectionTitle {...titleProps} />
           {itemsData.map((document, index) => (
             <AppFeaturesItem
               view={view}
@@ -54,23 +47,20 @@ const AppFeatures = (props) => {
             />
           ))}
         </div>
-        <div className={styles.imageWrapper}>
-          <Animated delay={500}>
-            <div className={styles.imageContainer}>
-              <img
-                src={imageSrc}
-                className={styles.image}
-                alt={type}
+        <Animated
+          {...ANIMATION_CASE_STUDY_PROPS}
+          delay={150}
+        >
+          <div className={styles.imageContainer}>
+            <Illustration {...imageSrc} />
+            {isPromoImage && (
+              <FigmaPrototype
+                src={promoSrc}
+                className={styles.prototype}
               />
-              {isPromoImage && promoImages[activeIndex]
-                && (
-                  <FigmaPrototype
-                    src={promoImages[activeIndex].url}
-                  />
-                )}
-            </div>
-          </Animated>
-        </div>
+            )}
+          </div>
+        </Animated>
       </div>
     </section>
   );

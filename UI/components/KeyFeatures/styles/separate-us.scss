@@ -1,0 +1,27 @@
+.separate-us {
+  .containerBackground {
+    opacity: 0.9;
+
+    @include phone {
+      left: -35%;
+    }
+  }
+
+  .contentContainer {
+    @include flex(row, initial, center);
+
+    .title {
+      margin: auto 0;
+    }
+  }
+
+  .featureContainer {
+    .checkMark {
+      background: $separateUsAccent;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}

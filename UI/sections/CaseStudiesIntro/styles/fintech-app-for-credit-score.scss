@@ -1,0 +1,72 @@
+.fintech-app-for-credit-score {
+  background: $fintechGradient;
+  padding-top: 120px;
+
+  .introSection {
+    position: relative;
+    z-index: 1;
+  }
+
+  .contentWrapper {
+    max-width: 474px;
+  }
+
+  .imageContainer {
+    width: 564px;
+    height: 550px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .bundleImage-1 {
+    display: none;
+    width: 262px;
+    height: 500px;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  .bundleImage-2 {
+    position: absolute;
+    top: -165px;
+    right: -162px;
+    z-index: -1;
+    width: 958px;
+    height: 958px;
+
+    @include tablet {
+      left: 50%;
+      top: 43px;
+      transform: translateX(-50%);
+      width: 674px;
+      height: 674px;
+    }
+  }
+
+  [data-title],
+  [data-subtitle] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray0;
+    opacity: 0.7;
+  }
+
+  .experience {
+    color: $gray0;
+    z-index: 1;
+
+    p {
+      opacity: 0.7;
+    }
+  }
+
+  @include tablet {
+    padding-top: 88px;
+  }
+}

@@ -1,7 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import MetaTags from 'components/Common/MetaTags';
-import PageHeader from 'components/Common/PageHeader';
+import PageHeader from 'UI/components/PageHeader';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import Process from 'UI/components/ProcessList';
 import { PAGES, ROUTES } from 'utils/constants';

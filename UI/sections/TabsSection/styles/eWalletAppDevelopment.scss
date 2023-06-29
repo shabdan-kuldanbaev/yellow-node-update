@@ -1,0 +1,77 @@
+.e-wallet-app-development {
+  background-color: $gray50;
+
+  :global(.swiper-slide) {
+    @include fontSize(20px, 150%);
+
+    margin-right: 60px !important;
+    padding: 0;
+
+    &::after {
+      bottom: -8px;
+    }
+
+    @include below-tablet {
+      @include fontSize(20px, 30px);
+
+      z-index: 99999;
+      margin-right: 24px !important;
+    }
+  }
+
+  :global(.swiper-wrapper) {
+    @include phone {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  & .titleStyle {
+    max-width: 671px;
+    margin-bottom: 48px;
+  }
+
+  .cardContainer {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .cardContent {
+    display: block;
+
+    & .contentBlock {
+      max-width: unset;
+    }
+  }
+
+  ul {
+    @include listWithYellowMarkers;
+    @include fontSize(16px, 150%);
+
+    height: 110px;
+    color: $gray900;
+    margin: auto;
+
+    & li {
+      margin-bottom: 12px;
+      max-width: 219px;
+
+      @include below-tablet {
+        max-width: unset;
+        text-align: center;
+      }
+    }
+
+    @include below-tablet {
+      height: fit-content;
+      align-items: center;
+      margin-top: 40px;
+    }
+  }
+
+  .callToAction {
+    background-color: $gray0;
+    margin-top: 42px;
+  }
+}

@@ -1,0 +1,27 @@
+.cash-chat {
+  .image {
+    width: 298px;
+    height: 620px;
+    filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgb(0 0 0 / 30%)) drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 12%));
+  }
+
+  .infoContainer {
+    margin: 0;
+
+    &-1 {
+      margin-right: 32px;
+
+      @include phone {
+        margin: 0 auto 24px;
+      }
+    }
+
+    &-2 {
+      margin-left: 32px;
+
+      @include phone {
+        margin: 0 auto 24px;
+      }
+    }
+  }
+}

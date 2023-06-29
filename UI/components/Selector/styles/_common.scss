@@ -1,0 +1,70 @@
+.wrapper {
+  margin: 0 auto 48px;
+
+  :global(.swiper) {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  .itemsContainer {
+    margin: 0 0 -24px -80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .item {
+    @include fontSize(20px, 150%);
+
+    margin: 0 0 24px 80px;
+    width: auto;
+    color: $gray400;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    padding-bottom: 12px;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+
+    &::after {
+      content: '';
+      background: $yellow400;
+      position: absolute;
+      height: 3px;
+      width: 0;
+      transition: width 0.3s ease-in-out;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &.selected {
+      color: $gray900;
+      font-weight: 700;
+
+      &::after {
+        width: 70px;
+      }
+    }
+
+    @include tablet {
+      margin: 0;
+    }
+
+    @include below-tablet {
+      @include fontSize(18px);
+    }
+  }
+
+  @include tablet {
+    margin: 0 auto 24px;
+  }
+}

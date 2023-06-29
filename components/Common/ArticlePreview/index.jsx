@@ -1,34 +1,27 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import LinkWrapper from 'components/Common/LinkWrapper';
-import Animated from 'components/Common/Animated';
-import CustomImage from 'components/Common/CustomImage';
-import { ROUTES, CATEGORY_TAGS } from 'utils/constants';
+import LinkWrapper from 'UI/components/LinkWrapper';
+import { ROUTES, VALUABLE_ARTICLE_CATEGORIES_SLUGS } from 'utils/constants';
 import { formatDate } from 'utils/helper';
+import CardContainer from 'UI/containers/CardContainer';
+import Illustration from 'UI/components/Illustration';
+import { routes } from 'utils/routes';
 import styles from './styles.module.scss';
 
 export const ArticlePreview = ({
   slug,
   title,
   image,
-  category,
+  tags,
   introduction,
   date,
   type,
   index,
   isSearch,
   handleOnCloseModalWindow,
-  animatioProps,
 }) => {
-  const { path, dynamicPath } = ROUTES.article.getRoute(slug);
-  const { path: categoryPath, dynamicPath: categoryDynamicPath } = ROUTES.blog.getRoute(category);
-  const articleLinkProps = {
-    isLocalLink: true,
-    path,
-    dynamicRouting: dynamicPath,
-  };
-  const isCategoryWithHashtag = ['blog', 'search'].includes(type);
+  const { path } = ROUTES.article.getRoute(slug);
+  const articleLinkProps = { path };
 
   if (!slug || !title || !image) {
     return null;
@@ -53,15 +46,15 @@ export const ArticlePreview = ({
       className={cn(styles[type], { [styles.medium]: index === 0 })}
       onClick={handleOnArticleClick}
     >
-      <Animated {...animatioProps}>
+      <CardContainer className={styles.card}>
         <LinkWrapper {...articleLinkProps}>
-          <CustomImage
+          <Illustration
             src={image}
             alt={title}
             layout="responsive"
             {...imageSizes}
             scale={2}
-            containerClasses={styles.imgContainer}
+            className={styles.imgContainer}
           />
         </LinkWrapper>
         <div className={styles.articleContent}>
@@ -70,18 +63,6 @@ export const ArticlePreview = ({
               {formatDate(date)}
             </span>
           )}
-          <LinkWrapper
-            isLocalLink
-            path={categoryPath}
-            dynamicRouting={categoryDynamicPath}
-            className={styles.articlePreviewCategory}
-          >
-            <span className={styles.category}>
-              {isCategoryWithHashtag
-                ? `#${CATEGORY_TAGS[category].replace(/\s/g, '')}`
-                : category}
-            </span>
-          </LinkWrapper>
           <LinkWrapper
             {...articleLinkProps}
             className={styles.articlePreviewTitle}
@@ -100,8 +81,22 @@ export const ArticlePreview = ({
               </p>
             </LinkWrapper>
           )}
+          {tags?.length && (
+            <div className={styles.tags}>
+              {(tags || [])
+                .filter(({ slug: tagSlug }) => (isSearch || VALUABLE_ARTICLE_CATEGORIES_SLUGS.includes(tagSlug)))
+                .map(({ slug: tagSlug }) => (
+                  <LinkWrapper
+                    path={routes.blog.getRoute(tagSlug).path}
+                    className={styles.tag}
+                  >
+                    {`#${tagSlug.replaceAll('-', '')}`}
+                  </LinkWrapper>
+                ))}
+            </div>
+          )}
         </div>
-      </Animated>
+      </CardContainer>
     </article>
   );
 };

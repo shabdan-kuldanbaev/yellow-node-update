@@ -5,97 +5,20 @@
 
   position: relative;
   width: 100%;
-  padding: $section-indent 0 0;
+  padding: 0;
 
   .buttons {
-    @include flex(row, flex-end, center);
-
-    min-height: 43px;
-    width: 25%;
-    position: relative;
-    z-index: 1;
-    transition: z-index 0.5s cubic-bezier(0.575, 0.41, 0.3, 1);
-
-    @include phone {
-      width: auto;
-      position: absolute;
-      right: 0;
-      top: 0;
-      transform: translateY(-50px);
-    }
+    margin-left: 16px;
 
     .imgContainer {
-      position: relative;
-      width: 16.5px;
-      right: 40px;
+      width: 24px;
+      aspect-ratio: 1 / 1;
       cursor: pointer;
-
-      @include horizontal-mobile {
-        right: 35px;
-      }
-
-      @include phone {
-        opacity: 1 !important;
-        transform: translate(0, 0) !important;
-        right: 0;
-        width: 21px;
-      }
     }
 
-    .button {
-      @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
-
-      border-radius: $button-border-radius;
-      margin: auto 0;
-      padding: 10px 15px;
-      width: auto;
-      font-weight: 500;
-      font-size: 0.875rem !important;
-      letter-spacing: 0.5px;
-      border: none;
-      transform: scale(1);
-      transition:
-        width $shadow-time-for-yellow-button,
-        transform 0.4s cubic-bezier(0, 0, 0.2, 1);
-
-      &:hover {
-        padding: 10px 15px;
-        border: none;
-        transform: scale(0.96);
-        transition: transform 0.4s cubic-bezier(0, 0, 0.2, 1);
-      }
-
-      @include phone {
-        display: none;
-      }
-    }
-
-    .buttonAppearsWithAnimation {
-      padding: 10px 15px;
-      margin-right: 0;
-
-      &::after {
-        background-color: $turbo-100;
-      }
-    }
-
-    .buttonAddStyles {
-      padding: 10px 15px;
-      margin-right: 0;
-    }
-
-    .categoryTitleInHeader {
+    @include below-tablet {
       display: none;
-      outline: none;
     }
-  }
-
-  @include macbook-fifteen {
-    padding: calc(#{$section-indent} - 20px) 0 0;
-  }
-
-  @include phone {
-    padding: 60px 0 0;
   }
 }
 

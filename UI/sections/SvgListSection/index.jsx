@@ -1,16 +1,15 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
-import SvgGroup from 'UI/containers/SvgGroup';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import Selector from 'UI/components/Selector';
 import { useSvgListSection } from './utils/useSvgListSection';
 import styles from './styles.module.scss';
 
-const Animated = dynamic(() => import('components/Common/Animated'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
+const Selector = dynamic(() => import('UI/components/Selector'), { ssr: false });
+const SvgGroup = dynamic(() => import('UI/containers/SvgGroup'));
 
 const SvgListSection = (props) => {
   const {
@@ -41,24 +40,26 @@ const SvgListSection = (props) => {
         titleStyle={styles.titleStyle}
       />
       {withSelector && (
-        <Selector
-          displayNames={displayNames}
-          selectedIndex={selectedGroupIndex}
-          onSelectedIndexChange={handleSelectedGroupIndexChange}
-        />
-      )}
-      {withSelector
-        && (
+        <>
+          <Selector
+            type={type}
+            displayNames={displayNames}
+            selectedIndex={selectedGroupIndex}
+            onSelectedIndexChange={handleSelectedGroupIndexChange}
+          />
           <SvgGroup
+            type={type}
             data={iconsGroups[selectedGroupIndex]}
             className={styles.svgList}
             isSwiperEnabled
             hideTitle
           />
-        )}
+        </>
+      )}
       {!withSelector && iconsGroups.map((group, i) => (
         <SvgGroup
           key={i}
+          type={type}
           data={group}
           className={cn(styles.svgList, styles[`svgList${i + 1}`])}
           isSwiperEnabled

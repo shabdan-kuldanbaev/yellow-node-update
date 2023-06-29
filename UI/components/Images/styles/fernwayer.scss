@@ -1,0 +1,32 @@
+.fernwayer {
+  &.firstSectionView {
+    .image {
+      width: 995px;
+      height: 556px;
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      width: 914px;
+      height: 650px;
+
+      @include tablet {
+        width: auto;
+        height: 247px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .image {
+      width: 660px;
+      height: 770px;
+
+      @include tablet {
+        width: auto;
+        height: 408px;
+      }
+    }
+  }
+}

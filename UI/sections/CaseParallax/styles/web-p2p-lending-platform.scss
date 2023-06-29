@@ -1,0 +1,16 @@
+.web-p2p-lending-platform {
+  height: 800px;
+  padding-top: 0;
+
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    height: 100%;
+  }
+
+  @include tablet {
+    height: 580px;
+  }
+}

@@ -1,0 +1,10 @@
+.web-p2p-lending-platform {
+  @include p2pSectionCard;
+
+  background: $p2pSecondary;
+  padding: 120px 80px;
+
+  .titleStyle {
+    display: none;
+  }
+}

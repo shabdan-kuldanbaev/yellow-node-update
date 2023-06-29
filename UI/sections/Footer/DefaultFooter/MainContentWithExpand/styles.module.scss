@@ -1,0 +1,60 @@
+@import 'styles/utils/mixins';
+
+.mainContent {
+  @include flex(column);
+
+  display: none;
+  grid-area: mainContent;
+
+  .title {
+    @include flex(row, space-between, center);
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+    font-weight: 700;
+    cursor: pointer;
+
+    svg {
+      transition: ease 0.3s;
+
+      path {
+        stroke: $gray0;
+      }
+    }
+  }
+
+  .active {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  .container {
+    @include flex(column);
+
+    margin-bottom: 16px;
+  }
+
+  .links {
+    @include flex(column);
+
+    margin-top: 8px;
+  }
+
+  a {
+    @include fontSize(14px, 150%);
+
+    color: $gray400;
+    margin: 0 0 8px;
+    white-space: pre-line;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $yellow500;
+    }
+  }
+
+  @include tablet {
+    display: block;
+  }
+}

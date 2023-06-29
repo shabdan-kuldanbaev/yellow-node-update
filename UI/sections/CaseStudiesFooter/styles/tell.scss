@@ -1,0 +1,27 @@
+.tell {
+  @include centeredBackgroundImage;
+
+  background-color: $gray0;
+
+  [data-title] {
+    color: $gray400;
+  }
+
+  .more,
+  .question,
+  [data-description] {
+    color: $gray900;
+  }
+
+  .more {
+    border: 1px solid $gray900;
+  }
+
+  .link {
+    color: $gray400;
+  }
+
+  .iconLink {
+    color: $gray1000;
+  }
+}

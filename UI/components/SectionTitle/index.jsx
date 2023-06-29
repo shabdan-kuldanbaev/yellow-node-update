@@ -1,11 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Typography from 'UI/components/Typography';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const SectionTitle = ({
   type,
@@ -21,6 +22,7 @@ const SectionTitle = ({
   className,
   children,
 }) => {
+  const titleSegments = title?.split('||');
   const descriptionParagraphs = description?.split('||');
 
   return (
@@ -31,21 +33,37 @@ const SectionTitle = ({
       titleStyle,
     )}
     >
-      <Animated
-        {...REVEAL_ANIMATION_PROPS}
-        transitionDelay={50}
-      >
-        <Typography
-          data-title
-          isBold
-          size={TYPOGRAPHY_SIZE.headline38}
-          mobileSize={TYPOGRAPHY_SIZE.headline24}
-          variant={titleVariant}
-          className={styles.title}
+      {title && (
+        <Animated
+          {...REVEAL_ANIMATION_PROPS}
+          transitionDelay={50}
         >
-          {title}
-        </Typography>
-      </Animated>
+
+          <Typography
+            data-title
+            isBold
+            size={TYPOGRAPHY_SIZE.headline38}
+            mobileSize={TYPOGRAPHY_SIZE.headline24}
+            variant={titleVariant}
+            className={styles.title}
+          >
+            {titleSegments.length === 1
+              ? title
+              : titleSegments.map((segment) => (
+                <Typography
+                  data-title
+                  isBold
+                  size={TYPOGRAPHY_SIZE.headline38}
+                  mobileSize={TYPOGRAPHY_SIZE.headline24}
+                  variant="span"
+                  className={styles.title}
+                >
+                  {segment}
+                </Typography>
+              ))}
+          </Typography>
+        </Animated>
+      )}
       {subtitle && (
         <Animated
           {...REVEAL_ANIMATION_PROPS}
@@ -128,7 +146,7 @@ SectionTitle.defaultProps = {
   type: 'default',
   titleStyle: '',
   subtitle: '',
-  description: '',
+  description: null,
   className: null,
   title: null,
   secondTitle: '',

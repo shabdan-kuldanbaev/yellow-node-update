@@ -32,7 +32,15 @@
 .callToAction {
   @include flex(column, center, center);
 
+  padding: 0;
+  min-height: unset;
+  background: none;
+
   h3 {
     display: none;
+  }
+
+  button {
+    margin: 0 auto !important;
   }
 }

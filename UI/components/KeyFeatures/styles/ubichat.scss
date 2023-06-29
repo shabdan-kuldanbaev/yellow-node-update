@@ -1,0 +1,15 @@
+.ubichat {
+  .containerBackground {
+    opacity: 0.9;
+  }
+
+  .featureContainer {
+    .checkMark {
+      background: $ubichatAccent;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}

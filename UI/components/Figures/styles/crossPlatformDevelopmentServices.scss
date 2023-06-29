@@ -1,13 +1,25 @@
 .cross-platform-development-services {
-  .figures > div {
-    @include flex(column);
+  .figures {
+    flex-wrap: nowrap;
 
-    flex: 0 0 auto;
+    & > div {
+      @include flex(column);
+
+      flex: 0 0 auto;
+
+      &:last-child {
+        max-width: 277px;
+      }
+
+      @include below-tablet {
+        @include flex(column, center, center);
+
+        flex: 0 0 100%;
+      }
+    }
 
     @include below-tablet {
-      @include flex(column, center, center);
-
-      flex: 0 0 100%;
+      @include flex(column, flex-start, center);
     }
   }
 

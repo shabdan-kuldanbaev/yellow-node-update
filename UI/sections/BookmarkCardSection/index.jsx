@@ -1,9 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Svg from 'UI/components/Svg';
-import Button from 'UI/components/Button';
-import Link from 'next/link';
+import BookmarkContainer from 'UI/containers/BookmarkContainer';
 import { getBookmarkCardProps } from './utils/bookmarkCardHelper';
 import styles from './styles.module.scss';
 
@@ -24,20 +21,12 @@ const BookmarkCardSection = ({
   return (
     <div className={cn(styles.bookmarkSection, styles[pageType], styles[view])}>
       <div className={styles.contentWrapper}>
-        <div className={styles.bookmarkContainer}>
-          <Svg
-            type="bookMark"
-            className={styles.bookmarkIcon}
-          />
-          <div className={styles.content}>
-            <h3 className={styles.title}>
-              {title}
-            </h3>
-            <Link href={url}>
-              See post
-            </Link>
-          </div>
-        </div>
+        <BookmarkContainer
+          title={title}
+          url={url}
+          containerClass={styles.bookmarkContainer}
+          titleClass={styles.title}
+        />
       </div>
     </div>
   );

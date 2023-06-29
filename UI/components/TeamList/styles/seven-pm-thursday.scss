@@ -1,0 +1,15 @@
+.seven-pm-thursday {
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(3, auto);
+  grid-column-gap: 160px;
+
+  .title {
+    color: $gray0;
+    grid-row: 1/5;
+  }
+
+  .teamItem {
+    font-weight: 500;
+    color: $gray0;
+  }
+}

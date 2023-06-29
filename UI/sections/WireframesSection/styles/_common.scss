@@ -1,0 +1,16 @@
+.container {
+  @include wireframes;
+
+  background-color: $gray0;
+  padding: 60px 0;
+
+  .titleStyle {
+    @include phone {
+      margin: 0 auto 24px;
+    }
+  }
+
+  @include below-tablet {
+    padding: 30px 0;
+  }
+}

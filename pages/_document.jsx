@@ -1,4 +1,4 @@
-import React from 'react';
+import { Children } from 'react';
 import Document, {
   Html,
   Head,
@@ -21,7 +21,7 @@ class MyDocument extends Document {
 
     return {
       ...initialProps,
-      styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+      styles: [...Children.toArray(initialProps.styles), sheets.getStyleElement()],
     };
   }
 
@@ -38,17 +38,13 @@ class MyDocument extends Document {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin="true"
+            crossOrigin
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
-            rel="preload"
-            as="style"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Roboto:wght@400;700;900&display=swap"
             rel="stylesheet"
           />
+
           <Script
             id="gtm-script"
             strategy="lazyOnload"
@@ -58,6 +54,21 @@ class MyDocument extends Document {
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','${GTM_ID}');`,
+            }}
+          />
+
+          <Script
+            id="gtag-script"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GTM_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
             }}
           />
         </Head>

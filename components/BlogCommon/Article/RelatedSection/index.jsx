@@ -1,16 +1,17 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { ArticlePreview } from 'components/Common/ArticlePreview';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'UI/components/Svg';
 import {
   ROUTES,
   ARTICLE_PREVIEW_TYPES,
   SVG_IMAGES_TYPES,
-  ANIMATED_TYPE,
+  REVEAL_ANIMATION_PROPS,
 } from 'utils/constants';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const RelatedSection = ({ articles }) => (
   <div className={styles.related}>
@@ -35,27 +36,17 @@ const RelatedSection = ({ articles }) => (
         title,
         previewImageUrl,
         categoryTag,
-      }, index) => {
-        const animationProps = {
-          type: ANIMATED_TYPE.isCustom,
-          translateY: '1.5em',
-          opasityDuration: 1,
-          transformDuration: 1,
-          transitionDelay: 50 + 50 * index,
-        };
-
-        return (
-          <ArticlePreview
-            key={`related/${slug}`}
-            slug={slug}
-            title={title}
-            image={get(previewImageUrl, 'url', '')}
-            category={categoryTag}
-            type={ARTICLE_PREVIEW_TYPES.related}
-            animatioProps={animationProps}
-          />
-        );
-      })}
+      }, index) => (
+        <ArticlePreview
+          key={`related/${slug}`}
+          slug={slug}
+          title={title}
+          image={get(previewImageUrl, 'url', '')}
+          category={categoryTag}
+          type={ARTICLE_PREVIEW_TYPES.related}
+          animatioProps={{ ...REVEAL_ANIMATION_PROPS, delay: 50 * index }}
+        />
+      ))}
     </div>
   </div>
 );

@@ -1,30 +1,28 @@
-const dotenv = require('dotenv');
-const subscribeUtils = require('./subscribeUtils');
-const errorHelper = require('../error');
+import dotenv from 'dotenv';
+import { addSubscriber, getSubscriber } from './subscribeUtils';
+import { handleError } from '../error';
 
 dotenv.config('./env');
 
-module.exports.subscribe = async (req, res) => {
+const subscribe = async (req, res) => {
   try {
     const { email } = req.body;
 
-    await subscribeUtils.getSubscriber(email, async (err, result) => {
-      if (err) {
-        await subscribeUtils.addSubscriber(email, res);
+    getSubscriber(email, (err, result) => {
+      if (err || result.status === 'unsubscribed') {
+        addSubscriber(email, res);
       } else {
-        if (result.status === 'subscribed') {
-          res.status(201).send("Seems we're already in your inbox!");
-        }
-
-        if (result.status === 'unsubscribed') {
-          await subscribeUtils.addSubscriber(email, res);
-        }
+        res.status(201).send("Seems we're already in your inbox!");
       }
     });
   } catch (error) {
-    errorHelper.handleError({
+    res.status(500).send(error);
+
+    handleError({
       error,
       message: 'Error in the subscribe function',
     });
   }
 };
+
+export default { subscribe };

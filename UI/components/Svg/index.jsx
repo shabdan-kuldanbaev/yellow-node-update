@@ -1,23 +1,44 @@
-import React from 'react';
+import {
+  useEffect,
+  useState,
+  createElement,
+} from 'react';
 import PropTypes from 'prop-types';
-import { SVG_IMAGES_TYPES } from 'utils/constants';
-import * as Icons from './svgs';
+import * as icons from './svgs';
 
 const Svg = ({
   type,
   className,
   handleOnClick,
   ...props
-  // TODO: remove console log, keep it here until testing icons after refactoring
-}) => (Icons[type] ? React.createElement(
-  Icons[type],
-  {
-    className,
-    onClick: handleOnClick,
-    ...props,
-  },
-  undefined,
-) : null);
+}) => {
+  const [Icon, setIcon] = useState(null);
+
+  useEffect(() => {
+    const loadSvg = async () => {
+      if (icons?.[type]) {
+        const dynamicIcon = (await import(`./svgs${icons?.[type]}`)).default;
+
+        setIcon(() => dynamicIcon);
+      }
+    };
+
+    loadSvg();
+  }, [type]);
+
+  return (Icon
+
+    ? createElement(
+      Icon,
+      {
+        className,
+        onClick: handleOnClick,
+        ...props,
+      },
+      undefined,
+    )
+    : null);
+};
 
 Svg.defaultProps = {
   className: '',

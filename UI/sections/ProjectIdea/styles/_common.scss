@@ -1,0 +1,116 @@
+.container {
+  @include flex(column, center, center);
+
+  padding: 120px 40px;
+  position: relative;
+
+  .mobileAdditionalInformation {
+    flex-direction: column;
+
+    & > div {
+      margin-top: 40px;
+      margin-right: 0 !important;
+    }
+  }
+
+  .contentContainer {
+    @include flex(row, space-between, center);
+
+    max-width: $wide-content-width;
+    width: 100%;
+    margin: 0 auto 120px;
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      margin-bottom: 60px;
+    }
+  }
+
+  .descriptionContainer {
+    @include flex(column, center);
+
+    max-width: 481px;
+    margin-left: 32px;
+
+    @include tablet {
+      order: 1;
+      margin: 0 0 24px;
+      text-align: center;
+    }
+
+    @include phone {
+      max-width: 100%;
+    }
+  }
+
+  .sectionName {
+    @include fontSize(14px, 150%);
+
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $gray400;
+    margin: 0;
+  }
+
+  .title {
+    @include fontSize(38px, 130%);
+
+    margin: 16px 0;
+    font-weight: bold;
+    color: $gray900;
+
+    @include phone {
+      @include fontSize(24px, 130%);
+
+      margin: 16px 0 8px;
+    }
+  }
+
+  .descriptionIntro {
+    margin-bottom: 32px;
+
+    @include phone {
+      margin-bottom: 16px;
+    }
+  }
+
+  .description {
+    @include fontSize(16px, 150%);
+
+    color: $gray400;
+
+    & > p {
+      margin: 0;
+    }
+  }
+
+  .additionalInfoContainer {
+    @include flex;
+
+    @include phone {
+      @include flex(column);
+    }
+  }
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  @include tablet {
+    padding: 120px 32px;
+  }
+
+  @include phone {
+    padding: 60px 16px;
+  }
+}

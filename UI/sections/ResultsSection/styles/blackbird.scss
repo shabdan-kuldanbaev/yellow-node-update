@@ -1,0 +1,60 @@
+.blackbird {
+  &.secondSectionView {
+    padding: 120px 40px;
+
+    .sectionTitle {
+      margin-bottom: 47px;
+    }
+
+    [data-description] {
+      max-width: 623px;
+    }
+
+    .contentWrapper {
+      height: 136px;
+    }
+
+    .media {
+      width: 224px;
+      height: 136px;
+    }
+
+    @include phone {
+      padding: 60px 16px;
+    }
+  }
+
+  &.firstSectionView {
+    .contentWrapper {
+      height: 600px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 460px;
+        height: 460px;
+        background-color: $blackbirdAccent;
+        border-radius: 50%;
+      }
+    }
+
+    .screen {
+      width: 298px;
+      height: 600px;
+    }
+
+    .media {
+      width: 290px;
+      height: 582px;
+      border-radius: 38px;
+
+      img {
+        border-radius: 38px;
+      }
+    }
+  }
+}

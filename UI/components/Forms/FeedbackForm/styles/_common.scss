@@ -1,0 +1,43 @@
+.form {
+  @include flex(column);
+
+  position: relative;
+  box-sizing: border-box;
+  padding: 0;
+
+  .inputsWrapper {
+    @include flex(row, space-between, center);
+
+    & > div {
+      flex: 1 1 360px;
+      max-width: 379px;
+      margin-bottom: 32px;
+
+      & + div {
+        margin-left: 32px;
+
+        @include below-tablet {
+          margin-left: 0;
+        }
+      }
+
+      @include below-tablet {
+        max-width: 100%;
+      }
+    }
+
+    @include below-tablet {
+      flex-direction: column;
+      display: block;
+    }
+  }
+
+  .errorMessage {
+    color: $red500;
+    margin: 0 auto 15px;
+  }
+
+  .formButton {
+    align-self: center;
+  }
+}

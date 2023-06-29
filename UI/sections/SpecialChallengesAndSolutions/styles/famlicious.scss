@@ -1,0 +1,35 @@
+.famlicious {
+  &.firstSectionView {
+    background: $famliciousBackground;
+    overflow: initial;
+    padding: 140px 40px 120px;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include tablet {
+      padding: 60px 32px;
+    }
+
+    @include phone {
+      padding: 60px 32px;
+    }
+  }
+
+  &.secondSectionView {
+    padding: 120px 40px 60px;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include tablet {
+      padding: 60px 32px;
+    }
+
+    @include tablet {
+      padding: 60px 16px 30px;
+    }
+  }
+}

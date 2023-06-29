@@ -1,0 +1,64 @@
+.meateater {
+  padding: 128px 16px;
+
+  [data-title],
+  [data-subtitle],
+  [data-description] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    max-width: 410px;
+    opacity: 0.7;
+  }
+
+  .contentWrapper {
+    order: 2;
+
+    @include tablet {
+      order: unset;
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    max-width: 655px;
+    width: 100%;
+
+    @include tablet {
+      margin: 0 auto;
+      width: 100%;
+      height: 400px;
+    }
+
+    @include phone {
+      height: 196px;
+    }
+  }
+
+  .image {
+    top: 0;
+    right: 0;
+    left: unset;
+    transform: unset;
+    width: 978px;
+    height: 100%;
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  .infoTitle {
+    color: $gray0;
+  }
+
+  .experience > p {
+    color: $gray0;
+    opacity: 0.7;
+  }
+
+  @include below-tablet {
+    padding: 100px 16px 60px;
+  }
+}

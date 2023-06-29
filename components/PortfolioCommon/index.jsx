@@ -1,12 +1,10 @@
-import React, {
+import {
   useCallback,
   useEffect,
   useState,
 } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import withScroll from 'hocs/withScroll';
-import Animated from 'components/Common/Animated';
 import ButtonMore from 'components/Common/ButtonMore';
 import {
   DEFAULT_WORK_TYPE,
@@ -15,11 +13,14 @@ import {
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
 import { getLimitedList } from 'utils/helper';
+import withScroll from 'hocs/withScroll';
+import { useLoadTagsAndTypesQuery } from 'redux/apis/works';
 import Work from './Work';
 import { DEFAULT_WORKS_LIMIT, filterWorks } from './utils';
 import styles from './styles.module.scss';
 
-const TypeSelector = dynamic(() => import('./TypeSelector'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const TypeSelector = dynamic(() => import('../TypeSelector'));
 
 const Portfolio = ({
   works,
@@ -30,6 +31,9 @@ const Portfolio = ({
   const [currentLimit, setCurrentLimit] = useState(DEFAULT_WORKS_LIMIT);
   const [selectedType, setSelectedType] = useState(DEFAULT_WORK_TYPE);
   const [selectedTag, setSelectedTag] = useState(null);
+
+  const { data = {} } = useLoadTagsAndTypesQuery();
+  const { types = [] } = data;
 
   const slugs = {
     Fireaway: 'fireaway',
@@ -92,6 +96,7 @@ const Portfolio = ({
       <TypeSelector
         selectedType={selectedType}
         onSelectedTypeChange={onSelectedTypeChange}
+        typeList={[DEFAULT_WORK_TYPE, ...types]}
       />
       <div className={styles.worksContainer}>
         {worksDisplay.map((work) => (

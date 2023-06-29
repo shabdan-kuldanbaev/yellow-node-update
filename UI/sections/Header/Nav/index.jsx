@@ -1,14 +1,15 @@
-import React, { Suspense } from 'react';
+import { memo } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { NAV_LINKS } from 'utils/constants';
-import { isHasSubNavigation } from 'helpers/navigation';
+import { isHasSubNavigation, isHasSubSmallNavigation } from 'helpers/navigation';
 import { useNav } from './useNav';
 import styles from './styles.module.scss';
 
-const DropDownMenu = dynamic(() => import('UI/sections/Header/DropDownMenu'), { suspense: true });
+const DropDownMenu = dynamic(() => import('UI/sections/Header/DropDownMenu'));
+const SmallDropDownMenu = dynamic(() => import('UI/sections/Header/SmallDropDownMenu'));
 
 const Nav = (props) => {
   const {
@@ -18,8 +19,10 @@ const Nav = (props) => {
     links,
     isHeader,
     handleOnClick,
+    isSmallDropMenuOpened,
     isDropMenuOpened,
     closeDropDownMenu,
+    closeSmallDropDownMenu,
   } = useNav(props);
 
   return (
@@ -57,14 +60,20 @@ const Nav = (props) => {
               )
               : itemContent}
             {isHasSubNavigation(slug) && isHeader && (
-              <Suspense>
-                <DropDownMenu
-                  isDropMenuOpened={isDropMenuOpened}
-                  isPageScrolledDown={isPageScrolling}
-                  slug={slug}
-                  closeDropDownMenu={closeDropDownMenu}
-                />
-              </Suspense>
+              <DropDownMenu
+                isDropMenuOpened={isDropMenuOpened}
+                isPageScrolledDown={isPageScrolling}
+                slug={slug}
+                closeDropDownMenu={closeDropDownMenu}
+              />
+            )}
+            {isHasSubSmallNavigation(slug) && isHeader && (
+              <SmallDropDownMenu
+                slug={slug}
+                isDropMenuOpened={isSmallDropMenuOpened}
+                isPageScrolledDown={isPageScrolling}
+                closeDropDownMenu={closeSmallDropDownMenu}
+              />
             )}
           </li>
         );
@@ -86,4 +95,4 @@ Nav.propTypes = {
   isHeader: PropTypes.bool,
 };
 
-export default React.memo(Nav);
+export default memo(Nav);

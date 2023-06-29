@@ -1,35 +1,34 @@
-import React, {
-  useCallback,
-  useState,
-  Suspense,
-} from 'react';
+import { useCallback, useState } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
 import FullLayout from 'components/Layout/FullLayout';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import MetaTags from 'components/Common/MetaTags';
-import PageHeader from 'components/Common/PageHeader';
+import PageHeader from 'UI/components/PageHeader';
 import Portfolio from 'components/PortfolioCommon';
 import {
   PAGES,
   REVEAL_ANIMATION_PROPS,
   ROUTES,
 } from 'utils/constants';
-import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { getBreadcrumbs } from 'utils/breadcrumbs';
+import { useFetchPageQuery } from 'redux/apis/page';
 import styles from './styles.module.scss';
 
-const CallToAction = dynamic(() => import('components/Common/CallToAction'), { suspense: true });
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const CallToAction = dynamic(() => import('components/Common/CallToAction'));
 
 const PortfolioContainer = ({
   introSection,
   pageMetadata,
   works,
-  subtitle,
   link,
+  type,
 }) => {
+  const { data = {} } = useFetchPageQuery(type);
+  const { subtitle } = data;
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-  const breadcrumbs = pagesBreadcrumbs.portfolio();
+  const breadcrumbs = getBreadcrumbs(PAGES.portfolio);
 
   const openFullscreenEstimation = useCallback(() => setIsFullscreenEstimation(true), []);
   const closeFullscreenEstimation = useCallback(() => setIsFullscreenEstimation(false), []);
@@ -57,15 +56,13 @@ const PortfolioContainer = ({
         </Animated>
         <Portfolio works={works} />
         {link && (
-          <Suspense>
-            <CallToAction
-              type="page"
-              title={link.title}
-              buttonTitle={link.buttonTitle}
-              handleOnClick={openFullscreenEstimation}
-              className={styles.callToAction}
-            />
-          </Suspense>
+          <CallToAction
+            type="page"
+            title={link.title}
+            buttonTitle={link.buttonTitle}
+            handleOnClick={openFullscreenEstimation}
+            className={styles.callToAction}
+          />
         )}
       </FullLayout>
       <FullScreenEstimation

@@ -1,12 +1,13 @@
-@import "./colors";
+@import './colors';
 
-/* colors -- OUTDATED, check _colors.scss */ 
+/* colors -- OUTDATED, check _colors.scss */
+
 $turbo-100: #ffe603;
 $turbo-200: #f5dc00;
 $turbo-300: #e1c14c;
 $turbo-400: #f9e104;
 $turbo-500: #f8e001;
-$turbo-600: #F5DD00;
+$turbo-600: #f5dd00;
 $cerulean: #05a7ea;
 $ferra: #714a4a;
 $gold: #ffd603;
@@ -34,10 +35,10 @@ $aluminium: #a7a8ab;
 $mine-shaft: #3a3a3a;
 $nobel: #b7b7b7;
 $gray: #7f7f7f;
-$gray100: #EEEEEE;
+$gray100: #eee;
 $gray-200: #8c8c8c;
 $gray-300: #ededed;
-$gray400: #AFAFAF;
+$gray400: #afafaf;
 $gray500: #757575;
 $mercury: #e6e6e6;
 $mine-shaft: #333;
@@ -78,7 +79,7 @@ $dark-grey-1: #1a1c1f;
 $dark-grey-2: #181a1d;
 $grey-darker: #26282d;
 $wild-sand: #f4f4f4;
-$wild-send-2: #FAFDFA;
+$wild-send-2: #fafdfa;
 $pale-sky: #6e7882;
 $dark-blue: #1c1e20;
 $dark-blue-1: #191b1e;
@@ -90,7 +91,7 @@ $light-violet-1: #5c5abd;
 $dark-violet: #362761;
 $dark-violet-1: #252159;
 $dark-violet-2: #16102b;
-$violet: #5948CE;
+$violet: #5948ce;
 $dodger-blue: #296efa;
 $zircon: #f8faff;
 $mercury-1: #e8e8e8;
@@ -98,13 +99,13 @@ $brink-pink: #fb7478;
 $fuzzy-wuzzy-brown: #c45657;
 $mine-shaft-1: #222020;
 $sushi: #80c241;
-$sushi-2: #A1C52B;
+$sushi-2: #a1c52b;
 $shark: #2b2e30;
 $shark-1: #292c2f;
 $shark-2: #272d32;
 $nevada: #666e72;
 $nevada-1: #5e686d;
-$nevada-2: #B9B9B9;
+$nevada-2: #b9b9b9;
 $mako: #40464a;
 $prelude: #cdc7e7;
 $grey-chateau: #a5a6a7;
@@ -136,7 +137,7 @@ $mariner: #2c54db;
 $black-olive: #3f3d3e;
 $raisin-black: #221f20;
 $platinum: #e5e5e5;
-$white-cloud: #F9FCFF;
+$white-cloud: #f9fcff;
 $slate-gray3: #778797;
 $sushi-1: #81c242;
 $shark-3: #2c2f31;
@@ -158,47 +159,47 @@ $very-pale-lime-green: #f9fffa;
 $chinese-black: #111;
 $clear-chill: #2591ff;
 $bright-navy: #0e75de;
-$green-aloha: #18B095;
-$melting-grey: #F5FBFB;
+$green-aloha: #18b095;
+$melting-grey: #f5fbfb;
 $cherry-red: #e40040;
-$pale-pink: #FFFAFB;
-$violet-blue: #3953B0;
-$majorelle-blue: #6144D6;
-$pure-blue-1: #007AFF;
-$pure-blue-2: #2F5997;
-$pure-blue-3: #16396D;
-$pure-blue-4: #2167AD;
+$pale-pink: #fffafb;
+$violet-blue: #3953b0;
+$majorelle-blue: #6144d6;
+$pure-blue-1: #007aff;
+$pure-blue-2: #2f5997;
+$pure-blue-3: #16396d;
+$pure-blue-4: #2167ad;
 $very-dark-gray: #161616;
 $very-dark-blue: #010029;
-$bright-ocean-blue: #2F5BF9;
-$mint-blue-1: #5C92CC;
-$mint-blue-2: #78ACE4;
-$mint-blue-3: #2570BA;
-$mint-blue-4: #0E4780;
-$froly: #F8776C;
-$carnation: #F0445F;
-$rose-white: #FFFAFA;
-$eerie-black-2: #1C1C1E;
+$bright-ocean-blue: #2f5bf9;
+$mint-blue-1: #5c92cc;
+$mint-blue-2: #78ace4;
+$mint-blue-3: #2570ba;
+$mint-blue-4: #0e4780;
+$froly: #f8776c;
+$carnation: #f0445f;
+$rose-white: #fffafa;
+$eerie-black-2: #1c1c1e;
 
 //transparency color
-$pagination: rgb(35 37 44 / 0.25);
-$header-additional-color: rgb(255 255 255 / 1);
-$blog-search-background-color: rgb(255 255 255 / 0.98);
-$blog-selection-block-mobile-categories-border-color: rgb(0 0 0 / 0.5);
-$blog-subscribe-input-box-shadow-color: rgb(0 0 0 / 0.04);
-$blog-subscribe-input-box-shadow-focus-color: rgb(0 0 0 / 0.1);
-$work-beautonomy-title-shadow: rgb(0 0 0 / 0.25);
-$nearby-articles-block-box-shadow-color: rgb(0 0 0 / 0.07);
-$article-preview-box-shadow: 0 10px 60px -10px rgb(0 0 0 / 0.15);
+$pagination: rgb(35 37 44 / 25%);
+$header-additional-color: rgb(255 255 255 / 100%);
+$blog-search-background-color: rgb(255 255 255 / 98%);
+$blog-selection-block-mobile-categories-border-color: rgb(0 0 0 / 50%);
+$blog-subscribe-input-box-shadow-color: rgb(0 0 0 / 4%);
+$blog-subscribe-input-box-shadow-focus-color: rgb(0 0 0 / 10%);
+$work-beautonomy-title-shadow: rgb(0 0 0 / 25%);
+$nearby-articles-block-box-shadow-color: rgb(0 0 0 / 7%);
+$article-preview-box-shadow: 0 10px 60px -10px rgb(0 0 0 / 15%);
 $card-bow-shadow: 0 8px 35px rgba($pale-sky, 0.1);
 $feedback-form-grey: rgba(#171717, 0.3);
 $case-study-data-cloud-background: rgb(120 172 228);
 $case-study-humankind-background: rgb(47 89 151);
-$case-study-humankind-wireframes: rgb(255 255 255 / 0);
-$case-study-dindon-paragraph: rgb(255 255 255 / 0.7);
-$case-study-dindon-background: rgb(255 255 255 / 0.15);
-$case-study-dindon-box-shadow: rgb(170 181 193 / 0.05);
-$case-study-step-box-shadow: rgb(110 120 130 / 0.1);
+$case-study-humankind-wireframes: rgb(255 255 255 / 0%);
+$case-study-dindon-paragraph: rgb(255 255 255 / 70%);
+$case-study-dindon-background: rgb(255 255 255 / 15%);
+$case-study-dindon-box-shadow: rgb(170 181 193 / 5%);
+$case-study-step-box-shadow: rgb(110 120 130 / 10%);
 $project-white: rgba($white, 0.4);
 
 //time
@@ -229,7 +230,7 @@ $max-content-width-full-hd: 1170px;
 $max-content-width-macbook-fifteen: 1050px;
 $max-content-width-macbook-twelve: 1000px;
 $max-content-width-small-section: 1076px;
-$shadow-for-yellow-button: 0 5px 20px -10px rgb(0 0 0 / 0.57);
+$shadow-for-yellow-button: 0 5px 20px -10px rgb(0 0 0 / 57%);
 $burger-item-1: 18px;
 $burger-item-2: 24px;
 $burger-item-3: 30px;
@@ -254,6 +255,7 @@ $default-font: 'Poppins', sans-serif;
 $case-studies-font: 'Poppins', sans-serif;
 $main-title-font: 'Poppins', sans-serif;
 $signature-font: 'Arial', sans-serif;
+$roboto-font: 'Roboto', sans-serif;
 
 //insta
 $imgIndent: 7.5px;
@@ -263,16 +265,16 @@ $initial-radius: 50px;
 $max-radius: 300px;
 $gradient-border: linear-gradient(45deg, #fccc63, #e95950, #bc2a8d);
 $gradient-dot: linear-gradient(45deg, #e95950, #bc2a8d);
-$insta-tape-box-shadow-color: rgb(0 0 0 / 0.07);
+$insta-tape-box-shadow-color: rgb(0 0 0 / 7%);
 
 //margins
 $min-article-margin: 14px;
 $max-article-margin: 24px;
 
 //filters
-$shadow-filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgb(0 0 0 / 0.6));
+$shadow-filter: drop-shadow(-18.8201px 18.8201px 56.4602px rgb(0 0 0 / 60%));
 $shadow-filter-image: drop-shadow(2px 2px 3px #000);
-$shadow-filter-phone: drop-shadow(-12.8201px 12.8201px 30.4602px rgb(0 0 0 / 0.4));
+$shadow-filter-phone: drop-shadow(-12.8201px 12.8201px 30.4602px rgb(0 0 0 / 40%));
 
 //timing functions
 $primary-bezier: cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -282,3 +284,9 @@ $cdnURL: 'https://dn75rr69j9vc.cloudfront.net';
 
 //cards common
 $card-border: solid 1px $mercury;
+
+@property --num {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}

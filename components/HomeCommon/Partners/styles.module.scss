@@ -23,10 +23,6 @@
 .partners {
   @include flex(row, space-between, center, wrap);
 
-  width: 100%;
-  max-width: $max-content-width;
-  margin-top: 42.5px;
-
   @include full-hd {
     max-width: $max-content-width-full-hd;
   }
@@ -34,6 +30,10 @@
   @include macbook-fifteen {
     max-width: $max-content-width-macbook-fifteen;
   }
+
+  width: 100%;
+  max-width: $max-content-width;
+  margin-top: 42.5px;
 
   @include macbook-twelve {
     max-width: $max-content-width-macbook-twelve;

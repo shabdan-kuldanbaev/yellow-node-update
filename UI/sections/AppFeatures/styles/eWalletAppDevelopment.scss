@@ -1,0 +1,54 @@
+.e-wallet-app-development {
+  @include appFeaturesContainer;
+
+  background: $gray50;
+
+  .titleWrapper {
+    margin: 0 0 32px;
+    max-width: 540px;
+
+    @include tablet {
+      margin: 0 auto 24px;
+    }
+  }
+
+  [data-title] {
+    @include phone {
+      text-align: center;
+    }
+  }
+
+  .container {
+    @include flex(row, space-between, flex-start);
+
+    grid-gap: 80px;
+
+    @include tablet {
+      @include flex(column);
+
+      grid-gap: 24px;
+    }
+  }
+
+  .sectionContainer {
+    max-width: 584px;
+    width: 100%;
+
+    @include tablet {
+      max-width: unset;
+    }
+  }
+
+  .image {
+    width: 490px;
+    height: 600px;
+
+    @include tablet {
+      margin: 0 auto;
+    }
+  }
+
+  @include phone {
+    background-color: $gray0;
+  }
+}

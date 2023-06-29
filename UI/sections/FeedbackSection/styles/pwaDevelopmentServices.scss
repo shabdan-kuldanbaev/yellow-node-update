@@ -1,0 +1,7 @@
+.pwa-development-services {
+  padding-top: 60px;
+
+  @include below-tablet {
+    padding-top: 30px;
+  }
+}

@@ -1,0 +1,28 @@
+@import 'styles/utils/mixins';
+
+.container {
+  @include flex(column);
+
+  grid-area: company;
+
+  .title {
+    @include fontSize(16px, 150%);
+
+    margin: 0 0 16px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  a {
+    @include fontSize(14px, 150%);
+
+    color: $gray400;
+    margin: 0 0 8px;
+    white-space: pre-line;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $yellow500;
+    }
+  }
+}

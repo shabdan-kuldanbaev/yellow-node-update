@@ -8,7 +8,7 @@
   .contentWrapper {
     @include flex(column, space-between, flex-start);
 
-    background: rgba(23, 23, 23, 0.72);
+    background: rgb(23 23 23 / 72%);
     box-sizing: border-box;
     padding: 70px 60px;
     width: 100%;
@@ -33,15 +33,23 @@
   }
 
   .imageContainer {
-    .backgroundImage {
+    &.backgroundImage {
       @include covered;
 
-      object-fit: cover !important;
       transition: filter 0.15s ease-in-out;
       z-index: 0;
+
+      img {
+        object-fit: cover !important;
+      }
+
+      @include tablet {
+        position: relative;
+        height: 60vw;
+      }
     }
 
-    .mainImage {
+    &.mainImage img {
       @include centered;
 
       max-width: 90%;
@@ -63,8 +71,8 @@
 
   &:hover {
     .imageContainer {
-      .backgroundImage,
-      .mainImage {
+      &.backgroundImage,
+      &.mainImage {
         filter: blur(20px);
 
         @include tablet {
@@ -152,15 +160,15 @@
   .title {
     @include fontSize(48px);
 
-    line-height: 48px;
-    margin-top: 20px;
-
     @include macbook-fifteen {
       @include fontSize(42px);
 
       margin-top: 20px;
       line-height: 50px;
     }
+
+    line-height: 48px;
+    margin-top: 20px;
 
     @include tablet {
       @include fontSize(18px);

@@ -15,6 +15,10 @@
       transition: color 0.3s ease-in-out;
     }
 
+    &.titleNotBold {
+      font-weight: 500;
+    }
+
     .subtitle {
       font-weight: 400;
       line-height: 2;
@@ -40,10 +44,10 @@
   }
 
   .menuLink {
-    display: block;
-    margin: 12px 0 0 0;
-
     @include fontSize(16px, 150%);
+
+    display: block;
+    margin: 12px 0 0;
 
     .menuText {
       color: $gray400;
@@ -69,8 +73,12 @@
   }
 
   @include below-tablet {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     width: 100%;
+
+    &:first-child {
+      margin-top: 16px;
+    }
   }
 }
 

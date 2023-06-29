@@ -1,0 +1,62 @@
+.tell {
+  padding: 120px 0 0;
+  overflow: initial;
+
+  .sectionTitle {
+    margin-bottom: 48px;
+
+    @include phone {
+      margin-bottom: 24px;
+      max-width: 345px;
+    }
+  }
+
+  .contentWrapper {
+    height: 690px;
+
+    &::after {
+      @include centered;
+
+      content: '';
+      z-index: -1;
+      width: 690px;
+      height: 690px;
+      background: $gray50;
+      border-radius: 50%;
+    }
+  }
+
+  .media {
+    width: 288px;
+    height: 610px;
+    border-radius: 43px;
+
+    img {
+      border-radius: 43px;
+    }
+  }
+
+  .screen {
+    width: 298px;
+    height: 620px;
+    box-shadow: 0 13.4px 26.74px 0 #8354001a;
+    border-radius: 43px;
+
+    img {
+      border-radius: 43px;
+    }
+  }
+
+  .imageBundle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(45%, -15%);
+    width: 268px;
+    height: 164px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

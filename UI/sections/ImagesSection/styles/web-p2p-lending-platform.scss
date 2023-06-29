@@ -1,0 +1,102 @@
+.web-p2p-lending-platform {
+  .titleStyle {
+    max-width: $wide-content-width;
+
+    [data-title] {
+      @include fontSize(16px);
+
+      font-weight: 400;
+      text-align: left;
+      max-width: none;
+      color: $gray400;
+
+      @include tablet {
+        text-align: center;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .titleStyle {
+      margin-bottom: 0;
+    }
+
+    @include tablet {
+      padding: 0 16px 60px;
+    }
+  }
+
+  &.thirdSectionView {
+    @include p2pSectionCard;
+
+    background: $p2pAccent;
+    position: relative;
+
+    .titleStyle {
+      [data-title],
+      [data-description] {
+        color: $gray0;
+        opacity: 0.7;
+        text-align: center;
+      }
+
+      [data-subtitle] {
+        @include fontSize(28px);
+
+        margin-top: 24px;
+        color: $gray0;
+      }
+
+      [data-description] {
+        max-width: 548px;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @include p2pSectionCard;
+
+    background: $gray50;
+
+    .titleStyle {
+      [data-title] {
+        @include fontSize(28px);
+
+        color: $gray900;
+        text-align: center;
+      }
+
+      [data-subtitle] {
+        margin-top: 24px;
+        color: $gray400;
+        max-width: 548px;
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    @include p2pSectionCard;
+
+    background: $p2pAccent;
+    position: relative;
+
+    .titleStyle {
+      [data-title] {
+        @include fontSize(28px);
+
+        color: $gray0;
+        text-align: center;
+      }
+
+      [data-subtitle] {
+        opacity: 0.7;
+        color: $gray0;
+        max-width: 548px;
+      }
+    }
+  }
+}

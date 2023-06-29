@@ -1,0 +1,14 @@
+.section {
+  padding: 120px 0;
+  background-color: $gray0;
+
+  .titleStyle {
+    @include phone {
+      margin: 0 auto 24px;
+    }
+  }
+
+  @include tablet {
+    padding: 60px 0;
+  }
+}

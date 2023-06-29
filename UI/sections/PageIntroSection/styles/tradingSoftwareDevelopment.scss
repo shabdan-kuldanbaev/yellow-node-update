@@ -1,0 +1,39 @@
+.trading-software-development {
+  .pageSubtitle,
+  .pageTitle {
+    @include phone {
+      max-width: 340px;
+      margin: 0 auto 8px;
+    }
+  }
+
+  .pageWrapper {
+    @include pageIntroWithBottomBorder;
+    
+    flex-direction: row-reverse;
+
+    @include below-tablet {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .pageSubtitle {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  .pageImage {
+    max-width: 481px;
+    padding-top: 466px;
+    margin: unset;
+
+    @include below-tablet {
+      margin: 0 auto 24px;
+    }
+
+    @include phone {
+      padding-top: 332px;
+    }
+  }
+}

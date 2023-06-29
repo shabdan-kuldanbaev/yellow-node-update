@@ -1,0 +1,9 @@
+.fairy {
+  padding-top: 0;
+  background-color: $fairyPrimary;
+  overflow: unset;
+
+  @include tablet {
+    padding-top: 40px;
+  }
+}

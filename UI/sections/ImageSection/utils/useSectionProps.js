@@ -5,12 +5,14 @@ import { getDocumentFields, getFileUrl } from 'utils/helper';
 export default ({
   section,
   type,
+  handleOnCTAClick,
 }) => {
   const {
     title,
     description,
     images,
     contentModules,
+    view,
   } = useMemo(() => getDocumentFields(
     section,
     [
@@ -18,10 +20,12 @@ export default ({
       'description',
       'images',
       'contentModules',
+      'view',
     ],
   ), [section]);
 
-  const { text } = getDocumentFields(get(contentModules, '[0]', {}));
+  const { text = '' } = getDocumentFields(get(contentModules, '[0]', {}), ['text']);
+  const link = getDocumentFields(get(contentModules, '[1]', {}));
   const imageUrl = getFileUrl(get(images, '[0]'));
 
   return {
@@ -30,5 +34,8 @@ export default ({
     text,
     imageUrl,
     type,
+    view,
+    link,
+    handleOnCTAClick,
   };
 };

@@ -1,32 +1,38 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
 
 .footerContainer {
   @include flex(column, center, center);
 
-  @include macbook-twelve {
-    padding: 48px 15px;
-  }
-
   position: relative;
-  z-index: 99999;
-  width: 100%;
-  background-color: $dark-grey;
+  z-index: 100;
+  background-color: $gray900;
   padding: 48px;
-  color: $white;
+  color: $gray0;
   box-sizing: border-box;
 
   .footer {
-    @include flex(row, space-between);
-
-    @include horizontal-mobile {
-      flex-direction: column;
-    }
-
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 379px 1.2fr 1.1fr 1fr;
+    grid-column-gap: 68px;
+    grid-row-gap: 24px;
+    grid-template-areas:
+      'side fintech services expertise'
+      'addresses fintech services expertise'
+      'addresses company services expertise';
     width: 100%;
-    max-width: $max-content-width;
+    max-width: $wide-content-width;
 
     @include tablet {
-      flex-direction: column;
+      grid-template-columns: 1fr 1.3fr;
+      grid-row-gap: 16px;
+      grid-column-gap: 16px;
+      grid-template-areas:
+        'side side'
+        'addresses mainContent'
+        'addresses mainContent'
+        'company mainContent';
     }
   }
 
@@ -41,6 +47,6 @@
   }
 
   @include phone {
-    padding: 32px 15px;
+    padding: 32px 16px;
   }
 }

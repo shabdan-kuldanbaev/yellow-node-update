@@ -1,0 +1,100 @@
+.why-us {
+  &.secondSectionView {
+    padding: 120px 0 0;
+    background: $gray900;
+
+    .titleStyle {
+      max-width: 759px;
+    }
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    [data-description] {
+      color: $gray400;
+    }
+
+    @include below-tablet {
+      padding: 60px 0 0;
+    }
+  }
+
+  &.fourthSectionView {
+    @include flex(row, center, center);
+
+    padding: 60px 16px;
+
+    .titleStyle {
+      margin: 0;
+      max-width: 442px;
+
+      [data-description] {
+        margin: 0;
+
+        &:nth-of-type(1) {
+          @include fontSize(24px, 150%);
+
+          display: inline;
+          color: $gray900;
+          font-weight: 700;
+
+          @include tablet {
+            display: block;
+            text-align: center;
+          }
+        }
+
+        &:nth-of-type(2) {
+          @include fontSize(16px, 150%);
+
+          display: inline;
+          color: $gray400;
+          font-weight: 400;
+
+          @include tablet {
+            display: block;
+            text-align: center;
+          }
+        }
+      }
+
+      @include tablet {
+        margin-bottom: 24px;
+      }
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+
+    @include below-tablet {
+      padding: 30px 16px 60px;
+    }
+  }
+
+  &.fifthSectionView {
+    padding: 60px 16px 120px;
+    background: $gray50;
+
+    .titleStyle {
+      max-width: 585px;
+    }
+
+    @include below-tablet {
+      padding: 30px 16px 60px;
+    }
+  }
+
+  &.sixthSectionView {
+    padding: 120px 16px 60px;
+
+    .titleStyle {
+      max-width: 651px;
+    }
+
+    @include below-tablet {
+      padding: 60px 16px 30px;
+    }
+  }
+}

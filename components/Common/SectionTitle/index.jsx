@@ -1,10 +1,12 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { ANIMATED_TYPE } from 'utils/constants';
+import { EMAIL_LINK } from 'utils/constants/contacts';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const SectionTitle = ({
   title,
@@ -50,7 +52,7 @@ const SectionTitle = ({
                 {subtitle}
                 <span>
                   <LinkWrapper
-                    path="mailto:hi@yellow.systems"
+                    path={`mailto:${EMAIL_LINK}`}
                     isLocalLink
                   >
                     {linkText}

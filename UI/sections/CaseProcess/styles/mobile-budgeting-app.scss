@@ -1,0 +1,519 @@
+.mobile-budgeting-app {
+  &.firstSectionView {
+    .titleStyle {
+      max-width: $wide-content-width;
+
+      [data-title] {
+        @include fontSize(56px, 120%);
+
+        margin: 0 0 24px;
+        text-align: left;
+        font-weight: normal;
+
+        @include below-tablet {
+          @include fontSize(38px, 130%);
+
+          margin: 0 0 16px;
+        }
+      }
+
+      [data-description] {
+        @include fontSize(24px, 130%);
+
+        margin: 0;
+        text-align: left;
+        color: $gray900;
+
+        @include below-tablet {
+          @include fontSize(20px, 150%);
+        }
+      }
+    }
+
+    .container {
+      max-width: $wide-content-width;
+    }
+
+    .stepsContainer {
+      @include flex(row, center, initial, wrap);
+
+      margin: 0 0 -16px -32px;
+
+      & > div {
+        margin: 0 0 16px 32px;
+      }
+    }
+
+    .step {
+      @include flex(column, start, center);
+
+      position: relative;
+      z-index: 1;
+      padding: 60px;
+      flex: unset;
+      width: 100%;
+      height: 100%;
+      max-width: 584px;
+      border-radius: 80px;
+      box-sizing: border-box;
+      overflow: hidden;
+      transition: ease 0.3s;
+
+      .stepImage {
+        margin-bottom: 24px;
+        width: 130px;
+        height: 130px;
+      }
+
+      .stepTitle {
+        @include fontSize(24px, 130%);
+
+        margin: 0 0 8px;
+        font-weight: normal;
+      }
+
+      h6 {
+        @include fontSize(14px, 150%);
+
+        margin: 0 0 24px;
+        font-weight: normal;
+        color: $gray400;
+      }
+
+      p {
+        margin: 0;
+        text-align: center;
+
+        &:first-of-type {
+          margin-bottom: 24px;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &-1 {
+        background: $gray900;
+
+        .stepTitle {
+          color: $gray0;
+        }
+
+        p {
+          color: $gray0;
+        }
+
+        &::before {
+          @include circle($mobileBudgetingAccent, 200px);
+
+          left: -16px;
+          bottom: -40px;
+          opacity: 0.1;
+          filter: blur(60px);
+        }
+
+        &::after {
+          @include circle($mobileBudgetingBlue, 200px);
+
+          right: -18px;
+          top: -20px;
+          opacity: 0.1;
+          filter: blur(60px);
+        }
+      }
+
+      &-2 {
+        background: $gray50;
+
+        .stepTitle {
+          color: $gray900;
+        }
+
+        p {
+          color: $gray900;
+        }
+
+        &::before {
+          @include circle($mobileBudgetingRose, 200px);
+
+          left: -16px;
+          top: -16px;
+          opacity: 0.13;
+          filter: blur(50px);
+        }
+
+        &::after {
+          @include circle($mobileBudgetingPurple, 200px);
+
+          right: 0;
+          bottom: -32px;
+          opacity: 0.13;
+          filter: blur(50px);
+        }
+      }
+
+      @include below-tablet {
+        padding: 40px 16px;
+        border-radius: 60px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    padding: 120px 0 60px;
+
+    .titleStyle {
+      max-width: $wide-content-width;
+
+      [data-title] {
+        @include fontSize(56px, 120%);
+
+        margin: 0 0 24px;
+        padding: 0 16px;
+        text-align: left;
+        font-weight: normal;
+
+        @include below-tablet {
+          @include fontSize(38px, 130%);
+        }
+      }
+    }
+
+    .container {
+      max-width: $wide-content-width;
+      overflow-x: auto;
+      padding: 0 16px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .stepsContainer {
+      @include flex(row, space-between);
+
+      margin: 0 0 0 -32px;
+      width: $wide-content-width;
+
+      & > div {
+        margin: 0 0 0 32px;
+        flex: 0 0 276px;
+
+        @include below-tablet {
+          margin: 0 0 0 16px;
+        }
+      }
+
+      @include tablet {
+        margin: 0 0 0 -16px;
+      }
+    }
+
+    .step {
+      @include flex(column, start, center);
+
+      position: relative;
+      padding: 32px 24px;
+      width: 100%;
+      background: $gray50;
+      border-radius: 40px;
+      box-sizing: border-box;
+
+      p {
+        @include fontSize(16px, 150%);
+
+        margin: 80px 0 0;
+        color: $gray900;
+      }
+
+      .stepTitle {
+        @include fontSize(56px, 120%);
+
+        position: relative;
+        font-weight: normal;
+        align-self: start;
+
+        &::after {
+          @include fontSize(56px, 120%);
+
+          content: '%';
+          position: absolute;
+          left: 100%;
+          top: 0;
+        }
+      }
+    }
+
+    @include below-tablet {
+      padding: 60px 0 30px;
+    }
+  }
+
+  &.thirdSectionView {
+    padding: 60px 0 120px;
+
+    .titleStyle {
+      max-width: $wide-content-width;
+
+      [data-title] {
+        @include fontSize(56px, 120%);
+
+        margin: 0 0 24px;
+        padding: 0 16px;
+        text-align: left;
+        font-weight: normal;
+
+        @include below-tablet {
+          @include fontSize(38px, 130%);
+        }
+      }
+    }
+
+    .container {
+      padding: 0 16px;
+      max-width: 1070px;
+
+      @include tablet {
+        overflow: scroll;
+      }
+    }
+
+    .stepsContainer {
+      @include flex(row, center, center, wrap);
+
+      position: relative;
+      right: -150px;
+      margin: 0 0 -16px -16px;
+      width: $wide-content-width;
+
+      & > div {
+        margin: 0 0 16px 16px;
+      }
+
+      .step {
+        padding: 24px;
+        background: $gray50;
+        border-radius: 80px;
+        white-space: pre;
+
+        .stepTitle {
+          @include fontSize(16px, 150%);
+
+          font-weight: normal;
+        }
+
+        &-5 {
+          margin-left: 70px;
+        }
+
+        &-6 {
+          margin-right: 70px;
+        }
+      }
+
+      @include tablet {
+        right: 0;
+      }
+    }
+
+    @include below-tablet {
+      padding: 30px 0 60px;
+    }
+  }
+
+  &.fourthSectionView {
+    padding: 0;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .container {
+      padding: 0 20px;
+      max-width: $macbook-thirteen;
+      box-sizing: border-box;
+
+      @include below-tablet {
+        padding: 0 16px;
+      }
+    }
+
+    .stepsContainer {
+      margin: 0;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(10, 1fr);
+      grid-auto-rows: 90px;
+
+      & > div {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      & > div:nth-child(1) {
+        grid-column: 1 / span 3;
+        grid-row: 1 / span 4;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 8 / span 2;
+        }
+      }
+
+      & > div:nth-child(2) {
+        grid-column: 4 / span 3;
+        grid-row: 1 / span 3;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 10;
+        }
+      }
+
+      & > div:nth-child(3) {
+        grid-column: 7 / span 2;
+        grid-row: 1 / span 2;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 1;
+        }
+      }
+
+      & > div:nth-child(4) {
+        grid-column: 9 / span 2;
+        grid-row: 1 / span 6;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: span 2;
+        }
+
+        @include below-tablet {
+          grid-row: 2 / span 2;
+        }
+      }
+
+      & > div:nth-child(5) {
+        grid-column: 1 / span 3;
+        grid-row: 5 / span 2;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 7;
+        }
+      }
+
+      & > div:nth-child(6) {
+        grid-column: 4 / span 3;
+        grid-row: 4 / span 3;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 5 / span 2;
+        }
+      }
+
+      & > div:nth-child(7) {
+        grid-column: 7 / span 2;
+        grid-row: 3 / span 4;
+
+        @include tablet {
+          grid-column: unset;
+          grid-row: unset;
+        }
+
+        @include below-tablet {
+          grid-row: 4;
+        }
+      }
+
+      @include tablet {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 220px;
+      }
+
+      @include below-tablet {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 180px;
+        grid-gap: 16px;
+      }
+    }
+
+    .step {
+      border-radius: 40px;
+      box-sizing: border-box;
+      overflow: hidden;
+
+      .stepTitle {
+        @include fontSize(35px, 130%);
+
+        font-weight: normal;
+
+        @include below-tablet {
+          @include fontSize(24px, 130%);
+        }
+      }
+
+      .stepImage {
+        width: 100%;
+        height: 100%;
+
+        img {
+          object-fit: cover;
+        }
+      }
+
+      &-2 {
+        padding: 16px;
+        background-color: $mobileBudgetingAccent;
+
+        .stepTitle {
+          max-width: 285px;
+        }
+      }
+
+      &-3,
+      &-5 {
+        padding: 16px;
+        background-color: $gray900;
+
+        .stepTitle {
+          max-width: 183px;
+          color: $gray0;
+        }
+      }
+
+      &-7 {
+        padding: 16px;
+        background-color: $mobileBudgetingAccent;
+
+        .stepTitle {
+          max-width: 215px;
+        }
+      }
+    }
+  }
+}

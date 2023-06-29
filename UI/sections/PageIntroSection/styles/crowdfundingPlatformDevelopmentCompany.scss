@@ -1,0 +1,35 @@
+.crowdfunding-platform-development-company {
+  .pageWrapper {
+    flex-direction: row-reverse;
+
+    @include below-tablet {
+      @include flex(column-reverse, center, center);
+    }
+  }
+
+  .pageTextContainer {
+    max-width: 580px;
+
+    @include below-tablet {
+      margin-top: 24px;
+    }
+
+    @include phone {
+      max-width: 343px;
+    }
+  }
+
+  .pageImage {
+    max-width: 468px;
+    padding-top: 530px;
+    margin: unset;
+
+    @include below-tablet {
+      margin: 0 auto 24px;
+    }
+
+    @include phone {
+      padding-top: 332px;
+    }
+  }
+}

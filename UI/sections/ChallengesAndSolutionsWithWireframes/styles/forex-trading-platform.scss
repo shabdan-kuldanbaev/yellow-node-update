@@ -1,0 +1,8 @@
+.forex-trading-platform {
+  padding: 60px 16px 120px;
+  background: $forexSecondary;
+
+  @include below-tablet {
+    padding: 30px 16px 60px;
+  }
+}

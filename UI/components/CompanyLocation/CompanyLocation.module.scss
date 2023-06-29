@@ -1,0 +1,35 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/colors';
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 16px 37px;
+
+  a {
+    transition: color 0.2s;
+
+    &:hover {
+      color: $yellow500;
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: auto;
+  }
+}
+
+.addressTitle {
+  @include fontSize(14px, 150%);
+
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.addressText {
+  @include fontSize(14px, 150%);
+
+  max-width: 276px;
+  margin: 0;
+  white-space: pre-line;
+}

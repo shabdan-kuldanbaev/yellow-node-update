@@ -1,0 +1,11 @@
+.open-sense {
+  &:not(:last-child) {
+    margin-bottom: 32px;
+  }
+
+  @include phone {
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+  }
+}

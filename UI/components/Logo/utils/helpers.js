@@ -1,8 +1,44 @@
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 
-export const WHITE_LOGO_TYPE = [];
+export const WHITE_LOGO_TYPE = [
+  'fireaway',
+  'fairy',
+  'seven-pm-thursday',
+  'fernwayer',
+  'hotel-data-cloud',
+  'natp',
+  'travel-trivia',
+  'cash-chat',
+  'ubichat',
+  'writer-chrome-extension',
+  'fusion-markets',
+  'meateater',
+  'telemojo',
+  'blackbird',
+  'fintech-app-for-credit-score',
+  'smartcenter',
+  'dindon',
+  'humankind',
+  'cinnabar',
+  'machine-learning-in-real-estate',
+  'mobile-bank-application',
+  'software-for-mri-interpretation',
+  'cedar-valley-farms',
+  'mobile-budgeting-app',
+  'forex-trading-platform',
+  'crowdfunding-platform',
+  'cctv-footage-analytics',
+  'kitchen-equipment-customizer',
+];
 
-export const BLACK_LOGO_TYPE = [];
+export const BLACK_LOGO_TYPE = [
+  'separate-us',
+  'famlicious',
+  'bionorica',
+  'beautonomy',
+  'analytics-for-carbon-tracking',
+  'web-chat-for-mediums',
+];
 
 export const WHITE_TEXT_LOGO = [
   'home',
@@ -25,6 +61,19 @@ export const WHITE_TEXT_LOGO = [
   'marketplace-for-clairvoyant-services',
   'fintech-app-for-credit-score',
   'machine-learning-in-real-estate',
+  'fairy',
+  'seven-pm-thursday',
+  'fernwayer',
+  'writer-chrome-extension',
+  'telemojo',
+  'cinnabar',
+  'cedar-valley-farms',
+  'mobile-bank-application',
+  'mobile-budgeting-app',
+  'forex-trading-platform',
+  'crowdfunding-platform',
+  'cctv-footage-analytics',
+  'kitchen-equipment-customizer',
 ];
 
 export const getLogoType = (type) => {

@@ -1,0 +1,47 @@
+.stickerbox {
+  overflow: hidden;
+  background-color: $stickerBoxPrimary;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray400;
+    max-width: 450px;
+
+    @include phone {
+      max-width: 375px;
+    }
+  }
+
+  .screen {
+    width: 318px;
+    height: 650px;
+  }
+
+  .media {
+    width: 286px;
+    height: 620px;
+    border-radius: 10px;
+
+    img {
+      border-radius: 10px;
+    }
+  }
+
+  .contentWrapper {
+    height: 650px;
+
+    &::after {
+      @include centered;
+
+      content: '';
+      z-index: -1;
+      width: 460px;
+      height: 460px;
+      background: $stickerGradient;
+      border-radius: 50%;
+    }
+  }
+}

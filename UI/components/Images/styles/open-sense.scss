@@ -1,0 +1,9 @@
+.open-sense {
+  .image {
+    @include phone {
+      margin-bottom: 24px;
+      height: 532px;
+      width: 995px;
+    }
+  }
+}

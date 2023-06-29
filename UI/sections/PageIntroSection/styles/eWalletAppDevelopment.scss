@@ -1,0 +1,24 @@
+.e-wallet-app-development {
+  background-color: $gray50;
+  padding-top: 40px;
+
+  .pageWrapper {
+    max-height: 500px;
+
+    @include below-tablet {
+      max-height: unset;
+    }
+  }
+
+  picture {
+    max-width: 500px;
+  }
+
+  .pageTextContainer {
+    max-width: 573px;
+
+    @include below-tablet {
+      margin: 0 auto;
+    }
+  }
+}

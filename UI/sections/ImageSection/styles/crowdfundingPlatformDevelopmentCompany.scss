@@ -1,0 +1,96 @@
+.crowdfunding-platform-development-company {
+  @extend .blackSection;
+
+  overflow: hidden;
+
+  .imageSection {
+    flex-direction: row-reverse;
+
+    @include tablet {
+      @include flex(column-reverse, space-between);
+
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    @include phone {
+      padding: 0;
+    }
+  }
+
+  .image {
+    padding-left: 45%;
+    padding-top: 106%;
+    transform: translate(-70px, 0);
+    background-size: contain;
+
+    @include tablet {
+      transform: none;
+      padding-left: 0;
+      padding-top: 71%;
+    }
+  }
+
+  .experienceContent {
+    margin: 0 32px 0 0;
+    max-width: 687px;
+    padding: 0;
+
+    & > div {
+      & ul {
+        @include listWithYellowMarkers;
+        @include flex(column, flex-start, flex-start);
+
+        height: unset;
+
+        & > li {
+          margin: 0 0 12px 8px;
+          max-width: 100%;
+
+          & > p {
+            @include phone {
+              @include flex(row, center, center);
+
+              text-align: center;
+            }
+          }
+
+          @include below-tablet {
+            margin: 0 0 12px;
+          }
+        }
+
+        @include below-tablet {
+          @include flex(column, flex-start, flex-start, wrap, space-between);
+
+          margin: 0;
+          max-width: unset;
+        }
+
+        @include phone {
+          @include flex(column, center, center);
+
+          max-width: 100%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .titleStyle {
+    text-align: left;
+    margin-bottom: 8px;
+
+    h2 {
+      text-align: left;
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+}

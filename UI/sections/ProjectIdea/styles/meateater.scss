@@ -1,0 +1,41 @@
+.meateater {
+  padding: 120px 0 0;
+
+  .contentContainer {
+    margin: 0 auto 120px;
+    padding: 0 16px;
+    max-width: $default-content-width;
+    box-sizing: border-box;
+
+    @include tablet {
+      margin-bottom: 60px;
+      max-width: $max-mobile-size;
+      flex-direction: column;
+    }
+  }
+
+  .descriptionContainer {
+    flex-direction: row;
+    max-width: 994px;
+    margin: 0 auto;
+
+    @include tablet {
+      max-width: 100%;
+      flex-direction: column;
+    }
+  }
+
+  .descriptionIntro {
+    max-width: 491px;
+    margin-right: 32px;
+
+    @include tablet {
+      max-width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  @include tablet {
+    padding-top: 60px;
+  }
+}

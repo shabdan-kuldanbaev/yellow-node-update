@@ -1,0 +1,36 @@
+.fairy {
+  background-color: $fairyPrimary;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  .sectionTitle {
+    max-width: 666px;
+  }
+
+  .contentWrapper {
+    height: 650px;
+
+    &::after {
+      @include centered;
+
+      content: '';
+      z-index: -1;
+      width: 460px;
+      height: 460px;
+      background: $fairyGradient;
+      border-radius: 50%;
+    }
+  }
+
+  .screen {
+    width: 318px;
+    height: 650px;
+  }
+
+  .media {
+    width: 286px;
+    height: 620px;
+  }
+}

@@ -1,0 +1,25 @@
+@import 'styles/utils/mixins';
+
+.modal {
+  justify-content: center !important;
+}
+
+.container {
+  @include flex(column, flex-start, center);
+
+  margin: 0 auto;
+  max-width: 410px;
+  padding: 0 30px;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  padding-top: 175px;
+  filter: drop-shadow(10px 24px 42px rgb(0 0 0 / 7%));
+  margin-bottom: 40px;
+}
+
+.backButton {
+  margin-top: 105px;
+}

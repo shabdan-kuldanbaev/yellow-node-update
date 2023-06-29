@@ -1,0 +1,63 @@
+@import 'styles/utils/mixins';
+
+.uploadFile {
+  width: 100%;
+  margin-bottom: 27px;
+
+  @include flex(column, initial, initial, wrap);
+
+  .attachmentManage {
+    position: relative;
+    width: 100%;
+
+    @include flex(row, flex-start, center);
+
+    & > div {
+      width: 100%;
+
+      div {
+        margin-bottom: 0;
+      }
+    }
+
+    & > label {
+      position: absolute;
+      padding: 4px 0;
+      border: 0 none;
+      cursor: pointer;
+      right: 0;
+      top: 15px;
+      margin-top: -0.9em;
+    }
+  }
+
+  .attachedFiles {
+    will-change: transform;
+    transform: translateY(-10px);
+    width: 100%;
+
+    .moreFilesLink {
+      padding: 5px 0;
+
+      @include flex(column, center, center);
+
+      label {
+        color: $silver;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.marketplace-for-clairvoyant-services {
+  @extend .uploadFile;
+
+  @include phone {
+    margin: 0;
+  }
+}

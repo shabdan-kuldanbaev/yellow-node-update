@@ -1,0 +1,133 @@
+.writer-chrome-extension {
+  .image {
+    width: 100%;
+    height: 636px;
+
+    @include tablet {
+      height: 500px;
+    }
+
+    @include below-tablet {
+      height: 350px;
+    }
+
+    @include phone {
+      width: 343px;
+      height: 220px;
+    }
+  }
+
+  .contentContainer {
+    overflow: initial;
+    flex-direction: column;
+
+    &-1 {
+      &::before {
+        @include circle($writerSecondary, 622px);
+
+        top: -141px;
+        left: -213px;
+
+        @include phone {
+          display: none;
+        }
+      }
+
+      &::after {
+        @include circle($writerSecondary, 514px);
+
+        top: 25%;
+        right: -190px;
+
+        @include phone {
+          display: none;
+        }
+      }
+    }
+
+    &-3 {
+      .title {
+        &::before {
+          content: '#Figma';
+        }
+      }
+
+      &::before {
+        @include circle($writerSecondary, 434px);
+
+        bottom: 20%;
+        left: -190px;
+
+        @include phone {
+          display: none;
+        }
+      }
+
+      &::after {
+        @include circle($writerSecondary, 546px);
+
+        bottom: -167px;
+        right: -190px;
+
+        @include phone {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .infoContainer {
+    @include flex(row, space-between, start);
+
+    max-width: 790px;
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1;
+
+    & > div {
+      max-width: 379px;
+      width: 100%;
+    }
+
+    &-2 {
+      order: initial !important;
+    }
+
+    h3 {
+      color: $gray0;
+    }
+
+    p {
+      color: $gray0;
+      opacity: 0.7;
+    }
+
+    @include phone {
+      @include flex(column, initial, initial);
+    }
+  }
+
+  .title {
+    position: relative;
+    color: $gray0;
+
+    &::before {
+      @include fontSize(12px, 150%);
+
+      content: '#Chrome';
+      position: absolute;
+      top: calc(100% + 16px);
+      border: 1px solid $gray0;
+      padding: 12px 24px;
+      border-radius: 55px;
+
+      @include phone {
+        display: none;
+      }
+    }
+
+    @include phone {
+      @include fontSize(20px, 150%);
+    }
+  }
+}

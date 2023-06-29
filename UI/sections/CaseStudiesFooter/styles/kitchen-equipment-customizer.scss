@@ -1,0 +1,35 @@
+.kitchen-equipment-customizer {
+  background-color: $kitchenSecondary;
+
+  .nextProjectContainer {
+    .more,
+    [data-description] {
+      color: $gray900;
+    }
+
+    [data-title] {
+      color: $gray900;
+      opacity: 0.7;
+    }
+
+    .more {
+      border: 1px solid $gray900;
+    }
+  }
+
+  .question {
+    color: $gray900;
+  }
+
+  .iconLink {
+    svg {
+      path {
+        fill: $gray900;
+      }
+
+      circle {
+        stroke: $gray900;
+      }
+    }
+  }
+}

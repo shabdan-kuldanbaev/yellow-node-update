@@ -1,0 +1,7 @@
+.crowdfunding-platform-development-company {
+  padding: 60px 40px;
+
+  @include below-tablet {
+    padding: 30px 16px;
+  }
+}

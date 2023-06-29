@@ -1,0 +1,40 @@
+.stickerbox {
+  &.firstSectionView {
+    .image {
+      width: 995px;
+      height: 556px;
+    }
+  }
+
+  &.secondSectionView {
+    padding-bottom: 24px;
+
+    .image {
+      width: 1200px;
+      height: 695px;
+      margin: 0 auto;
+  
+      &:not(:first-child) {
+        display: none;
+      }
+  
+      @include tablet {
+        width: 538px;
+        height: 695px;
+
+        &:first-child {
+          display: none;
+        }
+  
+        &:last-child {
+          display: block;
+        }
+      }
+  
+      @include phone {
+        width: 345px;
+        height: 479px;
+      }
+    }
+  }
+}

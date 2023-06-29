@@ -1,20 +1,18 @@
 /* eslint-disable react/jsx-max-props-per-line */
-import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { getPathWithCdn } from 'utils/helper';
 import { IS_PROD } from 'utils/constants';
-import { ogMetaData } from './utils/data';
-import { useMicrodata } from './utils/useMicrodata';
+import { getPageMicrodata } from 'utils/microdata';
+import { defaultMetadata } from './utils/data';
 
 const MetaTags = ({
   page,
   pageMetadata,
   children,
-  pageMicrodata,
   breadcrumbs,
+  articleData,
   isArticle,
-  defaultMetaData,
 }) => {
   const {
     metaTitle,
@@ -28,20 +26,16 @@ const MetaTags = ({
     url,
     ogImage,
   } = pageMetadata;
-  const {
-    metaTitle: defaultMetaTitle,
-    metaDescription: defaultMetaDescription,
-  } = defaultMetaData.find((metaData) => metaData.pageName === page);
 
-  const microdata = useMicrodata({ pageMicrodata, breadcrumbs });
+  const microdata = getPageMicrodata(page, { breadcrumbs, articleData });
 
-  const getTitle = (title) => (pageNumber > 1
-    ? `${title} | Page ${pageNumber}`
-    : title);
+  const getTitle = () => (pageNumber > 1
+    ? `${metaTitle || defaultMetadata.title} | Page ${pageNumber}`
+    : metaTitle || defaultMetadata.title);
 
-  const getDescription = (description) => (pageNumber > 1
-    ? `${description} | Page ${pageNumber}`
-    : description);
+  const getDescription = () => (pageNumber > 1
+    ? `${metaDescription || defaultMetadata.description} | Page ${pageNumber}`
+    : metaDescription || defaultMetadata.description);
 
   const getImage = () => {
     if (ogImage) return ogImage;
@@ -53,22 +47,23 @@ const MetaTags = ({
 
   const date = isArticle ? publishedAt : new Date();
   const type = isArticle ? 'article' : 'website';
+  const title = getTitle();
+  const description = getDescription();
 
-  const title = metaTitle || defaultMetaTitle;
-  const description = metaDescription || defaultMetaDescription;
   const robots = !IS_PROD ? 'none' : metaRobots;
 
   return (
+    // eslint-disable-next-line @next/next/no-script-component-in-head
     <Head>
-      <title>{getTitle(title)}</title>
-      <meta name="description" content={getDescription(description)} />
+      <title>{title}</title>
+      <meta name="description" content={description} />
       <meta name="date" content={date} />
       {robots && <meta name="robots" content={robots} />}
       <link rel="canonical" href={url} />
       <meta property="og:locale" content="en_US" />
       <meta property="og:type" content={type} />
-      <meta property="og:description" content={getDescription(description)} />
-      <meta property="og:title" content={getTitle(title)} />
+      <meta property="og:description" content={description} />
+      <meta property="og:title" content={title} />
       <meta property="og:url" content={url} />
       <meta property="og:image" content={getImage()} />
       {categoryTag && <meta property="article:section" content={categoryTag} />}
@@ -87,7 +82,9 @@ const MetaTags = ({
       <link rel="mask-icon" href={getPathWithCdn('/safari-pinned-tab.svg')} color="#ffbf02" />
       <link rel="manifest" href="/manifest.json" />
       {children}
+      {/* Somehow microdata doesnt work with next/script so use this instead */}
       <script
+        id="application/ld+json/microdata"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata, null, 2) }}
       />
@@ -96,21 +93,21 @@ const MetaTags = ({
 };
 
 MetaTags.defaultProps = {
-  pageMicrodata: null,
   children: null,
   pageMetadata: {},
+  articleData: {},
   breadcrumbs: [],
   isArticle: false,
-  defaultMetaData: ogMetaData,
 };
 
 MetaTags.propTypes = {
   page: PropTypes.string.isRequired,
-  pageMicrodata: PropTypes.instanceOf(Object),
   breadcrumbs: PropTypes.instanceOf(Array),
+  articleData: PropTypes.instanceOf(Object),
   pageMetadata: PropTypes.shape({
     metaTitle: PropTypes.string,
     metaDescription: PropTypes.string,
+    metaRobots: PropTypes.string,
     image: PropTypes.string,
     ogImage: PropTypes.string,
     publishedAt: PropTypes.string,

@@ -1,12 +1,12 @@
 @import 'styles/utils/mixins';
 
 .paginationWrapper {
+  @include flex(row, center, center);
+
   will-change: transform;
   transform: scale(0.9);
-  margin: $section-indent auto 0;
+  margin: 60px auto 0;
   width: fit-content;
-
-  @include flex(row, center, center);
 
   @include tablet {
     margin-top: 60px;
@@ -26,6 +26,7 @@
   @include flex(row, flex-start, center);
 
   padding-left: 0;
+  margin: 0;
   list-style: none;
 }
 

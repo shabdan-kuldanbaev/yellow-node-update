@@ -1,0 +1,43 @@
+.writer-chrome-extension {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 32px;
+  max-width: 100%;
+
+  .containerBackground {
+    opacity: 0.9;
+    right: 0;
+    bottom: 0;
+
+    @include phone {
+      right: 5%;
+      bottom: -5%;
+    }
+  }
+
+  .featureContainer {
+    &:not(:last-of-type) {
+      margin: 0;
+    }
+
+    .title {
+      margin: 0;
+    }
+
+    .checkMark {
+      background: $writerAccent;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+
+  .featureContainer-2 {
+    grid-row: 2/5;
+  }
+
+  @include tablet {
+    grid-template-columns: auto;
+  }
+}

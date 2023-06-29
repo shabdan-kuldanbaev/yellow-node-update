@@ -1,0 +1,34 @@
+.natp {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 32px;
+  max-width: 100%;
+
+  .containerBackground {
+    opacity: 0.9;
+  }
+
+  .featureContainer {
+    @include flex(row,initial, center);
+
+    &:not(:last-of-type) {
+      margin: 0;
+    }
+
+    .title {
+      margin: 0;
+    }
+
+    .checkMark {
+      background: $natpAccent;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: auto;
+  }
+}

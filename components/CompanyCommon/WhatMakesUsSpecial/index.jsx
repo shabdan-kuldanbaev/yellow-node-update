@@ -1,16 +1,18 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
-import SectionTitle from 'UI/components/SectionTitle';
+import Illustration from 'UI/components/Illustration';
+import SectionTitle from 'components/Common/SectionTitle';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const WhatMakesUsSpecial = ({ makingUsSpecial }) => makingUsSpecial && (
   <section className={styles.makingUsSpecial}>
     <SectionTitle
       title="What makes us special"
-      className={styles.titleStyle}
+      styleContainer={styles.titleStyle}
     />
     <div className={styles.specialThings}>
       {makingUsSpecial && makingUsSpecial.map((special, index) => {
@@ -30,7 +32,8 @@ const WhatMakesUsSpecial = ({ makingUsSpecial }) => makingUsSpecial && (
             transitionDelay={100 + 150 * index}
           >
             <div className={styles.title}>
-              <img
+              <Illustration
+                layout="fill"
                 src={imageUrl}
                 alt={title}
               />

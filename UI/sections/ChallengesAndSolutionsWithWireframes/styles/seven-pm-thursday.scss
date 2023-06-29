@@ -1,0 +1,15 @@
+.seven-pm-thursday {
+  background-color: $sevenPmPrimary;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray500;
+  }
+
+  @include phone {
+    padding: 30px 0;
+  }
+}

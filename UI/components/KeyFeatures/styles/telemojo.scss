@@ -1,0 +1,21 @@
+.telemojo {
+  .containerBackground {
+    opacity: 0.9;
+  }
+
+  .featureContainer {
+    @include flex(row, initial, center);
+
+    .title {
+      margin: 0;
+    }
+
+    .checkMark {
+      background: $telemojoGradient;
+
+      path {
+        fill: $gray0;
+      }
+    }
+  }
+}

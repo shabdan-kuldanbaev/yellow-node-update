@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import styles from '../Button.module.scss';
 
 export default ({
@@ -8,7 +9,12 @@ export default ({
   className: classes,
   ...rest
 }) => {
-  const Component = href ? 'a' : 'button';
+  const Component = href ? (props) => <LinkWrapper {...props} /> : (props) => (
+    <button
+      type="button"
+      {...props}
+    />
+  );
 
   const className = cn(
     styles.button,
@@ -22,7 +28,7 @@ export default ({
   return ({
     Component,
     className,
-    href,
+    path: href,
     ...rest,
   });
 };

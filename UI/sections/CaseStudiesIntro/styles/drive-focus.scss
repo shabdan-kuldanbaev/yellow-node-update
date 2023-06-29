@@ -1,0 +1,84 @@
+.drive-focus {
+  background: $driveFocusPrimary;
+
+  [data-title],
+  [data-subtitle],
+  [data-description] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    max-width: 400px;
+
+    @include phone {
+      max-width: 320px;
+    }
+  }
+
+  .introSection {
+    margin: 32px auto 48px;
+  }
+
+  .experience {
+    color: $gray0;
+
+    p {
+      opacity: 0.7;
+    }
+  }
+
+  .image,
+  .imageContainer {
+    height: 568px;
+
+    @include tablet {
+      height: 450px;
+    }
+
+    @include below-tablet {
+      height: 330px;
+    }
+
+    @include phone {
+      height: 210px;
+    }
+  }
+
+  .image {
+    transform: translate(-50%, -50%);
+    width: 935px;
+
+    @include tablet {
+      width: 100%;
+      max-width: 745px;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .appLink {
+    display: none;
+  }
+
+  .bundleImage {
+    position: absolute;
+    top: -430px;
+    right: -710px;
+    width: 1769px;
+    height: 1769px;
+
+    @include below-tablet {
+      width: 1200px;
+      height: 1200px;
+      top: -230px;
+      right: -510px;
+    }
+
+    @include phone {
+      transform: translate(0%, 0%);
+      top: unset;
+      right: unset;
+      width: 525px;
+      height: 525px;
+    }
+  }
+}

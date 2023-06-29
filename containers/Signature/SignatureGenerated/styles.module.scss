@@ -11,10 +11,10 @@
   @include signature-button;
 
   &Bottom {
+    @include fontSize(10px);
+
     background-color: $gray-300;
     color: $silver-chalice;
-
-    @include fontSize(10px);
 
     &Container {
       margin: 0 16px;
@@ -94,7 +94,7 @@
   }
 
   &Data {
-    @include fontSize(11pt);
+    @include fontSize(10pt, 1.5);
 
     line-height: 150%;
 
@@ -107,30 +107,31 @@
     }
 
     &Employee {
+      @include fontSize(11pt);
+
       font-weight: 600;
     }
 
     &Job {
-      color: $silver-chalice;
-
       @include fontSize(11pt);
+
+      color: $silver-chalice;
     }
 
     &Email {
       @include signatureLinkMixin;
+      @include fontSize(9pt);
 
       line-height: 100%;
-
-      @include fontSize(9pt);
     }
 
     &Yellow {
       @include signatureLinkMixin;
+      @include fontSize(9pt);
 
+      margin-left: 16px !important;
       line-height: 150%;
       margin-bottom: 4px !important;
-
-      @include fontSize(9pt);
 
       a,
       a:visited {
@@ -144,11 +145,12 @@
       a {
         line-height: 100%;
         margin-left: 16px;
+        margin-right: 8px;
         vertical-align: bottom;
       }
 
       a + a {
-        margin-left: 8px;
+        margin-left: 0;
       }
 
       img {
@@ -165,5 +167,19 @@
     td {
       padding: 0;
     }
+  }
+
+  &PhoneContainer {
+    border-right: solid 2px $athens-gray;
+    display: inline-block;
+
+    p {
+      margin: 0 10px 0 16px;
+      padding: 0;
+    }
+  }
+
+  &YellowContainer {
+    display: inline-block;
   }
 }

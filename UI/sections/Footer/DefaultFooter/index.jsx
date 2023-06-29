@@ -1,11 +1,16 @@
-import React from 'react';
-import Svg from 'UI/components/Svg';
+import { memo } from 'react';
+import dynamic from 'next/dynamic';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import SideContent from './SideContent';
 import MainContent from './MainContent';
 import BottomContent from './BottomContent';
 import CircleButton from './CircleButton';
+import Addresses from './Addresses';
+import Company from './Company';
+import MainContentWithExpand from './MainContentWithExpand';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const DefaultFooter = () => {
   const onClick = () => {
@@ -19,7 +24,10 @@ const DefaultFooter = () => {
     <footer className={styles.footerContainer}>
       <div className={styles.footer}>
         <SideContent />
+        <Company />
+        <Addresses />
         <MainContent />
+        <MainContentWithExpand />
       </div>
       <BottomContent />
       <CircleButton onClick={onClick}>
@@ -32,4 +40,4 @@ const DefaultFooter = () => {
   );
 };
 
-export default React.memo(DefaultFooter);
+export default memo(DefaultFooter);

@@ -12,7 +12,7 @@ import {
   PHONE_RESOLUTION,
 } from 'utils/constants';
 import gaHelper from 'utils/ga';
-import errorHelper from './error';
+import { handleError } from './error';
 
 export const themes = {
   dark: {
@@ -57,7 +57,7 @@ export const getYoutubeVideoIdFromUrl = (url) => {
 export const mobileResolution = toInt(PHONE_RESOLUTION);
 export const fullResolution = toInt(FULL_HD_RESOLUTION);
 export const horizontalPhone = toInt(HORIZONTAL_MOBILE);
-export const tabletResolution = toInt(DEFAULT_TABLET_RESOLUTION);
+export const tabletResolution = toInt(BIG_TABLET_RESOLUTION);
 export const smallTabletResolution = toInt(DEFAULT_TABLET_RESOLUTION);
 
 export const setOverflowForBody = (isHidden) => {
@@ -69,19 +69,25 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.portfolio}`, updatedAt },
   { path: `/${PAGES.process}`, updatedAt },
   { path: `/${PAGES.company}`, updatedAt },
+  { path: `/${PAGES.whyUs}`, updatedAt },
   { path: `/${PAGES.contact}`, updatedAt },
   { path: `/${PAGES.blog}`, updatedAt },
   { path: `/${PAGES.customChatApp}`, updatedAt },
   { path: `/${PAGES.customMobileApp}`, updatedAt },
   { path: `/${PAGES.customWebApp}`, updatedAt },
+  { path: `/${PAGES.crowdfundingPlatform}`, updatedAt },
   { path: `/${PAGES.erpDevelopment}`, updatedAt },
   { path: `/${PAGES.designServices}`, updatedAt },
-  { path: `/${PAGES.developmentServices}`, updatedAt },
+  { path: `/${PAGES.iosDevelopmentServices}`, updatedAt },
   { path: `/${PAGES.mlDevelopment}`, updatedAt },
   { path: `/${PAGES.cloudDevelopment}`, updatedAt },
   { path: `/${PAGES.androidDevelopmentServices}`, updatedAt },
   { path: `/${PAGES.mvpDevelopment}`, updatedAt },
+  { path: `/${PAGES.lendingSoftwareDevelopment}`, updatedAt },
+  { path: `/${PAGES.paymentGatewayDevelopment}`, updatedAt },
+  { path: `/${PAGES.billingSoftwareDevelopment}`, updatedAt },
   { path: `/${PAGES.fintechDevelopment}`, updatedAt },
+  { path: `/${PAGES.softwareQualityAssuranceServices}`, updatedAt },
   { path: `/${PAGES.devOpsDevelopment}`, updatedAt },
   { path: `/${PAGES.aiDevelopment}`, updatedAt },
   { path: `/${PAGES.privacyPolicy}`, updatedAt },
@@ -90,6 +96,7 @@ export const getMainLinksForSitemap = (updatedAt) => [
   { path: `/${PAGES.crossPlatformDevelopmentServices}`, updatedAt },
   { path: `/${PAGES.dataScienceDevelopment}`, updatedAt },
   { path: `/${PAGES.prototypingServices}`, updatedAt },
+  { path: `/${PAGES.tradingSoftwareDevelopment}`, updatedAt },
 ];
 
 export const rootUrl = process.env.NODE_ENV === 'development'
@@ -132,22 +139,28 @@ export const addHttpsToUrl = (url) => (/^\/\//.test(url) ? `https:${url}` : url)
 export const getFileUrl = (file) => addHttpsToUrl(get(file, 'fields.file.url', ''));
 
 export const getImage = (file) => {
-  const imageData = get(file, 'fields.file', '');
+  const imageData = get(file, 'fields', {});
+
+  const url = addHttpsToUrl(imageData.file?.url);
+  const alt = imageData.description || url;
 
   return {
-    ...imageData.details.image,
-    url: addHttpsToUrl(imageData.url),
+    ...imageData.file?.details.image,
+    alt,
+    url,
   };
 };
 
-export const getDocumentFields = (document, fields = []) => {
+export const getDocumentFields = (document, fields = [], { isNormilized = false } = {}) => {
   if (fields.length) {
     return fields.reduce((acc, field) => {
       if (!field) return acc;
 
-      acc[field] = field.indexOf('sys.') === 0
-        ? get(document, field, null)
-        : get(document, `fields.${field}`, null);
+      if (field.indexOf('sys.') === 0 || isNormilized) {
+        acc[field] = get(document, field, null);
+      } else {
+        acc[field] = get(document, `fields.${field}`, null);
+      }
 
       return acc;
     }, {});
@@ -290,7 +303,7 @@ export const formParser = (form) => async (req, _, next) => {
       req.body = fields;
       req.files = files;
     } else {
-      errorHelper.handleError({
+      handleError({
         err,
         message: 'Error in the bodyParser function',
       });
@@ -299,3 +312,9 @@ export const formParser = (form) => async (req, _, next) => {
     next();
   });
 };
+
+export const findBlock = (blocks, blockType) => blocks.find((module) => {
+  const { slug } = getDocumentFields(module, ['slug']);
+
+  return slug === blockType;
+});

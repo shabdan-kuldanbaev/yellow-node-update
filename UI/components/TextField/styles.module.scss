@@ -1,0 +1,72 @@
+@import 'styles/utils/mixins';
+
+.input {
+  @include flex(column);
+
+  position: relative;
+  margin-bottom: 21px;
+  outline: none;
+
+  input,
+  textarea {
+    @include fontSize(16px, 24px);
+
+    cursor: text;
+    width: auto;
+    border: 0 none;
+    border-bottom: solid 0.5px $gray300;
+    background-color: transparent;
+    font-family: $default-font;
+    color: $gray900;
+    outline: none;
+    padding: 0 0 12px;
+    transition: border 1s cubic-bezier(0.26, 1.04, 0.54, 1), color 0.5s cubic-bezier(0.26, 1.04, 0.54, 1);
+
+    &::placeholder {
+      transition: 0.5s ease;
+      color: $gray400;
+    }
+
+    &:focus::placeholder {
+      transform: translateX(4px);
+    }
+
+    &:invalid {
+      border-color: $red500;
+
+      &:focus {
+        border-color: $gray300;
+      }
+
+      & ~ .error {
+        opacity: 1;
+      }
+
+      &:focus ~ .error {
+        opacity: 0;
+      }
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+}
+
+.error {
+  position: absolute;
+  bottom: -21px;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.26, 1.04, 0.54, 1);
+  font-weight: 400;
+  font-size: 12px;
+  color: $red500;
+  pointer-events: none;
+}
+
+.attached {
+  input,
+  textarea {
+    padding-right: 25px;
+  }
+}

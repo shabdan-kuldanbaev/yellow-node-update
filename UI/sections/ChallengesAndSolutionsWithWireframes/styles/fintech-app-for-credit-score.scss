@@ -1,0 +1,9 @@
+.fintech-app-for-credit-score {
+  &.secondSectionView {
+    background: $fintechGradient;
+
+    [data-title] {
+      color: $gray0;
+    }
+  }
+}

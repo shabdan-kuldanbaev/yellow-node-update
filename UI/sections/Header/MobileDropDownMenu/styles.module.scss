@@ -1,0 +1,52 @@
+@import 'styles/utils/mixins';
+
+.mobileDropDownMenu {
+  margin-top: 16px;
+
+  .subMenuItemContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+
+    .subMenuItem {
+      position: relative;
+      font-weight: 700;
+      color: $gray0;
+      cursor: pointer;
+    }
+
+    .svgContainer {
+      margin-right: 5px;
+      height: 24px;
+      outline: none;
+      transform-origin: 50% 50%;
+      transform: rotate(0);
+      transition: transform $default-transition-time ease-in-out;
+
+      & > svg > path {
+        fill: $gray0;
+      }
+    }
+  }
+
+  &.light {
+    .subMenuItem {
+      color: $gray900;
+    }
+
+    .svgContainer > svg > path {
+      fill: $gray900;
+    }
+  }
+
+  .openedDropDown {
+    .svgContainer {
+      transform: rotate(-180deg);
+      transition: transform $default-transition-time ease-in-out;
+    }
+  }
+}

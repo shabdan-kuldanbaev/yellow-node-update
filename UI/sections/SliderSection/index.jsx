@@ -1,27 +1,36 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Scrollbar, Mousewheel } from 'swiper';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
-import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
 import CardContainer from 'UI/containers/CardContainer';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import CallToAction from 'UI/components/CallToAction';
 import { getSliderProps } from './utils/sliderHelper';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
+
+const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'), { ssr: false });
 
 SwiperCore.use([
   Scrollbar,
   Mousewheel,
 ]);
 
-const SliderSection = ({ sectionData, type }) => {
+const SliderSection = ({
+  sectionData,
+  type,
+  handleOnCTAClick,
+}) => {
   const {
     title,
+    subtitle,
     description,
     slides,
     params,
+    ctaLink,
   } = getSliderProps(sectionData);
 
   if (!slides || !slides.length) {
@@ -33,6 +42,7 @@ const SliderSection = ({ sectionData, type }) => {
       <div className={styles.contentWrapper}>
         <SectionTitle
           title={title}
+          subtitle={subtitle}
           description={description}
           titleStyle={styles.titleStyle}
         />
@@ -62,6 +72,19 @@ const SliderSection = ({ sectionData, type }) => {
             </Swiper>
           </Animated>
         </CardContainer>
+
+        {ctaLink && (
+          <Animated
+            {...REVEAL_ANIMATION_PROPS}
+            transitionDelay={50}
+          >
+            <CallToAction
+              data={ctaLink}
+              handleOnClick={handleOnCTAClick}
+              className={styles.callToAction}
+            />
+          </Animated>
+        )}
       </div>
     </section>
   );

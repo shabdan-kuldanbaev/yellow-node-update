@@ -1,0 +1,21 @@
+.kitchen-equipment-customizer {
+  padding: 60px 32px 120px;
+  background-color: $kitchenSecondary;
+
+  .titleStyle {
+    max-width: $wide-content-width;
+    width: 100%;
+  }
+
+  [data-title] {
+    @include fontSize(24px, 130%);
+
+    max-width: 100%;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  @include below-tablet {
+    padding: 30px 16px 60px;
+  }
+}
