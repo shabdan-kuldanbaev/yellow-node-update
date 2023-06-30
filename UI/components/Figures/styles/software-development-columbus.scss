@@ -1,0 +1,20 @@
+.software-development-columbus,
+.software-development-washington,
+.software-development-oklahoma,
+.software-development-nashville,
+.software-development-raleigh {
+  .figures {
+    @include below-tablet {
+      justify-content: center;
+
+      & > * {
+        flex: 1 1 auto;
+        text-align: center;
+
+        span:first-child {
+          @include fontSize(24px);
+        }
+      }
+    }
+  }
+}
