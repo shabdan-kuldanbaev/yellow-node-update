@@ -300,6 +300,7 @@ export const CASE_STUDIES = {
   p2pLoans: 'web-p2p-lending-platform',
   chatSolutions: 'web-chat-for-mediums',
   kitchenEquipment: 'kitchen-equipment-customizer',
+  radioPlato: 'mobile-music-app',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -337,6 +338,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.mobileBudgetingApp).path,
   ROUTES.project.getRoute(CASE_STUDIES.forexTradingPlatform).path,
   ROUTES.project.getRoute(CASE_STUDIES.kitchenEquipment).path,
+  ROUTES.project.getRoute(CASE_STUDIES.radioPlato).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.whyUs.path,
@@ -386,6 +388,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   CASE_STUDIES.openSense,
   CASE_STUDIES.chatSolutions,
   CASE_STUDIES.kitchenEquipment,
+  CASE_STUDIES.radioPlato,
 ];
 
 export const PAGES_WITH_GRAY_HEADER = [

@@ -1,0 +1,108 @@
+.mobile-music-app {
+  background-color: $radioPlatoAccent;
+  padding: 120px 40px;
+
+  .titleStyle {
+    @include flex(row, space-between, center);
+
+    position: relative;
+    margin: 0 auto 48px;
+    max-width: $default-content-width;
+    width: 100%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 80px;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 1px;
+      background-color: $gray1000;
+    }
+
+    @include below-tablet {
+      margin: 0 auto 21px;
+    }
+  }
+
+  [data-title] {
+    @include fontSize(16px, 150%);
+
+    overflow: hidden;
+    margin: 0;
+    max-width: unset;
+    color: $gray1000;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  [data-subtitle] {
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+    max-width: unset;
+    color: $gray1000;
+    font-weight: 600;
+  }
+
+  .contentContainer {
+    margin: 0 auto;
+    max-width: $default-content-width;
+  }
+
+  .descriptionContainer {
+    @include flex(row, space-between);
+
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .descriptionIntro {
+    margin: 0;
+    max-width: 481px;
+
+    .title {
+      display: none;
+    }
+
+    h4 {
+      @include fontSize(16px, 140%);
+
+      margin: 0 0 8px;
+      color: $gray1000;
+      font-weight: 600;
+      text-align: left;
+      text-transform: uppercase;
+
+      @include below-tablet {
+        margin: 0 auto 8px;
+      }
+    }
+
+    p {
+      @include fontSize(16px, 150%);
+
+      margin: 0;
+      color: $gray1000;
+      opacity: 0.6;
+      text-align: left;
+    }
+  }
+
+  @include tablet {
+    .descriptionIntro {
+      margin-bottom: 24px;
+      max-width: 100%;
+    }
+
+    .descriptionContainer {
+      @include flex(column);
+    }
+  }
+
+  @include below-tablet {
+    padding: 60px 16px;
+  }
+}

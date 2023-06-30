@@ -1,0 +1,98 @@
+.mobile-music-app {
+  &.firstSectionView {
+    margin: 0 auto 48px;
+    max-width: 1120px;
+    width: 100%;
+    overflow: hidden;
+
+    .image {
+      width: 100%;
+      height: 460px;
+
+      @include tablet {
+        height: 360px;
+      }
+
+      @include below-tablet {
+        height: 260px;
+      }
+
+      @include phone {
+        height: 140px;
+      }
+    }
+
+    @include below-tablet {
+      margin: 0 auto 24px;
+    }
+  }
+
+  &.thirdSectionView,
+  &.fourthSectionView,
+  &.fifthSectionView,
+  &.sixthSectionView {
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+
+    .image {
+      margin: 0;
+      width: $macbook-thirteen;
+      height: 630px;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include tablet {
+      height: 570px;
+    }
+  }
+
+  &.thirdSectionView {
+    @include phone {
+      .image {
+        width: 1320px;
+      }
+    }
+  }
+
+  &.fourthSectionView,
+  &.fifthSectionView,
+  &.sixthSectionView {
+    @include phone {
+      .image {
+        width: 1090px;
+      }
+    }
+  }
+
+  &.seventhSectionView {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    width: 100%;
+    height: 1776px;
+
+    .image {
+      @include centered;
+
+      margin: 0;
+      max-width: 1940px;
+      width: 100%;
+      height: 100%;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    @include below-tablet {
+      height: 701px;
+    }
+  }
+}

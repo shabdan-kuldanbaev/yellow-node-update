@@ -8,19 +8,19 @@ import styles from './styles.module.scss';
 const WireframesSection = (props) => {
   const {
     type,
+    view,
     title,
     images,
     description,
-    sectionStyle,
+    subtitle,
+    sectionProps,
   } = useWireframesSection(props);
 
   return (
-    <section
-      className={cn(styles[type], styles.container)}
-      style={sectionStyle}
-    >
+    <section {...sectionProps}>
       <SectionTitle
         title={title}
+        subtitle={subtitle}
         description={description}
         type={type}
         titleStyle={styles.titleStyle}
@@ -28,6 +28,7 @@ const WireframesSection = (props) => {
       <Wireframes
         images={images}
         type={type}
+        view={view}
       />
     </section>
   );

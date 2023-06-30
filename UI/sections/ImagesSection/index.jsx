@@ -13,12 +13,12 @@ const ImagesSection = (props) => {
     type,
     imagesUrl,
     text,
-    classname,
+    sectionProps,
     sectionTitles,
   } = useImageSection(props);
 
   return (
-    <section className={classname}>
+    <section {...sectionProps}>
       {imagesUrl?.map(({ url, alt }) => (
         <Illustration
           transparent

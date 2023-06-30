@@ -79,6 +79,10 @@ export const IMAGE_SIZES = {
   'kitchen-equipment-customizer': {
     default: 622,
   },
+  'mobile-music-app': {
+    firstSectionView: 600,
+    secondSectionView: 100,
+  },
 };
 
 export const MOBILE_IMAGE_SIZES = {
@@ -129,5 +133,9 @@ export const MOBILE_IMAGE_SIZES = {
   },
   'kitchen-equipment-customizer': {
     default: 206,
+  },
+  'mobile-music-app': {
+    firstSectionView: 600,
+    secondSectionView: 40,
   },
 };
