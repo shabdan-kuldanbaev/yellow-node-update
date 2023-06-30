@@ -11,7 +11,7 @@ const EmbedArticleCard = (props) => {
     title,
     description,
     url,
-    imageUrl,
+    image,
   } = useEmbedArticleCard(props);
 
   return (
@@ -44,7 +44,8 @@ const EmbedArticleCard = (props) => {
       </div>
 
       <Illustration
-        src={imageUrl}
+        src={image.url}
+        alt={image.alt}
         className={styles.image}
       />
     </CardContainer>

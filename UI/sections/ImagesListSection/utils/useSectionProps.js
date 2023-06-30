@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import { useMemo } from 'react';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { getDocumentFields, getImage } from 'utils/helper';
 
 export default ({
   section,
@@ -23,9 +23,9 @@ export default ({
     ],
   ), [section]);
 
-  const { images } = getDocumentFields(get(contentModules, '[0]', {}));
+  const { images: rawImages } = getDocumentFields(get(contentModules, '[0]', {}));
 
-  const imagesUrl = images?.map((image) => getFileUrl(image));
+  const images = rawImages?.map((image) => getImage(image));
 
   const {
     subtitle: secondSubtitle,
@@ -35,7 +35,7 @@ export default ({
   return {
     title,
     description,
-    imagesUrl,
+    images,
     secondSubtitle,
     secondTitle,
     subtitle,

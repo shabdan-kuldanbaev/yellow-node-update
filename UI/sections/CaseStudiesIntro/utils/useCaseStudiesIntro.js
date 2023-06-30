@@ -2,6 +2,7 @@ import get from 'lodash/get';
 import {
   getDocumentFields,
   getFileUrl,
+  getImage,
   getOptimizedContentfulImage,
 } from 'utils/helper';
 import { SECTION_WITH_BACKGROUND_TITLE, isFileVideo } from './helpers';
@@ -43,17 +44,14 @@ export const useCaseStudiesIntro = ({
     getFileUrl(get(images, '[1]', '')),
     { fm: 'png', fl: 'png8' },
   );
-  const appBackgroundImageUrl = getOptimizedContentfulImage(
-    getFileUrl(get(images, '[0]', '')),
-    { fm: 'png', fl: 'png8' },
-  );
+  const appBackgroundImage = getImage(get(images, '[0]', ''));
   const backgroundImageUrl = getOptimizedContentfulImage(
     getFileUrl(get(data, 'images[0]', '')),
     { fm: 'png' },
   );
   const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
 
-  const imagesBundlesWithUrls = imagesBundles?.map((bundle) => getFileUrl(bundle)) || [];
+  const imagesBundlesWithUrls = imagesBundles?.map((bundle) => getImage(bundle)) || [];
 
   const imageBackgroundTitle = SECTION_WITH_BACKGROUND_TITLE?.[type] || null;
 
@@ -65,7 +63,7 @@ export const useCaseStudiesIntro = ({
     introSection,
     experiences,
     appLogoUrl,
-    appBackgroundImageUrl,
+    appBackgroundImage,
     title,
     subtitle,
     description,

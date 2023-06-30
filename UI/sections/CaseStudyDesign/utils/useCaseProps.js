@@ -12,17 +12,17 @@ export default ({ data, type }) => {
     const {
       title,
       description,
-      images,
+      images: rawImages,
       imagesBundles,
     } = getDocumentFields(cont);
 
-    const imagesUrls = images?.map((img) => getImage(img));
+    const images = rawImages?.map((img) => getImage(img));
     const imgBundleUrls = imagesBundles?.map((img) => getImage(img));
 
     return {
       title,
       description,
-      imagesUrls,
+      images,
       imgBundleUrls,
     };
   }), [data]);

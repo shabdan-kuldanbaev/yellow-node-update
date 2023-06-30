@@ -13,7 +13,7 @@ const ImagesListSection = (props) => {
   const {
     title,
     description,
-    imagesUrl,
+    images,
     view,
     type,
     subtitle,
@@ -33,16 +33,16 @@ const ImagesListSection = (props) => {
           titleStyle={styles.titleStyle}
         />
         <div className={styles.imagesList}>
-          {imagesUrl?.map((url, index) => (
+          {images?.map((image, index) => (
             <Animated
-              key={`images/${url}`}
+              key={`images/${image.url}`}
               {...REVEAL_ANIMATION_PROPS}
               transitionDelay={50 * index}
             >
               <Illustration
                 className={cn(styles.image, styles[`image-${index + 1}`])}
-                src={url}
-                alt={description}
+                src={image.url}
+                alt={image.alt}
               />
             </Animated>
           ))}

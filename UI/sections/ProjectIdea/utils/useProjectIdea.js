@@ -52,7 +52,7 @@ export const useProjectIdea = ({ type, data }) => {
     ]),
   );
   const textContent = imageContent?.contentModules?.map((con) => getDocumentFields(con, ['title', 'contentList', 'description']));
-  const imageUrl = getFileUrl(imageContent?.images?.[0]);
+  const image = getImage(imageContent?.images?.[0]);
 
   return {
     type,
@@ -66,7 +66,7 @@ export const useProjectIdea = ({ type, data }) => {
     delayedAnimation,
     featuresProps,
     teamListProps,
-    imageUrl,
+    image,
     textContent,
     view,
     background: getImage(background),

@@ -55,7 +55,8 @@ const CaseProcess = (props) => {
                   <Illustration
                     priority
                     unoptimized
-                    src={image}
+                    src={image.url}
+                    alt={image.alt}
                     className={styles.stepImage}
                   />
                 )}
@@ -110,13 +111,13 @@ const CaseProcess = (props) => {
           ))}
         </div>
         <div className={styles.imagesContainer}>
-          {images?.map((url, index) => (
+          {images?.map((image, index) => (
             <Illustration
               transparent
               priority
               className={cn(styles.image, styles[`image-${index + 1}`])}
-              alt={url}
-              src={url}
+              alt={image.alt}
+              src={image.url}
             />
           ))}
         </div>

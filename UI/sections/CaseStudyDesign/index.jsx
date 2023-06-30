@@ -30,7 +30,7 @@ const CaseStudyDesign = (props) => {
       {content?.map(({
         title,
         description,
-        imagesUrls,
+        images,
         imgBundleUrls,
       }, i) => (
         <div
@@ -46,9 +46,10 @@ const CaseStudyDesign = (props) => {
           </Animated>
           <Animated {...REVEAL_ANIMATION_PROPS}>
             <div className={styles.imagesContainer}>
-              {imagesUrls?.map(({ url }, y) => (
+              {images?.map(({ url, alt }, y) => (
                 <Illustration
                   src={url}
+                  alt={alt}
                   key={`image-${y + 1}`}
                   className={cn(styles[`image-${y + 1}`], styles.image)}
                   transparent
