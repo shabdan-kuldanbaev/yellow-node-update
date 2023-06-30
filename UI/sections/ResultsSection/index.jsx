@@ -1,22 +1,26 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
-import Video from 'components/Common/Video';
 import Illustration from 'UI/components/Illustration';
 import Media from 'UI/components/Media';
 import { useResultsSection } from './utils/useResultsSection';
 import styles from './styles.module.scss';
+
+const FigmaPrototype = dynamic(() => import('components/Common/FigmaPrototype'));
 
 const ResultsSection = (props) => {
   const {
     view,
     type,
     title,
+    subtitle,
     description,
     screenUrl,
     imagesBundles,
     sectionStyle,
     images,
+    prototypeLink,
   } = useResultsSection(props);
 
   return (
@@ -26,6 +30,7 @@ const ResultsSection = (props) => {
     >
       <SectionTitle
         title={title}
+        subtitle={subtitle}
         description={description}
         type={type}
         className={styles.sectionTitle}
@@ -37,6 +42,12 @@ const ResultsSection = (props) => {
           src={screenUrl}
           alt={screenUrl}
         />
+        {prototypeLink && (
+          <FigmaPrototype
+            src={prototypeLink}
+            className={styles.figmaPrototype}
+          />
+        )}
         {images?.map((image, index) => (
           <Media
             key={`${index + 1}`}

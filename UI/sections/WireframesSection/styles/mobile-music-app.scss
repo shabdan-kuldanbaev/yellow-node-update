@@ -1,0 +1,81 @@
+.mobile-music-app {
+  &.firstSectionView {
+    padding: 120px 0;
+    background-color: $gray1000;
+
+    .titleStyle {
+      @include flex(row, space-between, center, wrap);
+
+      position: relative;
+      padding: 0 16px;
+      max-width: $default-content-width;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 143px;
+        right: 56px;
+        top: 10px;
+        height: 1px;
+        background-color: $gray0;
+      }
+
+      & > div:nth-child(1),
+      & > div:nth-child(2) {
+        width: 50%;
+      }
+
+      & > div:nth-child(3) {
+        width: 100%;
+      }
+    }
+
+    [data-title],
+    [data-subtitle] {
+      @include fontSize(16px, 140%);
+
+      margin: 0;
+      max-width: unset;
+      color: $gray0;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    [data-title] {
+      text-align: left;
+    }
+
+    [data-subtitle] {
+      text-align: right;
+    }
+
+    [data-description] {
+      margin: 48px 0 0;
+      max-width: 382px;
+      color: $gray0;
+      opacity: 0.9;
+      text-align: left;
+
+      @include below-tablet {
+        margin: 24px 0 0;
+      }
+    }
+
+    @include below-tablet {
+      padding: 60px 0;
+    }
+  }
+
+  &.secondSectionView {
+    padding: 120px 0;
+    background-color: $gray1000;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include below-tablet {
+      padding: 60px 0;
+    }
+  }
+}
