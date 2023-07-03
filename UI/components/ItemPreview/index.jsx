@@ -10,7 +10,7 @@ const ItemPreview = (props) => {
     type,
     slug,
     link,
-    imageUrl,
+    image,
   } = useItemPreview(props);
 
   return (
@@ -24,10 +24,10 @@ const ItemPreview = (props) => {
       >
         <Illustration
           className={styles.image}
-          src={imageUrl}
-          alt={slug}
+          src={image.url}
+          alt={image.alt}
           lazyBoundary="2000px"
-          priority
+          unoptimized
         />
       </div>
     </LinkWrapper>

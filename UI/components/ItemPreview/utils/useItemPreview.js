@@ -1,4 +1,3 @@
-import get from 'lodash/get';
 import { getDocumentFields, getImage } from 'utils/helper';
 
 export const useItemPreview = ({ data, type }) => {
@@ -15,7 +14,7 @@ export const useItemPreview = ({ data, type }) => {
     ],
   );
 
-  const [{ url: imageUrl }] = (images || []).map((file) => getImage(file));
+  const [image] = (images || []).map((file) => getImage(file));
 
   const { slug: link } = getDocumentFields(
     contentModules?.find((modules) => modules.sys.contentType.sys.id === 'link'),
@@ -25,7 +24,7 @@ export const useItemPreview = ({ data, type }) => {
   return {
     type,
     slug,
-    imageUrl,
+    image,
     link,
   };
 };
