@@ -3,21 +3,9 @@
 
   cursor: pointer;
   box-sizing: border-box;
-  height: 60vh;
   overflow: hidden;
   width: 100%;
-
-  @include tablet {
-    height: 75vh;
-  }
-
-  @include below-tablet {
-    height: 90vh;
-  }
-
-  @include phone {
-    height: 35vh;
-  }
+  aspect-ratio: 790/480;
 }
 
 .image {
@@ -28,4 +16,3 @@
     object-fit: cover !important;
   }
 }
-
