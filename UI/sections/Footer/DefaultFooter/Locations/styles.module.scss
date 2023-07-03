@@ -7,14 +7,12 @@
     @include fontSize(18px, 150%);
 
     margin: 0 0 10px;
-    text-align: center;
   }
 
   p {
     @include fontSize(14px, 150%);
 
     color: $gray400;
-    text-align: center;
 
     & > * {
       display: inline-block;
