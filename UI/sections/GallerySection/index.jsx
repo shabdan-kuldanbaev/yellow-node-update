@@ -8,7 +8,7 @@ import { useGallerySection } from './utils/useGallerySection';
 import { swiperGalleryParams, typedSwiperParams } from './utils/helpers';
 import styles from './styles.module.scss';
 
-const ItemPreview = dynamic(() => import('UI/components/ItemPreview'), { ssr: false });
+const ItemPreview = dynamic(() => import('UI/components/ItemPreview'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 
 const GallerySection = (props) => {
