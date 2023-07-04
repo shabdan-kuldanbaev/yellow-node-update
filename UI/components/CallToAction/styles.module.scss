@@ -132,7 +132,6 @@
 
     .button {
       margin: 16px 0 0;
-      flex: 0 0 auto;
     }
 
     @include tablet {
@@ -189,6 +188,7 @@
 
 .button {
   margin-left: auto;
+  flex: 0 0 auto;
 }
 
 .openContact {
