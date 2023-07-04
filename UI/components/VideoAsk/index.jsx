@@ -19,7 +19,8 @@ export default function VideoAsk() {
                 "text": "",
                 "backgroundColor": "#000000",
                 "position": "bottom-right",
-                "dismissible": false
+                "dismissible": false,
+                "widgetZIndex": "50"
               }
             }`,
         }}

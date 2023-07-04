@@ -16,7 +16,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999999;
+  z-index: 50;
   width: calc(100% - 128px);
   max-width: 100vw;
   height: 100%;
@@ -26,17 +26,6 @@
   transition:
     padding $default-transition-time,
     background-color 0.5s;
-
-  @include tablet {
-    width: calc(100% - 46px);
-    padding: 16px 23px;
-  }
-
-  @include phone {
-    width: calc(100% - 30px);
-    padding: 10px 16px;
-    height: unset;
-  }
 
   &.notHome {
     background-color: $header-additional-color;
@@ -109,6 +98,17 @@
   &.grayHeader {
     background-color: $gray50;
     border-bottom: 0;
+  }
+
+  @include tablet {
+    width: calc(100% - 46px);
+    padding: 16px 23px;
+  }
+
+  @include phone {
+    width: calc(100% - 30px);
+    padding: 10px 16px;
+    height: unset;
   }
 }
 

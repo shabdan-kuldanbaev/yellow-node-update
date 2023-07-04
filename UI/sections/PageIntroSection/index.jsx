@@ -11,6 +11,7 @@ import styles from './styles.module.scss';
 const Animated = dynamic(() => import('UI/containers/Animated'));
 const Typography = dynamic(() => import('UI/components/Typography'));
 const Button = dynamic(() => import('UI/components/Button'));
+const BookBlock = dynamic(() => import('UI/components/BookBlock'));
 
 const PageIntroSection = (props) => {
   const {
@@ -22,6 +23,8 @@ const PageIntroSection = (props) => {
     figuresData,
     introSection,
     handleOnCTAClick,
+    bookProps,
+    isBookBlock,
   } = useSectionProps(props);
 
   // TODO: use rich text instead of splitting
@@ -88,6 +91,9 @@ const PageIntroSection = (props) => {
           type={type}
           figuresData={figuresData}
         />
+        {isBookBlock && (
+          <BookBlock {...bookProps} />
+        )}
       </div>
     </section>
   );
