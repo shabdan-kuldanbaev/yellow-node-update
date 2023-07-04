@@ -208,7 +208,7 @@ export const WHY_US_TYPE = {
   results: 'case-study-results',
 };
 
-export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
+export const HOMEPAGE_SLOGAN = 'WE CREATE\nAI-ENABLED SOFTWARE';
 
 export const HOMEPAGE_SECTION_TYPES = {
   text: 'text',
