@@ -21,6 +21,7 @@ const FeedbackSection = (props) => {
     slug,
     images,
     files,
+    buttonTitle,
   } = useSectionProps(props);
 
   return (
@@ -65,6 +66,7 @@ const FeedbackSection = (props) => {
               <FeedbackForm
                 isBudgetSlider={isSliderBudget}
                 type={type}
+                buttonTitle={buttonTitle}
               />
             </div>
           );

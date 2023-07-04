@@ -10,6 +10,7 @@ export default ({
   isBudgetSlider,
   type,
   extraDescription,
+  ...restProps
 }) => {
   const [sendForm, { isSuccess, isLoading, isError }] = useSendContactFormMutation({ fixedCacheKey: CONTACT_CASH_KEY });
 
@@ -73,5 +74,6 @@ export default ({
     isDataSubmitted: isSuccess,
     isFormPending: isLoading,
     className,
+    ...restProps,
   };
 };
