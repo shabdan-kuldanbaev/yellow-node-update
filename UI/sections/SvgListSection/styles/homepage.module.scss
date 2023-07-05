@@ -1,10 +1,27 @@
 .homepage {
-  [data-title],
-  [data-description] {
-    max-width: 705px;
+  &.firstSectionView,
+  &.secondSectionView {
+    @extend .greySection;
 
-    @include phone {
-      max-width: 370px;
+    padding-top: 0;
+
+    :global(.swiper-wrapper) {
+      min-height: 72px;
+    }
+
+    :global(.swiper-slide) {
+      align-items: center;
+    }
+  }
+
+  &.thirdSectionView {
+    [data-title],
+    [data-description] {
+      max-width: 705px;
+
+      @include phone {
+        max-width: 370px;
+      }
     }
   }
 }
