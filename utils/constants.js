@@ -197,7 +197,7 @@ export const APP_DEVELOPMENT_TYPES = {
 export const WHY_US_TYPE = {
   intro: 'case-study-intro',
   parallax: 'case-study-parallax',
-  svgList: 'app-development-svg-list',
+  svgList: 'svg-display',
   imageSection: 'app-development-image',
   feedback: 'feedback',
   process: 'case-study-process',
