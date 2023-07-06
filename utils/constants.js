@@ -198,7 +198,7 @@ export const APP_DEVELOPMENT_TYPES = {
 export const WHY_US_TYPE = {
   intro: 'case-study-intro',
   parallax: 'case-study-parallax',
-  svgList: 'app-development-svg-list',
+  svgList: 'svg-display',
   imageSection: 'app-development-image',
   feedback: 'feedback',
   process: 'case-study-process',
@@ -209,7 +209,7 @@ export const WHY_US_TYPE = {
   results: 'case-study-results',
 };
 
-export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
+export const HOMEPAGE_SLOGAN = 'WE CREATE\nAI-ENABLED SOFTWARE';
 
 export const HOMEPAGE_SECTION_TYPES = {
   text: 'text',
@@ -354,6 +354,11 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.prototypingServices.path,
   ROUTES.penetrationTesting.path,
   ROUTES.pwaDevelopmentServices.path,
+  ROUTES.softwareDevelopmentColumbus.path,
+  ROUTES.softwareDevelopmentWashington.path,
+  ROUTES.softwareDevelopmentOklahoma.path,
+  ROUTES.softwareDevelopmentNashville.path,
+  ROUTES.softwareDevelopmentRaleigh.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
@@ -375,6 +380,11 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.crossPlatformDevelopmentServices.path,
   ROUTES.prototypingServices.path,
   ROUTES.pwaDevelopmentServices.path,
+  ROUTES.softwareDevelopmentColumbus.path,
+  ROUTES.softwareDevelopmentWashington.path,
+  ROUTES.softwareDevelopmentOklahoma.path,
+  ROUTES.softwareDevelopmentNashville.path,
+  ROUTES.softwareDevelopmentRaleigh.path,
   ROUTES.whyUs.path,
   CASE_STUDIES.openSense,
   CASE_STUDIES.chatSolutions,

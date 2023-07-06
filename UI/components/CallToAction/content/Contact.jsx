@@ -13,6 +13,7 @@ export default ({
   subtitle,
   buttonTitle,
   handleOnClick,
+  url,
 }) => {
   const { open: handleOnCTAClick } = useContext(FullscreenEstimationContext);
 
@@ -43,8 +44,9 @@ export default ({
       </div>
 
       <Button
-        onClick={handleOnClick || handleOnCTAClick}
+        onClick={!url && (handleOnClick || handleOnCTAClick)}
         className={styles.button}
+        href={url}
         data-button
       >
         {buttonTitle}

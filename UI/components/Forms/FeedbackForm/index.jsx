@@ -26,6 +26,7 @@ const FeedbackForm = (props) => {
     type,
     contactFormError,
     isFormPending,
+    buttonTitle,
   } = useFormProps(props);
 
   return (
@@ -89,7 +90,7 @@ const FeedbackForm = (props) => {
         disabled={isFormPending}
         className={styles.formButton}
       >
-        Contact Us
+        {buttonTitle || 'Contact Us'}
       </Button>
     </form>
   );
