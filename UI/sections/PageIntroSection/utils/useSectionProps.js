@@ -30,7 +30,7 @@ export default ({
   const { contentModules: links } = getDocumentFields(get(contentModules, '[1]', {}), ['contentModules']);
 
   const { buttonTitle } = getDocumentFields(links?.[0], ['buttonTitle']);
-  const isBookBlock = links[1];
+  const isBookBlock = links?.[1];
 
   const {
     buttonTitle: ctaButton,

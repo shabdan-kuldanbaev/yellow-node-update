@@ -1,10 +1,9 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
-import { SVG_IMAGES_TYPES, ANIMATED_TYPE } from 'utils/constants';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
+import CallToAction from 'UI/components/CallToAction';
+import { useBookBlock } from './utils/useBookBlock';
 import styles from './styles.module.scss';
-
-import useBookBlock from './utils/useBookBlock';
-import CallToAction from '../CallToAction';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
 

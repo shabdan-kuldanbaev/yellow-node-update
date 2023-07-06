@@ -1,8 +1,12 @@
 import cn from 'classnames';
-import { useEffect, useRef, useState } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import styles from '../styles.module.scss';
 
-export default (props) => {
+export const useBookBlock = (props) => {
   const {
     ctaProps,
     type,
