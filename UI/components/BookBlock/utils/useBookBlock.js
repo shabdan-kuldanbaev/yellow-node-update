@@ -8,9 +8,9 @@ import styles from '../styles.module.scss';
 
 export const useBookBlock = (props) => {
   const {
-    ctaProps,
     type,
     sectionRef,
+    ...rest
   } = props;
 
   const blockRef = useRef(null);
@@ -71,10 +71,8 @@ export const useBookBlock = (props) => {
 
   return {
     blockProps,
-    ctaProps,
-    setBlockShow,
     buttonShow,
-    setButtonShow,
     handleClose,
+    ...rest,
   };
 };

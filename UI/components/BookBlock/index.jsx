@@ -23,8 +23,8 @@ const BookBlock = (props) => {
           type={SVG_IMAGES_TYPES.bookOpenFilled}
         />
         <CallToAction
-          {...ctaProps}
           className={styles.cta}
+          {...ctaProps}
         />
         {buttonShow && (
           <Svg
