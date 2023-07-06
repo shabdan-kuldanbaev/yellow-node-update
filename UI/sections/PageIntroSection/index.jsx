@@ -24,6 +24,7 @@ const PageIntroSection = (props) => {
     introSection,
     handleOnCTAClick,
     bookProps,
+    isBookBlock,
   } = useSectionProps(props);
 
   // TODO: use rich text instead of splitting
@@ -90,7 +91,7 @@ const PageIntroSection = (props) => {
           type={type}
           figuresData={figuresData}
         />
-        <BookBlock {...bookProps} />
+        {isBookBlock && <BookBlock {...bookProps} />}
       </div>
     </section>
   );

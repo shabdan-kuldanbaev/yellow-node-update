@@ -28,8 +28,8 @@ export default ({
   const image = getImage(get(images, '[0]', {}));
   const figuresData = get(contentModules, '[0]', {});
   const { contentModules: links } = getDocumentFields(get(contentModules, '[1]', {}), ['contentModules']);
-
   const { buttonTitle } = getDocumentFields(links?.[0], ['buttonTitle']);
+  const isBookBlock = links?.[1];
 
   const {
     buttonTitle: blockButtonTitle,
@@ -67,5 +67,6 @@ export default ({
     figuresData,
     handleOnCTAClick,
     bookProps,
+    isBookBlock,
   };
 };
