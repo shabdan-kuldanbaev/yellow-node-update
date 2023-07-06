@@ -19,6 +19,10 @@ const BookBlock = (props) => {
   return (
     <div {...blockProps}>
       <div className={styles.blockWrapper}>
+        <Svg
+          className={styles.bookIcon}
+          type={SVG_IMAGES_TYPES.bookOpenFilled}
+        />
         <CallToAction
           {...ctaProps}
           className={styles.cta}
