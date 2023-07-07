@@ -1,8 +1,11 @@
 .clairvoyant-directory-upgrade {
   background: $clairvoyantServicesPrimary;
+  padding-bottom: 0;
 
   .introSection {
     @include flex(column, flex-start, center);
+
+    margin-bottom: 0;
   }
 
   .sectionTitle {
@@ -14,6 +17,10 @@
 
       color: $clairvoyantServicesAccent;
       font-weight: 500;
+
+      @include tablet {
+        @include fontSize(32px);
+      }
     }
 
     [data-description] {
@@ -52,5 +59,11 @@
     position: absolute;
     aspect-ratio: 1266/730;
     z-index: 0;
+
+    @include tablet {
+      min-width: auto;
+      width: 130%;
+      top: 70%;
+    }
   }
 }

@@ -1,0 +1,34 @@
+.clairvoyant-directory-upgrade {
+  &.firstSectionView {
+    .container {
+      max-width: none;
+      width: 100%;
+    }
+
+    ul {
+      @include flex(row, space-between, center);
+
+      margin: 0;
+      color: $clairvoyantServicesAccent;
+      list-style: none;
+      padding: 0;
+      overflow: auto;
+
+      li + li {
+        margin-left: 32px;
+        min-width: max-content;
+      }
+
+      p {
+        @include fontSize(14px);
+
+        white-space: nowrap;
+      }
+    }
+
+    b {
+      color: $gray0;
+      font-weight: 400;
+    }
+  }
+}
