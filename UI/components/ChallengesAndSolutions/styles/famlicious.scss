@@ -57,8 +57,8 @@
         margin: 0;
 
         .subImage {
-          width: 630px;
-          height: 920px;
+          width: 590px;
+          height: 864px;
           margin: 0 auto;
 
           @include tablet {
@@ -141,15 +141,20 @@
       position: relative;
       margin: -180px auto 0;
 
+      .images {
+        display: none;
+      }
+
       .infoContainer {
         max-width: 100%;
         width: 100%;
-        margin: 0;
+        margin: 0 auto;
 
         .subImage {
-          width: 910px;
-          height: 705px;
+          width: 870px;
+          height: 674px;
           margin: 0 auto;
+          scale: 1.1;
 
           @include tablet {
             display: none;
@@ -161,7 +166,7 @@
         }
 
         p {
-          margin: -50px auto 0;
+          margin: -10px auto 0;
           transform: translateX(95%);
           max-width: 296px;
 
@@ -210,7 +215,7 @@
       width: 100%;
 
       &-4 {
-        @include flex(row, space-between, flex-start);
+        @include flex(row, space-between);
 
         .title {
           max-width: 250px;
@@ -244,10 +249,6 @@
 
       &-2 {
         order: initial !important;
-      }
-
-      &-4 {
-        max-width: 379px;
       }
 
       @include tablet {

@@ -74,7 +74,7 @@ const ChallengesAndSolutions = (props) => {
                 <Illustration
                   transparent
                   className={styles.subImage}
-                  src={subImage.img}
+                  src={subImage.url}
                   alt={subImage.alt}
                 />
               )}
@@ -151,9 +151,9 @@ const ChallengesAndSolutions = (props) => {
               <Illustration
                 transparent
                 className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
-                src={bundleUrl}
+                src={bundleUrl.url}
                 key={`bundles-images/${bundleUrl}`}
-                alt=""
+                alt={bundleUrl.alt}
               />
             ))}
           </div>

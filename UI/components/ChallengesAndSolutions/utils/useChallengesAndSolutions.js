@@ -2,11 +2,7 @@ import get from 'lodash/get';
 import { useSelector } from 'react-redux';
 import { selectIsMobile } from 'redux/selectors/layout';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
-import {
-  getDocumentFields,
-  getFileUrl,
-  getImage,
-} from 'utils/helper';
+import { getDocumentFields, getImage } from 'utils/helper';
 
 export const useChallengesAndSolutions = ({
   data,
@@ -29,8 +25,8 @@ export const useChallengesAndSolutions = ({
       contentList = [],
     } = getDocumentFields(document);
 
-    const image = getImage(get(images, '[0]'));
-    const subImage = getImage(get(images, '[1]', ''));
+    const image = getImage(get(images, '[0]', {}));
+    const subImage = getImage(get(images, '[1]', {}));
     const imagesBundlesWithUrl = imagesBundles?.map((bundle) => getImage(bundle)) || [];
 
     return {
