@@ -68,7 +68,7 @@
       max-width: 100%;
 
       &-2 {
-        @include flex(column, end);
+        @include flex(column, flex-end);
       }
     }
 
@@ -146,7 +146,7 @@
     }
 
     .contentContainer {
-      @include flex(row-reverse, space-between, end);
+      @include flex(row-reverse, space-between, flex-end);
 
       max-width: $wide-content-width;
       grid-gap: 24px;

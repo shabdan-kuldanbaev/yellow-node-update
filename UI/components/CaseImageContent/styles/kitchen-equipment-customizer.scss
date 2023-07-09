@@ -1,5 +1,5 @@
 .kitchen-equipment-customizer {
-  @include flex(column, flex-start, end);
+  @include flex(column, flex-start, flex-end);
 
   margin-left: 32px;
 

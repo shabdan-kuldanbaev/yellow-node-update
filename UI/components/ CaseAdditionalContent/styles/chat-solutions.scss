@@ -1,5 +1,5 @@
 .web-chat-for-mediums {
-  @include flex(row, initial, end);
+  @include flex(row, initial, flex-end);
 
   margin-left: auto;
   max-width: 416px;

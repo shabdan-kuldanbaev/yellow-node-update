@@ -31,7 +31,7 @@
 
   &.firstSectionView {
     .titleStyle {
-      @include flex(column, initial, end);
+      @include flex(column, initial, flex-end);
     }
 
     @include below-tablet {
@@ -67,7 +67,7 @@
 
   &.fifthSectionView {
     .titleStyle {
-      @include flex(column, initial, end);
+      @include flex(column, initial, flex-end);
 
       @include below-tablet {
         align-items: flex-start;

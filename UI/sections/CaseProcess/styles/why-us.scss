@@ -1,6 +1,6 @@
 .why-us {
   &.firstSectionView {
-    @include flex(row, space-between, start);
+    @include flex(row, space-between, flex-start);
 
     margin: 0 auto;
     padding: 120px 16px;

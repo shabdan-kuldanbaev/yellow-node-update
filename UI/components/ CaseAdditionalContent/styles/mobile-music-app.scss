@@ -1,5 +1,5 @@
 .mobile-music-app {
-  @include flex(row, space-between, , wrap);
+  @include flex(row, space-between, initial, wrap);
 
   max-width: 481px;
 

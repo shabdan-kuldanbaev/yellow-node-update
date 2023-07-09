@@ -23,7 +23,7 @@
 
     .titleStyle {
       margin: 0;
-      place-self: end;
+      place-self: flex-end;
       max-width: 380px;
 
       [data-title] {
