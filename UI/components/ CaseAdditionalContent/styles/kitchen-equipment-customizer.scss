@@ -1,5 +1,5 @@
 .kitchen-equipment-customizer {
-  @include flex(column, initial, start);
+  @include flex(column, initial, flex-start);
 
   .container {
     @include flex(row);

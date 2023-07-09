@@ -1,5 +1,5 @@
 .kitchen-equipment-customizer {
-  @include flex(column, center, start);
+  @include flex(column, center, flex-start);
 
   margin: 0 auto;
   max-width: 378px;

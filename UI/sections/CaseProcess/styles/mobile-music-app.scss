@@ -158,7 +158,7 @@
     }
 
     .step {
-      @include flex(column, initial, start);
+      @include flex(column, initial, flex-start);
 
       padding: 40px;
       border: 1px solid $gray1000;

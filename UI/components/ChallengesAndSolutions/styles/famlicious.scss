@@ -210,7 +210,7 @@
       width: 100%;
 
       &-4 {
-        @include flex(row, space-between, start);
+        @include flex(row, space-between, flex-start);
 
         .title {
           max-width: 250px;
@@ -223,7 +223,7 @@
     }
 
     .infoContainer {
-      @include flex(row, space-between, start);
+      @include flex(row, space-between, flex-start);
 
       max-width: 100%;
       width: 100%;

@@ -3,14 +3,14 @@
 .worksContainer {
   @include flex(row, flex-start, flex-start, wrap);
 
+  @include ultra-hd {
+    max-width: $max-content-width;
+  }
+
   --gap: 32px;
 
   background-color: $gray0;
   margin: 20px 0 0 calc(-1 * var(--gap));
-
-  @include below-tablet {
-    margin: 15px 0 0;
-  }
 
   & > * {
     flex: 1 1 calc(45% - var(--gap) / 2);
@@ -31,8 +31,8 @@
     }
   }
 
-  @include ultra-hd {
-    max-width: $max-content-width;
+  @include below-tablet {
+    margin: 15px 0 0;
   }
 
   @include tablet {
@@ -51,11 +51,6 @@
   font-weight: 600;
   max-width: 210px;
 
-  @include tablet {
-    border: none;
-    text-decoration: underline;
-  }
-
   &:hover {
     background: $yellow500;
     border-color: $yellow500;
@@ -67,5 +62,10 @@
       border: none;
       background: none;
     }
+  }
+
+  @include tablet {
+    border: none;
+    text-decoration: underline;
   }
 }

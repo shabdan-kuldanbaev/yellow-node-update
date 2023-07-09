@@ -32,7 +32,7 @@
     }
 
     .stepsContainer {
-      @include flex(column, initial, start);
+      @include flex(column, initial, flex-start);
 
       margin: 0 0 -16px;
 
@@ -159,7 +159,7 @@
     }
 
     .stepsContainer {
-      @include flex(row, space-between, start, wrap);
+      @include flex(row, space-between, flex-start, wrap);
 
       margin: 0 0 -24px -24px;
       max-width: $default-content-width;

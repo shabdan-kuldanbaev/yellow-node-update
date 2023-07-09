@@ -3,7 +3,7 @@
     @include flex(row, space-between);
 
     & > div {
-      @include flex(row, initial, start);
+      @include flex(row, initial, flex-start);
 
       flex: 0 1 48%;
     }

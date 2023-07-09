@@ -18,7 +18,7 @@
     }
 
     @include tablet {
-      @include flex(row, center, start, wrap);
+      @include flex(row, center, flex-start, wrap);
     }
   }
 

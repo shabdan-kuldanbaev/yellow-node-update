@@ -7,10 +7,10 @@
       max-width: $default-content-width;
 
       & > div:last-child {
-        @include flex(row, space-between, start);
+        @include flex(row, space-between, flex-start);
 
         @include below-tablet {
-          @include flex(column, start, initial);
+          @include flex(column, flex-start, initial);
         }
       }
     }

@@ -51,7 +51,7 @@
 
 .form {
   button {
-    align-self: start !important;
+    align-self: flex-start !important;
 
     @include tablet {
       align-self: center !important;
