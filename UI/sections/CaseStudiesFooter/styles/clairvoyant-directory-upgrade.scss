@@ -1,0 +1,15 @@
+.clairvoyant-directory-upgrade {
+  background: $clairvoyantServicesPrimary;
+
+  .sectionTitle,
+  .footerLinks,
+  .more {
+    * {
+      color: $gray0;
+    }
+  }
+
+  .more {
+    border: solid 1px $gray0;
+  }
+}
