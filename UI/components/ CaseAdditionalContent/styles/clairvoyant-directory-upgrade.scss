@@ -31,4 +31,32 @@
       font-weight: 400;
     }
   }
+
+  &.thirdSectionView {
+    .descriptionIntro {
+      display: none;
+    }
+
+    .listContainer {
+      @include flex(row, center, flex-start, wrap);
+
+      list-style: none;
+      margin: 0 0 -16px -16px;
+      padding-left: 0;
+    }
+
+    .listItem {
+      @include fontSize(16px);
+
+      color: $gray0;
+      padding: 16px 32px;
+      background: #ffffff0f;
+      border-radius: 28px;
+      margin: 0 0 16px 16px;
+    }
+
+    .container {
+      max-width: none;
+    }
+  }
 }
