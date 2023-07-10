@@ -6,7 +6,7 @@
     margin: 0;
   }
 
-  @include phone {
-    padding: 30px 40px 24px;
+  @include tablet {
+    padding: 30px 16px 24px;
   }
 }

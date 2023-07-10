@@ -1,4 +1,12 @@
 .natp {
+  .parallaxImage {
+    height: 715px;
+
+    @include below-tablet {
+      height: 430px;
+    }
+  }
+
   .titleStyle {
     max-width: 626px;
     margin: 120px auto 48px;

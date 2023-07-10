@@ -143,6 +143,10 @@
 
       .images {
         display: none;
+
+        @include tablet {
+          display: block;
+        }
       }
 
       .infoContainer {
