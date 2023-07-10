@@ -190,6 +190,7 @@
   }
 
   &.thirdSectionView {
+    padding-bottom: 60px;
     background: $clairvoyantServicesPrimary;
 
     & > *:last-child {
@@ -200,6 +201,10 @@
       [data-title] {
         color: $gray0;
         font-weight: 400;
+
+        @include tablet {
+          @include fontSize(38px);
+        }
       }
     }
 
@@ -222,6 +227,10 @@
 
     .descriptionIntro {
       display: none;
+    }
+
+    @include below-tablet {
+      padding-bottom: 30px;
     }
   }
 }
