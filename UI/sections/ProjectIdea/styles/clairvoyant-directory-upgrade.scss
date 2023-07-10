@@ -233,4 +233,60 @@
       padding-bottom: 30px;
     }
   }
+
+  &.fourthSectionView {
+    background: $clairvoyantServicesPrimary;
+
+    .titleStyle {
+      margin-bottom: 16px;
+
+      [data-title] {
+        color: $gray0;
+        font-weight: 400;
+      }
+    }
+
+    .contentContainer {
+      margin-bottom: 0;
+
+      & > *:nth-child(1) {
+        display: none;
+      }
+    }
+
+    .descriptionContainer {
+      max-width: none;
+      margin: auto;
+    }
+
+    .descriptionIntro {
+      margin: 0;
+
+      ul {
+        @include flex(column, flex-start, center);
+
+        margin: 0;
+
+        li {
+          margin: 0;
+
+          & + li {
+            margin-top: 12px;
+          }
+
+          &::marker {
+            color: $clairvoyantServicesAccent;
+          }
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    & > *:last-child {
+      display: none;
+    }
+  }
 }
