@@ -111,4 +111,81 @@
       }
     }
   }
+
+  &.secondSectionView {
+    background: $clairvoyantServicesPrimary;
+    padding-top: 0;
+    display: block;
+
+    .contentContainer {
+      margin-bottom: 0;
+      background: #ffffff0f;
+      padding: 40px;
+      border-radius: 20px;
+      display: block;
+      width: auto;
+
+      & > * {
+        &:nth-child(1) {
+          display: none;
+        }
+      }
+    }
+
+    .descriptionContainer {
+      max-width: none;
+      margin-left: 0;
+    }
+
+    .descriptionIntro {
+      margin-bottom: 0;
+    }
+
+    .title {
+      color: $gray0;
+      font-weight: 400;
+      text-align: center;
+      margin: 0 0 16px;
+    }
+
+    .description {
+      ul {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        max-width: 479px;
+        margin: 0 auto;
+        padding-left: 55px;
+
+        li::marker {
+          color: $clairvoyantServicesAccent;
+        }
+
+        li {
+          min-width: 212px;
+          margin: 0;
+
+          @include tablet {
+            min-width: auto;
+            margin-left: 12px;
+          }
+        }
+
+        li + li {
+          margin-top: 8px;
+        }
+
+        p {
+          @include fontSize(16px);
+
+          margin: 0;
+        }
+
+        @include tablet {
+          @include flex(column, flex-start, center);
+
+          padding-left: 0;
+        }
+      }
+    }
+  }
 }
