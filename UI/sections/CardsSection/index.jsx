@@ -9,6 +9,7 @@ import styles from './CardsSection.module.scss';
 const Card = dynamic(() => import('UI/components/Cards/Card'));
 const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 const Animated = dynamic(() => import('UI/containers/Animated'));
+const Illustration = dynamic(() => import('UI/components/Illustration'));
 const CustomSwiper = dynamic(() => import('UI/containers/CustomSwiper'), { ssr: false });
 
 const CardsSection = (props) => {
@@ -25,6 +26,7 @@ const CardsSection = (props) => {
     withOverlay,
     swiperProps,
     isShowNavigation,
+    images,
   } = useCardsSection(props);
 
   return (
@@ -76,6 +78,15 @@ const CardsSection = (props) => {
             ))}
           </div>
         )}
+
+        {images.length
+          && images.map((image) => (
+            <Illustration
+              src={image.url}
+              key={image.url}
+              className={styles.image}
+            />
+          ))}
 
         {ctaLink && (
           <Animated

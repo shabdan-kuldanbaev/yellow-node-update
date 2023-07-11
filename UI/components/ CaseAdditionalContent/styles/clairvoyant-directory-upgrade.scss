@@ -1,0 +1,63 @@
+.clairvoyant-directory-upgrade {
+  &.firstSectionView {
+    .container {
+      max-width: none;
+      width: 100%;
+    }
+
+    ul {
+      @include flex(row, space-between, center);
+
+      margin: 0;
+      color: $clairvoyantServicesAccent;
+      list-style: none;
+      padding: 0;
+      overflow: auto;
+
+      li + li {
+        margin-left: 32px;
+        min-width: max-content;
+      }
+
+      p {
+        @include fontSize(14px);
+
+        white-space: nowrap;
+      }
+    }
+
+    b {
+      color: $gray0;
+      font-weight: 400;
+    }
+  }
+
+  &.thirdSectionView {
+    .descriptionIntro {
+      display: none;
+    }
+
+    .listContainer {
+      @include flex(row, center, flex-start, wrap);
+
+      list-style: none;
+      margin: 0 0 -16px -16px;
+      padding-left: 0;
+    }
+
+    .listItem {
+      @include fontSize(16px);
+
+      color: $gray0;
+      padding: 16px 32px;
+      background: #ffffff0f;
+      border-radius: 28px;
+      backdrop-filter: blur(10px);
+      margin: 0 0 16px 16px;
+    }
+
+    .container {
+      max-width: none;
+    }
+  }
+}

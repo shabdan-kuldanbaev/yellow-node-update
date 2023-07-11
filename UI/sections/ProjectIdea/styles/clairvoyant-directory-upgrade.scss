@@ -1,0 +1,329 @@
+.clairvoyant-directory-upgrade {
+  &.firstSectionView {
+    background: $clairvoyantServicesPrimary;
+
+    .contentContainer {
+      margin-bottom: 0;
+    }
+
+    .descriptionContainer {
+      @include flex(column-reverse, flex-start, stretch);
+
+      max-width: $default-content-width;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .descriptionIntro {
+      display: grid;
+      grid-template:
+        'title list' auto
+        'description list'  1fr
+        / 1fr auto;
+      margin-bottom: 0;
+
+      & > * {
+        &:nth-child(1) {
+          grid-area: description;
+          max-width: 472px;
+
+          @include tablet {
+            max-width: none;
+            margin-bottom: 24px;
+          }
+        }
+
+        &:nth-child(2) {
+          grid-area: title;
+        }
+
+        &:nth-child(3) {
+          grid-area: list;
+        }
+      }
+
+      @include tablet {
+        grid-template:
+          'title'
+          'description'
+          'list';
+      }
+    }
+
+    .title {
+      color: $clairvoyantServicesAccent;
+      font-weight: 400;
+      margin: 0 0 8px;
+    }
+
+    .sectionName {
+      @include fontSize(16px);
+
+      font-weight: 400;
+      text-transform: none;
+    }
+
+    .media {
+      position: absolute;
+      width: 100vw;
+      left: 50%;
+      top: 45%;
+      transform: translate(-50%, -50%);
+      aspect-ratio: 1196/181;
+
+      @include tablet {
+        top: 27%;
+        min-width: 1200px;
+        transform: none;
+        left: 0;
+      }
+    }
+
+    .description {
+      h3 {
+        @include fontSize(20px);
+
+        margin: 0 0 8px;
+        color: $gray0;
+        font-weight: 400;
+      }
+
+      ul {
+        margin: 0;
+
+        li {
+          margin: 0;
+        }
+
+        p {
+          @include fontSize(16px);
+
+          margin: 0;
+        }
+
+        & + h3 {
+          margin-top: 24px;
+        }
+
+        @include tablet {
+          @include flex(column, flex-start, center);
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background: $clairvoyantServicesPrimary;
+    padding-top: 0;
+    display: block;
+
+    .contentContainer {
+      margin-bottom: 0;
+
+      & > * {
+        &:nth-child(1) {
+          display: none;
+        }
+      }
+    }
+
+    .descriptionContainer {
+      background: #ffffff0f;
+      padding: 40px;
+      border-radius: 20px;
+      display: block;
+      width: 100%;
+      max-width: $default-content-width;
+      box-sizing: border-box;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+      margin: 0 auto;
+    }
+
+    .descriptionIntro {
+      margin-bottom: 0;
+    }
+
+    .title {
+      color: $gray0;
+      font-weight: 400;
+      text-align: center;
+      margin: 0 0 16px;
+    }
+
+    .description {
+      ul {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        max-width: 479px;
+        margin: 0 auto;
+        padding-left: 55px;
+
+        li::marker {
+          color: $clairvoyantServicesAccent;
+        }
+
+        li {
+          min-width: 212px;
+          margin: 0;
+
+          @include tablet {
+            min-width: auto;
+            margin-left: 12px;
+          }
+        }
+
+        li + li {
+          margin-top: 8px;
+        }
+
+        p {
+          @include fontSize(16px);
+
+          margin: 0;
+        }
+
+        @include tablet {
+          @include flex(column, flex-start, center);
+
+          padding-left: 0;
+        }
+      }
+    }
+
+    .media {
+      position: absolute;
+      aspect-ratio: 1080/243;
+      width: 80vw;
+      z-index: 0;
+    }
+
+    & > *:last-child {
+      display: none;
+    }
+  }
+
+  &.thirdSectionView {
+    padding-bottom: 60px;
+    background: $clairvoyantServicesPrimary;
+
+    & > *:last-child {
+      display: none;
+    }
+
+    .titleStyle {
+      [data-title] {
+        color: $gray0;
+        font-weight: 400;
+
+        @include tablet {
+          @include fontSize(38px);
+        }
+      }
+    }
+
+    .contentContainer {
+      margin-bottom: 0;
+
+      & > * {
+        &:nth-child(1) {
+          display: none;
+        }
+      }
+    }
+
+    .descriptionContainer {
+      max-width: 865px;
+      width: 100%;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .descriptionIntro {
+      display: none;
+    }
+
+    .media {
+      width: 80vw;
+      position: absolute;
+      aspect-ratio: 1038/306;
+      top: 110px;
+      z-index: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 1100px;
+    }
+
+    @include below-tablet {
+      padding-bottom: 30px;
+    }
+  }
+
+  &.fourthSectionView {
+    background: $clairvoyantServicesPrimary;
+    padding-top: 0;
+
+    .titleStyle {
+      margin-bottom: 16px;
+
+      [data-title] {
+        color: $gray0;
+        font-weight: 400;
+      }
+    }
+
+    .contentContainer {
+      margin-bottom: 0;
+
+      & > *:nth-child(1) {
+        display: none;
+      }
+    }
+
+    .descriptionContainer {
+      max-width: none;
+      margin: auto;
+    }
+
+    .descriptionIntro {
+      margin: 0;
+
+      ul {
+        @include flex(column, flex-start, center);
+
+        margin: 0;
+
+        li {
+          margin: 0;
+
+          & + li {
+            margin-top: 12px;
+          }
+
+          &::marker {
+            color: $clairvoyantServicesAccent;
+          }
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+
+    .media {
+      width: 80vw;
+      position: absolute;
+      aspect-ratio: 1038/306;
+      top: 50%;
+      left: 50%;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      max-width: 1100px;
+    }
+
+    & > *:last-child {
+      display: none;
+    }
+  }
+}

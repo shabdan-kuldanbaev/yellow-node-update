@@ -1,4 +1,4 @@
-import { SVG_IMAGES_TYPES } from 'utils/constants';
+import { CASE_STUDIES, SVG_IMAGES_TYPES } from 'utils/constants';
 
 export const WHITE_LOGO_TYPE = [
   'fireaway',
@@ -76,6 +76,7 @@ export const WHITE_TEXT_LOGO = [
   'cctv-footage-analytics',
   'kitchen-equipment-customizer',
   'mobile-music-app',
+  CASE_STUDIES.clairvoyantServices,
 ];
 
 export const getLogoType = (type) => {
