@@ -18,6 +18,10 @@
       }
     }
 
+    & > *:last-child {
+      display: none;
+    }
+
     @include tablet {
       padding-top: 30px;
     }

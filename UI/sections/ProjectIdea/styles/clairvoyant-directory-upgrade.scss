@@ -119,11 +119,6 @@
 
     .contentContainer {
       margin-bottom: 0;
-      background: #ffffff0f;
-      padding: 40px;
-      border-radius: 20px;
-      display: block;
-      width: auto;
 
       & > * {
         &:nth-child(1) {
@@ -133,8 +128,16 @@
     }
 
     .descriptionContainer {
-      max-width: none;
-      margin-left: 0;
+      background: #ffffff0f;
+      padding: 40px;
+      border-radius: 20px;
+      display: block;
+      width: 100%;
+      max-width: $default-content-width;
+      box-sizing: border-box;
+      z-index: 1;
+      backdrop-filter: blur(10px);
+      margin: 0 auto;
     }
 
     .descriptionIntro {
@@ -187,6 +190,17 @@
         }
       }
     }
+
+    .media {
+      position: absolute;
+      aspect-ratio: 1080/243;
+      width: 80vw;
+      z-index: 0;
+    }
+
+    & > *:last-child {
+      display: none;
+    }
   }
 
   &.thirdSectionView {
@@ -212,8 +226,7 @@
       margin-bottom: 0;
 
       & > * {
-        &:nth-child(1),
-        &:nth-child(3) {
+        &:nth-child(1) {
           display: none;
         }
       }
@@ -223,10 +236,22 @@
       max-width: 865px;
       width: 100%;
       margin: 0 auto;
+      z-index: 1;
     }
 
     .descriptionIntro {
       display: none;
+    }
+
+    .media {
+      width: 80vw;
+      position: absolute;
+      aspect-ratio: 1038/306;
+      top: 110px;
+      z-index: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 1100px;
     }
 
     @include below-tablet {
@@ -236,6 +261,7 @@
 
   &.fourthSectionView {
     background: $clairvoyantServicesPrimary;
+    padding-top: 0;
 
     .titleStyle {
       margin-bottom: 16px;
@@ -283,6 +309,17 @@
           margin: 0;
         }
       }
+    }
+
+    .media {
+      width: 80vw;
+      position: absolute;
+      aspect-ratio: 1038/306;
+      top: 50%;
+      left: 50%;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      max-width: 1100px;
     }
 
     & > *:last-child {

@@ -2,6 +2,7 @@
   &.firstSectionView {
     padding-top: 0;
     background: $clairvoyantServicesPrimary;
+    position: relative;
 
     [data-title] {
       color: $gray0;
@@ -16,6 +17,8 @@
       @extend .threeColumnsCards;
 
       align-items: start;
+      z-index: 1;
+      position: relative;
     }
 
     .card {
@@ -23,6 +26,7 @@
       border: none;
       border-radius: 10px;
       padding: 40px;
+      backdrop-filter: blur(10px);
 
       h3 {
         @include fontSize(24px);
@@ -47,6 +51,16 @@
         color: $gray0;
         fill: $gray0;
       }
+    }
+
+    .image {
+      position: absolute;
+      aspect-ratio: 1215/599;
+      width: 80vw;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
     }
   }
 }
