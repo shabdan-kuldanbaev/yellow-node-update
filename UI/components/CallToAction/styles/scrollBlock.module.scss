@@ -3,14 +3,11 @@
 @import 'styles/utils/colors';
 
 .block {
-  opacity: 0;
   padding: 0 16px;
   width: 100%;
   background-color: $gray900;
-  color: $gray0;
   box-sizing: border-box;
-  transition: ease 0.3s;
-  pointer-events: none;
+  color: $gray0;
 
   .container {
     @include flex(row, space-between, center);
@@ -82,9 +79,4 @@
       margin-bottom: 12px;
     }
   }
-}
-
-.blockShow {
-  opacity: 1;
-  pointer-events: auto;
 }

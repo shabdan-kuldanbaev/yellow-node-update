@@ -31,22 +31,6 @@ export default ({
   const { buttonTitle } = getDocumentFields(links?.[0], ['buttonTitle']);
   const isCTA = links?.[1];
 
-  // const {
-  //   buttonTitle: ctaButtonTitle,
-  //   files: ctaFiles,
-  //   title: ctaTitle,
-  //   type: ctaType,
-  // } = getDocumentFields(
-  //   links?.[1],
-  //   [
-  //     'buttonTitle',
-  //     'title',
-  //     'files',
-  //   ],
-  // );
-
-  // const downloadLink = getFileUrl(ctaFiles?.[0]);
-
   const ctaProps = {
     sectionRef: introSection,
     data: links?.[1],

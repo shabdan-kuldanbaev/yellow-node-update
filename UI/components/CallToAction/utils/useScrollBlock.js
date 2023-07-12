@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
-import cn from 'classnames';
 import downloadFile from 'utils/downloadFile';
 import useToggle from 'hooks/useToggle';
-import styles from '../styles/scrollBlock.module.scss';
 
 export default (props) => {
   const {
@@ -10,11 +8,12 @@ export default (props) => {
     sectionRef,
     isSubscribed,
     downloadLink,
+    show,
+    setShow,
     ...rest
   } = props;
   const [scroll, setScroll] = useState(true);
   const [buttonShow, setButtonShow] = useState(false);
-  const [show, setShow] = useState(false);
 
   const [isGetBookShown, toggleGetBookModalShown] = useToggle(false);
 
@@ -30,10 +29,6 @@ export default (props) => {
     setScroll(false);
     setShow(false);
   };
-
-  const className = cn(styles.block, styles[page], {
-    [styles.blockShow]: show,
-  });
 
   useEffect(() => {
     let buttonTimer;
@@ -53,15 +48,13 @@ export default (props) => {
       }
     };
 
-    if (scroll) {
+    if (scroll && !show) {
       showTimer = setTimeout(() => {
         setShow(true);
       }, 5000);
     }
 
     if (show) {
-      clearTimeout(showTimer);
-
       buttonTimer = setTimeout(() => {
         setButtonShow(true);
       }, 3000);
@@ -76,10 +69,12 @@ export default (props) => {
     return () => {
       window.removeEventListener('scroll', handleOnScroll);
 
+      clearTimeout(showTimer);
       clearTimeout(buttonTimer);
     };
   }, [
     show,
+    setShow,
     scroll,
     sectionRef,
   ]);
@@ -88,7 +83,6 @@ export default (props) => {
     show,
     buttonShow,
     handleClose,
-    className,
     handleOnClick,
     isGetBookShown,
     toggleGetBookModalShown,

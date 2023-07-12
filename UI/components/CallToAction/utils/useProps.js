@@ -1,17 +1,26 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import cn from 'classnames';
 import {
   getDocumentFields,
   getFileUrl,
   getImage,
 } from 'utils/helper';
-import { useRouter } from 'next/router';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import { LINK_TYPE } from 'utils/constants/linkType';
+import styles from '../styles.module.scss';
 
-export default ({
-  title: titleProp,
-  data,
-  buttonTitle: buttonTitleProp,
-  ...props
-}) => {
+export default (props) => {
+  const {
+    page,
+    view,
+    title: titleProp,
+    data,
+    buttonTitle: buttonTitleProp,
+    className,
+    ...rest
+  } = props;
+
   const {
     new: isNew,
     title,
@@ -34,6 +43,8 @@ export default ({
     'url',
   ]);
 
+  const [show, setShow] = useState(false);
+
   const [
     _,
     { data: { isSubscribed } = {} },
@@ -47,6 +58,21 @@ export default ({
 
   const files = (rawFiles || []).map(getFileUrl);
 
+  const classNames = cn(
+    styles[type],
+    styles[view],
+    styles[page],
+    className,
+    {
+      [styles.openContact]: isOpenFeedbackForm,
+      [styles.new]: isNew,
+      [styles.card]: !isNew,
+      [styles.isSubscribed]: isSubscribed,
+      [styles.scrollBlock]: type === LINK_TYPE.scrollBlock,
+      [styles.showScrollBlock]: type === LINK_TYPE.scrollBlock && show,
+    },
+  );
+
   return {
     titles,
     subtitle,
@@ -59,6 +85,9 @@ export default ({
     isOpenFeedbackForm,
     slug,
     ctaUrl,
-    ...props,
+    show,
+    setShow,
+    classNames,
+    ...rest,
   };
 };

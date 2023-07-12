@@ -22,7 +22,6 @@ const ScrollBlock = (props) => {
     bookCover,
     buttonShow,
     handleClose,
-    className,
     handleOnClick,
     isGetBookShown,
     toggleGetBookModalShown,
@@ -30,7 +29,7 @@ const ScrollBlock = (props) => {
 
   return (
     <>
-      <div className={className}>
+      <div className={styles.block}>
         <div className={styles.container}>
           <Svg
             className={styles.bookIcon}

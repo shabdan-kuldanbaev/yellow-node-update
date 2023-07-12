@@ -372,11 +372,11 @@
         order: calc(#{$i} - 1);
       }
 
-      @if $i==$subscribesPosition {
+      @if $i == $subscribesPosition {
         order: calc(#{$subscribesPosition} - 1);
       }
 
-      @if $i>$subscribesPosition {
+      @if $i > $subscribesPosition {
         order: $i;
       }
     }

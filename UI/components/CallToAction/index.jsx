@@ -17,36 +17,20 @@ const CallToAction = (props) => {
     subtitle,
     buttonTitle,
     type,
-    page,
-    view,
-    className,
     images,
-    isNew,
     downloadLink,
     isSubscribed,
-    isOpenFeedbackForm,
     handleOnClick,
     slug,
     ctaUrl,
     sectionRef,
+    show,
+    setShow,
+    classNames,
   } = useProps(props);
 
   return (
-    <div
-      className={cn(
-        styles[type],
-        styles[view],
-        styles[page],
-        className,
-        {
-          [styles.openContact]: isOpenFeedbackForm,
-          [styles.new]: isNew,
-          [styles.card]: !isNew,
-          [styles.isSubscribed]: isSubscribed,
-          [styles.scrollBlock]: type === LINK_TYPE.scrollBlock,
-        },
-      )}
-    >
+    <div className={classNames}>
       {images.map(({ url, alt }, i) => (
         <Illustration
           src={url}
@@ -98,6 +82,8 @@ const CallToAction = (props) => {
               bookCover={images[0]}
               downloadLink={downloadLink}
               slug={slug}
+              show={show}
+              setShow={setShow}
             />
           );
         default:

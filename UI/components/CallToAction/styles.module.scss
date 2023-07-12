@@ -256,15 +256,22 @@
   bottom: 0;
   left: 0;
   right: 0;
-  width: 100%;
   z-index: 60;
   margin: 0;
   padding: 0;
   display: block;
-  box-sizing: border-box;
   min-height: auto;
+  width: 100%;
   background: transparent;
-  border-radius: unset;
   border: none;
+  border-radius: unset;
+  box-sizing: border-box;
+  pointer-events: none;
+  opacity: 0;
+  transition: ease-in-out 0.3s;
+}
+
+.showScrollBlock {
+  opacity: 1;
   pointer-events: auto;
 }

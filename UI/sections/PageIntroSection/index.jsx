@@ -5,14 +5,13 @@ import { Figures } from 'UI/components/Figures';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
-import CallToAction from 'UI/components/CallToAction';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 const Typography = dynamic(() => import('UI/components/Typography'));
 const Button = dynamic(() => import('UI/components/Button'));
-const BookBlock = dynamic(() => import('UI/components/BookBlock'));
+const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 
 const PageIntroSection = (props) => {
   const {
