@@ -161,7 +161,7 @@ const ChallengesAndSolutions = (props) => {
         ))}
       </ChallengesSlider>
 
-      {images.length && images.map((image) => (
+      {!!images.length && images.map((image) => (
         <Illustration
           src={image.url}
           key={image.url}
