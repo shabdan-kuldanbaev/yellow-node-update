@@ -114,6 +114,7 @@ export default ({
     subtitle,
     view,
     contentModules,
+    images: rawImages,
   } = getDocumentFields(
     section || data,
     [
@@ -122,6 +123,7 @@ export default ({
       'contentModules',
       'subtitle',
       'view',
+      'images',
     ],
     { isNormilized: !!data },
   );
@@ -137,6 +139,8 @@ export default ({
       'disableSliderOnMobile',
     ],
   );
+
+  const images = (rawImages || []).map((rawImage) => getImage(rawImage));
 
   const cardList = (rawCardList || []).map(cardMapper(withOverlay));
 
@@ -195,6 +199,7 @@ export default ({
     swiperProps,
     withOverlay,
     isShowNavigation,
+    images,
     ...rest,
   };
 };

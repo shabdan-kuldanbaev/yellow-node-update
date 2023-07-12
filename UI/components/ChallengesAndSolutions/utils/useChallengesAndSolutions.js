@@ -10,23 +10,29 @@ export const useChallengesAndSolutions = ({
   isSpecial,
   view,
 }) => {
-  const { type: componentType, contentModules } = data;
+  const {
+    type: componentType,
+    contentModules,
+    images: rawImages,
+  } = data;
   const isMobileResolution = useSelector(selectIsMobile);
 
   const isSlider = [CASE_STUDIES_TYPES.challengesSlider, CASE_STUDIES_TYPES.challengesSpecialSlider].includes(data.type);
 
+  const images = (rawImages || []).map((rawImage) => getImage(rawImage));
+
   const content = contentModules?.map((document) => {
     const {
       title,
-      images,
+      images: blockImages,
       text,
       imagesBundles,
       subtitle,
       contentList = [],
     } = getDocumentFields(document);
 
-    const image = getImage(get(images, '[0]', {}));
-    const subImage = getImage(get(images, '[1]', {}));
+    const image = getImage(get(blockImages, '[0]'));
+    const subImage = getImage(get(blockImages, '[1]', ''));
     const imagesBundlesWithUrl = imagesBundles?.map((bundle) => getImage(bundle)) || [];
 
     return {
@@ -48,5 +54,6 @@ export const useChallengesAndSolutions = ({
     isMobileResolution,
     content,
     componentType,
+    images,
   };
 };

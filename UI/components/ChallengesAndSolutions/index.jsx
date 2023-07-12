@@ -20,6 +20,7 @@ const ChallengesAndSolutions = (props) => {
     isMobileResolution,
     content,
     componentType,
+    images,
   } = useChallengesAndSolutions(props);
 
   if (!content) {
@@ -159,6 +160,14 @@ const ChallengesAndSolutions = (props) => {
           </div>
         ))}
       </ChallengesSlider>
+
+      {images.length && images.map((image) => (
+        <Illustration
+          src={image.url}
+          key={image.url}
+          className={styles.sectionImage}
+        />
+      ))}
     </div>
   );
 };
