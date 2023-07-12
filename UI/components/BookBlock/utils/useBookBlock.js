@@ -34,6 +34,10 @@ export const useBookBlock = (props) => {
   };
 
   useEffect(() => {
+    // const bookBlockTimer = setTimeout(() => {
+    //   setBlockShow(true);
+    // }, 5000);
+
     const handleOnScroll = () => {
       const positionY = window.scrollY;
 
@@ -48,6 +52,12 @@ export const useBookBlock = (props) => {
       }
     };
 
+    setTimeout(() => {
+      setBlockShow(true);
+    }, 5000);
+
+    // bookBlockTimer();
+
     window.addEventListener('scroll', handleOnScroll);
 
     if (!editable) {
@@ -55,6 +65,10 @@ export const useBookBlock = (props) => {
     }
 
     if (blockShow) {
+      // const bookButtonTimer = setTimeout(() => {
+      //   setButtonShow(true);
+      // }, 3000);
+
       setTimeout(() => {
         setButtonShow(true);
       }, 3000);
@@ -62,6 +76,9 @@ export const useBookBlock = (props) => {
 
     return () => {
       window.removeEventListener('scroll', handleOnScroll);
+
+      // clearTimeout(bookBlockTimer);
+      // clearTimeout(bookButtonTimer);
     };
   }, [
     sectionRef,

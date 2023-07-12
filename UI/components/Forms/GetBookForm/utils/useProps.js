@@ -13,7 +13,11 @@ const useProps = ({
 
   const [
     subscribe,
-    { data: { isSubscribed } = {}, isLoading },
+    {
+      data: { isSubscribed } = {},
+      isLoading,
+      error: axiosError,
+    },
   ] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
   const {
@@ -28,7 +32,7 @@ const useProps = ({
 
   const handleButtonClick = handleSubmit(async (values) => {
     const {
-      data: { isSubscribed: isSubscribedResult },
+      data: { isSubscribed: isSubscribedResult } = {},
     } = await subscribe({ ...values, pathname: query });
 
     if (isSubscribedResult) {
@@ -43,6 +47,8 @@ const useProps = ({
   || !isValid
   || isLoading;
 
+  const errorMessage = axiosError?.response?.data;
+
   return {
     ...props,
     register,
@@ -51,6 +57,7 @@ const useProps = ({
     handleButtonClick,
     isSubscribed,
     buttonId,
+    errorMessage,
   };
 };
 

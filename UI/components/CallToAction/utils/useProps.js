@@ -47,6 +47,8 @@ export default ({
 
   const files = (rawFiles || []).map(getFileUrl);
 
+  // const handleCloseTimerBlock
+
   return {
     titles,
     subtitle,
