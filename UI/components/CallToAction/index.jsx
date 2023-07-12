@@ -9,6 +9,7 @@ import styles from './styles.module.scss';
 const Contact = dynamic(() => import('./content/Contact'));
 const GetBook = dynamic(() => import('./content/GetBook'));
 const Subscribe = dynamic(() => import('./content/Subscribe'));
+const ScrollBlock = dynamic(() => import('./content/ScrollBlock'));
 
 const CallToAction = (props) => {
   const {
@@ -16,34 +17,20 @@ const CallToAction = (props) => {
     subtitle,
     buttonTitle,
     type,
-    page,
-    view,
-    className,
     images,
-    isNew,
     downloadLink,
     isSubscribed,
-    isOpenFeedbackForm,
     handleOnClick,
     slug,
     ctaUrl,
+    sectionRef,
+    show,
+    setShow,
+    classNames,
   } = useProps(props);
 
   return (
-    <div
-      className={cn(
-        styles[type],
-        styles[view],
-        styles[page],
-        className,
-        {
-          [styles.openContact]: isOpenFeedbackForm,
-          [styles.new]: isNew,
-          [styles.card]: !isNew,
-          [styles.isSubscribed]: isSubscribed,
-        },
-      )}
-    >
+    <div className={classNames}>
       {images.map(({ url, alt }, i) => (
         <Illustration
           src={url}
@@ -82,6 +69,21 @@ const CallToAction = (props) => {
               buttonTitle={buttonTitle}
               handleOnClick={handleOnClick}
               url={ctaUrl}
+            />
+          );
+        case LINK_TYPE.scrollBlock:
+          return (
+            <ScrollBlock
+              sectionRef={sectionRef}
+              isSubscribed={isSubscribed}
+              titles={titles}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+              bookCover={images[0]}
+              downloadLink={downloadLink}
+              slug={slug}
+              show={show}
+              setShow={setShow}
             />
           );
         default:

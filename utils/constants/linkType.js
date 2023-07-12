@@ -5,4 +5,5 @@ export const LINK_TYPE = {
   youTube: 'youtube-video',
   book: 'book',
   subscribe: 'subscribe',
+  scrollBlock: 'scroll-block',
 };

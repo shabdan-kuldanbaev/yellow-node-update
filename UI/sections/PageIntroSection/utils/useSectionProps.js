@@ -1,5 +1,9 @@
 import get from 'lodash/get';
-import { getDocumentFields, getImage } from 'utils/helper';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getImage,
+} from 'utils/helper';
 
 export default ({
   introSection,
@@ -23,11 +27,14 @@ export default ({
   );
   const image = getImage(get(images, '[0]', {}));
   const figuresData = get(contentModules, '[0]', {});
-  const isButtonFirstBlock = figuresData.fields?.entryName.includes('Button');
+  const { contentModules: links } = getDocumentFields(get(contentModules, '[1]', {}), ['contentModules']);
+  const { buttonTitle } = getDocumentFields(links?.[0], ['buttonTitle']);
+  const isCTA = links?.[1];
 
-  const { title: buttonTitle } = !isButtonFirstBlock
-    ? getDocumentFields(get(contentModules, '[1]', {}), ['title'])
-    : getDocumentFields(get(contentModules, '[0]', {}), ['title']);
+  const ctaProps = {
+    sectionRef: introSection,
+    data: links?.[1],
+  };
 
   return {
     type,
@@ -38,5 +45,7 @@ export default ({
     buttonTitle,
     figuresData,
     handleOnCTAClick,
+    ctaProps,
+    isCTA,
   };
 };

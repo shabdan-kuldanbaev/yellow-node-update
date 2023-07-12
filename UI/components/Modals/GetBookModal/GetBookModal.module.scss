@@ -5,12 +5,13 @@
 }
 
 .container {
-  @include flex(column, flex-start, center);
+  @include flex(column, flex-start, initial);
 
   margin: 0 auto;
   max-width: 410px;
   padding: 0 30px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .image {

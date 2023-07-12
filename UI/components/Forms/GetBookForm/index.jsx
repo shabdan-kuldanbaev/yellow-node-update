@@ -12,6 +12,7 @@ const GetBookForm = (props) => {
     dirtyFields,
     buttonText,
     buttonId,
+    errorMessage,
   } = useProps(props);
 
   return (
@@ -33,6 +34,7 @@ const GetBookForm = (props) => {
         type="email"
         classname={styles.input}
       />
+      {errorMessage && <span className={styles.errorMessage}>{errorMessage}</span>}
       <Button
         className={styles.button}
         disabled={isButtonDisabled}

@@ -79,7 +79,7 @@ const CardsSection = (props) => {
           </div>
         )}
 
-        {images.length
+        {!!images.length
           && images.map((image) => (
             <Illustration
               src={image.url}

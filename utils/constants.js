@@ -129,6 +129,7 @@ export const SVG_IMAGES_TYPES = {
   arrow: 'arrow1',
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',
+  bookOpenFilled: 'bookOpenFilled',
   nearbyArrow: 'nearbyArrow',
   chevronDown: 'chevronDown',
   appstore: 'appstore',
