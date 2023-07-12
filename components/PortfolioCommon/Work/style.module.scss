@@ -98,7 +98,7 @@
 }
 
 .tagsWrapper {
-  @include flex(row, flex-start, flex-start, wrap);
+  @include flex(row, initial, flex-start, wrap);
 
   margin-left: -10px;
 

@@ -1,7 +1,7 @@
 .why-us {
   &.firstSectionView {
     .titleStyle {
-      @include flex(row, space-between, start);
+      @include flex(row, space-between, flex-start);
 
       margin: 60px auto 120px;
       padding: 0 16px;

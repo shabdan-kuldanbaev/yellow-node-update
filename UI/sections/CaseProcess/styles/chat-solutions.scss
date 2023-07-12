@@ -23,7 +23,7 @@
     }
 
     .step {
-      @include flex(column, start);
+      @include flex(column, flex-start);
 
       padding: 32px;
       background-color: $gray50;

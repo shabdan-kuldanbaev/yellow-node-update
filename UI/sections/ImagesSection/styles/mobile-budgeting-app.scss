@@ -12,7 +12,7 @@
   }
 
   &.secondSectionView {
-    @include flex(row-reverse, space-between, start);
+    @include flex(row-reverse, space-between, flex-start);
 
     margin: 0 auto;
     padding: 120px 13vw;
@@ -23,7 +23,7 @@
 
     .titleStyle {
       margin: 0;
-      place-self: end;
+      place-self: flex-end;
       max-width: 380px;
 
       [data-title] {
@@ -68,7 +68,7 @@
   }
 
   &.thirdSectionView {
-    @include flex(row, space-between, start);
+    @include flex(row, space-between, flex-start);
 
     margin: 0 auto;
     padding: 120px 16px;

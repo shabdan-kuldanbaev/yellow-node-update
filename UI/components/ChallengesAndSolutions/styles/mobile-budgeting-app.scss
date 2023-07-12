@@ -6,7 +6,7 @@
     }
 
     .contentContainer {
-      @include flex(column, center, start);
+      @include flex(column, center, flex-start);
 
       margin: 0 auto;
 
@@ -55,13 +55,13 @@
       }
 
       &-2 {
-        @include flex(column, center, end);
+        @include flex(column, center, flex-end);
 
         margin-top: -450px;
       }
 
       &-3 {
-        @include flex(column-reverse, center, start);
+        @include flex(column-reverse, center, flex-start);
 
         margin-top: -150px;
       }

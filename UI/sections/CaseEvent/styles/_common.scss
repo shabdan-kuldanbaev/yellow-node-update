@@ -3,7 +3,7 @@
   padding: 120px 40px;
 
   .titleStyle {
-    @include flex(row, space-between, start);
+    @include flex(row, space-between, flex-start);
 
     max-width: 994px;
     margin: 0 auto 48px;

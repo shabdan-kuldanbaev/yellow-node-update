@@ -1,5 +1,5 @@
 .kitchen-equipment-customizer {
-  @include flex(column, start, end);
+  @include flex(column, flex-start, flex-end);
 
   margin-left: 32px;
 
@@ -44,7 +44,7 @@
   }
 
   @include tablet {
-    align-items: start;
+    align-items: flex-start;
     margin: 0 0 24px;
     order: 2;
   }

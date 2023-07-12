@@ -49,7 +49,7 @@
   }
 
   .contentContainer {
-    @include flex(row-reverse, space-between, start);
+    @include flex(row-reverse, space-between, flex-start);
 
     position: relative;
     margin: 0 auto;

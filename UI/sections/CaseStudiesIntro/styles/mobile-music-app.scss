@@ -7,7 +7,7 @@
   }
 
   .contentWrapper {
-    @include flex(column, space-between, start);
+    @include flex(column, space-between, flex-start);
 
     margin: 0;
     max-width: 100%;

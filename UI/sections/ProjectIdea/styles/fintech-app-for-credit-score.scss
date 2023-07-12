@@ -1,5 +1,5 @@
 .fintech-app-for-credit-score {
-  @include flex(row, center, start);
+  @include flex(row, center, flex-start);
 
   padding: 120px 0 60px;
   grid-gap: 126px;

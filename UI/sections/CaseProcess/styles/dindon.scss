@@ -25,7 +25,7 @@
     }
 
     .step {
-      @include flex(column, start, start);
+      @include flex(column, flex-start, flex-start);
 
       padding: 32px;
       box-sizing: border-box;
@@ -93,7 +93,7 @@
       }
 
       @include tablet {
-        @include flex(column, center, start);
+        @include flex(column, center, flex-start);
 
         max-width: 100%;
       }

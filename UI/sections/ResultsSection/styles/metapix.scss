@@ -38,7 +38,7 @@
     padding: 60px 16px;
 
     .sectionTitle {
-      @include flex(column, initial, end);
+      @include flex(column, initial, flex-end);
 
       padding: 40px 0 0;
       max-width: $wide-content-width;
@@ -50,7 +50,7 @@
       }
 
       @include below-tablet {
-        align-items: start;
+        align-items: flex-start;
       }
     }
 

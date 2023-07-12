@@ -98,7 +98,7 @@
     }
 
     .introList {
-      @include flex(column,center , start);
+      @include flex(column,center , flex-start);
     }
 
     .experience > p {

@@ -15,7 +15,7 @@
       }
 
       @include below-tablet {
-        @include flex(column, start, center);
+        @include flex(column, flex-start, center);
 
         flex: 1 1 50% !important;
       }

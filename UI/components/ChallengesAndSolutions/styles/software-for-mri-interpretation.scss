@@ -133,7 +133,7 @@
       }
 
       &-3 {
-        @include flex(row, center, start);
+        @include flex(row, center, flex-start);
 
         padding-top: 80px;
         max-width: 100%;

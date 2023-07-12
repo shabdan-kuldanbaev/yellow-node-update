@@ -88,13 +88,15 @@
 
   &.secondSectionView {
     .image {
-      filter: drop-shadow(-1.97329px 1.97329px 9.86644px rgb(0 0 0 / 40%)) drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 30%));
+      filter:
+        drop-shadow(-1.97px 1.97px 9.86px rgb(0 0 0 / 40%))
+        drop-shadow(-14.7997px 14.7997px 29.5993px rgb(0 0 0 / 30%));
       width: 298px;
       height: 620px;
     }
 
     .infoContainer {
-      max-width: 343px;
+      max-width: 480px;
     }
   }
 }

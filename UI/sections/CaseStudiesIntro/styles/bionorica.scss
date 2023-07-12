@@ -78,6 +78,7 @@
     width: 731px;
     height: 437px;
     transform: rotate(45deg);
+    opacity: 0.5;
 
     @include tablet {
       display: none;

@@ -17,14 +17,14 @@
     }
 
     .container {
-      @include flex(row, end);
+      @include flex(row, flex-end);
 
       padding: 0 16px;
       max-width: $wide-content-width;
     }
 
     .stepsContainer {
-      @include flex(row, end, center, wrap);
+      @include flex(row, flex-end, center, wrap);
 
       position: relative;
       right: inherit;

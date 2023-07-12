@@ -77,7 +77,7 @@
   }
 
   .infoContainer {
-    @include flex(row, space-between, start);
+    @include flex(row, space-between, flex-start);
 
     max-width: 790px;
     width: 100%;

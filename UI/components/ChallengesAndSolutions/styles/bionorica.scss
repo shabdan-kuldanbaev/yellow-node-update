@@ -1,5 +1,5 @@
 .bionorica {
-  @include flex(row, space-between, start, wrap);
+  @include flex(row, space-between, flex-start, wrap);
 
   grid-gap: 32px;
   max-width: 790px;
