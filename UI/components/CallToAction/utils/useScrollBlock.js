@@ -86,6 +86,7 @@ export default (props) => {
     handleOnClick,
     isGetBookShown,
     toggleGetBookModalShown,
+    downloadLink,
     ...rest,
   };
 };
