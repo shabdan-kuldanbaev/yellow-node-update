@@ -29,32 +29,27 @@ export default ({
   const figuresData = get(contentModules, '[0]', {});
   const { contentModules: links } = getDocumentFields(get(contentModules, '[1]', {}), ['contentModules']);
   const { buttonTitle } = getDocumentFields(links?.[0], ['buttonTitle']);
-  const isBookBlock = links?.[1];
+  const isCTA = links?.[1];
 
-  const {
-    buttonTitle: blockButtonTitle,
-    files: blockFiles,
-    title: blockTitle,
-  } = getDocumentFields(
-    links?.[1],
-    [
-      'buttonTitle',
-      'title',
-      'files',
-    ],
-  );
+  // const {
+  //   buttonTitle: ctaButtonTitle,
+  //   files: ctaFiles,
+  //   title: ctaTitle,
+  //   type: ctaType,
+  // } = getDocumentFields(
+  //   links?.[1],
+  //   [
+  //     'buttonTitle',
+  //     'title',
+  //     'files',
+  //   ],
+  // );
 
-  const downloadLink = getFileUrl(blockFiles?.[0]);
+  // const downloadLink = getFileUrl(ctaFiles?.[0]);
 
-  const bookProps = {
+  const ctaProps = {
     sectionRef: introSection,
-    ctaProps: {
-      type: 'book',
-      buttonTitle: blockButtonTitle,
-      downloadLink,
-      title: blockTitle,
-      page: type,
-    },
+    data: links?.[1],
   };
 
   return {
@@ -66,7 +61,7 @@ export default ({
     buttonTitle,
     figuresData,
     handleOnCTAClick,
-    bookProps,
-    isBookBlock,
+    ctaProps,
+    isCTA,
   };
 };

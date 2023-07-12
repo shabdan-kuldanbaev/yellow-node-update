@@ -1,19 +1,19 @@
-.bookBlock {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+@import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
+@import 'styles/utils/colors';
+
+.block {
+  opacity: 0;
+  padding: 0 16px;
   width: 100%;
   background-color: $gray900;
-  z-index: 60;
-  opacity: 0;
-  pointer-events: none;
-  transition: ease 0.5s;
-  padding: 0 16px;
+  color: $gray0;
   box-sizing: border-box;
+  transition: ease 0.3s;
+  pointer-events: none;
 
-  .blockWrapper {
-    @include flex(row, initial, center);
+  .container {
+    @include flex(row, space-between, center);
 
     position: relative;
     margin: 0 auto;
@@ -27,28 +27,28 @@
     }
   }
 
-  .cta {
-    margin: 0 40px 0 12px;
-    padding: 0;
-    width: 100%;
-    min-height: unset;
-    max-width: unset;
-    background-color: transparent;
-    z-index: 10;
+  .content {
+    flex-grow: 1;
 
     h3 {
       @include fontSize(16px, 150%);
 
+      margin: 0;
       color: $gray0;
       font-weight: 400;
 
       @include below-tablet {
         margin-bottom: 24px;
+        text-align: center;
       }
     }
+  }
+
+  .button {
+    margin-right: 40px;
 
     @include below-tablet {
-      margin: 12px 0 0;
+      margin-right: 0;
     }
   }
 
@@ -73,8 +73,14 @@
   }
 
   .bookIcon {
+    margin-right: 12px;
     width: 56px;
     height: 56px;
+
+    @include below-tablet {
+      margin-right: 0;
+      margin-bottom: 12px;
+    }
   }
 }
 

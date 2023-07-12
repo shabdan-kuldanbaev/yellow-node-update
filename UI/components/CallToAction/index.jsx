@@ -9,6 +9,7 @@ import styles from './styles.module.scss';
 const Contact = dynamic(() => import('./content/Contact'));
 const GetBook = dynamic(() => import('./content/GetBook'));
 const Subscribe = dynamic(() => import('./content/Subscribe'));
+const ScrollBlock = dynamic(() => import('./content/ScrollBlock'));
 
 const CallToAction = (props) => {
   const {
@@ -27,6 +28,7 @@ const CallToAction = (props) => {
     handleOnClick,
     slug,
     ctaUrl,
+    sectionRef,
   } = useProps(props);
 
   return (
@@ -41,6 +43,7 @@ const CallToAction = (props) => {
           [styles.new]: isNew,
           [styles.card]: !isNew,
           [styles.isSubscribed]: isSubscribed,
+          [styles.scrollBlock]: type === LINK_TYPE.scrollBlock,
         },
       )}
     >
@@ -82,6 +85,19 @@ const CallToAction = (props) => {
               buttonTitle={buttonTitle}
               handleOnClick={handleOnClick}
               url={ctaUrl}
+            />
+          );
+        case LINK_TYPE.scrollBlock:
+          return (
+            <ScrollBlock
+              sectionRef={sectionRef}
+              isSubscribed={isSubscribed}
+              titles={titles}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+              bookCover={images[0]}
+              downloadLink={downloadLink}
+              slug={slug}
             />
           );
         default:

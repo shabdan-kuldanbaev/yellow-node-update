@@ -5,6 +5,7 @@ import { Figures } from 'UI/components/Figures';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
+import CallToAction from 'UI/components/CallToAction';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -23,8 +24,8 @@ const PageIntroSection = (props) => {
     figuresData,
     introSection,
     handleOnCTAClick,
-    bookProps,
-    isBookBlock,
+    ctaProps,
+    isCTA,
   } = useSectionProps(props);
 
   // TODO: use rich text instead of splitting
@@ -91,7 +92,7 @@ const PageIntroSection = (props) => {
           type={type}
           figuresData={figuresData}
         />
-        {isBookBlock && <BookBlock {...bookProps} />}
+        {isCTA && <CallToAction {...ctaProps} />}
       </div>
     </section>
   );
