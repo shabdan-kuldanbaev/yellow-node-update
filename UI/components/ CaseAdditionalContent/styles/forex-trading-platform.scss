@@ -3,7 +3,7 @@
   gap: 24px 32px;
 
   .container {
-    @include flex(column, initial, start);
+    @include flex(column, initial, flex-start);
 
     max-width: 250px;
 

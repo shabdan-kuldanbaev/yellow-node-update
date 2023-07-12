@@ -1,4 +1,12 @@
 .natp {
+  .parallaxImage {
+    height: 715px;
+
+    @include below-tablet {
+      height: 430px;
+    }
+  }
+
   .titleStyle {
     max-width: 626px;
     margin: 120px auto 48px;
@@ -16,8 +24,8 @@
   .listContainer {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    grid-row-gap: 8px;
-    grid-column-gap: 32px;
+    row-gap: 8px;
+    column-gap: 32px;
     list-style-type: none;
     padding: 0;
     margin: 0;

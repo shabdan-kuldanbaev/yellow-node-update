@@ -10,4 +10,12 @@
       padding-bottom: 0;
     }
   }
+
+  &.thirdSectionView {
+    padding: 0;
+
+    .titleStyle {
+      display: none;
+    }
+  }
 }

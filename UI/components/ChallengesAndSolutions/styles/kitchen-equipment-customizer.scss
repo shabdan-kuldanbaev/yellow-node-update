@@ -5,7 +5,7 @@
   max-width: $wide-content-width;
 
   .contentContainer {
-    @include flex(column, start, start);
+    @include flex(column, flex-start, flex-start);
 
     margin: 0;
     padding: 40px;

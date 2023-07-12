@@ -46,7 +46,7 @@
   }
 
   &.thirdSectionView {
-    @include flex(row, center, end);
+    @include flex(row, center, flex-end);
 
     max-width: 584px;
     width: 100%;

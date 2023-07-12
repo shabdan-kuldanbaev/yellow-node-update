@@ -9,7 +9,7 @@
     height: 1236px;
 
     @include tablet {
-      @include flex(column, start);
+      @include flex(column, flex-start);
 
       height: 100%;
     }

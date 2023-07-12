@@ -137,7 +137,7 @@
     }
 
     .contentWrapper {
-      @include flex(row, end, initial);
+      @include flex(row, flex-end, initial);
 
       margin-top: -285px;
 

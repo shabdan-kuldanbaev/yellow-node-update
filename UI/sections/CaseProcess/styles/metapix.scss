@@ -37,7 +37,7 @@
     }
 
     .step-2 {
-      @include flex(column, space-between, start);
+      @include flex(column, space-between, flex-start);
 
       .stepTitle {
         @include fontSize(130px, 152px);

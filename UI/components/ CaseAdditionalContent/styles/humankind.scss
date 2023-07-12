@@ -2,6 +2,14 @@
   flex-direction: column;
   max-width: 285px;
 
+  .container {
+    max-width: 285px;
+
+    &-1 {
+      margin-bottom: 24px;
+    }
+  }
+
   .title {
     font-size: 18px;
 

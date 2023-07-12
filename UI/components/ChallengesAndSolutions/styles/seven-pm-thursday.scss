@@ -86,7 +86,7 @@
     .image {
       position: relative;
 
-      &:before {
+      &::before {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -98,16 +98,16 @@
       }
     }
 
-    .image-1:before {
-      background: linear-gradient(180deg, #FF2B8A -2.98%, #FF4A34 92.06%);
+    .image-1::before {
+      background: linear-gradient(180deg, #ff2b8a -2.98%, #ff4a34 92.06%);
     }
 
-    .image-2:before {
-      background: linear-gradient(175.41deg, #29ABE2 24.16%, #9A35FB 87.57%);
+    .image-2::before {
+      background: linear-gradient(175.41deg, #29abe2 24.16%, #9a35fb 87.57%);
     }
 
-    .image-3:before {
-      background: linear-gradient(145.66deg, #59F9BF 12.82%, #00C19C 87.64%);
+    .image-3::before {
+      background: linear-gradient(145.66deg, #59f9bf 12.82%, #00c19c 87.64%);
     }
   }
 }

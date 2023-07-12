@@ -20,6 +20,7 @@ const ChallengesAndSolutions = (props) => {
     isMobileResolution,
     content,
     componentType,
+    images,
   } = useChallengesAndSolutions(props);
 
   if (!content) {
@@ -51,7 +52,7 @@ const ChallengesAndSolutions = (props) => {
               { [styles.special]: isSpecial },
             )}
           >
-            {(!image && title) && (
+            {(!image.url && title) && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.infoContainer, styles.separatedTitle)}>
                   <Typography
@@ -70,15 +71,15 @@ const ChallengesAndSolutions = (props) => {
                 { [styles.centrefy]: image },
               )}
             >
-              {subImage && (
+              {subImage.url && (
                 <Illustration
                   transparent
                   className={styles.subImage}
-                  src={subImage.img}
+                  src={subImage.url}
                   alt={subImage.alt}
                 />
               )}
-              {image && subtitle && (
+              {image.url && subtitle && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div>
                     <Typography
@@ -90,7 +91,7 @@ const ChallengesAndSolutions = (props) => {
                   </div>
                 </Animated>
               )}
-              {image && (
+              {image.url && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div>
                     <Typography
@@ -147,18 +148,26 @@ const ChallengesAndSolutions = (props) => {
                 </div>
               </Animated>
             )}
-            {!image && imagesBundles?.map((bundleUrl, imagesBundlesIndex) => (
+            {!image.url && imagesBundles?.map((bundleUrl, imagesBundlesIndex) => (
               <Illustration
                 transparent
                 className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
-                src={bundleUrl}
+                src={bundleUrl.url}
                 key={`bundles-images/${bundleUrl}`}
-                alt=""
+                alt={bundleUrl.alt}
               />
             ))}
           </div>
         ))}
       </ChallengesSlider>
+
+      {images.length && images.map((image) => (
+        <Illustration
+          src={image.url}
+          key={image.url}
+          className={styles.sectionImage}
+        />
+      ))}
     </div>
   );
 };

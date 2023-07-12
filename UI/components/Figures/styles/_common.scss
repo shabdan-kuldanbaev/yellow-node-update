@@ -6,7 +6,7 @@
   .title,
   .description {
     @include phone {
-      text-align: center
+      text-align: center;
     }
   }
 

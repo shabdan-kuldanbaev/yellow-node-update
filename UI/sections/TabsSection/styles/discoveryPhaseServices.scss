@@ -182,7 +182,7 @@
       }
 
       ul {
-        @include flex(column, start, start);
+        @include flex(column, flex-start, flex-start);
 
         margin: 0;
         padding: 0;
@@ -230,8 +230,8 @@
     .cardContent {
       @include flex(row, space-between);
 
-      grid-column-gap: 80px;
-      grid-row-gap: 24px;
+      column-gap: 80px;
+      row-gap: 24px;
 
       @include tablet {
         @include flex(column, center, center);

@@ -34,7 +34,7 @@
     padding: 275px 0;
 
     .titleStyle {
-      @include flex(column, start);
+      @include flex(column, flex-start);
 
       z-index: 2;
       padding: 0 40px;

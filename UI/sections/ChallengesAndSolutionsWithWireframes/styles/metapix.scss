@@ -4,7 +4,7 @@
     background: $metapixPrimary;
 
     .titleStyle {
-      @include flex(column, initial, start);
+      @include flex(column, initial, flex-start);
 
       margin-bottom: 32px;
       padding: 40px 0 0;
@@ -13,7 +13,7 @@
       box-sizing: border-box;
 
       @include below-tablet {
-        align-items: start;
+        align-items: flex-start;
       }
     }
 

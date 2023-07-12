@@ -18,25 +18,20 @@
   &.thirdSectionView {
     background-color: $gray50;
     padding: 24px 0 0;
-    margin-bottom: 48px;
-
-    @include phone {
-      margin-bottom: 24px;
-    }
   }
 
   &.fourthSectionView {
-    padding-bottom: 120px;
+    padding: 48px 16px 120px;
 
     @include phone {
-      padding-bottom: 60px;
+      padding: 24px 16px 60px;
     }
   }
 
   &.thirdSectionView,
   &.fourthSectionView {
     .titleStyle {
-      margin-bottom: 0;
+      display: none;
     }
   }
 

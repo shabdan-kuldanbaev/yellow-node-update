@@ -6,7 +6,7 @@
   }
 
   .descriptionContainer {
-    @include flex(row, space-between, start);
+    @include flex(row, space-between, flex-start);
 
     margin: 0 auto;
     gap: 32px;
