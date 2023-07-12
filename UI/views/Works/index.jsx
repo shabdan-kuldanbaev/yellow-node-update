@@ -1,4 +1,3 @@
-import { useCallback, useState } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import FullLayout from 'components/Layout/FullLayout';
@@ -11,27 +10,24 @@ import {
   REVEAL_ANIMATION_PROPS,
   ROUTES,
 } from 'utils/constants';
-import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { useFetchPageQuery } from 'redux/apis/page';
+import useProps from './utils/useProps';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 const CallToAction = dynamic(() => import('components/Common/CallToAction'));
 
-const PortfolioContainer = ({
-  introSection,
-  pageMetadata,
-  works,
-  link,
-  type,
-}) => {
-  const { data = {} } = useFetchPageQuery(type);
-  const { subtitle } = data;
-  const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-  const breadcrumbs = getBreadcrumbs(PAGES.portfolio);
-
-  const openFullscreenEstimation = useCallback(() => setIsFullscreenEstimation(true), []);
-  const closeFullscreenEstimation = useCallback(() => setIsFullscreenEstimation(false), []);
+const WorksView = (props) => {
+  const {
+    subtitle,
+    breadcrumbs,
+    pageMetadata,
+    introSection,
+    works,
+    link,
+    isFullscreenEstimation,
+    openFullscreenEstimation,
+    closeFullscreenEstimation,
+  } = useProps(props);
 
   return (
     <>
@@ -45,10 +41,11 @@ const PortfolioContainer = ({
           title={ROUTES.portfolio.title}
           breadcrumbs={breadcrumbs}
           breadcrumbsTheme="dark"
+          titleStyles={styles.title}
         />
         <Animated
           {...REVEAL_ANIMATION_PROPS}
-          transitionDelay={250}
+          transitionDelay={50}
         >
           <p className={styles.subtitle}>
             {subtitle}
@@ -73,7 +70,7 @@ const PortfolioContainer = ({
   );
 };
 
-PortfolioContainer.propTypes = {
+WorksView.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   pageMetadata: PropTypes.instanceOf(Object).isRequired,
   works: PropTypes.instanceOf(Array).isRequired,
@@ -81,4 +78,4 @@ PortfolioContainer.propTypes = {
   subtitle: PropTypes.string.isRequired,
 };
 
-export default PortfolioContainer;
+export default WorksView;

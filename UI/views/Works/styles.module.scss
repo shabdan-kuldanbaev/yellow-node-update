@@ -1,13 +1,17 @@
 @import 'styles/utils/mixins';
 
+.title {
+  margin-top: 32px;
+}
+
 .subtitle {
   @include fontSize(16px, 150%);
 
   color: $gray400;
-  margin-bottom: 32px;
-  max-width: 900px;
+  margin-bottom: 24px;
+  max-width: 813px;
 
-  @include phone {
+  @include tablet {
     margin-bottom: 24px;
   }
 }
