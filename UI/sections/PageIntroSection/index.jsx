@@ -23,8 +23,7 @@ const PageIntroSection = (props) => {
     figuresData,
     introSection,
     handleOnCTAClick,
-    ctaProps,
-    isCTA,
+    scrollBlock,
   } = useSectionProps(props);
 
   // TODO: use rich text instead of splitting
@@ -76,7 +75,7 @@ const PageIntroSection = (props) => {
             )}
           </div>
           <Animated {...REVEAL_ANIMATION_PROPS}>
-            {image && (
+            {image.url && (
               <Illustration
                 src={image.url}
                 alt={image.alt}
@@ -91,7 +90,12 @@ const PageIntroSection = (props) => {
           type={type}
           figuresData={figuresData}
         />
-        {isCTA && <CallToAction {...ctaProps} />}
+        {scrollBlock && (
+          <CallToAction
+            data={scrollBlock}
+            sectionRef={introSection}
+          />
+        )}
       </div>
     </section>
   );
