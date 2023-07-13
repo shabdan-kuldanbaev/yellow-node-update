@@ -33,7 +33,6 @@ export default ({ works, initialWorksList }) => {
 
   function hendleMoreClick() {
     const newWorksDisplay = getLimitedList(filteredWorks, { limit: worksDisplay.length + DEFAULT_WORKS_LIMIT });
-    console.log('🚀 ~ file: useProps.js:36 ~ hendleMoreClick ~ newWorksDisplay:', newWorksDisplay);
     setWorksDisplay(newWorksDisplay);
   }
 

@@ -11,10 +11,15 @@
 
     .arrow {
       fill: $yellow400;
+      transform: none;
     }
 
-    .image img {
-      transform: scale(103%);
+    .image {
+      filter: saturate(1);
+
+      img {
+        transform: scale(103%);
+      }
     }
   }
 }
@@ -26,10 +31,16 @@
 .image {
   aspect-ratio: 584/450;
   width: 100%;
+  filter: saturate(0.6);
+  transition: filter 0.2s ease-in-out;
 
   img {
     object-fit: cover;
     transition: transform 0.2s ease-in-out;
+  }
+
+  @include tablet {
+    filter: saturate(0.9);
   }
 }
 
@@ -47,7 +58,10 @@
 .arrow {
   flex: 0 0 24px;
   height: 30px;
-  transition: fill 0.1s ease-in-out;
+  transition:
+    fill 0.1s ease-in-out,
+    transform 0.1s ease-in-out;
+  transform: scale(0.9);
 }
 
 .description {
@@ -55,28 +69,4 @@
 
   margin: 0;
   color: $gray400;
-}
-
-.marketplace-for-clairvoyant-services,
-.mobile-fintech-app {
-  .title {
-    @include fontSize(48px);
-
-    @include macbook-fifteen {
-      @include fontSize(42px);
-
-      margin-top: 20px;
-      line-height: 50px;
-    }
-
-    line-height: 48px;
-    margin-top: 20px;
-
-    @include tablet {
-      @include fontSize(18px);
-
-      line-height: 21px;
-      margin-top: 10px;
-    }
-  }
 }
