@@ -1,43 +1,16 @@
 @import 'styles/utils/mixins';
 
 .worksContainer {
-  @include flex(row, flex-start, flex-start, wrap);
-
-  @include ultra-hd {
-    max-width: $max-content-width;
-  }
-
   --gap: 32px;
 
-  background-color: $gray0;
-  margin: 20px 0 0 calc(-1 * var(--gap));
-
-  & > * {
-    flex: 1 1 calc(45% - var(--gap) / 2);
-    margin: 0 0 var(--gap) var(--gap);
-
-    &:nth-child(8n + 3),
-    &:nth-child(8n + 8) {
-      flex-basis: calc(50% - var(--gap) / 2);
-    }
-
-    &:nth-child(8n + 4),
-    &:nth-child(8n + 7) {
-      flex-basis: calc(30% - var(--gap) / 2);
-    }
-
-    @include below-tablet {
-      margin: 40px 0 0;
-    }
-  }
-
-  @include below-tablet {
-    margin: 15px 0 0;
-  }
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(2, 1fr);
+  margin: 40px 0 32px;
 
   @include tablet {
-    padding: 0;
     display: block;
+    margin: 32px 0;
   }
 }
 

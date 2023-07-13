@@ -99,9 +99,10 @@ const Portfolio = ({
         typeList={[DEFAULT_WORK_TYPE, ...types]}
       />
       <div className={styles.worksContainer}>
-        {worksDisplay.map((work) => (
+        {worksDisplay.map((work, i) => (
           <Work
             key={work.title}
+            position={i}
             work={work}
             customSlug={slugs[work.title]}
             onTagClick={onSelectedTagChange}
