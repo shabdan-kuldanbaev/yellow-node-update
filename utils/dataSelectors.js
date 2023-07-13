@@ -47,10 +47,10 @@ export const getPortfolioPageProps = async (state, store) => {
     ...data.metaData,
   };
 
-  const linkCTA = data.contentModules.find((module) => module.sys.contentType.sys.id === 'link');
+  const link = data.contentModules.find((module) => module.sys.contentType.sys.id === 'link');
 
   return {
-    link: getDocumentFields(linkCTA),
+    link,
     pageMetadata,
     works,
   };

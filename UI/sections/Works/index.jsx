@@ -5,7 +5,7 @@ import {
 } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import ButtonMore from 'components/Common/ButtonMore';
+import Button from 'UI/components/Button';
 import {
   DEFAULT_WORK_TYPE,
   REVEAL_ANIMATION_PROPS,
@@ -15,14 +15,14 @@ import gaHelper from 'utils/ga';
 import { getLimitedList } from 'utils/helper';
 import withScroll from 'hocs/withScroll';
 import { useLoadTagsAndTypesQuery } from 'redux/apis/works';
-import Work from './Work';
+import Work from 'components/PortfolioCommon/Work';
+import TypeSelector from 'components/TypeSelector';
 import { DEFAULT_WORKS_LIMIT, filterWorks } from './utils';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
-const TypeSelector = dynamic(() => import('../TypeSelector'));
 
-const Portfolio = ({
+const Works = ({
   works,
   maxScrollPosition,
 }) => {
@@ -99,7 +99,7 @@ const Portfolio = ({
         typeList={[DEFAULT_WORK_TYPE, ...types]}
       />
       <div className={styles.worksContainer}>
-        {worksDisplay.map((work, i) => (
+        {(worksDisplay || works).map((work, i) => (
           <Work
             key={work.title}
             position={i}
@@ -112,24 +112,26 @@ const Portfolio = ({
       </div>
       {hasHiddenItems && (
         <Animated {...REVEAL_ANIMATION_PROPS}>
-          <ButtonMore
-            title="See more projects"
-            buttonStyle={styles.showMoreButton}
+          <Button
+            className={styles.showMoreButton}
             handleOnClick={onShowMoreClick}
-          />
+            secondary
+          >
+            Load more
+          </Button>
         </Animated>
       )}
     </>
   );
 };
 
-Portfolio.defaultProps = {
+Works.defaultProps = {
   works: [],
 };
 
-Portfolio.propTypes = {
+Works.propTypes = {
   works: PropTypes.instanceOf(Array),
   maxScrollPosition: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default withScroll(Portfolio);
+export default withScroll(Works);

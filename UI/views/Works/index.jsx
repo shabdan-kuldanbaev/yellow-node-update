@@ -4,20 +4,17 @@ import FullLayout from 'components/Layout/FullLayout';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'UI/components/PageHeader';
-import Portfolio from 'components/PortfolioCommon';
-import {
-  PAGES,
-  REVEAL_ANIMATION_PROPS,
-  ROUTES,
-} from 'utils/constants';
+import { PAGES, REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import CallToAction from 'UI/components/CallToAction';
+import Works from 'UI/sections/Works';
 import useProps from './utils/useProps';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
-const CallToAction = dynamic(() => import('components/Common/CallToAction'));
 
 const WorksView = (props) => {
   const {
+    title,
     subtitle,
     breadcrumbs,
     pageMetadata,
@@ -36,32 +33,34 @@ const WorksView = (props) => {
         breadcrumbs={breadcrumbs}
         pageMetadata={pageMetadata}
       />
-      <FullLayout introSection={introSection}>
+      <FullLayout
+        introSection={introSection}
+        className={styles.view}
+      >
         <PageHeader
-          title={ROUTES.portfolio.title}
+          title={title}
           breadcrumbs={breadcrumbs}
           breadcrumbsTheme="dark"
           titleStyles={styles.title}
         />
-        <Animated
-          {...REVEAL_ANIMATION_PROPS}
-          transitionDelay={50}
-        >
+
+        <Animated {...REVEAL_ANIMATION_PROPS}>
           <p className={styles.subtitle}>
             {subtitle}
           </p>
         </Animated>
-        <Portfolio works={works} />
-        {link && (
+
+        <Works works={works} />
+
+        <Animated {...REVEAL_ANIMATION_PROPS}>
           <CallToAction
-            type="page"
-            title={link.title}
-            buttonTitle={link.buttonTitle}
+            data={link}
             handleOnClick={openFullscreenEstimation}
             className={styles.callToAction}
           />
-        )}
+        </Animated>
       </FullLayout>
+
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
