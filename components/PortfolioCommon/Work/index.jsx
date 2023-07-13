@@ -5,8 +5,8 @@ import Illustration from 'UI/components/Illustration';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Svg from 'UI/components/Svg';
-import styles from './style.module.scss';
 import useProps from './utils/useProps';
+import styles from './style.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
@@ -53,13 +53,11 @@ const Work = (props) => {
 };
 
 Work.defaultProps = {
-  customSlug: '',
   position: 0,
 };
 
 Work.propTypes = {
   work: PropTypes.instanceOf(Object).isRequired,
-  customSlug: PropTypes.string,
   position: PropTypes.number,
 };
 

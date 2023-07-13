@@ -1,32 +1,5 @@
 import { DEFAULT_WORK_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 
-const linkProps = {
-  isLocalLink: true,
-  dynamicRouting: '/works/[project]',
-  path: (id) => `/works/${id}`,
-};
-
-export const animatedFields = [
-  {
-    field: 'title',
-    transitionDelay: 200,
-    ...REVEAL_ANIMATION_PROPS,
-  },
-  {
-    field: 'description',
-    transitionDelay: 250,
-    ...REVEAL_ANIMATION_PROPS,
-  },
-  {
-    field: 'link',
-    transitionDelay: 300,
-    ...REVEAL_ANIMATION_PROPS,
-    ...linkProps,
-  },
-];
-
-export const DEFAULT_WORKS_LIMIT = 8;
-
 export const WORK_TYPES = {
   all: 'All',
   mobile: 'Mobile development',

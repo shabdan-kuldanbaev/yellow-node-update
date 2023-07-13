@@ -6,6 +6,7 @@ import pageApi from 'redux/apis/page';
 import worksApi from 'redux/apis/works';
 import {
   BLOCKS_SLUGS,
+  DEFAULT_WORKS_LIMIT,
   HOMEPAGE_ARTICLES_LIMIT,
   PAGES,
 } from 'utils/constants';
@@ -42,6 +43,9 @@ export const getPortfolioPageProps = async (state, store) => {
     };
   });
 
+  const initialWorksList = works.slice(0, DEFAULT_WORKS_LIMIT);
+  console.log('🚀 ~ file: dataSelectors.js:47 ~ getPortfolioPageProps ~ initialWorksList:', initialWorksList);
+
   const pageMetadata = {
     url: `${rootUrl}/works`,
     ...data.metaData,
@@ -53,6 +57,7 @@ export const getPortfolioPageProps = async (state, store) => {
     link,
     pageMetadata,
     works,
+    initialWorksList,
   };
 };
 

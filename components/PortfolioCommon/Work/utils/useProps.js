@@ -3,13 +3,12 @@ import { routes } from 'utils/routes';
 
 export default ({
   work,
-  customSlug: slugProp,
   position,
 }) => {
   const {
     title,
     description,
-    slug: rawSlug,
+    slug,
     mainImage,
     backgroundImage,
   } = work;
@@ -17,10 +16,8 @@ export default ({
   const rawImage = mainImage || backgroundImage;
   const image = getImage(rawImage);
 
-  const link = routes.project.getRoute(rawSlug);
+  const link = routes.project.getRoute(slug);
   const revealDelay = 50 + 150 * (position % 2);
-
-  const slug = slugProp || rawSlug;
 
   return {
     title,

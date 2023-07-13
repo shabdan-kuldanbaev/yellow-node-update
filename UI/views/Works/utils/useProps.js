@@ -5,7 +5,6 @@ import { PAGES } from 'utils/constants';
 
 export default ({ type, ...restProps }) => {
   const { data = {} } = useFetchPageQuery(type);
-  console.log('🚀 ~ file: useProps.js:8 ~ data:', data);
   const { subtitle, pageTitle: title } = data;
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
   const breadcrumbs = getBreadcrumbs(PAGES.portfolio);

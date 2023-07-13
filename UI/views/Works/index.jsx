@@ -20,6 +20,7 @@ const WorksView = (props) => {
     pageMetadata,
     introSection,
     works,
+    initialWorksList,
     link,
     isFullscreenEstimation,
     openFullscreenEstimation,
@@ -50,7 +51,10 @@ const WorksView = (props) => {
           </p>
         </Animated>
 
-        <Works works={works} />
+        <Works
+          works={works}
+          initialWorksList={initialWorksList}
+        />
 
         <Animated {...REVEAL_ANIMATION_PROPS}>
           <CallToAction
