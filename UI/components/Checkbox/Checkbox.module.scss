@@ -24,7 +24,8 @@
   cursor: pointer;
 
   &::before {
-    content: '\2714';
+    line-height: 1.3;
+    content: '✓';
     color: #0000;
     text-align: center;
     width: 20px;

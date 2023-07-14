@@ -9,11 +9,28 @@
 
   position: relative;
   margin-right: 40px;
+  cursor: pointer;
+
+  &:hover {
+    .filterTitle {
+      color: $yellow400;
+    }
+
+    .chevron {
+      path {
+        fill: $yellow400;
+      }
+    }
+  }
 
   &.visible {
     .filterItems {
       visibility: visible;
       opacity: 1;
+    }
+
+    .chevron {
+      transform: rotate(-180deg);
     }
   }
 }
@@ -23,6 +40,15 @@
 
   font-weight: 700;
   margin-right: 12px;
+  transition: color 0.1s ease-in-out;
+}
+
+.chevron {
+  transition: transform 0.2s ease-in-out;
+
+  path {
+    transition: fill 0.1s ease-in-out;
+  }
 }
 
 .filterItems {

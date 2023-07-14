@@ -11,6 +11,7 @@ export default ({
   onFiltersChange,
 }) => {
   const filtersListRefs = useRef([createRef(), createRef()]);
+  const filtersTogglesRefs = useRef([createRef(), createRef()]);
 
   const [openedFilter, setOpenedFilter] = useState(null);
 
@@ -20,15 +21,18 @@ export default ({
     tags = [],
   } = data;
 
-  const getFilterOpenToggleHandler = (name) => () => {
-    console.log('🚀 ~ file: useProps.js:24 ~ getFilterOpenToggleHandler ~ name:', name);
-    console.log('🚀 ~ file: useProps.js:27 ~ getFilterOpenToggleHandler ~ openedFilter:', openedFilter);
+  const getFilterOpenToggleHandler = (name) => ({ target }) => {
+    const { current: [filterListRef1, fitlerListRef2] } = (filtersListRefs || {});
+
+    const isClickOnChildren = filterListRef1.current.contains(target) || fitlerListRef2.current.contains(target);
+
+    if (isClickOnChildren) {
+      return;
+    }
 
     if (openedFilter === name) {
       return setOpenedFilter(null);
     }
-
-    console.log(123);
 
     setOpenedFilter(name);
   };
@@ -43,20 +47,38 @@ export default ({
 
   useEffect(() => {
     const handleClickOutside = ({ target }) => {
-      const { current: [ref1, ref2] } = (filtersListRefs || {});
+      const { current: [filterListRef1, fitlerListRef2] } = (filtersListRefs || {});
+      const { current: [filterTogglerRef1, filterTogglerRef2] } = (filtersTogglesRefs || {});
 
-      if ((openedFilter) && target !== ref1 && target !== ref2) {
+      const isClickOnToggler = filterTogglerRef1.current.contains(target) || filterTogglerRef2.current.contains(target);
+
+      if (isClickOnToggler) {
+        return;
+      }
+
+      const isClickOnChildren = filterListRef1.current.contains(target) || fitlerListRef2.current.contains(target);
+
+      if (!isClickOnChildren) {
         setOpenedFilter(null);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    const handleScroll = () => {
+      setOpenedFilter(null);
+    };
 
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('scroll', handleScroll);
+    };
   }, [openedFilter]);
 
   return {
     filtersListRefs,
+    filtersTogglesRefs,
     filters,
     types,
     tags,

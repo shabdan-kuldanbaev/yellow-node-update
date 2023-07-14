@@ -11,6 +11,7 @@ export default function WorksFilters(props) {
     tags,
     openedFilter,
     filtersListRefs,
+    filtersTogglesRefs,
     getOptionToggleHandler,
     getFilterOpenToggleHandler,
   } = useProps(props);
@@ -22,15 +23,18 @@ export default function WorksFilters(props) {
         tabIndex={0}
         className={cn(styles.filter, { [styles.visible]: openedFilter === 'type' })}
         onClick={getFilterOpenToggleHandler('type')}
-        ref={filtersListRefs.current[0]}
+        ref={filtersTogglesRefs.current[0]}
       >
         <span className={styles.filterTitle}>Types</span>
 
-        <Svg type="chevronDown" />
+        <Svg
+          type="chevronDown"
+          className={styles.chevron}
+        />
 
         <div
           className={styles.filterItems}
-
+          ref={filtersListRefs.current[0]}
         >
           {types.map((type) => (
             <Checkbox
@@ -49,10 +53,14 @@ export default function WorksFilters(props) {
         tabIndex={0}
         className={cn(styles.filter, { [styles.visible]: openedFilter === 'tag' })}
         onClick={getFilterOpenToggleHandler('tag')}
+        ref={filtersTogglesRefs.current[1]}
       >
         <span className={styles.filterTitle}>Tags</span>
 
-        <Svg type="chevronDown" />
+        <Svg
+          type="chevronDown"
+          className={styles.chevron}
+        />
 
         <div
           className={styles.filterItems}

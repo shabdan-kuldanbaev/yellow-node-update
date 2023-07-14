@@ -35,7 +35,7 @@
   transition: filter 0.2s ease-in-out;
 
   img {
-    object-fit: cover;
+    object-fit: cover !important;
     transition: transform 0.2s ease-in-out;
   }
 
