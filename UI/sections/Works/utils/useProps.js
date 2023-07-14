@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useLoadTagsAndTypesQuery } from 'redux/apis/works';
 import { DEFAULT_WORKS_LIMIT } from 'utils/constants';
 import { getLimitedList } from 'utils/helper';
 import { filterWorks } from '.';
@@ -11,12 +10,6 @@ export default ({ works, initialWorksList }) => {
     selectedTags: [],
     selectedTypes: [],
   });
-
-  const { data = {} } = useLoadTagsAndTypesQuery();
-  const {
-    types = [],
-    tags = [],
-  } = data;
 
   const hasHiddenItems = worksDisplay.length !== filteredWorks.length;
 

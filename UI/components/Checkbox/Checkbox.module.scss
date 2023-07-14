@@ -1,0 +1,40 @@
+@import 'styles/utils/mixins';
+
+.container {
+  display: inline-block;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox:checked + .label::before {
+  background: $yellow400;
+  color: $gray900;
+}
+
+.checkbox:hover + .label {
+  color: $gray600;
+}
+
+.label {
+  @include flex(row, space-between, center);
+
+  transition: color 0.1s ease-in-out;
+  cursor: pointer;
+
+  &::before {
+    content: '\2714';
+    color: #0000;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    display: block;
+    border-radius: 2px;
+    border: solid 1px $gray300;
+    margin-right: 8px;
+    transition:
+      color 0.1s ease-in-out,
+      background 0.1s ease-in-out;
+  }
+}

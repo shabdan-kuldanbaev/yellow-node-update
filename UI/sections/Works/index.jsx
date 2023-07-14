@@ -4,6 +4,7 @@ import Button from 'UI/components/Button';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import withScroll from 'hocs/withScroll';
 import Work from 'components/PortfolioCommon/Work';
+import WorksFilters from 'UI/components/WorksFilters';
 import useProps from './utils/useProps';
 import styles from './styles.module.scss';
 
@@ -12,14 +13,19 @@ const Animated = dynamic(() => import('UI/containers/Animated'));
 const Works = (props) => {
   const {
     works,
-    types,
-    tags,
     hasHiddenItems,
+    filters,
     hendleMoreClick,
+    handleFiltersChange,
   } = useProps(props);
 
   return (
     <>
+      <WorksFilters
+        filters={filters}
+        onFiltersChange={handleFiltersChange}
+      />
+
       <div className={styles.worksContainer}>
         {works.map((work, i) => (
           <Work
