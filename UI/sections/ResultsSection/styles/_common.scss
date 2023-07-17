@@ -4,14 +4,14 @@
   .sectionTitle {
     margin: 0 auto 32px;
 
-    [data-title] {
-      margin: 0 auto;
-    }
-
     @include phone {
       padding: 0 16px;
       margin: 0 auto 24px;
     }
+  }
+
+  [data-title] {
+    margin: 0 auto;
   }
 
   .contentWrapper {
