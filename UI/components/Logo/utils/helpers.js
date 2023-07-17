@@ -30,6 +30,7 @@ export const WHITE_LOGO_TYPE = [
   'cctv-footage-analytics',
   'kitchen-equipment-customizer',
   'mobile-music-app',
+  CASE_STUDIES.erp,
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -77,6 +78,7 @@ export const WHITE_TEXT_LOGO = [
   'kitchen-equipment-customizer',
   'mobile-music-app',
   CASE_STUDIES.clairvoyantServices,
+  CASE_STUDIES.erp,
 ];
 
 export const getLogoType = (type) => {
