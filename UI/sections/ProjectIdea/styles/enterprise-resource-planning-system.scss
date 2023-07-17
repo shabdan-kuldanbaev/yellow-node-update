@@ -11,6 +11,10 @@
     }
   }
 
+  .descriptionIntro {
+    margin: 0;
+  }
+
   .descriptionContainer {
     margin-left: 0;
     margin-right: 32px;
@@ -21,6 +25,14 @@
     background-color: $gray50;
     border-radius: 30px;
     box-sizing: border-box;
+
+    .title {
+      margin: 0 auto 8px;
+    }
+
+    p:first-of-type {
+      margin-bottom: 24px;
+    }
 
     @include tablet {
       border-radius: 20px;
