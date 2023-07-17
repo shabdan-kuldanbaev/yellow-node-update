@@ -33,7 +33,7 @@ export const useProjectIdea = ({ type, data }) => {
   };
 
   const featuresProps = getDocumentFields(get(data, 'contentModules[0]', {}), ['contentModules']);
-  const teamListProps = getDocumentFields(
+  const teamListProps = data?.contentModules?.[2] && getDocumentFields(
     get(data, 'contentModules[2]', {}),
     [
       'title',
