@@ -44,7 +44,6 @@ export const getPortfolioPageProps = async (state, store) => {
   });
 
   const initialWorksList = works.slice(0, DEFAULT_WORKS_LIMIT);
-  console.log('🚀 ~ file: dataSelectors.js:47 ~ getPortfolioPageProps ~ initialWorksList:', initialWorksList);
 
   const pageMetadata = {
     url: `${rootUrl}/works`,
