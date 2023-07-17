@@ -1,37 +1,31 @@
-import { useCallback, useState } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import FullLayout from 'components/Layout/FullLayout';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'UI/components/PageHeader';
-import Portfolio from 'components/PortfolioCommon';
-import {
-  PAGES,
-  REVEAL_ANIMATION_PROPS,
-  ROUTES,
-} from 'utils/constants';
-import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { useFetchPageQuery } from 'redux/apis/page';
+import { PAGES, REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import CallToAction from 'UI/components/CallToAction';
+import Works from 'UI/sections/Works';
+import useProps from './utils/useProps';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
-const CallToAction = dynamic(() => import('components/Common/CallToAction'));
 
-const PortfolioContainer = ({
-  introSection,
-  pageMetadata,
-  works,
-  link,
-  type,
-}) => {
-  const { data = {} } = useFetchPageQuery(type);
-  const { subtitle } = data;
-  const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-  const breadcrumbs = getBreadcrumbs(PAGES.portfolio);
-
-  const openFullscreenEstimation = useCallback(() => setIsFullscreenEstimation(true), []);
-  const closeFullscreenEstimation = useCallback(() => setIsFullscreenEstimation(false), []);
+const WorksView = (props) => {
+  const {
+    title,
+    subtitle,
+    breadcrumbs,
+    pageMetadata,
+    introSection,
+    works,
+    initialWorksList,
+    link,
+    isFullscreenEstimation,
+    openFullscreenEstimation,
+    closeFullscreenEstimation,
+  } = useProps(props);
 
   return (
     <>
@@ -40,31 +34,37 @@ const PortfolioContainer = ({
         breadcrumbs={breadcrumbs}
         pageMetadata={pageMetadata}
       />
-      <FullLayout introSection={introSection}>
+      <FullLayout
+        introSection={introSection}
+        className={styles.view}
+      >
         <PageHeader
-          title={ROUTES.portfolio.title}
+          title={title}
           breadcrumbs={breadcrumbs}
           breadcrumbsTheme="dark"
+          titleStyles={styles.title}
         />
-        <Animated
-          {...REVEAL_ANIMATION_PROPS}
-          transitionDelay={250}
-        >
+
+        <Animated {...REVEAL_ANIMATION_PROPS}>
           <p className={styles.subtitle}>
             {subtitle}
           </p>
         </Animated>
-        <Portfolio works={works} />
-        {link && (
+
+        <Works
+          works={works}
+          initialWorksList={initialWorksList}
+        />
+
+        <Animated {...REVEAL_ANIMATION_PROPS}>
           <CallToAction
-            type="page"
-            title={link.title}
-            buttonTitle={link.buttonTitle}
+            data={link}
             handleOnClick={openFullscreenEstimation}
             className={styles.callToAction}
           />
-        )}
+        </Animated>
       </FullLayout>
+
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}
@@ -73,7 +73,7 @@ const PortfolioContainer = ({
   );
 };
 
-PortfolioContainer.propTypes = {
+WorksView.propTypes = {
   introSection: PropTypes.instanceOf(Object).isRequired,
   pageMetadata: PropTypes.instanceOf(Object).isRequired,
   works: PropTypes.instanceOf(Array).isRequired,
@@ -81,4 +81,4 @@ PortfolioContainer.propTypes = {
   subtitle: PropTypes.string.isRequired,
 };
 
-export default PortfolioContainer;
+export default WorksView;

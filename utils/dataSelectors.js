@@ -6,6 +6,7 @@ import pageApi from 'redux/apis/page';
 import worksApi from 'redux/apis/works';
 import {
   BLOCKS_SLUGS,
+  DEFAULT_WORKS_LIMIT,
   HOMEPAGE_ARTICLES_LIMIT,
   PAGES,
 } from 'utils/constants';
@@ -42,17 +43,20 @@ export const getPortfolioPageProps = async (state, store) => {
     };
   });
 
+  const initialWorksList = works.slice(0, DEFAULT_WORKS_LIMIT);
+
   const pageMetadata = {
     url: `${rootUrl}/works`,
     ...data.metaData,
   };
 
-  const linkCTA = data.contentModules.find((module) => module.sys.contentType.sys.id === 'link');
+  const link = data.contentModules.find((module) => module.sys.contentType.sys.id === 'link');
 
   return {
-    link: getDocumentFields(linkCTA),
+    link,
     pageMetadata,
     works,
+    initialWorksList,
   };
 };
 
