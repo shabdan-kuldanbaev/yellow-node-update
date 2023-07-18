@@ -1,0 +1,17 @@
+.enterprise-resource-planning-system {
+  &.firstSectionView {
+    background-color: $gray800;
+
+    .titleStyle {
+      padding: 0 16px;
+    }
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    [data-description] {
+      color: $gray400;
+    }
+  }
+}
