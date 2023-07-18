@@ -82,4 +82,17 @@
       padding: 60px 16px 0;
     }
   }
+
+  &.thirdSectionView {
+    background-color: $gray50;
+
+    .titleStyle {
+      margin: 0 auto;
+      max-width: 773px;
+    }
+
+    [data-title] {
+      font-weight: 600;
+    }
+  }
 }
