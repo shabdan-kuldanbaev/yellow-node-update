@@ -622,6 +622,16 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
 ];
 
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
+export const DEFAULT_WORKS_LIMIT = 8;
+
+export const WORK_TYPES = {
+  all: 'All',
+  mobile: 'Mobile development',
+  uiUx: 'UI/UX design',
+  chat: 'Chat development',
+  web: 'Web development',
+  aiMl: 'AI & ML',
+};
 
 export const SWIPER_NAV_BUTTON_TYPES = {
   next: 'next',
