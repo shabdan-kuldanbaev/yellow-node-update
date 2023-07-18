@@ -5,4 +5,28 @@
       height: 532px;
     }
   }
+
+  &.secondSectionView {
+    overflow: hidden;
+
+    .image {
+      margin: 0 auto;
+      width: 994px;
+      height: 521px;
+
+      img {
+        object-fit: cover;
+        object-position: top;
+      }
+
+      @include tablet {
+        width: 100%;
+        height: 400px;
+      }
+
+      @include phone {
+        height: 163px;
+      }
+    }
+  }
 }

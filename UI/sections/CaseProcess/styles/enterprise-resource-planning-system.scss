@@ -1,4 +1,8 @@
 .enterprise-resource-planning-system {
+  [data-title] {
+    font-weight: 600;
+  }
+
   .container {
     max-width: $wide-content-width;
   }
