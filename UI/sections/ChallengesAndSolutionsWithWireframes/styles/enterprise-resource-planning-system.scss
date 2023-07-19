@@ -4,6 +4,10 @@
 
     .titleStyle {
       max-width: 539px;
+
+      [data-title] {
+        font-weight: 600;
+      }
     }
   }
 }
