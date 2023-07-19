@@ -3,6 +3,7 @@
   grid-template-rows: repeat(4, auto);
   grid-template-columns: repeat(3, auto);
   column-gap: 162px;
+  row-gap: 12px;
 
   .title {
     @include fontSize(38px, 130%);
