@@ -38,13 +38,13 @@
 
         &:first-of-type {
           &::before {
-            content: 'Problem';
+            content: 'Problem:';
           }
         }
 
         &:last-of-type {
           &::before {
-            content: 'Solution';
+            content: 'Solution:';
           }
         }
 
