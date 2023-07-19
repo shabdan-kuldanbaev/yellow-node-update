@@ -1,0 +1,103 @@
+.enterprise-resource-planning-system {
+  &.firstSectionView {
+    @include flex(row, space-between);
+
+    margin: 0 auto;
+    max-width: $wide-content-width;
+
+    .contentContainer {
+      @include flex(column, flex-start);
+
+      margin: 0;
+      padding: 60px 40px;
+      max-width: 584px;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 30px;
+      gap: unset;
+
+      .title {
+        @include fontSize(24px, 130%);
+
+        margin-bottom: 24px;
+        font-weight: 600;
+      }
+
+      p {
+        @include fontSize(16px, 150%);
+
+        position: relative;
+        padding-left: 72px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+
+        &:first-of-type {
+          &::before {
+            content: 'Problem';
+          }
+        }
+
+        &:last-of-type {
+          &::before {
+            content: 'Solution';
+          }
+        }
+
+        &:not(:last-of-type) {
+          margin-bottom: 16px;
+        }
+      }
+
+      &-1 {
+        background-color: $erpAccent;
+        margin-right: 32px;
+
+        .title {
+          color: $gray0;
+        }
+
+        p {
+          color: rgba($color: $gray0, $alpha: 60%);
+
+          &::before {
+            color: $gray0;
+          }
+        }
+
+        @include tablet {
+          margin-right: 0;
+          margin-bottom: 32px;
+        }
+
+        @include phone {
+          margin-bottom: 16px;
+        }
+      }
+
+      &-2 {
+        background-color: $gray50;
+
+        .title {
+          color: $gray900;
+        }
+
+        p {
+          color: $gray400;
+
+          &::before {
+            color: $gray900;
+          }
+        }
+      }
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+}
