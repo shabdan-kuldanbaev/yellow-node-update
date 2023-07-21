@@ -54,7 +54,14 @@ const dataSendingApi = baseApi.injectEndpoints({
         }
 
         handleMessage({
-          message: `New Contact Form submit: ${JSON.stringify(args)}`,
+          message: `New Contact Form Submit\n
+          From: ${args.name}
+          Email: ${args.email}
+          Phone: ${args.phone}
+          Budget: ${args.projectBudget}
+          Description: ${args.description}
+          Files: [${args.attachments.map((file) => `${file}\n`)}]
+        `,
         });
 
         try {
