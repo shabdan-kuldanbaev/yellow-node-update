@@ -1,0 +1,35 @@
+.digital-wallet-for-ios {
+  &.firstSectionView {
+    padding-top: 0;
+
+    .title {
+      display: none;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      padding: 0;
+      position: relative;
+      aspect-ratio: 389/620;
+      border: none;
+      max-height: 620px;
+
+      picture {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .navigation {
+      display: none;
+    }
+  }
+}
