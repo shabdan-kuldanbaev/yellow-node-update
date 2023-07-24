@@ -1,0 +1,42 @@
+.digital-wallet-for-ios {
+  background: $gray50;
+  margin: 208px auto 191px;
+  position: relative;
+  border-radius: 50px;
+  max-width: 1312px;
+
+  .contentWrapper {
+    max-width: 442px;
+  }
+
+  .bundleImagesContainer {
+    display: block;
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1934/1442;
+    left: 0;
+    top: 0;
+  }
+
+  .bundleImage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .bundleImage-2 {
+    aspect-ratio: 428/528;
+    width: 428px;
+    top: -124px;
+    left: 87px;
+  }
+
+  .bundleImage-3 {
+    display: none;
+    max-width: 428px;
+  }
+
+  .introSection {
+    flex-direction: row-reverse;
+  }
+}

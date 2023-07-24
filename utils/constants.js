@@ -303,6 +303,7 @@ export const CASE_STUDIES = {
   kitchenEquipment: 'kitchen-equipment-customizer',
   radioPlato: 'mobile-music-app',
   clairvoyantServices: 'clairvoyant-directory-upgrade',
+  digitalWallet: 'digital-wallet-for-ios',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
