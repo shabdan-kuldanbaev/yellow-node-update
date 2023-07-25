@@ -32,4 +32,73 @@
       display: none;
     }
   }
+
+  &.secondSectionView {
+    .contentWrapper {
+      @include flex(row, space-between, flex-start);
+
+      max-width: $wide-content-width;
+
+      @include tablet {
+        display: block;
+      }
+    }
+
+    .title {
+      margin: 0;
+
+      [data-title] {
+        @include fontSize(28px);
+
+        text-align: left;
+        font-weight: 500;
+        max-width: 276px;
+
+        @include tablet {
+          @include fontSize(20px);
+
+          max-width: none;
+          text-align: center;
+        }
+      }
+
+      @include tablet {
+        margin-bottom: 24px;
+      }
+    }
+
+    .card {
+      border: none;
+      border-radius: 40px;
+      padding: 60px 40px;
+
+      h3 {
+        @include fontSize(20px);
+
+        font-weight: 500;
+      }
+
+      b {
+        font-weight: 400;
+        color: $gray900;
+      }
+    }
+
+    .card-1 {
+      background: $digitalWalletBlue;
+    }
+
+    .card-2 {
+      background: $digitalWalletPurple;
+    }
+
+    .cardList {
+      display: block;
+      max-width: 789px;
+
+      & > div {
+        margin-bottom: 32px;
+      }
+    }
+  }
 }

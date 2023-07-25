@@ -49,7 +49,10 @@ const CardsSection = (props) => {
             {cardList.map((card, i) => (
               <SwiperSlide key={i}>
                 <Card
-                  className={styles.card}
+                  className={cn(
+                    styles.card,
+                    styles[`card-${i + 1}`],
+                  )}
                   withoutBackground={withoutBackground}
                   {...card}
                 />
@@ -68,9 +71,13 @@ const CardsSection = (props) => {
               >
                 <Card
                   key={i}
-                  className={cn(styles.card, {
-                    [styles.withOverlay]: withOverlay,
-                  })}
+                  className={cn(
+                    styles.card,
+                    styles[`card-${i + 1}`],
+                    {
+                      [styles.withOverlay]: withOverlay,
+                    },
+                  )}
                   withoutBackground={withoutBackground}
                   {...card}
                 />
