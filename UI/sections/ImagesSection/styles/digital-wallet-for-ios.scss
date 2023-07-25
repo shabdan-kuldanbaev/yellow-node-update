@@ -15,4 +15,17 @@
       aspect-ratio: 1200/376;
     }
   }
+
+  &.secondSectionView {
+    background: $digitalWalletSecondary;
+    padding: 120px 32px;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include tablet {
+      padding: 60px 16px;
+    }
+  }
 }
