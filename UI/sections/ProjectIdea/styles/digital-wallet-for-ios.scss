@@ -2,7 +2,7 @@
   &.firstSectionView {
     @include flex(row, space-between, stretch);
 
-    padding-top: 0;
+    padding-top: 60px;
     max-width: $wide-content-width;
     margin: 0 auto;
 
