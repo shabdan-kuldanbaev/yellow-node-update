@@ -1,7 +1,8 @@
 @import 'styles/utils/mixins';
-@import 'components/AppDevelopmentCommon/utils/styles.module.scss';
+@import 'components/AppDevelopmentCommon/utils/styles.module';
 @import './styles/common';
 @import './styles/uiUxServices';
 @import './styles/mvpAppDevelopmentCompany';
-@import './styles/discoveryPhaseServices.module.scss';
-@import './styles/webAppDevelopmentCompany.module.scss';
+@import './styles/discoveryPhaseServices.module';
+@import './styles/webAppDevelopmentCompany.module';
+@import './styles/digital-wallet-for-ios';

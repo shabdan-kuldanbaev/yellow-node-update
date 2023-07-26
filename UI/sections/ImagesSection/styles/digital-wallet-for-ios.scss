@@ -1,11 +1,22 @@
 .digital-wallet-for-ios {
+  .titleStyle {
+    [data-title] {
+      @include fontSize(28px);
+
+      font-weight: 500;
+
+      @include tablet {
+        @include fontSize(20px);
+      }
+    }
+  }
+
   &.firstSectionView {
     background: $digitalWalletPrimary;
 
     .titleStyle {
       [data-title] {
         color: $gray0;
-        font-weight: 500;
       }
     }
 

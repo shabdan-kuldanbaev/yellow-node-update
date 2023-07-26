@@ -481,6 +481,12 @@ export const digit8 = '/filled/digit8.svg';
 export const digit9 = '/filled/digit9.svg';
 export const digit10 = '/filled/digit10.svg';
 export const digit11 = '/filled/digit11.svg';
+export const dwDigit1 = '/filled/dwDigit1.svg';
+export const dwDigit2 = '/filled/dwDigit2.svg';
+export const dwDigit3 = '/filled/dwDigit3.svg';
+export const dwDigit4 = '/filled/dwDigit4.svg';
+export const dwDigit5 = '/filled/dwDigit5.svg';
+export const dwDigit6 = '/filled/dwDigit6.svg';
 export const yellowCheckMark = '/filled/yellowCheckMark.svg';
 export const starFilled = '/filled/star.svg';
 

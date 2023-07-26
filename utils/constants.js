@@ -252,6 +252,7 @@ export const CASE_STUDIES_TYPES = {
   process: 'case-study-process',
   cardsWithOverlay: 'cards-with-overlay',
   cards: 'cards',
+  processWithArrays: 'app-development-process',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
