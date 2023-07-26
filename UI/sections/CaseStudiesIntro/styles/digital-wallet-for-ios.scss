@@ -4,18 +4,114 @@
   position: relative;
   border-radius: 50px;
   max-width: 1312px;
+  overflow: visible;
+  padding: 135px 120px;
+
+  .sectionTitle {
+    [data-title] {
+      @include fontSize(44px);
+
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+  }
+
+  .introSection {
+    margin-bottom: 0;
+    flex-direction: row-reverse;
+
+    @include tablet {
+      flex-direction: column;
+    }
+  }
+
+  .introList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .listItem {
+    padding: 24px 0;
+    border-radius: 16px;
+
+    span {
+      font-weight: 500;
+    }
+
+    p {
+      margin: 2px 0 0;
+      color: $gray900;
+      opacity: 0.4;
+    }
+
+    * {
+      text-align: center;
+      display: block;
+    }
+
+    &:nth-child(1) {
+      background: $digitalWalletOrange;
+    }
+
+    &:nth-child(2) {
+      background: $digitalWalletBlue;
+    }
+
+    &:nth-child(3) {
+      background: $digitalWalletGreen;
+    }
+
+    &:nth-child(4) {
+      background: $digitalWalletPurple;
+    }
+  }
 
   .contentWrapper {
     max-width: 442px;
+
+    @include tablet {
+      max-width: none;
+    }
+  }
+
+  .imageContainer,
+  .bundleImagesContainer {
+    aspect-ratio: 1934/1442;
+    position: absolute;
+    height: 100%;
+    width: auto;
+    left: 0;
+    top: 0;
+  }
+
+  .imageContainer {
+    border-bottom-left-radius: 50px;
+    overflow: hidden;
+    z-index: 1;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
   }
 
   .bundleImagesContainer {
     display: block;
-    position: absolute;
-    height: 100%;
-    aspect-ratio: 1934/1442;
-    left: 0;
-    top: 0;
+    z-index: 2;
+
+    @include tablet {
+      bottom: 0;
+      left: 0;
+      top: auto;
+      width: 100%;
+      height: 210px;
+    }
   }
 
   .bundleImage {
@@ -24,19 +120,51 @@
     position: absolute;
   }
 
+  .bundleImage-1 {
+    aspect-ratio: 791/975;
+    width: 53.4%;
+    height: auto;
+    top: -19%;
+    left: 12%;
+
+    @include tablet {
+      width: auto;
+      height: 230px;
+      top: 2%;
+      left: 30%;
+    }
+  }
+
   .bundleImage-2 {
-    aspect-ratio: 428/528;
-    width: 428px;
-    top: -124px;
-    left: 87px;
+    aspect-ratio: 1163/2518;
+    width: 29%;
+    height: auto;
+    bottom: -26%;
+    left: 10.7%;
+    border-radius: 30px;
+    overflow: hidden;
+    transform: rotate(-30deg);
+
+    @include tablet {
+      display: none;
+    }
   }
 
   .bundleImage-3 {
     display: none;
-    max-width: 428px;
+
+    @include tablet {
+      display: block;
+      height: 100%;
+      width: auto;
+      left: 0;
+      bottom: 0;
+      aspect-ratio: 472/650;
+    }
   }
 
-  .introSection {
-    flex-direction: row-reverse;
+  @include tablet {
+    padding: 32px 16px 230px;
+    margin: 80px 16px;
   }
 }
