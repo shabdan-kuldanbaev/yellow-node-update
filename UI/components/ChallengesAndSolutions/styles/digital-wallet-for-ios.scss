@@ -1,0 +1,63 @@
+.digital-wallet-for-ios {
+  .contentContainer {
+    max-width: $wide-content-width;
+    flex-direction: row-reverse;
+    grid-gap: 80px;
+
+    &-1,
+    &-2,
+    &-4 {
+      .image {
+        aspect-ratio: 584/660;
+      }
+    }
+
+    &-3 {
+      .image {
+        aspect-ratio: 584/387;
+      }
+    }
+
+    &-4 {
+      flex-direction: row;
+    }
+
+    .title {
+      @include fontSize(20px);
+
+      color: $gray0;
+      font-weight: 500;
+
+      @include tablet {
+        @include fontSize(16px);
+      }
+    }
+
+    .images {
+      flex: 0 1 584px;
+    }
+
+    @include tablet {
+      @include flex(column, flex-start, stretch);
+
+      grid-gap: 24px;
+      margin-bottom: 32px;
+
+      &-2 {
+        flex-direction: column-reverse;
+      }
+
+      .images {
+        flex: none;
+      }
+
+      .infoContainer {
+        max-width: none;
+
+        * {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
