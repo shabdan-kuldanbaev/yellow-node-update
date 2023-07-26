@@ -12,6 +12,10 @@
 
     .cardList {
       @extend .threeColumnsCards;
+
+      & > * {
+        margin-left: 16px;
+      }
     }
 
     .card {

@@ -27,7 +27,10 @@ const ProcessCard = (props) => {
           <Svg type={svgType} />
         </div>
         <div className={styles.cardContent}>
-          <div className={styles.typeTitle}>
+          <div
+            className={styles.typeTitle}
+            data-title
+          >
             {typeTitle}
           </div>
           <ContentfulParser document={text} />

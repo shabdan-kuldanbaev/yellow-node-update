@@ -8,7 +8,7 @@ import {
   selectIsTablet,
 } from 'redux/selectors/layout';
 import { getDocumentFields, getImage } from 'utils/helper';
-import { PAGES } from 'utils/constants';
+import { CASE_STUDIES, PAGES } from 'utils/constants';
 import Card from 'UI/components/Cards/Card';
 import Overlay from 'UI/containers/Overlay';
 import { routes } from 'utils/routes';
@@ -25,6 +25,10 @@ const SPACE_BETWEEN = {
   [routes.bookCall.slug]: {
     thirdSectionView: 66,
     fourthSectionView: 43,
+  },
+
+  [CASE_STUDIES.digitalWallet]: {
+    firstSectionView: 16,
   },
 };
 
