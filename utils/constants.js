@@ -364,7 +364,6 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.softwareDevelopmentWashington.path,
   ROUTES.softwareDevelopmentOklahoma.path,
   ROUTES.softwareDevelopmentNashville.path,
-  ROUTES.softwareDevelopmentRaleigh.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];

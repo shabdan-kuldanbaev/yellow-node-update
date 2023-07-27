@@ -40,6 +40,7 @@ export const BLACK_LOGO_TYPE = [
   CASE_STUDIES.beautonomy,
   CASE_STUDIES.carbonSpace,
   CASE_STUDIES.chatSolutions,
+  CASE_STUDIES.digitalWallet,
 ];
 
 export const WHITE_TEXT_LOGO = [

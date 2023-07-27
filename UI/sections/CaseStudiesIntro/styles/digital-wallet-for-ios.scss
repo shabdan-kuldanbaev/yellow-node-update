@@ -70,6 +70,7 @@
 
   .contentWrapper {
     max-width: 442px;
+    z-index: 1;
 
     @include tablet {
       max-width: none;
