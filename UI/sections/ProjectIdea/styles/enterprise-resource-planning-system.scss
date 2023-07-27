@@ -1,0 +1,54 @@
+.enterprise-resource-planning-system {
+  &.firstSectionView {
+    padding: 120px 32px;
+
+    .contentContainer {
+      @include flex(row, space-between);
+
+      margin: 0 auto;
+
+      @include tablet {
+        @include flex(column, center, center);
+      }
+    }
+
+    .descriptionIntro {
+      margin: 0;
+    }
+
+    .descriptionContainer {
+      margin-left: 0;
+      margin-right: 32px;
+      padding: 60px 40px;
+      width: 100%;
+      max-width: 584px;
+      order: 1;
+      background-color: $gray50;
+      border-radius: 30px;
+      box-sizing: border-box;
+
+      .title {
+        margin: 0 auto 8px;
+      }
+
+      p:first-of-type {
+        margin-bottom: 24px;
+      }
+
+      @include tablet {
+        border-radius: 20px;
+        margin: 0 auto 16px;
+      }
+    }
+
+    @include below-tablet {
+      padding: 60px 16px;
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer {
+      display: none;
+    }
+  }
+}

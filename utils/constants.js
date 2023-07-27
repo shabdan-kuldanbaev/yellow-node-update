@@ -305,6 +305,7 @@ export const CASE_STUDIES = {
   radioPlato: 'mobile-music-app',
   clairvoyantServices: 'clairvoyant-directory-upgrade',
   digitalWallet: 'digital-wallet-for-ios',
+  erp: 'enterprise-resource-planning-system',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -344,6 +345,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.kitchenEquipment).path,
   ROUTES.project.getRoute(CASE_STUDIES.radioPlato).path,
   ROUTES.project.getRoute(CASE_STUDIES.clairvoyantServices).path,
+  ROUTES.project.getRoute(CASE_STUDIES.erp).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.whyUs.path,

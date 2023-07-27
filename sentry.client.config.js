@@ -8,4 +8,5 @@ Sentry.init({
   environment,
   debug: false,
   tracesSampleRate: 1.0,
+  maxValueLength: 20000,
 });

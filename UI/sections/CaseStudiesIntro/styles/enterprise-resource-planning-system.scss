@@ -1,0 +1,132 @@
+.enterprise-resource-planning-system {
+  padding: 128px 32px 120px;
+  background-color: $erpAccent;
+
+  .introSection {
+    position: relative;
+    margin: 0 auto;
+    max-width: $wide-content-width;
+  }
+
+  .contentWrapper {
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 522px;
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    height: 620px;
+
+    @include tablet {
+      height: 408px;
+    }
+
+    @include phone {
+      height: 208px;
+    }
+  }
+
+  [data-title] {
+    @include fontSize(46px, 120%);
+
+    color: $gray0;
+    font-weight: 600;
+
+    @include below-tablet {
+      @include fontSize(32px, 120%);
+    }
+  }
+
+  [data-description] {
+    @include fontSize(16px, 120%);
+
+    color: $gray0;
+    font-weight: 400;
+    opacity: 0.6;
+  }
+
+  .image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1026px;
+    height: 620px;
+    transform: unset;
+
+    @include tablet {
+      position: inherit;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+
+    &-1 {
+      top: 50%;
+      left: -300px;
+      width: 532px;
+      height: 454px;
+      transform: translateY(-35%) rotate(36deg);
+    }
+
+    &-2 {
+      right: -280px;
+      bottom: -300px;
+      width: 491px;
+      height: 549px;
+
+      @include below-tablet {
+        right: -100px;
+        width: 259px;
+        height: 289px;
+      }
+    }
+  }
+
+  .experiencesContainer {
+    @include flex(column, initial, flex-start);
+
+    margin: -100px auto 0;
+    max-width: $wide-content-width;
+    box-sizing: border-box;
+
+    @include tablet {
+      align-items: center;
+      margin: 32px auto 0;
+    }
+  }
+
+  .experience {
+    @include flex(row, initial, center);
+
+    margin: 0 0 8px;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    .infoTitle {
+      @include fontSize(16px, 120%);
+
+      margin: 0 4px 0 0;
+      color: $gray0;
+      font-weight: 400;
+      opacity: 0.6;
+    }
+
+    p {
+      @include fontSize(16px, 120%);
+
+      margin: 0;
+      color: $gray0;
+    }
+  }
+
+  @include below-tablet {
+    padding: 88px 16px 60px;
+  }
+}

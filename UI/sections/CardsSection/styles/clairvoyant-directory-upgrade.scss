@@ -56,10 +56,11 @@
     .image {
       position: absolute;
       aspect-ratio: 1215/599;
-      width: 80vw;
-      top: 40%;
+      width: 90vw;
+      max-width: 1440px;
+      top: -30px;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       z-index: 0;
     }
   }
