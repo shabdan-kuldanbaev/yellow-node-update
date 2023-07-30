@@ -46,6 +46,7 @@ const ProcessSection = (props) => {
             {renderCards?.map((card) => (
               <ProcessCard
                 {...card}
+                className={styles.card}
                 key={`process-section/${card.svgType}`}
               />
             ))}

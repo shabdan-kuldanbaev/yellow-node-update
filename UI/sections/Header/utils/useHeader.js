@@ -23,6 +23,7 @@ export const useHeader = ({ introSection }) => {
     CASE_STUDIES.bionorica,
     CASE_STUDIES.carbonSpace,
     CASE_STUDIES.chatSolutions,
+    CASE_STUDIES.digitalWallet,
   ].includes(project)
     ? 'light'
     : 'dark';

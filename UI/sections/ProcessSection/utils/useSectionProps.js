@@ -5,6 +5,7 @@ import getCardRelations from './getCardRelations';
 
 export default ({
   section,
+  data,
   type,
 }) => {
   const [isSmallTabletResolution, setIsSmallTabletResolution] = useState(false);
@@ -16,7 +17,7 @@ export default ({
     contentModules,
     view,
   } = getDocumentFields(
-    section,
+    section || data,
     [
       'title',
       'description',
@@ -25,6 +26,7 @@ export default ({
       'view',
       'fields',
     ],
+    { isNormilized: !!data },
   );
 
   const {

@@ -1,0 +1,15 @@
+.digital-wallet-for-ios {
+  background: $digitalWalletPrimary;
+
+  .sectionTitle,
+  .footerLinks,
+  .more {
+    * {
+      color: $gray0;
+    }
+  }
+
+  .more {
+    border: solid 1px $gray0;
+  }
+}

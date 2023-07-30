@@ -19,6 +19,7 @@ const CaseProcess = dynamic(() => import('UI/sections/CaseProcess'));
 const CasePrototype = dynamic(() => import('UI/sections/CasePrototype'));
 const CaseFeedback = dynamic(() => import('UI/sections/CaseFeedback'));
 const CardsSection = dynamic(() => import('UI/sections/CardsSection'));
+const ProcessSection = dynamic(() => import('UI/sections/ProcessSection'));
 
 const CaseStudiesCommon = (props) => {
   switch (props.data.type) {
@@ -66,6 +67,10 @@ const CaseStudiesCommon = (props) => {
         {...props}
         withOverlay
       />
+    );
+  case CASE_STUDIES_TYPES.processWithArrays:
+    return (
+      <ProcessSection {...props} />
     );
   default:
     return null;

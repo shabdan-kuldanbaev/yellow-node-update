@@ -252,6 +252,7 @@ export const CASE_STUDIES_TYPES = {
   process: 'case-study-process',
   cardsWithOverlay: 'cards-with-overlay',
   cards: 'cards',
+  processWithArrays: 'app-development-process',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -303,6 +304,7 @@ export const CASE_STUDIES = {
   kitchenEquipment: 'kitchen-equipment-customizer',
   radioPlato: 'mobile-music-app',
   clairvoyantServices: 'clairvoyant-directory-upgrade',
+  digitalWallet: 'digital-wallet-for-ios',
   erp: 'enterprise-resource-planning-system',
 };
 
@@ -362,7 +364,6 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.softwareDevelopmentWashington.path,
   ROUTES.softwareDevelopmentOklahoma.path,
   ROUTES.softwareDevelopmentNashville.path,
-  ROUTES.softwareDevelopmentRaleigh.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];

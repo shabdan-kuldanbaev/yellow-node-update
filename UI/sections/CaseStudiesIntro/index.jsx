@@ -74,50 +74,56 @@ const CaseStudiesIntro = (props) => {
             </div>
           </div>
         </div>
-        <div className={styles.imageContainer}>
-          {isVideo ? (
-            <Video
-              src={appBackgroundImage.url}
-              className={styles.video}
-            />
-          ) : (
+        {appBackgroundImage.url && (
+          <div className={styles.imageContainer}>
+            {isVideo ? (
+              <Video
+                src={appBackgroundImage.url}
+                className={styles.video}
+              />
+            ) : (
+              <Illustration
+                priority
+                transparent
+                className={styles.image}
+                src={appBackgroundImage.url}
+                alt={appBackgroundImage.alt}
+              />
+            )}
+          </div>
+        )}
+        <div className={styles.bundleImagesContainer}>
+          {imagesBundlesWithUrls?.map((image, index) => (
             <Illustration
               priority
               transparent
-              className={styles.image}
-              src={appBackgroundImage.url}
-              alt={appBackgroundImage.alt}
+              className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
+              src={image.url}
+              key={`intro-images-bundles/${image.url}`}
             />
-          )}
+          ))}
         </div>
-        {imagesBundlesWithUrls?.map((image, index) => (
-          <Illustration
-            priority
-            transparent
-            className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
-            src={image.url}
-            key={`intro-images-bundles/${image.url}`}
-          />
-        ))}
       </div>
-      <div className={styles.experiencesContainer}>
-        {experiences?.map(({
-          fields: {
-            title: experienceTitle,
-            text,
-          },
-        }) => (
-          <div
-            key={experienceTitle}
-            className={styles.experience}
-          >
-            <div className={styles.infoTitle}>
-              {experienceTitle}
+      {!!experiences?.length && (
+        <div className={styles.experiencesContainer}>
+          {experiences?.map(({
+            fields: {
+              title: experienceTitle,
+              text,
+            },
+          }) => (
+            <div
+              key={experienceTitle}
+              className={styles.experience}
+            >
+              <div className={styles.infoTitle}>
+                {experienceTitle}
+              </div>
+              <ContentfulParser document={text} />
             </div>
-            <ContentfulParser document={text} />
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 };

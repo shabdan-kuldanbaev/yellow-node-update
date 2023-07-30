@@ -1,0 +1,168 @@
+.digital-wallet-for-ios {
+  &.firstSectionView {
+    padding-top: 0;
+
+    .title {
+      display: none;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+
+      & > * {
+        margin-left: 16px;
+      }
+    }
+
+    .card {
+      padding: 0;
+      position: relative;
+      aspect-ratio: 389/620;
+      border: none;
+      max-height: 620px;
+
+      picture {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .navigation {
+      display: none;
+    }
+  }
+
+  &.secondSectionView {
+    .contentWrapper {
+      @include flex(row, space-between, flex-start);
+
+      max-width: $wide-content-width;
+
+      @include tablet {
+        display: block;
+      }
+    }
+
+    .title {
+      margin: 0;
+
+      [data-title] {
+        @include fontSize(28px);
+
+        text-align: left;
+        font-weight: 500;
+        max-width: 276px;
+
+        @include tablet {
+          @include fontSize(20px);
+
+          max-width: none;
+          text-align: center;
+        }
+      }
+
+      @include tablet {
+        margin-bottom: 24px;
+      }
+    }
+
+    .card {
+      border: none;
+      border-radius: 40px;
+      padding: 60px 40px;
+
+      h3 {
+        @include fontSize(20px);
+
+        font-weight: 500;
+      }
+
+      b {
+        font-weight: 400;
+        color: $gray900;
+      }
+    }
+
+    .card-1 {
+      background: $digitalWalletBlue;
+    }
+
+    .card-2 {
+      background: $digitalWalletPurple;
+    }
+
+    .cardList {
+      display: block;
+      max-width: 789px;
+
+      & > div {
+        margin-bottom: 32px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .title {
+      [data-title] {
+        @include fontSize(28px);
+
+        font-weight: 500;
+
+        @include tablet {
+          @include fontSize(20px);
+        }
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+
+      & > * {
+        @include tablet {
+          margin-bottom: 12px;
+        }
+      }
+    }
+
+    .card {
+      @include flex(column, center, center);
+
+      border: none;
+      border-radius: 40px;
+      padding: 24px;
+
+      h3 {
+        @include fontSize(16px);
+
+        font-weight: 500;
+        text-align: center;
+        margin: 0;
+      }
+
+      & > * {
+        flex: 0 0 auto;
+      }
+    }
+
+    .card-1 {
+      background: $digitalWalletGreen;
+    }
+
+    .card-2 {
+      background: $digitalWalletBlue;
+    }
+
+    .card-3 {
+      background: $digitalWalletOrange;
+    }
+  }
+}

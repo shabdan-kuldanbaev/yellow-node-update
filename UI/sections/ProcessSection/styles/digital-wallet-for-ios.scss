@@ -1,0 +1,37 @@
+.digital-wallet-for-ios {
+  background: $gray0;
+
+  .titleStyle {
+    [data-title] {
+      @include fontSize(28px);
+
+      font-weight: 500;
+
+      @include tablet {
+        @include fontSize(20px);
+      }
+    }
+  }
+
+  .card {
+    border: none;
+    padding: 40px 24px;
+    border-radius: 30px;
+    box-shadow: 0 8px 35px 0 #6e78821a;
+
+    [data-title] {
+      @include fontSize(16px);
+
+      font-weight: 500;
+      margin: 24px 0 8px;
+    }
+
+    ul {
+      margin: 0;
+
+      li {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
