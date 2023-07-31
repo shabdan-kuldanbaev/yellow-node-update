@@ -7,6 +7,7 @@ dotenv.config('./env');
 
 const mailchimp = new Mailchimp(process.env.MAILCHIMP_API_KEY);
 const membersPath = (email) => `/lists/${process.env.MAILCHIMP_LIST_ID}/members/${md5(email)}`;
+const memberTagsPath = (email) => `${membersPath(email)}/tags`;
 
 export function getSubscriber(email, callback) {
   try {
@@ -24,7 +25,7 @@ export function getSubscriber(email, callback) {
   }
 }
 
-export function addSubscriber(email, res) {
+export function addSubscriber(email, callback) {
   try {
     const addSubscriberOptions = {
       method: 'put',
@@ -35,17 +36,30 @@ export function addSubscriber(email, res) {
       },
     };
 
-    mailchimp.request(addSubscriberOptions, (error) => {
-      if (error) {
-        res.status(502).send('Sorry, there was an error sending you email. Please double check your email adress');
-      } else {
-        res.status(201).send('Great! Awesome content is coming your way');
-      }
-    });
+    mailchimp.request(addSubscriberOptions, callback);
   } catch (error) {
     handleError({
       error,
       message: 'Error in the addSubscriber function',
+    });
+  }
+}
+
+export function addTagsToSubscriber(email, tags, callback) {
+  try {
+    const addTagsOptions = {
+      method: 'post',
+      path: memberTagsPath(email),
+      body: {
+        tags: tags.map((tag) => ({ name: tag, status: 'active' })),
+      },
+    };
+
+    mailchimp.request(addTagsOptions, callback);
+  } catch (error) {
+    handleError({
+      error,
+      message: 'Error in the addTagsToSubscriber function',
     });
   }
 }
