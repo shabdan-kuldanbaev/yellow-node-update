@@ -13,7 +13,7 @@ import FAQ from 'UI/containers/FAQ';
 import { useGetArticleQuery } from 'redux/apis/blog';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import { PAGES } from 'utils/constants';
-import { rootUrl } from 'utils/helper';
+import { getDocumentFields, rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { getArticleProps } from './utils/propsHelper';
 
@@ -30,6 +30,7 @@ const ArticleContainer = ({
     prev: newerArticle,
     related,
   } = data;
+  const { clusters: articleClusters } = getDocumentFields(article, ['clusters']);
 
   const {
     query: { slug },
@@ -91,7 +92,11 @@ const ArticleContainer = ({
       return;
     }
 
-    subscribe({ email, pathname });
+    subscribe({
+      email,
+      pathname,
+      pageClusters: articleClusters,
+    });
   };
 
   return (

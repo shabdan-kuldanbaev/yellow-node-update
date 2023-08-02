@@ -41,7 +41,10 @@ const FeedbackSection = (props) => {
                 subtitle={subtitle}
                 className={styles.title}
               />
-              <DownloadChecklistForm downloadLink={files[0]} />
+              <DownloadChecklistForm
+                downloadLink={files[0]}
+                pageSlug={type}
+              />
             </div>
           );
 

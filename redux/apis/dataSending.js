@@ -2,6 +2,7 @@ import { API } from 'utils/api';
 import gaHelper from 'utils/ga';
 import { handleMessage } from 'utils/error';
 import {
+  getDataFromLocalStorageWithExpire,
   getFeedbackFormData,
   hoursToMs,
   setDataToLocalStorageWithExpire,
@@ -16,16 +17,19 @@ const dataSendingApi = baseApi.injectEndpoints({
     subscribe: builder.mutation({
       async queryFn({
         pathname,
-        isSubscribed,
-        message,
+        pageClusters = [],
+        savedSubscriptionEmail,
         ...args
       }) {
-        if (typeof isSubscribed !== 'undefined' || typeof message !== 'undefined') {
-          return { data: { isSubscribed, message } };
+        const isRequestRequired = pageClusters.length
+        || typeof savedSubscriptionEmail === 'undefined'; // check if is not initial call from _app.jsx
+
+        if (!isRequestRequired) {
+          return { data: { isSubscribed: !!savedSubscriptionEmail } };
         }
 
         try {
-          const response = await API.subscribe(args);
+          const response = await API.subscribe({ ...args, tags: pageClusters });
 
           gaHelper.trackEvent(
             'Subscribe',
@@ -33,7 +37,7 @@ const dataSendingApi = baseApi.injectEndpoints({
             pathname,
           );
 
-          setDataToLocalStorageWithExpire('isSubscribed', true, hoursToMs(24));
+          setDataToLocalStorageWithExpire('subscriptionEmail', args.email, hoursToMs(24));
 
           return {
             data: {

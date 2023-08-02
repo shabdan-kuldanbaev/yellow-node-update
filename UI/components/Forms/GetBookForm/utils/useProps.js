@@ -1,7 +1,10 @@
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import { useGetArticleQuery } from 'redux/apis/blog';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import { useFetchPageQuery } from 'redux/apis/page';
 import downloadFile from 'utils/downloadFile';
+import { getDocumentFields } from 'utils/helper';
 
 const useProps = ({
   downloadLink,
@@ -10,6 +13,16 @@ const useProps = ({
 }) => {
   const { query } = useRouter();
   const { slug } = query;
+
+  const { data: { article } = {} } = useGetArticleQuery({ slug: props.slug });
+  const { clusters: articleClusters } = getDocumentFields(article, ['clusters']);
+  const { data: pageData = {} } = useFetchPageQuery(props.slug);
+  const { clusters: pageClusters } = pageData;
+
+  const clusters = [
+    ...(articleClusters || []),
+    ...(pageClusters || []),
+  ];
 
   const [
     subscribe,
@@ -33,7 +46,11 @@ const useProps = ({
   const handleButtonClick = handleSubmit(async (values) => {
     const {
       data: { isSubscribed: isSubscribedResult } = {},
-    } = await subscribe({ ...values, pathname: query });
+    } = await subscribe({
+      ...values,
+      pathname: query,
+      pageClusters: clusters,
+    });
 
     if (isSubscribedResult) {
       downloadFile(downloadLink);

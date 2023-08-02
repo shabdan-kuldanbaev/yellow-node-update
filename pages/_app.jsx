@@ -10,13 +10,13 @@ import { wrapper } from 'redux/store';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import Layout from 'UI/containers/Layout';
 import { AppContext } from 'utils/appContext';
+import { getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { customTheme } from 'styles/muiTheme';
 import 'animate.css/animate.min.css';
 import 'swiper/css/bundle';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/pagination';
 import 'styles/index.scss';
-import { getDataFromLocalStorageWithExpire } from 'utils/helper';
 
 function App({ Component, pageProps }) {
   const [subscribe] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
@@ -41,7 +41,7 @@ function App({ Component, pageProps }) {
   }, []);
 
   useEffect(() => {
-    subscribe({ isSubscribed: !!getDataFromLocalStorageWithExpire('isSubscribed') });
+    subscribe({ savedSubscriptionEmail: getDataFromLocalStorageWithExpire('subscriptionEmail') });
   }, [subscribe]);
 
   const AppContextValue = useMemo(() => ({
