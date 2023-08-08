@@ -1,24 +1,34 @@
 import { useEffect, useState } from 'react';
 import downloadFile from 'utils/downloadFile';
 import useToggle from 'hooks/useToggle';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import usePageClusters from 'hooks/usePageClusters';
 
 export default (props) => {
   const {
-    page,
     sectionRef,
-    isSubscribed,
     downloadLink,
     show,
     setShow,
+    slug,
     ...rest
   } = props;
   const [scroll, setScroll] = useState(true);
   const [buttonShow, setButtonShow] = useState(false);
 
+  const pageClusters = usePageClusters(slug);
+
+  const [
+    subscribe,
+    { data: { subscriptionEmail } = {} },
+  ] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
+
   const [isGetBookShown, toggleGetBookModalShown] = useToggle(false);
 
   const handleOnClick = () => {
-    if (isSubscribed) {
+    if (subscriptionEmail) {
+      Promise.resolve(subscribe({ email: subscriptionEmail, pageClusters }));
+
       return downloadFile(downloadLink);
     }
 
@@ -87,6 +97,7 @@ export default (props) => {
     isGetBookShown,
     toggleGetBookModalShown,
     downloadLink,
+    slug,
     ...rest,
   };
 };

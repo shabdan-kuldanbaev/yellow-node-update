@@ -2,7 +2,6 @@ import { API } from 'utils/api';
 import gaHelper from 'utils/ga';
 import { handleMessage } from 'utils/error';
 import {
-  getDataFromLocalStorageWithExpire,
   getFeedbackFormData,
   hoursToMs,
   setDataToLocalStorageWithExpire,
@@ -25,7 +24,12 @@ const dataSendingApi = baseApi.injectEndpoints({
         || typeof savedSubscriptionEmail === 'undefined'; // check if is not initial call from _app.jsx
 
         if (!isRequestRequired) {
-          return { data: { isSubscribed: !!savedSubscriptionEmail } };
+          return {
+            data: {
+              isSubscribed: !!savedSubscriptionEmail,
+              subscriptionEmail: savedSubscriptionEmail,
+            },
+          };
         }
 
         try {
@@ -42,6 +46,7 @@ const dataSendingApi = baseApi.injectEndpoints({
           return {
             data: {
               isSubscribed: true,
+              subscriptionEmail: args.email,
               message: response.data,
             },
           };
