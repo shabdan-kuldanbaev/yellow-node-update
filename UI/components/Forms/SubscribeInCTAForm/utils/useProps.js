@@ -1,22 +1,12 @@
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
-import { useGetArticleQuery } from 'redux/apis/blog';
+import usePageClusters from 'hooks/usePageClusters';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
-import { useFetchPageQuery } from 'redux/apis/page';
-import { getDocumentFields } from 'utils/helper';
 
 const useProps = ({ ...props }) => {
   const [subscribe, { data, isLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
-  const { data: { article } = {} } = useGetArticleQuery({ slug: props.slug });
-  const { clusters: articleClusters } = getDocumentFields(article, ['clusters']);
-  const { data: pageData = {} } = useFetchPageQuery(props.slug);
-  const { clusters: pageClusters } = pageData;
-
-  const clusters = [
-    ...(articleClusters || []),
-    ...(pageClusters || []),
-  ];
+  const pageClusters = usePageClusters(props.slug);
 
   const {
     register,
@@ -36,7 +26,7 @@ const useProps = ({ ...props }) => {
     subscribe({
       ...values,
       pathname: query,
-      pageClusters: clusters,
+      pageClusters,
     });
   });
 

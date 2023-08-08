@@ -1,24 +1,23 @@
+import usePageClusters from 'hooks/usePageClusters';
 import { useForm } from 'react-hook-form';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
-import { useFetchPageQuery } from 'redux/apis/page';
 
 const useProps = ({
   downloadLink,
   pageSlug,
   ...props
 }) => {
-  const { data: pageData = {} } = useFetchPageQuery(pageSlug);
-  const { clusters: pageClusters = [] } = pageData;
+  const pageClusters = usePageClusters(pageSlug);
 
   const [subscribe, {
     data,
     error,
     isLoading,
-  }] = useSubscribeMutation({
-    fixedCacheKey: SUBSCRIPTION_CASH_KEY,
-  });
+  }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
-  const message = data?.message?.data || error?.message || error;
+  const message = data?.message?.data
+  || error?.message
+  || error;
 
   const {
     register,
