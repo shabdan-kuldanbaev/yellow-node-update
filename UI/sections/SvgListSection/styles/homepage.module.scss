@@ -1,9 +1,25 @@
 .homepage {
-  &.firstSectionView,
   &.secondSectionView {
     @extend .greySection;
 
     padding-top: 0;
+
+    :global(.swiper-wrapper) {
+      min-height: 72px;
+    }
+
+    :global(.swiper-slide) {
+      align-items: center;
+    }
+  }
+
+  &.firstSectionView {
+    background: $gray900;
+    padding-top: 0;
+
+    [data-title] {
+      color: $gray0;
+    }
 
     :global(.swiper-wrapper) {
       min-height: 72px;

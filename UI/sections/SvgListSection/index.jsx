@@ -49,6 +49,7 @@ const SvgListSection = (props) => {
           />
           <SvgGroup
             type={type}
+            view={view}
             data={iconsGroups[selectedGroupIndex]}
             className={styles.svgList}
             isSwiperEnabled
@@ -61,6 +62,7 @@ const SvgListSection = (props) => {
           key={i}
           type={type}
           data={group}
+          view={view}
           className={cn(styles.svgList, styles[`svgList${i + 1}`])}
           isSwiperEnabled
         />

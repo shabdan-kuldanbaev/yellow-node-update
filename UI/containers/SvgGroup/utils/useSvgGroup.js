@@ -10,7 +10,7 @@ export const useSvgGroup = ({
   hideTitle,
 }) => {
   const { title, contentList: icons } = getDocumentFields(data, ['title', 'contentList']);
-  const swiperParams = getSwiperParams(type);
+  const swiperParams = getSwiperParams(type, view);
 
   return {
     type,
