@@ -9,7 +9,7 @@ import smoothscroll from 'smoothscroll-polyfill';
 import { wrapper } from 'redux/store';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import Layout from 'UI/containers/Layout';
-import { AppContext } from 'utils/appContext';
+import { AppContext, PageFetchContext } from 'utils/appContext';
 import { getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { customTheme } from 'styles/muiTheme';
 import 'animate.css/animate.min.css';
@@ -49,17 +49,23 @@ function App({ Component, pageProps }) {
     setContextData,
   }), [contextData, setContextData]);
 
+  const PageFetchContextValue = useMemo(() => ({
+    pageFetchQuery: pageProps.pageFetchQuery,
+  }), [pageProps.pageFetchQuery]);
+
   return (
     <AppContext.Provider value={AppContextValue}>
-      <ThemeProvider theme={customTheme}>
-        <Layout introSection={introSection}>
-          <Component
-            theme={theme}
-            introSection={introSection}
-            {...pageProps}
-          />
-        </Layout>
-      </ThemeProvider>
+      <PageFetchContext.Provider value={PageFetchContextValue}>
+        <ThemeProvider theme={customTheme}>
+          <Layout introSection={introSection}>
+            <Component
+              theme={theme}
+              introSection={introSection}
+              {...pageProps}
+            />
+          </Layout>
+        </ThemeProvider>
+      </PageFetchContext.Provider>
     </AppContext.Provider>
   );
 }

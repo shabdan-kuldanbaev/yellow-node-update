@@ -12,7 +12,7 @@ const useProps = ({
   const { query } = useRouter();
   const { slug } = query;
 
-  const pageClusters = usePageClusters(props.slug || slug);
+  const pageClusters = usePageClusters();
 
   const [
     subscribe,

@@ -7,7 +7,7 @@ const useProps = ({
   pageSlug,
   ...props
 }) => {
-  const pageClusters = usePageClusters(pageSlug);
+  const pageClusters = usePageClusters();
 
   const [subscribe, {
     data,

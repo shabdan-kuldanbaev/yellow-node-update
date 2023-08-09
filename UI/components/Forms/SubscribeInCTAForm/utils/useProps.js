@@ -6,7 +6,7 @@ import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSend
 const useProps = ({ ...props }) => {
   const [subscribe, { data, isLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
-  const pageClusters = usePageClusters(props.slug);
+  const pageClusters = usePageClusters();
 
   const {
     register,

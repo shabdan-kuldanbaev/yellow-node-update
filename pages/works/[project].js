@@ -28,6 +28,7 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
     return {
       props: {
         slug: project,
+        pageFetchQuery: project,
       },
     };
   } catch (error) {

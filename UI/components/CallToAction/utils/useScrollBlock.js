@@ -16,7 +16,7 @@ export default (props) => {
   const [scroll, setScroll] = useState(true);
   const [buttonShow, setButtonShow] = useState(false);
 
-  const pageClusters = usePageClusters(slug);
+  const pageClusters = usePageClusters();
 
   const [
     subscribe,

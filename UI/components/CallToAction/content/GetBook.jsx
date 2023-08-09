@@ -27,7 +27,7 @@ export default ({
 
   const [isGetBookShown, toggleGetBookModalShown] = useToggle(false);
 
-  const pageClusters = usePageClusters(slug);
+  const pageClusters = usePageClusters();
 
   const handleOnClick = () => {
     if (subscriptionEmail) {
