@@ -1,0 +1,30 @@
+.delivery-quality-in-yellow {
+  &.firstSectionView {
+    @include appFeaturesContainer;
+
+    background: $gray0;
+
+    [data-title] {
+      @include fontSize(24px);
+
+      margin-bottom: 8px;
+    }
+
+    .imageContainer {
+      max-width: 576px;
+      height: 100%;
+      width: 100%;
+
+      @include tablet {
+        margin: 24px auto 0;
+        max-width: unset;
+        height: unset;
+      }
+    }
+
+    .image {
+      aspect-ratio: 687/420;
+      width: 100%;
+    }
+  }
+}
