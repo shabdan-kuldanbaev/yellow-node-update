@@ -1,89 +1,200 @@
 .delivery-quality-in-yellow {
-  .imageSection {
-    flex-direction: row-reverse;
+  &.firstSectionView,
+  &.secondSectionView {
+    padding-top: 0;
 
-    & > div:first-child {
+    .titleStyle {
+      margin-bottom: 0;
+    }
+
+    [data-title] {
+      @include fontSize(24px);
+
+      text-align: left;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin: 0;
+      color: $gray400;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      @include listWithYellowMarkers;
+
+      margin: 24px 0 -12px;
+      height: auto !important;
+    }
+
+    li {
+      margin-bottom: 12px;
+      max-width: none !important;
+    }
+
+    .experienceContent {
       max-width: 481px;
     }
 
     .image {
-      max-width: 481px;
-      height: 449px;
-      margin: 0;
+      max-width: 500px;
+      aspect-ratio: 500/388;
       padding-top: 0;
-      background-size: contain;
-
-      @include below-tablet {
-        height: 320px;
-        margin-bottom: 24px;
-        background-size: contain;
-      }
     }
 
     @include below-tablet {
-      @include flex(column, initial, center);
+      padding: 0 16px 32px !important;
 
-      margin: 0;
+      ul {
+        align-items: center;
+      }
+
+      li {
+        text-align: center;
+      }
+
+      .imageSection {
+        margin: 0;
+        flex-direction: column-reverse !important;
+      }
+
+      .experienceContent {
+        margin: 0 !important;
+      }
+
+      [data-title] {
+        text-align: center;
+      }
+
+      .image {
+        margin-top: 24px;
+      }
     }
   }
 
-  .experienceContent {
-    max-width: 687px;
-    width: 100%;
-    margin: 0 32px 0 0;
-    padding: 0;
+  &.firstSectionView {
+    padding-top: 0 40px 80px;
 
-    .titleStyle {
-      text-align: left;
-      margin-bottom: 8px;
+    .experienceContent {
+      padding-left: 0;
+      margin-left: 32px;
+    }
+  }
 
-      h2 {
+  &.secondSectionView {
+    padding: 0 40px 80px;
+
+    .imageSection {
+      flex-direction: row-reverse;
+
+      & > *:first-child {
+        flex: 0 1 480px;
+
+        @include below-tablet {
+          flex-basis: auto;
+        }
+      }
+    }
+
+    .experienceContent {
+      margin-right: 32px;
+      padding-left: 0;
+    }
+
+    .image {
+      max-width: 480px;
+      aspect-ratio: 480/451;
+      padding-top: 0;
+    }
+  }
+
+  &.thirdSectionView {
+    .imageSection {
+      flex-direction: row-reverse;
+
+      & > div:first-child {
+        max-width: 481px;
+      }
+
+      .image {
+        max-width: 481px;
+        height: 449px;
+        margin: 0;
+        padding-top: 0;
+        background-size: contain;
+
+        @include below-tablet {
+          height: 320px;
+          margin-bottom: 24px;
+          background-size: contain;
+        }
+      }
+
+      @include below-tablet {
+        @include flex(column, initial, center);
+
+        margin: 0;
+      }
+    }
+
+    .experienceContent {
+      max-width: 687px;
+      width: 100%;
+      margin: 0 32px 0 0;
+      padding: 0;
+
+      .titleStyle {
         text-align: left;
+        margin-bottom: 8px;
+
+        h2 {
+          text-align: left;
+
+          @include below-tablet {
+            text-align: center;
+          }
+        }
 
         @include below-tablet {
           text-align: center;
         }
       }
 
+      & > div {
+        & > p {
+          margin: 0;
+
+          @include below-tablet {
+            @include fontSize(16px, 24px);
+          }
+        }
+
+        & > ul {
+          @include listWithYellowMarkers;
+
+          max-width: 645px;
+          height: unset;
+          margin: 32px 0;
+
+          & li {
+            @include fontSize(16px, 150%);
+
+            width: unset;
+            max-width: unset;
+            margin-bottom: 12px;
+          }
+
+          @include tablet {
+            width: fit-content;
+            max-height: none;
+            margin: 24px auto;
+          }
+        }
+      }
+
       @include below-tablet {
-        text-align: center;
-      }
-    }
-
-    & > div {
-      & > p {
         margin: 0;
-
-        @include below-tablet {
-          @include fontSize(16px, 24px);
-        }
       }
-
-      & > ul {
-        @include listWithYellowMarkers;
-
-        max-width: 645px;
-        height: unset;
-        margin: 32px 0;
-
-        & li {
-          @include fontSize(16px, 150%);
-
-          width: unset;
-          max-width: unset;
-          margin-bottom: 12px;
-        }
-
-        @include tablet {
-          width: fit-content;
-          max-height: none;
-          margin: 24px auto;
-        }
-      }
-    }
-
-    @include below-tablet {
-      margin: 0;
     }
   }
 }

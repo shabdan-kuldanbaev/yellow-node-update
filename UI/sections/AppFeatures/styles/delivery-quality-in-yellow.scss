@@ -3,11 +3,36 @@
     @include appFeaturesContainer;
 
     background: $gray0;
+    padding: 0 40px 80px;
 
     [data-title] {
       @include fontSize(24px);
 
       margin-bottom: 8px;
+
+      @include tablet {
+        text-align: center;
+        max-width: none;
+      }
+    }
+
+    .titleWrapper {
+      @include tablet {
+        [data-title] {
+          text-align: center;
+          max-width: none;
+        }
+
+        [data-description] {
+          margin: 0 auto;
+        }
+      }
+    }
+
+    .container {
+      @include tablet {
+        flex-direction: column;
+      }
     }
 
     .imageContainer {
@@ -17,7 +42,7 @@
 
       @include tablet {
         margin: 24px auto 0;
-        max-width: unset;
+        max-width: 640px;
         height: unset;
       }
     }
