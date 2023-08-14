@@ -1,5 +1,7 @@
 .delivery-quality-in-yellow {
   &.firstSectionView {
+    background: $gray50;
+
     .contentWrapper {
       max-width: $wide-content-width;
     }
@@ -23,10 +25,11 @@
   }
 
   &.secondSectionView {
-    background-color: $gray50;
+    padding-top: 0;
 
     .title {
       max-width: 671px;
+      display: none;
 
       h2 {
         padding: 0 40px;
@@ -48,37 +51,6 @@
       & > * {
         margin: 0;
       }
-    }
-  }
-
-  &.thirdSectionView {
-    padding-top: 0;
-
-    .title {
-      max-width: 671px;
-      margin-bottom: 32px;
-
-      h2 {
-        @include fontSize(21px, 31.2px);
-      }
-    }
-
-    .cardList {
-      max-width: 994px;
-      margin: 0;
-      grid-gap: 32px;
-
-      & > * {
-        margin: 0;
-      }
-
-      @include below-tablet {
-        grid-gap: 16px 0;
-      }
-    }
-
-    .card {
-      @extend .cardWithVerticalLine;
     }
   }
 }
