@@ -1,6 +1,6 @@
-import usePageClusters from 'hooks/usePageClusters';
 import { useForm } from 'react-hook-form';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import usePageClusters from 'hooks/usePageClusters';
 
 const useProps = ({
   downloadLink,
