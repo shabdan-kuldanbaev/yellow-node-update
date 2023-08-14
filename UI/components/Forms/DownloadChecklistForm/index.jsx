@@ -54,6 +54,7 @@ const DownloadChecklistForm = (props) => {
 
 DownloadChecklistForm.propTypes = {
   downloadLink: PropTypes.string.isRequired,
+  pageSlug: PropTypes.string,
 };
 
 export default DownloadChecklistForm;

@@ -67,6 +67,12 @@ const blogApi = baseApi.injectEndpoints({
         type: BASEQUERY_TYPES.getEntries,
       },
       async queryFn({ slug }, _, __, baseQuery) {
+        if (!slug) {
+          return {
+            error: 'Wrong argument',
+          };
+        }
+
         const article = (await baseQuery({ contentType: 'article', query: { slug } })).data.items[0];
 
         const {

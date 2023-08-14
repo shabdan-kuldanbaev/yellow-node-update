@@ -93,6 +93,7 @@ const PageIntroSection = (props) => {
         {scrollBlock && (
           <CallToAction
             data={scrollBlock}
+            slug={type}
             sectionRef={introSection}
           />
         )}

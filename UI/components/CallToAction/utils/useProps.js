@@ -18,6 +18,7 @@ export default (props) => {
     data,
     buttonTitle: buttonTitleProp,
     className,
+    slug: slugProp,
     ...rest
   } = props;
 
@@ -83,7 +84,7 @@ export default (props) => {
     isSubscribed,
     downloadLink: files[0],
     isOpenFeedbackForm,
-    slug,
+    slug: slugProp || slug,
     ctaUrl,
     show,
     setShow,

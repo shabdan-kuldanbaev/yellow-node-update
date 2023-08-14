@@ -5,6 +5,7 @@ import Button from 'UI/components/Button';
 import downloadFile from 'utils/downloadFile';
 import useToggle from 'hooks/useToggle';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import usePageClusters from 'hooks/usePageClusters';
 import styles from '../styles.module.scss';
 
 const Typography = dynamic(() => import('UI/components/Typography'));
@@ -20,14 +21,18 @@ export default ({
   slug,
 }) => {
   const [
-    _,
-    { data: { isSubscribed } = {} },
+    subscribe,
+    { data: { subscriptionEmail } = {} },
   ] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
   const [isGetBookShown, toggleGetBookModalShown] = useToggle(false);
 
+  const pageClusters = usePageClusters();
+
   const handleOnClick = () => {
-    if (isSubscribed) {
+    if (subscriptionEmail) {
+      Promise.resolve(subscribe({ email: subscriptionEmail, pageClusters }));
+
       return downloadFile(downloadLink);
     }
 

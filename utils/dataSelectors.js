@@ -53,6 +53,7 @@ export const getPortfolioPageProps = async (state, store) => {
   const link = data.contentModules.find((module) => module.sys.contentType.sys.id === 'link');
 
   return {
+    pageFetchQuery: PAGES.portfolio,
     link,
     pageMetadata,
     works,
@@ -76,6 +77,7 @@ export const getHomePageDataPros = async (state, store) => {
   const projects = findBlock(components, BLOCKS_SLUGS.homepagePreviewProjects);
 
   return {
+    pageFetchQuery: PAGES.homepage,
     pageData: components,
     pageMetadata,
     projects,
@@ -95,6 +97,7 @@ export const getStaticPropsWrapper = (slug, selectors) => wrapper.getStaticProps
 
     return {
       props: {
+        pageFetchQuery: slug,
         metaData: data.metaData,
         type: slug,
         ...pageData,
