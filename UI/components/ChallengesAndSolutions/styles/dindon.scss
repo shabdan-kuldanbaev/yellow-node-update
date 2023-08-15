@@ -212,10 +212,12 @@
 
     .imageBundle {
       position: absolute;
-      left: 820px;
-      top: -32px;
+      left: 50%;
+      bottom: 15%;
+      z-index: -1;
       width: 1996px;
       height: 1996px;
+      opacity: 0.8;
 
       @include below-tablet {
         display: none;
