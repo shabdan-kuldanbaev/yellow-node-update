@@ -25,7 +25,7 @@ const SWIPER_PARAMS = {
 export const getSwiperParams = (slug, view) => ({
   ...SWIPER_PARAMS,
   spaceBetween:
-  SPACE_BETWEEN_PAGES[slug][view]
+    (SPACE_BETWEEN_PAGES[slug] && SPACE_BETWEEN_PAGES[slug][view])
     || (!isNaN(SPACE_BETWEEN_PAGES[slug]) && SPACE_BETWEEN_PAGES[slug])
     || DEFAULT_SPACE_BETWEEN,
 });
