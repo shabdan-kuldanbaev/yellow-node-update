@@ -75,7 +75,6 @@ const CallToAction = (props) => {
           return (
             <ScrollBlock
               sectionRef={sectionRef}
-              isSubscribed={isSubscribed}
               titles={titles}
               subtitle={subtitle}
               buttonTitle={buttonTitle}

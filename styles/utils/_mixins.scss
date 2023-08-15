@@ -492,9 +492,8 @@
     height: 110px;
   }
 
-  @include flex(column, initial, initial, wrap, space-around);
+  @include flex(column, initial, initial, nowrap, space-around);
 
-  height: 82px;
   padding: 0;
   max-width: 980px;
   width: 100%;

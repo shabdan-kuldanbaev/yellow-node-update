@@ -38,6 +38,7 @@ export const getInitialBlogProps = async (store, ctx) => {
       Object.assign(props, {
         isArticle,
         query,
+        pageFetchQuery: query,
       });
     } else {
       const query = {
@@ -58,6 +59,7 @@ export const getInitialBlogProps = async (store, ctx) => {
         tagsList: tags,
         isArticle,
         query,
+        pageFetchQuery: query,
       });
     }
 

@@ -13,7 +13,13 @@ const pageApi = baseApi.injectEndpoints({
           'fields.slug': slug,
         },
       }),
-      transformResponse(response) {
+      transformResponse(response, _, arg) {
+        if (!arg || typeof arg !== 'string') {
+          return {
+            data: {},
+          };
+        }
+
         const data = response.items[0].fields;
 
         return {

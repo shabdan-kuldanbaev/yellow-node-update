@@ -1,9 +1,12 @@
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import usePageClusters from 'hooks/usePageClusters';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 
 const useProps = ({ ...props }) => {
   const [subscribe, { data, isLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
+
+  const pageClusters = usePageClusters();
 
   const {
     register,
@@ -20,7 +23,11 @@ const useProps = ({ ...props }) => {
   const isSubscribed = data?.isSubscribed;
 
   const handleButtonClick = handleSubmit((values) => {
-    subscribe({ ...values, pathname: query });
+    subscribe({
+      ...values,
+      pathname: query,
+      pageClusters,
+    });
   });
 
   const isButtonDisabled = !getValues().email || !isValid || isLoading;

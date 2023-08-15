@@ -1,71 +1,58 @@
 .delivery-quality-in-yellow {
-  padding-bottom: 48px;
+  &.firstSectionView {
+    padding-bottom: 0;
 
-  .titleStyle {
-    max-width: 671px;
-    margin-bottom: 32px;
-  }
-
-  .textContent {
-    & > div:last-child {
-      width: 100%;
+    [data-subtitle] {
+      max-width: 771px;
     }
   }
 
-  .text {
-    @include flex(column, initial, initial, wrap);
+  &.secondSectionView {
+    background: $gray50;
+    padding-bottom: 48px;
 
-    max-height: 204px;
-    max-width: 900px;
-    width: 100%;
-    margin: 0 auto;
+    .titleStyle {
+      max-width: 671px;
+      margin-bottom: 32px;
+    }
 
-    ul {
-      @include listWithYellowMarkers;
-
-      @media (max-width: 924px) {
-        height: unset;
-      }
-
-      max-width: unset;
-      width: unset;
-      height: unset;
-      margin: 0;
-      align-content: unset;
-
-      &:nth-child(2) {
-        @media (max-width: 924px) {
-          height: unset;
-          max-width: 535px;
-        }
-
-        max-width: 691px;
+    .textContent {
+      & > div:last-child {
         width: 100%;
+      }
+    }
+
+    .text {
+      @include flex(column, initial, initial, wrap);
+
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+
+      ul {
+        @include listWithYellowMarkers;
+
+        flex-wrap: nowrap;
+        margin: 0;
+        align-items: center;
+        height: auto;
+
+        li {
+          max-width: unset;
+          margin: 12px 0 0;
+          color: $gray400;
+          width: auto;
+        }
 
         @include below-tablet {
-          max-width: unset;
-          margin-bottom: 16px;
+          height: fit-content;
         }
       }
 
-      & li {
-        max-width: unset;
-        margin: 12px 0 0;
-        color: $gray400;
+      * {
+        padding: 0;
+        margin: 0;
       }
-
-      @include below-tablet {
-        height: fit-content;
-      }
-    }
-
-    & * {
-      padding: 0;
-      margin: 0;
-    }
-
-    @include below-tablet {
-      max-height: fit-content;
     }
   }
 }
