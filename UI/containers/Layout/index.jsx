@@ -25,7 +25,7 @@ const Layout = (props) => {
       {children}
       <Footer />
       <GAnalytic />
-      <VideoAsk />
+      {/* <VideoAsk /> */}
     </>
   );
 };
