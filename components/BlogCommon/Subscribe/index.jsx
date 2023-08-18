@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
-import Animated from 'components/Common/Animated';
+import { selectIsMobile } from 'redux/selectors/layout';
 import AnimatedInput from 'components/Common/AnimatedInput';
 import ButtonMore from 'components/Common/ButtonMore';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('UI/containers/Animated'));
+
 const Subscribe = ({
   email,
   handleOnEmailChange,
   handleOnBlurEmail,
 }) => {
-  const isMobileResolution = useSelector(selectIsMobileResolutions);
+  const isMobileResolution = useSelector(selectIsMobile);
 
   const placeholderText = 'Email';
   const [currentPlaceholder, setCurrentPlaceholder] = useState(placeholderText);

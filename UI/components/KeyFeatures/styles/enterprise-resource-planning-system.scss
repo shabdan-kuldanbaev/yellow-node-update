@@ -1,0 +1,53 @@
+.enterprise-resource-planning-system {
+  padding: 60px 40px;
+  width: 100%;
+  order: 2;
+
+  .containerBackground {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: unset;
+    background-color: $erpSecondary;
+    border-radius: 30px;
+
+    @include tablet {
+      border-radius: 20px;
+    }
+  }
+
+  .featureContainer {
+    h2 {
+      position: relative;
+      padding-left: 24px;
+
+      &::before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: $erpAccent;
+      }
+    }
+
+    p {
+      padding-left: 24px;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 24px;
+    }
+
+    .checkMark {
+      display: none;
+    }
+  }
+
+  @include tablet {
+    max-width: 584px;
+  }
+}

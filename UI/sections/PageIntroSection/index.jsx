@@ -1,27 +1,33 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
 import { Figures } from 'UI/components/Figures';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import Typography from 'UI/components/Typography';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const Typography = dynamic(() => import('UI/components/Typography'));
+const Button = dynamic(() => import('UI/components/Button'));
+const CallToAction = dynamic(() => import('UI/components/CallToAction'));
 
 const PageIntroSection = (props) => {
   const {
     type,
     title,
     description,
-    imageUrl,
+    image,
+    buttonTitle,
     figuresData,
     introSection,
+    handleOnCTAClick,
+    scrollBlock,
   } = useSectionProps(props);
 
   // TODO: use rich text instead of splitting
-  const descriptionParagraphs = description.split('||');
+  const descriptionParagraphs = description?.split('||');
 
   return (
     <section
@@ -54,11 +60,25 @@ const PageIntroSection = (props) => {
                 </Typography>
               ))}
             </Animated>
+            {buttonTitle && (
+              <Animated {...REVEAL_ANIMATION_PROPS}>
+                <div className={styles.buttonWrapper}>
+                  <Button
+                    onClick={handleOnCTAClick}
+                    className={styles.button}
+                    data-button
+                  >
+                    {buttonTitle}
+                  </Button>
+                </div>
+              </Animated>
+            )}
           </div>
           <Animated {...REVEAL_ANIMATION_PROPS}>
-            {imageUrl && (
+            {image.url && (
               <Illustration
-                src={imageUrl}
+                src={image.url}
+                alt={image.alt}
                 className={styles.pageImage}
                 transparent
                 priority
@@ -70,6 +90,13 @@ const PageIntroSection = (props) => {
           type={type}
           figuresData={figuresData}
         />
+        {scrollBlock && (
+          <CallToAction
+            data={scrollBlock}
+            slug={type}
+            sectionRef={introSection}
+          />
+        )}
       </div>
     </section>
   );

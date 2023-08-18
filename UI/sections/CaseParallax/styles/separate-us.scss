@@ -1,0 +1,11 @@
+.separate-us {
+  padding-top: 120px;
+
+  .titleStyle {
+    max-width: 614px;
+  }
+
+  @include tablet {
+    padding-top: 60px;
+  }
+}

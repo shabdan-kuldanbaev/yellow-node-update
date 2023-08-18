@@ -1,10 +1,43 @@
 .homepage {
-  [data-title],
-  [data-description] {
-    max-width: 705px;
+  &.secondSectionView {
+    @extend .greySection;
 
-    @include phone {
-      max-width: 370px;
+    padding-top: 0;
+
+    :global(.swiper-wrapper) {
+      min-height: 72px;
+    }
+
+    :global(.swiper-slide) {
+      align-items: center;
+    }
+  }
+
+  &.firstSectionView {
+    background: $gray900;
+    padding-top: 0;
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    :global(.swiper-wrapper) {
+      min-height: 72px;
+    }
+
+    :global(.swiper-slide) {
+      align-items: center;
+    }
+  }
+
+  &.thirdSectionView {
+    [data-title],
+    [data-description] {
+      max-width: 705px;
+
+      @include phone {
+        max-width: 370px;
+      }
     }
   }
 }

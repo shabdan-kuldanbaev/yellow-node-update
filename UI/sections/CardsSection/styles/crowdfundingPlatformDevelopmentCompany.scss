@@ -1,0 +1,233 @@
+.crowdfunding-platform-development-company {
+  .callToAction {
+    max-width: $default-content-width;
+    margin: 48px auto 0;
+    background: $gray50;
+    border: none;
+  }
+
+  &.firstSectionView {
+    @extend .blackSection;
+
+    [data-title] {
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      align-items: center;
+
+      svg {
+        width: 40px;
+        height: 40px;
+        margin: 0 16px 0 0;
+        flex: none;
+      }
+
+      h3 {
+        @include fontSize(16px, 150%);
+
+        margin: 0;
+      }
+
+      & > div {
+        flex: none;
+      }
+
+      @include phone {
+        justify-content: center;
+      }
+    }
+
+    .cardList {
+      grid-template-columns: repeat(4, auto);
+      grid-gap: 170px;
+      margin: 0;
+
+      & > div {
+        margin: 0;
+
+        @include below-tablet {
+          justify-content: center;
+        }
+      }
+
+      @include macbook-twelve {
+        grid-gap: 16px;
+      }
+
+      @include below-tablet {
+        grid-template-columns: repeat(1, auto);
+        justify-content: center;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    [data-title],
+    [data-description] {
+      @include phone {
+        max-width: 345px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    [data-title],
+    [data-description] {
+      max-width: 680px;
+
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .navigation button {
+      padding: 0;
+    }
+  }
+
+  &.fourthSectionView {
+    :global(.swiper-wrapper) {
+      min-height: 450px;
+
+      @include below-tablet {
+        min-height: 450px;
+      }
+    }
+
+    [data-title] {
+      max-width: 720px;
+
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    [data-description] {
+      max-width: 610px;
+
+      @include phone {
+        max-width: 340px;
+      }
+    }
+
+    .callToAction div {
+      max-width: 490px;
+
+      @include phone {
+        max-width: 310px;
+      }
+    }
+
+    .card {
+      @include flex(column, flex-start, stretch);
+
+      min-height: 450px;
+
+      * {
+        align-self: center;
+        text-align: center;
+        margin: 0;
+      }
+
+      picture {
+        margin: 0 0 16px;
+        width: 276px;
+        height: 276px;
+      }
+
+      @include below-tablet {
+        max-width: 450px;
+        min-height: 350px;
+      }
+
+      @include phone {
+        max-width: 350px;
+        margin-bottom: 16px;
+        min-height: unset;
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    padding-bottom: 60px;
+
+    [data-title] {
+      max-width: 800px;
+
+      @include phone {
+        max-width: 345px;
+      }
+    }
+
+    .card {
+      @extend .cardWithVerticalLine;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .callToAction div {
+      max-width: 535px;
+
+      @include phone {
+        max-width: 310px;
+      }
+    }
+
+    @include phone {
+      padding-bottom: 30px;
+    }
+  }
+
+  &.sixthSectionView {
+    padding-bottom: 60px;
+
+    :global(.swiper) {
+      padding: 0;
+    }
+
+    [data-read-more] {
+      display: block;
+    }
+
+    [data-description] {
+      @include phone {
+        max-width: 330px;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
+    }
+
+    p {
+      margin-top: auto;
+    }
+
+    @include phone {
+      padding-bottom: 30px;
+    }
+  }
+}

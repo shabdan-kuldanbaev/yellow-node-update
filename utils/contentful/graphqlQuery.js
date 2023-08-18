@@ -12,23 +12,34 @@ function getParam(params) {
   return '';
 }
 
-function getFilterParams(where) {
-  if (!isEmpty(where)) {
-    const filterParams = Object
-      .keys(where)
-      .map((key) => {
-        if (typeof where[key] === 'boolean') {
-          return `${key}: ${where[key]}`;
-        }
-
-        return `${key}: "${where[key]}"`;
-      })
-      .join(',');
-
-    return `where: {${filterParams}},`;
+const queryfy = (obj) => {
+  if (typeof obj === 'number' || typeof obj === 'boolean') {
+    return obj;
   }
 
-  return '';
+  if (Array.isArray(obj)) {
+    const props = obj.map((value) => `${queryfy(value)}`).join(',');
+
+    return `[${props}]`;
+  }
+
+  if (typeof obj === 'object') {
+    const props = Object.keys(obj)
+      .map((key) => `${key}:${queryfy(obj[key])}`)
+      .join(',');
+
+    return `{${props}}`;
+  }
+
+  return JSON.stringify(obj);
+};
+
+function getFilterParams(obj) {
+  if (isEmpty(obj)) {
+    return 'where: {}';
+  }
+
+  return `where: ${queryfy(obj)}`;
 }
 
 export const GRAPHQL_QUERY = {
@@ -84,15 +95,19 @@ export const GRAPHQL_QUERY = {
             previewImageUrl {
               url
             }
+            tagsListCollection {
+              items {
+                slug
+              }
+            }
             introduction
-            categoryTag
             publishedAt
           }
         }
       }
     `;
   },
-  getNearbyAndRelatedArticle({
+  getNearbyArticle({
     limit,
     order,
     where,
@@ -107,7 +122,11 @@ export const GRAPHQL_QUERY = {
           items {
             title
             slug
-            categoryTag
+            tagsListCollection {
+              items {
+                slug
+              }
+            }
             previewImageUrl {
               url
             }
@@ -116,21 +135,52 @@ export const GRAPHQL_QUERY = {
       }
     `;
   },
-  loadPreviewArticlesByTags({
+  getRelatedArticles({
     limit,
     where,
-    order,
   }) {
     return `
       query {
         tagCollection(
-          ${getParam({ limit })}
-          ${getParam({ order })}
           ${getFilterParams(where)}
         ) {
           items {
             linkedFrom {
-              articleCollection {
+              articleCollection(
+                ${getParam({ limit })}
+              ) {
+                items {
+                  title
+                  slug
+                  previewImageUrl {
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+  },
+  loadPreviewArticlesByTags({
+    limit,
+    skip,
+    where,
+  }) {
+    return `
+      query {
+        tagCollection(
+          ${getFilterParams(where)}
+          ) {
+            items {
+              slug
+              linkedFrom {
+                articleCollection(
+                  ${getParam({ limit })}
+                  ${getParam({ skip })}
+              ) {
+                total
                 items {
                   title
                   slug
@@ -138,7 +188,6 @@ export const GRAPHQL_QUERY = {
                     url
                   }
                   introduction
-                  categoryTag
                   publishedAt
                 }
               }

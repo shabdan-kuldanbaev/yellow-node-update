@@ -1,0 +1,12 @@
+.drive-focus {
+  padding: 60px 40px 48px;
+  background-color: $gray0;
+
+  .titleStyle {
+    margin: 0;
+  }
+
+  @include tablet {
+    padding: 30px 16px 24px;
+  }
+}

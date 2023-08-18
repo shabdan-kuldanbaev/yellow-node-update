@@ -1,0 +1,36 @@
+.mobile-bank-application {
+  &.secondSectionView {
+    padding: 120px 0 0;
+    background-color: $mobileBankPrimary;
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    .titleStyle {
+      @include phone {
+        margin-bottom: 16px;
+      }
+    }
+
+    @include phone {
+      padding-top: 60px;
+    }
+  }
+
+  &.thirdSectionView {
+    padding: 0;
+
+    .titleStyle {
+      margin: 0;
+    }
+  }
+
+  &.fourthSectionView {
+    padding: 46px 0 0;
+
+    .titleStyle {
+      margin: 0;
+    }
+  }
+}

@@ -1,32 +1,25 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
-import isEmpty from 'lodash/isEmpty';
 import cn from 'classnames';
-import { microdata } from 'utils/microdata';
-import CollapseItem from 'UI/components/CollapseItem';
+import dynamic from 'next/dynamic';
+import { getFaqMicrodata } from 'utils/microdata/utils';
 import styles from './styles.module.scss';
+
+const CollapseItem = dynamic(() => import('UI/components/CollapseItem'));
 
 const FAQ = ({ faqList, isArticalPage }) => (
   <>
     <Head>
-      {!isEmpty(faqList) && (
-        <script
-          key="JSON-LD-faq"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(microdata.faq({ faqList })),
-          }}
-        />
-      )}
+      {/* Somehow microdata doesnt work with next/script so use this instead */}
+      <script
+        id="JSON-LD-faq"
+        key="JSON-LD-faq"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getFaqMicrodata({ faqList }), null, 2) }}
+      />
     </Head>
-    <div
-      className={cn(
-        styles.frequentlyAskedQuestions,
-        { [styles.faqArticalPage]: isArticalPage },
-      )}
-    >
-      {faqList?.map((faq) => (
+    <div className={cn(styles.frequentlyAskedQuestions, { [styles.faqArticalPage]: isArticalPage })}>
+      {faqList.map((faq) => (
         <CollapseItem
           key={`faq-item/${faq.question}`}
           faq={faq}

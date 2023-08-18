@@ -1,0 +1,245 @@
+.mobile-budgeting-app {
+  &.firstSectionView {
+    .image {
+      width: 270px;
+      height: 550px;
+    }
+
+    .contentContainer {
+      @include flex(column, center, flex-start);
+
+      margin: 0 auto;
+
+      .infoContainer {
+        max-width: 686px;
+
+        &-2 {
+          max-width: 583px;
+
+          p {
+            text-align: right;
+          }
+
+          h2 {
+            text-align: right;
+          }
+
+          @include tablet {
+            order: initial;
+          }
+        }
+
+        p {
+          margin: 0;
+          color: $gray0;
+
+          @include tablet {
+            text-align: center;
+          }
+        }
+
+        h2 {
+          @include fontSize(56px, 120%);
+
+          margin: 0 0 16px;
+          color: $gray0;
+          font-weight: normal;
+
+          @include tablet {
+            @include fontSize(38px, 130%);
+
+            margin: 0 auto 8px;
+            text-align: center;
+          }
+        }
+      }
+
+      &-2 {
+        @include flex(column, center, flex-end);
+
+        margin-top: -450px;
+      }
+
+      &-3 {
+        @include flex(column-reverse, center, flex-start);
+
+        margin-top: -150px;
+      }
+
+      @include tablet {
+        @include flex(column, center, center);
+
+        margin: 0 auto 32px;
+        row-gap: 24px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    grid-template-areas:
+      'chatbots taxation'
+      'chatbots margin';
+
+    .contentContainer {
+      @include flex(column, center, center);
+
+      margin: 0;
+      max-width: 584px;
+      width: 100%;
+      height: 100%;
+      border-radius: 60px;
+      box-sizing: border-box;
+
+      .infoContainer {
+        h5 {
+          @include fontSize(56px, 120%);
+
+          margin: 0 0 16px;
+          font-weight: normal;
+          text-align: center;
+
+          @include below-tablet {
+            @include fontSize(38px, 130%);
+
+            margin: 0 0 8px;
+          }
+        }
+
+        p {
+          margin: 0;
+          text-align: center;
+          color: $gray900;
+        }
+      }
+    }
+
+    .contentContainer-1 {
+      padding: 60px;
+      grid-area: chatbots;
+      background: $gray50;
+
+      .image {
+        width: 270px;
+        height: 550px;
+      }
+
+      @include below-tablet {
+        padding: 60px 16px;
+      }
+    }
+
+    .contentContainer-2 {
+      padding: 102px;
+      grid-area: taxation;
+      background-color: $gray900;
+
+      .infoContainer {
+        h5,
+        p {
+          color: $gray0;
+        }
+      }
+
+      @include below-tablet {
+        padding: 100px 16px;
+      }
+    }
+
+    .contentContainer-3 {
+      padding: 102px;
+      grid-area: margin;
+      background-color: $mobileBudgetingAccent;
+
+      @include below-tablet {
+        padding: 100px 16px;
+      }
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      gap: 16px;
+    }
+  }
+
+  &.thirdSectionView {
+    @include flex(row, center, initial);
+
+    margin: 0 auto;
+    max-width: $wide-content-width;
+    column-gap: 32px;
+
+    .contentContainer {
+      @include flex(column);
+
+      margin: 0 auto;
+      padding: 32px 24px;
+      max-width: 379px;
+      width: 100%;
+      row-gap: 80px;
+      background: $gray50;
+      border-radius: 40px;
+      box-sizing: border-box;
+
+      .separatedTitle {
+        min-height: 98px;
+
+        @include phone {
+          min-height: unset;
+        }
+      }
+
+      .title {
+        @include fontSize(38px, 130%);
+
+        margin: 0;
+        font-weight: normal;
+        text-align: left;
+
+        @include phone {
+          @include fontSize(24px, 130%);
+        }
+      }
+
+      @include phone {
+        height: 100%;
+        row-gap: 60px;
+      }
+    }
+
+    .infoContainer {
+      text-align: unset;
+
+      h5 {
+        @include fontSize(16px, 150%);
+
+        display: inline;
+        margin-right: 5px;
+        color: $gray400;
+        font-weight: normal;
+      }
+
+      p {
+        display: inline;
+        color: $gray900;
+        text-align: justify;
+
+        &:nth-of-type(2) {
+          display: block;
+          margin: 0;
+        }
+      }
+    }
+
+    @include tablet {
+      flex-wrap: wrap;
+      row-gap: 32px;
+    }
+  }
+}

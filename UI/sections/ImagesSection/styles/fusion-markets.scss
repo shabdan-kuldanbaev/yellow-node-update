@@ -1,0 +1,16 @@
+.fusion-markets {
+  padding: 60px 0;
+  background-color: $fusionMarketsAccent;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  .image {
+    width: 994px;
+  }
+
+  @include phone {
+    padding: 30px 0;
+  }
+}

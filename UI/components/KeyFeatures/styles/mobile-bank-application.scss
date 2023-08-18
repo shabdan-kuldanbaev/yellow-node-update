@@ -1,0 +1,11 @@
+.mobile-bank-application {
+  .featureContainer {
+    .checkMark {
+      background: $mobileBankAccent;
+
+      path {
+        fill: $gray900;
+      }
+    }
+  }
+}

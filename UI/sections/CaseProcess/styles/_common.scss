@@ -1,0 +1,77 @@
+.section {
+  background-color: $gray0;
+  position: relative;
+  padding: 120px 40px;
+
+  .container {
+    max-width: $default-content-width;
+    margin: 0 auto;
+  }
+
+  .stepsContainer {
+    @include flex(row, space-between, stretch);
+
+    margin: 0 0 -24px -53px;
+
+    & > div {
+      margin: 0 0 24px 53px;
+    }
+
+    @include tablet {
+      @include flex(row, center, flex-start, wrap);
+    }
+  }
+
+  .step {
+    @include flex(column, center, center);
+
+    height: 100%;
+
+    @include tablet {
+      flex: 0 0 50%;
+    }
+  }
+
+  .stepNumber {
+    @include flex(column, center, center);
+    @include fontSize(20px, 150%);
+
+    width: 64px;
+    height: 64px;
+    font-weight: 700;
+    background-color: $writerAccent;
+    color: $gray0;
+    border-radius: 50%;
+    margin-bottom: 16px;
+  }
+
+  .stepTitle {
+    @include fontSize(20px, 150%);
+
+    color: $gray900;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+  }
+
+  .image {
+    width: 100%;
+    height: 620px;
+
+    @include tablet {
+      height: 400px;
+    }
+
+    @include phone {
+      height: 214px;
+    }
+  }
+
+  @include tablet {
+    padding: 60px 32px;
+  }
+
+  @include phone {
+    padding: 60px 16px;
+  }
+}

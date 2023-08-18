@@ -1,0 +1,41 @@
+.web-chat-for-mediums {
+  &.firstSectionView {
+    padding: 0 16px 120px;
+    overflow: unset;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include below-tablet {
+      padding-bottom: 60px;
+    }
+  }
+
+  &.secondSectionView {
+    padding: 0 16px;
+    background-color: $chatSolutionsWhite;
+
+    .titleStyle {
+      display: none;
+    }
+  }
+
+  &.thirdSectionView {
+    @include flex(column, center, center);
+
+    background-color: $gray0;
+
+    [data-title] {
+      @include fontSize(16px, 130%);
+
+      margin: 0 auto;
+      color: $chatSolutionsBlue;
+      text-transform: uppercase;
+    }
+
+    @include phone {
+      display: block;
+    }
+  }
+}

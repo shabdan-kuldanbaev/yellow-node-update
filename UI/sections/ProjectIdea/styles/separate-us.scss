@@ -1,0 +1,15 @@
+.separate-us {
+  padding: 60px 40px;
+
+  .contentContainer {
+    margin: 0 auto;
+  }
+
+  @include tablet {
+    padding: 60px 32px 30px;
+  }
+
+  @include phone {
+    padding: 60px 16px 30px;
+  }
+}

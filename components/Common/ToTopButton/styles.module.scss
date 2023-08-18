@@ -1,6 +1,10 @@
 @import 'styles/utils/mixins';
 
 .toTop {
+  @include macbook-fifteen {
+    right: 50px;
+  }
+
   position: fixed;
   bottom: 70px;
   right: 70px;
@@ -23,8 +27,16 @@
     transform: scale(1.1);
   }
 
-  @include macbook-fifteen {
-    right: 50px;
+  .arrowUp {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include phone {
+      width: 19px;
+      height: 19px;
+    }
   }
 
   @include macbook-twelve {
@@ -36,18 +48,6 @@
     right: 20px;
     width: 40px;
     height: 40px;
-  }
-
-  .arrowUp {
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    @include phone {
-      width: 19px;
-      height: 19px;
-    }
   }
 }
 

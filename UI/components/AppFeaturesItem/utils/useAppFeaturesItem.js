@@ -12,7 +12,13 @@ export const useAppFeaturesItem = ({
     title,
     text,
     imagesBundles,
-  } = getDocumentFields(data);
+    contentList: customIcon,
+  } = getDocumentFields(data, [
+    'title',
+    'text',
+    'imagesBundles',
+    'contentList',
+  ]);
 
   const imagesUrl = imagesBundles?.map((imagesBundle) => getFileUrl(imagesBundle)) || [];
 
@@ -25,5 +31,6 @@ export const useAppFeaturesItem = ({
     activeIndex,
     currentIndex,
     handleOnClick,
+    customIcon,
   };
 };

@@ -1,136 +1,93 @@
-import { END } from 'redux-saga';
-import { fetchLayoutData } from 'redux/actions/layout';
-import { toInt, isNumeric } from 'utils/helper';
-import errorHelper from 'utils/error';
-import {
-  PAGES,
-  CATEGORY_SLUGS,
-  ARTICLES_NUMBER_PER_PAGE,
-} from 'utils/constants';
-import { contentfulClient } from 'utils/contentful/client';
+import blogApi from 'redux/apis/blog';
+import { isNumeric } from 'utils/helper';
+import pageApi from 'redux/apis/page';
+import { handleError } from 'utils/error';
+import { ARTICLES_NUMBER_PER_PAGE, PAGES } from 'utils/constants';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
-import { getGraphqlResultTags } from 'utils/contentful/helper';
 
-export const isArticle = (slug) => !!slug && !CATEGORY_SLUGS.includes(slug) && !isNumeric(slug);
-
-export const checkIsTagBlog = (slug, tagsList) => !!slug && !!tagsList && tagsList.some((tag) => tag.slug === slug);
-
-// TODO think a better solution
-const fetchBlogData = async (
-  store,
-  {
-    query: {
-      slug: category = '',
-      page = 1,
-    },
-    routeSlug,
-    isTagBlog,
-  },
-) => {
-  let queryParams = {
-    category,
-    page,
-  };
-
-  if (isNumeric(category)) {
-    queryParams = {
-      page: category,
-    };
-  }
-
-  if (CATEGORY_SLUGS.includes(category)) {
-    queryParams = {
-      category,
-      page,
-    };
-  }
-
-  const currentPage = toInt(queryParams.page);
-
-  store.dispatch(fetchLayoutData({
-    slug: routeSlug,
-    currentLimit: ARTICLES_NUMBER_PER_PAGE,
-    category: queryParams.category,
-    skip: (currentPage - 1) * ARTICLES_NUMBER_PER_PAGE,
-    isTagBlog,
-  }));
-
-  return {
-    articlesNumberPerPage: ARTICLES_NUMBER_PER_PAGE,
-    currentPage,
-  };
-};
-
-const isArticleLoaded = (store) => store.getState().blog.single.total !== 0;
+export const checkIfSlugIsTag = (tags, slug) => !!tags.find(({ slug: tagSlug }) => slug === tagSlug);
 
 export const getInitialBlogProps = async (store, ctx) => {
+  const {
+    req,
+    query: {
+      slug = '',
+      page: queryPage = '',
+    },
+    res,
+  } = ctx;
+
+  const props = {
+    articlesNumberPerPage: ARTICLES_NUMBER_PER_PAGE,
+  };
+
   try {
-    const {
-      req,
-      query: {
-        slug,
-      },
-      res,
-    } = ctx;
-    let props = {};
-    const response = await contentfulClient.graphql(GRAPHQL_QUERY.loadTag({ where: { type: 'article' } }));
-    const tagsList = getGraphqlResultTags(response);
-    const isTagBlog = checkIsTagBlog(slug, tagsList);
+    await store.dispatch(blogApi.endpoints.getTags.initiate());
 
-    if (!isTagBlog && isArticle(slug)) {
-      store.dispatch(fetchLayoutData({
-        articleSlug: slug,
-        slug: PAGES.article,
-      }));
+    const { data: tags } = blogApi.endpoints.getTags.select()(store.getState());
+
+    const isTag = checkIfSlugIsTag(tags, slug);
+    const isArticle = slug && !isTag && !isNumeric(slug);
+
+    const actions = [];
+
+    if (isArticle) {
+      const query = { slug };
+      actions.push(store.dispatch(blogApi.endpoints.getArticle.initiate(query)));
+
+      Object.assign(props, {
+        isArticle,
+        query,
+        pageFetchQuery: query,
+      });
     } else {
-      const { articlesNumberPerPage, currentPage } = await fetchBlogData(store, { ...ctx, isTagBlog, routeSlug: PAGES.blog });
-
-      props = {
-        articlesNumberPerPage,
-        currentPage,
-        isTagBlog,
-        tagsList,
+      const query = {
+        slug,
+        isTag,
       };
+
+      const page = +slug || +queryPage;
+      const skip = ((page === 0) ? 0 : (page - 1) * ARTICLES_NUMBER_PER_PAGE - 1);
+      const limit = page === 0 ? ARTICLES_NUMBER_PER_PAGE - 1 : ARTICLES_NUMBER_PER_PAGE;
+      Object.assign(query, { skip, limit });
+
+      actions.push(store.dispatch(blogApi.endpoints.getArticlesList.initiate(query)));
+      actions.push(store.dispatch(pageApi.endpoints.fetchPage.initiate(PAGES.blog)));
+
+      Object.assign(props, {
+        currentPage: page || 1,
+        tagsList: tags,
+        isArticle,
+        query,
+        pageFetchQuery: query,
+      });
     }
 
-    // TODO rewrite it
-    if (req) {
-      store.dispatch(END);
-      await store.sagaTask.toPromise();
-
-      if (isArticle(slug)) {
-        if (!isArticleLoaded(store)) {
-          props.statusCode = 404;
-
-          if (res) {
-            res.statusCode = 404;
-          }
-        }
-      }
-    }
-
-    return {
-      props,
-    };
+    await Promise.all(actions);
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the getInitialBlogProps function',
     });
+
+    res.statusCode = 500;
   }
+
+  return { props };
 };
 
 export const getBlogGraphqlQuery = ({
   limit,
   skip,
   category,
-  isTagBlog,
   order,
+  isTagBlog,
 }) => {
   if (isTagBlog) {
     return GRAPHQL_QUERY.loadPreviewArticlesByTags({
       limit,
-      where: { slug: category, type: 'article' },
+      skip,
+      where: { slug: category },
     });
   }
 
@@ -138,11 +95,5 @@ export const getBlogGraphqlQuery = ({
     skip,
     limit,
     order,
-    where: {
-      ...(category
-        ? { categoryTag: category }
-        : { categoryTag_exists: true }
-      ),
-    },
   });
 };

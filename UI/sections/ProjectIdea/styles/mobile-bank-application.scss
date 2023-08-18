@@ -1,0 +1,13 @@
+.mobile-bank-application {
+  .descriptionContainer {
+    margin-top: 44px;
+
+    @include phone {
+      margin-top: 0;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+}

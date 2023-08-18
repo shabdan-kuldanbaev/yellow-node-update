@@ -1,0 +1,9 @@
+.drive-focus {
+  [data-description] {
+    max-width: 520px;
+
+    @include phone {
+      max-width: 340px;
+    }
+  }
+}

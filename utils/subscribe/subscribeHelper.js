@@ -1,30 +1,44 @@
-const dotenv = require('dotenv');
-const subscribeUtils = require('./subscribeUtils');
-const errorHelper = require('../error');
+import dotenv from 'dotenv';
+import {
+  addSubscriber,
+  addTagsToSubscriber,
+  getSubscriber,
+} from './subscribeUtils';
+import { handleError } from '../error';
 
 dotenv.config('./env');
 
-module.exports.subscribe = async (req, res) => {
+const subscribe = async (req, res) => {
   try {
-    const { email } = req.body;
+    const { email, tags } = req.body;
 
-    await subscribeUtils.getSubscriber(email, async (err, result) => {
+    const onAddSubscriberRequestDone = (err) => {
       if (err) {
-        await subscribeUtils.addSubscriber(email, res);
+        res.status(502).send('Sorry, there was an error sending you email. Please double check your email adress');
       } else {
-        if (result.status === 'subscribed') {
-          res.status(201).send("Seems we're already in your inbox!");
-        }
-
-        if (result.status === 'unsubscribed') {
-          await subscribeUtils.addSubscriber(email, res);
-        }
+        addTagsToSubscriber(email, tags);
+        res.status(201).send('Great! Awesome content is coming your way');
       }
-    });
+    };
+
+    const onGetSubscriberRequestDone = (err, result) => {
+      if (err || result.status === 'unsubscribed') {
+        addSubscriber(email, onAddSubscriberRequestDone);
+      } else {
+        addTagsToSubscriber(email, tags);
+        res.status(201).send("Seems we're already in your inbox!");
+      }
+    };
+
+    getSubscriber(email, onGetSubscriberRequestDone);
   } catch (error) {
-    errorHelper.handleError({
+    res.status(500).send(error);
+
+    handleError({
       error,
       message: 'Error in the subscribe function',
     });
   }
 };
+
+export default { subscribe };

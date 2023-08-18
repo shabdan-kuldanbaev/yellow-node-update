@@ -1,12 +1,279 @@
 .discovery-phase-services {
-  padding: 120px 40px;
-  background-color: $gray50;
+  &.firstSectionView {
+    .titleStyle {
+      max-width: 756px;
+    }
 
-  .titleStyle {
-    max-width: 862px;
+    .container {
+      max-width: $wide-content-width;
+    }
+
+    .blockImage {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+    }
+
+    .cardWrapper {
+      &-1 {
+        .blockImage {
+          width: 1080px;
+
+          @include phone {
+            width: 540px;
+          }
+        }
+
+        .contentBlock:last-child {
+          height: 428px;
+
+          @include phone {
+            height: 214px;
+          }
+        }
+      }
+
+      &-2 {
+        .blockImage {
+          width: 1080px;
+
+          @include phone {
+            width: 540px;
+          }
+        }
+
+        .contentBlock:last-child {
+          height: 496px;
+
+          @include phone {
+            height: 243px;
+          }
+        }
+      }
+
+      &-3 {
+        .blockImage {
+          width: 1065px;
+
+          @include phone {
+            width: 532px;
+          }
+        }
+
+        .contentBlock:last-child {
+          height: 560px;
+
+          @include phone {
+            height: 255px;
+          }
+        }
+      }
+
+      &-4 {
+        .blockImage {
+          width: 951px;
+
+          @include phone {
+            width: 425px;
+          }
+        }
+
+        .contentBlock:last-child {
+          height: 618px;
+
+          @include phone {
+            height: 309px;
+          }
+        }
+      }
+
+      &-5 {
+        .blockImage {
+          width: 643px;
+
+          @include phone {
+            width: 321px;
+          }
+        }
+
+        .contentBlock:last-child {
+          height: 620px;
+
+          @include phone {
+            height: 310px;
+          }
+        }
+      }
+
+      &-6 {
+        .blockPrototype {
+          margin: 0 auto;
+        }
+
+        .contentBlock:last-child {
+          position: relative;
+          max-width: 450px;
+
+          .imageBundle {
+            position: absolute;
+            left: -18vw;
+            bottom: 30%;
+            width: 16vw;
+            height: 16vh;
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          &::before {
+            @include centered;
+
+            content: '';
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background-color: $yellow500;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+
+    .contentBlock {
+      @include flex(column, center);
+
+      max-width: 509px;
+      width: 100%;
+
+      * {
+        text-align: left;
+      }
+
+      p {
+        @include fontSize(16px, 150%);
+
+        margin: 0 0 24px;
+        color: $gray400;
+      }
+
+      h4 {
+        @include fontSize(24px, 130%);
+
+        margin: 0 0 8px;
+        color: $gray900;
+      }
+
+      h5 {
+        @include fontSize(16px, 150%);
+
+        margin: 0 0 12px;
+        color: $gray900;
+        font-weight: 400;
+      }
+
+      h6 {
+        @include fontSize(14px, 150%);
+
+        margin: 24px 0 0;
+        color: $gray900;
+        font-weight: 700;
+      }
+
+      ul {
+        @include flex(column, flex-start, flex-start);
+
+        margin: 0;
+        padding: 0;
+        grid-gap: 12px;
+        list-style: none;
+
+        li {
+          position: relative;
+          padding-left: 16px;
+
+          p {
+            margin: 0;
+            color: $gray900;
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: $yellow500;
+          }
+        }
+      }
+
+      &:last-child {
+        position: relative;
+        max-width: 100%;
+      }
+
+      @include tablet {
+        max-width: 100%;
+      }
+    }
+
+    .cardContainer {
+      border: none;
+      padding: 0;
+    }
+
+    .cardContent {
+      @include flex(row, space-between);
+
+      column-gap: 80px;
+      row-gap: 24px;
+
+      @include tablet {
+        @include flex(column, center, center);
+      }
+    }
   }
 
-  @include phone {
-    padding: 60px 15px;
+  &.secondSectionView {
+    padding: 120px 40px;
+    background-color: $gray50;
+
+    .titleStyle {
+      max-width: 862px;
+    }
+
+    .link {
+      @include flex(column, center, center);
+
+      background: none;
+      padding: 0;
+      min-height: auto;
+
+      button {
+        margin: 32px auto 0;
+      }
+
+      & > div {
+        border: none;
+        padding: 0;
+
+        h3 {
+          margin: 0;
+        }
+      }
+
+      @include below-tablet {
+        margin-top: 24px;
+      }
+    }
+
+    @include phone {
+      padding: 60px 15px;
+    }
   }
 }

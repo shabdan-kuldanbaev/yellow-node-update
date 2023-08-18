@@ -1,30 +1,31 @@
-const dotenv = require('dotenv');
-const Mailchimp = require('mailchimp-api-v3');
-const md5 = require('md5');
-const errorHelper = require('../error');
+import dotenv from 'dotenv';
+import Mailchimp from 'mailchimp-api-v3';
+import md5 from 'md5';
+import { handleError } from '../error';
 
 dotenv.config('./env');
 
 const mailchimp = new Mailchimp(process.env.MAILCHIMP_API_KEY);
 const membersPath = (email) => `/lists/${process.env.MAILCHIMP_LIST_ID}/members/${md5(email)}`;
+const memberTagsPath = (email) => `${membersPath(email)}/tags`;
 
-module.exports.getSubscriber = async (email, callback) => {
+export function getSubscriber(email, callback) {
   try {
     const getSubscriberOptions = {
       method: 'get',
       path: membersPath(email),
     };
 
-    await mailchimp.request(getSubscriberOptions, callback);
+    mailchimp.request(getSubscriberOptions, callback);
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the getSubscriber function',
     });
   }
-};
+}
 
-module.exports.addSubscriber = async (email, res) => {
+export function addSubscriber(email, callback) {
   try {
     const addSubscriberOptions = {
       method: 'put',
@@ -35,17 +36,30 @@ module.exports.addSubscriber = async (email, res) => {
       },
     };
 
-    await mailchimp.request(addSubscriberOptions, (error) => {
-      if (error) {
-        res.status(502).send('Sorry, there was an error sending you email. Please double check your email adress');
-      } else {
-        res.status(201).send('Great! Awesome content is coming your way');
-      }
-    });
+    mailchimp.request(addSubscriberOptions, callback);
   } catch (error) {
-    errorHelper.handleError({
+    handleError({
       error,
       message: 'Error in the addSubscriber function',
     });
   }
-};
+}
+
+export function addTagsToSubscriber(email, tags, callback) {
+  try {
+    const addTagsOptions = {
+      method: 'post',
+      path: memberTagsPath(email),
+      body: {
+        tags: tags.map((tag) => ({ name: tag, status: 'active' })),
+      },
+    };
+
+    mailchimp.request(addTagsOptions, callback);
+  } catch (error) {
+    handleError({
+      error,
+      message: 'Error in the addTagsToSubscriber function',
+    });
+  }
+}

@@ -1,27 +1,92 @@
+@import 'styles/utils/sizes';
 @import 'styles/utils/mixins';
 
 .dropDownMenu {
   position: absolute;
-  top: $header-height - 0.5px;
+  top: calc(100% - 1px);
   left: 0;
   width: 100%;
-  padding: 64px 0;
+  padding: 16px 0 64px;
   background-color: $dark-grey;
   color: $white;
   z-index: -1;
   opacity: 1;
   visibility: visible;
-  transition:
-  visibility 0.2s,
-  opacity 0.3s ease;
+  transition: visibility 0.2s, opacity 0.3s ease;
   box-shadow: none;
 
-  .dropDownNavContainer {
+  .dropDownItemsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
     max-width: max-content;
+    margin: 0 auto 48px;
+
+    .subMenuItem {
+      position: relative;
+      color: $gray400;
+      cursor: pointer;
+
+      &::before {
+        content: ' ';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        width: 80%;
+        height: 3px;
+        border-radius: 2px;
+        background-color: $yellow500;
+        opacity: 0;
+        transform: translateX(-50%);
+        transition: opacity 0.1s ease-out;
+
+        @include phone {
+          display: none;
+        }
+      }
+
+      @include phone {
+        color: $gray0;
+        font-weight: 700;
+      }
+    }
+
+    .subMenuItemActive {
+      color: $gray0;
+      font-weight: 700;
+
+      &::before {
+        opacity: 1;
+        transition: opacity 0.2s ease-out;
+      }
+    }
+
+    @include phone {
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  &.pageScrolling {
+    .subMenuItemActive {
+      color: $gray900;
+    }
+  }
+
+  .dropDownLinksContainer {
+    max-width: $wide-content-width;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, max-content);
-    grid-gap: 32px 120px;
+    justify-content: center;
+    grid-template-columns: repeat(3, max-content);
+    grid-gap: 32px 65px;
+    padding: 0 40px;
+
+    &.expertise,
+    &.fintech {
+      grid-template-columns: repeat(2, max-content);
+    }
 
     @include macbook-twelve {
       grid-template-columns: repeat(2, auto);
@@ -34,10 +99,6 @@
       grid-column-gap: unset;
       grid-template-columns: unset;
     }
-  }
-
-  @include macbook-twelve {
-    padding-bottom: 80px;
   }
 
   @include below-tablet {
@@ -62,16 +123,14 @@
 
 .pageScrolling {
   background-color: $white;
-  box-shadow: 0 40px 60px -40px rgb(0 0 0 / 0.1);
+  box-shadow: 0 40px 60px -40px rgb(0 0 0 / 10%);
   border-bottom: none;
 }
 
 .closed {
   opacity: 0;
   visibility: hidden;
-  transition:
-  visibility 0.4s,
-  opacity 0.5s ease;
+  transition: visibility 0.4s, opacity 0.5s ease;
 }
 
 .lightTheme {

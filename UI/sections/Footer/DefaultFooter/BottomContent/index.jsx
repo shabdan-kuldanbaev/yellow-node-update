@@ -1,4 +1,3 @@
-import React from 'react';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { PAGES } from 'utils/constants';
 import Typography from 'UI/components/Typography';
@@ -10,7 +9,7 @@ const BottomContent = () => (
       className={styles.text}
       variant="span"
     >
-      © All right reserved. Yellow 2022
+      © All right reserved. Yellow 2023
     </Typography>
     <div className={styles.links}>
       <LinkWrapper path={PAGES.privacyPolicy}>Privacy Policy</LinkWrapper>

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -47,7 +47,13 @@ const LinkWrapper = ({
   };
 
   return (
-    <Link href={href}>
+    <Link
+      href={href}
+      /* TODO: if you need to instantly open pages via links in the navigation,
+      you can remove this code to enable link page generation and loading. However, performance will be degraded
+      more: https://nextjs.org/docs/api-reference/next/link */
+      prefetch={false}
+    >
       {/* eslint-disable-next-line react/jsx-no-target-blank,jsx-a11y/anchor-is-valid,jsx-a11y/no-static-element-interactions */}
       <a
         className={cn(styles.link, className)}

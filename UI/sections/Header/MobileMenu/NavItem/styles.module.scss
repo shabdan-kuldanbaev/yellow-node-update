@@ -13,16 +13,16 @@
 
   &.lightTheme {
     border-color: $gray300;
-  
+
     &:last-of-type {
       border-color: $gray900;
     }
 
     .mainLink {
       .title {
-        color: $gray900
+        color: $gray900;
       }
-  
+
       .svgContainer {
         & > svg > path {
           fill: $gray900;
@@ -55,76 +55,41 @@
       width: 100%;
     }
 
+    .svgContainerDefault {
+      outline: none;
+      transform: rotate(-90deg);
+    }
+
     .svgContainer {
+      height: 24px;
       margin-right: 5px;
       outline: none;
-      transform: rotate(-180deg);
+      transform-origin: 50% 50%;
       transition: transform $default-transition-time ease-in-out;
 
       & > svg > path {
         fill: $gray0;
       }
     }
-    
-    .svgContainerRight {
-      margin-right: 0;
-      transform: rotate(-90deg);
+
+    .withSubnavigation {
+      transform: rotate(90deg);
     }
   }
 
   .openedDropDown {
-    .svgContainer {
-      transform: rotate(0);
-      transition: transform $default-transition-time ease-in-out;
-    }
-
-    .svgContainerRight {
+    .withSubnavigation {
       transform: rotate(-90deg);
     }
   }
 
-  &:nth-of-type(1) {
+  &:nth-of-type(1),
+  &:nth-of-type(5) {
     padding: 20px 0;
   }
 
   &:nth-last-of-type(2) {
     border-bottom: none;
-  }
-
-  & > span {
-    outline: none;
-  }
-
-  .title {
-    display: block;
-    color: $gray0;
-  }
-
-  .mainLink {
-    @include flex(row, space-between, center);
-
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    outline: none;
-    width: 100%;
-
-    a {
-      color: $gray0;
-      cursor: pointer;
-      text-decoration: none;
-      padding: 20px 0;
-      width: 100%;
-    }
-
-    .svgContainer {
-      outline: none;
-      transition: transform $default-transition-time ease-in-out;
-    }
-
-    .svgContainerDefault {
-      outline: none;
-      transform: rotate(-90deg);
-    }
   }
 
   &:last-of-type {
@@ -149,13 +114,6 @@
 
     .svgContainer {
       display: none;
-    }
-  }
-
-  .openedDropDown {
-    .svgContainer {
-      transform: rotate(180px);
-      transition: transform $default-transition-time ease-in-out;
     }
   }
 }

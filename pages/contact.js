@@ -1,8 +1,7 @@
-import React from 'react';
-import ContactUsContainer from 'containers/ContactUs';
+import ContactUs from 'UI/views/ContactUs';
 import { getStaticPropsWrapper } from 'utils/dataSelectors';
 import { PAGES } from 'utils/constants';
 
 export const getStaticProps = getStaticPropsWrapper(PAGES.contact);
 
-export default ContactUsContainer;
+export default ContactUs;

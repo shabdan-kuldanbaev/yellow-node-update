@@ -1,0 +1,104 @@
+.cctv-footage-analytics {
+  padding: 60px 16px;
+  background: $metapixPrimary;
+
+  &.firstSectionView {
+    .titleStyle {
+      margin-bottom: 32px;
+      padding-top: 40px;
+      max-width: $wide-content-width;
+      border-top: 1px solid $gray700;
+
+      & > div {
+        max-width: 481px;
+        width: 100%;
+      }
+    }
+
+    [data-title] {
+      @include fontSize(16px, 150%);
+
+      margin-bottom: 8px;
+      font-weight: 400;
+      text-transform: uppercase;
+      text-align: left;
+      color: $gray0;
+    }
+
+    .container {
+      max-width: $wide-content-width;
+    }
+
+    .step-1 {
+      .bundleImage {
+        width: 428.12px;
+        height: 457px;
+      }
+    }
+
+    .step-2 {
+      @include flex(column, space-between, flex-start);
+
+      .stepTitle {
+        @include fontSize(130px, 152px);
+
+        color: $gray0;
+        font-family: $roboto-font;
+        font-weight: 400;
+        text-align: left;
+      }
+
+      p {
+        @include fontSize(18px, 21px);
+
+        margin: 10px 0 60px;
+        color: $gray0;
+        font-family: $roboto-font;
+        text-align: left;
+        opacity: 0.8;
+      }
+
+      .bundleImage {
+        width: 584px;
+        height: 194px;
+      }
+    }
+
+    @include tablet {
+      .stepsContainer {
+        margin: 0 auto;
+
+        & > div:first-child {
+          display: none;
+        }
+
+        > div {
+          margin: 0 auto;
+        }
+      }
+
+      .step-2 {
+        margin: 0;
+
+        .stepTitle {
+          @include fontSize(100px, 117%);
+        }
+
+        p {
+          margin: 4px 0 24px;
+        }
+
+        .bundleImage {
+          width: 100%;
+          height: 150px;
+        }
+      }
+    }
+
+    @include phone {
+      .step-2 .bundleImage {
+        height: 120px;
+      }
+    }
+  }
+}

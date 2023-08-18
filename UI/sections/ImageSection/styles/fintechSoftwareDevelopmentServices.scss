@@ -1,7 +1,11 @@
 .fintech-software-development-services {
-  @include appDevelopmentContainer;
+  .titleStyle {
+    max-width: 856px;
 
-  background-color: $gray0;
+    @include phone {
+      max-width: 343px;
+    }
+  }
 
   .imageSection {
     @include flex(column-reverse);

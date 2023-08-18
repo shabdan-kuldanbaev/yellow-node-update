@@ -1,0 +1,51 @@
+.lending-software-development {
+  @include appFeaturesContainer;
+
+  background: $gray0;
+
+  [data-title] {
+    @include phone {
+      text-align: center;
+      margin: 0 auto;
+      max-width: 343px;
+    }
+  }
+
+  .container {
+    grid-gap: 80px;
+
+    @include tablet {
+      flex-direction: column;
+      grid-gap: 24px;
+    }
+  }
+
+  .imageContainer {
+    position: relative;
+    max-width: 576px;
+    height: 603px;
+    width: 100%;
+
+    @include tablet {
+      margin: 0 auto;
+      max-width: unset;
+      height: unset;
+    }
+  }
+
+  .image {
+    position: absolute;
+    left: 0;
+    width: 848px;
+    height: 603px;
+
+    @include tablet {
+      position: static;
+      height: 400px;
+    }
+
+    @include phone {
+      height: 244px;
+    }
+  }
+}

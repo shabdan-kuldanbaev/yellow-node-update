@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import {
   BLOCKS,
@@ -6,21 +5,27 @@ import {
   INLINES,
 } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import dynamic from 'next/dynamic';
 import get from 'lodash/get';
-import GalleryCard from 'components/BlogCommon/Article/GalleryCard';
+import Illustration from 'UI/components/Illustration';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Animated from 'components/Common/Animated';
-import Table from 'components/Common/Table';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
   getDocumentFields,
-  getFileUrl,
+  getImage,
   rootUrl,
 } from 'utils/helper';
-import { ArticleLink } from './ArticleLink';
+import cn from 'classnames';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const GalleryCard = dynamic(() => import('components/BlogCommon/Article/GalleryCard'));
+const ArticleLink = dynamic(() => import('./ArticleLink').then((module) => module.ArticleLink));
+const Table = dynamic(() => import('components/Common/Table'));
+const EmbedArticleCard = dynamic(() => import('UI/components/Cards/EmbedArticleCard'));
+
 // TODO move it to the common folder
+// TODO create constants for cases
 const ContentfulParser = ({ document }) => {
   const options = {
     renderMark: {
@@ -35,24 +40,24 @@ const ContentfulParser = ({ document }) => {
 
         switch (id) {
         case 'image': {
-          const { articleSingleImageType, image, title } = getDocumentFields(
+          const { articleSingleImageType, image: rawImage, title } = getDocumentFields(
             get(node, 'data.target', ''),
             ['articleSingleImageType', 'image', 'title'],
           );
-          const { description: imageDescription } = getDocumentFields(image, ['description']);
-          const imageUrl = getFileUrl(image);
+          const image = getImage(rawImage);
 
-          return articleSingleImageType && imageUrl && (
+          return articleSingleImageType && image.url && (
             <div className={styles.imageWrapper}>
-              <div className={articleSingleImageType === 'normal'
-                ? styles.normalImage
-                : styles.fullImage}
+              <div className={cn({
+                [styles.normalImage]: articleSingleImageType === 'normal',
+                [styles.fullImage]: articleSingleImageType !== 'normal',
+              })}
               >
                 <Animated type={ANIMATED_TYPE.imageZoom}>
-                  <img
-                    src={imageUrl}
-                    alt={imageDescription}
-                    title={imageDescription}
+                  <Illustration
+                    src={image.url}
+                    alt={image.alt}
+                    className={styles.image}
                   />
                 </Animated>
                 {title && (
@@ -78,19 +83,28 @@ const ContentfulParser = ({ document }) => {
           );
         }
         case 'link': {
+          const data = get(node, 'data.target', {});
+
           const {
             title,
             buttonTitle,
             slug,
             type,
             url,
-          } = getDocumentFields(
-            get(node, 'data.target', {}),
-            ['title', 'buttonTitle', 'slug', 'type', 'url'],
-          );
+            new: isNew,
+          } = getDocumentFields(data, [
+            'title',
+            'buttonTitle',
+            'slug',
+            'type',
+            'url',
+            'new',
+          ]);
 
           return (
             <ArticleLink
+              data={data}
+              new={isNew}
               title={title}
               buttonTitle={buttonTitle}
               slug={slug}
@@ -106,14 +120,17 @@ const ContentfulParser = ({ document }) => {
             ['tableContent', 'tableType'],
           );
 
-          return tableContent
-            ? (
-              <Table
-                tableData={tableContent.tableData}
-                type={tableType}
-              />
-            )
-            : null;
+          return tableContent && (
+            <Table
+              tableData={tableContent.tableData}
+              type={tableType}
+            />
+          );
+        }
+        case 'article': {
+          const data = get(node, 'data.target', {});
+
+          return <EmbedArticleCard data={data} />;
         }
         default:
           return null;

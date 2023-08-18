@@ -1,0 +1,43 @@
+.chat-app-development-company {
+  .figures {
+    max-width: $wide-content-width;
+
+    & > div {
+      flex: 0 0 20%;
+
+      &:nth-child(3),
+      &:nth-child(4) {
+        flex-basis: min-content;
+
+        @include below-tablet {
+          order: -1;
+        }
+      }
+
+      @include below-tablet {
+        @include flex(column, flex-start, center);
+
+        flex: 1 1 50% !important;
+      }
+    }
+  }
+
+  .title {
+    @include fontSize(38px, 49px);
+
+    color: $gray900;
+    text-align: left;
+
+    @include below-tablet {
+      @include fontSize(24px, 31px);
+
+      text-align: center;
+    }
+  }
+
+  .description {
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.separate-us {
+  .image {
+    width: 995px;
+    height: 140px;
+
+    @include phone {
+      &:first-child {
+        height: 140px;
+      }
+    }
+  }
+}

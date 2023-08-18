@@ -1,17 +1,16 @@
-import React, {
+import {
   useState,
   useRef,
   useEffect,
   useMemo,
 } from 'react';
-import { wrapper } from 'redux/store';
-import { useDispatch } from 'react-redux';
-import Router from 'next/router';
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
-import { setPageReadyToDisplay } from 'redux/actions/layout';
-import Layout from 'containers/Layout';
-import { AppContext } from 'utils/appContext';
+import { wrapper } from 'redux/store';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import Layout from 'UI/containers/Layout';
+import { AppContext, PageFetchContext } from 'utils/appContext';
+import { getDataFromLocalStorageWithExpire } from 'utils/helper';
 import { customTheme } from 'styles/muiTheme';
 import 'animate.css/animate.min.css';
 import 'swiper/css/bundle';
@@ -20,23 +19,16 @@ import 'swiper/scss/pagination';
 import 'styles/index.scss';
 
 function App({ Component, pageProps }) {
+  const [subscribe] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
+
   const [contextData, setContextData] = useState({
     isHomepageVisit: false,
     isFirstHomepageVisit: false,
+    duck: null,
   });
+
   const [theme] = useState('dark');
   const introSection = useRef(null);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    const handleRouteChangeComplete = () => dispatch(setPageReadyToDisplay(false));
-
-    Router.events.on('routeChangeComplete', handleRouteChangeComplete);
-
-    return () => {
-      Router.events.off('routeChangeComplete', handleRouteChangeComplete);
-    };
-  }, [dispatch]);
 
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
@@ -48,22 +40,32 @@ function App({ Component, pageProps }) {
     smoothscroll.polyfill();
   }, []);
 
+  useEffect(() => {
+    subscribe({ savedSubscriptionEmail: getDataFromLocalStorageWithExpire('subscriptionEmail') });
+  }, [subscribe]);
+
   const AppContextValue = useMemo(() => ({
     contextData,
     setContextData,
   }), [contextData, setContextData]);
 
+  const PageFetchContextValue = useMemo(() => ({
+    pageFetchQuery: pageProps.pageFetchQuery,
+  }), [pageProps.pageFetchQuery]);
+
   return (
     <AppContext.Provider value={AppContextValue}>
-      <ThemeProvider theme={customTheme}>
-        <Layout introSection={introSection}>
-          <Component
-            theme={theme}
-            introSection={introSection}
-            {...pageProps}
-          />
-        </Layout>
-      </ThemeProvider>
+      <PageFetchContext.Provider value={PageFetchContextValue}>
+        <ThemeProvider theme={customTheme}>
+          <Layout introSection={introSection}>
+            <Component
+              theme={theme}
+              introSection={introSection}
+              {...pageProps}
+            />
+          </Layout>
+        </ThemeProvider>
+      </PageFetchContext.Provider>
     </AppContext.Provider>
   );
 }

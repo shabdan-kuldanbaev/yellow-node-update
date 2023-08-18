@@ -1,11 +1,14 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Animated from 'components/Common/Animated';
+import dynamic from 'next/dynamic';
+import Illustration from 'UI/components/Illustration';
+import Svg from 'UI/components/Svg';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { useAppFeaturesItem } from './utils/useAppFeaturesItem';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const AppFeaturesItem = (props) => {
   const {
@@ -17,6 +20,7 @@ const AppFeaturesItem = (props) => {
     currentIndex,
     handleOnClick,
     imagesUrl,
+    customIcon,
   } = useAppFeaturesItem(props);
 
   return (
@@ -44,13 +48,17 @@ const AppFeaturesItem = (props) => {
             {title}
           </p>
           {imagesUrl.map((imageUrl) => (
-            <img
+            <Illustration
               className={styles.imageBundle}
               src={imageUrl}
               alt=""
               key={`bundles-images/${imageUrl}`}
             />
           ))}
+          <Svg
+            type={customIcon || 'chevronDown'}
+            className={styles.expandIcon}
+          />
         </div>
         <Animated
           open={currentIndex === activeIndex}

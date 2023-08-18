@@ -1,0 +1,16 @@
+.crowdfunding-platform-development-company {
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    background-color: $crowdfundingSecondary;
+    background-size: 175%;
+    background-position: 38% 45%;
+
+    @include below-tablet {
+      height: 375px;
+      background-size: 390%;
+    }
+  }
+}

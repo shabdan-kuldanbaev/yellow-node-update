@@ -1,0 +1,140 @@
+.web-p2p-lending-platform {
+  &.firstSectionView {
+    .image {
+      height: 165px;
+      width: 100%;
+      max-width: $wide-content-width;
+
+      @include tablet {
+        width: 950px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .image {
+      max-width: $wide-content-width;
+      width: 100%;
+
+      @include tablet {
+        height: 200px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    overflow: visible;
+    position: static;
+
+    .image-1 {
+      width: 100%;
+      max-width: $default-content-width;
+      height: 90vw;
+      max-height: 706px;
+      overflow: visible;
+      box-shadow: 0 4px 40px rgb($gray1000, 0.25);
+      border-radius: 20px;
+    }
+
+    .image-2,
+    .image-3 {
+      position: absolute;
+    }
+
+    .image-3 {
+      left: -50px;
+      top: -30px;
+      width: 450px;
+      height: 500px;
+
+      @include tablet {
+        left: -60px;
+      }
+    }
+
+    .image-2 {
+      right: 0;
+      bottom: 0;
+      width: 450px;
+      height: 500px;
+    }
+
+    @include tablet {
+      aspect-ratio: 994/706;
+
+      .image-1 {
+        height: 100%;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    overflow: visible;
+
+    .image {
+      width: 100%;
+      max-width: $default-content-width;
+      height: 90vw;
+      max-height: 706px;
+      overflow: visible;
+      box-shadow: 0 4px 40px rgb($gray1000, 0.06);
+      border-radius: 20px;
+    }
+
+    @include tablet {
+      aspect-ratio: 994/706;
+
+      .image-1 {
+        height: 100%;
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    overflow: visible;
+    position: static;
+
+    .image-1 {
+      width: 100%;
+      max-width: $default-content-width;
+      height: 90vw;
+      max-height: 706px;
+      overflow: visible;
+    }
+
+    .image-2,
+    .image-3 {
+      position: absolute;
+    }
+
+    .image-2 {
+      width: 491px;
+      height: 550px;
+      right: 0;
+      top: 0;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .image-3 {
+      width: 491px;
+      height: 550px;
+      left: 0;
+      top: 230px;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    @include tablet {
+      aspect-ratio: 994/706;
+
+      .image-1 {
+        height: 100%;
+      }
+    }
+  }
+}

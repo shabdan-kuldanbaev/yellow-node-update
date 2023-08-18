@@ -1,0 +1,39 @@
+.container {
+  @include centeredBackgroundImage;
+
+  padding: 120px 40px;
+  background-color: $gray50;
+  overflow: hidden;
+  position: relative;
+
+  .titleStyle {
+    @include phone {
+      margin: 0 auto 24px;
+    }
+  }
+
+  &.challengesWithoutImage {
+    background-color: $gray0;
+  }
+
+  .background {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  @include tablet {
+    padding: 60px 32px;
+  }
+
+  @include phone {
+    padding: 60px 16px;
+  }
+}

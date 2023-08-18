@@ -1,0 +1,21 @@
+.seven-pm-thursday {
+  input,
+  textarea {
+    border-color: $gray500;
+    color: $gray0;
+
+    &::placeholder {
+      color: $gray500;
+    }
+  }
+
+  .formButton {
+    color: $gray0;
+    background-color: transparent;
+    border-color: $gray0;
+  }
+
+  svg path {
+    fill: $gray0;
+  }
+}

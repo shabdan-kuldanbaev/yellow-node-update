@@ -1,0 +1,372 @@
+.mobile-bank-application {
+  &.firstSectionView {
+    .contentContainer {
+      margin-bottom: 31px;
+
+      .infoContainer {
+        &-1,
+        &-3 {
+          order: 2;
+        }
+
+        &-2 {
+          order: 1;
+
+          @include phone {
+            order: 2;
+          }
+        }
+      }
+
+      .images {
+        &-2 {
+          order: 1;
+        }
+      }
+    }
+
+    .images {
+      width: 481px;
+      height: 470px;
+
+      @include phone {
+        width: 100%;
+        height: 335px;
+      }
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    p:first-child {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 12px 24px;
+      background-color: $mobileBankAccent;
+      font-size: 12px;
+      color: $gray900;
+      border-radius: 200px;
+    }
+
+    .title {
+      margin-bottom: 6px;
+    }
+
+    h6 {
+      margin: 0 0 16px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer {
+      position: relative;
+      max-width: 100%;
+      padding: 0 223px;
+
+      &-1 {
+        margin-bottom: 95px;
+        background-color: $mobileBankPrimary;
+
+        @include below-tablet {
+          margin-bottom: 334px;
+          padding: 0 16px;
+        }
+      }
+
+      &-2 {
+        padding: 44px 223px 60px;
+        background-color: $gray50;
+
+        @include below-tablet {
+          padding: 264px 16px 30px;
+        }
+      }
+
+      .infoContainer {
+        max-width: 380px;
+        width: 100%;
+        margin-right: 345px;
+
+        &-2 {
+          justify-content: flex-end;
+          margin-right: 0;
+
+          .title {
+            color: $gray900;
+          }
+        }
+
+        @include phone {
+          margin-right: 0;
+        }
+      }
+
+      .title {
+        margin-bottom: 16px;
+        color: $gray0;
+
+        @include phone {
+          font-size: 20px;
+        }
+      }
+
+      .images {
+        z-index: 2;
+      }
+
+      .image {
+        width: 269px;
+        height: 550px;
+
+        &-1 {
+          position: absolute;
+          transform: translateX(-223px);
+
+          @include phone {
+            right: initial;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .contentContainer {
+      flex-direction: column;
+      justify-content: space-between;
+      grid-gap: 0;
+      margin: 0;
+      padding: 60px 0;
+
+      &-1 {
+        align-items: flex-end;
+        padding-right: 117px;
+        background-color: $mobileBankPrimary;
+
+        .title {
+          color: $gray0;
+        }
+
+        @include phone {
+          align-items: center;
+          padding-right: 16px;
+        }
+      }
+
+      &-2 {
+        padding-left: 117px;
+        background-color: $mobileBankAccent;
+
+        p {
+          color: $gray900;
+          opacity: 0.6;
+        }
+
+        @include phone {
+          padding-left: 16px;
+        }
+      }
+
+      .infoContainer {
+        order: 1;
+        max-width: 380px;
+        margin-bottom: 18px;
+
+        &-2 {
+          text-align: right;
+
+          @include phone {
+            text-align: center;
+          }
+        }
+
+        @include phone {
+          max-width: 100%;
+        }
+      }
+
+      .title {
+        margin-bottom: 16px;
+      }
+
+      .images {
+        order: 2;
+      }
+
+      .image {
+        position: relative;
+        width: 269px;
+        height: 550px;
+
+        &-1 {
+          left: -41%;
+
+          @include phone {
+            left: initial;
+          }
+        }
+
+        &-2 {
+          right: -18%;
+
+          @include phone {
+            right: initial;
+          }
+        }
+      }
+
+      @include phone {
+        padding: 30px 16px;
+      }
+    }
+
+    @include phone {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &.fourthSectionView {
+    .contentContainer {
+      &-1 {
+        margin-bottom: 108px;
+
+        @include phone {
+          margin-bottom: 306px;
+          padding: 0 16px;
+        }
+      }
+
+      &-2 {
+        max-width: 100%;
+        padding: 61px 223px 130px;
+        background-color: $mobileBankAccent;
+
+        @include phone {
+          padding: 284px 16px 60px;
+        }
+      }
+    }
+
+    .infoContainer {
+      justify-content: flex-start;
+      max-width: 380px;
+      padding-left: 5px;
+
+      &-2 {
+        p {
+          color: $gray900;
+          opacity: 0.6;
+        }
+
+        @include phone {
+          order: 2 !important;
+        }
+      }
+    }
+
+    .title {
+      margin-bottom: 16px;
+    }
+
+    .images {
+      position: relative;
+
+      @include phone {
+        order: 1;
+      }
+    }
+
+    .image {
+      width: 269px;
+      height: 550px;
+
+      &-2 {
+        position: absolute;
+        top: -386px;
+
+        @include phone {
+          top: -550px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    .contentContainer {
+      @include flex(column, initial, stretch);
+
+      grid-gap: 0;
+      max-width: 790px;
+
+      .infoContainer {
+        @include flex(row, space-between);
+
+        width: 100%;
+        flex-grow: 1;
+        max-width: none;
+        order: initial;
+
+        .title {
+          color: $gray0;
+        }
+
+        h3 {
+          color: $gray0;
+        }
+
+        p:nth-of-type(odd) {
+          margin-bottom: 24px;
+        }
+
+        p:last-of-type {
+          margin-bottom: 22px;
+        }
+
+        & > :nth-child(2) {
+          max-width: calc(50% - 16px);
+          margin-left: 32px;
+
+          @include below-tablet {
+            max-width: none;
+            margin: 0 auto;
+          }
+        }
+
+        @include below-tablet {
+          @include flex(column, space-between, center);
+        }
+      }
+    }
+
+    .imageBundle {
+      width: 562px;
+      height: 550px;
+      margin: 0 auto;
+
+      &-1 {
+        @include phone {
+          display: none;
+        }
+      }
+
+      &-2 {
+        display: none;
+
+        @include phone {
+          display: block;
+          width: 269px;
+        }
+      }
+    }
+  }
+}

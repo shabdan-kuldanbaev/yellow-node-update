@@ -1,42 +1,43 @@
 @import 'styles/utils/mixins';
+@import 'styles/utils/colors';
 
 .prototypeContainer {
   @include flex(row, center, center);
 
-  overflow: hidden;
   position: relative;
-  height: 636px !important;
-  width: 313px !important;
-  border-radius: 46px;
+  width: 293px !important;
+  height: 600px !important;
   user-select: none;
 
-  @include phone {
-    border-radius: 0;
-  }
-}
+  .iframeContainer {
+    @include flex(row, center, center);
 
-.prototype {
-  margin: -112px -50px !important;
-  width: 414px !important;
-  height: 860px !important;
-
-  @media (hover: none) and (pointer: coarse) {
-    border-radius: 46px;
-    margin: 13px 40px !important;
-    width: 91.5% !important;
+    width: 91% !important;
     height: 96% !important;
+    background-color: $gray900;
+    border-radius: 25px;
+    overflow: hidden;
+    user-select: none;
   }
-}
 
-.deviceFrame {
-  position: absolute;
-  display: none;
-  left: -2px;
-  width: 101.5%;
-  height: 100%;
-  pointer-events: none;
+  .prototype {
+    @media (hover: hover) {
+      margin: -20% !important;
+      width: 161% !important;
+      height: 161% !important;
+    }
 
-  @media (hover: none) and (pointer: coarse) {
-    display: block;
+    width: calc(100% - 1px) !important;
+    height: calc(100% - 1px) !important;
+    border: none !important;
+  }
+
+  .deviceFrame {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
   }
 }

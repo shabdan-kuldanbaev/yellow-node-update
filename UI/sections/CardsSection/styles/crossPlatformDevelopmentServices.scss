@@ -1,0 +1,111 @@
+.cross-platform-development-services {
+  &.firstSectionView {
+    [data-description] {
+      max-width: 846px;
+    }
+  }
+
+  &.secondSectionView {
+    @extend .greySection;
+
+    [data-title],
+    [data-description] {
+      max-width: 678px;
+    }
+
+    .card {
+      flex-direction: column;
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+          margin-left: 0;
+        }
+      }
+    }
+
+    .callToAction {
+      background: none;
+      border: none;
+      min-height: auto;
+      padding: 48px 0 0;
+
+      button {
+        margin: 0 auto;
+      }
+
+      @include below-tablet {
+        padding-top: 24px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    [data-title],
+    [data-description] {
+      max-width: 754px;
+    }
+  }
+
+  &.fourthSectionView {
+    .card {
+      flex-direction: column;
+
+      @include below-tablet {
+        align-items: center;
+
+        * {
+          align-items: center;
+          text-align: center;
+          margin-left: 0;
+        }
+      }
+    }
+
+    .callToAction {
+      background: none;
+      border: none;
+      min-height: auto;
+      padding: 48px 0 0;
+
+      button {
+        margin: 0 auto;
+      }
+
+      @include below-tablet {
+        padding-top: 24px;
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    [data-description] {
+      max-width: 671px;
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
+
+      span {
+        margin-top: auto;
+      }
+
+      [data-read-more] {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.blackbird {
+  .descriptionContainer {
+    padding-top: 32px;
+
+    @include phone {
+      padding-top: 0;
+    }
+  }
+
+  @include phone {
+    padding: 60px 16px;
+  }
+}

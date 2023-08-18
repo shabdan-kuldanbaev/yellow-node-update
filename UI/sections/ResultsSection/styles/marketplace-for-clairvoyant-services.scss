@@ -1,0 +1,26 @@
+.marketplace-for-clairvoyant-services {
+  padding-bottom: 60px;
+
+  .sectionTitle {
+    max-width: 614px;
+  }
+
+  .media {
+    position: static;
+    transform: scale(1.05);
+    width: 994px;
+    height: 905px;
+
+    @include tablet {
+      height: 512px;
+    }
+
+    @include phone {
+      height: 312px;
+    }
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+}

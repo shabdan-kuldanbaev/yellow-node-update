@@ -1,0 +1,25 @@
+@import 'styles/utils/mixins';
+
+.worksContainer {
+  --gap: 32px;
+
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(2, 1fr);
+  margin: 40px 0 32px;
+
+  @include tablet {
+    display: block;
+    margin: 32px 0;
+
+    & > * + * {
+      margin-top: var(--gap);
+      display: block;
+    }
+  }
+}
+
+.showMoreButton {
+  margin: 0 auto;
+  display: block;
+}

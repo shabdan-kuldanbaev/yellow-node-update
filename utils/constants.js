@@ -1,11 +1,10 @@
 // destructuring doesn't work poperly with process.env
 /* eslint-disable prefer-destructuring */
 
-import React from 'react';
 import { routes } from 'utils/routes';
 
 export const SEARCH_ARTICLES_LIMIT = 50;
-export const HOMEPAGE_ARTICLES_LIMIT = 5;
+export const HOMEPAGE_ARTICLES_LIMIT = 3;
 export const ARTICLES_NUMBER_PER_PAGE = 11;
 export const HOMEPAGE_BLOG_CURRENT_PAGE = 1;
 export const ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE = 3;
@@ -35,6 +34,10 @@ export const NON_INTERACTIVE_LINKS = {
     title: 'What we do',
     slug: 'what-we-do',
   },
+  aboutCompany: {
+    title: 'Company',
+    slug: 'about-company',
+  },
 };
 
 export const TAGS_TYPE = {
@@ -44,33 +47,12 @@ export const TAGS_TYPE = {
 };
 
 export const NAV_LINKS = [
-  ...Object.values(NON_INTERACTIVE_LINKS),
-  ...Object.values(routes).filter(({ slug }) => slug && ![
-    routes.homepage.slug,
-    routes.article.slug,
-    routes.project.slug,
-    routes.notFound.slug,
-    routes.customChatApp.slug,
-    routes.customMobileApp.slug,
-    routes.customWebApp.slug,
-    routes.fintechDevelopment.slug,
-    routes.discoveryPhase.slug,
-    routes.erpDevelopment.slug,
-    routes.designServices.slug,
-    routes.developmentServices.slug,
-    routes.androidDevelopmentServices.slug,
-    routes.cloudDevelopment.slug,
-    routes.mvpDevelopment.slug,
-    routes.mlDevelopment.slug,
-    routes.devOpsDevelopment.slug,
-    routes.aiDevelopment.slug,
-    routes.dataScienceDevelopment.slug,
-    routes.prototypingServices.slug,
-    routes.signatureGenerator.slug,
-    routes.privacyPolicy.slug,
-    routes.termsAndConditions.slug,
-    routes.cookiesPolicy.slug,
-  ].includes(slug)),
+  Object.values(NON_INTERACTIVE_LINKS)[0],
+  routes.portfolio,
+  routes.softwareDevelopmentPrice,
+  routes.blog,
+  Object.values(NON_INTERACTIVE_LINKS)[1],
+  routes.contact,
 ];
 
 export const BLOCKS_SLUGS = {
@@ -94,6 +76,8 @@ export const ANIMATED_TYPE = {
   imageZoom: 'imageZoom',
   expandByHeight: 'expandByHeight',
   isCSS: 'isCSS',
+  bounce: 'bounce',
+  counter: 'counter',
 };
 
 export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [_, { slug, title }]) => {
@@ -116,6 +100,9 @@ export const FEEDBACK_FORM_FIELDS = {
   projectBudget: 'projectBudget',
   attachments: 'attachments',
   clientId: 'clientId',
+  source: 'source',
+  medium: 'medium',
+  phone: 'phone',
 };
 
 export const IMAGES = {
@@ -142,6 +129,7 @@ export const SVG_IMAGES_TYPES = {
   arrow: 'arrow1',
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',
+  bookOpenFilled: 'bookOpenFilled',
   nearbyArrow: 'nearbyArrow',
   chevronDown: 'chevronDown',
   appstore: 'appstore',
@@ -158,7 +146,7 @@ export const SVG_IMAGES_TYPES = {
   behanceFilled: 'behanceFilled',
   behanceFilledWhite: 'behanceFilledWhite',
   mediumFilled: 'mediumFilled',
-  instagramFilled: 'InstagramFilled',
+  instagramFilled: 'instagramFilled',
   instagramFilledWhite: 'instagramFilledWhite',
   dribbbleFilledWhite: 'dribbbleFilledWhite',
   dribbbleFilled: 'dribbbleFilled',
@@ -167,8 +155,12 @@ export const SVG_IMAGES_TYPES = {
   attachment: 'attachment',
   opensenseTitleBorder: 'opensenseTitleBorder',
   checkMark: 'checkMark',
+  check: 'check',
   iPhone: 'iPhone',
   iPad: 'iPad',
+  arrowDown: 'arrowDown',
+  youtubeFilledWhite: 'youtubeFilledWhite',
+  rocketFilled: 'rocketFilled',
 };
 
 export const APP_DEVELOPMENT_TYPES = {
@@ -197,9 +189,27 @@ export const APP_DEVELOPMENT_TYPES = {
   processOverlay: 'app-development-process-overlay',
   appDevelopmentSliderCards: 'app-development-slider-cards-section',
   appDevelopmentDownloadSection: 'app-development-download-section',
+  appDevelopmentTableSection: 'app-development-table-section',
+  feedback: 'feedback',
+  parallax: 'case-study-parallax',
+  softwarePriceForm: 'software-price-form',
 };
 
-export const HOMEPAGE_SLOGAN = 'WE CREATE\nFANTASTIC SOFTWARE';
+export const WHY_US_TYPE = {
+  intro: 'case-study-intro',
+  parallax: 'case-study-parallax',
+  svgList: 'svg-display',
+  imageSection: 'app-development-image',
+  feedback: 'feedback',
+  process: 'case-study-process',
+  imagesSection: 'case-study-image',
+  challenges: 'case-study-challenges',
+  tabs: 'app-development-tabs-section',
+  gallery: 'app-development-gallery',
+  results: 'case-study-results',
+};
+
+export const HOMEPAGE_SLOGAN = 'WE CREATE\nAI-ENABLED SOFTWARE';
 
 export const HOMEPAGE_SECTION_TYPES = {
   text: 'text',
@@ -211,45 +221,7 @@ export const HOMEPAGE_SECTION_TYPES = {
   reviews: 'reviews',
   blog: 'blog',
   photos: 'photos',
-};
-
-export const CONTACTS_DATA = {
-  email: 'hi@yellow.systems',
-  telephoneNumbers: [
-    '+1 (415) 670-90-70',
-    '+375 (29) 311-52-49',
-  ],
-  city: 'Minsk',
-  country: 'Belarus',
-  postalCode: '220030',
-  streetAddress: '5-303 Nemiga street',
-  socialMedia: [
-    {
-      title: 'LinkedIn',
-      type: SVG_IMAGES_TYPES.linkedinFilledWhite,
-      link: 'https://www.linkedin.com/company/yellow-systems',
-    },
-    {
-      title: 'Twitter',
-      type: SVG_IMAGES_TYPES.twitterFilledWhite,
-      link: 'https://mobile.twitter.com/yellow_systems',
-    },
-    {
-      title: 'Behance',
-      type: SVG_IMAGES_TYPES.behanceFilled,
-      link: 'https://www.behance.net/yellow_systems',
-    },
-    {
-      title: 'Medium',
-      type: SVG_IMAGES_TYPES.mediumFilled,
-      link: 'https://yellow.medium.com/',
-    },
-    {
-      title: 'Instagram',
-      type: SVG_IMAGES_TYPES.instagramFilled,
-      link: 'https://www.instagram.com/yellow.systems/',
-    },
-  ],
+  feedback: 'feedback',
 };
 
 export const DEFAULT_DATE_FORMAT = 'MMMM D, YYYY';
@@ -276,6 +248,11 @@ export const CASE_STUDIES_TYPES = {
   processOverlay: 'case-study-process-overlay',
   challengesSpecialSlider: 'case-study-special-slider',
   prototype: 'case-study-prototype',
+  feedback: 'feedback',
+  process: 'case-study-process',
+  cardsWithOverlay: 'cards-with-overlay',
+  cards: 'cards',
+  processWithArrays: 'app-development-process',
 };
 
 export const ARTICLE_PREVIEW_TYPES = {
@@ -316,6 +293,19 @@ export const CASE_STUDIES = {
   balzano: 'software-for-mri-interpretation',
   cinnabar: 'cinnabar',
   mobileBankApplication: 'mobile-bank-application',
+  cedar: 'cedar-valley-farms',
+  mobileBudgetingApp: 'mobile-budgeting-app',
+  forexTradingPlatform: 'forex-trading-platform',
+  crowdfundingPlatform: 'crowdfunding-platform',
+  metapix: 'cctv-footage-analytics',
+  carbonSpace: 'analytics-for-carbon-tracking',
+  p2pLoans: 'web-p2p-lending-platform',
+  chatSolutions: 'web-chat-for-mediums',
+  kitchenEquipment: 'kitchen-equipment-customizer',
+  radioPlato: 'mobile-music-app',
+  clairvoyantServices: 'clairvoyant-directory-upgrade',
+  digitalWallet: 'digital-wallet-for-ios',
+  erp: 'enterprise-resource-planning-system',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -344,32 +334,46 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
   ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
   ROUTES.project.getRoute(CASE_STUDIES.mobileBankApplication).path,
+  ROUTES.project.getRoute(CASE_STUDIES.hotelDataCloud).path,
+  ROUTES.project.getRoute(CASE_STUDIES.ubiChat).path,
+  ROUTES.project.getRoute(CASE_STUDIES.writerChromeExtension).path,
+  ROUTES.project.getRoute(CASE_STUDIES.telemojo).path,
+  ROUTES.project.getRoute(CASE_STUDIES.smartcenter).path,
+  ROUTES.project.getRoute(CASE_STUDIES.cedar).path,
+  ROUTES.project.getRoute(CASE_STUDIES.mobileBudgetingApp).path,
+  ROUTES.project.getRoute(CASE_STUDIES.forexTradingPlatform).path,
+  ROUTES.project.getRoute(CASE_STUDIES.kitchenEquipment).path,
+  ROUTES.project.getRoute(CASE_STUDIES.radioPlato).path,
+  ROUTES.project.getRoute(CASE_STUDIES.clairvoyantServices).path,
+  ROUTES.project.getRoute(CASE_STUDIES.erp).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
-  ROUTES.developmentServices.path,
+  ROUTES.whyUs.path,
+  ROUTES.iosDevelopmentServices.path,
   ROUTES.fintechDevelopment.path,
+  ROUTES.softwareQualityAssuranceServices.path,
   ROUTES.erpDevelopment.path,
   ROUTES.mvpDevelopment.path,
   ROUTES.androidDevelopmentServices.path,
   ROUTES.cloudDevelopment.path,
   ROUTES.mlDevelopment.path,
   ROUTES.prototypingServices.path,
+  ROUTES.penetrationTesting.path,
+  ROUTES.pwaDevelopmentServices.path,
+  ROUTES.softwareDevelopmentColumbus.path,
+  ROUTES.softwareDevelopmentWashington.path,
+  ROUTES.softwareDevelopmentOklahoma.path,
+  ROUTES.softwareDevelopmentNashville.path,
 ];
 
-export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [
-  CASE_STUDIES.openSense,
-  CASE_STUDIES.beautonomy,
-  CASE_STUDIES.bionorica,
-
-  // TODO: Temporarily solution, doesnt fit design
-  CASE_STUDIES.famlicious,
-];
+export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.homepage.path,
   ROUTES.customWebApp.path,
-  ROUTES.developmentServices.path,
+  ROUTES.iosDevelopmentServices.path,
   ROUTES.androidDevelopmentServices.path,
+  ROUTES.softwareQualityAssuranceServices.path,
   ROUTES.mvpDevelopment.path,
   ROUTES.cloudDevelopment.path,
   ROUTES.mlDevelopment.path,
@@ -378,60 +382,222 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.devOpsDevelopment.path,
   ROUTES.dataScienceDevelopment.path,
   ROUTES.aiDevelopment.path,
+  ROUTES.crossPlatformDevelopmentServices.path,
   ROUTES.prototypingServices.path,
+  ROUTES.pwaDevelopmentServices.path,
+  ROUTES.softwareDevelopmentColumbus.path,
+  ROUTES.softwareDevelopmentWashington.path,
+  ROUTES.softwareDevelopmentOklahoma.path,
+  ROUTES.softwareDevelopmentNashville.path,
+  ROUTES.softwareDevelopmentRaleigh.path,
+  ROUTES.whyUs.path,
+  CASE_STUDIES.openSense,
+  CASE_STUDIES.chatSolutions,
+  CASE_STUDIES.kitchenEquipment,
+  CASE_STUDIES.radioPlato,
+  CASE_STUDIES.clairvoyantServices,
+];
+
+export const PAGES_WITH_GRAY_HEADER = [
+  ROUTES.penetrationTesting.path,
+  ROUTES.eWalletAppDevelopment.path,
+  ROUTES.bankingSoftwareDevelopmentCompany.path,
+  ROUTES.deliveryQualityInYellow.path,
+  ROUTES.paymentGatewayDevelopment.path,
+  ROUTES.billingSoftwareDevelopment.path,
 ];
 
 export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
 
-export const SUB_NAVIGATION_LINKS = {
+export const SUB_NAVIGATION_KEYS = {
+  services: 'services',
+  expertise: 'expertise',
+  fintech: 'fintech',
+};
+
+export const SUB_NAVIGATION_ITEMS = {
   [NON_INTERACTIVE_LINKS.whatWeDo.slug]: [
     {
-      title: 'Web app development',
-      subtitle: 'Your website will rock the stage',
-      slug: ROUTES.customWebApp.path,
+      title: 'Services',
+      key: SUB_NAVIGATION_KEYS.services,
     },
     {
-      title: 'Mobile app development',
-      slug: ROUTES.customMobileApp.path,
-      items: [
-        { slug: ROUTES.developmentServices.path, title: 'iOS app development services' },
-        { slug: ROUTES.androidDevelopmentServices.path, title: 'Android app development services' },
-      ],
+      title: 'Expertise',
+      key: SUB_NAVIGATION_KEYS.expertise,
     },
     {
-      title: 'Custom chat app development',
-      subtitle: 'Instant communication rules',
-      slug: ROUTES.customChatApp.path,
+      title: 'Fintech',
+      key: SUB_NAVIGATION_KEYS.fintech,
+    },
+  ],
+};
+
+export const SUB_NAVIGATION_LINKS = {
+  [NON_INTERACTIVE_LINKS.whatWeDo.slug]: {
+    [SUB_NAVIGATION_KEYS.services]: [
+      {
+        title: 'Web app development',
+        subtitle: 'Your website will rock the stage',
+        slug: ROUTES.customWebApp.path,
+      },
+      {
+        title: 'Mobile app development',
+        subtitle: 'Quality solutions for smartphones and tablets',
+        slug: ROUTES.customMobileApp.path,
+      },
+      {
+        title: 'iOS app development services',
+        subtitle: 'Native apps for iPhones and iPads',
+        slug: ROUTES.iosDevelopmentServices.path,
+      },
+      {
+        title: 'Android app development services',
+        subtitle: 'Powerful and intuitive Android apps',
+        slug: ROUTES.androidDevelopmentServices.path,
+      },
+      {
+        title: 'Cross platform development services',
+        subtitle: 'Lauch your app to all platforms at once',
+        slug: ROUTES.crossPlatformDevelopmentServices.path,
+      },
+      {
+        title: 'UI/UX design services',
+        subtitle: 'Beautiful, smart, efficient, logical',
+        slug: ROUTES.designServices.path,
+      },
+      {
+        title: 'MVP development services',
+        subtitle: 'Minimum viable product for your idea',
+        slug: ROUTES.mvpDevelopment.path,
+      },
+      {
+        title: 'DevOps development services',
+        subtitle: 'Connect your software development and IT teams',
+        slug: ROUTES.devOpsDevelopment.path,
+      },
+      {
+        title: 'Quality assurance services',
+        subtitle: 'Make sure everything works like clockwork',
+        slug: ROUTES.softwareQualityAssuranceServices.path,
+      },
+      {
+        title: 'Penetration testing as a service',
+        subtitle: 'Make your software as safe as possible',
+        slug: ROUTES.penetrationTesting.path,
+      },
+      {
+        title: 'Cloud-based app development services',
+        subtitle: 'No physical space is occupied',
+        slug: ROUTES.cloudDevelopment.path,
+      },
+      {
+        title: 'PWA development services',
+        subtitle: 'Web working as mobile',
+        slug: ROUTES.pwaDevelopmentServices.path,
+      },
+      {
+        title: 'Prototyping services',
+        subtitle: 'Start with a draft',
+        slug: ROUTES.prototypingServices.path,
+      },
+    ],
+    [SUB_NAVIGATION_KEYS.expertise]: [
+      {
+        title: 'Project Discovery',
+        subtitle: 'See what your future project will look like',
+        slug: ROUTES.discoveryPhase.path,
+      },
+      {
+        title: 'Custom chat app development',
+        subtitle: 'Instant communication tules',
+        slug: ROUTES.customChatApp.path,
+      },
+      {
+        title: 'ERP development services',
+        subtitle: 'Top-tier solutions for enterprises',
+        slug: ROUTES.erpDevelopment.path,
+      },
+      {
+        title: 'Machine learning development services',
+        subtitle: 'Artificial intelligence at your service',
+        slug: ROUTES.mlDevelopment.path,
+      },
+      {
+        title: 'AI software development services',
+        subtitle: 'Letting machines think',
+        slug: ROUTES.aiDevelopment.path,
+      },
+      {
+        title: 'Data science development services',
+        subtitle: 'Getting insights to boost your business',
+        slug: ROUTES.dataScienceDevelopment.path,
+      },
+    ],
+    [SUB_NAVIGATION_KEYS.fintech]: [
+      {
+        title: 'Fintech software development services',
+        subtitle: 'Build a successul fintech solution',
+        slug: ROUTES.fintechDevelopment.path,
+      },
+      {
+        title: 'Custom trading platform development',
+        subtitle: 'The way to manage investments',
+        slug: ROUTES.tradingSoftwareDevelopment.path,
+      },
+      {
+        title: 'Lending software development',
+        subtitle: 'Fast and secure lending process',
+        slug: ROUTES.lendingSoftwareDevelopment.path,
+      },
+      {
+        title: 'E-wallet app development',
+        subtitle: 'Having full control over money',
+        slug: ROUTES.eWalletAppDevelopment.path,
+      },
+      {
+        title: 'Banking software development',
+        subtitle: 'Digital banking all the way',
+        slug: ROUTES.bankingSoftwareDevelopmentCompany.path,
+      },
+      {
+        title: 'Crowdfunding platform development',
+        subtitle: 'Make people’s dreams come true',
+        slug: ROUTES.crowdfundingPlatform.path,
+      },
+      {
+        title: 'Billing software development',
+        subtitle: 'Let businesses control their invoices',
+        slug: ROUTES.billingSoftwareDevelopment.path,
+      },
+      {
+        title: 'Payment software gateway development',
+        subtitle: 'Making fast and secure payments',
+        slug: ROUTES.paymentGatewayDevelopment.path,
+      },
+    ],
+  },
+  [NON_INTERACTIVE_LINKS.aboutCompany.slug]: [
+    {
+      title: 'About us',
+      subtitle: '',
+      slug: ROUTES.company.path,
     },
     {
-      title: 'UI/UX design services',
-      subtitle: 'Beautiful, smart, efficient, logical',
-      slug: ROUTES.designServices.path,
+      title: 'Why us',
+      subtitle: '',
+      slug: ROUTES.whyUs.path,
     },
     {
-      title: 'MVP development services',
-      subtitle: 'Minimum viable product for your idea',
-      slug: ROUTES.mvpDevelopment.path,
-    },
-    {
-      title: 'Cloud app development services',
-      subtitle: 'No physical space is occupied',
-      slug: ROUTES.cloudDevelopment.path,
-    },
-    {
-      title: 'Machine learning development services',
-      subtitle: 'Artificial intelligence at your service',
-      slug: ROUTES.mlDevelopment.path,
-    },
-    {
-      title: 'Fintech Software Development Services',
-      subtitle: 'Build a successul fintech solution',
-      slug: ROUTES.fintechDevelopment.path,
+      title: 'Delivery Quality Standards',
+      subtitle: '',
+      slug: ROUTES.deliveryQualityInYellow.path,
     },
   ],
 };
 
 export const LINKS_WITH_SUB_NAVIGATION = [NON_INTERACTIVE_LINKS.whatWeDo.slug];
+
+export const LINKS_WITH_SUB_SMALL_NAVIGATION = [NON_INTERACTIVE_LINKS.aboutCompany.slug];
 
 export const ARTICLE_TABLE_TYPES = {
   simpleTable: 'Simple table',
@@ -444,38 +610,29 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.customChatApp,
   PAGES.designServices,
   PAGES.discoveryPhase,
+  PAGES.tradingSoftwareDevelopment,
+  PAGES.lendingSoftwareDevelopment,
+  PAGES.penetrationTesting,
+  PAGES.softwareDevelopmentPrice,
+  PAGES.eWalletAppDevelopment,
+  PAGES.bankingSoftwareDevelopmentCompany,
+  PAGES.deliveryQualityInYellow,
+  PAGES.crowdfundingPlatform,
+  PAGES.paymentGatewayDevelopment,
+  PAGES.billingSoftwareDevelopment,
 ];
 
-export const CONTACT_FORM_TITLES = {
-  [PAGES.homepage]: 'Let’s move forward',
-  [PAGES.customMobileApp]: 'Contact us for a consultation and get an estimation of your mobile project',
-  [PAGES.customChatApp]: 'Contact Yellow for a free estimation',
-  [PAGES.customWebApp]: 'Contact Yellow for a free estimation',
-  [PAGES.designServices]: 'Tailored UX design services for your business',
-  [PAGES.developmentServices]: '',
-  [PAGES.androidDevelopmentServices]: 'We are ready to create an Android app with you',
-  [PAGES.mvpDevelopment]: 'Still have questions?',
-  [PAGES.fintechDevelopment]: 'Still have questions?',
-  [PAGES.erpDevelopment]: 'Still have questions?',
-  [PAGES.cloudDevelopment]: 'The sky\'s the limit',
-  [PAGES.mlDevelopment]: 'Do you have an idea of an ML solution? Get in touch with us!',
-  [PAGES.devOpsDevelopment]: 'Still have questions?',
-  [PAGES.aiDevelopment]: 'Do you want to integrate artificial intelligence into your business?',
-  [PAGES.prototypingServices]: 'Get a detailed estimate of your project',
-  [CASE_STUDIES.mlInRealEstate]: 'Do you have a machine learning project in mind? Let’s discuss it together.',
-};
-
-export const CONTACT_FORM_SECOND_TITLES = {
-  [PAGES.erpDevelopment]: 'We\'re ready to answer them',
-  [PAGES.devOpsDevelopment]: 'We\'re ready to answer them',
-  [PAGES.aiDevelopment]: 'We are here to help!',
-  [PAGES.mvpDevelopment]: 'We are ready to answer them',
-  [PAGES.fintechDevelopment]: ' We are ready to answer them',
-};
-
-export const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
+export const DEFAULT_WORKS_LIMIT = 8;
+
+export const WORK_TYPES = {
+  all: 'All',
+  mobile: 'Mobile development',
+  uiUx: 'UI/UX design',
+  chat: 'Chat development',
+  web: 'Web development',
+  aiMl: 'AI & ML',
+};
 
 export const SWIPER_NAV_BUTTON_TYPES = {
   next: 'next',
@@ -488,6 +645,13 @@ export const REVEAL_ANIMATION_PROPS = {
   opasityDuration: 0.5,
   transformDuration: 0.7,
   transitionDelay: 50,
+};
+
+export const BOUNCE_ANIMATION_PROPS = {
+  type: ANIMATED_TYPE.bounce,
+  right: 'right',
+  duration: 1000,
+  ssrFadeout: 'ssrFadeout',
 };
 
 export const PHONE_RESOLUTION = 568;
@@ -511,4 +675,13 @@ export const INDEX_FILES = [
   '/index.htm',
   '/index.html',
   '/index.php',
+];
+
+export const VALUABLE_ARTICLE_CATEGORIES_SLUGS = [
+  'fintech',
+  'yellow',
+  'how-we-work',
+  'software-development',
+  'software-chat',
+  'marketing',
 ];

@@ -1,0 +1,78 @@
+.mobile-music-app {
+  @include flex(row, space-between, initial, wrap);
+
+  max-width: 481px;
+
+  .container {
+    max-width: 242px;
+    width: 100%;
+
+    .title {
+      @include fontSize(16px, 140%);
+
+      margin-bottom: 8px;
+      color: $gray1000;
+      font-weight: 600;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .listContainer {
+      @include flex(column);
+    }
+
+    .listItem {
+      color: $gray1000;
+      opacity: 0.6;
+      text-align: left;
+    }
+  }
+
+  .container-1 {
+    order: 1;
+    margin-bottom: 24px;
+  }
+
+  .container-2 {
+    order: 3;
+  }
+
+  .container-3 {
+    order: 2;
+    max-width: unset;
+    width: auto;
+
+    .title {
+      margin: 0;
+      color: $gray1000;
+      font-weight: 400;
+      opacity: 0.6;
+    }
+  }
+
+  @include tablet {
+    @include flex(column);
+
+    max-width: 100%;
+
+    .container {
+      margin-bottom: 24px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .container-1 {
+      order: 1;
+    }
+
+    .container-2 {
+      order: 2;
+    }
+
+    .container-3 {
+      order: 3;
+    }
+  }
+}

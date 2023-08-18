@@ -1,10 +1,14 @@
 import get from 'lodash/get';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import {
+  getDocumentFields,
+  getImage,
+} from 'utils/helper';
 
 export default ({
   introSection,
   section,
   type,
+  handleOnCTAClick,
 }) => {
   const {
     title,
@@ -20,15 +24,35 @@ export default ({
       'contentModules',
     ],
   );
-  const imageUrl = getFileUrl(get(images, '[0]', {}));
-  const figuresData = get(contentModules, '[0]', {});
+  const image = getImage(get(images, '[0]', {}));
+
+  const figuresData = contentModules?.find((module) => {
+    const { contentModules: figures } = getDocumentFields(module, ['contentModules']);
+
+    return figures;
+  });
+
+  const scrollBlock = contentModules?.find((module) => {
+    const { type: linkType } = getDocumentFields(module, ['type']);
+
+    return linkType === 'scroll-block';
+  });
+
+  const { buttonTitle } = getDocumentFields(contentModules?.find((module) => {
+    const { type: linkType } = getDocumentFields(module, ['type']);
+
+    return linkType === 'button';
+  }), ['buttonTitle']);
 
   return {
     type,
     introSection,
     title,
     description,
-    imageUrl,
+    image,
+    buttonTitle,
     figuresData,
+    handleOnCTAClick,
+    scrollBlock,
   };
 };

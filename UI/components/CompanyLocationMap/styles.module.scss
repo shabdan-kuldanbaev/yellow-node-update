@@ -1,0 +1,52 @@
+@import 'styles/utils/variables';
+@import 'styles/utils/mixins';
+
+.map {
+  height: 400px;
+  max-width: 630px;
+  position: relative;
+
+  & > div {
+    @include tablet {
+      margin: 0 -40px;
+    }
+
+    @include phone {
+      margin: 0 -15px;
+    }
+  }
+
+  .controlPanel {
+    top: 15px;
+    right: 15px;
+    position: absolute;
+
+    & > div {
+      background: rgb($gray0, 0.7);
+      border-radius: 7px;
+    }
+
+    button {
+      border: none;
+
+      span {
+        background: none;
+      }
+    }
+  }
+
+  @include tablet {
+    height: 480px;
+    margin: 0 auto;
+  }
+
+  @include phone {
+    height: 274px;
+  }
+}
+
+.marker > * {
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+}

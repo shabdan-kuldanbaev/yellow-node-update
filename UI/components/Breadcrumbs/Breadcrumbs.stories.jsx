@@ -1,4 +1,5 @@
-import { pagesBreadcrumbs } from 'utils/breadcrumbs';
+import { getBreadcrumbs } from 'utils/breadcrumbs';
+import { ROUTES } from 'utils/constants';
 import Breadcrumbs from '.';
 
 export default {
@@ -15,5 +16,5 @@ Default.parameters = {
   },
 };
 Default.args = {
-  breadcrumbs: pagesBreadcrumbs.article('test', '/'),
+  breadcrumbs: getBreadcrumbs(ROUTES.aiDevelopment),
 };

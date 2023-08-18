@@ -1,0 +1,27 @@
+@import 'styles/utils/mixins';
+
+.locations {
+  grid-area: location;
+
+  h3 {
+    @include fontSize(18px, 150%);
+
+    margin: 0 0 10px;
+  }
+
+  p {
+    @include fontSize(14px, 150%);
+
+    color: $gray400;
+
+    & > * {
+      display: inline-block;
+      margin-right: 1.4em;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $yellow500;
+      }
+    }
+  }
+}

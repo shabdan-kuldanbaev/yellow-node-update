@@ -1,0 +1,25 @@
+.stickerbox {
+  background: $stickerBoxPrimary;
+
+  [data-title] {
+    color: $gray400;
+  }
+
+  [data-description] {
+    color: $gray0;
+  }
+
+  .more {
+    border: 1px solid $gray0;
+    color: $gray0;
+  }
+
+  .question,
+  .iconLink {
+    color: $gray0;
+  }
+
+  .link {
+    color: $gray400;
+  }
+}

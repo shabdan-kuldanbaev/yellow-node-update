@@ -1,0 +1,10 @@
+.bionorica {
+  position: relative;
+  padding: 60px 0;
+  background-color: transparent;
+  z-index: 10;
+
+  @include tablet {
+    padding: 30px 0;
+  }
+}

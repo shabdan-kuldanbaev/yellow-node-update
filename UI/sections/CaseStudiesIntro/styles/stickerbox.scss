@@ -1,0 +1,26 @@
+.stickerbox {
+  background: linear-gradient(135deg, $stickerBoxSecondary 0%, $stickerBoxPrimary 100%);
+
+  .infoTitle {
+    color: $gray0;
+  }
+
+  .experience {
+    p {
+      color: $gray400;
+    }
+
+    p:not(.infoTitle) {
+      max-width: 270px;
+    }
+  }
+
+  [data-title],
+  [data-subtitle] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray400;
+  }
+}

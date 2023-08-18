@@ -1,0 +1,42 @@
+.digital-wallet-for-ios {
+  .titleStyle {
+    [data-title] {
+      @include fontSize(28px);
+
+      font-weight: 500;
+
+      @include tablet {
+        @include fontSize(20px);
+      }
+    }
+  }
+
+  &.firstSectionView {
+    background: $digitalWalletPrimary;
+
+    .titleStyle {
+      [data-title] {
+        color: $gray0;
+      }
+    }
+
+    picture {
+      width: $wide-content-width;
+      height: auto;
+      aspect-ratio: 1200/376;
+    }
+  }
+
+  &.secondSectionView {
+    background: $digitalWalletSecondary;
+    padding: 120px 32px;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include tablet {
+      padding: 60px 16px;
+    }
+  }
+}

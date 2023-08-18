@@ -1,0 +1,16 @@
+.ubichat {
+  background-color: $ubichatAccent;
+
+  .titleStyle {
+    max-width: 622px;
+  }
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray0;
+    opacity: 0.7;
+  }
+}

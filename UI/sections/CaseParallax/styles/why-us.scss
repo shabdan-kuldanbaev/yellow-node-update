@@ -1,0 +1,59 @@
+.why-us {
+  &.firstSectionView {
+    .titleStyle {
+      @include flex(row, space-between, flex-start);
+
+      margin: 60px auto 120px;
+      padding: 0 16px;
+      max-width: $wide-content-width;
+
+      @include below-tablet {
+        @include flex(column, center, center);
+
+        margin: 30px auto 60px;
+      }
+    }
+
+    [data-title] {
+      max-width: 379px;
+      color: $gray0;
+      text-align: left;
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+
+    [data-description] {
+      margin: 0;
+      max-width: 584px;
+      text-align: left;
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+
+    .parallaxImage {
+      height: 826px;
+
+      @include below-tablet {
+        height: 600px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .titleStyle {
+      display: none;
+    }
+
+    .parallaxImage {
+      height: 800px;
+
+      @include below-tablet {
+        height: 310px;
+      }
+    }
+  }
+}

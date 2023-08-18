@@ -1,0 +1,282 @@
+.famlicious {
+  $famliciousShadow: drop-shadow(0 8px 35px rgb(110 120 130 / 10%));
+
+  .contentContainer {
+    .infoContainer {
+      @include tablet {
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .image {
+    width: 300px;
+    height: 650px;
+  }
+
+  .title {
+    @include fontSize(38px, 130%);
+
+    margin-bottom: 16px;
+
+    @include phone {
+      @include fontSize(24px, 130%);
+    }
+  }
+
+  &.firstSectionView {
+    .contentContainer-1 {
+      margin-top: -240px;
+
+      @include tablet {
+        margin: 0 auto;
+      }
+    }
+
+    .contentContainer-2 {
+      @include flex(column, center, center);
+
+      margin-top: -160px;
+
+      .image {
+        display: none;
+
+        @include tablet {
+          display: block;
+        }
+      }
+
+      .infoContainer {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+
+        .subImage {
+          width: 590px;
+          height: 864px;
+          margin: 0 auto;
+
+          @include tablet {
+            display: none;
+          }
+        }
+
+        .title {
+          display: none;
+        }
+
+        p {
+          max-width: 300px;
+          margin: 0 auto;
+          transform: translateX(55%);
+
+          @include tablet {
+            transform: unset;
+          }
+        }
+
+        @include tablet {
+          order: initial;
+        }
+      }
+
+      @include tablet {
+        flex-direction: column-reverse;
+        margin-top: 24px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .contentContainer:not(.contentContainer-3) {
+      @include tablet {
+        margin: 0 auto 32px;
+      }
+    }
+
+    .contentContainer-1 {
+      position: relative;
+
+      .infoContainer {
+        order: 2;
+
+        @include tablet {
+          order: initial;
+        }
+      }
+
+      .imageBundle-1 {
+        position: absolute;
+        left: 45%;
+        top: 190px;
+        width: 76px;
+        height: 76px;
+
+        @include tablet {
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 56px;
+          height: 56px;
+        }
+      }
+
+      @include tablet {
+        padding-top: 64px;
+      }
+    }
+
+    .contentContainer-2 {
+      .infoContainer {
+        order: initial;
+      }
+    }
+
+    .contentContainer-3 {
+      position: relative;
+      margin: -180px auto 0;
+
+      .images {
+        display: none;
+
+        @include tablet {
+          display: block;
+        }
+      }
+
+      .infoContainer {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+
+        .subImage {
+          width: 870px;
+          height: 674px;
+          margin: 0 auto;
+          scale: 1.1;
+
+          @include tablet {
+            display: none;
+          }
+        }
+
+        .title {
+          display: none;
+        }
+
+        p {
+          margin: -10px auto 0;
+          transform: translateX(95%);
+          max-width: 296px;
+
+          @include tablet {
+            margin: 0 auto;
+            transform: unset;
+          }
+        }
+
+        @include tablet {
+          position: static;
+          order: 2;
+          max-width: 343px;
+          margin: 16px auto 0;
+        }
+      }
+
+      .image {
+        display: none;
+        filter: $famliciousShadow;
+
+        img {
+          border-radius: 30px;
+        }
+
+        @include tablet {
+          display: block;
+        }
+      }
+
+      @include tablet {
+        @include flex(column, center, center);
+
+        max-width: 100%;
+        margin: 0 auto;
+        height: auto;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .contentContainer {
+      @include flex(column, center, center);
+
+      max-width: 790px;
+      width: 100%;
+
+      &-4 {
+        @include flex(row, space-between);
+
+        .title {
+          max-width: 250px;
+        }
+
+        @include tablet {
+          @include flex(column, center, center);
+        }
+      }
+    }
+
+    .infoContainer {
+      @include flex(row, space-between, flex-start);
+
+      max-width: 100%;
+      width: 100%;
+      margin: 0;
+
+      .title {
+        @include fontSize(24px, 130%);
+      }
+
+      & > div:first-child,
+      & > div:last-child {
+        max-width: 379px;
+      }
+
+      &-1 > div:first-child {
+        max-width: 250px;
+      }
+
+      &-2 {
+        order: initial !important;
+      }
+
+      @include tablet {
+        @include flex(column, center, center);
+
+        margin-bottom: 12px;
+      }
+    }
+
+    .image {
+      &-1 {
+        width: 506px;
+        height: 360px;
+      }
+
+      &-2 {
+        width: 469px;
+        height: 360px;
+      }
+
+      &-3 {
+        width: 434px;
+        height: 360px;
+      }
+    }
+  }
+}

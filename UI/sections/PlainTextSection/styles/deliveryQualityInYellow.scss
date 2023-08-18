@@ -1,0 +1,58 @@
+.delivery-quality-in-yellow {
+  &.firstSectionView {
+    padding-bottom: 0;
+
+    [data-subtitle] {
+      max-width: 771px;
+    }
+  }
+
+  &.secondSectionView {
+    background: $gray50;
+    padding-bottom: 48px;
+
+    .titleStyle {
+      max-width: 671px;
+      margin-bottom: 32px;
+    }
+
+    .textContent {
+      & > div:last-child {
+        width: 100%;
+      }
+    }
+
+    .text {
+      @include flex(column, initial, initial, wrap);
+
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+
+      ul {
+        @include listWithYellowMarkers;
+
+        flex-wrap: nowrap;
+        margin: 0;
+        align-items: center;
+        height: auto;
+
+        li {
+          max-width: unset;
+          margin: 12px 0 0;
+          color: $gray400;
+          width: auto;
+        }
+
+        @include below-tablet {
+          height: fit-content;
+        }
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}

@@ -1,106 +1,64 @@
-import React from 'react';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import Animated from 'components/Common/Animated';
-import ButtonMore from 'components/Common/ButtonMore';
-import CustomImage from 'components/Common/CustomImage';
-import SelectorElement from 'components/PortfolioCommon/SelectorElement';
-import { getFileUrl } from 'utils/helper';
+import Illustration from 'UI/components/Illustration';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
-import { SELECTOR_ELEMENT_TYPES } from 'components/PortfolioCommon/SelectorElement/utils';
+import Svg from 'UI/components/Svg';
+import useProps from './utils/useProps';
 import styles from './style.module.scss';
 
-const Work = ({
-  work,
-  customSlug,
-  onTagClick,
-  selectedTag,
-}) => {
+const Animated = dynamic(() => import('UI/containers/Animated'));
+
+const Work = (props) => {
   const {
+    link,
+    revealDelay,
+    slug,
+    image,
     title,
     description,
-    tags,
-    slug,
-    mainImage,
-    backgroundImage,
-  } = work;
-
-  const handleTagClick = (tag) => () => {
-    onTagClick(tag);
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+  } = useProps(props);
 
   return (
-    <Animated {...REVEAL_ANIMATION_PROPS}>
-      <div className={cn(styles.work, styles[customSlug || slug])}>
-        {backgroundImage && (
-          <CustomImage
-            src={getFileUrl(backgroundImage)}
-            layout="fill"
-            width={700}
-            height={700}
-            scale={2}
-            containerClasses={styles.imageContainer}
-            className={styles.backgroundImage}
+    <LinkWrapper path={link.path}>
+      <Animated
+        {...REVEAL_ANIMATION_PROPS}
+        transitionDelay={revealDelay}
+      >
+        <div className={cn(styles.work, styles[slug])}>
+          <Illustration
+            src={image.url}
+            alt={image.alt}
+            className={styles.image}
           />
-        )}
-        {mainImage && (
-          <CustomImage
-            src={getFileUrl(mainImage)}
-            alt="work preview"
-            layout="responsive"
-            width={700}
-            height={700}
-            scale={2}
-            containerClasses={styles.imageContainer}
-            className={styles.mainImage}
-          />
-        )}
-        <div className={styles.contentWrapper}>
-          <div className={styles.tagsWrapper}>
-            {tags.map((tag) => (
-              <SelectorElement
-                key={tag.slug}
-                displayName={tag.title}
-                type={SELECTOR_ELEMENT_TYPES.tagDisplay}
-                className={styles.tag}
-                selected={selectedTag && tag.slug === selectedTag.slug}
-                onClick={handleTagClick(tag)}
+          <div className={styles.contentWrapper}>
+            <div className={styles.titleWrapper}>
+              <h2 className={styles.title}>
+                {title}
+              </h2>
+              <Svg
+                type="arrowRight"
+                className={styles.arrow}
               />
-            ))}
+            </div>
+            <p className={styles.description}>
+              {description}
+            </p>
           </div>
-          <h2 className={styles.title}>
-            {title}
-          </h2>
-          <p className={styles.description}>
-            {description}
-          </p>
-          {slug && (
-            <ButtonMore
-              title="View case"
-              href={`works/${slug}`}
-              buttonStyle={styles.buttonStyle}
-            />
-          )}
         </div>
-      </div>
-    </Animated>
+      </Animated>
+    </LinkWrapper>
   );
 };
 
 Work.defaultProps = {
-  customSlug: null,
-  selectedTag: null,
+  position: 0,
 };
 
 Work.propTypes = {
   work: PropTypes.instanceOf(Object).isRequired,
-  customSlug: PropTypes.string,
-  onTagClick: PropTypes.func.isRequired,
-  selectedTag: PropTypes.instanceOf(Object),
+  position: PropTypes.number,
 };
 
 export default Work;

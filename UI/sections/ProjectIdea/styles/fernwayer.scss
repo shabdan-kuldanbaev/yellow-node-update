@@ -1,0 +1,7 @@
+.fernwayer {
+  padding-bottom: 60px;
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+}

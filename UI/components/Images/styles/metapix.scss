@@ -1,0 +1,141 @@
+.cctv-footage-analytics {
+  &.firstSectionView {
+    position: relative;
+    margin: 0 auto;
+    height: 550px;
+    max-width: $wide-content-width;
+    overflow: unset;
+
+    .image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1440px;
+      height: 100%;
+    }
+
+    @include tablet {
+      height: 400px;
+
+      .image {
+        width: 1040px;
+      }
+    }
+
+    @include phone {
+      height: 236px;
+
+      .image {
+        width: 617px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    position: relative;
+    margin: 0 auto;
+    height: 653px;
+    max-width: $wide-content-width;
+    overflow: unset;
+
+    .image {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-46%);
+      width: 2023px;
+      height: 100%;
+    }
+
+    @include tablet {
+      height: 400px;
+
+      .image {
+        width: 1240px;
+      }
+    }
+
+    @include below-tablet {
+      .image {
+        transform: translateX(-38%);
+      }
+    }
+
+    @include phone {
+      height: 255px;
+
+      .image {
+        width: 791px;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    margin: 0 auto;
+    max-width: $wide-content-width;
+    overflow: unset;
+
+    .image {
+      width: 100%;
+      height: 1170px;
+
+      @include tablet {
+        height: 800px;
+      }
+
+      @include below-tablet {
+        height: 500px;
+      }
+
+      @include phone {
+        height: 334px;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    margin: 0 auto;
+    max-width: $wide-content-width;
+    overflow: unset;
+
+    .image {
+      width: 100%;
+      height: 1010px;
+
+      @include tablet {
+        height: 700px;
+      }
+
+      @include below-tablet {
+        height: 450px;
+      }
+
+      @include phone {
+        height: 288px;
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    margin: 0 auto;
+    max-width: $wide-content-width;
+    overflow: unset;
+
+    .image {
+      width: 100%;
+      height: 903px;
+
+      @include tablet {
+        height: 600px;
+      }
+
+      @include below-tablet {
+        height: 400px;
+      }
+
+      @include phone {
+        height: 258px;
+      }
+    }
+  }
+}

@@ -7,6 +7,22 @@
   margin: 16px 0 0;
 }
 
+.answerWrapper {
+  ol,
+  ul {
+    margin: 0;
+    padding-left: 15px;
+
+    li {
+      &::marker {
+        @include fontSize(16px);
+
+        color: $gray400;
+      }
+    }
+  }
+}
+
 .questionContainer {
   width: 100%;
   padding: 25px 0;
@@ -110,4 +126,3 @@
     }
   }
 }
-

@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+import {
+  useEffect,
+  useState,
+  memo,
+} from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import ButtonMore from 'components/Common/ButtonMore';
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
+import Button from 'UI/components/Button';
 import useStorage from 'hooks/useStorage';
 import { PAGES } from 'utils/constants';
 import { notificationData } from './utils/data';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const CookiesNotification = ({ text }) => {
   const [storage, setStorage] = useState(null);
@@ -48,20 +55,28 @@ const CookiesNotification = ({ text }) => {
       [styles.notScrolled]: !isScrolled,
     })}
     >
-      <p>
-        {text}
-        <LinkWrapper
-          path={PAGES.cookiesPolicy}
-          className={styles.link}
+      <div className={styles.container}>
+        <p>
+          {text}
+          <LinkWrapper
+            path={PAGES.cookiesPolicy}
+            className={styles.link}
+          >
+            Cookies Policy
+          </LinkWrapper>
+        </p>
+        <Button
+          onClick={handlerOnClose}
+          className={styles.button}
         >
-          Cookies Policy
-        </LinkWrapper>
-      </p>
-      <ButtonMore
-        handleOnClick={handlerOnClose}
-        title="Accept"
-        buttonStyle={styles.button}
-      />
+          Accept
+        </Button>
+        <Svg
+          type="xClose"
+          handleOnClick={handlerOnClose}
+          className={styles.cross}
+        />
+      </div>
     </div>
   );
 };
@@ -74,4 +89,4 @@ CookiesNotification.propTypes = {
   text: PropTypes.string,
 };
 
-export default React.memo(CookiesNotification);
+export default memo(CookiesNotification);

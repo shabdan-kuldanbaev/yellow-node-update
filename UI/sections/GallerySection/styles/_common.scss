@@ -17,27 +17,15 @@
 .section {
   @include appDevelopmentContainer;
 
-  background-color: $gray0;
-}
+  background: $gray0;
+  padding: 120px 0;
 
-.navigation {
-  max-width: 80%;
-
-  @include tablet {
-    max-width: 80%;
+  @include below-tablet {
+    padding: 30px 0;
   }
 }
 
 .slider {
-  &:global(.swiper) {
-    padding-bottom: 100px;
-    margin: 0 -40px;
-
-    @include below-tablet {
-      margin: 0 -16px;
-    }
-  }
-
   &:global(.swiper-slide) {
     transition-property: box-shadow, transform;
   }
@@ -47,10 +35,6 @@
   }
 
   .navigation {
-    max-width: 80%;
-
-    @include tablet {
-      max-width: 80%;
-    }
+    max-width: $wide-content-width;
   }
 }

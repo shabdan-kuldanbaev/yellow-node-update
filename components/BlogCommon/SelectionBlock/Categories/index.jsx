@@ -1,43 +1,37 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import cn from 'classnames';
+import { useEffect, memo } from 'react';
 import { useRouter } from 'next/router';
-import LinkWrapper from 'components/Common/LinkWrapper';
-import { setOverflowForBody, isNumeric } from 'utils/helper';
+import PropTypes from 'prop-types';
+import TypeSelector from 'components/TypeSelector';
 import { ROUTES } from 'utils/constants';
+import { isNumeric, setOverflowForBody } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const Categories = ({ isMobileCategoties }) => {
-  const { asPath, query: { slug: currentCategory } } = useRouter();
+  const { asPath, query: { slug: currentCategory }, push: routerPush } = useRouter();
+
+  const categories = ROUTES.blog.categories.map(({ title, slug }) => ({ displayName: title, slug }));
+  const selectedCategory = (!currentCategory || isNumeric(currentCategory))
+    ? categories[0]
+    : categories.slice(1).find((category) => currentCategory.includes(category.slug));
 
   useEffect(() => {
     setOverflowForBody(isMobileCategoties);
   }, [isMobileCategoties]);
 
-  return (
-    <ul className={styles.categories}>
-      {ROUTES.blog.categories.map(({ title, slug }, index) => {
-        const { path, dynamicPath } = ROUTES.blog.getRoute(slug);
-        const isSelected = index !== 0
-          ? asPath.includes(path)
-          : asPath === ROUTES.blog.path || isNumeric(currentCategory);
+  const goToCategory = ({ slug }) => {
+    const { path } = ROUTES.blog.getRoute(slug);
 
-        return (
-          <li
-            key={`categoris/${title}`}
-            className={cn({ [styles.selectedBlock]: isSelected })}
-          >
-            <LinkWrapper
-              isLocalLink
-              path={path}
-              dynamicRouting={dynamicPath}
-            >
-              {title}
-            </LinkWrapper>
-          </li>
-        );
-      })}
-    </ul>
+    routerPush(path);
+  };
+
+  return (
+    <div className={styles.categories}>
+      <TypeSelector
+        typeList={categories}
+        selectedType={selectedCategory}
+        onSelectedTypeChange={goToCategory}
+      />
+    </div>
   );
 };
 
@@ -49,4 +43,4 @@ Categories.propTypes = {
   isMobileCategoties: PropTypes.bool,
 };
 
-export default React.memo(Categories);
+export default memo(Categories);

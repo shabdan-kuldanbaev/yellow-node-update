@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Animated from 'UI/containers/Animated';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useBreadcrumbs from './utils/useBreadcrumbs';
 import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Breadcrumbs = (props) => {
   const { breadcrumbs, className } = useBreadcrumbs(props);

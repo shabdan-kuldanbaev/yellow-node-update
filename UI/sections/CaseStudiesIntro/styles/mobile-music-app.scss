@@ -1,0 +1,94 @@
+.mobile-music-app {
+  padding: 178px 40px 160px;
+
+  .introSection {
+    margin: 0 auto;
+    max-width: $wide-content-width;
+  }
+
+  .contentWrapper {
+    @include flex(column, space-between, flex-start);
+
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .sectionTitle {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+
+    * {
+      margin: 0;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+
+  [data-title] {
+    @include fontSize(46px, 120%);
+
+    margin-bottom: 8px;
+    color: $gray0;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  [data-description] {
+    margin: 0;
+    text-align: left;
+  }
+
+  .imageContainer {
+    display: none;
+  }
+
+  .introText {
+    margin-right: auto;
+  }
+
+  .introList {
+    @include flex(column);
+
+    margin-top: 339px;
+  }
+
+  .listItem {
+    @include flex(row);
+
+    span {
+      padding-right: 5px;
+      color: $gray400;
+    }
+
+    p {
+      margin: 0;
+      color: $gray0;
+    }
+  }
+
+  @include below-tablet {
+    padding: 72px 16px 24px;
+
+    [data-title] {
+      @include fontSize(32px, 120%);
+
+      text-align: center;
+    }
+
+    [data-description] {
+      text-align: center;
+    }
+
+    .introText {
+      margin-left: auto;
+    }
+
+    .introList {
+      @include flex(column, center, center);
+
+      margin-top: 417px;
+    }
+  }
+}

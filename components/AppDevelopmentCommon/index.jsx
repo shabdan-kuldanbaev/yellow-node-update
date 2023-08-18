@@ -1,11 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import PageIntroSection from 'UI/sections/PageIntroSection';
-import PlainTextSection from 'UI/sections/PlainTextSection';
 import { getDocumentFields } from 'utils/helper';
 import { APP_DEVELOPMENT_TYPES } from 'utils/constants';
 
+const TableSection = dynamic(() => import('UI/sections/TableSection'));
 const CardsSection = dynamic(() => import('UI/sections/CardsSection'));
 const ProcessSection = dynamic(() => import('UI/sections/ProcessSection'));
 const DownloadSection = dynamic(() => import('UI/sections/DownloadSection'));
@@ -18,11 +16,16 @@ const ImageSection = dynamic(() => import('UI/sections/ImageSection'));
 const FaqSection = dynamic(() => import('UI/sections/FaqSection'));
 const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'));
 const ImagesListSection = dynamic(() => import('UI/sections/ImagesListSection'));
-const CheckSocialSection = dynamic(() => import('components/AppDevelopmentCommon/CheckSocialSection'));
+const LinkList = dynamic(() => import('UI/sections/LinkList'));
 const AppFeatures = dynamic(() => import('UI/sections/AppFeatures'));
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
 const BookmarkCardSection = dynamic(() => import('UI/sections/BookmarkCardSection'));
-const AppOverlayProcess = dynamic(() => import('components/AppDevelopmentCommon/AppOverlayProcess'));
+const Parallax = dynamic(() => import('UI/sections/CaseParallax'));
+const PageIntroSection = dynamic(() => import('UI/sections/PageIntroSection'));
+const PlainTextSection = dynamic(() => import('UI/sections/PlainTextSection'));
+const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
+const SoftwarePriceSection = dynamic(() => import('UI/sections/SoftwarePriceSection'));
+const BookCallIntro = dynamic(() => import('UI/sections/BookCallIntro'));
 
 export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   const {
@@ -35,9 +38,9 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
     return null;
   }
 
-  const { type: sectionType } = getDocumentFields(section);
+  const { type: sectionType, slug } = getDocumentFields(section, ['type', 'slug']);
 
-  switch (sectionType) {
+  switch (sectionType || slug) {
   case APP_DEVELOPMENT_TYPES.appDevelopmentPageIntro:
     return (
       <PageIntroSection
@@ -46,9 +49,6 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
       />
     );
 
-  case APP_DEVELOPMENT_TYPES.processOverlay:
-    return <AppOverlayProcess {...props} />;
-
   case APP_DEVELOPMENT_TYPES.appDevelopmentImageSection:
     return (
       <ImageSection {...props} />
@@ -56,6 +56,7 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentCards:
     return <CardsSection {...props} />;
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentSliderCards:
     return (
       <CardsSection
@@ -96,6 +97,7 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
       <SliderSection
         sectionData={section}
         type={type}
+        handleOnCTAClick={handleOnCTAClick}
       />
     );
   case APP_DEVELOPMENT_TYPES.appDevelopmentGallery:
@@ -120,10 +122,7 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentCheckSocial:
     return (
-      <CheckSocialSection
-        sectionData={section}
-        type={type}
-      />
+      <LinkList {...props} />
     );
   case APP_DEVELOPMENT_TYPES.svgDisplayWithSelector:
     return (
@@ -162,11 +161,32 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
         pageType={type}
       />
     );
+
+  case APP_DEVELOPMENT_TYPES.parallax:
+    return (
+      <Parallax
+        type={type}
+        data={section.fields}
+      />
+    );
+
   case APP_DEVELOPMENT_TYPES.appDevelopmentTabsSection:
     return <TabsSection {...props} />;
 
   case APP_DEVELOPMENT_TYPES.appDevelopmentDownloadSection:
     return <DownloadSection {...props} />;
+
+  case APP_DEVELOPMENT_TYPES.appDevelopmentTableSection:
+    return <TableSection {...props} />;
+
+  case APP_DEVELOPMENT_TYPES.feedback:
+    return <FeedbackSection {...props} />;
+
+  case APP_DEVELOPMENT_TYPES.softwarePriceForm:
+    return <SoftwarePriceSection {...props} />;
+
+  case 'book-call-intro':
+    return <BookCallIntro {...props} />;
 
   default:
     return null;
@@ -174,7 +194,8 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 };
 
 AppDevelopmentCommon.defaultProps = {
-  handleOnCTAClick: () => {},
+  handleOnCTAClick: () => {
+  },
   introSection: null,
 };
 

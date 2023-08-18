@@ -1,0 +1,41 @@
+.container {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(3, minmax(315px, 410px));
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  max-width: 1100px;
+  background-size: cover;
+  background-position: center;
+
+  @include tablet {
+    @include flex(column, center, center);
+
+    grid-row-gap: 10px;
+  }
+}
+
+.title {
+  @include fontSize(38px, 130%);
+
+  margin: 0;
+  grid-row: 1/4;
+  color: $gray900;
+
+  @include tablet {
+    margin-bottom: 24px;
+  }
+
+  @include phone {
+    @include fontSize(24px);
+
+    margin-bottom: 12px;
+  }
+}
+
+.teamItem {
+  @include fontSize(16px, 150%);
+
+  margin: 0;
+  color: $gray900;
+}

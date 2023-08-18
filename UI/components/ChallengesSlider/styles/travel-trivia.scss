@@ -1,0 +1,16 @@
+.travel-trivia {
+  padding-bottom: 20px;
+  overflow: initial;
+
+  :global(.swiper-pagination) {
+    bottom: -5px;
+  }
+
+  .swiperBullet {
+    border: 1px solid $travelTriviaAccent;
+  }
+
+  .swiperBulletActive {
+    background-color: $travelTriviaAccent;
+  }
+}

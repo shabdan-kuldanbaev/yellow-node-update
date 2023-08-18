@@ -1,0 +1,48 @@
+.meateater {
+  &.firstSectionView {
+    padding: 0 16px;
+
+    .image {
+      &-1 {
+        width: $default-content-width;
+        height: 484px;
+
+        @include phone {
+          display: none;
+        }
+      }
+
+      &-2 {
+        display: none;
+        width: 2468px;
+
+        @include phone {
+          display: block;
+          height: 140px;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    margin: 0 auto;
+    max-width: $default-content-width;
+
+    .image {
+      width: 100%;
+      height: 610px;
+
+      @include tablet {
+        height: 480px;
+      }
+
+      @include below-tablet {
+        height: 350px;
+      }
+
+      @include phone {
+        height: 212px;
+      }
+    }
+  }
+}

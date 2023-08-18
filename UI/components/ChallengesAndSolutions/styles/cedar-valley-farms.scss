@@ -1,0 +1,172 @@
+.cedar-valley-farms {
+  .infoContainer {
+    .title {
+      color: $gray0;
+    }
+
+    p {
+      margin: 0;
+      text-align: left;
+    }
+
+    h3 {
+      color: $gray0;
+      text-align: left;
+    }
+
+    ul {
+      @include flex(column);
+
+      grid-gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        position: relative;
+        padding-left: 16px;
+        margin: 0;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 8px;
+          height: 8px;
+          border: 2px solid $gray50;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+
+  &.firstSectionView {
+    @include flex(row, space-between, initial, wrap);
+
+    margin: 0 auto;
+    grid-gap: 32px;
+    min-height: 476px;
+    max-width: $wide-content-width;
+
+    .contentContainer {
+      margin: 0;
+      max-width: 378px;
+
+      .separatedTitle {
+        display: none;
+      }
+
+      @include tablet {
+        max-width: 100%;
+      }
+    }
+
+    .infoContainer {
+      height: 100%;
+      max-width: 100%;
+
+      &-1,
+      &-3 {
+        @include flex(column, flex-start);
+      }
+
+      &-2 {
+        @include flex(column, flex-end);
+      }
+    }
+
+    @include tablet {
+      min-height: unset;
+      grid-gap: 24px;
+    }
+  }
+
+  &.secondSectionView {
+    .images {
+      max-width: 584px;
+      width: 100%;
+    }
+
+    .image {
+      width: 100%;
+      height: 520px;
+
+      img {
+        transition: ease 0.5s;
+      }
+
+      &:hover img {
+        transform: scale3d(1.05, 1.05, 1);
+      }
+
+      @include tablet {
+        height: 410px;
+      }
+
+      @include phone {
+        height: 310px;
+      }
+    }
+
+    .contentContainer {
+      max-width: $wide-content-width;
+
+      @include tablet {
+        @include flex(column-reverse, center, center);
+      }
+    }
+
+    .infoContainer p:first-of-type {
+      margin-bottom: 24px;
+    }
+  }
+
+  &.thirdSectionView {
+    .images {
+      max-width: 789px;
+      width: 100%;
+    }
+
+    .image {
+      width: 100%;
+      height: 517px;
+
+      img {
+        transition: ease 0.5s;
+      }
+
+      &:hover img {
+        transform: scale3d(1.05, 1.05, 1);
+      }
+
+      @include tablet {
+        height: 300px;
+      }
+
+      @include phone {
+        height: 225px;
+      }
+    }
+
+    .contentContainer {
+      @include flex(row-reverse, space-between, flex-end);
+
+      max-width: $wide-content-width;
+      grid-gap: 24px;
+
+      @include tablet {
+        @include flex(column-reverse);
+      }
+    }
+
+    .infoContainer {
+      max-width: 276px;
+
+      @include tablet {
+        max-width: 100%;
+      }
+    }
+  }
+}

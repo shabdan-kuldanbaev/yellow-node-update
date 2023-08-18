@@ -1,0 +1,7 @@
+.why-us {
+  padding-top: 60px;
+
+  @include phone {
+    padding-top: 30px;
+  }
+}

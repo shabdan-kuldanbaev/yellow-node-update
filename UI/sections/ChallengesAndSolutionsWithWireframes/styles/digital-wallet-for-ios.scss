@@ -1,0 +1,16 @@
+.digital-wallet-for-ios {
+  background: $digitalWalletPrimary;
+
+  .titleStyle {
+    [data-title] {
+      @include fontSize(28px);
+
+      font-weight: 500;
+      color: $gray0;
+
+      @include tablet {
+        @include fontSize(20px);
+      }
+    }
+  }
+}

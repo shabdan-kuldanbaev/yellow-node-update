@@ -1,0 +1,48 @@
+.feedback-checklist-download {
+  padding-bottom: 60px;
+
+  .contentWrapper {
+    display: grid;
+    grid-template-columns: 40% auto;
+    grid-template-rows: repeat(6, auto);
+    align-content: flex-start;
+    gap: 0 32px;
+    max-height: 447px;
+    max-width: $wide-content-width;
+
+    @include below-tablet {
+      display: block;
+      max-height: none;
+    }
+  }
+
+  .image {
+    grid-row: 1 / -1;
+    padding-top: 447px;
+    flex: 0 0 100%;
+
+    @include below-tablet {
+      padding-top: 343px;
+      max-width: 345px;
+      margin: 0 auto 32px;
+      grid-row: 1;
+    }
+  }
+
+  .title {
+    max-width: 671px;
+    margin: 0 0 10px;
+
+    * {
+      text-align: left;
+
+      @include below-tablet {
+        text-align: center;
+      }
+    }
+
+    @include below-tablet {
+      margin-bottom: 32px;
+    }
+  }
+}

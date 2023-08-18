@@ -1,0 +1,17 @@
+.drive-focus {
+  [data-subtitle] {
+    max-width: 530px;
+
+    @include phone {
+      max-width: 350px;
+    }
+  }
+
+  .parallaxImage {
+    height: 860px;
+
+    @include below-tablet {
+      height: 320px;
+    }
+  }
+}

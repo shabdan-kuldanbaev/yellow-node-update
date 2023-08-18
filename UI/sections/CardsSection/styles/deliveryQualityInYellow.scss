@@ -1,0 +1,56 @@
+.delivery-quality-in-yellow {
+  &.firstSectionView {
+    background: $gray50;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      max-width: $wide-content-width;
+      margin: 0 auto;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 32px;
+
+      & > * {
+        margin: 0;
+      }
+
+      @include below-tablet {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-gap: 16px 0;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    padding-top: 0;
+
+    .title {
+      max-width: 671px;
+      display: none;
+
+      h2 {
+        padding: 0 40px;
+
+        @include below-tablet {
+          padding: 0;
+        }
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-gap: 32px;
+      margin: 0;
+
+      & > * {
+        margin: 0;
+      }
+    }
+  }
+}

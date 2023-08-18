@@ -1,0 +1,306 @@
+.enterprise-resource-planning-system {
+  [data-title] {
+    font-weight: 600;
+  }
+
+  .container {
+    max-width: $wide-content-width;
+  }
+
+  .stepsContainer {
+    & > div {
+      width: 100%;
+    }
+  }
+
+  .step {
+    @include flex(column, center, flex-start);
+
+    position: relative;
+    max-width: 481px;
+    width: 100%;
+    height: 100%;
+
+    .stepImage {
+      position: absolute;
+      top: 0;
+      width: 816px;
+      height: 580px;
+      border-radius: 8px;
+      border: 5px solid $gray50;
+      box-shadow: 0 14px 20px 0 rgb(0 0 0 / 5%);
+
+      img {
+        object-fit: cover;
+        object-position: top;
+      }
+
+      @include tablet {
+        position: inherit;
+        margin: 0 auto;
+        width: 100%;
+        height: 400px;
+      }
+
+      @include phone {
+        height: 244px;
+      }
+    }
+
+    .stepNumber {
+      @include fontSize(24px,120%);
+
+      margin-bottom: 8px;
+      display: block;
+      height: auto;
+      width: 100%;
+      color: $gray900;
+      font-weight: 600;
+      background-color: unset;
+      border-radius: unset;
+      text-align: left;
+    }
+
+    .stepTitle {
+      @include fontSize(16px, 150%);
+
+      margin-bottom: 24px;
+      width: 100%;
+      color: $gray400;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    h4 {
+      position: relative;
+      margin: 0 0 4px;
+      padding-left: 24px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background-color: $erpAccent;
+      }
+    }
+
+    p {
+      margin: 0;
+      color: $gray400;
+      padding-left: 24px;
+
+      &:not(:last-of-type) {
+        margin: 0 0 4px;
+      }
+    }
+  }
+
+  &.firstSectionView {
+    .titleStyle {
+      max-width: 539px;
+    }
+
+    .stepsContainer {
+      & > div:first-child {
+        max-width: 481px;
+      }
+
+      & > div:last-child {
+        height: 580px;
+
+        @include tablet {
+          height: auto;
+        }
+      }
+    }
+
+    .step-2 {
+      max-width: 100%;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+
+    .stepImage {
+      left: 0;
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $erpAccent;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .stepsContainer {
+      & > div:last-child {
+        max-width: 481px;
+
+        @include tablet {
+          order: 1;
+        }
+      }
+
+      & > div:first-child {
+        height: 580px;
+
+        @include tablet {
+          order: 2;
+          height: auto;
+        }
+      }
+    }
+
+    .step-1 {
+      max-width: 100%;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+
+    .step {
+      .stepNumber {
+        color: $gray0;
+      }
+
+      .stepTitle,
+      p {
+        color: rgba($color: $gray0, $alpha: 60%);
+      }
+
+      h4 {
+        color: $gray0;
+
+        &::before {
+          background-color: $gray0;
+        }
+      }
+    }
+
+    .stepImage {
+      right: 0;
+    }
+  }
+
+  &.thirdSectionView {
+    .titleStyle {
+      display: none;
+    }
+
+    .stepsContainer {
+      & > div:last-child {
+        max-width: 481px;
+
+        @include tablet {
+          order: 1;
+        }
+      }
+
+      & > div:first-child {
+        @include tablet {
+          order: 2;
+        }
+      }
+    }
+
+    .step-1 {
+      max-width: 100%;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+
+    .stepImage {
+      position: static;
+      transform: unset;
+      width: 550px;
+      height: 536px;
+      border: none;
+      box-shadow: none;
+
+      img {
+        object-fit: contain;
+        object-position: left;
+      }
+
+      @include tablet {
+        width: 100%;
+        height: 400px;
+
+        img {
+          object-position: center;
+        }
+      }
+
+      @include phone {
+        height: 334px;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    background-color: $erpAccent;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .stepsContainer {
+      & > div:first-child {
+        max-width: 481px;
+
+        @include tablet {
+          order: 1;
+        }
+      }
+
+      & > div:last-child {
+        height: 580px;
+
+        @include tablet {
+          order: 2;
+          height: auto;
+        }
+      }
+    }
+
+    .step-2 {
+      max-width: 100%;
+
+      @include tablet {
+        margin: 0;
+      }
+    }
+
+    .step {
+      .stepNumber {
+        color: $gray0;
+      }
+
+      .stepTitle,
+      p {
+        color: rgba($color: $gray0, $alpha: 60%);
+      }
+
+      h4 {
+        color: $gray0;
+
+        &::before {
+          background-color: $gray0;
+        }
+      }
+    }
+
+    .stepImage {
+      left: 0;
+    }
+  }
+}

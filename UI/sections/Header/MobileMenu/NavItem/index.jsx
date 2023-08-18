@@ -1,15 +1,14 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
-import Svg from 'UI/components/Svg';
-import Animated from 'components/Common/Animated';
-import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { useNavItem } from './useNavItem';
 import styles from './styles.module.scss';
 
-const DropDownMenu = dynamic(() => import('UI/sections/Header/DropDownMenu'));
+const Svg = dynamic(() => import('UI/components/Svg'));
+const Animated = dynamic(() => import('UI/containers/Animated'));
+const MobileDropDownMenu = dynamic(() => import('UI/sections/Header/MobileDropDownMenu'));
 
 export const NavItem = (props) => {
   const {
@@ -69,10 +68,10 @@ export const NavItem = (props) => {
           )}
         <div
           className={cn(styles.svgContainer, {
-            [styles.svgContainerRight]: !isLinkHasSubNavigation,
+            [styles.withSubnavigation]: isLinkHasSubNavigation,
           })}
         >
-          <Svg type={SVG_IMAGES_TYPES.chevronDown} />
+          <Svg type="chevronRight" />
         </div>
       </div>
       {isLinkHasSubNavigation && (
@@ -80,7 +79,7 @@ export const NavItem = (props) => {
           type={ANIMATED_TYPE.expandByHeight}
           open={isSubMenuExpanded}
         >
-          <DropDownMenu
+          <MobileDropDownMenu
             isLightTheme={isLightTheme}
             isDropMenuOpened={isSubMenuExpanded}
             isPageScrolledDown={isPageScrolledDown}

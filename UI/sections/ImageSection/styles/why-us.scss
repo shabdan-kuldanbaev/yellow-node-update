@@ -1,0 +1,13 @@
+.why-us {
+  padding-bottom: 60px;
+
+  .image {
+    margin: 0 auto;
+    max-width: 679px;
+    padding-top: 520px;
+  }
+
+  @include phone {
+    padding-bottom: 30px;
+  }
+}

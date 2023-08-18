@@ -1,0 +1,12 @@
+.stickerbox {
+  background-color: $stickerBoxPrimary;
+  padding-top: 0;
+
+  &.firstSectionView {
+    overflow: unset;
+  }
+
+  @include phone {
+    padding-top: 40px;
+  }
+}

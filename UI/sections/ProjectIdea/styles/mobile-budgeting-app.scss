@@ -1,0 +1,61 @@
+.mobile-budgeting-app {
+  .contentContainer {
+    margin: 0 auto;
+    grid-gap: 48px;
+
+    @include tablet {
+      grid-gap: 24px;
+    }
+  }
+
+  .descriptionContainer {
+    margin: 0;
+    width: 100%;
+
+    .descriptionIntro {
+      h5 {
+        @include fontSize(24px, 130%);
+
+        margin: 0 0 8px;
+        color: $gray900;
+        font-weight: normal;
+      }
+
+      ul {
+        @include flex(column, initial, initial);
+
+        margin: 0 0 0 10px;
+
+        &:first-of-type {
+          margin-bottom: 24px;
+        }
+
+        li {
+          margin: 0;
+
+          p {
+            @include fontSize(16px, 150%);
+
+            margin: 0;
+            color: $gray900;
+          }
+
+          &::marker {
+            color: $gray900;
+          }
+        }
+
+        @include tablet {
+          @include flex(column, center, center);
+
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  @include tablet {
+    padding: 60px 16px;
+  }
+}

@@ -1,0 +1,77 @@
+.dindon {
+  z-index: 1;
+  padding: 136px 0 120px;
+  background: $dinDonPrimary;
+
+  .contentWrapper {
+    margin-right: 32px;
+    max-width: 410px;
+
+    @include tablet {
+      margin-right: 0;
+    }
+  }
+
+  .imageContainer {
+    height: 550px;
+
+    @include tablet {
+      height: 314px;
+    }
+
+    @include phone {
+      height: 214px;
+    }
+  }
+
+  .image {
+    width: 879px;
+    height: 550px;
+
+    @include tablet {
+      width: 500px;
+      height: 314px;
+    }
+
+    @include phone {
+      width: 343px;
+      height: 214px;
+    }
+  }
+
+  .bundleImage {
+    position: absolute;
+    left: 166px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    width: 1996px;
+    height: 1996px;
+
+    @include phone {
+      left: -42px;
+      width: 1016px;
+      height: 1016px;
+    }
+  }
+
+  .experience {
+    z-index: 1;
+  }
+
+  [data-title],
+  [data-subtitle],
+  .infoTitle {
+    color: $gray0;
+  }
+
+  .experience > p,
+  [data-description] {
+    color: $gray0;
+    opacity: 0.7;
+  }
+
+  @include below-tablet {
+    padding: 88px 16px 60px;
+  }
+}

@@ -1,0 +1,26 @@
+.telemojo {
+  padding: 120px 40px 0;
+
+  .sectionTitle {
+    max-width: 568px;
+  }
+
+  .media {
+    position: static;
+    transform: scale(1.08);
+    width: 994px;
+    height: 696px;
+
+    @include tablet {
+      height: 396px;
+    }
+
+    @include phone {
+      height: 240px;
+    }
+  }
+
+  @include phone {
+    padding: 60px 16px 0;
+  }
+}

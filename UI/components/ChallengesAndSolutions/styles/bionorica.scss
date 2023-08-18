@@ -1,0 +1,56 @@
+.bionorica {
+  @include flex(row, space-between, flex-start, wrap);
+
+  grid-gap: 32px;
+  max-width: 790px;
+  width: 100%;
+  margin: 0 auto;
+
+  .contentContainer {
+    @include flex(column);
+
+    max-width: 379px;
+    width: 100%;
+    margin: 0;
+
+    .title {
+      margin: 0 0 16px;
+    }
+
+    .separatedTitle {
+      margin: 0;
+    }
+
+    @include tablet {
+      max-width: 45%;
+    }
+
+    @include phone {
+      max-width: 100%;
+    }
+  }
+
+  .imageBundle {
+    position: absolute;
+    width: 731.09px;
+    height: 437.08px;
+    right: -175px;
+    bottom: 0;
+    transform: rotate(-33deg);
+
+    @include tablet {
+      right: -300px;
+    }
+
+    @include phone {
+      width: 192.73px;
+      height: 115.22px;
+      right: -70px;
+      bottom: -100px;
+    }
+  }
+
+  @include tablet {
+    padding: 0 16px;
+  }
+}

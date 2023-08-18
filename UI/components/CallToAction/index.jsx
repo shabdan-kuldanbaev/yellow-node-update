@@ -1,81 +1,121 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Button from 'UI/components/Button';
-import Typography from 'UI/components/Typography';
-import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
+import PropTypes from 'prop-types';
+import dynamic from 'next/dynamic';
+import Illustration from 'UI/components/Illustration';
+import { LINK_TYPE } from 'utils/constants/linkType';
+import useProps from './utils/useProps';
 import styles from './styles.module.scss';
 
-const CallToAction = ({
-  title,
-  subtitle,
-  buttonTitle,
-  href,
-  type,
-  page,
-  view,
-  handleOnClick,
-  className,
-}) => {
-  const titles = title.split('||');
+const Contact = dynamic(() => import('./content/Contact'));
+const GetBook = dynamic(() => import('./content/GetBook'));
+const Subscribe = dynamic(() => import('./content/Subscribe'));
+const ScrollBlock = dynamic(() => import('./content/ScrollBlock'));
+
+const CallToAction = (props) => {
+  const {
+    titles,
+    subtitle,
+    buttonTitle,
+    type,
+    images,
+    downloadLink,
+    isSubscribed,
+    handleOnClick,
+    slug,
+    ctaUrl,
+    sectionRef,
+    show,
+    setShow,
+    classNames,
+  } = useProps(props);
 
   return (
-    <div
-      className={cn(
-        styles[type],
-        styles[view],
-        styles[page],
-        className,
-      )}
-    >
-      {titles?.map((titleText, index) => (
-        titleText && (
-          <Typography
-            variant={TYPOGRAPHY_TAGS.h3}
-            size={TYPOGRAPHY_SIZE.headline24}
-            className={styles.h3}
-            key={`titleText/${index}`}
-          >
-            {titleText}
-          </Typography>
-        )
+    <div className={classNames}>
+      {images.map(({ url, alt }, i) => (
+        <Illustration
+          src={url}
+          alt={alt}
+          className={cn(styles.image, styles[`image-${i}`])}
+        />
       ))}
-
-      {subtitle && (
-        <Typography
-          variant={TYPOGRAPHY_TAGS.p}
-          className={styles.p}
-        >
-          {subtitle}
-        </Typography>
-      )}
-
-      <Button
-        href={href}
-        onClick={handleOnClick}
-        className={styles.button}
-        data-button
-      >
-        {buttonTitle}
-      </Button>
+      {(() => {
+        switch (type) {
+        case LINK_TYPE.subscribe:
+          return (
+            <Subscribe
+              titles={titles}
+              isSubscribed={isSubscribed}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+              slug={slug}
+            />
+          );
+        case LINK_TYPE.book:
+          return (
+            <GetBook
+              titles={titles}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+              bookCover={images[0]}
+              downloadLink={downloadLink}
+              slug={slug}
+            />
+          );
+        case LINK_TYPE.callToAction:
+          return (
+            <Contact
+              titles={titles}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+              handleOnClick={handleOnClick}
+              url={ctaUrl}
+            />
+          );
+        case LINK_TYPE.scrollBlock:
+          return (
+            <ScrollBlock
+              sectionRef={sectionRef}
+              titles={titles}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+              bookCover={images[0]}
+              downloadLink={downloadLink}
+              slug={slug}
+              show={show}
+              setShow={setShow}
+            />
+          );
+        default:
+          return (
+            <Contact
+              titles={titles}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+              handleOnClick={handleOnClick}
+              url={ctaUrl}
+            />
+          );
+        }
+      })()}
     </div>
   );
 };
 
 CallToAction.defaultProps = {
   href: '',
-  handleOnClick: () => {},
-  className: '',
+  className: null,
   title: '',
   subtitle: '',
+  data: {},
 };
 
 CallToAction.propTypes = {
+  data: PropTypes.instanceOf(Object), // It's preferred to pass CTA data with single AS_IS entry. not separate fields
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  buttonTitle: PropTypes.string.isRequired,
+  buttonTitle: PropTypes.string,
   href: PropTypes.string,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   handleOnClick: PropTypes.func,
   className: PropTypes.string,
 };

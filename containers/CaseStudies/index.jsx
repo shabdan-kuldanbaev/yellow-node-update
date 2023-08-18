@@ -1,69 +1,63 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import dynamic from 'next/dynamic';
-import { useSelector } from 'react-redux';
-import get from 'lodash/get';
-import { selectProject } from 'redux/selectors/portfolio';
 import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import MetaTags from 'components/Common/MetaTags';
-import { getDocumentFields, rootUrl } from 'utils/helper';
-import { CONTACT_FORM_TITLES, PAGES } from 'utils/constants';
+import { rootUrl } from 'utils/helper';
+import { PAGES } from 'utils/constants';
+import { routes } from 'utils/routes';
+import { useFetchPageQuery } from 'redux/apis/page';
+import { getBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
-const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
+const CaseStudiesContainer = ({ introSection, slug }) => {
+  const { data = {}, isLoading } = useFetchPageQuery(slug);
 
-const CaseStudiesContainer = ({ introSection }) => {
-  const currentProject = useSelector(selectProject);
+  if (isLoading) {
+    return null;
+  }
 
   const {
-    slug,
     contentModules,
-    metaTitle,
-    metaDescription,
-    ogImage,
-    hasFeedbackForm,
     pageTitle,
-  } = getDocumentFields(
-    get(currentProject, 'items[0]', {}),
-    [
-      'slug',
-      'contentModules',
-      'metaDescription',
-      'metaTitle',
-      'hasFeedbackForm',
-      'pageTitle',
-    ],
-  );
-  // TODO: rework metatags for CaseStudies pages
+    metaData: {
+      metaTitle,
+      metaDescription,
+      ogImage,
+      metaRobots,
+    },
+  } = data;
+
   const projectMetadata = {
-    metaTitle: metaTitle || (pageTitle && `${pageTitle} | Yellow`),
+    metaTitle: metaTitle || `${pageTitle} | Yellow`,
     metaDescription: metaDescription || (pageTitle && `Yellow professionals have created ${pageTitle}. Read our case study to find more!`),
-    url: `${rootUrl}/${PAGES.portfolio}/${slug}`,
+    url: `${rootUrl}${routes.portfolio.getRoute(slug).path}`,
+    metaRobots,
     ogImage,
   };
+
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! DONT FORGET TO USE IT DURING RESOLVING MERGE CONFLICT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  const breadcrumbs = getBreadcrumbs(PAGES.project, {
+    slug,
+    title: pageTitle,
+  });
+  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! DONT FORGET TO USE IT DURING RESOLVING MERGE CONFLICT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   return (
     <>
       <MetaTags
         page={PAGES.portfolio}
         pageMetadata={projectMetadata}
+        breadcrumbs={breadcrumbs} // !!! AND HERE !!!
       />
-      {contentModules?.map(({ fields, sys }) => (
-        <CaseStudiesCommon
-          key={sys.id}
-          type={slug}
-          introSection={introSection}
-          data={fields}
-        />
-      ))}
-      {hasFeedbackForm && (
-        <div className={styles[slug] || styles.feedBackContainer}>
-          <FeedbackFormContainer
+      <main className={styles.main}>
+        {contentModules?.map(({ fields, sys }) => (
+          <CaseStudiesCommon
+            key={sys.id}
             type={slug}
-            title={CONTACT_FORM_TITLES[slug]}
+            introSection={introSection}
+            data={fields}
           />
-        </div>
-      )}
+        ))}
+      </main>
     </>
   );
 };

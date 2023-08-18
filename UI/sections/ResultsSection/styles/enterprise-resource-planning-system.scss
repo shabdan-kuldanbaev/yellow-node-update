@@ -1,0 +1,67 @@
+.enterprise-resource-planning-system {
+  background-color: $erpAccent;
+
+  .sectionTitle {
+    @include flex(row, space-between);
+
+    margin: 0 auto 48px;
+    max-width: 790px;
+
+    & > div:last-child {
+      @include flex(column, initial, flex-start);
+
+      max-width: 481px;
+    }
+
+    @include below-tablet {
+      @include flex(column, center, center);
+
+      margin: 0 auto 24px;
+    }
+  }
+
+  [data-title] {
+    color: $gray0;
+    margin-bottom: 16px;
+  }
+
+  [data-description] {
+    position: relative;
+    margin: 0;
+    padding-left: 24px;
+    color: rgba($color: $gray0, $alpha: 60%);
+    text-align: start;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+
+      @include below-tablet {
+        margin-bottom: 8px;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      background-color: $gray0;
+    }
+  }
+
+  .media {
+    width: 994px;
+    height: 600px;
+
+    @include tablet {
+      height: 400px;
+    }
+
+    @include phone {
+      height: 208px;
+    }
+  }
+}

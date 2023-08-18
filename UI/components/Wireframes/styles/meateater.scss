@@ -1,0 +1,11 @@
+.meateater {
+  margin: 0;
+
+  .animatedContainer {
+    margin: 0;
+
+    @include phone {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.meateater {
+  padding: 60px 0 120px;
+
+  &.thirdSectionView {
+    padding: 120px 16px;
+    background: $gray50;
+
+    .titleStyle {
+      max-width: 614px;
+    }
+
+    @include tablet {
+      padding: 60px 16px;
+    }
+  }
+
+  @include tablet {
+    padding: 60px 0;
+  }
+}

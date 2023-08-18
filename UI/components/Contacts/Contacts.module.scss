@@ -1,0 +1,46 @@
+@import 'styles/utils/colors';
+@import 'styles/utils/mixins';
+
+.contactHeadline {
+  color: $gray400;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:not(:first-child) {
+    margin-top: 34px;
+
+    @include below-tablet {
+      margin-top: 32px;
+    }
+  }
+
+  @include below-tablet {
+    margin: 12px 0;
+  }
+}
+
+.contact {
+  margin: 15px 0;
+
+  @include below-tablet {
+    margin: 12px 0;
+  }
+}
+
+.smItem {
+  &:hover {
+    svg {
+      transform: translateY(-7%);
+    }
+  }
+
+  svg {
+    transition: transform 0.1s ease-in-out;
+  }
+
+  & + .smItem {
+    margin-left: 16px;
+  }
+}

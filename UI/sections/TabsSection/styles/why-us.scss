@@ -1,0 +1,41 @@
+.why-us {
+  &.firstSectionView {
+    [data-title] {
+      @include below-tablet {
+        max-width: 300px;
+      }
+    }
+
+    .container {
+      max-width: 790px;
+    }
+
+    .cardContainer {
+      padding: 0;
+      background: $gray0;
+      border: none;
+    }
+
+    .cardContent {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .contentBlock {
+      width: 100%;
+      height: 100%;
+      max-width: unset;
+    }
+
+    .blockImage {
+      margin: 0 auto;
+      width: 100%;
+      height: 414px;
+
+      @include below-tablet {
+        height: 191px;
+      }
+    }
+  }
+}

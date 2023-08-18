@@ -1,0 +1,29 @@
+.clairvoyant-directory-upgrade {
+  &.firstSectionView {
+    padding-top: 60px;
+    background: $clairvoyantServicesPrimary;
+
+    .titleStyle {
+      [data-title] {
+        color: $gray0;
+        font-weight: 400;
+      }
+
+      @include tablet {
+        margin-bottom: 24px;
+
+        [data-title] {
+          @include fontSize(38px);
+        }
+      }
+    }
+
+    & > *:last-child {
+      display: none;
+    }
+
+    @include tablet {
+      padding-top: 30px;
+    }
+  }
+}

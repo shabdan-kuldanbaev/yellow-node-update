@@ -1,0 +1,20 @@
+.fairy {
+  background-color: $fairyPrimary;
+  padding: 120px 0;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    max-width: 480px;
+
+    @include phone {
+      max-width: 340px;
+    }
+  }
+
+  @include below-tablet {
+    padding: 60px 0;
+  }
+}

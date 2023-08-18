@@ -1,0 +1,36 @@
+.natp {
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    color: $gray0;
+    opacity: 0.7;
+  }
+
+  &.firstSectionView {
+    background: $natpGradient no-repeat;
+    background-size: 100% 66%;
+    padding-bottom: 0;
+
+    .titleStyle {
+      max-width: 519px;
+    }
+
+    @include tablet {
+      background-size: 100% 55%;
+    }
+
+    @include phone {
+      background-size: 100% 43%;
+    }
+  }
+
+  &.secondSectionView {
+    background: $natpGradient;
+
+    .titleStyle {
+      max-width: 622px;
+    }
+  }
+}

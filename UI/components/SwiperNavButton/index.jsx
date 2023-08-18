@@ -1,9 +1,10 @@
-import React from 'react';
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import Svg from 'UI/components/Svg';
 import { useSwiperNavButton } from './utils/useSwiperNavButton';
 import styles from './styles.module.scss';
+
+const Svg = dynamic(() => import('UI/components/Svg'));
 
 const SwiperNavButton = (props) => {
   const {
@@ -12,6 +13,7 @@ const SwiperNavButton = (props) => {
     text,
     svgType,
     className,
+    ...rest
   } = useSwiperNavButton(props);
 
   return (
@@ -24,6 +26,7 @@ const SwiperNavButton = (props) => {
       )}
       ref={buttonRef}
       data-swiper-button
+      {...rest}
     >
       <Svg type={svgType} />
       {text && (

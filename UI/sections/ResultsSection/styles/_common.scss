@@ -1,0 +1,45 @@
+.container {
+  padding: 120px 40px;
+
+  .sectionTitle {
+    margin: 0 auto 32px;
+
+    @include phone {
+      padding: 0 16px;
+      margin: 0 auto 24px;
+    }
+  }
+
+  [data-title] {
+    margin: 0 auto;
+  }
+
+  .contentWrapper {
+    @include flex(row, center, center);
+
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    max-width: $default-content-width;
+  }
+
+  .screen {
+    @include centered;
+
+    z-index: 100;
+  }
+
+  .media {
+    border-radius: 10px;
+  }
+
+  .prototype {
+    @include centered;
+
+    z-index: 10;
+  }
+
+  @include tablet {
+    padding: 60px 16px;
+  }
+}

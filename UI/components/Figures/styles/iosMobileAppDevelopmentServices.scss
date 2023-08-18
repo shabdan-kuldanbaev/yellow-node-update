@@ -1,0 +1,26 @@
+.ios-mobile-app-development-services {
+  .figures {
+    @include flex(row, space-between);
+
+    & > div {
+      @include flex(row, initial, flex-start);
+
+      flex: 0 1 48%;
+    }
+
+    @include below-tablet {
+      @include flex(column);
+    }
+  }
+
+  .title {
+    @include fontSize(20px);
+  }
+
+  .circle {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+    margin-right: 16px;
+  }
+}

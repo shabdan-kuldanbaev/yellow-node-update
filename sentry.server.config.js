@@ -8,4 +8,5 @@ Sentry.init({
   dsn: SENTRY_DSN,
   environment: process.env.NODE_ENV,
   tracesSampleRate: 1.0,
+  maxValueLength: 20000,
 });

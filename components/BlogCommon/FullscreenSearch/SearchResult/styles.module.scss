@@ -1,6 +1,12 @@
 @import 'styles/utils/mixins';
 
 .nothingFound {
+  @include fontSize(17.5px);
+
+  @include macbook-fifteen {
+    width: calc(100% - (2 * 55px));
+  }
+
   font-weight: 500;
   font-family: $default-font;
   color: $tundora;
@@ -9,12 +15,6 @@
   right: 0;
   max-width: $max-content-width;
   width: 100%;
-
-  @include fontSize(17.5px);
-
-  @include macbook-fifteen {
-    width: calc(100% - (2 * 55px));
-  }
 
   @include phone {
     line-height: 24px;
@@ -27,6 +27,7 @@
 
   .button {
     @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
+    @include flex(row, center);
 
     margin: 50px 0 0;
     padding: 16px 0;
@@ -36,8 +37,6 @@
     border: none;
     outline: none;
     font-size: 1rem;
-
-    @include flex(row, center);
 
     &:hover {
       border: none;

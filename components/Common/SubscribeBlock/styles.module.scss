@@ -20,116 +20,96 @@
 }
 
 .subscribeBlock {
+  @include flex(row, space-between, center);
+
   padding: 70px;
   background-color: $alabaster;
   border-radius: 5px;
 
-  @include flex(row, space-between, center);
-
-  @include tablet {
-    @include flex(column);
-  }
-
-  @include below-tablet {
-    padding: 40px;
-  }
-
-  @include phone {
-    padding: 20px;
-  }
-
   .subscribeText {
     width: 45%;
     margin-right: 100px;
+
+    & > h2 {
+      @include fontSize(32px);
+
+      margin: 0 0 15px;
+      font-weight: 700;
+
+      @include phone {
+        @include fontSize(24px);
+
+        text-align: center;
+      }
+    }
+
+    & > p {
+      @include fontSize(18px);
+
+      margin: 0;
+      line-height: 2;
+      color: $silver-chalice;
+
+      @include phone {
+        @include fontSize(14px);
+
+        text-align: center;
+      }
+    }
 
     @include tablet {
       width: 100%;
       margin-right: 0;
       margin-bottom: 40px;
     }
-
-    & > h2 {
-      margin: 0 0 15px;
-      font-weight: 700;
-
-      @include fontSize(32px);
-
-      @include phone {
-        text-align: center;
-
-        @include fontSize(24px);
-      }
-    }
-
-    & > p {
-      margin: 0;
-      line-height: 2;
-      color: $silver-chalice;
-
-      @include fontSize(18px);
-
-      @include phone {
-        text-align: center;
-
-        @include fontSize(14px);
-      }
-    }
   }
 
   .subscribeForm {
+    @include flex(row, center);
+
     height: 80px;
     width: 60%;
     position: relative;
 
-    @include flex(row, center);
-
-    @include macbook-twelve {
-      height: 70px;
-    }
-
-    @include tablet {
-      height: auto;
-      width: 100%;
-
-      @include flex(column, center, center);
-    }
-
     & > input {
+      @include fontSize(18px);
+
       min-width: 300px;
       flex-grow: 1;
       padding: 18px;
-      border: 1px solid rgb(23 23 23 / 0.3);
+      border: 1px solid rgb(23 23 23 / 30%);
       border-radius: 8px;
       color: $tundora;
       outline: none;
 
-      @include fontSize(18px);
+      &::placeholder {
+        @include fontSize(18px);
+
+        color: $silver-chalice;
+
+        @include phone {
+          @include fontSize(16px);
+
+          text-align: center;
+        }
+      }
 
       @include tablet {
         margin-bottom: 40px;
       }
 
       @include phone {
+        @include fontSize(16px);
+
         min-width: initial;
         width: calc(100% - 40px);
-
-        @include fontSize(16px);
-      }
-
-      &::placeholder {
-        color: $silver-chalice;
-
-        @include fontSize(18px);
-
-        @include phone {
-          text-align: center;
-
-          @include fontSize(16px);
-        }
       }
     }
 
     .button {
+      @include flex(row, center, center);
+      @include fontSize(18px);
+
       width: 220px;
       padding: 20px 0;
       margin-left: 10px;
@@ -143,22 +123,21 @@
       transition-property: background-color, color;
       outline: none;
 
-      @include flex(row, center, center);
-      @include fontSize(18px);
+      &:hover {
+        color: $white;
+        background-color: $black;
+      }
 
       @include phone {
         @include fontSize(14px);
 
         margin: 0 10px;
       }
-
-      &:hover {
-        color: $white;
-        background-color: $black;
-      }
     }
 
     .alertMessage {
+      @include fontSize(10px);
+
       font-weight: 600;
       position: absolute;
       right: 0;
@@ -173,8 +152,6 @@
       color: $woodsmoke;
       transition: opacity 0.2s ease;
 
-      @include fontSize(10px);
-
       @include phone {
         padding: 0 0 20px;
         margin-bottom: 30px;
@@ -182,5 +159,28 @@
         text-align: center;
       }
     }
+
+    @include macbook-twelve {
+      height: 70px;
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      height: auto;
+      width: 100%;
+    }
+  }
+
+  @include tablet {
+    @include flex(column);
+  }
+
+  @include below-tablet {
+    padding: 40px;
+  }
+
+  @include phone {
+    padding: 20px;
   }
 }

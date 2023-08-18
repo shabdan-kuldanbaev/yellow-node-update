@@ -1,0 +1,188 @@
+import PropTypes from 'prop-types';
+import cn from 'classnames';
+import dynamic from 'next/dynamic';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import ChallengesSlider from 'UI/components/ChallengesSlider';
+import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
+import Illustration from 'UI/components/Illustration';
+import Typography from 'UI/components/Typography';
+import { useChallengesAndSolutions } from './utils/useChallengesAndSolutions';
+import styles from './styles.module.scss';
+
+const Animated = dynamic(() => import('UI/containers/Animated'));
+
+const ChallengesAndSolutions = (props) => {
+  const {
+    type,
+    isSpecial,
+    view,
+    isSlider,
+    isMobileResolution,
+    content,
+    componentType,
+    images,
+  } = useChallengesAndSolutions(props);
+
+  if (!content) {
+    return null;
+  }
+
+  return (
+    <div className={cn(styles[type], styles[view])}>
+      <ChallengesSlider
+        isMobileResolution={isMobileResolution}
+        isSlider={isSlider}
+        componentType={componentType}
+        type={type}
+      >
+        {content?.map(({
+          title,
+          text,
+          imagesBundles,
+          subtitle,
+          contentList,
+          image,
+          subImage,
+        }, index) => (
+          <div
+            key={title || image}
+            className={cn(
+              styles.contentContainer,
+              styles[`contentContainer-${index + 1}`],
+              { [styles.special]: isSpecial },
+            )}
+          >
+            {(!image.url && title) && (
+              <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+                <div className={cn(styles.infoContainer, styles.separatedTitle)}>
+                  <Typography
+                    variant="h2"
+                    className={styles.title}
+                  >
+                    {title}
+                  </Typography>
+                </div>
+              </Animated>
+            )}
+            <div
+              className={cn(
+                styles.infoContainer,
+                styles[`infoContainer-${index + 1}`],
+                { [styles.centrefy]: image },
+              )}
+            >
+              {subImage.url && (
+                <Illustration
+                  transparent
+                  className={styles.subImage}
+                  src={subImage.url}
+                  alt={subImage.alt}
+                />
+              )}
+              {image.url && subtitle && (
+                <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+                  <div>
+                    <Typography
+                      variant="p"
+                      className={cn(styles.subtitle, styles[`subtitle-${index + 1}`])}
+                    >
+                      {subtitle}
+                    </Typography>
+                  </div>
+                </Animated>
+              )}
+              {image.url && (
+                <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+                  <div>
+                    <Typography
+                      variant="h2"
+                      className={cn(styles.title, styles[`title-${index + 1}`])}
+                    >
+                      {title}
+                    </Typography>
+                  </div>
+                </Animated>
+              )}
+              {text && (
+                <Animated
+                  delay={100}
+                  {...ANIMATION_CASE_STUDY_PROPS}
+                >
+                  <ContentfulParser document={text} />
+                </Animated>
+              )}
+              {!!contentList.length && (
+                <ul className={styles.listContainer}>
+                  {contentList?.map((item, contentIndex) => (
+                    <Animated
+                      delay={50 + 10 * contentIndex}
+                      {...ANIMATION_CASE_STUDY_PROPS}
+                    >
+                      <li className={styles.listItem}>
+                        {item}
+                      </li>
+                    </Animated>
+                  ))}
+                </ul>
+              )}
+            </div>
+            {(image.url || !!imagesBundles.length) && (
+              <Animated {...ANIMATION_CASE_STUDY_PROPS}>
+                <div className={cn(styles.images, styles[`images-${index + 1}`])}>
+                  {image.url && (
+                    <Illustration
+                      className={cn(styles.image, styles[`image-${index + 1}`])}
+                      src={image.url}
+                      alt={image.alt}
+                    />
+                  )}
+                  {imagesBundles?.map((imageBundle, imagesBundlesIndex) => (
+                    <Illustration
+                      transparent
+                      className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
+                      src={imageBundle.url}
+                      alt={imageBundle.alt}
+                      key={`bundles-images/${imageBundle.url}`}
+                    />
+                  ))}
+                </div>
+              </Animated>
+            )}
+            {!image.url && imagesBundles?.map((bundleUrl, imagesBundlesIndex) => (
+              <Illustration
+                transparent
+                className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
+                src={bundleUrl.url}
+                key={`bundles-images/${bundleUrl}`}
+                alt={bundleUrl.alt}
+              />
+            ))}
+          </div>
+        ))}
+      </ChallengesSlider>
+
+      {!!images.length && images.map((image) => (
+        <Illustration
+          src={image.url}
+          key={image.url}
+          className={styles.sectionImage}
+        />
+      ))}
+    </div>
+  );
+};
+
+ChallengesAndSolutions.defaultProps = {
+  type: '',
+  isSpecial: false,
+  view: '',
+};
+
+ChallengesAndSolutions.propTypes = {
+  data: PropTypes.instanceOf(Object).isRequired,
+  type: PropTypes.string,
+  isSpecial: PropTypes.bool,
+  view: PropTypes.string,
+};
+
+export default ChallengesAndSolutions;

@@ -3,7 +3,8 @@
 
 .container {
   margin: 0 auto;
-  padding: 105px 0 0;
+  padding: calc($new-header-height + 16px) 0 0;
+  overflow: hidden;
 
   .pageTitle,
   .breadcrumbs {
@@ -29,19 +30,42 @@
     }
   }
 
+  &.book-a-call {
+    .breadcrumbs {
+      display: none;
+    }
+  }
+
   &.enterprise-resource-planning-software-services,
   &.web-app-development-company,
   &.ios-mobile-app-development-services,
   &.android-mobile-app-development-services,
   &.mvp-app-development-company,
+  &.pwa-development-services,
   &.cloud-based-app-development-services,
   &.machine-learning-development-services,
   &.fintech-software-development-services,
   &.devops-development-services,
-  &.prototyping-services,
   &.data-science-development-company,
-  &.artificial-intelligence-development-services {
+  &.cross-platform-development-services,
+  &.artificial-intelligence-development-services,
+  &.prototyping-services,
+  &.software-quality-assurance-services,
+  &.software-development-columbus,
+  &.software-development-washington,
+  &.software-development-nashville,
+  &.software-development-raleigh,
+  &.software-development-oklahoma {
     background-color: $gray900;
+  }
+
+  &.penetration-testing,
+  &.banking-software-development-company,
+  &.delivery-quality-in-yellow,
+  &.payment-gateway-development-company,
+  &.e-wallet-app-development,
+  &.billing-software-development-services {
+    background-color: $gray50;
   }
 
   @include phone {

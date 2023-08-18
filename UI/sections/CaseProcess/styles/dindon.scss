@@ -1,0 +1,107 @@
+.dindon {
+  background-color: $dinDonSecondary;
+
+  .titleStyle {
+    max-width: 743px;
+  }
+
+  .container {
+    max-width: $wide-content-width;
+  }
+
+  .stepsContainer {
+    position: relative;
+    margin: 0 0 -60px -60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    & > div {
+      margin: 0 0 60px 60px;
+      flex: 0 0 360px;
+
+      @include tablet {
+        margin: 0 0 40px 40px;
+      }
+    }
+
+    .step {
+      @include flex(column, flex-start, flex-start);
+
+      padding: 32px;
+      box-sizing: border-box;
+      background: $gray0;
+      border: 1px solid $gray100;
+      border-radius: 5px;
+
+      .bundleImage {
+        position: absolute;
+        z-index: 5;
+      }
+
+      .bundleImage-1 {
+        left: calc(100% - 6px);
+        top: 50%;
+        width: 66px;
+        height: 20px;
+
+        @include tablet {
+          display: none;
+        }
+      }
+
+      .bundleImage-2 {
+        display: none;
+
+        @include tablet {
+          display: block;
+          top: calc(100% - 6px);
+          left: 50%;
+          width: 20px;
+          height: 45px;
+        }
+      }
+
+      &-3 {
+        .bundleImage-1 {
+          top: 98%;
+          right: 50%;
+          bottom: unset;
+          left: unset;
+          width: calc(200% + 120px);
+          height: 66px;
+        }
+      }
+
+      .stepNumber {
+        background-color: $dinDonPrimary;
+      }
+
+      .stepTitle {
+        @include fontSize(20px);
+
+        color: $gray900;
+        line-height: 180%;
+      }
+
+      p {
+        @include fontSize(16px, 150%);
+
+        margin: 8px 0 0;
+        flex-grow: 1;
+        color: $gray400;
+        white-space: unset;
+      }
+
+      @include tablet {
+        @include flex(column, center, flex-start);
+
+        max-width: 100%;
+      }
+    }
+
+    @include tablet {
+      grid-template-columns: repeat(1, auto);
+      margin: 0 0 -40px -40px;
+    }
+  }
+}

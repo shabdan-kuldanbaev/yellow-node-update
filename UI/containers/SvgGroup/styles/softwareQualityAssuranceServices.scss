@@ -1,0 +1,13 @@
+.software-quality-assurance-services {
+  max-width: 1194px;
+
+  .swiper {
+    &:global(.swiper) {
+      overflow: visible;
+
+      @include macbook-twelve {
+        overflow: hidden;
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+.cctv-footage-analytics {
+  background: $metapixPrimary;
+  padding: 128px 32px 60px;
+
+  .contentWrapper {
+    width: 100%;
+  }
+
+  .introSection {
+    @include flex(column, center, center);
+
+    margin: 0 auto;
+  }
+
+  .logo {
+    margin-bottom: 24px;
+    width: 773px;
+    height: 138px;
+  }
+
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    height: 526px;
+  }
+
+  .image {
+    left: unset;
+    right: -21%;
+    top: 0;
+    transform: unset;
+  }
+
+  .sectionTitle {
+    display: none;
+  }
+
+  .introText {
+    width: 100%;
+  }
+
+  .introList {
+    @include flex(row, space-between, center);
+
+    margin-bottom: -8px;
+    padding-top: 24px;
+    border-top: 1px solid $gray700;
+  }
+
+  .listItem {
+    margin-bottom: 8px;
+
+    span {
+      color: $gray200;
+    }
+  }
+
+  .experiencesContainer {
+    white-space: unset;
+    overflow: unset;
+  }
+
+  .experience {
+    max-width: 387px;
+
+    .infoTitle {
+      display: none;
+    }
+
+    p {
+      @include fontSize(24px, 130%);
+
+      color: $gray0;
+    }
+  }
+
+  @include tablet {
+    .logo {
+      width: 100%;
+    }
+  }
+
+  @include below-tablet {
+    padding: 88px 16px 30px;
+
+    .logo {
+      width: 343px;
+      height: 61px;
+    }
+
+    .imageContainer {
+      height: 256px;
+    }
+
+    .image {
+      right: 0;
+      width: 456px;
+    }
+
+    .introList {
+      @include flex(column,center , flex-start);
+    }
+
+    .experience > p {
+      @include fontSize(20px, 150%);
+    }
+  }
+
+  @include phone {
+    .image {
+      right: -30%;
+      width: 456px;
+    }
+  }
+}

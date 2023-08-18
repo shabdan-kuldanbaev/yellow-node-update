@@ -137,8 +137,15 @@ export const routes = {
     dynamicPath: '/process',
     slug: 'process',
   },
+  softwareDevelopmentPrice: {
+    title: 'Pricing',
+    path: '/pricing',
+    dynamicPath: '/pricing',
+    slug: 'pricing',
+  },
   blog: {
-    title: 'Blog',
+    title: 'Insights',
+    slug: 'blog',
     path: rootBlogPath,
     // TODO think a better solution
     getRoute: (category, page = '1') => getPageRoute(
@@ -149,7 +156,6 @@ export const routes = {
     dynamicPath: {
       ...dynamicBlogPaths,
     },
-    slug: 'blog',
     categories: [
       {
         title: 'Latest',
@@ -168,8 +174,8 @@ export const routes = {
         slug: 'software-chat',
       },
       {
-        title: 'Marketing',
-        slug: 'marketing',
+        title: 'Fintech',
+        slug: 'fintech',
       },
       {
         title: 'Yellow',
@@ -191,17 +197,35 @@ export const routes = {
     dynamicPath: '/company',
     slug: 'company',
   },
+  whyUs: {
+    title: 'Why Us',
+    path: '/why-us',
+    dynamicPath: '/why-us',
+    slug: 'why-us',
+  },
   contact: {
     title: 'Contact Us',
     path: '/contact',
     dynamicPath: '/contact',
     slug: 'contact',
   },
+  softwareQualityAssuranceServices: {
+    title: 'Software Development Price',
+    path: '/software-quality-assurance-services',
+    dynamicPath: '/software-quality-assurance-services',
+    slug: 'software-quality-assurance-services',
+  },
   customChatApp: {
     title: 'Custom chat app development company',
     path: '/chat-app-development-company',
     dynamicPath: '/chat-app-development-company',
     slug: 'chat-app-development-company',
+  },
+  penetrationTesting: {
+    title: 'Penetration Testing Services to Secure Your Business',
+    path: '/penetration-testing',
+    dynamicPath: '/penetration-testing',
+    slug: 'penetration-testing',
   },
   customMobileApp: {
     title: 'Custom mobile app development company',
@@ -215,13 +239,19 @@ export const routes = {
     dynamicPath: '/web-app-development-company',
     slug: 'web-app-development-company',
   },
+  crowdfundingPlatform: {
+    title: 'Crowdfunding Platform Development Company',
+    path: '/crowdfunding-platform-development-company',
+    dynamicPath: '/crowdfunding-platform-development-company',
+    slug: 'crowdfunding-platform-development-company',
+  },
   designServices: {
     title: 'UI/UX design services',
     path: '/ui-ux-services',
     dynamicPath: '/ui-ux-services',
     slug: 'ui-ux-services',
   },
-  developmentServices: {
+  iosDevelopmentServices: {
     title: 'iOS App Development Services',
     path: '/ios-mobile-app-development-services',
     dynamicPath: '/ios-mobile-app-development-services',
@@ -234,28 +264,61 @@ export const routes = {
     slug: 'android-mobile-app-development-services',
   },
   mvpDevelopment: {
-    title: 'MVP development services',
+    title: 'MVP App Development Services',
     path: '/mvp-app-development-company',
     dynamicPath: '/mvp-app-development-company',
     slug: 'mvp-app-development-company',
+    description: 'A minimum viable product will help you get enough feedback to determine whether '
+      + 'you should continue a given project. We are ready to help with your MVP development.',
+  },
+  lendingSoftwareDevelopment: {
+    title: 'Lending Software Development Services',
+    path: '/lending-software-development',
+    dynamicPath: '/lending-software-development',
+    slug: 'lending-software-development',
+    description: 'Revolutionize lending with our cutting-edge software development solutions for financial institutions.',
+  },
+  paymentGatewayDevelopment: {
+    title: 'Payment Software Gateway Development Company',
+    path: '/payment-gateway-development-company',
+    dynamicPath: '/payment-gateway-development-company',
+    slug: 'payment-gateway-development-company',
+    description: 'Yellow is a leading Payment Gateway Development company, providing customized solutions to enhance '
+      + 'transaction security and accuracy. Read more about our services now.',
+  },
+  billingSoftwareDevelopment: {
+    title: 'Billing Software Development Services Company',
+    path: '/billing-software-development-services',
+    dynamicPath: '/billing-software-development-services',
+    slug: 'billing-software-development-services',
+    description: 'If you want to create brand-new billing software, partner with Yellow and build a top-tier solution.',
   },
   cloudDevelopment: {
-    title: 'Cloud-based application development company',
+    title: 'Cloud Application Development Services',
     path: '/cloud-based-app-development-services',
     dynamicPath: '/cloud-based-app-development-services',
     slug: 'cloud-based-app-development-services',
+    description: 'If your application needs a strong cloud backup, Yellow is ready to help you with cloud app development.',
+  },
+  crossPlatformDevelopmentServices: {
+    title: 'Cross-Platform Mobile App Development Company',
+    path: '/cross-platform-development-services',
+    dynamicPath: '/cross-platform-development-services',
+    slug: 'cross-platform-development-services',
   },
   mlDevelopment: {
     title: 'Machine Learning Development Company',
     path: '/machine-learning-development-services',
     dynamicPath: '/machine-learning-development-services',
     slug: 'machine-learning-development-services',
+    description: 'If you want to boost your business with custom machine learning software development, Yellow is here to back you up.',
   },
   erpDevelopment: {
     title: 'Custom ERP Software Development Services',
     path: '/enterprise-resource-planning-software-services',
     dynamicPath: '/enterprise-resource-planning-software-services',
     slug: 'enterprise-resource-planning-software-services',
+    description: 'Custom ERP software development services will help you achieve flexibility and manage your business more consciously.',
   },
   devOpsDevelopment: {
     title: 'DevOps Development Company that Helps You Grow',
@@ -268,6 +331,8 @@ export const routes = {
     path: '/discovery-phase-services',
     dynamicPath: '/discovery-phase-services',
     slug: 'discovery-phase-services',
+    description: 'Discovery phase of a project is an important part of software development. Learn more about how '
+    + 'to run a discovery phase and its benefits to your business.',
   },
   signatureGenerator: {
     title: 'Signature Generator',
@@ -286,12 +351,23 @@ export const routes = {
     path: '/artificial-intelligence-development-services',
     dynamicPath: '/artificial-intelligence-development-services',
     slug: 'artificial-intelligence-development-services',
+    description: 'Yellow is an AI software development company that can provide '
+    + 'you with top-notch artificial intelligence application development.',
   },
   dataScienceDevelopment: {
     title: 'Data Science Development Services',
     path: '/data-science-development-company',
     dynamicPath: '/data-science-development-company',
     slug: 'data-science-development-company',
+    descripition: 'If you are looking for a partner that will help you analyze, process, and structure '
+    + 'your data, data science specialists at Yellow are here for you.',
+  },
+  tradingSoftwareDevelopment: {
+    title: 'Custom Trading Platform Development Services',
+    path: '/trading-software-development',
+    dynamicPath: '/trading-software-development',
+    slug: 'trading-software-development',
+    description: 'Proficient trading software development services to create robust apps and platforms that boost business performance.',
   },
   prototypingServices: {
     title: 'Mobile App Prototyping Services',
@@ -311,6 +387,66 @@ export const routes = {
     dynamicPath: '/terms-and-conditions',
     slug: 'terms-and-conditions',
   },
+  eWalletAppDevelopment: {
+    title: 'E-Wallet App Development Company',
+    path: '/e-wallet-app-development',
+    dynamicPath: '/e-wallet-app-development',
+    slug: 'e-wallet-app-development',
+  },
+  bankingSoftwareDevelopmentCompany: {
+    title: 'Banking Software Development Company',
+    path: '/banking-software-development-company',
+    dynamicPath: '/banking-software-development-company',
+    slug: 'banking-software-development-company',
+  },
+  deliveryQualityInYellow: {
+    title: 'Yellow’s Delivery Quality Standards',
+    path: '/delivery-quality-in-yellow',
+    dynamicPath: '/delivery-quality-in-yellow',
+    slug: 'delivery-quality-in-yellow',
+  },
+  pwaDevelopmentServices: {
+    title: 'PWA Development Services',
+    path: '/pwa-development-services',
+    dynamicPath: '/pwa-development-services',
+    slug: 'pwa-development-services',
+  },
+  softwareDevelopmentColumbus: {
+    title: 'Custom Software Development Company in Columbus, Ohio',
+    path: '/software-development-columbus',
+    dynamicPath: '/software-development-columbus',
+    slug: 'software-development-columbus',
+  },
+  softwareDevelopmentNashville: {
+    title: 'Custom Software Development Company in Nashville, TN',
+    path: '/software-development-nashville',
+    dynamicPath: '/software-development-nashville',
+    slug: 'software-development-nashville',
+  },
+  softwareDevelopmentOklahoma: {
+    title: 'Software Development Company in Oklahoma City',
+    path: '/software-development-oklahoma',
+    dynamicPath: '/software-development-oklahoma',
+    slug: 'software-development-oklahoma',
+  },
+  softwareDevelopmentRaleigh: {
+    title: 'Custom Software Development in Raleigh',
+    path: '/software-development-raleigh',
+    dynamicPath: '/software-development-raleigh',
+    slug: 'software-development-raleigh',
+  },
+  softwareDevelopmentWashington: {
+    title: 'Custom Software Development Company in Washington, D.C.',
+    path: '/software-development-washington',
+    dynamicPath: '/software-development-washington',
+    slug: 'software-development-washington',
+  },
+  bookCall: {
+    title: '',
+    path: '/book-a-call',
+    dynamicPath: '/book-a-call',
+    slug: 'book-a-call',
+  },
   cookiesPolicy: {
     title: 'Cookies Policy',
     path: '/cookies-policy',
@@ -322,5 +458,4 @@ export const routes = {
     dynamicPath: '/not-found',
     slug: 'not-found',
   },
-
 };

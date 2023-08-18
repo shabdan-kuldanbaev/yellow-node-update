@@ -1,0 +1,24 @@
+.why-us {
+  padding: 120px 16px 60px;
+  background: $gray900;
+
+  .sectionTitle {
+    max-width: 804px;
+  }
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-swiper-button] {
+    color: $gray0;
+
+    svg {
+      fill: $gray0;
+    }
+  }
+
+  @include below-tablet {
+    padding: 60px 16px 30px;
+  }
+}

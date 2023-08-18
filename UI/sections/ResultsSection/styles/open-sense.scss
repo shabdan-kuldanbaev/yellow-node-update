@@ -1,0 +1,26 @@
+.open-sense {
+  padding-bottom: 0;
+
+  [data-description] {
+    max-width: 600px;
+
+    @include phone {
+      max-width: 343px;
+    }
+  }
+
+  .media {
+    position: static;
+    transform: scale(1.08);
+    width: 994px;
+    height: 706px;
+
+    @include tablet {
+      height: 500px;
+    }
+
+    @include phone {
+      height: 244px;
+    }
+  }
+}

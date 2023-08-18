@@ -1,0 +1,55 @@
+@import 'styles/utils/mixins';
+
+.view {
+  .title {
+    margin-top: 32px;
+  }
+
+  .subtitle {
+    @include fontSize(16px, 150%);
+
+    color: $gray400;
+    margin-bottom: 24px;
+    max-width: 813px;
+
+    @include tablet {
+      margin-bottom: 24px;
+    }
+  }
+
+  .callToAction {
+    @include flex(column, center, center);
+
+    margin-top: 120px;
+    min-height: auto;
+    padding: 0;
+    background: none;
+
+    & > div {
+      max-width: none;
+    }
+
+    h3 {
+      @include fontSize(38px);
+
+      margin: 0;
+      max-width: none;
+
+      @include tablet {
+        @include fontSize(24px);
+      }
+    }
+
+    button {
+      margin: 48px auto 0;
+
+      @include tablet {
+        margin-top: 24px;
+      }
+    }
+
+    @include tablet {
+      margin-top: 60px;
+    }
+  }
+}

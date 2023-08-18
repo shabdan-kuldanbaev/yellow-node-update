@@ -1,0 +1,21 @@
+.fintech-app-for-credit-score {
+  .image-1 {
+    width: 994px;
+    height: 246px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .image-2 {
+    display: none;
+    width: 343px;
+    height: 626px;
+    margin: 0 auto;
+
+    @include tablet {
+      display: block;
+    }
+  }
+}

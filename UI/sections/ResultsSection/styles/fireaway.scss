@@ -1,0 +1,139 @@
+.fireaway {
+  &.firstSectionView {
+    background-color: $gray50;
+
+    .sectionTitle {
+      max-width: 583px;
+
+      [data-title] {
+        color: $gray900;
+      }
+    }
+
+    .contentWrapper {
+      max-width: 652px;
+    }
+
+    .media {
+      position: static;
+      transform: unset;
+      width: 100%;
+      height: 600px;
+
+      @include tablet {
+        height: 400px;
+      }
+
+      @include phone {
+        height: 316px;
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+
+      &-1 {
+        top: 0;
+        left: -29%;
+        width: 12.5%;
+        height: 5%;
+      }
+
+      &-2 {
+        left: -14%;
+        top: 0;
+        width: 24.5%;
+        height: 16.6%;
+      }
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $fireawayAccent;
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    .media {
+      position: static;
+      transform: scale(1.1);
+      width: 790px;
+      height: 507px;
+
+      @include tablet {
+        height: 320px;
+      }
+
+      @include phone {
+        height: 220px;
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+
+      &-1 {
+        bottom: 0;
+        right: -155px;
+        width: 100px;
+        height: 100px;
+      }
+
+      &-2 {
+        left: 0;
+        top: -53px;
+        width: 53px;
+        height: 53px;
+      }
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $gray50;
+    padding: 60px 40px 120px;
+
+    .sectionTitle {
+      max-width: 666px;
+
+      [data-title] {
+        color: $gray900;
+      }
+
+      @include phone {
+        max-width: 343px;
+      }
+    }
+
+    .media {
+      position: static;
+      transform: unset;
+      width: 790px;
+      height: 498px;
+
+      @include tablet {
+        height: 316px;
+      }
+
+      @include phone {
+        height: 216px;
+      }
+    }
+
+    @include tablet {
+      padding: 30px 32px 60px;
+    }
+
+    @include phone {
+      padding: 30px 16px 60px;
+    }
+  }
+}

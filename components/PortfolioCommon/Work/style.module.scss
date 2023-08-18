@@ -1,172 +1,72 @@
 @import 'styles/utils/mixins';
 
 .work {
-  height: 530px;
   position: relative;
   overflow: hidden;
 
-  .contentWrapper {
-    @include flex(column, space-between, flex-start);
-
-    background: rgba(23, 23, 23, 0.72);
-    box-sizing: border-box;
-    padding: 70px 60px;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.15s ease-in-out;
-    position: relative;
-    color: $gray0;
-
-    @include macbook-twelve {
-      padding: 50px 30px;
-    }
-
-    @include tablet {
-      display: block;
-      opacity: 1;
-      padding: 0;
-      margin-top: 14px;
-      background: none;
-      color: $gray900;
-    }
-  }
-
-  .imageContainer {
-    .backgroundImage {
-      @include covered;
-
-      object-fit: cover !important;
-      transition: filter 0.15s ease-in-out;
-      z-index: 0;
-    }
-
-    .mainImage {
-      @include centered;
-
-      max-width: 90%;
-      max-height: 80%;
-      transition: filter 0.15s ease-in-out;
-      z-index: 0;
-    }
-
-    @include tablet {
-      position: relative;
-      height: 420px;
-    }
-
-    @include below-tablet {
-      position: relative;
-      height: 290px;
-    }
-  }
-
   &:hover {
-    .imageContainer {
-      .backgroundImage,
-      .mainImage {
-        filter: blur(20px);
+    .title {
+      color: $yellow400;
+    }
 
-        @include tablet {
-          filter: none;
-        }
+    .arrow {
+      fill: $yellow400;
+      transform: none;
+    }
+
+    .image {
+      filter: saturate(1);
+
+      img {
+        transform: scale(103%);
       }
     }
-
-    .contentWrapper {
-      opacity: 1;
-      transition: opacity 0.3s ease-in-out;
-    }
-  }
-
-  @include tablet {
-    height: auto;
-    overflow: visible;
-
-    * {
-      text-align: center;
-    }
   }
 }
 
-.tagsWrapper {
-  @include flex(row, flex-start, flex-start, wrap);
+.contentWrapper {
+  margin-top: 16px;
+}
 
-  margin-left: -10px;
+.image {
+  aspect-ratio: 584/450;
+  width: 100%;
+  filter: saturate(0.6);
+  transition: filter 0.2s ease-in-out;
+
+  img {
+    object-fit: cover !important;
+    transition: transform 0.2s ease-in-out;
+  }
 
   @include tablet {
-    justify-content: center;
+    filter: saturate(0.9);
   }
 }
 
-.tag {
-  @include buttonTransition;
-
-  margin: 0 0 10px 10px;
+.titleWrapper {
+  @include flex(row, space-between, flex-start);
 }
 
 .title {
-  @include fontSize(38px, 130%);
+  @include fontSize(20px, 150%);
 
-  margin: 30px 0 0;
+  margin: 0 0 4px;
+  transition: color 0.1s ease-in-out;
+}
 
-  @include tablet {
-    @include fontSize(18px);
-
-    line-height: 21px;
-    margin-top: 10px;
-  }
+.arrow {
+  flex: 0 0 24px;
+  height: 30px;
+  transition:
+    fill 0.1s ease-in-out,
+    transform 0.1s ease-in-out;
+  transform: scale(0.9);
 }
 
 .description {
   @include fontSize(16px, 150%);
 
-  flex: 1 1 auto;
+  margin: 0;
   color: $gray400;
-}
-
-.buttonStyle {
-  @include button-more($gray0, $dark-grey, transparent, $turbo-100, $gray0, $turbo-100);
-
-  align-self: flex-start;
-  margin-top: 0;
-  width: auto;
-  padding: 16px 32px;
-  border-radius: 8px;
-  font-weight: 600;
-
-  &:hover {
-    transform: scale(0.96);
-  }
-
-  @include tablet {
-    margin: 20px auto 0;
-    max-width: max-content;
-    color: $gray900;
-    border-color: $gray900;
-  }
-}
-
-.marketplace-for-clairvoyant-services,
-.mobile-fintech-app {
-  .title {
-    @include fontSize(48px);
-
-    line-height: 48px;
-    margin-top: 20px;
-
-    @include macbook-fifteen {
-      @include fontSize(42px);
-
-      margin-top: 20px;
-      line-height: 50px;
-    }
-
-    @include tablet {
-      @include fontSize(18px);
-
-      line-height: 21px;
-      margin-top: 10px;
-    }
-  }
 }

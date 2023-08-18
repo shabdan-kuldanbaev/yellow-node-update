@@ -1,0 +1,17 @@
+.mobile-bank-application {
+  &.firstSectionView {
+    padding-bottom: 81px;
+
+    @include phone {
+      padding-bottom: 30px;
+    }
+  }
+
+  &.fifthSectionView {
+    background-color: $mobileBankPrimary;
+
+    [data-title] {
+      color: $gray0;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+.software-quality-assurance-services {
+  background-color: $gray50;
+
+  [data-title] {
+    @include phone {
+      max-width: 340px;
+    }
+  }
+
+  :global(.swiper-slide) {
+    @include phone {
+      max-width: 225px;
+      text-align: center;
+    }
+  }
+
+  .cardContainer {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .cardContent {
+    display: block;
+  }
+
+  .contentBlock {
+    margin: 0 auto;
+  }
+
+  ul {
+    @include listWithYellowMarkers;
+    @include fontSize(16px, 150%);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-auto-flow: column;
+    color: $gray900;
+    margin: auto;
+    max-width: 430px;
+
+    li {
+      margin-bottom: 12px;
+      max-width: 219px;
+
+      &:nth-of-type(3) {
+        margin-bottom: 0;
+
+        @include below-tablet {
+          margin-bottom: 12px;
+        }
+      }
+
+      @include below-tablet {
+        max-width: unset;
+        text-align: center;
+      }
+    }
+
+    @include below-tablet {
+      height: fit-content;
+      align-items: center;
+      margin-top: 40px;
+    }
+  }
+}

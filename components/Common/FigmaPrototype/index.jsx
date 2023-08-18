@@ -1,6 +1,7 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+import Illustration from 'UI/components/Illustration';
 import { CUSTOM_DOMAIN } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -20,17 +21,18 @@ const FigmaPrototype = ({
 
   return (
     <div className={cn(styles.prototypeContainer, className)}>
-      <iframe
-        src={url}
-        className={styles.prototype}
-        frameBorder="0"
-        title="Figma prototype "
-        seamless
-      />
-      <img
+      <div className={styles.iframeContainer}>
+        <iframe
+          src={url}
+          className={styles.prototype}
+          title="Figma prototype "
+          loading="lazy"
+          seamless
+        />
+      </div>
+      <Illustration
         src={deviceFrameSrc}
         className={styles.deviceFrame}
-        alt=""
       />
     </div>
   );

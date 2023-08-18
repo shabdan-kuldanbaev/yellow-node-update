@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { getEmployeeInfo } from 'containers/Signature/utils/helpers';
@@ -6,8 +5,9 @@ import {
   SIGNATURE_BUTTON_NAMES,
   YELLOW_DOMAIN,
   YELLOW_LINK,
-} from 'containers/Signature/utils/constants';
+} from 'containers/Signature/utils';
 import LinkWrapper from 'components/Common/LinkWrapper';
+import { SOCIAL_MEDIA } from 'utils/constants/contacts';
 import styles from './styles.module.scss';
 
 const SignatureGenerated = ({
@@ -88,15 +88,14 @@ const SignatureGenerated = ({
                 </td>
               </tr>
               <tr>
-                <td className={styles.signatureData}>
-                  <p className={styles.signatureDataYellow}>
-                    <LinkWrapper
-                      isLocalLink={false}
-                      path={YELLOW_LINK}
-                    >
-                      {YELLOW_DOMAIN}
-                    </LinkWrapper>
-                  </p>
+                <td className={cn(styles.signatureData, styles.signatureYellowContainer)}>
+                  <LinkWrapper
+                    isLocalLink={false}
+                    path={YELLOW_LINK}
+                    className={styles.signatureDataYellow}
+                  >
+                    {YELLOW_DOMAIN}
+                  </LinkWrapper>
                 </td>
               </tr>
               <tr>
@@ -106,7 +105,7 @@ const SignatureGenerated = ({
                 >
                   <LinkWrapper
                     isLocalLink={false}
-                    path="https://www.linkedin.com/company/yellow-systems/"
+                    path={SOCIAL_MEDIA.linkedin.link}
                   >
                     <img
                       src={images.linkedInImgUrl}
@@ -115,7 +114,7 @@ const SignatureGenerated = ({
                   </LinkWrapper>
                   <LinkWrapper
                     isLocalLink={false}
-                    path="https://www.instagram.com/yellow.systems/"
+                    path={SOCIAL_MEDIA.instagram.link}
                   >
                     <img
                       src={images.instagramImgUrl}
@@ -124,7 +123,7 @@ const SignatureGenerated = ({
                   </LinkWrapper>
                   <LinkWrapper
                     isLocalLink={false}
-                    path="https://twitter.com/yellow_systems"
+                    path={SOCIAL_MEDIA.twitter.link}
                   >
                     <img
                       src={images.twitterImgUrl}

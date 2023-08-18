@@ -1,0 +1,16 @@
+.cash-chat {
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  grid-column-gap: 197px;
+  grid-auto-flow: row;
+  max-width: 789px;
+
+  .title {
+    color: $gray900;
+  }
+
+  .teamItem {
+    font-weight: 400;
+    color: $gray900;
+  }
+}

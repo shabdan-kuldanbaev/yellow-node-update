@@ -1,0 +1,16 @@
+.cinnabar {
+  &.secondSectionView {
+    position: relative;
+    z-index: 1;
+    padding: 120px 16px;
+    background: $cinnabarGradientPrimary;
+
+    .titleStyle {
+      color: $gray0;
+    }
+
+    @include phone {
+      padding: 60px 0;
+    }
+  }
+}

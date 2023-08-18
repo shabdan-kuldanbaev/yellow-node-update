@@ -15,13 +15,9 @@
     @include flex(column, center, center);
 
     .content {
-      width: 510px;
-
       @include flex(column, center, center);
 
-      @include phone {
-        width: 85%;
-      }
+      width: 510px;
 
       .title {
         text-align: center;
@@ -46,9 +42,9 @@
       }
 
       .inputBlock {
-        width: 100%;
-
         @include flex(column, flex-start, center);
+
+        width: 100%;
 
         label {
           span {
@@ -88,6 +84,7 @@
 
         .button {
           @include button-more($black, $black, $turbo-100, $turbo-100, $turbo-100, $turbo-100);
+          @include flex(row, center);
 
           border-radius: $button-border-radius;
           letter-spacing: 0.5px;
@@ -98,13 +95,15 @@
           transform: scale(1);
           outline: none;
 
-          @include flex(row, center);
-
           &:hover {
             border: none;
             transform: scale(0.96);
           }
         }
+      }
+
+      @include phone {
+        width: 85%;
       }
     }
   }

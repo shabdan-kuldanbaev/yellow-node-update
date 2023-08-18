@@ -12,11 +12,11 @@
 }
 
 @mixin smallSectionWrapper {
+  @include flex(column, center, stretch);
+
   max-width: $max-content-width-small-section;
   margin: 0 auto;
   position: relative;
-
-  @include flex(column, center, stretch);
 }
 
 @mixin defaultCard {
@@ -115,12 +115,12 @@
 
 .cardsWithFullWidthImage {
   .cards {
-    @include below-tablet {
-      grid-gap: 33px;
-    }
-
     & > div {
       display: block;
+    }
+
+    @include below-tablet {
+      grid-gap: 33px;
     }
   }
 
@@ -177,4 +177,8 @@
   @include below-tablet {
     grid-template-columns: 1fr;
   }
+}
+
+.textContent {
+  @include flex(column, initial, center);
 }

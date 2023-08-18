@@ -13,16 +13,16 @@
   .h3 {
     @include fontSize(24px);
 
-    @include macbook-twelve {
-      @include fontSize(22px);
-    }
-
     color: $tundora;
     font-weight: 700;
     line-height: 1.5;
     border-left: 2px solid $tundora;
     padding-left: 20px;
     margin: 0 40px 0 0;
+
+    @include macbook-twelve {
+      @include fontSize(22px);
+    }
 
     @include phone {
       @include fontSize(18px);
@@ -49,50 +49,6 @@
   }
 }
 
-.page {
-  @include flex(column, center, center);
-
-  @include macbook-fifteen {
-    padding: 0 80px;
-  }
-
-  margin-bottom: 250px;
-  padding: 0 20px;
-
-  .h3 {
-    @include fontSize(38px, 130%);
-
-    text-align: center;
-
-    @include phone {
-      @include fontSize(24px, 130%);
-    }
-  }
-
-  .p {
-    @include fontSize(20px);
-
-    text-align: center;
-    line-height: 1.8;
-
-    @include phone {
-      @include fontSize(16px);
-    }
-  }
-
-  .button {
-    margin-top: 48px;
-
-    @include phone {
-      margin-top: 24px;
-    }
-  }
-
-  @include tablet {
-    padding: 0 20px;
-  }
-}
-
 .card {
   @include flex(row, space-between, center);
 
@@ -103,6 +59,10 @@
   border-radius: 5px;
   max-width: $default-content-width;
   min-height: 215px;
+
+  .content {
+    max-width: none;
+  }
 
   h3 {
     margin: 0;
@@ -131,4 +91,187 @@
       margin: 0 auto;
     }
   }
+}
+
+.new {
+  @include flex(row, flex-start, center);
+
+  position: relative;
+  box-sizing: border-box;
+  min-height: 173px;
+  padding: 24px 32px;
+  background: $gray0;
+  border: 1px solid $gray200;
+  border-radius: 10px;
+  margin: 0;
+
+  .title {
+    @include fontSize(20px);
+  }
+
+  &.book {
+    @include flex(column, flex-start, flex-start);
+
+    border-color: $yellow500;
+    padding-left: 40%;
+    margin-top: 130px;
+    background: $gray50;
+
+    .content {
+      max-width: none;
+    }
+
+    .image {
+      position: absolute;
+      width: 167px;
+      height: 245px;
+      left: 60px;
+      bottom: 24px;
+      filter: drop-shadow(10px 24px 42px rgb(0 0 0 / 7%));
+    }
+
+    .button {
+      margin: 16px 0 0;
+    }
+
+    @include tablet {
+      padding: 188px 32px 24px;
+
+      .image {
+        left: 50%;
+        top: -90px;
+        transform: translateX(-50%);
+      }
+
+      .button {
+        margin: 16px auto 0;
+      }
+    }
+  }
+
+  @include tablet {
+    flex-direction: column;
+
+    .image {
+      min-height: 125px;
+      margin: 0 0 24px;
+    }
+
+    .content {
+      max-width: none;
+
+      * {
+        text-align: center;
+      }
+    }
+
+    .button {
+      margin: 24px auto 0;
+    }
+  }
+}
+
+.image {
+  align-self: stretch;
+  min-width: 156px;
+  margin-right: 32px;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: $gray400;
+}
+
+.button {
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+
+.openContact {
+  .content {
+    max-width: 462px;
+  }
+}
+
+.subscribe {
+  &.isSubscribed {
+    .content {
+      max-width: none;
+    }
+
+    .button {
+      display: none;
+    }
+  }
+}
+
+.page {
+  @include flex(column, center, center);
+
+  margin: 0 auto;
+  padding: 60px 0 120px;
+  background: $gray0;
+
+  .h3 {
+    @include fontSize(38px, 130%);
+
+    text-align: center;
+    margin: 0;
+
+    @include phone {
+      @include fontSize(24px, 130%);
+    }
+  }
+
+  .p {
+    @include fontSize(20px);
+
+    text-align: center;
+    line-height: 1.8;
+
+    @include phone {
+      @include fontSize(16px);
+    }
+  }
+
+  .button {
+    margin: 48px auto 0;
+
+    @include tablet {
+      margin: 0 auto;
+    }
+  }
+
+  @include tablet {
+    padding: 30px 0 60px;
+  }
+}
+
+.scrollBlock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  margin: 0;
+  padding: 0;
+  display: block;
+  min-height: auto;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: unset;
+  box-sizing: border-box;
+  pointer-events: none;
+  opacity: 0;
+  transition: ease-in-out 0.3s;
+}
+
+.showScrollBlock {
+  opacity: 1;
+  pointer-events: auto;
 }

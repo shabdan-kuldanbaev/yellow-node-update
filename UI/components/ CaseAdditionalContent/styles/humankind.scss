@@ -1,0 +1,59 @@
+.humankind {
+  flex-direction: column;
+  max-width: 285px;
+
+  .container {
+    max-width: 285px;
+
+    &-1 {
+      margin-bottom: 24px;
+    }
+  }
+
+  .title {
+    font-size: 18px;
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+
+  .listContainer {
+    padding: 0;
+    list-style-type: none;
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .listItem {
+    @include fontSize(16px, 150%);
+
+    position: relative;
+    margin-bottom: 16px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: $gray400;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $humankindGradient;
+      transform: translateY(-50%);
+    }
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  @include phone {
+    max-width: 100%;
+  }
+}

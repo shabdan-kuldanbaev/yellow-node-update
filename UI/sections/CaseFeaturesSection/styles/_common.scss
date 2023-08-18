@@ -1,0 +1,80 @@
+.container {
+  @include caseStudyContainer;
+  @include flex(column, center, center);
+
+  padding: 120px 0;
+  margin: 0 auto;
+
+  .titleStyles {
+    margin-bottom: 48px;
+
+    @include phone {
+      margin-bottom: 24px;
+    }
+  }
+
+  .mainContainer {
+    @include flex(row, space-between, flex-end);
+
+    align-items: center;
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .featureContainer {
+    @include flex;
+
+    @include phone {
+      max-width: 343px;
+    }
+  }
+
+  .icon {
+    @include centered;
+  }
+
+  .featuresList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 32px;
+    row-gap: 32px;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .title {
+    @include fontSize(24px, 130%);
+
+    margin: 0 0 8px;
+  }
+
+  .contentContainer {
+    max-width: 430px;
+
+    p {
+      @include fontSize(16px, 150%);
+
+      margin: 0;
+    }
+
+    @include tablet {
+      max-width: unset;
+    }
+  }
+
+  .checkMark {
+    position: relative;
+    min-width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    border-radius: 50%;
+  }
+
+  @include phone {
+    padding: 60px 0;
+  }
+}

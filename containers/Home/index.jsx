@@ -1,13 +1,13 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import Intro from 'UI/sections/Intro';
+import dynamic from 'next/dynamic';
+import HomeIntro from 'UI/sections/HomeIntro';
 import MetaTags from 'components/Common/MetaTags';
-import SectionSelector from 'containers/Home/SectionSelector';
-import { CONTACT_FORM_TITLES, PAGES } from 'utils/constants';
-import { microdata } from 'utils/microdata';
+import { loadDuck } from 'UI/components/Duck/DuckWrapper/utils/helpers';
+import { PAGES } from 'utils/constants';
+import { useContext, useEffect } from 'react';
+import { AppContext } from 'utils/appContext';
 
-const FeedbackFormContainer = dynamic(() => import('containers/Home/FeedbackForm'));
+const SectionSelector = dynamic(() => import('containers/Home/SectionSelector'));
 
 export const Home = ({
   theme,
@@ -15,17 +15,31 @@ export const Home = ({
   pageMetadata,
   pageData,
   type,
+  ...rest
 }) => {
-  const { main: contentModules, hasFeedbackForm } = pageData;
+  const contentModules = pageData;
+
+  const { contextData: { duck }, setContextData } = useContext(AppContext);
+
+  useEffect(() => {
+    if (duck) {
+      return;
+    }
+
+    (async () => {
+      const duckLoaded = await loadDuck();
+
+      setContextData((prev) => ({ ...prev, duck: duckLoaded }));
+    })();
+  }, [duck, setContextData]);
 
   return (
     <>
       <MetaTags
         page={PAGES.homepage}
         pageMetadata={pageMetadata}
-        pageMicrodata={microdata.homepage()}
       />
-      <Intro
+      <HomeIntro
         theme={theme}
         introSection={introSection}
       />
@@ -34,15 +48,9 @@ export const Home = ({
           key={`section/${i}`}
           section={module}
           type={type}
+          {...rest}
         />
       ))}
-      {hasFeedbackForm && (
-        <FeedbackFormContainer
-          isChooseBudget
-          type={type}
-          titles={[CONTACT_FORM_TITLES[type]]}
-        />
-      )}
     </>
   );
 };

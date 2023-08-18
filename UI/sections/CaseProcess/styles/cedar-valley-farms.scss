@@ -1,0 +1,107 @@
+.cedar-valley-farms {
+  padding: 60px 0;
+  background-color: $gray900;
+
+  .container {
+    max-width: $wide-content-width;
+  }
+
+  .titleStyle {
+    @include flex(row, space-between, center);
+
+    position: relative;
+    margin: 0 auto 48px;
+    max-width: $wide-content-width;
+    width: 100%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 147px;
+      right: 23px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 1px;
+      background-color: $gray400;
+    }
+
+    @include below-tablet {
+      margin: 0 auto 21px;
+    }
+  }
+
+  [data-title] {
+    @include fontSize(16px, 150%);
+
+    overflow: hidden;
+    margin: 0;
+    max-width: unset;
+    color: $gray0;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  [data-subtitle] {
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+    max-width: unset;
+    color: $gray0;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .stepsContainer {
+    @include flex(row, center, initial, wrap);
+
+    margin: 0 0 -32px -32px;
+
+    & > div {
+      margin: 0 0 32px 32px;
+      flex: 0 0 378px;
+
+      @include tablet {
+        margin: 0 0 24px 24px;
+      }
+    }
+
+    .step {
+      height: 100%;
+      box-sizing: border-box;
+
+      .stepImage {
+        width: 132px;
+        height: 132px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+
+      .stepTitle {
+        @include fontSize(20px, 150%);
+
+        margin: 12px auto 0;
+        color: $gray0;
+        text-align: center;
+      }
+
+      p {
+        @include fontSize(16px, 150%);
+
+        flex-grow: 1;
+        margin: 8px 0 0;
+        color: $gray400;
+        text-align: center;
+      }
+    }
+
+    @include tablet {
+      margin: 0 0 -24px -24px;
+    }
+  }
+
+  @include below-tablet {
+    padding: 30px 16px;
+  }
+}

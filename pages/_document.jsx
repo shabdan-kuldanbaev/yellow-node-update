@@ -1,4 +1,4 @@
-import React from 'react';
+import { Children } from 'react';
 import Document, {
   Html,
   Head,
@@ -21,7 +21,7 @@ class MyDocument extends Document {
 
     return {
       ...initialProps,
-      styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],
+      styles: [...Children.toArray(initialProps.styles), sheets.getStyleElement()],
     };
   }
 
@@ -38,17 +38,13 @@ class MyDocument extends Document {
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
-            crossOrigin="true"
+            crossOrigin
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
-            rel="preload"
-            as="style"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Roboto:wght@400;700;900&display=swap"
             rel="stylesheet"
           />
+
           <Script
             id="gtm-script"
             strategy="lazyOnload"
@@ -60,13 +56,19 @@ class MyDocument extends Document {
             })(window,document,'script','dataLayer','${GTM_ID}');`,
             }}
           />
+
           <Script
-            id="crisp-script"
-            strategy="lazyOnload"
+            id="gtag-script"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
-              __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="${CRISP_WEBSITE_ID}";
-            (function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;
-            d.getElementsByTagName("head")[0].appendChild(s);})();`,
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GTM_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
             }}
           />
         </Head>
