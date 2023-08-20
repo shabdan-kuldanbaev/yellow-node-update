@@ -1,4 +1,9 @@
 .software-development-columbus,
+.software-development-new-orleans,
+.software-development-tulsa,
+.software-development-miami,
+.software-development-minneapolis,
+.software-development-omaha,
 .software-development-washington,
 .software-development-oklahoma,
 .software-development-nashville,
@@ -6,11 +11,17 @@
   &.firstSectionView {
     background: $gray50;
 
+    .title {
+      max-width: 700px;
+    }
+
     .contentWrapper {
       max-width: $wide-content-width;
     }
 
     .callToAction {
+      border: none;
+
       & > div {
         max-width: 535px;
       }
@@ -20,21 +31,24 @@
   &.secondSectionView {
     @extend .blackSection;
 
+    .title {
+      max-width: 750px;
+    }
+
     .card {
-      @include flex(column, flex-start, flex-start);
+      @include flex(column, flex-start, center);
 
       picture {
         width: 276px;
         height: 276px;
       }
 
-      @include below-tablet {
-        align-items: center;
+      h3 {
+        margin: 24px auto 8px;
+      }
 
-        * {
-          align-items: center;
-          text-align: center;
-        }
+      * {
+        text-align: center;
       }
     }
   }
