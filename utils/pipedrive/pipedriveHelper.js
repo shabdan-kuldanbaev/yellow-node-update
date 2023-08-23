@@ -148,7 +148,7 @@ export async function sendDataPipedrive(req, res) {
       clientId,
     } = req.body;
 
-    const leadSource = getCookie(leadSourceCookieName, { req, res });
+    const leadSource = JSON.parse(getCookie(leadSourceCookieName, { req, res }));
     console.log('🚀 ~ file: pipedriveHelper.js:152 ~ sendDataPipedrive ~ leadSource:', leadSource);
 
     const {
