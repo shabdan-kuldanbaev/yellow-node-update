@@ -17,9 +17,10 @@ import 'swiper/css/bundle';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/pagination';
 import 'styles/index.scss';
-import { setCookie } from 'cookies-next';
+import { getCookie, setCookie } from 'cookies-next';
 import { leadSourceCookieName } from 'utils/constants/leadSourceCookieName';
 import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
+import { CUSTOM_DOMAIN } from 'utils/constants';
 
 function App({ Component, pageProps }) {
   const [subscribe] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
@@ -42,7 +43,11 @@ function App({ Component, pageProps }) {
 
     smoothscroll.polyfill();
 
-    setCookie(leadSourceCookieName, JSON.stringify(getGaMetrics()));
+    const leadSource = getGaMetrics();
+
+    if (leadSource.source !== CUSTOM_DOMAIN) {
+      setCookie(leadSourceCookieName, JSON.stringify(getGaMetrics()));
+    }
   }, []);
 
   useEffect(() => {
