@@ -1,7 +1,11 @@
 .dindon {
   z-index: 1;
-  padding: 136px 0 120px;
+  padding: 136px 32px 120px;
   background: $dinDonPrimary;
+
+  .introSection {
+    position: relative;
+  }
 
   .contentWrapper {
     margin-right: 32px;
@@ -13,45 +17,51 @@
   }
 
   .imageContainer {
-    height: 550px;
+    width: 714px;
+    height: 564px;
 
     @include tablet {
+      width: 100%;
       height: 314px;
     }
 
     @include phone {
-      height: 214px;
+      height: 208px;
     }
   }
 
   .image {
-    width: 879px;
-    height: 550px;
+    left: 0;
+    top: 0;
+    transform: unset;
+    width: 932px;
+    height: 564px;
 
     @include tablet {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       width: 500px;
       height: 314px;
     }
 
     @include phone {
       width: 343px;
-      height: 214px;
+      height: 208px;
     }
   }
 
   .bundleImage {
     position: absolute;
-    left: 166px;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 186px;
+    top: 60px;
     z-index: -1;
-    width: 1996px;
-    height: 1996px;
+    width: 321px;
+    height: 125px;
+    transform: rotate(-23.482deg);
 
-    @include phone {
-      left: -42px;
-      width: 1016px;
-      height: 1016px;
+    @include tablet {
+      display: none;
     }
   }
 

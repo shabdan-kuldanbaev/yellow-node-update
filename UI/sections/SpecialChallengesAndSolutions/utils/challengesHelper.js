@@ -15,6 +15,7 @@ export const getBackgroundStyle = (type, data) => {
       ? { backgroundImage: `url(${backgroundImageUrl}), linear-gradient(180deg, #D45D94 0%, #FA717D 100%)` }
       : {};
   case CASE_STUDIES.openSense:
+  case CASE_STUDIES.dindon:
   case CASE_STUDIES.driveFocus:
     const sectionBackgroundUrl = getFileUrl(get(data, 'background'));
 

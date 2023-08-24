@@ -1,5 +1,7 @@
 import dotenv from 'dotenv';
 import axios from 'axios';
+import { getCookie } from 'cookies-next';
+import { leadSourceCookieName } from 'utils/constants/leadSourceCookieName';
 import { handleError } from '../error';
 
 dotenv.config('./env');
@@ -144,9 +146,9 @@ export async function sendDataPipedrive(req, res) {
       phone,
       description,
       clientId,
-      source,
-      medium,
     } = req.body;
+
+    const leadSource = JSON.parse(getCookie(leadSourceCookieName, { req, res }));
 
     const {
       countryField,
@@ -159,7 +161,7 @@ export async function sendDataPipedrive(req, res) {
 
     const leadSourceOptions = await getCurrentLeadSourceOption({
       leadSourceFieldsOptions: leadSourceField.options,
-      currentSource: `${source}/${medium}`,
+      currentSource: `${leadSource.source}/${leadSource.medium}`,
       leadSourceField,
     });
 

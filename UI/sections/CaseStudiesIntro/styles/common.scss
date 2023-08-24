@@ -1,8 +1,9 @@
 .section {
+  position: relative;
+  z-index: 40;
   box-sizing: border-box;
   padding: 104px 40px 120px;
   overflow: hidden;
-  position: relative;
   background-size: cover;
   background-position: center;
 
