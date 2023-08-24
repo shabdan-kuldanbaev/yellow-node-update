@@ -48,6 +48,7 @@
   ul {
     @include listWithYellowMarkers;
     @include fontSize(16px, 150%);
+    @include flex(column, flex-start, center, wrap);
 
     height: 110px;
     color: $gray900;

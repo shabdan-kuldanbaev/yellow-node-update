@@ -24,14 +24,14 @@ export default ({
     ],
   ), [section]);
 
-  const { buttonTitle } = getDocumentFields(get(contentModules, '[0]'));
+  const cta = get(contentModules, '[0]');
 
   return {
     title,
     description,
     subtitle,
     view,
-    buttonTitle,
+    cta,
     type,
     ...props,
   };

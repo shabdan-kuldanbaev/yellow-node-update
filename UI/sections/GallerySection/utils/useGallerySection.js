@@ -22,7 +22,6 @@ export const useGallerySection = ({
   );
   const galleryData = get(contentModules, '[0]', {});
   const { contentModules: slides } = getDocumentFields(galleryData, ['contentModules']);
-  const link = getDocumentFields(get(contentModules, '[1]', null));
   const ctaData = get(contentModules, '[1]', null);
 
   return {
@@ -31,7 +30,6 @@ export const useGallerySection = ({
     title,
     description,
     slides,
-    link,
     handleOnCTAClick,
     ctaData,
   };

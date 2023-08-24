@@ -39,7 +39,7 @@ export default (data = []) => data?.map((tabSection) => {
     };
   });
 
-  const link = getDocumentFields(get(contentModules, '[2]'));
+  const link = get(contentModules, '[2]');
 
   return {
     tabTitle,

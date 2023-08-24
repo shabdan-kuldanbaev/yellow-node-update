@@ -94,7 +94,7 @@
 }
 
 .new {
-  @include flex(row, flex-start, center);
+  @include flex(row, space-between, center);
 
   position: relative;
   box-sizing: border-box;
@@ -103,7 +103,6 @@
   background: $gray0;
   border: 1px solid $gray200;
   border-radius: 10px;
-  margin: 0;
 
   .title {
     @include fontSize(20px);

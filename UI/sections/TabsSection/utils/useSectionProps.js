@@ -36,7 +36,7 @@ export default ({
   }
 
   const displayNames = tabList.contentModules.map((el, i) => getDocumentFields(get(tabList.contentModules, `[${i}]`, ['title', 'text'])).title);
-  const linkAfterBlock = getDocumentFields(get(contentModules, '[1]', ['contentModules']));
+  const linkAfterBlock = get(contentModules, '[1]', ['contentModules']);
 
   return {
     onChangeActiveTab: setActiveTab,
