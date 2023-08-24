@@ -2,7 +2,6 @@
   &.secondSectionView {
     position: relative;
     padding: 60px 16px;
-    overflow: unset;
     background-color: $dinDonPrimary;
 
     .titleStyle {
@@ -11,7 +10,6 @@
 
     @include below-tablet {
       padding: 60px 16px;
-      overflow: hidden;
     }
   }
 }
