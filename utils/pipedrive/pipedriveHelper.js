@@ -149,7 +149,6 @@ export async function sendDataPipedrive(req, res) {
     } = req.body;
 
     const leadSource = JSON.parse(getCookie(leadSourceCookieName, { req, res }));
-    console.log('🚀 ~ file: pipedriveHelper.js:152 ~ sendDataPipedrive ~ leadSource:', leadSource);
 
     const {
       countryField,
