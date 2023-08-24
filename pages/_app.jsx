@@ -6,6 +6,7 @@ import {
 } from 'react';
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
+import { setCookie } from 'cookies-next';
 import { wrapper } from 'redux/store';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import Layout from 'UI/containers/Layout';
@@ -17,6 +18,9 @@ import 'swiper/css/bundle';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/pagination';
 import 'styles/index.scss';
+import { leadSourceCookieName } from 'utils/constants/leadSourceCookieName';
+import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
+import { CUSTOM_DOMAIN } from 'utils/constants';
 
 function App({ Component, pageProps }) {
   const [subscribe] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
@@ -38,6 +42,12 @@ function App({ Component, pageProps }) {
     }
 
     smoothscroll.polyfill();
+
+    const leadSource = getGaMetrics();
+
+    if (leadSource.source !== CUSTOM_DOMAIN) {
+      setCookie(leadSourceCookieName, JSON.stringify(getGaMetrics()));
+    }
   }, []);
 
   useEffect(() => {
