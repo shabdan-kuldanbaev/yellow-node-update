@@ -303,7 +303,7 @@
 
   &.fifthSectionView {
     .contentContainer {
-      @include flex(column, initial, stretch);
+      @include flex(row, center, initial, wrap);
 
       grid-gap: 0;
       max-width: 790px;
@@ -313,7 +313,7 @@
 
         width: 100%;
         flex-grow: 1;
-        max-width: none;
+        max-width: 50%;
         order: initial;
 
         .title {
@@ -344,8 +344,18 @@
 
         @include below-tablet {
           @include flex(column, space-between, center);
+
+          max-width: none;
         }
       }
+
+      @include below-tablet {
+        @include flex(column, initial, center);
+      }
+    }
+
+    .images {
+      margin: 0 auto;
     }
 
     .imageBundle {

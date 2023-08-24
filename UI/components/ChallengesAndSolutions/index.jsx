@@ -148,15 +148,6 @@ const ChallengesAndSolutions = (props) => {
                 </div>
               </Animated>
             )}
-            {!image.url && imagesBundles?.map((bundleUrl, imagesBundlesIndex) => (
-              <Illustration
-                transparent
-                className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
-                src={bundleUrl.url}
-                key={`bundles-images/${bundleUrl}`}
-                alt={bundleUrl.alt}
-              />
-            ))}
           </div>
         ))}
       </ChallengesSlider>

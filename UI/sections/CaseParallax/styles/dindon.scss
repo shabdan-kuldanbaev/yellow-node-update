@@ -5,6 +5,14 @@
     max-width: 614px;
   }
 
+  .parallaxImage {
+    height: 687px;
+
+    @include below-tablet {
+      height: 254px;
+    }
+  }
+
   @include tablet {
     padding: 60px 0 0;
   }

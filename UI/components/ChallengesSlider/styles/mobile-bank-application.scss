@@ -1,0 +1,9 @@
+.mobile-bank-application {
+  :global(.swiper-wrapper) {
+    margin-bottom: 24px;
+  }
+
+  :global(.swiper-pagination) {
+    bottom: 0;
+  }
+}
