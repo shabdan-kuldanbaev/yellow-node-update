@@ -35,13 +35,10 @@ export default ({
   const submitHandler = handleSubmit(async (values, event) => {
     event.preventDefault();
 
-    const userCountry = await getPersonCountry();
-
     const attachments = selectedFiles.map((file) => file.signedUrl);
     await sendForm({
       ...values,
       attachments,
-      userCountry,
       projectBudget: budget || '',
       description: extraDescription ? `${values.description} ${extraDescription}` : values.description,
     });

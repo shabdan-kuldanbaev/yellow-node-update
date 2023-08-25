@@ -11,16 +11,16 @@ import { wrapper } from 'redux/store';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import Layout from 'UI/containers/Layout';
 import { AppContext, PageFetchContext } from 'utils/appContext';
-import { getDataFromLocalStorageWithExpire } from 'utils/helper';
+import { getDataFromLocalStorageWithExpire, getUserCountry } from 'utils/helper';
 import { customTheme } from 'styles/muiTheme';
+import { leadSourceCookieName, userCountry } from 'utils/constants/cookieNames';
+import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
+import { CUSTOM_DOMAIN } from 'utils/constants';
 import 'animate.css/animate.min.css';
 import 'swiper/css/bundle';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/pagination';
 import 'styles/index.scss';
-import { leadSourceCookieName } from 'utils/constants/leadSourceCookieName';
-import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
-import { CUSTOM_DOMAIN } from 'utils/constants';
 
 function App({ Component, pageProps }) {
   const [subscribe] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
@@ -48,6 +48,11 @@ function App({ Component, pageProps }) {
     if (leadSource.source !== CUSTOM_DOMAIN) {
       setCookie(leadSourceCookieName, JSON.stringify(getGaMetrics()));
     }
+
+    (async () => {
+      const country = await getUserCountry();
+      setCookie(userCountry, country);
+    })();
   }, []);
 
   useEffect(() => {

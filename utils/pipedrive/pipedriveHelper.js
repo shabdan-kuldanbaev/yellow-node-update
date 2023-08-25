@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import axios from 'axios';
-import { getCookie } from 'cookies-next';
-import { leadSourceCookieName } from 'utils/constants/leadSourceCookieName';
+import { getCookie, setCookie } from 'cookies-next';
+import { leadSourceCookieName, userCountry } from 'utils/constants/cookieNames';
 import { handleError } from '../error';
 
 dotenv.config('./env');
@@ -137,10 +137,10 @@ export async function sendDataPipedrive(req, res) {
       phone,
       description,
       clientId,
-      userCountry: clientCountry,
     } = req.body;
 
     const leadSource = JSON.parse(getCookie(leadSourceCookieName, { req, res }));
+    const clientCountry = getCookie(userCountry, { req, res });
 
     const {
       countryField,
