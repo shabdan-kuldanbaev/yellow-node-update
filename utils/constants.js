@@ -103,6 +103,7 @@ export const FEEDBACK_FORM_FIELDS = {
   source: 'source',
   medium: 'medium',
   phone: 'phone',
+  userCountry: 'userCountry',
 };
 
 export const IMAGES = {

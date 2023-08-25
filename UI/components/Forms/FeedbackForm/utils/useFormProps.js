@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { addThousandsSeparators } from 'utils/helper';
+import { addThousandsSeparators, getPersonCountry } from 'utils/helper';
 import { CONTACT_CASH_KEY, useSendContactFormMutation } from 'redux/apis/dataSending';
 import { budget as budgetData, marks } from './data';
 
@@ -35,10 +35,13 @@ export default ({
   const submitHandler = handleSubmit(async (values, event) => {
     event.preventDefault();
 
+    const userCountry = await getPersonCountry();
+
     const attachments = selectedFiles.map((file) => file.signedUrl);
     await sendForm({
       ...values,
       attachments,
+      userCountry,
       projectBudget: budget || '',
       description: extraDescription ? `${values.description} ${extraDescription}` : values.description,
     });
