@@ -441,6 +441,36 @@ export const routes = {
     dynamicPath: '/software-development-washington',
     slug: 'software-development-washington',
   },
+  softwareDevelopmentOmaha: {
+    title: 'Custom Software Development Services In Omaha',
+    path: '/software-development-omaha',
+    dynamicPath: '/software-development-omaha',
+    slug: 'software-development-omaha',
+  },
+  softwareDevelopmentMiami: {
+    title: 'Custom Software Development Services In Miami',
+    path: '/software-development-miami',
+    dynamicPath: '/software-development-miami',
+    slug: 'software-development-miami',
+  },
+  softwareDevelopmentMinneapolis: {
+    title: 'Custom Software Development In Minneapolis, Minnesota',
+    path: '/software-development-minneapolis',
+    dynamicPath: '/software-development-minneapolis',
+    slug: 'software-development-minneapolis',
+  },
+  softwareDevelopmentTulsa: {
+    title: 'Custom Software Development In Tulsa',
+    path: '/software-development-tulsa',
+    dynamicPath: '/software-development-tulsa',
+    slug: 'software-development-tulsa',
+  },
+  softwareDevelopmentNewOrleans: {
+    title: 'Custom Software Development In New Orleans',
+    path: '/software-development-new-orleans',
+    dynamicPath: '/software-development-new-orleans',
+    slug: 'software-development-new-orleans',
+  },
   bookCall: {
     title: '',
     path: '/book-a-call',
