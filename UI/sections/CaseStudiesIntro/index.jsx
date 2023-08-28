@@ -5,6 +5,8 @@ import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
 import Video from 'components/Common/Video';
+import Animated from 'UI/containers/Animated';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { useCaseStudiesIntro } from './utils/useCaseStudiesIntro';
 import styles from './styles.module.scss';
 
@@ -26,6 +28,7 @@ const CaseStudiesIntro = (props) => {
     imageBackgroundTitle,
     isVideo,
     contentList,
+    isAnimatedImg,
   } = useCaseStudiesIntro(props);
 
   return (
@@ -94,13 +97,30 @@ const CaseStudiesIntro = (props) => {
         )}
         <div className={styles.bundleImagesContainer}>
           {imagesBundlesWithUrls?.map((image, index) => (
-            <Illustration
-              priority
-              transparent
-              className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
-              src={image.url}
-              key={`intro-images-bundles/${image.url}`}
-            />
+            isAnimatedImg
+              ? (
+                <Animated
+                  type={ANIMATED_TYPE.zoomOut}
+                  className={cn(styles.bundleAnimated, styles[`bundleAnimated-${index + 1}`])}
+                  delay={200 * (index + 1)}
+                >
+                  <Illustration
+                    priority
+                    transparent
+                    className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
+                    src={image.url}
+                    key={`intro-images-bundles/${image.url}`}
+                  />
+                </Animated>
+              ) : (
+                <Illustration
+                  priority
+                  transparent
+                  className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
+                  src={image.url}
+                  key={`intro-images-bundles/${image.url}`}
+                />
+              )
           ))}
         </div>
       </div>

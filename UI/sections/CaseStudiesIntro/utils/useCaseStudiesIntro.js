@@ -5,7 +5,7 @@ import {
   getImage,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { SECTION_WITH_BACKGROUND_TITLE, isFileVideo } from './helpers';
+import { SECTION_WITH_BACKGROUND_TITLE, isAnimated, isFileVideo } from './helpers';
 
 export const useCaseStudiesIntro = ({
   type,
@@ -56,6 +56,7 @@ export const useCaseStudiesIntro = ({
   const imageBackgroundTitle = SECTION_WITH_BACKGROUND_TITLE?.[type] || null;
 
   const isVideo = isFileVideo(type);
+  const isAnimatedImg = isAnimated(type);
 
   return {
     type,
@@ -72,5 +73,6 @@ export const useCaseStudiesIntro = ({
     imageBackgroundTitle,
     isVideo,
     contentList,
+    isAnimatedImg,
   };
 };

@@ -11,3 +11,7 @@ export const SECTION_WITH_BACKGROUND_TITLE = {
 export const isFileVideo = (type) => [
   CASE_STUDIES.forexTradingPlatform,
 ].includes(type);
+
+export const isAnimated = (type) => [
+  CASE_STUDIES.carbonSpace,
+].includes(type);

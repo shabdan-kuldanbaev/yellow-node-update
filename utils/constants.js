@@ -78,6 +78,7 @@ export const ANIMATED_TYPE = {
   isCSS: 'isCSS',
   bounce: 'bounce',
   counter: 'counter',
+  zoomOut: 'zoomOut',
 };
 
 export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [_, { slug, title }]) => {
