@@ -116,6 +116,7 @@ const TabsSection = (props) => {
               </Animated>
             </div>
           ))}
+          {console.log({ linkAfterBlock })}
         </CardContainer>
         {!!linkAfterBlock && (
           <Animated

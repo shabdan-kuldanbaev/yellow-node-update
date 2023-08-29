@@ -60,14 +60,13 @@ export default (props) => {
   const files = (rawFiles || []).map(getFileUrl);
 
   const classNames = cn(
+    styles.container,
     styles[type],
     styles[view],
     styles[page],
     className,
     {
       [styles.openContact]: isOpenFeedbackForm,
-      [styles.new]: isNew,
-      [styles.card]: !isNew,
       [styles.isSubscribed]: isSubscribed,
       [styles.scrollBlock]: type === LINK_TYPE.scrollBlock,
       [styles.showScrollBlock]: type === LINK_TYPE.scrollBlock && show,

@@ -25,7 +25,7 @@ export default ({
   ), [section]);
 
   const { text = '' } = getDocumentFields(get(contentModules, '[0]', {}), ['text']);
-  const link = get(contentModules, '[1]', {});
+  const link = get(contentModules, '[1]', null);
   const imageUrl = getFileUrl(get(images, '[0]'));
 
   return {

@@ -47,6 +47,7 @@ const ImageSection = (props) => {
           </div>
         )}
       </div>
+      {console.log('🚀 ~ file: index.jsx:51 ~ ImageSection ~ link:', link)}
       {!!link && (
         <Animated
           {...REVEAL_ANIMATION_PROPS}

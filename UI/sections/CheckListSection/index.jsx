@@ -58,6 +58,7 @@ const CheckListSection = (props) => {
             <CallToAction
               data={link}
               handleOnClick={handleOnCTAClick}
+              className={styles.callToAction}
             />
           </Animated>
         )}

@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic';
 import Button from 'UI/components/Button';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
-
 import useScrollBlock from '../utils/useScrollBlock';
 import styles from '../styles/scrollBlock.module.scss';
 
