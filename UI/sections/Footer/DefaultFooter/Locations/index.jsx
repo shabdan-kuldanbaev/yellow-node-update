@@ -11,6 +11,11 @@ export default () => (
       <LinkWrapper path={PAGES.softwareDevelopmentOklahoma}>Oklahoma City</LinkWrapper>
       <LinkWrapper path={PAGES.softwareDevelopmentRaleigh}>Raleigh</LinkWrapper>
       <LinkWrapper path={PAGES.softwareDevelopmentWashington}>Washington, DC</LinkWrapper>
+      <LinkWrapper path={PAGES.softwareDevelopmentOmaha}>Omaha, NE</LinkWrapper>
+      <LinkWrapper path={PAGES.softwareDevelopmentMiami}>Miami, FL</LinkWrapper>
+      <LinkWrapper path={PAGES.softwareDevelopmentMinneapolis}>Minneapolis, MN</LinkWrapper>
+      <LinkWrapper path={PAGES.softwareDevelopmentTulsa}>Tulsa, OK</LinkWrapper>
+      <LinkWrapper path={PAGES.softwareDevelopmentNewOrleans}>New Orleans, LA</LinkWrapper>
     </p>
   </div>
 );

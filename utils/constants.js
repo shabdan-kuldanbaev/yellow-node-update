@@ -364,6 +364,11 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.softwareDevelopmentWashington.path,
   ROUTES.softwareDevelopmentOklahoma.path,
   ROUTES.softwareDevelopmentNashville.path,
+  ROUTES.softwareDevelopmentOmaha.path,
+  ROUTES.softwareDevelopmentMiami.path,
+  ROUTES.softwareDevelopmentMinneapolis.path,
+  ROUTES.softwareDevelopmentTulsa.path,
+  ROUTES.softwareDevelopmentNewOrleans.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
@@ -390,6 +395,11 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.softwareDevelopmentOklahoma.path,
   ROUTES.softwareDevelopmentNashville.path,
   ROUTES.softwareDevelopmentRaleigh.path,
+  ROUTES.softwareDevelopmentOmaha.path,
+  ROUTES.softwareDevelopmentMiami.path,
+  ROUTES.softwareDevelopmentMinneapolis.path,
+  ROUTES.softwareDevelopmentTulsa.path,
+  ROUTES.softwareDevelopmentNewOrleans.path,
   ROUTES.whyUs.path,
   CASE_STUDIES.openSense,
   CASE_STUDIES.chatSolutions,

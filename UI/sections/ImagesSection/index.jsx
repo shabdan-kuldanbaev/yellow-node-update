@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import cn from 'classnames';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import SectionTitle from 'UI/components/SectionTitle';
 import Images from 'UI/components/Images';
 import Illustration from 'UI/components/Illustration';
-import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { useImageSection } from './utils/useImageSection';
 import styles from './styles.module.scss';
 
