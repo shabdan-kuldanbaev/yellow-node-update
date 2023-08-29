@@ -13,7 +13,6 @@
   width: max-content;
   top: calc(100vh - 60px);
   transform: translateX(-50%);
-  z-index: 100000;
 
   @include macbook-twelve {
     @include fontSize(16px);
