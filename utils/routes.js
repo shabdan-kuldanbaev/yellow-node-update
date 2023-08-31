@@ -162,15 +162,19 @@ export const routes = {
         slug: '',
       },
       {
+        title: 'AI',
+        slug: 'artificial-intelligence',
+      },
+      {
         title: 'How we work',
         slug: 'how-we-work',
       },
       {
-        title: 'Software Development',
+        title: 'Software development',
         slug: 'software-development',
       },
       {
-        title: 'Software Chat',
+        title: 'Chats',
         slug: 'software-chat',
       },
       {
@@ -178,7 +182,7 @@ export const routes = {
         slug: 'fintech',
       },
       {
-        title: 'Yellow',
+        title: 'News',
         slug: 'yellow',
       },
     ],

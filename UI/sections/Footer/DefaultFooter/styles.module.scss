@@ -5,7 +5,6 @@
   @include flex(column, center, center);
 
   position: relative;
-  z-index: 100;
   background-color: $gray900;
   padding: 48px;
   color: $gray0;
@@ -15,8 +14,7 @@
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 379px 1.2fr 1.1fr 1fr;
-    grid-column-gap: 68px;
-    grid-row-gap: 24px;
+    grid-gap: 24px 68px;
     grid-template-areas:
       'side fintech services expertise'
       'addresses fintech services expertise'
@@ -27,8 +25,7 @@
 
     @include tablet {
       grid-template-columns: 1fr 1.3fr;
-      grid-row-gap: 16px;
-      grid-column-gap: 16px;
+      grid-gap: 16px;
       grid-template-areas:
         'side side'
         'addresses mainContent'
