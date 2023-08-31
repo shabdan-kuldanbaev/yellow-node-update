@@ -3,7 +3,6 @@
 
   .callToAction {
     background: $gray0;
-    border: 1px solid $gray50;
   }
 }
 
@@ -13,11 +12,6 @@
   .callToAction {
     background: $gray50;
     margin-top: 48px;
-    border: none;
-
-    @include tablet {
-      margin-top: 24px;
-    }
   }
 }
 

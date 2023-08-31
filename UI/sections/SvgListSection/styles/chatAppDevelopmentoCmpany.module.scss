@@ -6,7 +6,13 @@
     max-width: 620px;
   }
 
-  .callToAction h3{
-    max-width: 535px;
+  .callToAction {
+    background: $gray50;
+    max-width: $default-content-width;
+    margin: 48px auto 0;
+
+    h3 {
+      max-width: 535px;
+    }
   }
 }
