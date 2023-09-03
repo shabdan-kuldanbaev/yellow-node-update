@@ -8,10 +8,6 @@ export const SECTION_WITH_BACKGROUND_TITLE = {
   'open-sense': SVG_IMAGES_TYPES.opensenseTitleBorder,
 };
 
-export const isFileVideo = (type) => [
-  CASE_STUDIES.forexTradingPlatform,
-].includes(type);
-
 export const isAnimated = (type) => [
   CASE_STUDIES.carbonSpace,
 ].includes(type);

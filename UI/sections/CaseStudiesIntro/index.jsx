@@ -7,6 +7,7 @@ import SectionTitle from 'UI/components/SectionTitle';
 import Video from 'components/Common/Video';
 import Animated from 'UI/containers/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
+import Media from 'UI/components/Media';
 import { useCaseStudiesIntro } from './utils/useCaseStudiesIntro';
 import styles from './styles.module.scss';
 
@@ -26,7 +27,6 @@ const CaseStudiesIntro = (props) => {
     introText,
     imagesBundlesWithUrls,
     imageBackgroundTitle,
-    isVideo,
     contentList,
     isAnimatedImg,
   } = useCaseStudiesIntro(props);
@@ -77,22 +77,12 @@ const CaseStudiesIntro = (props) => {
             </div>
           </div>
         </div>
-        {appBackgroundImage.url && (
+        {appBackgroundImage && (
           <div className={styles.imageContainer}>
-            {isVideo ? (
-              <Video
-                src={appBackgroundImage.url}
-                className={styles.video}
-              />
-            ) : (
-              <Illustration
-                priority
-                transparent
-                className={styles.image}
-                src={appBackgroundImage.url}
-                alt={appBackgroundImage.alt}
-              />
-            )}
+            <Media
+              className={styles.image}
+              asset={appBackgroundImage}
+            />
           </div>
         )}
         <div className={styles.bundleImagesContainer}>

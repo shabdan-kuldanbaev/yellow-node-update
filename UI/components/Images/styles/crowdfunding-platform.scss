@@ -27,33 +27,6 @@
     }
   }
 
-  &.thirdSectionView {
-    @include flex (row, space-between, center);
-
-    max-width: $default-content-width;
-    margin: 0 auto;
-
-    & > * + * {
-      margin-left: 32px;
-    }
-
-    .image {
-      height: 378px;
-    }
-
-    @include tablet {
-      flex-direction: column;
-
-      & > * + * {
-        margin-left: 0;
-      }
-
-      .image {
-        width: 100%;
-      }
-    }
-  }
-
   &.fourthSectionView {
     padding-top: 0;
     max-width: $wide-content-width;

@@ -54,7 +54,7 @@ const ChallengesAndSolutions = (props) => {
               { [styles.special]: isSpecial },
             )}
           >
-            {(!image && title) && (
+            {(!asset && title) && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.infoContainer, styles.separatedTitle)}>
                   <Typography
@@ -70,7 +70,7 @@ const ChallengesAndSolutions = (props) => {
               className={cn(
                 styles.infoContainer,
                 styles[`infoContainer-${index + 1}`],
-                { [styles.centrefy]: image },
+                { [styles.centrefy]: asset },
               )}
             >
               {subImage.url && (
@@ -81,7 +81,7 @@ const ChallengesAndSolutions = (props) => {
                   alt={subImage.alt}
                 />
               )}
-              {image && subtitle && (
+              {asset && subtitle && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div>
                     <Typography
@@ -93,7 +93,7 @@ const ChallengesAndSolutions = (props) => {
                   </div>
                 </Animated>
               )}
-              {image && (
+              {asset && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div>
                     <Typography
@@ -128,10 +128,10 @@ const ChallengesAndSolutions = (props) => {
                 </ul>
               )}
             </div>
-            {(image || !!imagesBundles.length) && (
+            {(asset || !!imagesBundles.length) && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.images, styles[`images-${index + 1}`])}>
-                  {image && (
+                  {asset && (
                     <Media
                       asset={asset}
                       className={cn(styles.image, styles[`image-${index + 1}`])}

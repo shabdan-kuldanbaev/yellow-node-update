@@ -38,8 +38,7 @@ export const useChallengesAndSolutions = ({
       text,
       subtitle,
       contentList,
-      image: !!blockImages[0],
-      asset: blockImages?.[0],
+      asset: !!blockImages?.[0] && blockImages[0],
       subImage,
       imagesBundles: imagesBundlesWithUrl,
     };
