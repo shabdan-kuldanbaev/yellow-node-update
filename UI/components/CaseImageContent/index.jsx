@@ -11,10 +11,11 @@ const CaseImageContent = ({
   image,
   textContent,
   type,
+  view,
 }) => (
   (image || textContent) && (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
-      <div className={cn(styles[type], styles.blockContainer)}>
+      <div className={cn(styles.blockContainer, styles[type], styles[view])}>
         {image && (
           <Illustration
             className={styles.image}
