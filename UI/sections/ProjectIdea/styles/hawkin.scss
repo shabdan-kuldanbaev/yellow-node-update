@@ -1,0 +1,52 @@
+.hawkin {
+  .contentContainer {
+    margin: 0 auto;
+    max-width: $default-content-width;
+  }
+
+  .descriptionContainer {
+    @include flex(row, space-between, center);
+
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .descriptionIntro {
+    margin: 0;
+    max-width: 481px;
+
+    @include tablet {
+      margin-bottom: 24px;
+    }
+  }
+
+  .sectionName {
+    @include fontSize(14px, 150%);
+
+    color: $gray400;
+    font-weight: 700;
+  }
+
+  .title {
+    @include fontSize(32px, 130%);
+
+    color: $gray900;
+    font-weight: 700;
+  }
+
+  .description {
+    @include fontSize(16px, 150%);
+
+    color: $gray400;
+    font-weight: 400;
+
+    & > p:last-of-type {
+      margin-top: 24px;
+    }
+  }
+}
