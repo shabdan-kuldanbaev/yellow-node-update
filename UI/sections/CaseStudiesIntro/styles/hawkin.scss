@@ -1,4 +1,4 @@
-.hawkin {
+.medical-software-for-musculoskeletal-rehabilitation {
   padding: 136px 120px 0;
   background-color: $hawkinPrimary;
 
@@ -54,6 +54,10 @@
 
       margin: 0 0 8px;
       color: $gray0;
+
+      @include phone {
+        @include fontSize(24px, 130%);
+      }
     }
 
     & > span:last-of-type {

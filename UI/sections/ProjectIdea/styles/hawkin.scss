@@ -1,4 +1,4 @@
-.hawkin {
+.medical-software-for-musculoskeletal-rehabilitation {
   &.firstSectionView {
     .contentContainer {
       margin: 0 auto;
@@ -38,6 +38,10 @@
 
       color: $gray900;
       font-weight: 700;
+
+      @include phone {
+        @include fontSize(24px, 130%);
+      }
     }
 
     .description {
@@ -140,6 +144,10 @@
 
       color: $gray900;
       font-weight: 700;
+
+      @include phone {
+        @include fontSize(24px, 130%);
+      }
     }
 
     .media {
