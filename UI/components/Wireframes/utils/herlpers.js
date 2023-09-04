@@ -83,7 +83,7 @@ export const IMAGE_SIZES = {
     firstSectionView: 600,
     secondSectionView: 100,
   },
-  hawkin: {
+  'medical-software-for-musculoskeletal-rehabilitation': {
     default: 600,
   },
 };
@@ -141,7 +141,7 @@ export const MOBILE_IMAGE_SIZES = {
     firstSectionView: 600,
     secondSectionView: 40,
   },
-  hawkin: {
+  'medical-software-for-musculoskeletal-rehabilitation': {
     default: 320,
   },
 };
