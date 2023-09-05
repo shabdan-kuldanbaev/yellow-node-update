@@ -49,7 +49,7 @@ export const useCaseStudiesIntro = ({
   );
   const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
 
-  const imagesBundlesWithUrls = imagesBundles?.map((bundle) => getImage(bundle)) || [];
+  // const imagesBundlesWithUrls = imagesBundles?.map((bundle) => getImage(bundle)) || [];
 
   const imageBackgroundTitle = SECTION_WITH_BACKGROUND_TITLE?.[type] || null;
 
@@ -66,7 +66,7 @@ export const useCaseStudiesIntro = ({
     subtitle,
     description,
     introText,
-    imagesBundlesWithUrls,
+    imagesBundles,
     imageBackgroundTitle,
     contentList,
     isAnimatedImg,

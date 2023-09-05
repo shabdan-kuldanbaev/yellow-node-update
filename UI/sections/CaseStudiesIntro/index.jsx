@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
-import Video from 'components/Common/Video';
 import Animated from 'UI/containers/Animated';
 import { ANIMATED_TYPE } from 'utils/constants';
-import Media from 'UI/components/Media';
 import { useCaseStudiesIntro } from './utils/useCaseStudiesIntro';
 import styles from './styles.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
+const Media = dynamic(() => import('UI/components/Media'));
 
 const CaseStudiesIntro = (props) => {
   const {
@@ -25,7 +24,7 @@ const CaseStudiesIntro = (props) => {
     subtitle,
     description,
     introText,
-    imagesBundlesWithUrls,
+    imagesBundles,
     imageBackgroundTitle,
     contentList,
     isAnimatedImg,
@@ -86,7 +85,7 @@ const CaseStudiesIntro = (props) => {
           </div>
         )}
         <div className={styles.bundleImagesContainer}>
-          {imagesBundlesWithUrls?.map((image, index) => (
+          {imagesBundles?.map((image, index) => (
             isAnimatedImg
               ? (
                 <Animated
@@ -94,6 +93,13 @@ const CaseStudiesIntro = (props) => {
                   className={cn(styles.bundleAnimated, styles[`bundleAnimated-${index + 1}`])}
                   delay={200 * (index + 1)}
                 >
+                  <Media
+                    priority
+                    transparent
+                    className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
+                    asset={image}
+                    key={`intro-images-bundles/${image.url}`}
+                  />
                   <Illustration
                     priority
                     transparent
@@ -103,11 +109,11 @@ const CaseStudiesIntro = (props) => {
                   />
                 </Animated>
               ) : (
-                <Illustration
+                <Media
                   priority
                   transparent
                   className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
-                  src={image.url}
+                  asset={image}
                   key={`intro-images-bundles/${image.url}`}
                 />
               )
