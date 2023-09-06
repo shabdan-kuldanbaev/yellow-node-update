@@ -25,132 +25,125 @@
   }
 }
 
+.headImage {
+  flex: 1 1 584px;
+  border-radius: 4px;
+  aspect-ratio: 584/480;
+
+  img {
+    object-fit: cover;
+  }
+
+  @include tablet {
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    margin-bottom: 24px;
+    flex-basis: auto;
+  }
+
+  @include phone {
+    padding: 0;
+  }
+}
+
 .article {
   margin: 0 auto;
   max-width: 1500px;
   background-color: $white;
+}
 
-  .body {
-    max-width: 790px;
-    margin: 0 auto;
+.body {
+  max-width: 790px;
+  margin: 0 auto;
 
-    & > p {
-      @extend .paragraph;
-    }
-
-    @include phone {
-      padding: 0;
-    }
+  & > p {
+    @extend .paragraph;
   }
 
-  .header {
-    @include flex(row, center, center);
+  @include phone {
+    padding: 0;
+  }
+}
 
-    width: 100%;
-    padding: 40px 0 0;
-    margin-bottom: 8vh;
-    color: $black;
+.header {
+  @include flex(row, center, center);
 
-    .imageWrapper {
-      @include flex(row, center);
+  width: 100%;
+  padding: 40px 0 0;
+  margin-bottom: 8vh;
+  color: $black;
 
-      width: 50%;
-      height: 100%;
-      flex: 1 0 50%;
-      border-radius: 4px;
-      max-width: 630px;
-      max-height: 630px;
+  @include desktop {
+    min-height: 50vh;
+  }
 
-      & > div {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        padding-top: 100%;
-        width: 100%;
-        opacity: 1;
-      }
+  @include tablet {
+    @include flex(column, center, center);
 
-      @include tablet {
-        width: 100%;
-        max-width: none;
-        max-height: none;
-        margin-bottom: 8vh;
-      }
+    margin: 24px 0 0;
+  }
 
-      @include phone {
-        padding: 0;
-      }
-    }
+  @include below-tablet {
+    padding: 0;
+  }
+}
 
-    .container {
-      max-width: 100%;
-      padding: 0 60px;
-      align-items: center;
+.container {
+  max-width: 100%;
+  margin: 0 0 0 32px;
+  align-items: center;
+  flex: 1 1 584px;
 
-      & > p {
-        @include fontSize(21px);
+  & > p {
+    @include fontSize(21px);
 
-        color: $mirage;
-        line-height: 1.5;
-        padding: 0;
-        margin: 4vh 0 80px;
-        font-weight: 500;
-
-        @include tablet {
-          @include fontSize(19px);
-        }
-
-        @include below-tablet {
-          @include fontSize(18px);
-        }
-
-        @include phone {
-          @include fontSize(14px,1.4);
-
-          margin-bottom: 40px;
-        }
-      }
-
-      .date {
-        @include fontSize(14px);
-
-        margin: 0;
-        font-weight: 600;
-        padding-bottom: 30px;
-        text-transform: uppercase;
-
-        @include phone {
-          @include fontSize(12px);
-        }
-      }
-
-      @include tablet {
-        padding: 0;
-        margin: 0 0 8vh;
-        max-width: none;
-      }
-
-      @include below-tablet {
-        margin: 0 auto 5vh;
-      }
-
-      @include phone {
-        margin-bottom: 40px;
-      }
-    }
-
-    @include desktop {
-      min-height: 50vh;
-    }
+    color: $mirage;
+    line-height: 1.5;
+    padding: 0;
+    margin: 4vh 0 80px;
+    font-weight: 500;
 
     @include tablet {
-      @include flex(column-reverse, center, center);
-
-      margin-bottom: 0;
+      @include fontSize(19px);
     }
 
     @include below-tablet {
-      padding: 0;
+      @include fontSize(18px);
     }
+
+    @include phone {
+      @include fontSize(14px,1.4);
+
+      margin-bottom: 40px;
+    }
+  }
+
+  .date {
+    @include fontSize(14px);
+
+    margin: 0;
+    font-weight: 600;
+    padding-bottom: 30px;
+    text-transform: uppercase;
+
+    @include phone {
+      @include fontSize(12px);
+    }
+  }
+
+  @include tablet {
+    padding: 0;
+    margin: 0 0 8vh;
+    max-width: none;
+    flex-basis: auto;
+  }
+
+  @include below-tablet {
+    margin: 0 auto 5vh;
+  }
+
+  @include phone {
+    margin-bottom: 40px;
   }
 }
