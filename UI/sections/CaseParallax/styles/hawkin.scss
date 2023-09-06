@@ -1,0 +1,71 @@
+.medical-software-for-musculoskeletal-rehabilitation {
+  &.firstSectionView {
+    .titleStyle {
+      display: none;
+    }
+
+    .parallaxImage {
+      height: 740px;
+
+      @include below-tablet {
+        height: 500px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    padding-top: 120px;
+
+    .titleStyle {
+      margin: 0 auto 60px;
+
+      & > div:last-child {
+        @include flex(column, center, center);
+      }
+
+      @include below-tablet {
+        margin-bottom: 30px;
+      }
+    }
+
+    [data-title] {
+      @include fontSize(32px, 130%);
+
+      margin-bottom: 24px;
+
+      @include phone {
+        @include fontSize(24px, 130%);
+      }
+    }
+
+    [data-description] {
+      position: relative;
+      margin: 0;
+      padding-left: 13px;
+
+      &::before {
+        @include circle($hawkinAdditional, 5px);
+
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:not(:last-of-type) {
+        margin: 0 0 8px;
+      }
+    }
+
+    .parallaxImage {
+      height: 690px;
+
+      @include below-tablet {
+        height: 600px;
+      }
+    }
+
+    @include below-tablet {
+      padding-top: 60px;
+    }
+  }
+}

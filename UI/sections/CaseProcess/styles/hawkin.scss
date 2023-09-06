@@ -1,0 +1,126 @@
+.medical-software-for-musculoskeletal-rehabilitation {
+  &.firstSectionView {
+    background-color: $hawkinBlue;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .container {
+      max-width: $wide-content-width;
+    }
+
+    .step-1 {
+      .stepImage {
+        width: 584px;
+        height: 420px;
+      }
+    }
+
+    .step-2 {
+      @include flex(column, center, initial);
+
+      max-width: 536px;
+      width: 100%;
+
+      .stepTitle {
+        @include fontSize(32px, 130%);
+
+        margin-bottom: 16px;
+        color: $gray900;
+        text-align: left;
+
+        @include tablet {
+          text-align: center;
+        }
+
+        @include phone {
+          @include fontSize(24px, 130%);
+        }
+      }
+
+      p {
+        margin: 0;
+        color: $gray400;
+
+        &:first-of-type {
+          margin-bottom: 24px;
+        }
+
+        @include tablet {
+          text-align: center;
+        }
+      }
+    }
+
+    @include tablet {
+      .stepsContainer {
+        & > div:first-child {
+          order: 2;
+        }
+
+        & > div:last-child {
+          order: 1;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $gray50;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .container {
+      max-width: $wide-content-width;
+    }
+
+    .step-1 {
+      max-width: 276px;
+      width: 100%;
+
+      .stepTitle {
+        @include fontSize(32px, 130%);
+
+        @include phone {
+          @include fontSize(24px, 130%);
+        }
+      }
+    }
+
+    .step-2 {
+      @include flex(column, center, initial);
+
+      padding: 60px 40px;
+      max-width: 789px;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 30px;
+      background-color: $hawkinGreen;
+
+      .stepTitle {
+        @include fontSize(20px, 130%);
+
+        margin-bottom: 8px;
+        color: $gray900;
+        text-align: left;
+      }
+
+      p {
+        margin: 0;
+        color: $gray400;
+
+        b {
+          color: $gray900;
+          font-weight: 400;
+        }
+
+        &:first-of-type {
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+}
