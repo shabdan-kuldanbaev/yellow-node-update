@@ -3,6 +3,7 @@ import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import usePageClusters from 'hooks/usePageClusters';
 import styles from '../styles.module.scss';
 
 const Typography = dynamic(() => import('UI/components/Typography'));
@@ -17,16 +18,36 @@ export default ({
   slug,
 }) => {
   const [
-    _,
-    { data: { isSubscribed } = {} },
+    subscribe,
+    { data: { subscriptionEmail } = {} },
   ] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
   const [isSubscribeFormShown, setSubscribeFormShown] = useState(false);
+  const [isSubsribedInBlock, setSubsribedInBlock] = useState(false);
+
+  const pageClusters = usePageClusters();
+
+  const subscribeButtonClick = () => {
+    if (handleOnClick) {
+      return handleOnClick();
+    }
+
+    if (!subscriptionEmail) {
+      return setSubscribeFormShown(true);
+    }
+
+    Promise.resolve(subscribe({ email: subscriptionEmail, pageClusters }));
+    setSubsribedInBlock(true);
+  };
 
   return (
     <>
-      <div className={cn(styles.content, { [styles.isSubscribed]: isSubscribed })}>
-        {!isSubscribed && titles?.map((titleText, index) => (
+      <div className={cn(
+        styles.content,
+        { [styles.isSubscribed]: isSubsribedInBlock },
+      )}
+      >
+        {!isSubsribedInBlock && titles?.map((titleText, index) => (
           titleText && (
             <Typography
               variant={TYPOGRAPHY_TAGS.h3}
@@ -39,7 +60,7 @@ export default ({
           )
         ))}
 
-        {!isSubscribed && subtitle && (
+        {!isSubsribedInBlock && subtitle && (
           <Typography
             variant={TYPOGRAPHY_TAGS.p}
             className={cn(styles.p, styles.subtitle)}
@@ -48,7 +69,7 @@ export default ({
           </Typography>
         )}
 
-        {isSubscribed && (
+        {isSubsribedInBlock && (
           <Typography
             variant={TYPOGRAPHY_TAGS.h3}
             size={TYPOGRAPHY_SIZE.headline24}
@@ -58,7 +79,7 @@ export default ({
           </Typography>
         )}
 
-        {isSubscribed && (
+        {isSubsribedInBlock && (
           <Typography
             variant={TYPOGRAPHY_TAGS.p}
             className={cn(styles.p, styles.subtitle)}
@@ -70,7 +91,7 @@ export default ({
 
       {!isSubscribeFormShown && (
         <Button
-          onClick={handleOnClick || (() => setSubscribeFormShown(true))}
+          onClick={subscribeButtonClick}
           className={styles.button}
           data-button
         >
@@ -78,8 +99,11 @@ export default ({
         </Button>
       )}
 
-      {!isSubscribed && isSubscribeFormShown && (
-        <SubscribeInCTAForm slug={slug} />
+      {!isSubsribedInBlock && isSubscribeFormShown && (
+        <SubscribeInCTAForm
+          slug={slug}
+          onSubscriptionFinished={() => setSubsribedInBlock(true)}
+        />
       )}
     </>
   );

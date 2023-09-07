@@ -136,12 +136,12 @@
     min-height: auto;
   }
 
-  &.isSubscribed {
+  .isSubscribed {
     .content {
       max-width: none;
     }
 
-    .button {
+    & + .button {
       display: none;
     }
   }
