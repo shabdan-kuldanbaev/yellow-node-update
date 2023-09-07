@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import axios from 'axios';
 import { getCookie, setCookie } from 'cookies-next';
-import { leadSourceCookieName, userCountry } from 'utils/constants/cookieNames';
+import { leadSourceCookieName, userLocation } from 'utils/constants/cookieNames';
 import { handleError } from '../error';
 
 dotenv.config('./env');
@@ -13,6 +13,7 @@ const getPipedriveFields = async () => {
     );
 
     const countryField = pipedriveFields.data.find((field) => field.name === 'Person Country' && field.id === 9094);
+    const cityRegionField = pipedriveFields.data.find((field) => field.name === 'Person City/State' && field.id === 9093);
     const clientIdField = pipedriveFields.data.find((field) => field.name.trim() === 'Client ID' && field.id === 9086);
     const leadSourceField = pipedriveFields.data.find((field) => field.name === 'Lead source' && field.id === 9087);
     const leadTypeField = pipedriveFields.data.find((field) => field.name === 'Lead type' && field.id === 9089);
@@ -20,6 +21,7 @@ const getPipedriveFields = async () => {
 
     return {
       countryField,
+      cityRegionField,
       clientIdField,
       leadSourceField,
       phoneField,
@@ -40,6 +42,8 @@ const createPersonPipedrive = async (data) => {
       leadSourceFieldKey,
       countryFieldKey,
       clientCountry,
+      cityRegionFieldKey,
+      clientCityRegion,
       email,
       name,
       phoneFieldKey,
@@ -58,6 +62,7 @@ const createPersonPipedrive = async (data) => {
         [clientIdFieldKey]: clientId,
         [leadSourceFieldKey]: leadSourceOptionId || '',
         [countryFieldKey]: clientCountry || '',
+        [cityRegionFieldKey]: clientCityRegion || '',
         [phoneFieldKey]: phone || '',
         [leadTypeFieldKey]: leadTypeOptionId || '',
       },
@@ -140,10 +145,11 @@ export async function sendDataPipedrive(req, res) {
     } = req.body;
 
     const leadSource = JSON.parse(getCookie(leadSourceCookieName, { req, res }));
-    const clientCountry = getCookie(userCountry, { req, res });
+    const clientLocation = JSON.parse(getCookie(userLocation, { req, res }));
 
     const {
       countryField,
+      cityRegionField,
       clientIdField,
       leadSourceField,
       leadTypeField,
@@ -164,7 +170,9 @@ export async function sendDataPipedrive(req, res) {
       clientIdFieldKey: clientIdField.key,
       clientId,
       countryFieldKey: countryField.key,
-      clientCountry,
+      clientCountry: clientLocation.countryName,
+      cityRegionFieldKey: cityRegionField.key,
+      clientCityRegion: `${clientLocation.city}, ${clientLocation.region}`,
       phoneFieldKey: phoneField.key,
       phone,
       leadSourceFieldKey: leadSourceField.key,

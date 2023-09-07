@@ -11,9 +11,9 @@ import { wrapper } from 'redux/store';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import Layout from 'UI/containers/Layout';
 import { AppContext, PageFetchContext } from 'utils/appContext';
-import { getDataFromLocalStorageWithExpire, getUserCountry } from 'utils/helper';
+import { getDataFromLocalStorageWithExpire, getUserLocation } from 'utils/helper';
 import { customTheme } from 'styles/muiTheme';
-import { leadSourceCookieName, userCountry } from 'utils/constants/cookieNames';
+import { leadSourceCookieName, userLocation } from 'utils/constants/cookieNames';
 import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
 import { CUSTOM_DOMAIN } from 'utils/constants';
 import 'animate.css/animate.min.css';
@@ -50,8 +50,8 @@ function App({ Component, pageProps }) {
     }
 
     (async () => {
-      const country = await getUserCountry();
-      setCookie(userCountry, country);
+      const location = await getUserLocation();
+      setCookie(userLocation, JSON.stringify(location));
     })();
   }, []);
 
