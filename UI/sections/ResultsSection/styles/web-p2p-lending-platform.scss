@@ -1,33 +1,94 @@
 .web-p2p-lending-platform {
-  padding: 0 16px 30px;
+  &.firstSectionView {
+    @include p2pSectionCard;
 
-  .sectionTitle {
-    max-width: $wide-content-width;
+    background: $p2pAccent;
+    overflow: visible;
+    position: static;
 
-    [data-title] {
-      @include fontSize(16px);
+    .sectionTitle {
+      [data-title] {
+        @include fontSize(28px);
 
-      color: $gray400;
-      font-weight: 400;
-      text-align: left;
-      max-width: none;
-
-      @include tablet {
+        color: $gray0;
         text-align: center;
+      }
+
+      [data-subtitle] {
+        opacity: 0.7;
+        color: $gray0;
+        max-width: 548px;
       }
     }
 
-    [data-description] {
-      @include fontSize(38px);
+    .media-1 {
+      max-width: $default-content-width;
+      max-height: 706px;
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+    }
 
-      color: $gray900;
-      text-align: left;
-      max-width: none;
+    .imageBundle-1,
+    .imageBundle-2 {
+      position: absolute;
+    }
 
-      @include tablet {
-        @include fontSize(24px);
+    .imageBundle-1 {
+      width: 491px;
+      height: 549px;
+      right: -17%;
+      top: -5%;
 
-        text-align: center;
+      @include below-tablet {
+        right: -80%;
+      }
+    }
+
+    .imageBundle-2 {
+      width: 416px;
+      height: 355px;
+      left: -17%;
+      bottom: 0;
+
+      @include below-tablet {
+        left: -80%;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    padding: 0 16px 30px;
+
+    .sectionTitle {
+      max-width: $wide-content-width;
+
+      [data-title] {
+        @include fontSize(16px);
+
+        color: $gray400;
+        font-weight: 400;
+        text-align: left;
+        max-width: none;
+
+        @include tablet {
+          text-align: center;
+        }
+      }
+
+      [data-description] {
+        @include fontSize(38px);
+
+        color: $gray900;
+        text-align: left;
+        max-width: none;
+
+        @include tablet {
+          @include fontSize(24px);
+
+          text-align: center;
+        }
       }
     }
   }

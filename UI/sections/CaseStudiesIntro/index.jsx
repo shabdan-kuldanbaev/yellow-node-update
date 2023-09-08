@@ -100,13 +100,6 @@ const CaseStudiesIntro = (props) => {
                     asset={image}
                     key={`intro-images-bundles/${image.url}`}
                   />
-                  <Illustration
-                    priority
-                    transparent
-                    className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
-                    src={image.url}
-                    key={`intro-images-bundles/${image.url}`}
-                  />
                 </Animated>
               ) : (
                 <Media

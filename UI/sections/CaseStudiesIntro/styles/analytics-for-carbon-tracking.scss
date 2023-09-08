@@ -116,15 +116,15 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -30%);
+    pointer-events: none;
+    user-select: none;
   }
 
   .bundleImage {
     width: 100%;
     height: 100%;
-
-    img {
-      object-fit: cover;
-    }
+    object-fit: cover;
+    object-position: center;
   }
 
   .bundleAnimated {
@@ -148,6 +148,18 @@
     }
 
     &-2 {
+      right: 0;
+      bottom: 36px;
+      z-index: 3;
+      width: 470px;
+      height: 262px;
+
+      @include below-tablet {
+        display: none;
+      }
+    }
+
+    &-3 {
       bottom: 162px;
       left: 30%;
       z-index: 1;
@@ -160,18 +172,6 @@
         right: 16px;
         width: 257px;
         height: 157px;
-      }
-    }
-
-    &-3 {
-      right: 0;
-      bottom: 36px;
-      z-index: 3;
-      width: 470px;
-      height: 262px;
-
-      @include below-tablet {
-        display: none;
       }
     }
   }
