@@ -17,6 +17,7 @@ const getPipedriveFields = async () => {
     const clientIdField = pipedriveFields.data.find((field) => field.name.trim() === 'Client ID' && field.id === 9086);
     const leadSourceField = pipedriveFields.data.find((field) => field.name === 'Lead source' && field.id === 9087);
     const leadTypeField = pipedriveFields.data.find((field) => field.name === 'Lead type' && field.id === 9089);
+    const campaignField = pipedriveFields.data.find((field) => field.name === 'Web page / UTM' && field.id === 9107);
     const phoneField = pipedriveFields.data.find((field) => field.name === 'Phone' && field.id === 9041);
 
     return {
@@ -26,6 +27,7 @@ const getPipedriveFields = async () => {
       leadSourceField,
       phoneField,
       leadTypeField,
+      campaignField,
     };
   } catch (error) {
     handleError({
@@ -52,6 +54,8 @@ const createPersonPipedrive = async (data) => {
       leadSourceOptionId,
       leadTypeFieldKey,
       leadTypeOptionId,
+      campaignFieldKey,
+      clientCampaign,
     } = data;
 
     const { data: newPersonPipedrive } = await axios.post(
@@ -65,6 +69,7 @@ const createPersonPipedrive = async (data) => {
         [cityRegionFieldKey]: clientCityRegion || '',
         [phoneFieldKey]: phone || '',
         [leadTypeFieldKey]: leadTypeOptionId || '',
+        [campaignFieldKey]: clientCampaign,
       },
     );
 
@@ -154,6 +159,7 @@ export async function sendDataPipedrive(req, res) {
       leadSourceField,
       leadTypeField,
       phoneField,
+      campaignField,
     } = await getPipedriveFields();
 
     const leadSourceOptions = await getCurrentLeadSourceOption({
@@ -179,6 +185,8 @@ export async function sendDataPipedrive(req, res) {
       leadSourceOptionId: leadSourceOptions?.id,
       leadTypeFieldKey: leadTypeField.key,
       leadTypeOptionId: leadTypeOption?.id,
+      campaignFieldKey: campaignField.key,
+      clientCampaign: leadSource.campaign,
     });
 
     if (newPersonPipedrive) {
