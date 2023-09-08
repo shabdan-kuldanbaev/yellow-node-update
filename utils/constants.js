@@ -307,6 +307,7 @@ export const CASE_STUDIES = {
   clairvoyantServices: 'clairvoyant-directory-upgrade',
   digitalWallet: 'digital-wallet-for-ios',
   erp: 'enterprise-resource-planning-system',
+  hawkin: 'medical-software-for-musculoskeletal-rehabilitation',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -407,6 +408,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   CASE_STUDIES.kitchenEquipment,
   CASE_STUDIES.radioPlato,
   CASE_STUDIES.clairvoyantServices,
+  CASE_STUDIES.hawkin,
 ];
 
 export const PAGES_WITH_GRAY_HEADER = [

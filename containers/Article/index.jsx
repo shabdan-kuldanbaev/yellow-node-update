@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
@@ -9,7 +10,6 @@ import FullLayout from 'components/Layout/FullLayout';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
 import PageNotFound from 'containers/PageNotFound';
-import FAQ from 'UI/containers/FAQ';
 import { useGetArticleQuery } from 'redux/apis/blog';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import { PAGES } from 'utils/constants';
@@ -17,6 +17,8 @@ import { rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import usePageClusters from 'hooks/usePageClusters';
 import { getArticleProps } from './utils/propsHelper';
+
+const FAQ = dynamic(() => import('UI/containers/FAQ'));
 
 const ArticleContainer = ({
   introSection,

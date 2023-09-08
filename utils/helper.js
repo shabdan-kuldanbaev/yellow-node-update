@@ -1,4 +1,5 @@
 import get from 'lodash/get';
+import axios from 'axios';
 import dayjs from 'dayjs';
 import {
   BIG_TABLET_RESOLUTION,
@@ -318,3 +319,16 @@ export const findBlock = (blocks, blockType) => blocks.find((module) => {
 
   return slug === blockType;
 });
+
+export const getUserCountry = async () => {
+  try {
+    const { data: { country_name } = {} } = await axios.get('https://ipapi.co/json/');
+
+    return country_name;
+  } catch (error) {
+    handleError({
+      error,
+      message: 'Error in the getPersonCountry function',
+    });
+  }
+};

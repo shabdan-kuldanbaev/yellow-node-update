@@ -7,7 +7,6 @@ import {
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import dynamic from 'next/dynamic';
 import get from 'lodash/get';
-import Illustration from 'UI/components/Illustration';
 import LinkWrapper from 'components/Common/LinkWrapper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import {
@@ -23,6 +22,7 @@ const GalleryCard = dynamic(() => import('components/BlogCommon/Article/GalleryC
 const ArticleLink = dynamic(() => import('./ArticleLink').then((module) => module.ArticleLink));
 const Table = dynamic(() => import('components/Common/Table'));
 const EmbedArticleCard = dynamic(() => import('UI/components/Cards/EmbedArticleCard'));
+const Illustration = dynamic(() => import('UI/components/Illustration'));
 
 // TODO move it to the common folder
 // TODO create constants for cases

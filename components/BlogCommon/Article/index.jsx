@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import {
   useRef,
   useEffect,
@@ -5,15 +6,17 @@ import {
   useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
-import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
-import OldArticle from 'components/BlogCommon/Article/OldArticle';
 import withScroll from 'hocs/withScroll';
 import gaHelper from 'utils/ga';
 import { formatDate } from 'utils/helper';
 import FullScreenEstimation, { FullscreenEstimationContext } from 'components/Common/FullScreenEstimation';
+import Illustration from 'UI/components/Illustration';
 import { Author } from './Author';
 import { NavigationByTitles } from './NavigationByTitles';
 import styles from './styles.module.scss';
+
+const OldArticle = dynamic(() => import('components/BlogCommon/Article/OldArticle'));
+const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'));
 
 const Article = ({
   introSection,
@@ -54,9 +57,11 @@ const Article = ({
       className={styles.article}
     >
       <header className={styles.header}>
-        <div className={styles.imageWrapper}>
-          <div style={{ backgroundImage: `url(${headImage})` }} />
-        </div>
+        <Illustration
+          src={headImage}
+          className={styles.headImage}
+          priority
+        />
         <div className={styles.container}>
           <p className={styles.date}>
             {formatDate(publishedAt)}

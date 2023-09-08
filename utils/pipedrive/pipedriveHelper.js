@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import axios from 'axios';
-import { getCookie } from 'cookies-next';
-import { leadSourceCookieName } from 'utils/constants/leadSourceCookieName';
+import { getCookie, setCookie } from 'cookies-next';
+import { leadSourceCookieName, userCountry } from 'utils/constants/cookieNames';
 import { handleError } from '../error';
 
 dotenv.config('./env');
@@ -15,6 +15,7 @@ const getPipedriveFields = async () => {
     const countryField = pipedriveFields.data.find((field) => field.name === 'Person Country' && field.id === 9094);
     const clientIdField = pipedriveFields.data.find((field) => field.name.trim() === 'Client ID' && field.id === 9086);
     const leadSourceField = pipedriveFields.data.find((field) => field.name === 'Lead source' && field.id === 9087);
+    const leadTypeField = pipedriveFields.data.find((field) => field.name === 'Lead type' && field.id === 9089);
     const phoneField = pipedriveFields.data.find((field) => field.name === 'Phone' && field.id === 9041);
 
     return {
@@ -22,25 +23,12 @@ const getPipedriveFields = async () => {
       clientIdField,
       leadSourceField,
       phoneField,
+      leadTypeField,
     };
   } catch (error) {
     handleError({
       error,
       message: 'Error in the getPipedriveFields function',
-    });
-  }
-};
-
-const getPersonCountry = async () => {
-  try {
-    const { data } = await axios.get('http://ip.jsontest.com/');
-    const { data: clientCountry } = await axios.get(`https://ip-api.io/api/json/${data.ip}`);
-
-    return clientCountry.country_name;
-  } catch (error) {
-    handleError({
-      error,
-      message: 'Error in the getPersonCountry function',
     });
   }
 };
@@ -58,6 +46,8 @@ const createPersonPipedrive = async (data) => {
       phone,
       clientId,
       leadSourceOptionId,
+      leadTypeFieldKey,
+      leadTypeOptionId,
     } = data;
 
     const { data: newPersonPipedrive } = await axios.post(
@@ -69,6 +59,7 @@ const createPersonPipedrive = async (data) => {
         [leadSourceFieldKey]: leadSourceOptionId || '',
         [countryFieldKey]: clientCountry || '',
         [phoneFieldKey]: phone || '',
+        [leadTypeFieldKey]: leadTypeOptionId || '',
       },
     );
 
@@ -149,15 +140,15 @@ export async function sendDataPipedrive(req, res) {
     } = req.body;
 
     const leadSource = JSON.parse(getCookie(leadSourceCookieName, { req, res }));
+    const clientCountry = getCookie(userCountry, { req, res });
 
     const {
       countryField,
       clientIdField,
       leadSourceField,
+      leadTypeField,
       phoneField,
     } = await getPipedriveFields();
-
-    const clientCountry = await getPersonCountry();
 
     const leadSourceOptions = await getCurrentLeadSourceOption({
       leadSourceFieldsOptions: leadSourceField.options,
@@ -165,17 +156,21 @@ export async function sendDataPipedrive(req, res) {
       leadSourceField,
     });
 
+    const leadTypeOption = findCurrentOption(leadTypeField.options, 'Inbound');
+
     const newPersonPipedrive = await createPersonPipedrive({
-      clientIdFieldKey: clientIdField.key,
-      leadSourceFieldKey: leadSourceField.key,
-      countryFieldKey: countryField.key,
-      clientCountry,
       email,
       name,
+      clientIdFieldKey: clientIdField.key,
+      clientId,
+      countryFieldKey: countryField.key,
+      clientCountry,
       phoneFieldKey: phoneField.key,
       phone,
-      clientId,
+      leadSourceFieldKey: leadSourceField.key,
       leadSourceOptionId: leadSourceOptions?.id,
+      leadTypeFieldKey: leadTypeField.key,
+      leadTypeOptionId: leadTypeOption?.id,
     });
 
     if (newPersonPipedrive) {

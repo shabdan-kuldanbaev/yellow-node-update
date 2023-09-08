@@ -62,6 +62,7 @@ const ProjectIdea = (props) => {
           type={type}
           image={image}
           textContent={textContent}
+          view={view}
         />
         <div className={styles.descriptionContainer}>
           <div className={styles.descriptionIntro}>

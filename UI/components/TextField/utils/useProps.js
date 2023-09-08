@@ -42,6 +42,7 @@ export default (props) => {
     required,
     placeholder,
     type,
+    tabIndex: '0',
     rows: textarea && 1,
     ref: register ? (el) => {
       inputRegister.ref(el);
