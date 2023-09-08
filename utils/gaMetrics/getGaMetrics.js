@@ -35,7 +35,7 @@ function getSearchEngineData({
     const returnData = {
       source: searchEngineConfig[referringDomain].n,
       medium: 'organic',
-      campaign: path,
+      campaign: path || '(not set)',
     };
     const search_p = searchEngineConfig[referringDomain].p;
 
@@ -60,6 +60,7 @@ function getSearchEngineData({
       return {
         source: searchEngineConfig[key].n,
         medium: 'organic',
+        campaign: path || '(not set)',
       };
     }
   }
