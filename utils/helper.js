@@ -320,11 +320,15 @@ export const findBlock = (blocks, blockType) => blocks.find((module) => {
   return slug === blockType;
 });
 
-export const getUserCountry = async () => {
+export const getUserLocation = async () => {
   try {
-    const { data: { country_name } = {} } = await axios.get('https://ipapi.co/json/');
+    const { data: { country_name: countryName, region, city } = {} } = await axios.get('https://ipapi.co/json/');
 
-    return country_name;
+    return {
+      countryName,
+      region,
+      city,
+    };
   } catch (error) {
     handleError({
       error,
