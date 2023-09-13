@@ -14,10 +14,12 @@ const TextField = (props) => {
     <div
       className={className}
       role="textbox"
-      tabIndex="0"
     >
       <Component {...options} />
-      <span className={styles.error}>
+      <span
+        className={styles.error}
+        tabIndex="-1"
+      >
         {errorMessage}
       </span>
     </div>

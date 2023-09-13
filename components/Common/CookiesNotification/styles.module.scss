@@ -7,9 +7,9 @@
   box-sizing: border-box;
   background-color: $gray800;
   position: fixed;
-  inset: 89px 0 auto;
+  inset: $new-header-height 0 auto;
   padding: 16px;
-  z-index: 1;
+  z-index: 2;
   margin: 0 auto;
   transition:
     transform ease-in-out 0.3s,
@@ -86,6 +86,10 @@
 
   @include below-tablet {
     padding-top: 48px;
+  }
+
+  @include phone {
+    top: 65px;
   }
 }
 

@@ -22,7 +22,11 @@ function getUtmTags(urlParams) {
   return null;
 }
 
-function getSearchEngineData(referringDomain, urlParamsObject) {
+function getSearchEngineData({
+  referringDomain,
+  urlParamsObject, 
+  path, 
+}) {
   if (!referringDomain) {
     return null;
   }
@@ -31,6 +35,7 @@ function getSearchEngineData(referringDomain, urlParamsObject) {
     const returnData = {
       source: searchEngineConfig[referringDomain].n,
       medium: 'organic',
+      campaign: path || '(not set)',
     };
     const search_p = searchEngineConfig[referringDomain].p;
 
@@ -55,6 +60,7 @@ function getSearchEngineData(referringDomain, urlParamsObject) {
       return {
         source: searchEngineConfig[key].n,
         medium: 'organic',
+        campaign: path || '(not set)',
       };
     }
   }
@@ -92,16 +98,26 @@ function getDomain(referrer) {
   return site.slice(-2).join('.');
 }
 
-export function rawData() {
+export function rawData({ path }) {
   const referringDomain = getDomain(document.referrer);
   const urlParams = new URLSearchParams(window.location.search);
   const urlParamsObject = Object.fromEntries(urlParams);
   const utmTags = getUtmTags(urlParams);
   const paidUrlData = getPaidUrlData(urlParamsObject);
-  const searchEngineData = getSearchEngineData(referringDomain, urlParamsObject);
-  const referralData = referringDomain ? { medium: 'referral', source: referringDomain } : null;
+  const searchEngineData = getSearchEngineData({
+    referringDomain, 
+    urlParamsObject,
+    path
+  });
+  const referralData = referringDomain
+    ? { 
+        medium: 'referral',
+        source: referringDomain, 
+        campaign: path || '(not set)',
+      } 
+    : null;
 
-  return {
+  return {   
     this_hostname: document.location.origin || 'localhost',
     this_domain: getDomain(document.location.origin) || 'localhost',
     referring_hostname: document.referrer || null,
@@ -115,9 +131,9 @@ export function rawData() {
   };
 }
 
-export default function getGaMetrics() {
-  const trafficData = rawData();
-
+export default function  getGaMetrics({ path }) {
+  const trafficData = rawData({ path });
+ 
   return trafficData.utm_tags
     || trafficData.paid_url_data
     || trafficData.organic_search_data
@@ -125,6 +141,6 @@ export default function getGaMetrics() {
     || {
       source: '(direct)',
       medium: '(none)',
-      campaign: '(not set)',
+      campaign: path || '(not set)',
     };
 }

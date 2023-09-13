@@ -1,0 +1,59 @@
+.medical-software-for-musculoskeletal-rehabilitation {
+  &.firstSectionView {
+    position: relative;
+    z-index: 1;
+    padding: 78px 109px;
+    background-color: $hawkinBlue;
+    border-radius: 240px;
+
+    .container {
+      @include flex(column, center, center);
+
+      .title {
+        @include fontSize(24px, 130%);
+
+        color: $gray900;
+        font-weight: 700;
+      }
+    }
+
+    .listContainer {
+      @include flex(column, center, center);
+
+      .listItem {
+        @include fontSize(16px, 150%);
+
+        color: rgba($color:  $gray900, $alpha: 40%);
+        font-weight: 400;
+
+        &::marker {
+          color: $hawkinAdditional;
+        }
+
+        &:not(:last-of-type) {
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    &::before {
+      @include circle($hawkinAdditional, 63px);
+
+      content: '';
+      left: 14px;
+      top: 15px;
+    }
+
+    &::after {
+      @include circle($gray0, 31px);
+
+      content: '';
+      left: 62px;
+      top: 37px;
+    }
+
+    @include tablet {
+      padding: 40px 52px;
+    }
+  }
+}

@@ -4,23 +4,26 @@ import {
   useEffect,
   useMemo,
 } from 'react';
+import { useRouter } from 'next/router';
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
-import { setCookie } from 'cookies-next';
 import { wrapper } from 'redux/store';
+import { getCookie, setCookie } from 'cookies-next';
 import Layout from 'UI/containers/Layout';
 import { AppContext, PageFetchContext } from 'utils/appContext';
+import { getUserLocation } from 'utils/helper';
 import { customTheme } from 'styles/muiTheme';
+import { leadSourceCookieName, userLocation } from 'utils/constants/cookieNames';
+import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
 import 'animate.css/animate.min.css';
 import 'swiper/css/bundle';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/pagination';
 import 'styles/index.scss';
-import { leadSourceCookieName } from 'utils/constants/leadSourceCookieName';
-import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
-import { CUSTOM_DOMAIN } from 'utils/constants';
 
 function App({ Component, pageProps }) {
+  const router = useRouter();
+
   const [contextData, setContextData] = useState({
     isHomepageVisit: false,
     isFirstHomepageVisit: false,
@@ -39,12 +42,23 @@ function App({ Component, pageProps }) {
 
     smoothscroll.polyfill();
 
-    const leadSource = getGaMetrics();
-
-    if (leadSource.source !== CUSTOM_DOMAIN) {
-      setCookie(leadSourceCookieName, JSON.stringify(getGaMetrics()));
-    }
+    (async () => {
+      const location = await getUserLocation();
+      setCookie(userLocation, JSON.stringify(location));
+    })();
   }, []);
+
+  useEffect(() => {
+    const savedTrafficData = getCookie(leadSourceCookieName);
+
+    if (savedTrafficData) {
+      return;
+    }
+
+    const trafficData = getGaMetrics({ path: router.asPath.slice(1) });
+
+    setCookie(leadSourceCookieName, JSON.stringify(trafficData));
+  }, [router]);
 
   const AppContextValue = useMemo(() => ({
     contextData,
