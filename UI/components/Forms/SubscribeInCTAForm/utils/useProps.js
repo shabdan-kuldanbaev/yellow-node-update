@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import usePageClusters from 'hooks/usePageClusters';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 
-const useProps = ({ ...props }) => {
+const useProps = ({ onSubscriptionFinished, ...props }) => {
   const [subscribe, { data, isLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
   const pageClusters = usePageClusters();
@@ -28,6 +28,8 @@ const useProps = ({ ...props }) => {
       pathname: query,
       pageClusters,
     });
+
+    onSubscriptionFinished();
   });
 
   const isButtonDisabled = !getValues().email || !isValid || isLoading;

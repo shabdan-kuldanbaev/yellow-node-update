@@ -56,13 +56,15 @@ const WorksView = (props) => {
           initialWorksList={initialWorksList}
         />
 
-        <Animated {...REVEAL_ANIMATION_PROPS}>
-          <CallToAction
-            data={link}
-            handleOnClick={openFullscreenEstimation}
-            className={styles.callToAction}
-          />
-        </Animated>
+        {link && (
+          <Animated {...REVEAL_ANIMATION_PROPS}>
+            <CallToAction
+              data={link}
+              handleOnClick={openFullscreenEstimation}
+              className={styles.callToAction}
+            />
+          </Animated>
+        )}
       </FullLayout>
 
       <FullScreenEstimation

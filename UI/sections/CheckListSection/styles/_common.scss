@@ -3,12 +3,16 @@
 
   .callToAction {
     background: $gray0;
-    box-shadow: $card-bow-shadow;
   }
 }
 
 .checkListSection {
   @include appDevelopmentContainer;
+
+  .callToAction {
+    background: $gray50;
+    margin-top: 48px;
+  }
 }
 
 .contentWrapper {
@@ -21,7 +25,7 @@
 
   margin: 0 0 -32px -32px;
 
-  &>div {
+  & > div {
     @include flex(row, center, stretch);
 
     margin: 0 0 32px 32px;
@@ -33,7 +37,7 @@
 
     margin-bottom: -16px;
 
-    &>div {
+    & > div {
       margin-bottom: 16px;
     }
   }

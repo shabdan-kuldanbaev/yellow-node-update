@@ -9,10 +9,9 @@ import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
 import { wrapper } from 'redux/store';
 import { getCookie, setCookie } from 'cookies-next';
-import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import Layout from 'UI/containers/Layout';
 import { AppContext, PageFetchContext } from 'utils/appContext';
-import { getDataFromLocalStorageWithExpire, getUserLocation } from 'utils/helper';
+import { getUserLocation } from 'utils/helper';
 import { customTheme } from 'styles/muiTheme';
 import { leadSourceCookieName, userLocation } from 'utils/constants/cookieNames';
 import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
@@ -24,8 +23,6 @@ import 'styles/index.scss';
 
 function App({ Component, pageProps }) {
   const router = useRouter();
-
-  const [subscribe] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
   const [contextData, setContextData] = useState({
     isHomepageVisit: false,
@@ -62,10 +59,6 @@ function App({ Component, pageProps }) {
 
     setCookie(leadSourceCookieName, JSON.stringify(trafficData));
   }, [router]);
-
-  useEffect(() => {
-    subscribe({ savedSubscriptionEmail: getDataFromLocalStorageWithExpire('subscriptionEmail') });
-  }, [subscribe]);
 
   const AppContextValue = useMemo(() => ({
     contextData,

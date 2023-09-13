@@ -13,9 +13,9 @@ const DownloadSection = (props) => {
     description,
     subtitle,
     view,
-    buttonTitle,
     type,
     handleOnCTAClick,
+    cta,
   } = useSectionProps(props);
 
   return (
@@ -34,10 +34,10 @@ const DownloadSection = (props) => {
           titleStyle={styles.titleStyle}
           className={styles.titleWrapper}
         />
-        {buttonTitle && (
+        {cta && (
           <CallToAction
+            data={cta}
             handleOnClick={handleOnCTAClick}
-            buttonTitle={buttonTitle}
             className={styles.callToAction}
           />
         )}

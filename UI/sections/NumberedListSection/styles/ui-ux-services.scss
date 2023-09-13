@@ -5,5 +5,10 @@
     .checkList > div {
       height: 145px;
     }
+
+    .callToAction {
+      margin: 32px auto 0;
+      max-width: $default-content-width;
+    }
   }
 }

@@ -56,10 +56,9 @@ const CheckListSection = (props) => {
             transitionDelay={50}
           >
             <CallToAction
-              type="card"
-              title={link.title}
-              buttonTitle={link.buttonTitle}
+              data={link}
               handleOnClick={handleOnCTAClick}
+              className={styles.callToAction}
             />
           </Animated>
         )}

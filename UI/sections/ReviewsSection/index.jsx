@@ -51,9 +51,7 @@ const ReviewsSection = (props) => {
             transitionDelay={50}
           >
             <CallToAction
-              type="card"
-              title={ctaLink.title}
-              buttonTitle={ctaLink.buttonTitle}
+              data={ctaLink}
               handleOnClick={handleOnCTAClick}
               className={styles.callToAction}
             />

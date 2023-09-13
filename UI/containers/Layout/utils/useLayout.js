@@ -1,12 +1,17 @@
 import { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
-import { mobileResolution, tabletResolution } from 'utils/helper';
+import {
+  getDataFromLocalStorageWithExpire,
+  mobileResolution,
+  tabletResolution,
+} from 'utils/helper';
 import {
   desktopResolutionSet,
   mobileResolutionSet,
   tabletResolutionSet,
 } from 'redux/reducers/layout';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import { AppContext } from 'utils/appContext';
 import { routes } from 'utils/routes';
 
@@ -36,6 +41,12 @@ export const useLayout = ({ children, introSection }) => {
 
     return () => window.removeEventListener('resize', handleOnResize);
   }, [dispatch]);
+
+  const [subscribe] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
+
+  useEffect(() => {
+    subscribe({ savedSubscriptionEmail: getDataFromLocalStorageWithExpire('subscriptionEmail') });
+  }, [subscribe, children]);
 
   return {
     children,

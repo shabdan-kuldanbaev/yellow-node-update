@@ -65,8 +65,7 @@ export default ({
     };
   });
 
-  const rawCtaLink = get(contentModules, '[1]', null);
-  const ctaLink = rawCtaLink && getDocumentFields(rawCtaLink, ['title', 'buttonTitle']);
+  const ctaLink = get(contentModules, '[1]', null);
 
   const swiperParams = {
     modules: [Navigation, Mousewheel],

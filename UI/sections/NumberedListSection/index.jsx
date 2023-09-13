@@ -17,9 +17,9 @@ const NumberedListSection = (props) => {
     view,
     title,
     description,
-    link,
     handleOnCTAClick,
     noCardBackground,
+    linkData,
   } = useCheckListSection(props);
 
   if (!list.length) {
@@ -51,15 +51,13 @@ const NumberedListSection = (props) => {
           ))}
         </div>
 
-        {link && (
+        {linkData && (
           <Animated
             {...REVEAL_ANIMATION_PROPS}
             transitionDelay={50}
           >
             <CallToAction
-              type="card"
-              title={link.title}
-              buttonTitle={link.buttonTitle}
+              data={linkData}
               handleOnClick={handleOnCTAClick}
               className={styles.callToAction}
             />
