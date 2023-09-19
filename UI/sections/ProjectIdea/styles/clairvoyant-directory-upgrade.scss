@@ -207,10 +207,6 @@
     padding-bottom: 60px;
     background: $clairvoyantServicesPrimary;
 
-    & > *:last-child {
-      display: none;
-    }
-
     .titleStyle {
       [data-title] {
         color: $gray0;
