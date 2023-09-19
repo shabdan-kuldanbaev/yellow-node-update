@@ -324,6 +324,10 @@
         color: $gray0;
         opacity: 0.7;
         white-space: unset;
+
+        & + h3 {
+          margin-top: 15px;
+        }
       }
     }
 
@@ -346,6 +350,11 @@
         margin: 0;
         max-width: 379px;
         width: 100%;
+
+        &:last-child {
+          position: absolute;
+          z-index: -1;
+        }
       }
 
       &-1 {
@@ -373,6 +382,12 @@
             display: none;
           }
         }
+
+        & > div:last-child {
+          position: absolute;
+          left: -20px;
+          top: 50px;
+        }
       }
 
       &-2 {
@@ -399,6 +414,12 @@
           @include phone {
             display: none;
           }
+        }
+
+        & > div:last-child {
+          position: absolute;
+          right: -20px;
+          bottom: 50px;
         }
       }
 
