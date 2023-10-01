@@ -4,18 +4,17 @@ import {
   useEffect,
   useMemo,
 } from 'react';
+import { useRouter } from 'next/router';
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
-import { setCookie } from 'cookies-next';
 import { wrapper } from 'redux/store';
-import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import { getCookie, setCookie } from 'cookies-next';
 import Layout from 'UI/containers/Layout';
 import { AppContext, PageFetchContext } from 'utils/appContext';
-import { getDataFromLocalStorageWithExpire, getUserCountry } from 'utils/helper';
+import { getUserLocation } from 'utils/helper';
 import { customTheme } from 'styles/muiTheme';
-import { leadSourceCookieName, userCountry } from 'utils/constants/cookieNames';
+import { leadSourceCookieName, userLocation } from 'utils/constants/cookieNames';
 import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
-import { CUSTOM_DOMAIN } from 'utils/constants';
 import 'animate.css/animate.min.css';
 import 'swiper/css/bundle';
 import 'swiper/scss/scrollbar';
@@ -23,7 +22,7 @@ import 'swiper/scss/pagination';
 import 'styles/index.scss';
 
 function App({ Component, pageProps }) {
-  const [subscribe] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
+  const router = useRouter();
 
   const [contextData, setContextData] = useState({
     isHomepageVisit: false,
@@ -43,21 +42,23 @@ function App({ Component, pageProps }) {
 
     smoothscroll.polyfill();
 
-    const leadSource = getGaMetrics();
-
-    if (leadSource.source !== CUSTOM_DOMAIN) {
-      setCookie(leadSourceCookieName, JSON.stringify(getGaMetrics()));
-    }
-
     (async () => {
-      const country = await getUserCountry();
-      setCookie(userCountry, country);
+      const location = await getUserLocation();
+      setCookie(userLocation, JSON.stringify(location));
     })();
   }, []);
 
   useEffect(() => {
-    subscribe({ savedSubscriptionEmail: getDataFromLocalStorageWithExpire('subscriptionEmail') });
-  }, [subscribe]);
+    const savedTrafficData = getCookie(leadSourceCookieName);
+
+    if (savedTrafficData) {
+      return;
+    }
+
+    const trafficData = getGaMetrics({ path: router.asPath.slice(1) });
+
+    setCookie(leadSourceCookieName, JSON.stringify(trafficData));
+  }, [router]);
 
   const AppContextValue = useMemo(() => ({
     contextData,

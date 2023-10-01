@@ -53,8 +53,6 @@ const ImageSection = (props) => {
           transitionDelay={50}
         >
           <CallToAction
-            title={link.title}
-            buttonTitle={link.buttonTitle}
             data={link}
             handleOnClick={handleOnCTAClick}
             className={styles.callToAction}

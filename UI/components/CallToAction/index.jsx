@@ -19,7 +19,6 @@ const CallToAction = (props) => {
     type,
     images,
     downloadLink,
-    isSubscribed,
     handleOnClick,
     slug,
     ctaUrl,
@@ -44,7 +43,6 @@ const CallToAction = (props) => {
           return (
             <Subscribe
               titles={titles}
-              isSubscribed={isSubscribed}
               subtitle={subtitle}
               buttonTitle={buttonTitle}
               slug={slug}

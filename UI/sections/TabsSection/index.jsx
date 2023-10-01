@@ -108,8 +108,7 @@ const TabsSection = (props) => {
                 </div>
                 {link && (
                   <CallToAction
-                    title={link.title}
-                    buttonTitle={link.buttonTitle}
+                    data={link}
                     handleOnClick={handleOnCTAClick}
                     className={styles.link}
                   />
@@ -124,9 +123,7 @@ const TabsSection = (props) => {
             transitionDelay={50}
           >
             <CallToAction
-              type="card"
-              title={linkAfterBlock.title}
-              buttonTitle={linkAfterBlock.buttonTitle}
+              data={linkAfterBlock}
               handleOnClick={handleOnCTAClick}
               className={styles.callToAction}
             />

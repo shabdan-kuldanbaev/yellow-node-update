@@ -22,7 +22,7 @@ export default ({
     ],
   );
 
-  const link = getDocumentFields(get(contentModules, '[1]'));
+  const link = get(contentModules, '[1]');
 
   const { contentModules: listData } = getDocumentFields(get(contentModules, '[0]', []));
   const list = (listData || []).map((item) => {

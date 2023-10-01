@@ -18,7 +18,6 @@ const GallerySection = (props) => {
     title,
     description,
     slides,
-    link,
     handleOnCTAClick,
     ctaData,
   } = useGallerySection(props);
@@ -47,11 +46,8 @@ const GallerySection = (props) => {
           ))}
         </CustomSwiper>
       </div>
-      {link && (
+      {ctaData && (
         <CallToAction
-          type="card"
-          title={link.title}
-          buttonTitle={link.buttonTitle}
           className={styles.callToAction}
           handleOnClick={handleOnCTAClick}
           data={ctaData}

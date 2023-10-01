@@ -11,12 +11,12 @@ import gaHelper from 'utils/ga';
 import { formatDate } from 'utils/helper';
 import FullScreenEstimation, { FullscreenEstimationContext } from 'components/Common/FullScreenEstimation';
 import Illustration from 'UI/components/Illustration';
+import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { Author } from './Author';
 import { NavigationByTitles } from './NavigationByTitles';
 import styles from './styles.module.scss';
 
 const OldArticle = dynamic(() => import('components/BlogCommon/Article/OldArticle'));
-const ContentfulParser = dynamic(() => import('components/BlogCommon/Article/ContentfulParser'));
 
 const Article = ({
   introSection,

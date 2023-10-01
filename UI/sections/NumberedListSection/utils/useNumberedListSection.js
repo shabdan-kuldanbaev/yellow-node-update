@@ -22,7 +22,7 @@ export default ({
     ],
   );
 
-  const link = getDocumentFields(get(contentModules, '[1]'));
+  const linkData = get(contentModules, '[1]');
 
   const { contentModules: listData } = getDocumentFields(get(contentModules, '[0]', []));
   const list = (listData || []).map((item) => getDocumentFields(item, ['title']).title);
@@ -32,9 +32,9 @@ export default ({
     description,
     view,
     list,
-    link,
     type,
     handleOnCTAClick,
+    linkData,
     ...rest,
   };
 };

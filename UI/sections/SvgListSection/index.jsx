@@ -73,9 +73,7 @@ const SvgListSection = (props) => {
           transitionDelay={50}
         >
           <CallToAction
-            type="card"
-            title={link.linkTitle}
-            buttonTitle={link.buttonTitle}
+            data={link}
             handleOnClick={handleOnCTAClick}
             className={styles.callToAction}
           />

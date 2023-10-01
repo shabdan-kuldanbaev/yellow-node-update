@@ -5,6 +5,7 @@ import SectionTitle from 'UI/components/SectionTitle';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Button from 'UI/components/Button';
 import { Figures } from 'UI/components/Figures';
+import CallToAction from 'UI/components/CallToAction';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -23,6 +24,8 @@ const PlainTextSection = (props) => {
     onClickMoreButton,
     isSeeMore,
     figuresData,
+    handleOnCTAClick,
+    ctaLink,
   } = useSectionProps(props);
 
   return (
@@ -57,6 +60,19 @@ const PlainTextSection = (props) => {
             />
           )}
         </div>
+
+        {ctaLink && (
+          <Animated
+            {...REVEAL_ANIMATION_PROPS}
+            transitionDelay={50}
+          >
+            <CallToAction
+              data={ctaLink}
+              handleOnClick={handleOnCTAClick}
+              className={styles.callToAction}
+            />
+          </Animated>
+        )}
       </div>
     </section>
   );

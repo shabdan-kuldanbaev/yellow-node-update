@@ -5,6 +5,7 @@ import { getDocumentFields } from 'utils/helper';
 export default ({
   section,
   type,
+  ...props
 }) => {
   const {
     title,
@@ -26,6 +27,7 @@ export default ({
   const { text, hasSeeMoreButton } = getDocumentFields(get(contentModules, '[0]', []), ['text', 'hasSeeMoreButton']);
 
   const figuresData = get(contentModules, '[0]', {});
+  const ctaLink = get(contentModules, '[1]', {});
   const onClickMoreButton = useCallback(() => {
     setIsSeeMore(!isSeeMore);
   }, [isSeeMore]);
@@ -41,5 +43,7 @@ export default ({
     onClickMoreButton,
     isSeeMore,
     figuresData: Object.keys(figuresData).length ? figuresData : null,
+    ctaLink,
+    ...props,
   };
 };

@@ -1,6 +1,11 @@
 .penetration-testing {
   background-color: $gray0;
 
+  .callToAction {
+    border: none;
+    background: $gray50;
+  }
+
   & .titleStyle {
     max-width: 823px;
     margin-bottom: 47px;
@@ -81,6 +86,13 @@
       @include flex(column);
 
       height: fit-content;
+
+      li {
+        text-align: left;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+      }
     }
   }
 
