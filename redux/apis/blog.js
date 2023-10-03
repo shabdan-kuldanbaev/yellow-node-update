@@ -31,6 +31,7 @@ const blogApi = baseApi.injectEndpoints({
           ? GRAPHQL_QUERY.loadPreviewArticlesByTags({
             limit,
             skip,
+            order,
             where: { slug },
           }) : GRAPHQL_QUERY.loadPreviewArticles({
             skip,
