@@ -166,6 +166,7 @@ export const GRAPHQL_QUERY = {
   loadPreviewArticlesByTags({
     limit,
     skip,
+    order,
     where,
   }) {
     return `
@@ -179,6 +180,7 @@ export const GRAPHQL_QUERY = {
                 articleCollection(
                   ${getParam({ limit })}
                   ${getParam({ skip })}
+                  ${getParam({ order })}
               ) {
                 total
                 items {
