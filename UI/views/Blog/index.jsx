@@ -124,11 +124,13 @@ const BlogContainer = ({
           toggleFullscreenSubscribe={toggleFullscreenSubscribe}
         />
 
-        <Paginator
-          pagesCounter={pagesCounter}
-          currentPage={currentPage}
-          pageSlug={ROUTES.blog.slug}
-        />
+        {!!pagesCounter && (
+          <Paginator
+            pagesCounter={pagesCounter}
+            currentPage={currentPage}
+            pageSlug={ROUTES.blog.slug}
+          />
+        )}
       </FullLayout>
 
       <FullscreenSearch
