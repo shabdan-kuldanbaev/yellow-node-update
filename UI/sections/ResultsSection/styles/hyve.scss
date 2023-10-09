@@ -1,0 +1,38 @@
+.restaurant-asset-management-tool {
+  .sectionTitle {
+    display: none;
+  }
+
+  .media {
+    width: 100%;
+    border-radius: unset;
+  }
+
+  .contentWrapper {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 76px;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: translateX(-50%);
+      border-radius: 11.678px;
+      opacity: 0.6;
+      background: $gray1000;
+      filter: blur(58px);
+    }
+  }
+
+  &.firstSectionView {
+    background: $hyveBlue;
+  }
+
+  &.secondSectionView {
+    background: $hyveGreen;
+  }
+}
