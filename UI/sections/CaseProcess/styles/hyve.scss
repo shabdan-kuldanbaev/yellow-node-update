@@ -68,64 +68,10 @@
     }
   }
 
-  &.firstSectionView {
-    padding: 60px 32px 120px;
-
-    .container {
-      max-width: $wide-content-width;
-    }
-
-    .stepsContainer {
-      gap: 32px;
-      margin: 0;
-
-      & > div {
-        width: 100%;
-        margin: 0;
-      }
-
-      @include phone {
-        gap: 16px;
-      }
-    }
-
-    .step {
-      @include flex(column, flex-start);
-
-      padding: 32px 24px;
-      height: auto;
-      border: 1px solid $gray600;
-
-      h3 {
-        @include fontSize(24px, 130%);
-
-        color: $gray0;
-        font-weight: 500;
-        text-align: left;
-
-        @include phone {
-          @include fontSize(20px, 130%);
-        }
-      }
-
-      p {
-        margin: 12px 0 0;
-        color: $gray400;
-      }
-
-      @include phone {
-        padding: 24px;
-      }
-    }
-
-    @include tablet {
-      padding: 30px 16px 60px;
-    }
-  }
-
-  &.secondSectionView {
-    padding: 120px 32px 0;
-
+  &.secondSectionView,
+  &.thirdSectionView,
+  &.fourthSectionView,
+  &.fifthSectionView {
     .container {
       max-width: $wide-content-width;
     }
@@ -202,6 +148,65 @@
         }
       }
     }
+  }
+
+  &.firstSectionView {
+    padding: 60px 32px 120px;
+
+    .container {
+      max-width: $wide-content-width;
+    }
+
+    .stepsContainer {
+      gap: 32px;
+      margin: 0;
+
+      & > div {
+        width: 100%;
+        margin: 0;
+      }
+
+      @include phone {
+        gap: 16px;
+      }
+    }
+
+    .step {
+      @include flex(column, flex-start);
+
+      padding: 32px 24px;
+      height: auto;
+      border: 1px solid $gray600;
+
+      h3 {
+        @include fontSize(24px, 130%);
+
+        color: $gray0;
+        font-weight: 500;
+        text-align: left;
+
+        @include phone {
+          @include fontSize(20px, 130%);
+        }
+      }
+
+      p {
+        margin: 12px 0 0;
+        color: $gray400;
+      }
+
+      @include phone {
+        padding: 24px;
+      }
+    }
+
+    @include tablet {
+      padding: 30px 16px 60px;
+    }
+  }
+
+  &.secondSectionView {
+    padding: 120px 32px 0;
 
     .imagesContainer {
       position: relative;
@@ -274,6 +279,70 @@
 
     @include tablet {
       padding: 60px 16px 0;
+    }
+  }
+
+  &.thirdSectionView {
+    padding: 80px 32px 120px;
+
+    .titleStyle {
+      display: none;
+    }
+
+    @include tablet {
+      padding: 24px 16px 60px;
+    }
+  }
+
+  &.fourthSectionView {
+    padding: 120px 32px 60px;
+
+    .titleStyle::after {
+      left: 152px;
+    }
+
+    .step {
+      @include flex(row, center, initial, wrap);
+
+      gap: 32px;
+
+      .stepTitle {
+        margin: 0;
+        width: 100%;
+      }
+
+      b {
+        color: $gray0;
+        font-weight: 600;
+      }
+
+      p {
+        max-width: 559px;
+
+        @include tablet {
+          max-width: 100%;
+        }
+      }
+    }
+
+    @include tablet {
+      padding: 60px 16px 30px;
+    }
+  }
+
+  &.fifthSectionView {
+    padding: 60px 32px;
+
+    .titleStyle::after {
+      left: 79px;
+    }
+
+    .step {
+      padding: 24px;
+    }
+
+    @include tablet {
+      padding: 30px 16px;
     }
   }
 }
