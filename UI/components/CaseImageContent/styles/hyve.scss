@@ -31,4 +31,8 @@
   li {
     color: $gray400;
   }
+
+  @include phone {
+    padding: 24px;
+  }
 }
