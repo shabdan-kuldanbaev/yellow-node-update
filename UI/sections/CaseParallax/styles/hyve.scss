@@ -1,0 +1,13 @@
+.restaurant-asset-management-tool {
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    height: 830px;
+
+    @include below-tablet {
+      height: 500px;
+    }
+  }
+}
