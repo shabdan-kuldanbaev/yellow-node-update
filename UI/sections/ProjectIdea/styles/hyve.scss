@@ -1,0 +1,94 @@
+.restaurant-asset-management-tool {
+  padding: 120px 32px 60px;
+  background: $hyvePrimary;
+  color: $gray0;
+
+  .contentContainer {
+    @include flex(row, space-between);
+
+    gap: 32px;
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      gap: 16px;
+    }
+  }
+
+  .titleStyle {
+    @include flex(row, space-between, center);
+
+    position: relative;
+    margin: 0 auto 48px;
+    max-width: $wide-content-width;
+    width: 100%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 145px;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 1px;
+      background-color: $gray600;
+    }
+
+    [data-title] {
+      @include fontSize(16px, 150%);
+
+      overflow: hidden;
+      margin: 0;
+      max-width: unset;
+      font-weight: 500;
+      letter-spacing: 0.32px;
+      text-transform: uppercase;
+    }
+
+    [data-subtitle] {
+      @include fontSize(16px, 150%);
+
+      margin: 0;
+      max-width: unset;
+      font-weight: 600;
+    }
+
+    @include below-tablet {
+      margin: 0 auto 21px;
+    }
+  }
+
+  .descriptionContainer {
+    order: 1;
+    margin: 0;
+    max-width: 584px;
+  }
+
+  .descriptionIntro {
+    padding: 32px 24px;
+    border: 1px solid $gray600;
+
+    h5 {
+      @include fontSize(24px, 130%);
+
+      margin: 0 0 12px;
+      color: $gray0;
+      font-weight: 500;
+      text-align: left;
+      text-transform: uppercase;
+
+      @include phone {
+        @include fontSize(20px, 130%);
+      }
+    }
+
+    p {
+      color: $gray400;
+      text-align: left;
+    }
+  }
+
+  @include tablet {
+    padding: 60px 16px 30px;
+  }
+}
