@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
 import { getInitialBlogProps } from 'utils/blogUtils';
 import { wrapper } from 'redux/store';
+import BlogContainer from 'UI/views/Blog';
 
 const ArticleContainer = dynamic(() => import('containers/Article'));
-const BlogContainer = dynamic(() => import('UI/views/Blog'));
 
 const Article = ({
   tagsList,

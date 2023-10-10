@@ -1,0 +1,116 @@
+.restaurant-asset-management-tool {
+  padding: 88px 48px 0;
+  background: $hyveGradient;
+
+  .introSection {
+    margin-bottom: 0;
+  }
+
+  .contentWrapper {
+    @include flex(column, flex-end, initial);
+
+    margin: 0;
+  }
+
+  .sectionTitle {
+    max-width: 616px;
+
+    & > div:nth-child(3) {
+      @include flex(row, initial, initial, wrap);
+
+      padding-top: 268px;
+      padding-bottom: 80px;
+      max-width: 463px;
+      gap: 16px;
+
+      @include tablet {
+        padding: 16px 0 0;
+        margin: 0 auto;
+        justify-content: center;
+        max-width: 343px;
+        gap: 8px;
+      }
+    }
+  }
+
+  [data-title] {
+    @include fontSize(48px, 130%);
+
+    margin-bottom: 8px;
+    color: $gray0;
+    font-weight: 500;
+    letter-spacing: 0.96px;
+    text-transform: uppercase;
+
+    @include below-tablet {
+      @include fontSize(28px, 130%);
+
+      letter-spacing: 0.56px;
+    }
+  }
+
+  [data-subtitle] {
+    @include fontSize(16px, 150%);
+
+    margin-bottom: 0;
+    color: $gray0;
+    opacity: 0.7;
+    font-weight: 400;
+  }
+
+  [data-description] {
+    @include fontSize(16px, 150%);
+
+    padding-right: 16px;
+    color: $gray0;
+
+    &:nth-of-type(2n - 1) {
+      border-right: 3px solid $hyveBlue;
+
+      @include tablet {
+        border: none;
+      }
+    }
+
+    @include tablet {
+      padding-right: 8px;
+
+      &:nth-child(2) {
+        border-right: 3px solid $hyveBlue;
+      }
+    }
+  }
+
+  .imageContainer {
+    height: 789px;
+
+    @include tablet {
+      height: 546px;
+    }
+
+    @include phone {
+      height: 303px;
+    }
+  }
+
+  .image {
+    transform: translate(-60%, -53%);
+    width: 1252px;
+    height: 937px;
+
+    @include tablet {
+      transform: translate(-50%, -50%);
+      width: 862px;
+      height: 648px;
+    }
+
+    @include phone {
+      width: 472px;
+      height: 353px;
+    }
+  }
+
+  @include tablet {
+    padding: 88px 32px 0;
+  }
+}
