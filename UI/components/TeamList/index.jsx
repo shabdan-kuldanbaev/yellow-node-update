@@ -19,7 +19,7 @@ const TeamList = (props) => {
     specialTeamList,
   } = useTeamSection(props);
 
-  if (!!title || !!contentList || !!specialTeamList || !!images) {
+  if (!title && !contentList && !specialTeamList && !images.length) {
     return null;
   }
 
