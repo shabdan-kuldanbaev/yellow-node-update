@@ -126,6 +126,8 @@
       }
 
       p {
+        @include fontSize(16px, 150%);
+
         margin: 0;
         color: $gray400;
       }
@@ -207,6 +209,16 @@
 
   &.secondSectionView {
     padding: 120px 32px 0;
+
+    .step {
+      & > p:first-of-type {
+        margin-bottom: 16px;
+      }
+
+      & > p:last-of-type {
+        margin-top: 16px;
+      }
+    }
 
     .imagesContainer {
       position: relative;
@@ -290,10 +302,6 @@
     }
 
     .step {
-      p {
-        @include fontSize(16px, 150%);
-      }
-
       & > p:first-of-type {
         margin-bottom: 24px;
       }
