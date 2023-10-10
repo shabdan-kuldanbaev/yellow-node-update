@@ -34,6 +34,7 @@ export const WHITE_LOGO_TYPE = [
   CASE_STUDIES.goodPsychics,
   CASE_STUDIES.clairvoyantServices,
   CASE_STUDIES.hawkin,
+  CASE_STUDIES.hyve,
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -84,6 +85,7 @@ export const WHITE_TEXT_LOGO = [
   CASE_STUDIES.erp,
   CASE_STUDIES.goodPsychics,
   CASE_STUDIES.hawkin,
+  CASE_STUDIES.hyve,
 ];
 
 export const getLogoType = (type) => {

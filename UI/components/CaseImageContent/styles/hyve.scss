@@ -1,0 +1,38 @@
+.restaurant-asset-management-tool {
+  @include flex(column, center, initail);
+
+  padding: 32px 24px;
+  order: 2;
+  border: 1px solid $gray600;
+  max-width: 584px;
+  width: 100%;
+  box-sizing: border-box;
+
+  .container {
+    @include flex(column);
+
+    gap: 80px;
+  }
+
+  .title {
+    @include fontSize(24px, 130%);
+
+    margin: 0 0 12px;
+    color: $gray0;
+    font-weight: 500;
+    text-align: left;
+    text-transform: uppercase;
+
+    @include phone {
+      @include fontSize(20px, 130%);
+    }
+  }
+
+  li {
+    color: $gray400;
+  }
+
+  @include phone {
+    padding: 24px;
+  }
+}

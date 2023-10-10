@@ -19,6 +19,15 @@ const TeamList = (props) => {
     specialTeamList,
   } = useTeamSection(props);
 
+  if (
+    !title
+     && !contentList
+     && !specialTeamList
+     && !images?.length
+  ) {
+    return null;
+  }
+
   return (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
       <div
