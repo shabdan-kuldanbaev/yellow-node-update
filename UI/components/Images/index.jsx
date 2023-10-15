@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
-import Illustration from 'UI/components/Illustration';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { useImages } from './utils/useImages';
 import styles from './styles.module.scss';
+import Media from '../Media';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
@@ -13,10 +13,10 @@ const Images = (props) => {
   const {
     type,
     view,
-    imagesUrl,
+    images,
   } = useImages(props);
 
-  if (!imagesUrl) {
+  if (!images) {
     return null;
   }
 
@@ -31,19 +31,18 @@ const Images = (props) => {
         styles.container,
       )}
       >
-        {imagesUrl?.map(({ url, alt }, index) => (
+        {images?.map((asset, index) => (
           <Animated
-            key={url}
+            key={`image-${index}`}
             type={ANIMATED_TYPE.isCSS}
             intersectedClasses={cn({ [styles.active]: index })}
           >
-            <Illustration
+            <Media
               priority
               transparent
               unoptimized
+              asset={asset}
               className={cn(styles.image, styles[`image-${index + 1}`])}
-              src={url}
-              alt={alt}
             />
           </Animated>
         ))}
