@@ -1,7 +1,6 @@
 .digital-wallet-for-ios {
   background: $gray50;
   margin: 208px auto 191px;
-  position: relative;
   border-radius: 50px;
   max-width: 1312px;
   overflow: visible;
@@ -70,7 +69,7 @@
 
   .contentWrapper {
     max-width: 442px;
-    z-index: 1;
+    z-index: 2;
 
     @include tablet {
       max-width: none;
@@ -79,71 +78,50 @@
 
   .imageContainer,
   .bundleImagesContainer {
-    aspect-ratio: 1934/1442;
     position: absolute;
+    z-index: 1;
+    display: block;
     height: 100%;
-    width: auto;
+    width: 100%;
     left: 0;
     top: 0;
   }
 
   .imageContainer {
-    border-bottom-left-radius: 50px;
     overflow: hidden;
-    z-index: 1;
+  }
+
+  .image,
+  .bundleImage {
+    position: absolute;
+    width: 230px;
+    height: 500px;
+    border-radius: 30px;
+    box-shadow: 0 24px 94px 0 rgb(0 0 0 / 16%);
+    overflow: hidden;
 
     @include tablet {
-      display: none;
+      width: 188px;
+      height: 410px;
+    }
+
+    @include below-tablet {
+      width: 147px;
+      height: 320px;
+      border-radius: 16px;
+    }
+
+    @include phone {
+      width: 105px;
+      height: 229px;
     }
   }
 
   .image {
-    width: 100%;
-    height: 100%;
-  }
-
-  .bundleImagesContainer {
-    display: block;
-    z-index: 2;
-
-    @include tablet {
-      bottom: 0;
-      left: 0;
-      top: auto;
-      width: 100%;
-      height: 210px;
-    }
-  }
-
-  .bundleImage {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-
-  .bundleImage-1 {
-    aspect-ratio: 791/975;
-    width: 53.4%;
-    height: auto;
-    top: -19%;
-    left: 12%;
-
-    @include tablet {
-      width: auto;
-      height: 230px;
-      top: 2%;
-      left: 30%;
-    }
-  }
-
-  .bundleImage-2 {
-    aspect-ratio: 1163/2518;
-    width: 29%;
-    height: auto;
-    bottom: -26%;
-    left: 10.7%;
-    border-radius: 30px;
-    overflow: hidden;
+    bottom: unset;
+    right: unset;
+    top: 360px;
+    left: 480px;
     transform: rotate(-30deg);
 
     @include tablet {
@@ -151,21 +129,47 @@
     }
   }
 
-  .bundleImage-3 {
-    display: none;
+  .bundleImage {
+    &-1 {
+      left: 220px;
+      top: -100px;
+      transform: rotate(-30deg);
 
-    @include tablet {
-      display: block;
-      height: 100%;
-      width: auto;
-      left: 0;
-      bottom: 0;
-      aspect-ratio: 472/650;
+      @include tablet {
+        top: unset;
+        left: unset;
+        right: 30%;
+        bottom: -80px;
+      }
+
+      @include below-tablet {
+        bottom: 0;
+      }
+    }
+
+    &-2 {
+      left: 120px;
+      top: 260px;
+      transform: rotate(-30deg);
+
+      @include tablet {
+        left: 0;
+        top: unset;
+        bottom: -80px;
+      }
+
+      @include below-tablet {
+        bottom: 0;
+      }
     }
   }
 
   @include tablet {
-    padding: 32px 16px 230px;
-    margin: 80px 16px;
+    padding: 32px 16px 300px;
+    margin: 80px 16px 84px;
+  }
+
+  @include phone {
+    padding-bottom: 230px;
   }
 }

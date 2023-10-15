@@ -2,7 +2,6 @@ import get from 'lodash/get';
 import {
   getDocumentFields,
   getFileUrl,
-  getImage,
   getOptimizedContentfulImage,
 } from 'utils/helper';
 import { SECTION_WITH_BACKGROUND_TITLE, isAnimated } from './helpers';
@@ -48,8 +47,6 @@ export const useCaseStudiesIntro = ({
     { fm: 'png' },
   );
   const style = backgroundImageUrl ? { backgroundImage: `url(${backgroundImageUrl})` } : {};
-
-  // const imagesBundlesWithUrls = imagesBundles?.map((bundle) => getImage(bundle)) || [];
 
   const imageBackgroundTitle = SECTION_WITH_BACKGROUND_TITLE?.[type] || null;
 
