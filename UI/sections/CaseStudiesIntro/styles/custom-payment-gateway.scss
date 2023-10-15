@@ -1,0 +1,95 @@
+.custom-payment-gateway {
+  padding: 138px 32px 0;
+  background-color: $gatewayPrimary;
+
+  .contentWrapper {
+    margin-bottom: 0;
+  }
+
+  .introSection {
+    @include flex(column);
+
+    margin: 0 auto;
+  }
+
+  .image {
+    position: inherit;
+    left: unset;
+    top: unset;
+    margin: 0 auto;
+    transform: unset;
+    width: 994px;
+    height: 683px;
+    box-shadow: 0 14px 54px 0 rgb(0 0 0 / 35%);
+  }
+
+  .imageContainer {
+    width: auto;
+    height: 604px;
+  }
+
+  .sectionTitle {
+    margin: 0 auto 48px;
+    max-width: 728px;
+
+    h1 {
+      @include fontSize(38px, 130%);
+
+      margin-bottom: 8px;
+      color: $gray0;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    p {
+      @include fontSize(16px, 150%);
+
+      color: $gray400;
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+
+  @include tablet {
+    .image {
+      width: 777px;
+      height: 535px;
+    }
+
+    .imageContainer {
+      height: 477px;
+    }
+  }
+
+  @include below-tablet {
+    padding: 86px 16px 0;
+
+    .image {
+      width: 561px;
+      height: 386px;
+    }
+
+    .imageContainer {
+      height: 350px;
+    }
+
+    .sectionTitle {
+      margin-bottom: 32px;
+
+      h1 {
+        @include fontSize(24px, 130%);
+      }
+    }
+  }
+
+  @include phone {
+    .image {
+      width: 343px;
+      height: 235px;
+    }
+
+    .imageContainer {
+      height: 235px;
+    }
+  }
+}
