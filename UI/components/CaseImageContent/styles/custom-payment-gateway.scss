@@ -1,0 +1,57 @@
+.custom-payment-gateway {
+  max-width: $wide-content-width;
+  width: 100%;
+
+  .container {
+    @include flex(row, space-between);
+
+    gap: 24px;
+  }
+
+  .textContainer {
+    @include flex(column, flex-start, center);
+
+    padding: 48px 24px;
+    gap: 8px;
+    width: 100%;
+    border-radius: 32px;
+
+    .title {
+      @include fontSize(20px, 130%);
+
+      margin: 0;
+      color: $gray0;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    ul {
+      @include flex(column, center, center);
+
+      padding: 0;
+      margin: 0;
+
+      * {
+        color: $gray0;
+        opacity: 0.6;
+      }
+    }
+
+    &:nth-child(1) {
+      background: $gatewayBlue;
+    }
+
+    &:nth-child(2) {
+      background: $gatewayAccent;
+    }
+  }
+
+  @include below-tablet {
+    .container {
+      flex-wrap: wrap;
+    }
+  }
+}
