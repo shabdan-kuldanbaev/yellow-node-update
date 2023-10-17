@@ -44,13 +44,14 @@
     }
   }
 
-  .video {
+  .image {
     position: absolute;
     left: 0;
     top: 0;
     width: 994px;
     height: 706px;
     box-shadow: 0 14px 54px 0 #00000026;
+    transform: unset;
 
     @include tablet {
       position: static;

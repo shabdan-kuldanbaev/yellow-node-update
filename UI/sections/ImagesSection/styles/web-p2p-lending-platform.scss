@@ -77,26 +77,4 @@
       }
     }
   }
-
-  &.fifthSectionView {
-    @include p2pSectionCard;
-
-    background: $p2pAccent;
-    position: relative;
-
-    .titleStyle {
-      [data-title] {
-        @include fontSize(28px);
-
-        color: $gray0;
-        text-align: center;
-      }
-
-      [data-subtitle] {
-        opacity: 0.7;
-        color: $gray0;
-        max-width: 548px;
-      }
-    }
-  }
 }

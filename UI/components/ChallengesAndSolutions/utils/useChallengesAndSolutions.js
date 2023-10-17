@@ -30,8 +30,6 @@ export const useChallengesAndSolutions = ({
       subtitle,
       contentList = [],
     } = getDocumentFields(document);
-
-    const image = getImage(get(blockImages, '[0]'));
     const subImage = getImage(get(blockImages, '[1]', ''));
     const imagesBundlesWithUrl = imagesBundles?.map((bundle) => getImage(bundle)) || [];
 
@@ -40,7 +38,7 @@ export const useChallengesAndSolutions = ({
       text,
       subtitle,
       contentList,
-      image,
+      asset: !!blockImages?.[0] && blockImages[0],
       subImage,
       imagesBundles: imagesBundlesWithUrl,
     };

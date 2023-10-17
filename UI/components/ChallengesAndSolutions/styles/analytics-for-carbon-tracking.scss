@@ -243,6 +243,11 @@
       margin-left: auto;
       width: 434px;
       height: 391px;
+      border-radius: 30px;
+      border: 1px solid $gray100;
+      overflow: hidden;
+      object-fit: cover;
+      outline: none;
 
       @include tablet {
         margin: 0 auto;

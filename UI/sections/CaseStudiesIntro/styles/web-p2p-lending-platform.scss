@@ -34,14 +34,44 @@
   }
 
   .imageContainer {
-    width: 100%;
-    height: 728px;
+    width: auto;
+    height: 706px;
     margin-top: 48px;
     max-width: $default-content-width;
 
     @include tablet {
-      height: 70vw;
       margin-top: 30px;
+      height: 502px;
+    }
+
+    @include below-tablet {
+      height: 360px;
+    }
+
+    @include phone {
+      height: 244px;
+    }
+  }
+
+  .image {
+    width: 994px;
+    height: 706px;
+    border-radius: 20px;
+    overflow: hidden;
+
+    @include tablet {
+      width: 702px;
+      height: 502px;
+    }
+
+    @include below-tablet {
+      width: 504px;
+      height: 360px;
+    }
+
+    @include phone {
+      width: 343px;
+      height: 244px;
     }
   }
 
