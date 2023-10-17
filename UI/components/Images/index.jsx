@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
+import Media from 'UI/components/Media';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { useImages } from './utils/useImages';
 import styles from './styles.module.scss';
-import Media from '../Media';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
