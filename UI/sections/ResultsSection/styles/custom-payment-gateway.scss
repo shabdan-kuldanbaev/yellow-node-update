@@ -1,4 +1,6 @@
 .custom-payment-gateway {
+  $imageShadow: 0 14px 54px 0 rgb(0 0 0 / 35%);
+
   background-color: $gatewayPrimary;
 
   .sectionTitle {
@@ -50,6 +52,7 @@
     .media {
       width: 994px;
       height: 683px;
+      box-shadow: $imageShadow;
     }
   }
 
