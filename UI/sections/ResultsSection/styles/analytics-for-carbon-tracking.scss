@@ -27,9 +27,14 @@
 
   .media {
     position: static;
-    width: 100%;
+    margin: 0 auto;
+    width: 994px;
     height: 571px;
-    transform: scale(1.1);
+    border-radius: 10px;
+    border: 1px solid $gray100;
+    box-shadow: 0 8px 35px 0 rgb(110 120 130 / 10%);
+    box-sizing: border-box;
+    overflow: hidden;
 
     @include tablet {
       transform: unset;

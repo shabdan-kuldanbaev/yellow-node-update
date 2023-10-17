@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import Illustration from 'UI/components/Illustration';
 import SectionTitle from 'UI/components/SectionTitle';
-import Video from 'components/Common/Video';
+import Animated from 'UI/containers/Animated';
+import { ANIMATED_TYPE } from 'utils/constants';
 import { useCaseStudiesIntro } from './utils/useCaseStudiesIntro';
 import styles from './styles.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
+const Media = dynamic(() => import('UI/components/Media'));
 
 const CaseStudiesIntro = (props) => {
   const {
@@ -22,10 +24,10 @@ const CaseStudiesIntro = (props) => {
     subtitle,
     description,
     introText,
-    imagesBundlesWithUrls,
+    imagesBundles,
     imageBackgroundTitle,
-    isVideo,
     contentList,
+    isAnimatedImg,
   } = useCaseStudiesIntro(props);
 
   return (
@@ -74,33 +76,40 @@ const CaseStudiesIntro = (props) => {
             </div>
           </div>
         </div>
-        {appBackgroundImage.url && (
+        {appBackgroundImage && (
           <div className={styles.imageContainer}>
-            {isVideo ? (
-              <Video
-                src={appBackgroundImage.url}
-                className={styles.video}
-              />
-            ) : (
-              <Illustration
-                priority
-                transparent
-                className={styles.image}
-                src={appBackgroundImage.url}
-                alt={appBackgroundImage.alt}
-              />
-            )}
+            <Media
+              className={styles.image}
+              asset={appBackgroundImage}
+            />
           </div>
         )}
         <div className={styles.bundleImagesContainer}>
-          {imagesBundlesWithUrls?.map((image, index) => (
-            <Illustration
-              priority
-              transparent
-              className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
-              src={image.url}
-              key={`intro-images-bundles/${image.url}`}
-            />
+          {imagesBundles?.map((image, index) => (
+            isAnimatedImg
+              ? (
+                <Animated
+                  type={ANIMATED_TYPE.zoomOut}
+                  className={cn(styles.bundleAnimated, styles[`bundleAnimated-${index + 1}`])}
+                  delay={200 * (index + 1)}
+                >
+                  <Media
+                    priority
+                    transparent
+                    className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
+                    asset={image}
+                    key={`intro-images-bundles/${image.url}`}
+                  />
+                </Animated>
+              ) : (
+                <Media
+                  priority
+                  transparent
+                  className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
+                  asset={image}
+                  key={`intro-images-bundles/${image.url}`}
+                />
+              )
           ))}
         </div>
       </div>

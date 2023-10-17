@@ -8,6 +8,7 @@ import Illustration from 'UI/components/Illustration';
 import Typography from 'UI/components/Typography';
 import { useChallengesAndSolutions } from './utils/useChallengesAndSolutions';
 import styles from './styles.module.scss';
+import Media from '../Media';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
@@ -43,6 +44,7 @@ const ChallengesAndSolutions = (props) => {
           contentList,
           image,
           subImage,
+          asset,
         }, index) => (
           <div
             key={title || image}
@@ -52,7 +54,7 @@ const ChallengesAndSolutions = (props) => {
               { [styles.special]: isSpecial },
             )}
           >
-            {(!image.url && title) && (
+            {(!asset && title) && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.infoContainer, styles.separatedTitle)}>
                   <Typography
@@ -68,7 +70,7 @@ const ChallengesAndSolutions = (props) => {
               className={cn(
                 styles.infoContainer,
                 styles[`infoContainer-${index + 1}`],
-                { [styles.centrefy]: image },
+                { [styles.centrefy]: asset },
               )}
             >
               {subImage.url && (
@@ -79,7 +81,7 @@ const ChallengesAndSolutions = (props) => {
                   alt={subImage.alt}
                 />
               )}
-              {image.url && subtitle && (
+              {asset && subtitle && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div>
                     <Typography
@@ -91,7 +93,7 @@ const ChallengesAndSolutions = (props) => {
                   </div>
                 </Animated>
               )}
-              {image.url && (
+              {asset && (
                 <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                   <div>
                     <Typography
@@ -126,14 +128,13 @@ const ChallengesAndSolutions = (props) => {
                 </ul>
               )}
             </div>
-            {(image.url || !!imagesBundles.length) && (
+            {(asset || !!imagesBundles.length) && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.images, styles[`images-${index + 1}`])}>
-                  {image.url && (
-                    <Illustration
+                  {asset && (
+                    <Media
+                      asset={asset}
                       className={cn(styles.image, styles[`image-${index + 1}`])}
-                      src={image.url}
-                      alt={image.alt}
                     />
                   )}
                   {imagesBundles?.map((imageBundle, imagesBundlesIndex) => (

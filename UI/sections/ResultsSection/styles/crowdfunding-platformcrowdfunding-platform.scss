@@ -1,0 +1,41 @@
+.crowdfunding-platform {
+  &.firstSectionView {
+    padding: 60px 16px 120px;
+    background-color: $crowdfundingPlatformPrimary;
+
+    [data-title] {
+      @include fontSize(14px);
+
+      color: $gray0;
+      font-weight: 400;
+    }
+
+    .contentWrapper {
+      @include flex(row, center, space-between);
+
+      @include below-tablet {
+        flex-direction: column;
+      }
+    }
+
+    .media {
+      max-width: 481px;
+      width: 100%;
+      height: 378px;
+      object-fit: cover;
+
+      &-1 {
+        margin-right: 32px;
+
+        @include below-tablet {
+          margin-right: 0;
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    @include tablet {
+      padding: 30px 16px 60px;
+    }
+  }
+}

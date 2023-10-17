@@ -105,7 +105,29 @@
     }
   }
 
+  .imageContainer {
+    display: contents;
+  }
+
+  .image {
+    position: absolute;
+    width: 3001px;
+    height: 1063px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -30%);
+    pointer-events: none;
+    user-select: none;
+  }
+
   .bundleImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .bundleAnimated {
     position: absolute;
     border: 1px solid $gray100;
     box-shadow: 0 8px 35px 0 #6e78821a;
@@ -115,9 +137,9 @@
     &-1 {
       bottom: 0;
       left: 16px;
+      z-index: 2;
       width: 410px;
       height: 252px;
-      z-index: 2;
 
       @include phone {
         width: 214px;
@@ -126,40 +148,31 @@
     }
 
     &-2 {
-      width: 492px;
-      height: 300px;
-      bottom: 162px;
-      right: 50%;
-      transform: translateX(50%);
-      z-index: 1;
-
-      @include phone {
-        bottom: 79px;
-        right: 16px;
-        width: 257px;
-        height: 157px;
-        transform: unset;
-      }
-    }
-
-    &-3 {
-      width: 470px;
-      height: 262px;
       right: 0;
       bottom: 36px;
       z-index: 3;
+      width: 470px;
+      height: 262px;
 
-      @include tablet {
+      @include below-tablet {
         display: none;
       }
     }
 
-    &-4 {
-      width: 3001px;
-      height: 1063px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+    &-3 {
+      bottom: 162px;
+      left: 30%;
+      z-index: 1;
+      width: 492px;
+      height: 300px;
+
+      @include phone {
+        bottom: 79px;
+        left: unset;
+        right: 16px;
+        width: 257px;
+        height: 157px;
+      }
     }
   }
 

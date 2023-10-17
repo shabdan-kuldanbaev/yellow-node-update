@@ -14,6 +14,7 @@ const CustomAnimation = dynamic(() => import('./CustomAnimation').then((module) 
 const JSONAnimation = dynamic(() => import('./JSONAnimation').then((module) => module.JSONAnimation));
 const Bounce = dynamic(() => import('react-reveal/Bounce'));
 const CounterAnimation = dynamic(() => import('UI/containers/Animated/CounterAnimation'));
+const ZoomOut = dynamic(() => import('./ZoomOut'));
 
 const Animated = (props) => {
   switch (props.type) {
@@ -98,6 +99,13 @@ const Animated = (props) => {
       <CounterAnimation {...props}>
         {props.children}
       </CounterAnimation>
+    );
+  }
+  case ANIMATED_TYPE.zoomOut: {
+    return (
+      <ZoomOut {...props}>
+        {props.children}
+      </ZoomOut>
     );
   }
   default: {
