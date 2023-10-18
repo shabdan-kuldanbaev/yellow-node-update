@@ -25,6 +25,8 @@
   }
 
   &.secondSectionView {
+    padding: 60px 32px;
+
     .sectionTitle > div:last-child {
       @include flex(column, center, center);
 
@@ -78,6 +80,8 @@
     }
 
     &.secondSectionView {
+      padding: 30px 16px;
+
       .media {
         width: 560px;
         height: 386px;
