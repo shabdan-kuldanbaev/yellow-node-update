@@ -309,6 +309,7 @@ export const CASE_STUDIES = {
   erp: 'enterprise-resource-planning-system',
   hawkin: 'medical-software-for-musculoskeletal-rehabilitation',
   hyve: 'restaurant-asset-management-tool',
+  paymentGateway: 'custom-payment-gateway',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
@@ -350,6 +351,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.clairvoyantServices).path,
   ROUTES.project.getRoute(CASE_STUDIES.erp).path,
   ROUTES.project.getRoute(CASE_STUDIES.hyve).path,
+  ROUTES.project.getRoute(CASE_STUDIES.paymentGateway).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.whyUs.path,
@@ -412,6 +414,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   CASE_STUDIES.clairvoyantServices,
   CASE_STUDIES.hawkin,
   CASE_STUDIES.hyve,
+  CASE_STUDIES.paymentGateway,
 ];
 
 export const PAGES_WITH_GRAY_HEADER = [

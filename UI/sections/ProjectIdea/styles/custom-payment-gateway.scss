@@ -1,0 +1,87 @@
+.custom-payment-gateway {
+  padding: 120px 32px 60px;
+  background: $gatewayPrimary;
+
+  .contentContainer {
+    @include flex(column-reverse, initial, center);
+
+    margin: 0 auto;
+  }
+
+  .description {
+    @include flex(row, center);
+
+    margin-bottom: 48px;
+    gap: 8px 10px;
+
+    p > b {
+      color: $gray0;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    p:not(:last-child) {
+      position: relative;
+      padding-right: 13px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background-color: $gatewayAccent;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .descriptionContainer,
+  .descriptionIntro {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .titleStyle {
+    max-width: 714px;
+
+    h2 {
+      @include fontSize(20px, 130%);
+
+      color: $gray0;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: $gray400;
+    }
+  }
+
+  @include tablet {
+    .description {
+      flex-wrap: wrap;
+    }
+  }
+
+  @include tablet {
+    padding: 60px 16px 30px;
+  }
+
+  @include phone {
+    .description {
+      margin-bottom: 24px;
+
+      p:nth-child(1),
+      p:nth-child(3) {
+        padding-right: 0;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+.custom-payment-gateway {
+  $imageShadow: 0 14px 54px 0 rgb(0 0 0 / 35%);
+
+  background-color: $gatewayPrimary;
+
+  .sectionTitle {
+    h2 {
+      @include fontSize(20px, 130%);
+
+      color: $gray0;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  &.firstSectionView {
+    padding: 60px 32px 120px;
+
+    .media {
+      width: 600px;
+      height: 640px;
+    }
+  }
+
+  &.secondSectionView {
+    padding: 60px 32px;
+
+    .sectionTitle > div:last-child {
+      @include flex(column, center, center);
+
+      margin-top: 12px;
+
+      p {
+        position: relative;
+        margin: 0 auto;
+        padding-left: 12px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 5px;
+          height: 5px;
+          background-color: currentcolor;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .media {
+      width: 994px;
+      height: 683px;
+      box-shadow: $imageShadow;
+    }
+  }
+
+  @include tablet {
+    &.firstSectionView {
+      .media {
+        width: 471px;
+        height: 506px;
+      }
+    }
+
+    &.secondSectionView {
+      .media {
+        width: 777px;
+        height: 535px;
+      }
+    }
+  }
+
+  @include below-tablet {
+    &.firstSectionView {
+      padding: 60px 32px 120px;
+    }
+
+    &.secondSectionView {
+      padding: 30px 16px;
+
+      .media {
+        width: 560px;
+        height: 386px;
+      }
+    }
+  }
+
+  @include phone {
+    &.firstSectionView {
+      .media {
+        width: 343px;
+        height: 366px;
+      }
+    }
+
+    &.secondSectionView {
+      .media {
+        width: 343px;
+        height: 235px;
+      }
+    }
+  }
+}

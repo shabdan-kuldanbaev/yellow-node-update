@@ -36,6 +36,7 @@ export const WHITE_LOGO_TYPE = [
   CASE_STUDIES.p2pLoans,
   CASE_STUDIES.hawkin,
   CASE_STUDIES.hyve,
+  CASE_STUDIES.paymentGateway,
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -88,6 +89,7 @@ export const WHITE_TEXT_LOGO = [
   CASE_STUDIES.p2pLoans,
   CASE_STUDIES.hawkin,
   CASE_STUDIES.hyve,
+  CASE_STUDIES.paymentGateway,
 ];
 
 export const getLogoType = (type) => {

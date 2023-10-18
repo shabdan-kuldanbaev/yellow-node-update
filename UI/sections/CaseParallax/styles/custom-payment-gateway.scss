@@ -1,0 +1,13 @@
+.custom-payment-gateway {
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    height: 839px;
+
+    @include below-tablet {
+      height: 620px;
+    }
+  }
+}

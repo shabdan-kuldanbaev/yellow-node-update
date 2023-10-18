@@ -1,0 +1,325 @@
+.custom-payment-gateway {
+  $imageShadow: 0 14px 54px 0 rgb(0 0 0 / 35%);
+
+  background: $gatewayPrimary;
+
+  .container {
+    max-width: $wide-content-width;
+  }
+
+  .titleStyle {
+    h2 {
+      @include fontSize(20px, 130%);
+
+      color: $gray0;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  p {
+    color: $gray0;
+    opacity: 0.6;
+  }
+
+  .stepsContainer {
+    @include flex(row);
+
+    gap: 24px;
+    margin: 0;
+
+    & > div {
+      @include flex(column);
+
+      margin: 0;
+      flex: 1;
+    }
+  }
+
+  .step {
+    @include flex(column);
+
+    padding: 48px 16px;
+    flex: min-content;
+    gap: 8px;
+    border: 1px solid $gray500;
+    color: $gray0;
+    border-radius: 32px;
+
+    * {
+      margin: 0;
+    }
+
+    h3 {
+      @include fontSize(24px, 130%);
+
+      color: currentcolor;
+      font-weight: 600;
+      letter-spacing: 0.48px;
+      text-align: center;
+    }
+
+    p {
+      @include fontSize(16px, 150%);
+
+      color: currentcolor;
+      text-align: center;
+    }
+
+    ul {
+      @include flex(column, initial, center);
+
+      padding: 0;
+      list-style-type: none;
+
+      & > li {
+        position: relative;
+        padding-left: 12px;
+        opacity: 0.6;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          width: 5px;
+          height: 5px;
+          background-color: currentcolor;
+          opacity: 0.6;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  &.firstSectionView {
+    padding: 60px 32px;
+  }
+
+  &.secondSectionView {
+    @include flex(row, center);
+
+    padding: 120px 32px 60px;
+    gap: 32px;
+
+    & > div {
+      margin: 0;
+      flex: 0 1 481px;
+    }
+
+    .titleStyle {
+      * {
+        text-align: left;
+      }
+    }
+
+    .stepsContainer {
+      @include flex(column);
+    }
+
+    .step {
+      padding: 32px;
+
+      * {
+        text-align: left;
+      }
+
+      &-1 {
+        background-color: $gatewayAccent;
+        border-color: $gatewayAccent;
+      }
+
+      &-2 {
+        background-color: $gatewayBlue;
+        border-color: $gatewayBlue;
+      }
+
+      &-3 {
+        background-color: $gatewayPurple;
+        border-color: $gatewayPurple;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    padding: 60px 32px 0;
+
+    .stepsContainer {
+      margin-bottom: 48px;
+    }
+
+    .imagesContainer {
+      position: relative;
+      margin: 0 auto;
+      max-width: $default-content-width;
+      height: 615px;
+    }
+
+    .image {
+      position: absolute;
+      z-index: 10;
+      width: 727px;
+      height: 500px;
+      box-shadow: $imageShadow;
+
+      &-1 {
+        left: 0;
+        top: 0;
+      }
+
+      &-2 {
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    padding: 48px 32px 60px;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .stepsContainer {
+      margin-bottom: 48px;
+    }
+
+    .image {
+      z-index: 10;
+      margin: 0 auto;
+      width: 994px;
+      height: 683px;
+      box-shadow: $imageShadow;
+    }
+  }
+
+  &.fifthSectionView {
+    padding: 60px 32px;
+
+    .step {
+      padding: 48px 32px;
+
+      & > p {
+        color: rgba($color: $gray0, $alpha: 60%);
+        opacity: 1;
+        text-align: left;
+
+        b {
+          color: $gray0;
+        }
+      }
+
+      &-1 {
+        background-color: $gatewayAccent;
+        border-color: $gatewayAccent;
+      }
+
+      &-2 {
+        background-color: $gatewayBlue;
+        border-color: $gatewayBlue;
+      }
+    }
+  }
+
+  @include tablet {
+    &.thirdSectionView {
+      .imagesContainer {
+        height: 476px;
+      }
+
+      .image {
+        width: 568px;
+        height: 391px;
+      }
+    }
+
+    &.fourthSectionView {
+      .image {
+        width: 777px;
+        height: 535px;
+      }
+    }
+  }
+
+  @include below-tablet {
+    .stepsContainer {
+      flex-wrap: wrap;
+      gap: 16px;
+
+      & > div {
+        flex: 100%;
+      }
+    }
+
+    .step {
+      padding: 32px 16px;
+    }
+
+    &.firstSectionView {
+      padding: 30px 16px;
+    }
+
+    &.secondSectionView {
+      display: block;
+      padding: 60px 16px 30px;
+
+      .titleStyle h2 {
+        text-align: center;
+        margin: 0 auto 24px;
+      }
+    }
+
+    &.thirdSectionView {
+      .imagesContainer {
+        height: 337px;
+      }
+
+      .image {
+        width: 410px;
+        height: 282px;
+      }
+    }
+
+    &.fourthSectionView {
+      padding: 24px 16px 30px;
+
+      .stepsContainer {
+        margin-bottom: 24px;
+      }
+
+      .image {
+        width: 560px;
+        height: 386px;
+      }
+    }
+
+    &.fifthSectionView {
+      .step {
+        padding: 32px 16px;
+      }
+    }
+  }
+
+  @include phone {
+    &.thirdSectionView {
+      .imagesContainer {
+        height: 196px;
+      }
+
+      .image {
+        width: 251px;
+        height: 172px;
+      }
+    }
+
+    &.fourthSectionView {
+      .image {
+        width: 343px;
+        height: 235px;
+      }
+    }
+  }
+}
