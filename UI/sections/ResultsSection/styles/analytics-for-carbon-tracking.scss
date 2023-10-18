@@ -26,22 +26,25 @@
   }
 
   .media {
-    position: static;
     margin: 0 auto;
     width: 994px;
     height: 571px;
-    border-radius: 10px;
     border: 1px solid $gray100;
+    border-radius: 10px;
     box-shadow: 0 8px 35px 0 rgb(110 120 130 / 10%);
-    box-sizing: border-box;
-    overflow: hidden;
 
     @include tablet {
-      transform: unset;
-      height: 400px;
+      width: 777px;
+      height: 446px;
+    }
+
+    @include below-tablet {
+      width: 560px;
+      height: 321px;
     }
 
     @include phone {
+      width: 343px;
       height: 197px;
     }
   }

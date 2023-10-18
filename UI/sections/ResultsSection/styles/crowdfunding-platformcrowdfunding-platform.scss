@@ -11,27 +11,21 @@
     }
 
     .contentWrapper {
-      @include flex(row, center, space-between);
+      @include flex(row, center, center);
 
-      @include below-tablet {
-        flex-direction: column;
+      gap: 32px;
+
+      @include tablet {
+        gap: 16px;
+        flex-wrap: wrap;
       }
     }
 
     .media {
       max-width: 481px;
       width: 100%;
-      height: 378px;
-      object-fit: cover;
-
-      &-1 {
-        margin-right: 32px;
-
-        @include below-tablet {
-          margin-right: 0;
-          margin-bottom: 16px;
-        }
-      }
+      height: 100%;
+      border-radius: 0;
     }
 
     @include tablet {
