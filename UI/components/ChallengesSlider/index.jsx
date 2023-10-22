@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { SwiperSlide } from 'swiper/react';
 import CustomSwiper from 'UI/containers/CustomSwiper';
@@ -18,7 +19,7 @@ const ChallengesSlider = (props) => {
 
   return (
     <CustomSwiper
-      className={styles[type]}
+      className={cn(styles.swiper, styles[type])}
       swiperParams={swiperParams}
       isShowNavigation={isSpecialSwiper}
       navigationClassName={styles.navigation}
