@@ -16,7 +16,6 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
     images,
     subtitle,
     description,
-    sectionStyle,
     background,
   } = useChallengesAndSolutionsWithWireframes(props);
 
@@ -32,7 +31,6 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
           },
         )
       }
-      style={sectionStyle}
     >
       {background && (
         <Illustration
