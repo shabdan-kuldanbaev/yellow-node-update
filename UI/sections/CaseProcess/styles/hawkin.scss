@@ -14,6 +14,11 @@
       .stepImage {
         width: 584px;
         height: 420px;
+
+        @include below-tablet {
+          width: 343px;
+          height: 246px;
+        }
       }
     }
 

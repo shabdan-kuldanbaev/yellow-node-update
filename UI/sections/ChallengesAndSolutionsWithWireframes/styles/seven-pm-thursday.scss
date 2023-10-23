@@ -9,6 +9,10 @@
     color: $gray500;
   }
 
+  &.secondSectionView {
+    padding: 60px 0 30px;
+  }
+
   @include phone {
     padding: 30px 0;
   }

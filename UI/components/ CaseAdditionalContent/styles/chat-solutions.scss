@@ -9,6 +9,10 @@
 
     &-2 {
       margin-left: 60px;
+
+      @include tablet {
+        margin-top: 8px;
+      }
     }
   }
 
