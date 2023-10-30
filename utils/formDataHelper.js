@@ -23,7 +23,7 @@ export async function sendFormData(req, res) {
     const formData = new FormData();
     formData.append('name', name);
     formData.append('email', email);
-    // formData.append('phone', phone);
+    formData.append('phone', phone);
     formData.append('description', concatDescription);
     formData.append('client_id', clientId);
     formData.append('client_ip', getClientIp(req));
