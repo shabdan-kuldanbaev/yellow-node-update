@@ -24,6 +24,7 @@
 
   margin: 0 auto;
   padding: 120px 0;
+  border: none;
 
   h3 {
     @include fontSize(38px, 130%);
@@ -35,6 +36,14 @@
       @include fontSize(24px, 130%);
 
       max-width: 340px;
+    }
+  }
+
+  button {
+    margin: 48px auto 0;
+
+    @include phone {
+      margin-top: 24px;
     }
   }
 
