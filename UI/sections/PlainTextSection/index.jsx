@@ -61,7 +61,7 @@ const PlainTextSection = (props) => {
           )}
         </div>
 
-        {ctaLink && (
+        {!!Object.keys(ctaLink).length && (
           <Animated
             {...REVEAL_ANIMATION_PROPS}
             transitionDelay={50}
