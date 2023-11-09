@@ -58,7 +58,8 @@ const Article = ({
     >
       <header className={styles.header}>
         <Illustration
-          src={headImage}
+          src={headImage.url}
+          alt={headImage.alt}
           className={styles.headImage}
           priority
         />
@@ -115,7 +116,7 @@ Article.propTypes = {
   oldBody: PropTypes.string,
   body: PropTypes.instanceOf(Object),
   introduction: PropTypes.string,
-  headImage: PropTypes.string.isRequired,
+  headImage: PropTypes.instanceOf(Object).isRequired,
   author: PropTypes.instanceOf(Object).isRequired,
   publishedAt: PropTypes.string,
 };
