@@ -1,4 +1,4 @@
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { getDocumentFields, getFileUrl, getImage } from 'utils/helper';
 
 function getAuthorProps({ author } = {}) {
   const authorFields = getDocumentFields(
@@ -60,7 +60,7 @@ export function getArticleProps({ article } = {}) {
       'frequentlyAskedQuestions',
     ],
   );
-  const headImage = getFileUrl(articleFields.headImageUrl);
+  const headImage = getImage(articleFields.headImageUrl);
   const author = getAuthorProps({ author: articleFields.author });
   const faqList = getFAQList(articleFields);
   const tagsList = getTagsList(articleFields);

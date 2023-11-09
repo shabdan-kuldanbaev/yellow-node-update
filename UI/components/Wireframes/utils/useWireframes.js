@@ -27,7 +27,7 @@ export const useWireframes = ({
     const width = Math.trunc(imageData.width * scale);
 
     return {
-      url: imageData.url,
+      ...imageData,
       width,
       height,
     };

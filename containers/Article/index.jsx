@@ -72,7 +72,7 @@ const ArticleContainer = ({
     metaTitle: metaTitle || (title && `${title} | Yellow`),
     metaDescription: metaDescription || (title && `Read our new article about ${title}.`),
     publishedAt,
-    image: headImage,
+    image: headImage.url,
     keyWords: tagsList.map((tag) => tag.title),
     categoryTag,
     slug: articleSlug,
@@ -84,7 +84,7 @@ const ArticleContainer = ({
     title,
     publishedAt,
     updatedAt,
-    headImage,
+    headImage: headImage.url,
     articleBody: oldBody || documentToPlainTextString(body),
     author,
   };
