@@ -33,6 +33,7 @@ const FigmaPrototype = ({
       <Illustration
         src={deviceFrameSrc}
         className={styles.deviceFrame}
+        alt="iPhone"
       />
     </div>
   );
