@@ -32,7 +32,7 @@ const Wireframe = (props) => {
       <div className={cn(styles[type], styles.container)}>
         <Illustration
           src={url}
-          alt={url}
+          alt={alt}
           layout="responsive"
           style={{
             minWidth: `${width}px`,
