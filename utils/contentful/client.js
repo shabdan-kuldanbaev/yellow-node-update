@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { createClient } from 'contentful';
-import { ACCESS_TO_CONTENTFUL, ACCESS_TO_CONTENTFUL_PREVIEW } from 'utils/constants';
+import {
+  ACCESS_TO_CONTENTFUL,
+  ACCESS_TO_CONTENTFUL_PREVIEW,
+  ACCESS_TO_CONTENTFUL_ARTICLES,
+  ACCESS_TO_CONTENTFUL_ARTICLES_PREVIEW,
+} from 'utils/constants';
 import { handleError } from 'utils/error';
 
 class ContentfulClient {
@@ -132,3 +137,5 @@ class ContentfulClient {
 
 export const contentfulClient = new ContentfulClient(ACCESS_TO_CONTENTFUL);
 export const contentfulPreviewClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_PREVIEW);
+export const contentfulArticlesClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_ARTICLES);
+export const contentfulArticlesPreviewClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_ARTICLES_PREVIEW);
