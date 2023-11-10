@@ -3,8 +3,8 @@ import { createClient } from 'contentful';
 import {
   ACCESS_TO_CONTENTFUL,
   ACCESS_TO_CONTENTFUL_PREVIEW,
-  ACCESS_TO_CONTENTFUL_ARTICLES,
-  ACCESS_TO_CONTENTFUL_ARTICLES_PREVIEW,
+  ACCESS_TO_CONTENTFUL_BLOG,
+  ACCESS_TO_CONTENTFUL_BLOG_PREVIEW,
 } from 'utils/constants';
 import { handleError } from 'utils/error';
 
@@ -137,5 +137,5 @@ class ContentfulClient {
 
 export const contentfulClient = new ContentfulClient(ACCESS_TO_CONTENTFUL);
 export const contentfulPreviewClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_PREVIEW);
-export const contentfulArticlesClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_ARTICLES);
-export const contentfulArticlesPreviewClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_ARTICLES_PREVIEW);
+export const blogClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_BLOG);
+export const blogPreviewClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_BLOG_PREVIEW);
