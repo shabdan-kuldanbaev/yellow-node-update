@@ -10,7 +10,7 @@
   }
 
   &.secondSectionView {
-    @extend .greySection;
+    @extend .blackSection;
 
     [data-description] {
       max-width: 671px;
@@ -37,18 +37,18 @@
     }
 
     .card {
-      * {
-        text-align: center;
-        align-items: center;
-        color: $gray900;
-      }
-
       h3 {
         @include fontSize(46px);
 
-        @include below-tablet {
-          @include fontSize(38px);
-        }
+        color: $yellow500;
+      }
+
+      p {
+        color: $gray0;
+      }
+
+      & > div {
+        align-items: center;
       }
     }
   }
