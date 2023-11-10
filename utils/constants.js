@@ -24,15 +24,15 @@ export const ACCESS_TO_CONTENTFUL_PREVIEW = {
 };
 
 export const ACCESS_TO_CONTENTFUL_BLOG = {
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_ARTICLES_SPACE,
-  environment: process.env.NEXT_PUBLIC_CONTENTFUL_ARTICLES_ENV,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ARTICLES_TOKEN,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_TOKEN,
 };
 
 export const ACCESS_TO_CONTENTFUL_BLOG_PREVIEW = {
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_ARTICLES_SPACE,
-  environment: process.env.NEXT_PUBLIC_CONTENTFUL_ARTICLES_ENV,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ARTICLES_PREVIEW_TOKEN,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_PREVIEW_TOKEN,
   isPreview: true,
 };
 
