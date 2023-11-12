@@ -11,6 +11,7 @@
   width: calc(100% - 70px);
   padding: 45px 35px;
   will-change: transform, opacity;
+  pointer-events: none;
 
   @include phone {
     @include flex(row, center, center);

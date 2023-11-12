@@ -35,8 +35,8 @@ const DuckContainer = (props) => {
           </h1>
         </Animated>
       </div>
-      <IntroText className={styles.subText} />
       <DuckWrapper sloganRef={sloganRef} />
+      <IntroText className={styles.subText} />
     </>
   );
 };
