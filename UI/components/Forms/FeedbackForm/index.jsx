@@ -25,8 +25,9 @@ const FeedbackForm = (props) => {
     selectedFiles,
     type,
     contactFormError,
-    isFormPending,
+    isSubmitting,
     buttonTitle,
+    isValid,
   } = useFormProps(props);
 
   return (
@@ -41,7 +42,6 @@ const FeedbackForm = (props) => {
           register={register}
           placeholder="Name *"
           errorMessage="Required field"
-          required={dirtyFields.name}
         />
       </Animated>
       <Animated {...REVEAL_ANIMATION_PROPS}>
@@ -51,7 +51,6 @@ const FeedbackForm = (props) => {
             register={register}
             placeholder="Phone number*"
             errorMessage="Incorrect phone number"
-            required={dirtyFields?.phone}
             type="tel"
           />
 
@@ -60,7 +59,6 @@ const FeedbackForm = (props) => {
             register={register}
             placeholder="Email *"
             errorMessage="Incorrect email address"
-            required={dirtyFields?.email}
             type="email"
           />
         </div>
@@ -87,7 +85,7 @@ const FeedbackForm = (props) => {
       )}
       <Button
         type="submit"
-        disabled={isFormPending}
+        disabled={isSubmitting || !isValid()}
         className={styles.formButton}
       >
         {buttonTitle || 'Contact Us'}

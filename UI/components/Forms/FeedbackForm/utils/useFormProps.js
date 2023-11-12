@@ -11,15 +11,16 @@ export default ({
   extraDescription,
   ...restProps
 }) => {
-  const [sendForm, { isSuccess, isLoading, isError }] = useSendContactFormMutation({ fixedCacheKey: CONTACT_CASH_KEY });
+  const [sendForm, { isSuccess, isError }] = useSendContactFormMutation({ fixedCacheKey: CONTACT_CASH_KEY });
 
   const {
     register,
     handleSubmit,
     reset,
+    getValues,
     formState: {
       dirtyFields,
-      isValid,
+      isSubmitting,
     },
   } = useForm();
   const [budget, setBudget] = useState(addThousandsSeparators(budgetData.min));
@@ -55,6 +56,16 @@ export default ({
     }
   });
 
+  const isValid = () => {
+    const {
+      description,
+      email,
+      phone,
+    } = getValues();
+
+    return !!description && !!email && !!phone;
+  };
+
   return {
     type,
     register,
@@ -68,7 +79,7 @@ export default ({
     isValid,
     contactFormError: isError,
     isDataSubmitted: isSuccess,
-    isFormPending: isLoading,
+    isSubmitting,
     className,
     ...restProps,
   };
