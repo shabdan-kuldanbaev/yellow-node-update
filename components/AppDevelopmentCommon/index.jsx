@@ -26,6 +26,7 @@ const PlainTextSection = dynamic(() => import('UI/sections/PlainTextSection'));
 const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
 const SoftwarePriceSection = dynamic(() => import('UI/sections/SoftwarePriceSection'));
 const BookCallIntro = dynamic(() => import('UI/sections/BookCallIntro'));
+const VideoSection = dynamic(() => import('UI/sections/VideoSection'));
 
 export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   const {
@@ -187,6 +188,9 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case 'book-call-intro':
     return <BookCallIntro {...props} />;
+
+  case 'video':
+    return <VideoSection {...props} />;
 
   default:
     return null;
