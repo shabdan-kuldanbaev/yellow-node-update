@@ -25,7 +25,7 @@ const FeedbackForm = (props) => {
     selectedFiles,
     type,
     contactFormError,
-    isLoading,
+    isSubmitting,
     buttonTitle,
     isValid,
   } = useFormProps(props);
@@ -85,7 +85,7 @@ const FeedbackForm = (props) => {
       )}
       <Button
         type="submit"
-        disabled={isLoading || !isValid()}
+        disabled={isSubmitting || !isValid()}
         className={styles.formButton}
       >
         {buttonTitle || 'Contact Us'}
