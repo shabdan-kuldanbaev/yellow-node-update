@@ -30,6 +30,18 @@ export default function useVideoSectionProps({ section }) {
     videoRef.current.volume = 0.3;
   }, [videoRef]);
 
+  function handlePlayPauseClick() {
+    if (!videoRef.current) {
+      return;
+    }
+
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+    }
+  }
+
   return {
     title,
     description,
@@ -37,5 +49,6 @@ export default function useVideoSectionProps({ section }) {
     view,
     videoUrl,
     videoRef,
+    handlePlayPauseClick,
   };
 }
