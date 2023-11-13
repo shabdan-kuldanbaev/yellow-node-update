@@ -10,12 +10,13 @@ const cors = Cors({ methods: ['POST'] });
 const form = formidable({ multiples: true });
 
 const handler = async (req, res) => {
-  await runMiddleware(req, res, cors);
-  await runMiddleware(req, res, formParser(form));
+  // await runMiddleware(req, res, cors);
+  // await runMiddleware(req, res, formParser(form));
 
-  await sendAutoReplyEmail(req.body.email);
-  await sendFormData(req, res);
-  await sendDataPipedrive(req, res);
+  // await sendAutoReplyEmail(req.body.email);
+  // await sendFormData(req, res);
+  // await sendDataPipedrive(req, res);
+  res.status(200).send({ message: 'qwe' });
 };
 
 export const config = {

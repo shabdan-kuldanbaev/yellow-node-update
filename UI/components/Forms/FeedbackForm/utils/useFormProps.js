@@ -11,7 +11,7 @@ export default ({
   extraDescription,
   ...restProps
 }) => {
-  const [sendForm, { isSuccess, isError }] = useSendContactFormMutation({ fixedCacheKey: CONTACT_CASH_KEY });
+  const [sendForm, { isSuccess, isLoading, isError }] = useSendContactFormMutation({ fixedCacheKey: CONTACT_CASH_KEY });
 
   const {
     register,
@@ -79,7 +79,7 @@ export default ({
     isValid,
     contactFormError: isError,
     isDataSubmitted: isSuccess,
-    isSubmitting,
+    isLoading,
     className,
     ...restProps,
   };
