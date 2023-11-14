@@ -11,6 +11,7 @@ export default function VideoSection(props) {
     description,
     videoUrl,
     videoRef,
+    isVideoPaused,
     handlePlayPauseClick,
   } = useVideoSectionProps(props);
 
@@ -34,12 +35,12 @@ export default function VideoSection(props) {
           />
         </video>
 
-        <div className="controls">
+        <div className={styles.controls}>
           <button
             onClick={handlePlayPauseClick}
             type="button"
           >
-            play
+            {isVideoPaused ? 'play' : 'pause'}
           </button>
         </div>
       </div>

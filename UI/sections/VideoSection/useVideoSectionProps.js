@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 export default function useVideoSectionProps({ section }) {
@@ -24,6 +24,8 @@ export default function useVideoSectionProps({ section }) {
 
   const videoRef = useRef();
 
+  const [isVideoPaused, setVideoPaused] = useState(true);
+
   useEffect(() => {
     if (!videoRef) return;
 
@@ -37,8 +39,10 @@ export default function useVideoSectionProps({ section }) {
 
     if (videoRef.current.paused) {
       videoRef.current.play();
+      setVideoPaused(false);
     } else {
       videoRef.current.pause();
+      setVideoPaused(true);
     }
   }
 
@@ -49,6 +53,7 @@ export default function useVideoSectionProps({ section }) {
     view,
     videoUrl,
     videoRef,
+    isVideoPaused,
     handlePlayPauseClick,
   };
 }
