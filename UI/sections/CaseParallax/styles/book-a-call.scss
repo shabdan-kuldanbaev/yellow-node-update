@@ -1,0 +1,11 @@
+.book-a-call {
+  height: 100vh;
+
+  .titleStyle {
+    margin: 0;
+  }
+
+  & > div:last-child {
+    height: 100%;
+  }
+}

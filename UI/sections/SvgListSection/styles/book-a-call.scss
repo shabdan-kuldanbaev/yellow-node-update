@@ -1,5 +1,7 @@
 .book-a-call {
   &.firstSectionView {
+    @extend .greySection;
+
     .svgList {
       max-width: none;
       margin: 0 -40px;
@@ -8,7 +10,5 @@
 
   &.secondSectionView {
     @extend .greySection;
-
-    padding-top: 0;
   }
 }
