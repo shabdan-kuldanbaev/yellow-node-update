@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
-export default function useVideoSectionProps({ section }) {
+export default function useVideoSectionProps({ section, type }) {
   const {
     title,
     description,
@@ -47,6 +47,7 @@ export default function useVideoSectionProps({ section }) {
   }
 
   return {
+    slug: type,
     title,
     description,
     subtitle,

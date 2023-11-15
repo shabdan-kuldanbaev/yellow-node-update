@@ -371,6 +371,8 @@ export const target02Filled = '/filled/target02Filled.svg';
 export const toolFilled = '/filled/toolFilled.svg';
 export const userFilled = '/filled/userFilled.svg';
 export const usersFilled = '/filled/usersFilled.svg';
+export const play = '/outlined/play.svg';
+export const pause = '/outlined/pause.svg';
 
 /* Filled Time & Images & Travel */
 export const calendarFilled = '/filled/calendarFilled.svg';

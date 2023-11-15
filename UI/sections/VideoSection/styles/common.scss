@@ -6,3 +6,16 @@
 .videoSection {
   @include appDevelopmentContainer;
 }
+
+.blackSection {
+  background: $gray900;
+
+  .title,
+  h3 {
+    color: $gray0;
+  }
+
+  button {
+    color: $gray400;
+  }
+}

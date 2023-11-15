@@ -1,14 +1,14 @@
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
+import Svg from 'UI/components/Svg';
 import useVideoSectionProps from './useVideoSectionProps';
 import styles from './styles.module.scss';
 
 export default function VideoSection(props) {
   const {
+    slug,
     view,
     title,
-    subtitle,
-    description,
     videoUrl,
     videoRef,
     isVideoPaused,
@@ -16,31 +16,32 @@ export default function VideoSection(props) {
   } = useVideoSectionProps(props);
 
   return (
-    <section className={cn(styles.videoSection, styles[view])}>
+    <section className={cn(styles.videoSection, styles[view], styles[slug])}>
       <SectionTitle
         title={title}
-        description={description}
-        subtitle={subtitle}
+        className={styles.title}
       />
 
       <div className={styles.videoContainer}>
         {/* eslint-disable jsx-a11y/media-has-caption */}
-        <video
-          className={styles.video}
-          ref={videoRef}
-        >
-          <source
-            src={videoUrl}
-            type="video/mp4"
-          />
-        </video>
+        <div className={styles.videoWrapper}>
+          <video
+            className={styles.video}
+            ref={videoRef}
+          >
+            <source
+              src={videoUrl}
+              type="video/mp4"
+            />
+          </video>
+        </div>
 
         <div className={styles.controls}>
           <button
             onClick={handlePlayPauseClick}
             type="button"
           >
-            {isVideoPaused ? 'play' : 'pause'}
+            {isVideoPaused ? <Svg type="play" /> : <Svg type="pause" />}
           </button>
         </div>
       </div>
