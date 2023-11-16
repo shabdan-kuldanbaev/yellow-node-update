@@ -3,6 +3,7 @@
 
   background: $gray900;
   padding: 230px 0;
+  position: relative;
 
   .title {
     margin: 0 150px 0 0;
@@ -70,8 +71,14 @@
     }
   }
 
+  .imagesBundles {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1440/900;
+  }
+
   @include tablet {
     flex-direction: column;
-    padding: 30px 0;
+    padding: 60px 0;
   }
 }

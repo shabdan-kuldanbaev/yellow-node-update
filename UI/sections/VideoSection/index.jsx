@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
 import Svg from 'UI/components/Svg';
+import Illustration from 'UI/components/Illustration';
 import useVideoSectionProps from './useVideoSectionProps';
 import styles from './styles.module.scss';
 
@@ -12,12 +13,22 @@ export default function VideoSection(props) {
     videoUrl,
     videoRef,
     isVideoPaused,
+    imagesBundles,
     handlePlayPauseClick,
     handleVideoEnd,
   } = useVideoSectionProps(props);
 
   return (
     <section className={cn(styles.videoSection, styles[view], styles[slug])}>
+      {imagesBundles.map((image, i) => (
+        <Illustration
+          key={i}
+          src={image.url}
+          alt={image.alt}
+          className={styles.imagesBundles}
+        />
+      ))}
+
       <SectionTitle
         title={title}
         className={styles.title}

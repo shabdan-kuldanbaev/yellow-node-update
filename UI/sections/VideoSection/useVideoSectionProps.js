@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { getDocumentFields, getFileUrl, getImage } from 'utils/helper';
 
 export default function useVideoSectionProps({ section, type }) {
   const {
@@ -8,6 +8,7 @@ export default function useVideoSectionProps({ section, type }) {
     subtitle,
     view,
     images: rawAssets,
+    contentModules,
   } = getDocumentFields(
     section,
     [
@@ -19,6 +20,9 @@ export default function useVideoSectionProps({ section, type }) {
       'images',
     ],
   );
+
+  const { imagesBundles: rawImages } = getDocumentFields(contentModules?.[0], ['imagesBundles']);
+  const imagesBundles = (rawImages || []).map(getImage);
 
   const videoUrl = getFileUrl(rawAssets[0]);
 
@@ -65,6 +69,7 @@ export default function useVideoSectionProps({ section, type }) {
     videoUrl,
     videoRef,
     isVideoPaused,
+    imagesBundles,
     handlePlayPauseClick,
     handleVideoEnd,
   };
