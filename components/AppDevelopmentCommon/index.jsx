@@ -187,7 +187,12 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
     return <SoftwarePriceSection {...props} />;
 
   case 'book-call-intro':
-    return <BookCallIntro {...props} />;
+    return (
+      <BookCallIntro
+        introSection={introSection}
+        {...props}
+      />
+    );
 
   case 'video':
     return <VideoSection {...props} />;
