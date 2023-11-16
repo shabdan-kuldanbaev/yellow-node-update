@@ -46,6 +46,16 @@ export default function useVideoSectionProps({ section, type }) {
     }
   }
 
+  function handleVideoEnd() {
+    if (!videoRef.current) {
+      return;
+    }
+
+    videoRef.current.currentTime = 0;
+    videoRef.current.pause();
+    setVideoPaused(true);
+  }
+
   return {
     slug: type,
     title,
@@ -56,5 +66,6 @@ export default function useVideoSectionProps({ section, type }) {
     videoRef,
     isVideoPaused,
     handlePlayPauseClick,
+    handleVideoEnd,
   };
 }

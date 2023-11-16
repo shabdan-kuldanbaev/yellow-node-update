@@ -13,6 +13,7 @@ export default function VideoSection(props) {
     videoRef,
     isVideoPaused,
     handlePlayPauseClick,
+    handleVideoEnd,
   } = useVideoSectionProps(props);
 
   return (
@@ -28,6 +29,7 @@ export default function VideoSection(props) {
           <video
             className={styles.video}
             ref={videoRef}
+            onEnded={handleVideoEnd}
           >
             <source
               src={videoUrl}
