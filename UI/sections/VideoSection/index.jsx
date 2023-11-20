@@ -10,10 +10,12 @@ export default function VideoSection(props) {
     slug,
     view,
     title,
+    subtitle,
     videoUrl,
     videoRef,
     isVideoPaused,
     imagesBundles,
+    previewUrl,
     handlePlayPauseClick,
     handleVideoEnd,
   } = useVideoSectionProps(props);
@@ -31,6 +33,7 @@ export default function VideoSection(props) {
 
       <SectionTitle
         title={title}
+        subtitle={subtitle}
         className={styles.title}
       />
 
@@ -41,6 +44,7 @@ export default function VideoSection(props) {
             className={styles.video}
             ref={videoRef}
             onEnded={handleVideoEnd}
+            poster={previewUrl}
           >
             <source
               src={videoUrl}

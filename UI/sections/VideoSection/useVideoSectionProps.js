@@ -25,6 +25,7 @@ export default function useVideoSectionProps({ section, type }) {
   const imagesBundles = (rawImages || []).map(getImage);
 
   const videoUrl = getFileUrl(rawAssets[0]);
+  const previewUrl = getFileUrl(rawAssets?.[1]);
 
   const videoRef = useRef();
 
@@ -70,6 +71,7 @@ export default function useVideoSectionProps({ section, type }) {
     videoRef,
     isVideoPaused,
     imagesBundles,
+    previewUrl,
     handlePlayPauseClick,
     handleVideoEnd,
   };

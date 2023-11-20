@@ -113,7 +113,7 @@
   }
 
   &.fourthSectionView {
-    padding-bottom: 0;
+    @extend .greySection;
 
     :global(.swiper) > div:last-child {
       display: none;

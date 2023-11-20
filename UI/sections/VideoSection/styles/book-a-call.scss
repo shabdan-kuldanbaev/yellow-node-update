@@ -8,10 +8,23 @@
   .title {
     margin: 0 150px 0 0;
     max-width: 330px;
+    color: $gray0;
+
+    [data-title] {
+      @include fontSize(16px);
+
+      color: $yellow400;
+    }
+
+    [data-subtitle] {
+      @include fontSize(38px);
+
+      color: $gray0;
+      font-weight: 700;
+    }
 
     * {
       text-align: left;
-      color: $gray0;
     }
 
     @include tablet {

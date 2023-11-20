@@ -5,6 +5,11 @@
 
 .videoSection {
   @include appDevelopmentContainer;
+
+  button {
+    color: $gray400;
+    cursor: pointer;
+  }
 }
 
 .blackSection {
@@ -13,10 +18,5 @@
   .title,
   h3 {
     color: $gray0;
-  }
-
-  button {
-    color: $gray400;
-    cursor: pointer;
   }
 }
