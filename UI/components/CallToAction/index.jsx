@@ -26,6 +26,7 @@ const CallToAction = (props) => {
     show,
     setShow,
     classNames,
+    scrollTop,
   } = useProps(props);
 
   return (
@@ -81,6 +82,16 @@ const CallToAction = (props) => {
               slug={slug}
               show={show}
               setShow={setShow}
+            />
+          );
+        case LINK_TYPE.scrollTop:
+          return (
+            <Contact
+              titles={titles}
+              subtitle={subtitle}
+              buttonTitle={buttonTitle}
+              handleOnClick={scrollTop}
+              url={ctaUrl}
             />
           );
         default:

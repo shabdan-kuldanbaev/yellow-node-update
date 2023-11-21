@@ -420,6 +420,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.softwareDevelopmentTulsa.path,
   ROUTES.softwareDevelopmentNewOrleans.path,
   ROUTES.whyUs.path,
+  ROUTES.bookCall.path,
   CASE_STUDIES.openSense,
   CASE_STUDIES.chatSolutions,
   CASE_STUDIES.kitchenEquipment,

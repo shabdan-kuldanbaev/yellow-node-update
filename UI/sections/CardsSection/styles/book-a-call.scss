@@ -7,10 +7,20 @@
     .cardList {
       @extend .threeColumnsCards;
     }
+
+    .callToAction {
+      border: none;
+      padding: 0;
+      min-height: auto;
+
+      button {
+        margin: 0 auto;
+      }
+    }
   }
 
   &.secondSectionView {
-    @extend .greySection;
+    @extend .blackSection;
 
     [data-description] {
       max-width: 671px;
@@ -40,21 +50,27 @@
       * {
         text-align: center;
         align-items: center;
-        color: $gray900;
+        color: $gray0;
       }
 
       h3 {
         @include fontSize(46px);
 
-        @include below-tablet {
-          @include fontSize(38px);
-        }
+        color: $yellow400;
+      }
+
+      p {
+        color: $gray0;
+      }
+
+      & > div {
+        align-items: center;
       }
     }
   }
 
   &.thirdSectionView {
-    padding-top: 0;
+    padding-bottom: 0;
 
     .contentWrapper {
       max-width: $wide-content-width;
@@ -101,7 +117,7 @@
   }
 
   &.fourthSectionView {
-    padding-bottom: 0;
+    @extend .greySection;
 
     :global(.swiper) > div:last-child {
       display: none;

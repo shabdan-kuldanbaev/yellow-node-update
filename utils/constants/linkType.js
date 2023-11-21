@@ -6,4 +6,5 @@ export const LINK_TYPE = {
   book: 'book',
   subscribe: 'subscribe',
   scrollBlock: 'scroll-block',
+  scrollTop: 'scroll-top',
 };
