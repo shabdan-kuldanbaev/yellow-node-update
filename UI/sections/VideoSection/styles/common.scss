@@ -1,0 +1,22 @@
+.video {
+  width: 100%;
+  height: 100%;
+}
+
+.videoSection {
+  @include appDevelopmentContainer;
+
+  button {
+    color: $gray400;
+    cursor: pointer;
+  }
+}
+
+.blackSection {
+  background: $gray900;
+
+  .title,
+  h3 {
+    color: $gray0;
+  }
+}

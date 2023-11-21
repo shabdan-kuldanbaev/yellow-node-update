@@ -1,5 +1,13 @@
 .book-a-call {
   &.firstSectionView {
-    @extend .greySection;
+    .callToAction {
+      border: none;
+      padding: 0;
+      min-height: auto;
+
+      button {
+        margin: 0 auto;
+      }
+    }
   }
 }

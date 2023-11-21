@@ -7,6 +7,16 @@
     .cardList {
       @extend .threeColumnsCards;
     }
+
+    .callToAction {
+      border: none;
+      padding: 0;
+      min-height: auto;
+
+      button {
+        margin: 0 auto;
+      }
+    }
   }
 
   &.secondSectionView {
@@ -37,10 +47,16 @@
     }
 
     .card {
+      * {
+        text-align: center;
+        align-items: center;
+        color: $gray0;
+      }
+
       h3 {
         @include fontSize(46px);
 
-        color: $yellow500;
+        color: $yellow400;
       }
 
       p {
@@ -54,7 +70,7 @@
   }
 
   &.thirdSectionView {
-    padding-top: 0;
+    padding-bottom: 0;
 
     .contentWrapper {
       max-width: $wide-content-width;
@@ -101,7 +117,7 @@
   }
 
   &.fourthSectionView {
-    padding-bottom: 0;
+    @extend .greySection;
 
     :global(.swiper) > div:last-child {
       display: none;

@@ -2,7 +2,7 @@
 @import 'styles/utils/sizes';
 
 .pageIntroSection {
-  background: $gray50;
+  background: $gray900;
   padding: 24px 40px 0;
   min-height: 696px;
   box-sizing: border-box;
@@ -38,6 +38,10 @@
 
     * {
       text-align: left;
+    }
+
+    h2 {
+      color: $gray0;
     }
 
     @include below-tablet {

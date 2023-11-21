@@ -1,0 +1,97 @@
+.book-a-call {
+  @include flex(row, center, center);
+
+  background: $gray900;
+  padding: 230px 0;
+  position: relative;
+
+  .title {
+    margin: 0 150px 0 0;
+    max-width: 330px;
+    color: $gray0;
+
+    [data-title] {
+      @include fontSize(16px);
+
+      color: $yellow400;
+    }
+
+    [data-subtitle] {
+      @include fontSize(38px);
+
+      color: $gray0;
+      font-weight: 700;
+    }
+
+    * {
+      text-align: left;
+    }
+
+    @include tablet {
+      margin: 0;
+
+      * {
+        text-align: center;
+      }
+    }
+  }
+
+  .videoContainer {
+    aspect-ratio: 1/1;
+    width: 25vw;
+    position: relative;
+
+    .videoWrapper {
+      overflow: hidden;
+      height: 100%;
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 6px $yellow400,
+        0 0 0 120px $gray800;
+    }
+
+    video {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .controls {
+      @include flex(row, center, center);
+
+      position: absolute;
+      width: 100%;
+      transform: translateY(-50%);
+
+      button {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-color: rgb(255 255 255 / 30%);
+        backdrop-filter: blur(20px);
+        border: solid 1px $gray200;
+
+        &,
+        * {
+          color: $gray0;
+          fill: $gray0;
+        }
+      }
+    }
+
+    @include tablet {
+      margin: 140px 0;
+      width: 70vw;
+    }
+  }
+
+  .imagesBundles {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1440/900;
+  }
+
+  @include tablet {
+    flex-direction: column;
+    padding: 60px 0;
+  }
+}

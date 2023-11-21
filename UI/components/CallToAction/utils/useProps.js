@@ -66,6 +66,13 @@ export default (props) => {
     },
   );
 
+  function scrollTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+
   return {
     titles,
     subtitle,
@@ -78,8 +85,9 @@ export default (props) => {
     slug: slugProp || slug,
     ctaUrl,
     show,
-    setShow,
     classNames,
+    setShow,
+    scrollTop,
     ...rest,
   };
 };
