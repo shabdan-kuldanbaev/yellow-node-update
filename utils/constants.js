@@ -23,6 +23,19 @@ export const ACCESS_TO_CONTENTFUL_PREVIEW = {
   isPreview: true,
 };
 
+export const ACCESS_TO_CONTENTFUL_BLOG = {
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_TOKEN,
+};
+
+export const ACCESS_TO_CONTENTFUL_BLOG_PREVIEW = {
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_PREVIEW_TOKEN,
+  isPreview: true,
+};
+
 export const PAGES = Object.entries(routes).reduce((acc, [key, { slug }]) => {
   acc[key] = slug;
 
