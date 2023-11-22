@@ -19,6 +19,11 @@
   }
 }
 
+.subscribeTitle {
+  text-align: center;
+  flex: 1 1 auto;
+}
+
 .subscribeBlock {
   @include flex(row, space-between, center);
 
