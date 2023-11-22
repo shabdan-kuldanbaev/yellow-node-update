@@ -20,36 +20,47 @@ const SubscribeBlock = ({
     handleOnSubmit(email.value);
   };
 
-  return (!isSubscribed && (
+  return ((
     <section className={cn(styles.subscribeBlock, {
       [styles.blogPage]: isBlog,
       [styles.articlePage]: !isBlog,
     })}
     >
-      <div className={styles.subscribeText}>
-        <h2>Subscribe to new posts.</h2>
-        <p>Get weekly updates on the newest design stories, case studies and tips right in your mailbox.</p>
-      </div>
-      <form className={styles.subscribeForm}>
-        <input
-          value={email.value}
-          onChange={handleOnEmailChange}
-          placeholder="Your email address"
-        />
-        {message && (
-          <span className={styles.alertMessage}>
-            {message}
-          </span>
-        )}
-        <div
-          className={styles.button}
-          onClick={handleOnClick}
-          role="button"
-          tabIndex="0"
-        >
-          Subscribe
-        </div>
-      </form>
+      {!isSubscribed && (
+        <>
+          <div className={styles.subscribeText}>
+            <h2>Subscribe to new posts.</h2>
+            <p>Get weekly updates on the newest design stories, case studies and tips right in your mailbox.</p>
+          </div>
+          <form
+            className={styles.subscribeForm}
+            onSubmit={handleOnClick}
+          >
+            <input
+              value={email.value}
+              onChange={handleOnEmailChange}
+              placeholder="Your email address"
+            />
+            {message && (
+              <span className={styles.alertMessage}>
+                {message}
+              </span>
+            )}
+            <div
+              className={styles.button}
+              onClick={handleOnClick}
+              role="button"
+              tabIndex="0"
+            >
+              Subscribe
+            </div>
+          </form>
+        </>
+      )}
+
+      {isSubscribed && (
+        <h2 className={styles.subscribeTitle}>Thank you for being subscribed to the newsletter!</h2>
+      )}
     </section>
   ));
 };
