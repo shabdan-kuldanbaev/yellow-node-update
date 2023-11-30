@@ -231,6 +231,7 @@ export const trash = '/outlined/trash.svg';
 export const user = '/outlined/user.svg';
 export const users = '/outlined/users.svg';
 export const xClose = '/outlined/xClose.svg';
+export const bookMarkQuote = '/outlined/bookMarkQuote.svg';
 
 /* Outlined Time & Images & Travel */
 export const calendar = '/outlined/calendar.svg';

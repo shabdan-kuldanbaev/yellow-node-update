@@ -36,6 +36,7 @@ const CompanyLocation = ({
 
           {Array.isArray(text) ? text.map((textItem) => (
             <Typography
+              key={textItem}
               className={styles.addressText}
               data-text
             >

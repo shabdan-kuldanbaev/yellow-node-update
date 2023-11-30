@@ -7,6 +7,7 @@ function getAuthorProps({ author } = {}) {
       'fullName',
       'position',
       'avatar',
+      'slug',
     ],
   );
   const avatarImage = getFileUrl(authorFields.avatar);
