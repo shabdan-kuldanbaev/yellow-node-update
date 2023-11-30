@@ -4,6 +4,7 @@ import LinkWrapper from 'UI/components/LinkWrapper';
 import usePersonProps from './utils/usePersonProps';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const Media = dynamic(() => import('UI/components/Media'));
 const Svg = dynamic(() => import('UI/components/Svg'));
 
@@ -23,10 +24,12 @@ const PersonIntro = ({ introSection, ...props }) => {
       className={styles.introSection}
     >
       <div className={styles.contentWrapper}>
-        <Media
-          asset={avatar}
-          className={styles.avatar}
-        />
+        <Animated type="isReveal">
+          <Media
+            asset={avatar}
+            className={styles.avatar}
+          />
+        </Animated>
         <div className={styles.infoContainer}>
           {fullName && <h1 className={styles.fullName}>{fullName}</h1>}
           {position && <p className={styles.position}>{position}</p>}
