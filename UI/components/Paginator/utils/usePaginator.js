@@ -17,7 +17,6 @@ export const usePaginator = ({
   const pushRouter = (currentCategory, nextPage) => {
     const { path, dynamicPath } = ROUTES[pageSlug].getRoute(currentCategory, nextPage);
 
-    window.scrollTo(0, 0);
     Router.push(
       { pathname: dynamicPath },
       { pathname: path },

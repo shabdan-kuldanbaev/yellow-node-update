@@ -1,11 +1,14 @@
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 
 export default ({
-  data,
   title = '',
   description = '',
+  currentPage,
+  articlesNumberPerPage,
+  articles,
+  totalArticles,
 }) => {
-  const articles = data.map((article) => {
+  const articlesList = articles.map((article) => {
     const {
       previewImageUrl: image,
       tagsList,
@@ -32,9 +35,13 @@ export default ({
     };
   });
 
+  const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
+
   return {
-    articles,
     title,
     description,
+    articlesList,
+    currentPage,
+    pagesCounter,
   };
 };

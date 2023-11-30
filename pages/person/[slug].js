@@ -4,12 +4,26 @@ import { wrapper } from 'redux/store';
 import personApi from 'redux/apis/person';
 import blogApi from 'redux/apis/blog';
 import { handleError } from 'utils/error';
+import { ARTICLES_NUMBER_PER_PERSON_PAGE } from 'utils/constants';
 
 const Person = (props) => (
   <PersonContainer {...props} />
 );
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ query: { slug } }) => {
+export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
+  query: {
+    slug = '',
+  },
+}) => {
+  const props = {
+    articlesNumberPerPage: ARTICLES_NUMBER_PER_PERSON_PAGE,
+  };
+
+  const query = { slug };
+
+  const page = 1;
+  const skip = (page - 1) * ARTICLES_NUMBER_PER_PERSON_PAGE;
+
   try {
     await store.dispatch(personApi.endpoints.fetchPerson.initiate(slug));
 
@@ -17,7 +31,19 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
 
     const { data = {} } = personApi.endpoints.fetchPerson.select(slug)(state);
 
-    await store.dispatch(blogApi.endpoints.getArticlesRelatedToPerson.initiate({ id: data.id, limit: 3 }));
+    Object.assign(query, {
+      skip,
+      id: data?.id,
+      limit: ARTICLES_NUMBER_PER_PERSON_PAGE,
+    });
+
+    Object.assign(props, {
+      query,
+      currentPage: page,
+      pageFetchQuery: query,
+    });
+
+    await store.dispatch(blogApi.endpoints.getArticlesRelatedToPerson.initiate(query));
 
     if (!data) {
       return {
@@ -25,9 +51,7 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
       };
     }
 
-    return {
-      props: { slug, id: data.id },
-    };
+    return { props };
   } catch (error) {
     handleError({
       error,

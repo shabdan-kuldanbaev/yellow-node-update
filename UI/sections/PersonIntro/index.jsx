@@ -48,7 +48,6 @@ const PersonIntro = ({ introSection, ...props }) => {
               {socialMedia.map(({ svgType, url }) => (
                 <LinkWrapper
                   key={svgType}
-                  isSocialLink
                   path={url}
                 >
                   <Svg
