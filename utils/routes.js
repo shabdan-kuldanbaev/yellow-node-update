@@ -56,6 +56,14 @@ export const routes = {
     dynamicPath: '/',
     slug: 'homepage',
   },
+  person: {
+    title: 'Person',
+    getRoute: (slug) => ({
+      path: !!slug && `/person/${slug}`,
+      dynamicPath: !!slug && '/works/[slug]',
+    }),
+    slug: 'person',
+  },
   portfolio: {
     title: 'Works',
     path: rootPortfolioPath,

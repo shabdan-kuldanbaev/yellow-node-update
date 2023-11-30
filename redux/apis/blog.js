@@ -51,6 +51,26 @@ const blogApi = baseApi.injectEndpoints({
       },
     }),
 
+    getArticlesRelatedToPerson: builder.query({
+      extraOptions: {
+        client: blogClient,
+        type: BASEQUERY_TYPES.getEntries,
+      },
+      query({ id, limit }) {
+        return {
+          links_to_entry: id,
+          additionalQueryParams: {
+            content_type: 'article',
+            limit,
+            order: '-fields.publishedAt',
+          },
+        };
+      },
+      transformResponse(response) {
+        return response.items;
+      },
+    }),
+
     getTags: builder.query({
       extraOptions: {
         client: blogClient,
@@ -175,6 +195,8 @@ export const {
   useGetArticleQuery,
   useGetSearchResultQuery,
   useGetDraftArticleQuery,
+  useGetRelatedArticlesQuery,
+  useGetArticlesRelatedToPersonQuery,
 } = blogApi;
 
 export default blogApi;
