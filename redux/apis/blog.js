@@ -58,8 +58,8 @@ const blogApi = baseApi.injectEndpoints({
       },
       query({ id, limit }) {
         return {
-          links_to_entry: id,
           additionalQueryParams: {
+            links_to_entry: id,
             content_type: 'article',
             limit,
             order: '-fields.publishedAt',
