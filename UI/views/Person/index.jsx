@@ -2,7 +2,6 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import MetaTags from 'components/Common/MetaTags';
 import Breadcrumbs from 'UI/components/Breadcrumbs';
-import FeedbackSection from 'UI/sections/FeedbackSection/index';
 import { useGetArticlesRelatedToPersonQuery } from 'redux/apis/blog';
 import { useFetchPersonQuery } from 'redux/apis/person';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
@@ -13,6 +12,7 @@ import styles from './styles.module.scss';
 
 const PersonIntro = dynamic(() => import('UI/sections/PersonIntro'));
 const ThreeCardsInRow = dynamic(() => import('UI/sections/Blog/ThreeCardsInRow'));
+const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
 
 const PersonContainer = ({
   introSection,

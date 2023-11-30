@@ -1,10 +1,10 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import LinkWrapper from 'UI/components/LinkWrapper';
-import Media from 'UI/components/Media';
 import usePersonProps from './utils/usePersonProps';
 import styles from './styles.module.scss';
 
+const Media = dynamic(() => import('UI/components/Media'));
 const Svg = dynamic(() => import('UI/components/Svg'));
 
 const PersonIntro = ({ introSection, ...props }) => {
