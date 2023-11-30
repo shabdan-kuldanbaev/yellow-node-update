@@ -70,6 +70,7 @@ const PersonContainer = ({
             fields: {
               budget: true,
               title: 'Do you want to create a top-notch software solution? Yellow is here to help!',
+              buttonTitle: 'Request a quote',
             },
           }}
         />
