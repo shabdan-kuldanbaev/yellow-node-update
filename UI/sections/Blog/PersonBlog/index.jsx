@@ -1,13 +1,12 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import Paginator from 'UI/components/Paginator';
 import ArticlesList from 'components/BlogCommon/ArticlesList';
 import SectionTitle from 'UI/components/SectionTitle';
 import { ROUTES } from 'utils/constants';
-import useThreeCardsInRow from '../utils/useThreeCardsInRow';
+import useThreeCardsInRow from '../utils/usePersonBlog';
 import styles from './styles.module.scss';
 
-const SixCardsInRow = (props) => {
+const PersonPageBlog = (props) => {
   const {
     title,
     description,
@@ -28,7 +27,6 @@ const SixCardsInRow = (props) => {
           articles={articlesList}
           currentPage={currentPage}
         />
-
         {!!pagesCounter && (
           <Paginator
             pagesCounter={pagesCounter}
@@ -41,4 +39,4 @@ const SixCardsInRow = (props) => {
   );
 };
 
-export default SixCardsInRow;
+export default PersonPageBlog;

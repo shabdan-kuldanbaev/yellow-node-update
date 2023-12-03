@@ -5,10 +5,10 @@ export default ({
   description = '',
   currentPage,
   articlesNumberPerPage,
-  articles,
-  totalArticles,
+  items,
+  total,
 }) => {
-  const articlesList = articles.map((article) => {
+  const articlesList = items?.map((article) => {
     const {
       previewImageUrl: image,
       tagsList,
@@ -35,7 +35,7 @@ export default ({
     };
   });
 
-  const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
+  const pagesCounter = Math.ceil(total / articlesNumberPerPage);
 
   return {
     title,

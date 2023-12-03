@@ -11,17 +11,17 @@ import { routes } from 'utils/routes';
 import styles from './styles.module.scss';
 
 const PersonIntro = dynamic(() => import('UI/sections/PersonIntro'));
-const SixCardsInRow = dynamic(() => import('UI/sections/Blog/SixCardsInRow'));
+const PersonBlog = dynamic(() => import('UI/sections/Blog/PersonBlog'));
 const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
 
 const PersonContainer = ({
   currentPage,
   articlesNumberPerPage,
   introSection,
-  query = {},
+  query,
 }) => {
   const { data: person = {} } = useFetchPersonQuery(query.slug);
-  const { data: { items: articles, total } } = useGetArticlesRelatedToPersonQuery(query);
+  const { data: articlesData } = useGetArticlesRelatedToPersonQuery(query);
 
   const {
     fullName,
@@ -33,6 +33,7 @@ const PersonContainer = ({
     metaTitle,
     metaDescription,
     url: `${rootUrl}${routes.person.getRoute(query?.slug).path}`,
+    pageNumber: currentPage,
   };
 
   const breadcrumbs = getBreadcrumbs(PAGES.person, {
@@ -50,20 +51,19 @@ const PersonContainer = ({
       <main className={styles.pageMain}>
         <div className={styles.container}>
           <Breadcrumbs
-            dark
             breadcrumbs={breadcrumbs}
+            dark
           />
         </div>
         <PersonIntro
-          {...person}
           introSection={introSection}
+          {...person}
         />
-        <SixCardsInRow
+        <PersonBlog
           title="Latest blog posts"
-          articles={articles}
-          totalArticles={total}
           articlesNumberPerPage={articlesNumberPerPage}
           currentPage={currentPage}
+          {...articlesData}
         />
         <FeedbackSection
           budget

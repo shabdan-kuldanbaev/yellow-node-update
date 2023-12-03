@@ -62,9 +62,9 @@ const blogApi = baseApi.injectEndpoints({
         limit,
       }) {
         return {
+          contentType: 'article',
           additionalQueryParams: {
             links_to_entry: id,
-            content_type: 'article',
             order: '-fields.publishedAt',
             skip,
             limit,

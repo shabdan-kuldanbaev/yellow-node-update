@@ -43,10 +43,13 @@ const getPageRoute = (
 
 const rootBlogPath = '/blog';
 const rootPortfolioPath = '/works';
+const rootPersonPath = '/person';
 const dynamicBlogPaths = getDynamicPaths(rootBlogPath);
 const dynamicPortfolioPaths = getDynamicPaths(rootPortfolioPath);
+const dynamicPersonPaths = getDynamicPaths(rootPersonPath);
 const blogRoutes = createPageRoutes(rootBlogPath, dynamicBlogPaths);
 const portfolioRoutes = createPageRoutes(rootPortfolioPath, dynamicPortfolioPaths);
+const personRoutes = createPageRoutes(rootPersonPath, dynamicPersonPaths);
 
 export const routes = {
   fromRoot: (slug) => (slug === 'homepage' ? '' : `/${slug}`),
@@ -58,10 +61,11 @@ export const routes = {
   },
   person: {
     title: 'Person',
-    getRoute: (slug) => ({
-      path: !!slug && `/person/${slug}`,
-      dynamicPath: !!slug && '/works/[slug]',
-    }),
+    getRoute: (slug, page = '1') => getPageRoute(
+      slug,
+      personRoutes,
+      page,
+    ),
     slug: 'person',
   },
   portfolio: {
