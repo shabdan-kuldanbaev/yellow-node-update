@@ -6,6 +6,7 @@ import { routes } from 'utils/routes';
 export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 3;
 export const ARTICLES_NUMBER_PER_PAGE = 11;
+export const ARTICLES_NUMBER_PER_PERSON_PAGE = 7;
 export const HOMEPAGE_BLOG_CURRENT_PAGE = 1;
 export const ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE = 3;
 export const ROUTES = { ...routes };

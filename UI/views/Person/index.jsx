@@ -11,32 +11,33 @@ import { routes } from 'utils/routes';
 import styles from './styles.module.scss';
 
 const PersonIntro = dynamic(() => import('UI/sections/PersonIntro'));
-const ThreeCardsInRow = dynamic(() => import('UI/sections/Blog/ThreeCardsInRow'));
+const PersonBlog = dynamic(() => import('UI/sections/Blog/PersonBlog'));
 const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
 
 const PersonContainer = ({
+  currentPage,
+  articlesNumberPerPage,
   introSection,
-  slug,
-  id,
+  query,
 }) => {
-  const { data: person = {} } = useFetchPersonQuery(slug);
-  const { data: articles = [] } = useGetArticlesRelatedToPersonQuery({ id, limit: 3 });
+  const { data: person = {} } = useFetchPersonQuery(query.slug);
+  const { data: articlesData } = useGetArticlesRelatedToPersonQuery(query);
 
   const {
-    bio,
     fullName,
-    position,
-    quote,
+    metaTitle,
+    metaDescription,
   } = person;
 
   const personMetadata = {
-    metaTitle: `Content Author ${fullName}, ${position} | Yellow`,
-    metaDescription: quote.length <= 120 ? quote : `${bio.substring(0, 120)}`,
-    url: `${rootUrl}${routes.person.getRoute(slug).path}`,
+    metaTitle,
+    metaDescription,
+    url: `${rootUrl}${routes.person.getRoute(query?.slug).path}`,
+    pageNumber: currentPage,
   };
 
   const breadcrumbs = getBreadcrumbs(PAGES.person, {
-    slug,
+    slug: query?.slug,
     title: fullName,
   });
 
@@ -50,19 +51,20 @@ const PersonContainer = ({
       <main className={styles.pageMain}>
         <div className={styles.container}>
           <Breadcrumbs
-            dark
             breadcrumbs={breadcrumbs}
+            dark
           />
         </div>
         <PersonIntro
-          {...person}
           introSection={introSection}
+          {...person}
         />
-        <ThreeCardsInRow
+        <PersonBlog
           title="Latest blog posts"
-          data={articles}
+          articlesNumberPerPage={articlesNumberPerPage}
+          currentPage={currentPage}
+          {...articlesData}
         />
-
         <FeedbackSection
           budget
           type="person"

@@ -56,18 +56,26 @@ const blogApi = baseApi.injectEndpoints({
         client: blogClient,
         type: BASEQUERY_TYPES.getEntries,
       },
-      query({ id, limit }) {
+      query({
+        id,
+        skip,
+        limit,
+      }) {
         return {
+          contentType: 'article',
           additionalQueryParams: {
             links_to_entry: id,
-            content_type: 'article',
-            limit,
             order: '-fields.publishedAt',
+            skip,
+            limit,
           },
         };
       },
       transformResponse(response) {
-        return response.items;
+        return {
+          items: response.items,
+          total: response.total,
+        };
       },
     }),
 
