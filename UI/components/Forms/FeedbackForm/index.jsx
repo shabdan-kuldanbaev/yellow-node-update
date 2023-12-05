@@ -57,9 +57,8 @@ const FeedbackForm = (props) => {
             <TextField
               name="phone"
               register={register}
-              placeholder="Phone number*"
+              placeholder="Phone number"
               errorMessage="Incorrect phone number"
-              required={dirtyFields?.phone}
               type="tel"
             />
 
