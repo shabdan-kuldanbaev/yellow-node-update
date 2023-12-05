@@ -9,8 +9,8 @@
     @include flex(row, space-between, center);
 
     & > div {
-      flex: 1 1 360px;
-      max-width: 379px;
+      flex: 1 1 auto;
+      max-width: 45%;
       margin-bottom: 32px;
 
       & + div {
@@ -39,5 +39,69 @@
 
   .formButton {
     align-self: center;
+  }
+}
+
+.formContainer {
+  @include flex(row, space-between, flex-start);
+
+  @include tablet {
+    display: block;
+  }
+}
+
+.additionalInfo {
+  flex: 0 1 30vw;
+  max-width: 375px;
+  background: $gray50;
+  padding: 48px;
+
+  .title {
+    @include fontSize(24px);
+
+    margin-top: 0;
+  }
+
+  .item {
+    @include flex(row, space-between, center);
+
+    span {
+      @include fontSize(20px);
+
+      flex: 0 0 64px;
+      background: $yellow400;
+      text-align: center;
+      height: 64px;
+      line-height: 64px;
+      border-radius: 50%;
+      font-weight: 700;
+      vertical-align: middle;
+      position: relative;
+    }
+
+    p {
+      flex: 1 1 auto;
+      color: $gray400;
+      margin: 0 0 0 13px;
+    }
+
+    &:not(:last-child) span::after {
+      content: '';
+      background: $yellow400;
+      height: 100px;
+      width: 2px;
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+    }
+
+    & + .item {
+      margin-top: 19px;
+    }
+  }
+
+  @include tablet {
+    margin: 24px auto 0;
   }
 }

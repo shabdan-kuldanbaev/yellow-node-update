@@ -51,9 +51,9 @@ const ContactUs = (props) => {
               className={styles.form}
             />
           </div>
-
-          <Contacts className={styles.contacts} />
         </section>
+
+        <Contacts className={styles.contacts} />
 
         <CompanyPlacementWithMap className={styles.addresses} />
 
