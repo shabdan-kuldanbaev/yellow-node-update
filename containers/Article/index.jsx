@@ -109,7 +109,7 @@ const ArticleContainer = ({
         isArticle
         pageMetadata={articleMetadata}
         breadcrumbs={breadcrumbs}
-        articleData={articleData}
+        microData={articleData}
       />
       <FullLayout>
         <PageHeader

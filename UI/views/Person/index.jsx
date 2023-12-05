@@ -6,7 +6,7 @@ import { useGetArticlesRelatedToPersonQuery } from 'redux/apis/blog';
 import { useFetchPersonQuery } from 'redux/apis/person';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { PAGES } from 'utils/constants';
-import { rootUrl } from 'utils/helper';
+import { getDocumentFields, getFileUrl, rootUrl } from 'utils/helper';
 import { routes } from 'utils/routes';
 import styles from './styles.module.scss';
 
@@ -27,6 +27,9 @@ const PersonContainer = ({
     fullName,
     metaTitle,
     metaDescription,
+    position,
+    socialLinks,
+    bio,
   } = person;
 
   const personMetadata = {
@@ -41,12 +44,26 @@ const PersonContainer = ({
     title: fullName,
   });
 
+  const additionalMicrodata = {
+    name: fullName,
+    url: `${rootUrl}${routes.person.getRoute(query?.slug).path}`,
+    image: getFileUrl(person?.avatar),
+    sameAs: socialLinks.map((link) => {
+      const { url } = getDocumentFields(link, ['url']);
+
+      return url;
+    }),
+    jobTitle: position,
+    description: bio,
+  };
+
   return (
     <>
       <MetaTags
-        page={PAGES.portfolio}
+        page={PAGES.person}
         pageMetadata={personMetadata}
         breadcrumbs={breadcrumbs}
+        microData={additionalMicrodata}
       />
       <main className={styles.pageMain}>
         <div className={styles.container}>

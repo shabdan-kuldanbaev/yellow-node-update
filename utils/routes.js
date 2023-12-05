@@ -61,12 +61,15 @@ export const routes = {
   },
   person: {
     title: 'Person',
+    slug: 'person',
     getRoute: (slug, page = '1') => getPageRoute(
       slug,
       personRoutes,
       page,
     ),
-    slug: 'person',
+    dynamicPath: {
+      ...dynamicPersonPaths,
+    },
   },
   portfolio: {
     title: 'Works',

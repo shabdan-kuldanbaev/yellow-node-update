@@ -13,10 +13,17 @@ import {
   getArticleMicrodata,
   getBreadcrumbsMicrodata,
   getServiceMicrodata,
+  getPersonMicrodata,
 } from './utils';
 import { deprecatedData } from './deprecatedData';
 
-export function getPageMicrodata(page, { breadcrumbs, articleData } = {}) {
+export function getPageMicrodata(
+  page,
+  {
+    breadcrumbs,
+    microData,
+  } = {},
+) {
   const microdataArray = [
     // TODO: uncomment when deprecated data will be replaced
     // webpageMicrodata,
@@ -56,7 +63,12 @@ export function getPageMicrodata(page, { breadcrumbs, articleData } = {}) {
     break;
 
   case ROUTES.article.slug:
-    microdataArray.push(getArticleMicrodata({ ...articleData, organisationMicrodata }));
+    microdataArray.push(getArticleMicrodata({ ...microData, organisationMicrodata }));
+
+    break;
+
+  case ROUTES.person.slug:
+    microdataArray.push(getPersonMicrodata(microData));
 
     break;
 
