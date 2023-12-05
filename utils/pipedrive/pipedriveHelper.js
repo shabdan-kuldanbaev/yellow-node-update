@@ -19,6 +19,7 @@ const getPipedriveFields = async () => {
     const leadTypeField = pipedriveFields.data.find((field) => field.name === 'Lead type' && field.id === 9089);
     const campaignField = pipedriveFields.data.find((field) => field.name === 'Web page / UTM' && field.id === 9107);
     const phoneField = pipedriveFields.data.find((field) => field.name === 'Phone' && field.id === 9041);
+    const attachmentsField = pipedriveFields.data.find((field) => field.name === 'Attachments' && field.id === 9108);
 
     return {
       countryField,
@@ -28,6 +29,7 @@ const getPipedriveFields = async () => {
       phoneField,
       leadTypeField,
       campaignField,
+      attachmentsField,
     };
   } catch (error) {
     handleError({
@@ -56,6 +58,8 @@ const createPersonPipedrive = async (data) => {
       leadTypeOptionId,
       campaignFieldKey,
       clientCampaign,
+      attachmentsFieldKey,
+      attachments,
     } = data;
 
     const { data: newPersonPipedrive } = await axios.post(
@@ -70,6 +74,7 @@ const createPersonPipedrive = async (data) => {
         [phoneFieldKey]: phone || '',
         [leadTypeFieldKey]: leadTypeOptionId || '',
         [campaignFieldKey]: clientCampaign,
+        [attachmentsFieldKey]: attachments,
       },
     );
 
@@ -147,7 +152,10 @@ export async function sendDataPipedrive(req, res) {
       phone,
       description,
       clientId,
+      attachments: reqAttachments,
     } = req.body;
+
+    const attachments = Array.isArray(reqAttachments) ? reqAttachments : [reqAttachments || ''];
 
     const leadSource = JSON.parse(getCookie(leadSourceCookieName, { req, res }));
     const clientLocation = JSON.parse(getCookie(userLocation, { req, res }));
@@ -160,6 +168,7 @@ export async function sendDataPipedrive(req, res) {
       leadTypeField,
       phoneField,
       campaignField,
+      attachmentsField,
     } = await getPipedriveFields();
 
     const leadSourceOptions = await getCurrentLeadSourceOption({
@@ -187,6 +196,8 @@ export async function sendDataPipedrive(req, res) {
       leadTypeOptionId: leadTypeOption?.id,
       campaignFieldKey: campaignField.key,
       clientCampaign: leadSource.campaign,
+      attachmentsFieldKey: attachmentsField.key,
+      attachments: attachments.join('; '),
     });
 
     if (newPersonPipedrive) {
