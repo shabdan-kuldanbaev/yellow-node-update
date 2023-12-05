@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import { addThousandsSeparators } from 'utils/helper';
 import { budget as budgetData } from '../utils/data';
-import { SliderComponent } from './utils/slider';
+import { NewSliderComponent } from './utils/slider';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
@@ -24,7 +24,10 @@ const BudgetSlider = ({ budget, sliderOptions }) => (
           </>
         )
         : <span>Your budget</span>}
-      <SliderComponent {...sliderOptions} />
+      <NewSliderComponent
+        className={styles.slider}
+        {...sliderOptions}
+      />
     </div>
   </Animated>
 );
