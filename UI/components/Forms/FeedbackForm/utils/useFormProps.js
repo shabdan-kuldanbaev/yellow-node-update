@@ -60,10 +60,9 @@ export default ({
     const {
       description,
       email,
-      phone,
     } = getValues();
 
-    return !!description && !!email && !!phone;
+    return !!description && !!email;
   };
 
   return {
