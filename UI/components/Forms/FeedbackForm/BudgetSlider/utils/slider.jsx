@@ -13,14 +13,14 @@ export const NewSliderComponent = ({ onChange, className, ...props }) => {
 
     const slider = inputRef.current;
 
-    slider.addEventListener('input', ({ target: { value } }) => {
+    const inputHandler = slider.addEventListener('input', ({ target: { value } }) => {
       const progress = (value / slider.max) * 100;
 
       slider.style.background = `linear-gradient(to right, #ffeb33 ${progress}%, #fff59a ${progress}%)`;
     });
 
     return () => {
-      slider.removeEventListener('change');
+      slider.removeEventListener('change', inputHandler);
     };
   }, [inputRef]);
 
