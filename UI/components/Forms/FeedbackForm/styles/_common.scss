@@ -4,6 +4,7 @@
   position: relative;
   box-sizing: border-box;
   padding: 0;
+  flex: 1;
 
   .inputsWrapper {
     @include flex(row, space-between, center);
@@ -55,6 +56,7 @@
   max-width: 375px;
   background: $gray50;
   padding: 48px;
+  margin-left: 48px;
 
   .title {
     @include fontSize(24px);

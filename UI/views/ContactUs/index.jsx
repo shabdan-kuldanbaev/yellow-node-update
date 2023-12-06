@@ -45,15 +45,13 @@ const ContactUs = (props) => {
         </SectionTitle>
 
         <section className={styles.formAndContacts}>
-          <div className={styles.formContainer}>
-            <FeedbackForm
-              isBudgetSlider
-              className={styles.form}
-            />
-          </div>
+          <FeedbackForm
+            isBudgetSlider
+            className={styles.form}
+          >
+            <Contacts className={styles.contacts} />
+          </FeedbackForm>
         </section>
-
-        <Contacts className={styles.contacts} />
 
         <CompanyPlacementWithMap className={styles.addresses} />
 

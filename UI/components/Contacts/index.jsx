@@ -9,55 +9,60 @@ import styles from './Contacts.module.scss';
 function Contacts({ className }) {
   return (
     <div className={cn(className)}>
-      <Typography
-        size={TYPOGRAPHY_SIZE.paragrapgh16}
-        className={styles.contactHeadline}
-      >
-        Phones:
-      </Typography>
-
-      <LinkWrapper
-        path={`tel:${PHONE_NUMBER.us}`}
-      >
+      <div className="item">
         <Typography
-          size={TYPOGRAPHY_SIZE.headline20}
-          className={styles.contact}
-          isBold
+          size={TYPOGRAPHY_SIZE.paragrapgh16}
+          className={styles.contactHeadline}
         >
-          {PHONE_NUMBER.us}
+          Phones:
         </Typography>
-      </LinkWrapper>
 
-      <LinkWrapper
-        path={`mailto:${EMAIL_LINK}`}
-      >
+        <LinkWrapper
+          path={`tel:${PHONE_NUMBER.us}`}
+        >
+          <Typography
+            size={TYPOGRAPHY_SIZE.headline20}
+            className={styles.contact}
+            isBold
+          >
+            {PHONE_NUMBER.us}
+          </Typography>
+        </LinkWrapper>
+
+        <LinkWrapper
+          path={`mailto:${EMAIL_LINK}`}
+        >
+          <Typography
+            size={TYPOGRAPHY_SIZE.headline20}
+            className={styles.contact}
+            isBold
+          >
+            {EMAIL_LINK}
+          </Typography>
+        </LinkWrapper>
+
+      </div>
+
+      <div className="item">
         <Typography
-          size={TYPOGRAPHY_SIZE.headline20}
-          className={styles.contact}
-          isBold
+          size={TYPOGRAPHY_SIZE.paragrapgh16}
+          className={styles.contactHeadline}
         >
-          {EMAIL_LINK}
+          Follow:
         </Typography>
-      </LinkWrapper>
 
-      <Typography
-        size={TYPOGRAPHY_SIZE.paragrapgh16}
-        className={styles.contactHeadline}
-      >
-        Follow:
-      </Typography>
-
-      <div className={styles.smList}>
-        {
-          Object.values(SOCIAL_MEDIA).filter((sm) => sm.id !== 'dribbble').map((sm) => (
-            <LinkWrapper
-              path={sm.link}
-              className={styles.smItem}
-            >
-              <Svg type={sm.iconDark} />
-            </LinkWrapper>
-          ))
-        }
+        <div className={styles.smList}>
+          {
+            Object.values(SOCIAL_MEDIA).filter((sm) => sm.id !== 'dribbble').map((sm) => (
+              <LinkWrapper
+                path={sm.link}
+                className={styles.smItem}
+              >
+                <Svg type={sm.iconDark} />
+              </LinkWrapper>
+            ))
+          }
+        </div>
       </div>
     </div>
   );

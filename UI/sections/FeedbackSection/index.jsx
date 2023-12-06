@@ -11,6 +11,8 @@ import styles from './styles.module.scss';
 const DownloadChecklistForm = dynamic(() => import('UI/components/Forms/DownloadChecklistForm'), { ssr: false });
 const FeedbackForm = dynamic(() => import('UI/components/Forms/FeedbackForm'), { ssr: false });
 
+const pagesWithoutAdditionalInfo = ['homepage'];
+
 const FeedbackSection = (props) => {
   const {
     type,
@@ -70,6 +72,7 @@ const FeedbackSection = (props) => {
                 isBudgetSlider={isSliderBudget}
                 type={type}
                 buttonTitle={buttonTitle}
+                withoutAdditionalInfo={pagesWithoutAdditionalInfo.includes(type)}
               />
             </div>
           );

@@ -44,6 +44,7 @@ const FullScreenEstimation = ({
           isBudgetSlider
           formKey="estimation"
           extraDescription={extraDescription}
+          withoutAdditionalInfo
         />
       )}
     </div>

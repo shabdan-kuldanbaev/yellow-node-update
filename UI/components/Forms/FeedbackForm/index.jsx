@@ -34,6 +34,7 @@ const FeedbackForm = (props) => {
     isFormPending,
     buttonTitle,
     withoutAdditionalInfo,
+    children,
   } = useFormProps(props);
 
   return (
@@ -115,6 +116,8 @@ const FeedbackForm = (props) => {
           </div>
         </div>
       )}
+
+      {children}
     </div>
   );
 };
