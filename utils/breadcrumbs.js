@@ -41,6 +41,16 @@ export function getBreadcrumbs(page, {
 
     return breadcrumbs;
 
+  case ROUTES.person.slug:
+    breadcrumbs.splice(0, 1);
+    breadcrumbs.push({ to: ROUTES.blog.path, title: ROUTES.blog.title });
+
+    if (title && slug) {
+      breadcrumbs.push({ to: ROUTES.person.getRoute(slug).path, title });
+    }
+
+    return breadcrumbs;
+
   default:
     breadcrumbs.push({ to: currentRoute.path, title: currentRoute.title });
 

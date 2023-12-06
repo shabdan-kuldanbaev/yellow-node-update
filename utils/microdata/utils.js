@@ -178,3 +178,31 @@ export function getServiceMicrodata(page, {
     hasOfferCatalog: getOfferCatalog(page.title, offers),
   };
 }
+
+export function getPersonMicrodata({
+  name,
+  url,
+  image,
+  sameAs,
+  jobTitle,
+  description,
+}) {
+  return {
+    '@context': context,
+    '@type': 'Person',
+    name,
+    url,
+    image,
+    sameAs,
+    jobTitle,
+    description,
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Yellow',
+    },
+    memberOf: {
+      '@type': 'Organization',
+      name: 'Yellow',
+    },
+  };
+}

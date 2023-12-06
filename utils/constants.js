@@ -6,6 +6,7 @@ import { routes } from 'utils/routes';
 export const SEARCH_ARTICLES_LIMIT = 50;
 export const HOMEPAGE_ARTICLES_LIMIT = 3;
 export const ARTICLES_NUMBER_PER_PAGE = 11;
+export const ARTICLES_NUMBER_PER_PERSON_PAGE = 7;
 export const HOMEPAGE_BLOG_CURRENT_PAGE = 1;
 export const ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE = 3;
 export const ROUTES = { ...routes };
@@ -20,6 +21,19 @@ export const ACCESS_TO_CONTENTFUL_PREVIEW = {
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
   environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENV,
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_TOKEN,
+  isPreview: true,
+};
+
+export const ACCESS_TO_CONTENTFUL_BLOG = {
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_TOKEN,
+};
+
+export const ACCESS_TO_CONTENTFUL_BLOG_PREVIEW = {
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_BLOG_PREVIEW_TOKEN,
   isPreview: true,
 };
 

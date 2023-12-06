@@ -11,7 +11,7 @@ const MetaTags = ({
   pageMetadata,
   children,
   breadcrumbs,
-  articleData,
+  microData,
   isArticle,
 }) => {
   const {
@@ -27,7 +27,7 @@ const MetaTags = ({
     ogImage,
   } = pageMetadata;
 
-  const microdata = getPageMicrodata(page, { breadcrumbs, articleData });
+  const microdata = getPageMicrodata(page, { breadcrumbs, microData });
 
   const getTitle = () => (pageNumber > 1
     ? `${metaTitle || defaultMetadata.title} | Page ${pageNumber}`

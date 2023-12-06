@@ -31,10 +31,11 @@ const FeedbackForm = (props) => {
     selectedFiles,
     type,
     contactFormError,
-    isFormPending,
+    isLoading,
     buttonTitle,
     withoutAdditionalInfo,
     children,
+    isValid,
   } = useFormProps(props);
 
   return (
@@ -95,7 +96,7 @@ const FeedbackForm = (props) => {
         )}
         <Button
           type="submit"
-          disabled={isFormPending}
+          disabled={isLoading || !isValid()}
           className={styles.formButton}
         >
           {buttonTitle || 'Contact Us'}

@@ -1,4 +1,3 @@
-import isEqual from 'lodash/isEqual';
 import uniqWith from 'lodash/uniqWith';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 import {
@@ -8,7 +7,7 @@ import {
   getGraphqlResultTotalArticlesCount,
   getGraphqlResultTotalArticlesCountByTags,
 } from 'utils/contentful/helper';
-import { contentfulClient } from 'utils/contentful/client';
+import { blogClient, blogPreviewClient } from 'utils/contentful/client';
 import { getDocumentFields } from 'utils/helper';
 import { SEARCH_ARTICLES_LIMIT } from 'utils/constants';
 import { handleError } from 'utils/error';
@@ -18,6 +17,7 @@ const blogApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getArticlesList: builder.query({
       extraOptions: {
+        client: blogClient,
         type: BASEQUERY_TYPES.graphql,
       },
       query({
@@ -51,8 +51,37 @@ const blogApi = baseApi.injectEndpoints({
       },
     }),
 
+    getArticlesRelatedToPerson: builder.query({
+      extraOptions: {
+        client: blogClient,
+        type: BASEQUERY_TYPES.getEntries,
+      },
+      query({
+        id,
+        skip,
+        limit,
+      }) {
+        return {
+          contentType: 'article',
+          additionalQueryParams: {
+            links_to_entry: id,
+            order: '-fields.publishedAt',
+            skip,
+            limit,
+          },
+        };
+      },
+      transformResponse(response) {
+        return {
+          items: response.items,
+          total: response.total,
+        };
+      },
+    }),
+
     getTags: builder.query({
       extraOptions: {
+        client: blogClient,
         type: BASEQUERY_TYPES.graphql,
       },
       query() {
@@ -65,6 +94,7 @@ const blogApi = baseApi.injectEndpoints({
 
     getArticle: builder.query({
       extraOptions: {
+        client: blogClient,
         type: BASEQUERY_TYPES.getEntries,
       },
       async queryFn({ slug }, _, __, baseQuery) {
@@ -82,17 +112,17 @@ const blogApi = baseApi.injectEndpoints({
         } = getDocumentFields(article, ['tagsList', 'publishedAt']);
 
         const [next, prev, related] = await Promise.all([
-          contentfulClient.graphql(GRAPHQL_QUERY.getNearbyArticle({
+          blogClient.graphql(GRAPHQL_QUERY.getNearbyArticle({
             limit: 1,
             order: '[publishedAt_DESC]',
             where: { publishedAt_lt: publishedAt },
           })),
-          contentfulClient.graphql(GRAPHQL_QUERY.getNearbyArticle({
+          blogClient.graphql(GRAPHQL_QUERY.getNearbyArticle({
             limit: 1,
             order: '[publishedAt_DESC]',
             where: { publishedAt_gt: publishedAt },
           })),
-          contentfulClient.graphql(GRAPHQL_QUERY.getRelatedArticles({
+          blogClient.graphql(GRAPHQL_QUERY.getRelatedArticles({
             limit: 10,
             where: { slug: tagsList[0].fields.slug },
           })),
@@ -111,7 +141,7 @@ const blogApi = baseApi.injectEndpoints({
 
     getDraftArticle: builder.query({
       extraOptions: {
-        isPreview: true,
+        client: blogPreviewClient,
         type: BASEQUERY_TYPES.getEntries,
       },
       query(slug) {
@@ -124,6 +154,7 @@ const blogApi = baseApi.injectEndpoints({
 
     getSearchResult: builder.query({
       extraOptions: {
+        client: blogClient,
         type: BASEQUERY_TYPES.graphql,
       },
       async queryFn(value, _, __, baseQuery) {
@@ -172,6 +203,8 @@ export const {
   useGetArticleQuery,
   useGetSearchResultQuery,
   useGetDraftArticleQuery,
+  useGetRelatedArticlesQuery,
+  useGetArticlesRelatedToPersonQuery,
 } = blogApi;
 
 export default blogApi;

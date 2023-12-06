@@ -17,9 +17,10 @@ export default ({
     register,
     handleSubmit,
     reset,
+    getValues,
     formState: {
       dirtyFields,
-      isValid,
+      isSubmitting,
     },
   } = useForm();
   const [budget, setBudget] = useState(addThousandsSeparators(budgetData.min));
@@ -55,6 +56,16 @@ export default ({
     }
   });
 
+  const isValid = () => {
+    const {
+      description,
+      email,
+      phone,
+    } = getValues();
+
+    return !!description && !!email && !!phone;
+  };
+
   return {
     type,
     register,
@@ -68,7 +79,7 @@ export default ({
     isValid,
     contactFormError: isError,
     isDataSubmitted: isSuccess,
-    isFormPending: isLoading,
+    isLoading,
     className,
     ...restProps,
   };

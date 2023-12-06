@@ -1,0 +1,121 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/sizes';
+@import 'styles/utils/colors';
+
+.introSection {
+  padding-bottom: 60px;
+
+  .contentWrapper {
+    @include flex(row);
+
+    column-gap: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: $wide-content-width;
+
+    @include below-tablet {
+      @include flex(column);
+    }
+  }
+
+  .avatar {
+    margin: 0 auto;
+    flex: 0 0 auto;
+    width: 276px;
+    height: 276px;
+  }
+
+  .fullName {
+    @include fontSize(38px, 130%);
+
+    margin: 0;
+    margin-bottom: 12px;
+    font-style: normal;
+    font-weight: 700;
+
+    @include below-tablet {
+      @include fontSize(24px, 130%);
+
+      margin-bottom: 8px;
+      text-align: center;
+    }
+  }
+
+  .position {
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+    margin-bottom: 32px;
+    color: $gray400;
+
+    @include below-tablet {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+  }
+
+  .quote {
+    @include fontSize(18px, 130%);
+
+    position: relative;
+    margin: 0;
+    margin-bottom: 32px;
+    padding: 32px 40px;
+    border-radius: 5px;
+    border: 2px solid $yellow500;
+    font-style: normal;
+    font-weight: 700;
+
+    @include below-tablet {
+      margin-bottom: 24px;
+      padding: 32px;
+      line-height: 150%;
+      text-align: center;
+    }
+  }
+
+  .bookMarkQuoteIcon {
+    position: absolute;
+    top: -18px;
+    left: 40px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .biography {
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+    color: $gray400;
+    font-style: normal;
+    font-weight: 400;
+    white-space: pre-line;
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+
+  .socialMediaList {
+    @include flex(row);
+
+    margin-top: 32px;
+    column-gap: 24px;
+
+    @include below-tablet {
+      margin-top: 24px;
+      justify-content: center;
+    }
+  }
+
+  .socialMediaIcon {
+    width: 44px;
+    height: 44px;
+  }
+
+  @include tablet {
+    padding-bottom: 30px;
+  }
+}
