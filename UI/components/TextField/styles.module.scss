@@ -25,6 +25,7 @@
     &::placeholder {
       transition: 0.5s ease;
       color: $gray400;
+      opacity: 1;
     }
 
     &:focus::placeholder {

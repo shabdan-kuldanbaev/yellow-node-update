@@ -35,6 +35,10 @@ export default function useVideoSectionProps({ section, type }) {
     if (!videoRef) return;
 
     videoRef.current.volume = 0.3;
+
+    videoRef.current.addEventListener('ended', () => {
+      videoRef.current.load();
+    });
   }, [videoRef]);
 
   function handlePlayPauseClick() {

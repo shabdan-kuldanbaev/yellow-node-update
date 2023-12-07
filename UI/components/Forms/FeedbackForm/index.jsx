@@ -10,7 +10,13 @@ import useFormProps from './utils/useFormProps';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
-const BudgetSlider = dynamic(() => import('./BudgetSlider'), { ssr: false });
+const BudgetSlider = dynamic(() => import('./BudgetSlider'));
+
+const additionalInfo = [
+  'Our experts will analyze your requirements and contact you within 1-2 business days.',
+  'Our team will collect all requirements for your project, and if needed, we will sign an NDA to ensure the highest level of privacy.',
+  'We will develop a comprehensive proposal and an action plan for your project with estimates, timelines, CVs, etc.',
+];
 
 const FeedbackForm = (props) => {
   const {
@@ -27,70 +33,93 @@ const FeedbackForm = (props) => {
     contactFormError,
     isLoading,
     buttonTitle,
+    withoutAdditionalInfo,
+    children,
     isValid,
   } = useFormProps(props);
 
   return (
-    <form
-      className={cn(styles.form, styles[type], className)}
-      onSubmit={submitHandler}
-    >
-      <FormAlert />
-      <Animated {...REVEAL_ANIMATION_PROPS}>
-        <TextField
-          name="name"
-          register={register}
-          placeholder="Name *"
-          errorMessage="Required field"
-        />
-      </Animated>
-      <Animated {...REVEAL_ANIMATION_PROPS}>
-        <div className={styles.inputsWrapper}>
-          <TextField
-            name="phone"
-            register={register}
-            placeholder="Phone number*"
-            errorMessage="Incorrect phone number"
-            type="tel"
-          />
-
-          <TextField
-            name="email"
-            register={register}
-            placeholder="Email *"
-            errorMessage="Incorrect email address"
-            type="email"
-          />
-        </div>
-      </Animated>
-      {isBudgetSlider && (
-        <BudgetSlider
-          budget={budget}
-          sliderOptions={sliderOptions}
-        />
-      )}
-      <Animated {...REVEAL_ANIMATION_PROPS}>
-        <Upload
-          register={register}
-          dirtyFields={dirtyFields}
-          setFiles={setFiles}
-          selectedFiles={selectedFiles}
-          formKey={type}
-        />
-      </Animated>
-      {contactFormError && (
-        <span className={styles.errorMessage}>
-          There was an error trying to send your message. Please try again later
-        </span>
-      )}
-      <Button
-        type="submit"
-        disabled={isLoading || !isValid()}
-        className={styles.formButton}
+    <div className={styles.formContainer}>
+      <form
+        className={cn(styles.form, styles[type], className)}
+        onSubmit={submitHandler}
       >
-        {buttonTitle || 'Contact Us'}
-      </Button>
-    </form>
+        <FormAlert />
+        <Animated {...REVEAL_ANIMATION_PROPS}>
+          <TextField
+            name="name"
+            register={register}
+            placeholder="Name *"
+            errorMessage="Required field"
+            required={dirtyFields.name}
+          />
+        </Animated>
+        <Animated {...REVEAL_ANIMATION_PROPS}>
+          <div className={styles.inputsWrapper}>
+            <TextField
+              name="phone"
+              register={register}
+              placeholder="Phone number"
+              errorMessage="Incorrect phone number"
+              type="tel"
+            />
+
+            <TextField
+              name="email"
+              register={register}
+              placeholder="Email *"
+              errorMessage="Incorrect email address"
+              required={dirtyFields?.email}
+              type="email"
+            />
+          </div>
+        </Animated>
+        {isBudgetSlider && (
+          <BudgetSlider
+            budget={budget}
+            sliderOptions={sliderOptions}
+          />
+        )}
+        <Animated {...REVEAL_ANIMATION_PROPS}>
+          <Upload
+            register={register}
+            dirtyFields={dirtyFields}
+            setFiles={setFiles}
+            selectedFiles={selectedFiles}
+            formKey={type}
+          />
+        </Animated>
+        {contactFormError && (
+          <span className={styles.errorMessage}>
+            There was an error trying to send your message. Please try again later
+          </span>
+        )}
+        <Button
+          type="submit"
+          disabled={isLoading || !isValid()}
+          className={styles.formButton}
+        >
+          {buttonTitle || 'Contact Us'}
+        </Button>
+      </form>
+
+      {!withoutAdditionalInfo && (
+        <div className={styles.additionalInfo}>
+          {/* eslint-disable-next-line */}
+          <h3 className={styles.title}>What's next?</h3>
+          <div>
+            {additionalInfo.map((text, i) => (
+              <div className={styles.item}>
+                <span>{i + 1}</span>
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {children}
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import axios from 'axios';
-import { getCookie, setCookie } from 'cookies-next';
+import { getCookie } from 'cookies-next';
 import { leadSourceCookieName, userLocation } from 'utils/constants/cookieNames';
 import { handleError } from '../error';
 
@@ -106,6 +106,26 @@ const createDescriptionPerson = async (data) => {
   }
 };
 
+const uploadFiles = async ({ personId, attachments }) => {
+  try {
+    attachments.forEach(async (file) => {
+      const fd = new FormData();
+      fd.append('person_id', personId);
+      // fd.append('file', file);
+
+      const { data } = await axios.post(
+        `${process.env.PIPEDRIVE_API_URL}/files?api_token=${process.env.PIPEDRIVE_AUTH_TOKEN}`,
+        fd,
+      );
+    });
+  } catch (error) {
+    handleError({
+      error,
+      message: 'Error in the uploadFiles function',
+    });
+  }
+};
+
 const findCurrentOption = (
   options,
   currentSource,
@@ -148,6 +168,14 @@ export async function sendDataPipedrive(req, res) {
       description,
       clientId,
     } = req.body;
+
+    const { attachmentsRaw } = req.files;
+
+    let attachments = [];
+
+    if (attachmentsRaw) {
+      attachments = (Array.isArray(attachmentsRaw) ? attachmentsRaw : [attachmentsRaw]);
+    }
 
     const leadSource = JSON.parse(getCookie(leadSourceCookieName, { req, res }));
     const clientLocation = JSON.parse(getCookie(userLocation, { req, res }));
@@ -195,6 +223,11 @@ export async function sendDataPipedrive(req, res) {
         description,
         ownerId: newPersonPipedrive.owner_id.id,
       });
+
+      // await uploadFiles({
+      //   personId: newPersonPipedrive.id,
+      //   attachments,
+      // });
     }
 
     res.status(200).send(JSON.stringify({ newPersonPipedrive }));

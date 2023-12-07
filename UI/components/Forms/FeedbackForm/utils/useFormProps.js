@@ -37,9 +37,12 @@ export default ({
     event.preventDefault();
 
     const attachments = selectedFiles.map((file) => file.signedUrl);
+    const attachmentsRaw = selectedFiles.map((file) => file.file);
+
     await sendForm({
       ...values,
       attachments,
+      attachmentsRaw,
       projectBudget: budget || '',
       description: extraDescription ? `${values.description} ${extraDescription}` : values.description,
     });
@@ -60,10 +63,9 @@ export default ({
     const {
       description,
       email,
-      phone,
     } = getValues();
 
-    return !!description && !!email && !!phone;
+    return !!description && !!email;
   };
 
   return {
