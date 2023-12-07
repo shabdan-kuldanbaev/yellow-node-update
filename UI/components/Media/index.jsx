@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import Image from 'next/image';
 import PropTypes from 'prop-types';

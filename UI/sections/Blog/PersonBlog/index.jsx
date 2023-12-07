@@ -1,4 +1,3 @@
-import React from 'react';
 import Paginator from 'UI/components/Paginator';
 import ArticlesList from 'components/BlogCommon/ArticlesList';
 import SectionTitle from 'UI/components/SectionTitle';

@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import Logo from 'UI/components/Logo';
 import Typography from 'UI/components/Typography';
 import { socialMedia } from '../utils/data';

@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import SoftwarePriceForm from 'UI/components/Forms/SoftwarePriceForm';
 import { useSoftwarePriceSection } from './utils/useSoftwarePriceSection';

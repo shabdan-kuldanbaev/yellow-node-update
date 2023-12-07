@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Image from 'next/image';
 import cn from 'classnames';
 import { getEmployeeInfo } from 'containers/Signature/utils/helpers';
 import {
@@ -6,7 +7,7 @@ import {
   YELLOW_DOMAIN,
   YELLOW_LINK,
 } from 'containers/Signature/utils';
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import { SOCIAL_MEDIA } from 'utils/constants/contacts';
 import styles from './styles.module.scss';
 
@@ -69,7 +70,7 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path={YELLOW_LINK}
                   >
-                    <img
+                    <Image
                       src={images.yellowUrl}
                       alt="yellow logo"
                     />
@@ -107,7 +108,7 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path={SOCIAL_MEDIA.linkedin.link}
                   >
-                    <img
+                    <Image
                       src={images.linkedInImgUrl}
                       alt="linkedin logo"
                     />
@@ -116,7 +117,7 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path={SOCIAL_MEDIA.instagram.link}
                   >
-                    <img
+                    <Image
                       src={images.instagramImgUrl}
                       alt="instagram logo"
                     />
@@ -125,7 +126,7 @@ const SignatureGenerated = ({
                     isLocalLink={false}
                     path={SOCIAL_MEDIA.twitter.link}
                   >
-                    <img
+                    <Image
                       src={images.twitterImgUrl}
                       alt="twitter logo"
                     />

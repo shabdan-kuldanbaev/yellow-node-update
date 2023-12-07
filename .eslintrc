@@ -28,6 +28,7 @@
     "yarn.lock"
   ],
   "rules": {
+    "jsx-a11y/control-has-associated-label": "off",
     "indent": [
       "error",
       2
@@ -96,22 +97,7 @@
         "allowChildren": false
       }
     ],
-    "jsx-a11y/label-has-associated-control": [
-      2,
-      {
-        "labelComponents": [
-          "CustomLabel"
-        ],
-        "labelAttributes": [
-          "inputLabel"
-        ],
-        "controlComponents": [
-          "CustomInput"
-        ],
-        "assert": "both",
-        "depth": 3
-      }
-    ],
+    "jsx-a11y/label-has-associated-control": "off",
     "jsx-a11y/click-events-have-key-events": "off", // TODO re-review
     "jsx-a11y/no-noninteractive-element-interactions": "off", // TODO re-review
     "padding-line-between-statements": [

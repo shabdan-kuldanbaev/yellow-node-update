@@ -5,7 +5,7 @@
   "sideEffects": false,
   "private": true,
   "engines": {
-    "node": "16.x"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development next dev",
@@ -41,7 +41,7 @@
     "@react-spring/web": "^9.7.3",
     "@react-three/fiber": "^8.0.27",
     "@reduxjs/toolkit": "^1.9.3",
-    "@sentry/nextjs": "^7.6.0",
+    "@sentry/nextjs": "^7.85.0",
     "animate.css": "^4.1.1",
     "animejs": "^3.2.1",
     "autosize": "^5.0.1",
@@ -55,13 +55,14 @@
     "dotenv": "^16.0.1",
     "es6-object-assign": "^1.1.0",
     "es6-promise": "^4.2.8",
+    "eslint-config-next": "^14.0.3",
     "file-to-array-buffer": "^1.0.0",
     "form-data": "^4.0.0",
     "formidable": "^2.0.1",
     "lodash": "^4.17.21",
     "mailchimp-api-v3": "^1.15.0",
     "md5": "^2.3.0",
-    "next": "^12.2.0",
+    "next": "^14.0.3",
     "next-compose-plugins": "^2.2.1",
     "next-redux-wrapper": "^7.0.5",
     "prop-types": "^15.8.1",

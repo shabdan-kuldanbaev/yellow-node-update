@@ -1,17 +1,13 @@
-import { useReducer } from 'react';
+import { useState, useCallback } from 'react';
 
-const reducer = (stateHandler) => (state) => {
-  if (typeof stateHandler === 'function') {
-    stateHandler(!state);
-  }
+function useToggle(initialValue = false) {
+  const [value, setValue] = useState(initialValue);
 
-  return !state;
-};
+  const toggle = useCallback((outerValue) => {
+    setValue(outerValue || ((v) => !v));
+  }, []);
 
-function useToggle(initialState, stateHandler) {
-  const [isEnabled, toggle] = useReducer(reducer(stateHandler), !!initialState);
-
-  return [isEnabled, toggle];
+  return [value, toggle];
 }
 
 export default useToggle;

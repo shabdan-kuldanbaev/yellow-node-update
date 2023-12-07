@@ -23,16 +23,12 @@ const LinkWrapper = (props) => {
       you can remove this code to enable link page generation and loading. However, performance will be degraded
       more: https://nextjs.org/docs/api-reference/next/link */
       prefetch={false}
+      onClick={handleOnClick}
+      className={className}
+      target={target}
+      rel={rel}
     >
-      {/* eslint-disable-next-line react/jsx-no-target-blank,jsx-a11y/anchor-is-valid,jsx-a11y/no-static-element-interactions */}
-      <a
-        className={className}
-        onClick={handleOnClick}
-        target={target}
-        rel={rel}
-      >
-        {children}
-      </a>
+      {children}
     </Link>
   );
 };

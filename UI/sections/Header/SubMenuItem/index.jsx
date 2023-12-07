@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import Typography from 'UI/components/Typography';
 import styles from './styles.module.scss';
 

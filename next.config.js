@@ -14,7 +14,6 @@ const withCDN = isProd && +process.env.NEXTJS_STATIC_FILES_WITH_CDN
   : {};
 
 const nextConfig = {
-  mode: process.env.NODE_ENV,
   reactStrictMode: !isProd,
   swcMinify: true,
   onDemandEntries: {
@@ -91,5 +90,5 @@ const nextConfig = {
 module.exports = withPlugins([
   withObj,
   [withBundleAnalyzer],
-  [withSentryConfig, { silent: true }],
+  [withSentryConfig],
 ], nextConfig);

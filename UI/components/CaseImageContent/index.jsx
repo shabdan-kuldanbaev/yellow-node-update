@@ -1,4 +1,3 @@
-import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';

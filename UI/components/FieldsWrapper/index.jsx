@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
 
 export const FieldsWrapper = ({
   type,

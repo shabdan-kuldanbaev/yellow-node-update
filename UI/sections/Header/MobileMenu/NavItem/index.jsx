@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import { ANIMATED_TYPE } from 'utils/constants';
 import { useNavItem } from './useNavItem';
 import styles from './styles.module.scss';

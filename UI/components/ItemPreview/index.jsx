@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import Illustration from 'UI/components/Illustration';
 import { useItemPreview } from './utils/useItemPreview';
 import styles from './styles.module.scss';

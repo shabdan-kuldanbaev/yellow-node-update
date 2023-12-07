@@ -1,4 +1,3 @@
-import React from 'react';
 import dynamic from 'next/dynamic';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import usePersonProps from './utils/usePersonProps';

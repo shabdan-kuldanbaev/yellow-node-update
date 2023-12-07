@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import { ArticlePreview } from 'components/Common/ArticlePreview';
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import {
   ROUTES,
   ARTICLE_PREVIEW_TYPES,

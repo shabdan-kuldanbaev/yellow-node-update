@@ -1,4 +1,4 @@
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import { PAGES } from 'utils/constants';
 import Typography from 'UI/components/Typography';
 import styles from './styles.module.scss';

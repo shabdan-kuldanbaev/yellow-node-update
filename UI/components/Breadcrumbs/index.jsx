@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useBreadcrumbs from './utils/useBreadcrumbs';
 import styles from './styles.module.scss';

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import Illustration from 'UI/components/Illustration';
 import { advantages, animatedFields } from './utils/data';
 import styles from './styles.module.scss';

@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
-import LinkWrapper from 'components/Common/LinkWrapper';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import SectionTitle from 'UI/components/SectionTitle';
 import Typography from 'UI/components/Typography';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
