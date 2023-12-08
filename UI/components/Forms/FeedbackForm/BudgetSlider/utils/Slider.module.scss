@@ -23,32 +23,25 @@
 
   // background: var(--track-color);
   border-radius: 16px;
+  overflow: hidden;
 }
 
 .slider::-webkit-slider-thumb {
-  /* removing default appearance */
   appearance: none;
-
-  /* creating a custom design */
-  height: 15px;
-  width: 15px;
   background-color: #fff;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
   border: 2px solid var(--handle-color);
-
-  /*  slider progress trick  */
-  box-shadow: -407px 0 0 400px var(--progress-color);
 }
 
 .slider::-moz-range-thumb {
+  appearance: none;
+  background-color: #fff;
   height: 24px;
   width: 24px;
-  background-color: #fff;
   border-radius: 50%;
   border: 2px solid var(--handle-color);
-
-  /*  slider progress trick  */
-  // box-shadow: -407px 0 0 400px var(--progress-color);
 }
 
 .marks {
