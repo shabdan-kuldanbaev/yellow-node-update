@@ -1,0 +1,51 @@
+@import 'styles/utils/colors';
+@import 'styles/utils/mixins';
+
+.slider {
+  $trackColor: $yellow200;
+
+  --track-color: #{$yellow200};
+  --progress-color: #{$yellow400};
+  --handle-color: #{$yellow500};
+
+  height: 4px;
+  border-radius: 4px;
+  appearance: none;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  background: $yellow200;
+}
+
+.slider::-webkit-slider-runnable-track,
+.slider::-moz-range-track {
+  height: 4px;
+
+  // background: var(--track-color);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  background-color: #fff;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--handle-color);
+}
+
+.slider::-moz-range-thumb {
+  appearance: none;
+  background-color: #fff;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--handle-color);
+}
+
+.marks {
+  @include flex(row, space-between, center);
+
+  margin-top: 20px;
+}

@@ -1,9 +1,15 @@
 @import 'styles/utils/mixins';
 
 .formAndContacts {
-  @include flex(row, space-between, flex-start);
-
   margin: 32px 0 120px;
+
+  & > div {
+    @include flex(row, space-between, flex-start, wrap);
+
+    @include tablet {
+      @include flex(column, flex-start, center);
+    }
+  }
 
   @include tablet {
     display: block;
@@ -13,8 +19,6 @@
 
 .formContainer {
   flex: 1 1 auto;
-  max-width: 753px;
-  margin-right: 103px;
 
   @include tablet {
     margin: 0 auto;
@@ -50,6 +54,9 @@
 }
 
 .form {
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+
   button {
     align-self: flex-start !important;
 
@@ -58,16 +65,35 @@
     }
   }
 
+  & + * {
+    margin-top: -122px;
+
+    @include tablet {
+      order: 2;
+      margin-top: 24px;
+    }
+  }
+
   @include tablet {
     margin: 0 auto;
+    order: 0;
   }
 }
 
 .contacts {
-  flex: 0 0 auto;
+  @include flex(row);
+
+  flex: 0 0 100%;
+  margin-top: 48px;
+
+  & > * + * {
+    margin-left: 38px;
+  }
 
   @include tablet {
     margin-top: 32px;
+    order: 0;
+    display: block;
 
     * {
       text-align: center;

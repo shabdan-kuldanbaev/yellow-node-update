@@ -4,11 +4,11 @@ import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
 
 const Portfolio = dynamic(() => import('UI/sections/Portfolio'), { ssr: false });
 const TextSection = dynamic(() => import('UI/sections/TextSection'), { ssr: false });
-const CardsSection = dynamic(() => import('UI/sections/CardsSection'), { ssr: false });
+const CardsSection = dynamic(() => import('UI/sections/CardsSection'));
 const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'), { ssr: false });
 const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
 const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'), { ssr: false });
-const Blog = dynamic(() => import('UI/sections/Blog'), { ssr: false });
+const Blog = dynamic(() => import('UI/sections/Blog'));
 const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'), { ssr: false });
 
 const SectionSelector = ({

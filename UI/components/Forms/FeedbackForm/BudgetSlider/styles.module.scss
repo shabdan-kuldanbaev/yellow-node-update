@@ -1,4 +1,4 @@
-@import "styles/utils/mixins";
+@import 'styles/utils/mixins';
 @import 'styles/utils/colors';
 
 .budgetSlider {
@@ -13,5 +13,11 @@
 
   .budget {
     color: $gray900;
+  }
+
+  .slider {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
   }
 }
