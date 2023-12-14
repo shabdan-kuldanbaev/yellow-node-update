@@ -22,7 +22,7 @@ export const ArticleLink = ({
     return title && slug && (
       <BookmarkContainer
         title={title}
-        url={slug}
+        url={url || slug}
         buttonTitle={buttonTitle}
       />
     );

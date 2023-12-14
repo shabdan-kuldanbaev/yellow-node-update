@@ -7,7 +7,7 @@ const Svg = dynamic(() => import('UI/components/Svg'));
 
 const BookmarkContainer = ({
   title,
-  buttonTitle = 'See post',
+  buttonTitle,
   url,
   containerClass,
   titleClass,
@@ -26,7 +26,7 @@ const BookmarkContainer = ({
         path={url}
         className={cn(styles.button, buttonClass)}
       >
-        {buttonTitle}
+        {buttonTitle || 'Read more'}
       </LinkWrapper>
     </div>
   </div>
