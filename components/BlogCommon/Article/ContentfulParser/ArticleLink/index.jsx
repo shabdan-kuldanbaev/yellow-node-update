@@ -19,7 +19,7 @@ export const ArticleLink = ({
 }) => {
   switch (type) {
   case LINK_TYPE.bookmark:
-    return title && slug && (
+    return title && (url || slug) && (
       <BookmarkContainer
         title={title}
         url={url || slug}
