@@ -57,6 +57,7 @@ function Contacts({ className }) {
               <LinkWrapper
                 path={sm.link}
                 className={styles.smItem}
+                key={sm.link}
               >
                 <Svg type={sm.iconDark} />
               </LinkWrapper>

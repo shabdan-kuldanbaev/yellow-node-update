@@ -51,7 +51,7 @@ PageHeader.defaultProps = {
 
 PageHeader.propTypes = {
   title: PropTypes.string,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
   breadcrumbs: PropTypes.instanceOf(Array),
   titleStyles: PropTypes.string,
   breadcrumbsStyles: PropTypes.string,
