@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import axios from 'axios';
-import { getCookie } from 'cookies-next';
+import { getCookie, setCookie } from 'cookies-next';
 import { leadSourceCookieName, userLocation } from 'utils/constants/cookieNames';
 import { handleError } from '../error';
 
@@ -19,6 +19,7 @@ const getPipedriveFields = async () => {
     const leadTypeField = pipedriveFields.data.find((field) => field.name === 'Lead type' && field.id === 9089);
     const campaignField = pipedriveFields.data.find((field) => field.name === 'Web page / UTM' && field.id === 9107);
     const phoneField = pipedriveFields.data.find((field) => field.name === 'Phone' && field.id === 9041);
+    const attachmentsField = pipedriveFields.data.find((field) => field.name === 'Attachments' && field.id === 9108);
 
     return {
       countryField,
@@ -28,6 +29,7 @@ const getPipedriveFields = async () => {
       phoneField,
       leadTypeField,
       campaignField,
+      attachmentsField,
     };
   } catch (error) {
     handleError({
@@ -56,6 +58,8 @@ const createPersonPipedrive = async (data) => {
       leadTypeOptionId,
       campaignFieldKey,
       clientCampaign,
+      attachmentsFieldKey,
+      attachments,
     } = data;
 
     const { data: newPersonPipedrive } = await axios.post(
@@ -70,6 +74,7 @@ const createPersonPipedrive = async (data) => {
         [phoneFieldKey]: phone || '',
         [leadTypeFieldKey]: leadTypeOptionId || '',
         [campaignFieldKey]: clientCampaign,
+        [attachmentsFieldKey]: attachments,
       },
     );
 
@@ -102,26 +107,6 @@ const createDescriptionPerson = async (data) => {
     handleError({
       error,
       message: 'Error in the createDescriptionPerson function',
-    });
-  }
-};
-
-const uploadFiles = async ({ personId, attachments }) => {
-  try {
-    attachments.forEach(async (file) => {
-      const fd = new FormData();
-      fd.append('person_id', personId);
-      // fd.append('file', file);
-
-      const { data } = await axios.post(
-        `${process.env.PIPEDRIVE_API_URL}/files?api_token=${process.env.PIPEDRIVE_AUTH_TOKEN}`,
-        fd,
-      );
-    });
-  } catch (error) {
-    handleError({
-      error,
-      message: 'Error in the uploadFiles function',
     });
   }
 };
@@ -167,15 +152,10 @@ export async function sendDataPipedrive(req, res) {
       phone,
       description,
       clientId,
+      attachments: reqAttachments,
     } = req.body;
 
-    const { attachmentsRaw } = req.files;
-
-    let attachments = [];
-
-    if (attachmentsRaw) {
-      attachments = (Array.isArray(attachmentsRaw) ? attachmentsRaw : [attachmentsRaw]);
-    }
+    const attachments = Array.isArray(reqAttachments) ? reqAttachments : [reqAttachments || ''];
 
     const leadSource = JSON.parse(getCookie(leadSourceCookieName, { req, res }));
     const clientLocation = JSON.parse(getCookie(userLocation, { req, res }));
@@ -188,6 +168,7 @@ export async function sendDataPipedrive(req, res) {
       leadTypeField,
       phoneField,
       campaignField,
+      attachmentsField,
     } = await getPipedriveFields();
 
     const leadSourceOptions = await getCurrentLeadSourceOption({
@@ -215,6 +196,8 @@ export async function sendDataPipedrive(req, res) {
       leadTypeOptionId: leadTypeOption?.id,
       campaignFieldKey: campaignField.key,
       clientCampaign: leadSource.campaign,
+      attachmentsFieldKey: attachmentsField.key,
+      attachments: attachments.join('; '),
     });
 
     if (newPersonPipedrive) {
@@ -223,11 +206,6 @@ export async function sendDataPipedrive(req, res) {
         description,
         ownerId: newPersonPipedrive.owner_id.id,
       });
-
-      // await uploadFiles({
-      //   personId: newPersonPipedrive.id,
-      //   attachments,
-      // });
     }
 
     res.status(200).send(JSON.stringify({ newPersonPipedrive }));

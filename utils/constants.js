@@ -114,7 +114,6 @@ export const FEEDBACK_FORM_FIELDS = {
   isSendNDAChecked: 'isSendNDAChecked',
   projectBudget: 'projectBudget',
   attachments: 'attachments',
-  attachmentsRaw: 'attachmentsRaw',
   clientId: 'clientId',
   source: 'source',
   medium: 'medium',
