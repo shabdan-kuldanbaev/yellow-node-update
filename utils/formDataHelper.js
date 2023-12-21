@@ -7,8 +7,8 @@ import { getClientIp } from './ip';
 dotenv.config('./env');
 
 export async function sendFormData(req, res) {
+  console.log('Begin sendFormData');
   try {
-    console.log('🚀 ~ file: formDataHelper.js:20 ~ sendFormData ~ body:', req.body);
     const {
       name,
       email,
@@ -54,8 +54,13 @@ export async function sendFormData(req, res) {
       },
     );
 
-    if (status === 200) return data;
+    if (status === 200) {
+      console.log('End sendFormData');
+
+      return data;
+    }
   } catch (error) {
+    console.error('Error in the sendFormData function');
     handleError({
       error,
       message: 'Error in the sendFormData function',

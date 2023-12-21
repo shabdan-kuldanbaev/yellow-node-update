@@ -8,6 +8,7 @@ dotenv.config('./env');
 const client = MailchimpTransactional(process.env.MAILCHIMP_TRANSACTIONAL_API_KEY);
 
 export async function sendAutoReplyEmail(email) {
+  console.log('Begin sendAutoReplyEmail');
   try {
     const response = await client.messages.sendTemplate({
       async: true,
@@ -28,6 +29,8 @@ export async function sendAutoReplyEmail(email) {
                 reason: ${response[0].reject_reason || response[0].queued_reason}`,
       });
     }
+
+    console.log('End sendAutoReplyEmail');
   } catch (e) {
     handleError(e);
   }
