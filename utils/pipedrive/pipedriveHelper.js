@@ -145,7 +145,6 @@ const getCurrentLeadSourceOption = async ({
 };
 
 export async function sendDataPipedrive(req, res) {
-  console.log('Begin sendDataPipedrive');
   try {
     const {
       name,
@@ -210,9 +209,8 @@ export async function sendDataPipedrive(req, res) {
     }
 
     res.status(200).send(JSON.stringify({ newPersonPipedrive }));
-    console.log('End sendDataPipedrive');
   } catch (error) {
-    console.error('Error in the sendDataPipedrive function');
+    console.error('PD error: ', error);
     handleError({
       error,
       message: 'Error in the sendDataPipedrive function',

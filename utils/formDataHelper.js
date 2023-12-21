@@ -7,8 +7,8 @@ import { getClientIp } from './ip';
 dotenv.config('./env');
 
 export async function sendFormData(req, res) {
-  console.log('Begin sendFormData');
   try {
+    console.log('BEGIN sendFormData');
     const {
       name,
       email,
@@ -18,8 +18,11 @@ export async function sendFormData(req, res) {
       attachments,
       clientId,
     } = req.body;
+    console.log('sendFormData: finished fields parsing');
 
     const concatDescription = `${description} [Phone number: ${phone}]`;
+
+    console.log('sendFormData: started forming fd for erp');
 
     const formData = new FormData();
     formData.append('name', name);
@@ -43,6 +46,9 @@ export async function sendFormData(req, res) {
       }
     }
 
+    console.log('sendFormData: finished forming fd for erp');
+    console.log('sendFormData: started sending to erp request');
+
     const { status, data } = await axios.post(
       `${process.env.ERP_API_URL}/contact-form`,
       formData,
@@ -54,13 +60,13 @@ export async function sendFormData(req, res) {
       },
     );
 
-    if (status === 200) {
-      console.log('End sendFormData');
+    console.log('sendFormData: finished sending to erp request');
 
+    if (status === 200) {
       return data;
     }
   } catch (error) {
-    console.error('Error in the sendFormData function');
+    console.error('sendFormData error: ', error);
     handleError({
       error,
       message: 'Error in the sendFormData function',
