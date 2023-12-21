@@ -8,6 +8,7 @@ dotenv.config('./env');
 
 export async function sendFormData(req, res) {
   try {
+    console.log('🚀 ~ file: formDataHelper.js:20 ~ sendFormData ~ body:', req.body);
     const {
       name,
       email,

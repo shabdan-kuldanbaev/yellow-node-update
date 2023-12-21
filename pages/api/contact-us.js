@@ -14,7 +14,7 @@ const handler = async (req, res) => {
   await runMiddleware(req, res, formParser(form));
 
   await sendAutoReplyEmail(req.body.email);
-  // await sendFormData(req, res);
+  await sendFormData(req, res);
   await sendDataPipedrive(req, res);
 };
 
