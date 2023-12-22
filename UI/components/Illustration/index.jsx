@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import useIllustration from './utils/useIllustration';
