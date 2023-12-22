@@ -72,7 +72,7 @@ const FeedbackSection = (props) => {
                 isBudgetSlider={isSliderBudget}
                 type={type}
                 buttonTitle={buttonTitle}
-                withoutAdditionalInfo={pagesWithoutAdditionalInfo.includes(type)}
+                withoutAdditionalInfo
               />
             </div>
           );

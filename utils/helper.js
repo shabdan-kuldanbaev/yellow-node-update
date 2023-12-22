@@ -214,10 +214,9 @@ export const getFeedbackFormData = (data) => {
   formDataArray.forEach(([key]) => {
     // TODO rewrite it
     switch (key) {
-    case FEEDBACK_FORM_FIELDS.attachments:
-    case FEEDBACK_FORM_FIELDS.attachmentsRaw: {
+    case FEEDBACK_FORM_FIELDS.attachments: {
       if (data[key]) {
-        [...data[key]].forEach((file) => formData.append(key, file));
+        [...data[key]].forEach((file) => formData.append('attachments', file));
       }
 
       break;
@@ -301,8 +300,6 @@ export const runMiddleware = (req, res, fn) => new Promise((resolve, reject) => 
 
 export const formParser = (form) => async (req, _, next) => {
   form.parse(req, (err, fields, files) => {
-    console.log('🚀 ~ file: helper.js:304 ~ form.parse ~ files:', files);
-
     if (!err) {
       req.body = fields;
       req.files = files;

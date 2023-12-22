@@ -51,7 +51,7 @@ const SmallDropDownMenu = (props) => {
 
 SmallDropDownMenu.propTypes = {
   slug: PropTypes.string.isRequired,
-  isLightTheme: PropTypes.bool.isRequired,
+  isLightTheme: PropTypes.bool,
   isPageScrolledDown: PropTypes.bool.isRequired,
   isDropMenuOpened: PropTypes.bool.isRequired,
   closeDropDownMenu: PropTypes.func,

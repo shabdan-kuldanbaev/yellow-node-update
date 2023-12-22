@@ -40,6 +40,7 @@ const CaseFeedback = (props) => {
         <FeedbackForm
           isBudgetSlider={isSliderBudget}
           type={type}
+          withoutAdditionalInfo
         />
       </div>
     </section>

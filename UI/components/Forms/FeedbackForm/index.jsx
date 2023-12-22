@@ -109,7 +109,10 @@ const FeedbackForm = (props) => {
           <h3 className={styles.title}>What's next?</h3>
           <div>
             {additionalInfo.map((text, i) => (
-              <div className={styles.item}>
+              <div
+                className={styles.item}
+                key={i}
+              >
                 <span>{i + 1}</span>
                 <p>{text}</p>
               </div>
