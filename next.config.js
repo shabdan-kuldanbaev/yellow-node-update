@@ -13,6 +13,9 @@ const withCDN = isProd && +process.env.NEXTJS_STATIC_FILES_WITH_CDN
   ? { assetPrefix: process.env.EDGE_URL }
   : {};
 
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   reactStrictMode: !isProd,
   swcMinify: true,
@@ -90,5 +93,5 @@ const nextConfig = {
 module.exports = withPlugins([
   withObj,
   [withBundleAnalyzer],
-  [withSentryConfig],
+  // [withSentryConfig],
 ], nextConfig);
