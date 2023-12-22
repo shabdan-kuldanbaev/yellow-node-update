@@ -210,6 +210,7 @@ export async function sendDataPipedrive(req, res) {
 
     res.status(200).send(JSON.stringify({ newPersonPipedrive }));
   } catch (error) {
+    console.error('PD error: ', error);
     handleError({
       error,
       message: 'Error in the sendDataPipedrive function',

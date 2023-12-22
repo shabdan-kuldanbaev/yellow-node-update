@@ -11,7 +11,7 @@ export async function sendFormData(req, res) {
     const {
       name,
       email,
-      phone,
+      phone = 'not sent',
       description,
       projectBudget,
       attachments,
@@ -53,8 +53,11 @@ export async function sendFormData(req, res) {
       },
     );
 
-    if (status === 200) return data;
+    if (status === 200) {
+      return data;
+    }
   } catch (error) {
+    console.error('sendFormData error: ', error);
     handleError({
       error,
       message: 'Error in the sendFormData function',
