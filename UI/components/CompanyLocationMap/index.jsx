@@ -5,7 +5,7 @@ import {
 } from 'react';
 import MapGL, { Marker, NavigationControl } from 'react-map-gl';
 import Svg from 'UI/components/Svg';
-import { selectIsMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'store/selectors/layout';
 import { useSelector } from 'react-redux';
 import {
   markers,

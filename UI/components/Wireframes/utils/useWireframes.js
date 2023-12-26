@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectIsMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'store/selectors/layout';
 import { getImage } from 'utils/helper';
 import {
   DEFAULT_MOBILE_IMAGE_SIZE,

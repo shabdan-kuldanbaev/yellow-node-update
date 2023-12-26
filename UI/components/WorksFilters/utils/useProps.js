@@ -4,7 +4,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useLoadTagsAndTypesQuery } from 'redux/apis/works';
+import { useLoadTagsAndTypesQuery } from 'store/apis/works';
 
 export default ({
   filters,

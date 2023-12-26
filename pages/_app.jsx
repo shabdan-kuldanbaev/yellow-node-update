@@ -5,9 +5,10 @@ import {
   useMemo,
 } from 'react';
 import { useRouter } from 'next/router';
+import { Provider } from 'react-redux';
 import { ThemeProvider } from '@material-ui/core';
 import smoothscroll from 'smoothscroll-polyfill';
-import { wrapper } from 'redux/store';
+import { wrapper } from 'store/store';
 import { getCookie, setCookie } from 'cookies-next';
 import Layout from 'UI/containers/Layout';
 import { AppContext, PageFetchContext } from 'utils/appContext';
@@ -23,6 +24,8 @@ import 'styles/index.scss';
 
 function App({ Component, pageProps }) {
   const router = useRouter();
+
+  const { store, props } = wrapper.useWrappedStore(pageProps);
 
   const [contextData, setContextData] = useState({
     isHomepageVisit: false,
@@ -70,20 +73,22 @@ function App({ Component, pageProps }) {
   }), [pageProps.pageFetchQuery]);
 
   return (
-    <AppContext.Provider value={AppContextValue}>
-      <PageFetchContext.Provider value={PageFetchContextValue}>
-        <ThemeProvider theme={customTheme}>
-          <Layout introSection={introSection}>
-            <Component
-              theme={theme}
-              introSection={introSection}
-              {...pageProps}
-            />
-          </Layout>
-        </ThemeProvider>
-      </PageFetchContext.Provider>
-    </AppContext.Provider>
+    <Provider store={store}>
+      <AppContext.Provider value={AppContextValue}>
+        <PageFetchContext.Provider value={PageFetchContextValue}>
+          <ThemeProvider theme={customTheme}>
+            <Layout introSection={introSection}>
+              <Component
+                theme={theme}
+                introSection={introSection}
+                {...props}
+              />
+            </Layout>
+          </ThemeProvider>
+        </PageFetchContext.Provider>
+      </AppContext.Provider>
+    </Provider>
   );
 }
 
-export default wrapper.withRedux(App);
+export default App;

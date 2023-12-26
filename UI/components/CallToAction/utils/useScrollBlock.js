@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import downloadFile from 'utils/downloadFile';
 import useToggle from 'hooks/useToggle';
-import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
 import usePageClusters from 'hooks/usePageClusters';
 
 export default (props) => {

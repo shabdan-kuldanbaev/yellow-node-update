@@ -10,8 +10,8 @@ import {
   desktopResolutionSet,
   mobileResolutionSet,
   tabletResolutionSet,
-} from 'redux/reducers/layout';
-import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+} from 'store/reducers/layout';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
 import { AppContext } from 'utils/appContext';
 import { routes } from 'utils/routes';
 

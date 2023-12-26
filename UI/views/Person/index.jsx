@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
 import MetaTags from 'components/Common/MetaTags';
 import Breadcrumbs from 'UI/components/Breadcrumbs';
-import { useGetArticlesRelatedToPersonQuery } from 'redux/apis/blog';
-import { useFetchPersonQuery } from 'redux/apis/person';
+import { useGetArticlesRelatedToPersonQuery } from 'store/apis/blog';
+import { useFetchPersonQuery } from 'store/apis/person';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields, getFileUrl, rootUrl } from 'utils/helper';

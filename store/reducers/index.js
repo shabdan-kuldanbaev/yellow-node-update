@@ -1,7 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 
-import baseApi from 'redux/apis';
+import baseApi from 'store/apis';
 import layout from './layout';
 
 const reducers = combineReducers({

@@ -3,7 +3,7 @@ import PageHeader from 'UI/components/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
-import { useFetchPageQuery } from 'redux/apis/page';
+import { useFetchPageQuery } from 'store/apis/page';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 

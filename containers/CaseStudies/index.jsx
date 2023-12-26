@@ -4,7 +4,7 @@ import MetaTags from 'components/Common/MetaTags';
 import { rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { routes } from 'utils/routes';
-import { useFetchPageQuery } from 'redux/apis/page';
+import { useFetchPageQuery } from 'store/apis/page';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 

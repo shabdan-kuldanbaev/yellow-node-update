@@ -6,7 +6,7 @@ import PageHeader from 'UI/components/PageHeader';
 import { BLOCKS_SLUGS, PAGES, ROUTES } from 'utils/constants';
 import { findBlock, getDocumentFields, rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { useFetchPageQuery } from 'redux/apis/page';
+import { useFetchPageQuery } from 'store/apis/page';
 import styles from './styles.module.scss';
 
 const ManagementTeam = dynamic(() => import('components/CompanyCommon/ManagementTeam'));

@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { animated, useSpring } from 'react-spring';
 import { useSelector } from 'react-redux';
-import { selectIsMobileResolutions } from 'redux/selectors/layout';
+import { selectIsMobileResolutions } from 'store/selectors/layout';
 import cn from 'classnames';
 
 const ParallaxWrapper = ({

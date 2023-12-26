@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import AnimatedInput from 'components/Common/AnimatedInput';
 import ButtonMore from 'components/Common/ButtonMore';
 import ModalWindow from 'components/Common/ModalWindow';
-import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
 import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
 

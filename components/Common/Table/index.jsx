@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { selectIsMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'store/selectors/layout';
 import FullLayout from 'components/Layout/FullLayout';
 import { ARTICLE_TABLE_TYPES } from 'utils/constants';
 import { TableContent } from './TableContent';
