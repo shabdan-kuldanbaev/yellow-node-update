@@ -7,14 +7,6 @@ export const useSoftwarePriceForm = ({ title, list, data }) => {
   const [secondValue, setSecondValue] = useState(null);
   const [isFullscreenEstimationOpen, setIsFullscreenEstimationOpen] = useState(false);
 
-  const onFistValueChange = (e) => {
-    setFirstValue(e.target.value);
-  };
-
-  const onSecondValueChange = (e) => {
-    setSecondValue(e.target.value);
-  };
-
   const openFullscreenEstimation = () => {
     setIsFullscreenEstimationOpen(true);
   };
@@ -32,10 +24,10 @@ export const useSoftwarePriceForm = ({ title, list, data }) => {
     second,
     firstValue,
     secondValue,
+    setFirstValue,
+    setSecondValue,
     descriptionValue,
     isFullscreenEstimationOpen,
-    onFistValueChange,
-    onSecondValueChange,
     openFullscreenEstimation,
     closeFullscreenEstimation,
   };
