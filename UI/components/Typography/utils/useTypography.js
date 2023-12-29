@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { selectIsDesktop } from 'redux/selectors/layout';
+import { selectIsDesktop } from 'store/selectors/layout';
 import styles from '../styles.module.scss';
 
 export const TYPOGRAPHY_TAGS = {

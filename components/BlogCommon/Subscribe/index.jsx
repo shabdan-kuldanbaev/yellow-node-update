@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
-import { selectIsMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'store/selectors/layout';
 import AnimatedInput from 'components/Common/AnimatedInput';
 import ButtonMore from 'components/Common/ButtonMore';
 import { ANIMATED_TYPE } from 'utils/constants';

@@ -1,4 +1,4 @@
-import blogApi from 'redux/apis/blog';
+import blogApi from 'store/apis/blog';
 import { Mousewheel, Navigation } from 'swiper';
 import { getDocumentFields } from 'utils/helper';
 

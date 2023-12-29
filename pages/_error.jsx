@@ -1,8 +1,8 @@
 import PageNotFound from 'containers/PageNotFound';
-import { wrapper } from 'redux/store';
+import { wrapper } from 'store/store';
 import { PAGES } from 'utils/constants';
 import { handleError } from 'utils/error';
-import pageApi from 'redux/apis/page';
+import pageApi from 'store/apis/page';
 
 const Error = ({ statusCode, err }) => (statusCode
   ? statusCode === 404 && <PageNotFound />

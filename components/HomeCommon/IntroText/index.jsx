@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { selectIsMobile } from 'redux/selectors/layout';
+import { selectIsMobile } from 'store/selectors/layout';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import useAppearingAnimation from 'hooks/useAppearingAnimation';
 import { ROUTES } from 'utils/constants';

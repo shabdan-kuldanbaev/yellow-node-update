@@ -1,6 +1,6 @@
 import { ARTICLES_NUMBER_PER_PERSON_PAGE } from 'utils/constants';
-import personApi from 'redux/apis/person';
-import blogApi from 'redux/apis/blog';
+import personApi from 'store/apis/person';
+import blogApi from 'store/apis/blog';
 import { handleError } from 'utils/error';
 
 export const getInitialPersonProps = async (store, ctx) => {

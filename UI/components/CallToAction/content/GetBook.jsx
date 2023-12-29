@@ -4,7 +4,7 @@ import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils
 import Button from 'UI/components/Button';
 import downloadFile from 'utils/downloadFile';
 import useToggle from 'hooks/useToggle';
-import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
 import usePageClusters from 'hooks/usePageClusters';
 import styles from '../styles.module.scss';
 

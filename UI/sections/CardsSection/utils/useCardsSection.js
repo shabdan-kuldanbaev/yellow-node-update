@@ -6,7 +6,7 @@ import {
   selectIsDesktop,
   selectIsMobile,
   selectIsTablet,
-} from 'redux/selectors/layout';
+} from 'store/selectors/layout';
 import { getDocumentFields, getImage } from 'utils/helper';
 import { CASE_STUDIES, PAGES } from 'utils/constants';
 import Card from 'UI/components/Cards/Card';

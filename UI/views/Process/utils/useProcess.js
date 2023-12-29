@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { useFetchPageQuery } from 'redux/apis/page';
+import { useFetchPageQuery } from 'store/apis/page';
 import { PAGES } from 'utils/constants';
 
 export const useProcess = ({ introSection, json }) => {

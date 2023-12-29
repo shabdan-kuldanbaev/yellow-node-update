@@ -5,7 +5,7 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { useFetchPageQuery } from 'redux/apis/page';
+import { useFetchPageQuery } from 'store/apis/page';
 import {
   CASES_BLACK_ICONS,
   socialNetworks as socials,
