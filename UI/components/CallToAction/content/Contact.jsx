@@ -44,7 +44,7 @@ export default ({
       </div>
 
       <Button
-        onClick={!url && (handleOnClick || handleOnCTAClick)}
+        onClick={!url ? (handleOnClick || handleOnCTAClick) : (() => {})}
         className={styles.button}
         href={url}
         data-button

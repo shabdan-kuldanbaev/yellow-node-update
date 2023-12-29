@@ -7,7 +7,7 @@ import { routes } from 'utils/routes';
 import { darkButtons, transparentImages } from './utils';
 import styles from './styles.module.scss';
 
-const Work = ({
+const Work = forwardRef(({
   index,
   imageUrl,
   title,
@@ -42,7 +42,7 @@ const Work = ({
       transparent={transparentImages.includes(slug)}
     />
   </div>
-);
+));
 
 Work.propTypes = {
   index: PropTypes.number.isRequired,
@@ -52,4 +52,4 @@ Work.propTypes = {
   slug: PropTypes.string,
 };
 
-export default forwardRef(Work);
+export default Work;

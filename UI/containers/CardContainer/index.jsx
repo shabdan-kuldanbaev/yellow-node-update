@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 import useCardContainer from './utils/useCardContainer';
 
-const CardContainer = (props, ref) => {
+const CardContainer = forwardRef((props, ref) => {
   const {
     children,
     className,
@@ -18,7 +18,7 @@ const CardContainer = (props, ref) => {
       {children}
     </div>
   );
-};
+});
 
 CardContainer.propTypes = {
   children: PropTypes.node.isRequired,
@@ -26,4 +26,4 @@ CardContainer.propTypes = {
   className: PropTypes.string,
 };
 
-export default forwardRef(CardContainer);
+export default CardContainer;
