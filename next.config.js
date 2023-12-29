@@ -1,5 +1,4 @@
 const withPlugins = require('next-compose-plugins');
-const withObj = require('webpack-obj-loader');
 const { withSentryConfig } = require('@sentry/nextjs');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -91,7 +90,6 @@ const nextConfig = {
 };
 
 module.exports = withPlugins([
-  withObj,
   [withBundleAnalyzer],
   // [withSentryConfig],
 ], nextConfig);
