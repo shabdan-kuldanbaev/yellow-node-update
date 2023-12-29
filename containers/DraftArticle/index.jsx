@@ -5,7 +5,7 @@ import Article from 'components/BlogCommon/Article';
 import FullLayout from 'components/Layout/FullLayout';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
 import FAQ from 'UI/containers/FAQ';
-import { useGetDraftArticleQuery } from 'store/apis/blog';
+import { useGetDraftArticleQuery } from 'redux/apis/blog';
 
 const DraftArticle = ({ introSection, slug }) => {
   const { data: currentArticle } = useGetDraftArticleQuery(slug);

@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { useFetchPageQuery } from 'store/apis/page';
+import { useFetchPageQuery } from 'redux/apis/page';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { PAGES } from 'utils/constants';
 

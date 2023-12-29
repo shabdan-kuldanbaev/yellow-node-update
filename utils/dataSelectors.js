@@ -1,9 +1,9 @@
 import omitBy from 'lodash/omitBy';
 import isNil from 'lodash/isNil';
-import { wrapper } from 'store/store';
-import blogApi from 'store/apis/blog';
-import pageApi from 'store/apis/page';
-import worksApi from 'store/apis/works';
+import { wrapper } from 'redux/store';
+import blogApi from 'redux/apis/blog';
+import pageApi from 'redux/apis/page';
+import worksApi from 'redux/apis/works';
 import {
   BLOCKS_SLUGS,
   DEFAULT_WORKS_LIMIT,

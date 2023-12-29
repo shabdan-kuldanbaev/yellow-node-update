@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { useGetArticleQuery } from 'store/apis/blog';
-import { useFetchPageQuery } from 'store/apis/page';
+import { useGetArticleQuery } from 'redux/apis/blog';
+import { useFetchPageQuery } from 'redux/apis/page';
 import { PageFetchContext } from 'utils/appContext';
 import { getDocumentFields } from 'utils/helper';
 

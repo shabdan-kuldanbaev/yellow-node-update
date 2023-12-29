@@ -1,7 +1,7 @@
-import { wrapper } from 'store/store';
+import { wrapper } from 'redux/store';
 import CaseStudiesContainer from 'containers/CaseStudies';
 import { handleError } from 'utils/error';
-import pageApi from 'store/apis/page';
+import pageApi from 'redux/apis/page';
 
 const Project = ({
   introSection,

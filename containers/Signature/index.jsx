@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { getSignatureProps } from 'containers/Signature/utils/helpers';
 import SignatureGenerate from 'containers/Signature/SignatureGenerate';
 import SignatureGenerated from 'containers/Signature/SignatureGenerated';
-import { useFetchPageQuery } from 'store/apis/page';
+import { useFetchPageQuery } from 'redux/apis/page';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 

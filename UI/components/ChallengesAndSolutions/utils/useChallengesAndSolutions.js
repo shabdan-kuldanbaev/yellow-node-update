@@ -1,6 +1,6 @@
 import get from 'lodash/get';
 import { useSelector } from 'react-redux';
-import { selectIsMobile } from 'store/selectors/layout';
+import { selectIsMobile } from 'redux/selectors/layout';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 import { getDocumentFields, getImage } from 'utils/helper';
 

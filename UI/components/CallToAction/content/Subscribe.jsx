@@ -2,7 +2,7 @@ import { useState } from 'react';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import { TYPOGRAPHY_SIZE, TYPOGRAPHY_TAGS } from 'UI/components/Typography/utils/useTypography';
-import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import usePageClusters from 'hooks/usePageClusters';
 import styles from '../styles.module.scss';
 

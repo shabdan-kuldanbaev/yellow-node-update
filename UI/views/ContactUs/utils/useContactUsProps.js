@@ -1,4 +1,4 @@
-import { useFetchPageQuery } from 'store/apis/page';
+import { useFetchPageQuery } from 'redux/apis/page';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { BLOCKS_SLUGS, PAGES } from 'utils/constants';
 import { findBlock, rootUrl } from 'utils/helper';

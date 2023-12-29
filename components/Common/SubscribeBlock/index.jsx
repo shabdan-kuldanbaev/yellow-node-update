@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
+import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'redux/apis/dataSending';
 import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
 

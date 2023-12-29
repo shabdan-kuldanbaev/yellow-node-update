@@ -8,7 +8,7 @@ import {
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 import ModalWindow from 'components/Common/ModalWindow';
-import { useGetSearchResultQuery } from 'store/apis/blog';
+import { useGetSearchResultQuery } from 'redux/apis/blog';
 import SearchResult from './SearchResult';
 import styles from './styles.module.scss';
 

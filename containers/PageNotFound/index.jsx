@@ -8,7 +8,7 @@ import {
   REVEAL_ANIMATION_PROPS,
 } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
-import { useFetchPageQuery } from 'store/apis/page';
+import { useFetchPageQuery } from 'redux/apis/page';
 import json from './json/Idea.json';
 import styles from './styles.module.scss';
 

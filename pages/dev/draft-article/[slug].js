@@ -1,7 +1,7 @@
 import DraftArticle from 'containers/DraftArticle';
-import { wrapper } from 'store/store';
+import { wrapper } from 'redux/store';
 import { handleError } from 'utils/error';
-import blogApi from 'store/apis/blog';
+import blogApi from 'redux/apis/blog';
 
 const DraftArticleContainer = ({ introSection, ...rest }) => (
   <DraftArticle

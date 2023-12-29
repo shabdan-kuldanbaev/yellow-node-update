@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
-import { firstPageLoaded } from 'store/reducers/layout';
+import { firstPageLoaded } from 'redux/reducers/layout';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsFirstPageLoaded, selectIsPageReadyToDisplay } from 'store/selectors/layout';
+import { selectIsFirstPageLoaded, selectIsPageReadyToDisplay } from 'redux/selectors/layout';
 import logoAnimation from '../json/logo-animation.json';
 
 export const useLoadingScreen = () => {

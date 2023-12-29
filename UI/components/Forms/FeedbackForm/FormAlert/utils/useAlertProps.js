@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { CONTACT_CASH_KEY, useSendContactFormMutation } from 'store/apis/dataSending';
+import { CONTACT_CASH_KEY, useSendContactFormMutation } from 'redux/apis/dataSending';
 import styles from '../styles.module.scss';
 
 export default () => {

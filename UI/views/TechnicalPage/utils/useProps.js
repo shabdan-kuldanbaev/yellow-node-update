@@ -1,6 +1,6 @@
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { useFetchPageQuery } from 'store/apis/page';
+import { useFetchPageQuery } from 'redux/apis/page';
 
 export default function useProps({
   type,

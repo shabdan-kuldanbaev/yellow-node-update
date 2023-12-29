@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Zoom from 'react-medium-image-zoom';
-import { selectIsMobileResolutions, selectIsTabletResolutions } from 'store/selectors/layout';
+import { selectIsMobileResolutions, selectIsTabletResolutions } from 'redux/selectors/layout';
 import 'react-medium-image-zoom/dist/styles.css';
 
 const ImageZoom = ({

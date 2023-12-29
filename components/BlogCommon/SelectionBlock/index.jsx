@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { selectIsMobileCategotiesOpened } from 'store/selectors/layout';
+import { selectIsMobileCategotiesOpened } from 'redux/selectors/layout';
 import { setOverflowForBody } from 'utils/helper';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import Categories from './Categories';

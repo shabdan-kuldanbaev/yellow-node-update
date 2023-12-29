@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectIsTablet } from 'store/selectors/layout';
+import { selectIsTablet } from 'redux/selectors/layout';
 import { ROUTES } from 'utils/constants';
 
 export default (props) => {

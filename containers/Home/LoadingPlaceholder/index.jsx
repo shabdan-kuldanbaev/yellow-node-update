@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useSelector } from 'react-redux';
-import { selectIsFirstPageLoaded } from 'store/selectors/layout';
+import { selectIsFirstPageLoaded } from 'redux/selectors/layout';
 import LoadingScreen from 'UI/components/LoadingScreen';
 import { AppContext } from 'utils/appContext';
 import styles from './styles.module.scss';

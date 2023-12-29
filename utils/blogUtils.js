@@ -1,6 +1,6 @@
-import blogApi from 'store/apis/blog';
+import blogApi from 'redux/apis/blog';
 import { isNumeric } from 'utils/helper';
-import pageApi from 'store/apis/page';
+import pageApi from 'redux/apis/page';
 import { handleError } from 'utils/error';
 import { ARTICLES_NUMBER_PER_PAGE, PAGES } from 'utils/constants';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
