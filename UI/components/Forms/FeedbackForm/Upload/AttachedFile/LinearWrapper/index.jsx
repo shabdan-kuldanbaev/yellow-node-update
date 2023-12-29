@@ -1,20 +1,14 @@
-import { withStyles } from '@material-ui/core/styles';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import { commonSliderStyles } from './utils/data';
+import classNames from 'classnames';
+import ProgressBar from '@ramonak/react-progress-bar';
+import styles from './LinearWrapper.module.scss';
 
-export const LinearWrapper = withStyles((theme) => ({
-  root: {
-    height: 5,
-    position: 'absolute',
-    transform: 'translateX(-10px) translateY(11.5px)',
-    width: '100%',
-    ...commonSliderStyles,
-  },
-  colorPrimary: {
-    backgroundColor: theme.palette.grey.light,
-  },
-  bar: {
-    backgroundColor: theme.palette.yellow.dark,
-    ...commonSliderStyles,
-  },
-}))(LinearProgress);
+function LinearWrapper({ value, className }) {
+  return (
+    <ProgressBar
+      completed={value}
+      className={classNames(styles.progress, className)}
+    />
+  );
+}
+
+export default LinearWrapper;

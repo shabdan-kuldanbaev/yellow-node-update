@@ -52,7 +52,7 @@ export const useNav = ({
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [closeDropDownMenu, isDropMenuOpened, isSmallDropMenuOpened]);
+  }, [closeDropDownMenu, closeSmallDropDownMenu, isDropMenuOpened, isSmallDropMenuOpened]);
 
   return {
     navRef,

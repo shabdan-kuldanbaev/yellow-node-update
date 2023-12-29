@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
 import Typography from 'UI/components/Typography';
 import { REVEAL_ANIMATION_PROPS, SVG_IMAGES_TYPES } from 'utils/constants';
 import useAlertProps from './utils/useAlertProps';
@@ -23,9 +22,8 @@ const FormAlert = (props) => {
           <Typography className={styles.text}>We have received your request</Typography>
           <Typography className={styles.text}>
             <span>We will back in a flash</span>
-            <FlashOnRoundedIcon
-              color="primary"
-              fontSize="large"
+            <Svg
+              type="activity"
               className={styles.flashIcon}
             />
           </Typography>

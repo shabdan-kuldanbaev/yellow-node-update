@@ -13,6 +13,7 @@ const handler = async (req, res) => {
   await runMiddleware(req, res, cors);
   await runMiddleware(req, res, formParser(form));
 
+  // eslint-disable-next-line
   console.log(req.body);
 
   await sendAutoReplyEmail(req.body.email);

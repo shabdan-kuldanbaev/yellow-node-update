@@ -3,7 +3,7 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import { uploadFile } from 'utils/uploadUtils';
 import { getConvertedFileSize, staticImagesUrls } from 'utils/helper';
-import { LinearWrapper } from './LinearWrapper';
+import LinearWrapper from './LinearWrapper';
 import styles from './styles.module.scss';
 
 export const AttachedFile = (props) => {
@@ -69,7 +69,6 @@ export const AttachedFile = (props) => {
         aria-label="Unpin"
       />
       <LinearWrapper
-        variant="determinate"
         value={progressInfo}
         className={cn(styles.linearUploading, {
           [styles.linearSuccessUploading]: isFileUploaded,

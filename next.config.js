@@ -30,19 +30,6 @@ const nextConfig = {
   },
   ...withCDN,
   webpack: (config, { dev }) => {
-    /* eslint-enable */
-
-    config.module.rules.push({
-      test: /node_modules\/@material-ui\/core\/esm\/Popper\/Popper\.js$/,
-      use: {
-        loader: 'string-replace-loader',
-        options: {
-          search: 'import PopperJS from \'popper.js\';',
-          replace: 'import PopperJS from "../../../../popper.js/dist/esm/popper";',
-        },
-      },
-    });
-
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: {
