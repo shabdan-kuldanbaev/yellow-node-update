@@ -7,16 +7,19 @@
   border: 1px solid $gray200;
   border-radius: 10px;
 
-  @include phone {
-    width: initial;
-    padding: 32px 16px;
-  }
-
   .title {
     margin: 0 0 24px;
     font-size: 24px;
     line-height: 32px;
     text-align: center;
+  }
+
+  .dropdown {
+    margin: 0 0 32px;
+
+    @include phone {
+      margin: 0 0 24px;
+    }
   }
 
   .listTitle {
@@ -68,5 +71,10 @@
   .button {
     max-width: 180px;
     margin: 0 auto;
+  }
+
+  @include phone {
+    width: initial;
+    padding: 32px 16px;
   }
 }

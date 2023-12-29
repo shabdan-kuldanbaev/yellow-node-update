@@ -4,12 +4,11 @@ import {
   TYPOGRAPHY_SIZE,
   TYPOGRAPHY_TAGS,
 } from 'UI/components/Typography/utils/useTypography';
-import Select from 'UI/components/Select';
-import { MenuItem } from '@material-ui/core';
 import Button from 'UI/components/Button';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import Animated from 'UI/containers/Animated';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import Dropdown from 'UI/components/Dropdown';
 import { useSoftwarePriceForm } from './utils/useSoftwarePriceForm';
 import styles from './styles.module.scss';
 
@@ -23,8 +22,8 @@ const SoftwarePriceForm = (props) => {
     secondValue,
     descriptionValue,
     isFullscreenEstimationOpen,
-    onFistValueChange,
-    onSecondValueChange,
+    setFirstValue,
+    setSecondValue,
     openFullscreenEstimation,
     closeFullscreenEstimation,
   } = useSoftwarePriceForm(props);
@@ -59,36 +58,20 @@ const SoftwarePriceForm = (props) => {
         </ul>
       </Animated>
       <form className={styles.form}>
-        <Select
-          className={styles.select}
+        <Dropdown
+          className={styles.dropdown}
+          selected={firstValue}
+          setSelected={setFirstValue}
           placeholder={first.placeholder}
-          value={firstValue}
-          onChange={onFistValueChange}
-        >
-          {first.values.map((value) => (
-            <MenuItem
-              key={value}
-              value={value}
-            >
-              {value}
-            </MenuItem>
-          ))}
-        </Select>
-        <Select
-          className={styles.select}
+          options={first.values}
+        />
+        <Dropdown
+          className={styles.dropdown}
+          selected={secondValue}
+          setSelected={setSecondValue}
           placeholder={second.placeholder}
-          value={secondValue}
-          onChange={onSecondValueChange}
-        >
-          {second.values.map((value) => (
-            <MenuItem
-              key={value}
-              value={value}
-            >
-              {value}
-            </MenuItem>
-          ))}
-        </Select>
+          options={second.values}
+        />
         <Button
           className={styles.button}
           onClick={openFullscreenEstimation}

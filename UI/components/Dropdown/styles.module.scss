@@ -1,0 +1,70 @@
+@import 'styles/utils/mixins';
+@import 'styles/utils/colors';
+
+.dropdown {
+  position: relative;
+  width: 100%;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.dropdownBtn {
+  @include flex(row, space-between, center);
+
+  padding: 6px 0 12px;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+  color: $gray400;
+  border-bottom: 1px solid $gray300;
+}
+
+.dropdownContent {
+  @include flex(column, space-between, flex-start);
+
+  position: absolute;
+  z-index: 10;
+  top: 110%;
+  gap: 8px;
+  width: 100%;
+  transition: 0.3s ease-in-out;
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
+  background-color: $gray0;
+  border-radius: 5px;
+  border: 1px solid $gray300;
+}
+
+.dropdownItem {
+  @include fontSize(16px, 150%);
+
+  cursor: pointer;
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: $gray100;
+  }
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 6px 0;
+  border-color: $gray900 transparent transparent;
+  transform: rotate(0deg);
+}
+
+.isActive {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.isSelected {
+  color: $gray900;
+}
