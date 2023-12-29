@@ -16,10 +16,12 @@ const FiguresItem = (props) => {
 
   return (
     <div className={styles.figureItem}>
-      <Svg
-        className={styles.icon}
-        type={icon}
-      />
+      {icon && (
+        <Svg
+          className={styles.icon}
+          type={icon}
+        />
+      )}
       <Typography
         variant={TYPOGRAPHY_TAGS.span}
         size={TYPOGRAPHY_SIZE.headline38}
