@@ -1991,7 +1991,7 @@
     "@sentry/utils" "7.91.0"
     localforage "^1.8.1"
 
-"@sentry/nextjs@^7.85.0":
+"@sentry/nextjs@^7.91.0":
   version "7.91.0"
   resolved "https://registry.yarnpkg.com/@sentry/nextjs/-/nextjs-7.91.0.tgz#42eb3af10ff230e8a3fe9f0e50cdbac94b7d290e"
   integrity sha512-wE83+OTEH4yYnDrhMw9eVEARSfZc6xY5qJb9xyYm5rW3+gVjNQZQaUY+wkM61Xdo0T35BN+7U4T88HbwzGeMqA==
