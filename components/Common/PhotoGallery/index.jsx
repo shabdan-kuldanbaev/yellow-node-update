@@ -8,7 +8,7 @@ const DesktopCarousel = dynamic(() => import('./DesktopCarousel'), { ssr: false 
 const MobileCarousel = dynamic(() => import('./MobileCarousel'), { ssr: false });
 
 const PhotoGallery = ({ sectionData }) => {
-  const { contentModules } = getDocumentFields(sectionData);
+  const { contentModules } = getDocumentFields(sectionData, ['contentModules']);
 
   const isMobileResolution = useSelector(selectIsMobile);
   const isTabletResolutions = useSelector(selectIsTablet);
