@@ -21,23 +21,6 @@
     }
   }
 
-  .titleStyles {
-    @include fontSize(38px, 130%);
-
-    max-width: $wide-content-width;
-    margin: 32px auto 8px;
-    padding: 0 40px;
-
-    @include tablet {
-      padding: 0 32px;
-    }
-
-    @include phone {
-      padding: 0 16px;
-      margin-top: 16px;
-    }
-  }
-
   @include phone {
     padding-top: 65.5px;
   }
