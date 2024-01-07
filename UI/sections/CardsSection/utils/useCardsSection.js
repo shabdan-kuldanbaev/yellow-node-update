@@ -120,7 +120,7 @@ export default ({
     contentModules,
     images: rawImages,
   } = getDocumentFields(
-    section || data,
+    data || section,
     [
       'title',
       'description',
@@ -129,8 +129,8 @@ export default ({
       'view',
       'images',
     ],
-    { isNormilized: !!data },
   );
+
   const {
     contentModules: rawCardList,
     withoutBackground,
