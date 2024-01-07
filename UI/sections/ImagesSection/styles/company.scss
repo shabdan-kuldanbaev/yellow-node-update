@@ -1,0 +1,9 @@
+.company {
+  &.firstSectionView {
+    background-color: $gray900;
+
+    .titleStyle {
+      display: none;
+    }
+  }
+}
