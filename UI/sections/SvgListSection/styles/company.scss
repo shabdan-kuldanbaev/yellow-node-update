@@ -1,0 +1,10 @@
+.company {
+  &.firstSectionView {
+    padding: 120px 32px 60px;
+    background-color: $gray50;
+
+    @include phone {
+      padding: 60px 16px 30px;
+    }
+  }
+}
