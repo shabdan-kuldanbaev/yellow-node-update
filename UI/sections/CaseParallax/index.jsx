@@ -17,7 +17,7 @@ const CaseParallax = (props) => {
     bundleImages,
     contentList,
     className,
-    paralaxProps,
+    parallaxProps,
   } = useParallaxProps(props);
 
   return (
@@ -45,7 +45,7 @@ const CaseParallax = (props) => {
             </Animated>
           )}
       </SectionTitle>
-      <div {...paralaxProps}>
+      <div {...parallaxProps}>
         {bundleImages?.map((src, index) => (
           <Illustration
             key={index}
