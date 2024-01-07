@@ -7,6 +7,7 @@ export default ({
   section,
   data,
   type,
+  ...props
 }) => {
   const [isSmallTabletResolution, setIsSmallTabletResolution] = useState(false);
 
@@ -26,7 +27,6 @@ export default ({
       'view',
       'fields',
     ],
-    { isNormilized: !!data },
   );
 
   const {
@@ -34,6 +34,8 @@ export default ({
     subtitle: secondSubtitle,
     title: secondTitle,
   } = getDocumentFields(get(contentModules, '[0]', []));
+
+  const ctaLink = getDocumentFields(get(contentModules, '[1]', {}));
 
   const renderCards = cardsList?.map((card, index, array) => {
     const {
@@ -75,5 +77,7 @@ export default ({
     isSmallTabletResolution,
     renderCards,
     type,
+    ctaLink,
+    ...props,
   };
 };
