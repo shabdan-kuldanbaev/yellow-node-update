@@ -1,0 +1,25 @@
+.company {
+  &.firstSectionView {
+    background-color: $gray0;
+
+    .card {
+      @include flex(column, center, center);
+
+      text-align: center;
+    }
+
+    .callToAction {
+      padding: 0;
+      min-height: unset;
+      border: none;
+
+      [data-button] {
+        margin: 0 auto;
+      }
+
+      @include phone {
+        margin-top: 24px;
+      }
+    }
+  }
+}
