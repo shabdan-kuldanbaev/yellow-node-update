@@ -66,6 +66,10 @@
   &.secondSectionView {
     background-color: $gray50;
 
+    .titleStyle {
+      display: none;
+    }
+
     .container {
       max-width: $wide-content-width;
     }
