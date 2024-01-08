@@ -1,0 +1,23 @@
+.company {
+  &.firstSectionView {
+    .image {
+      width: 892px;
+      height: 540px;
+
+      @include tablet {
+        width: 709px;
+        height: 430px;
+      }
+
+      @include below-tablet {
+        width: 526px;
+        height: 318px;
+      }
+
+      @include phone {
+        width: 343px;
+        height: 208px;
+      }
+    }
+  }
+}

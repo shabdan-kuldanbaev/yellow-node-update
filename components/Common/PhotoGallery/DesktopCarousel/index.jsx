@@ -12,7 +12,7 @@ import {
 } from 'utils/helper';
 import styles from './styles.module.scss';
 
-const DesktopCarousel = ({ photos }) => {
+const DesktopCarousel = ({ photos, className }) => {
   const gallery = photos?.concat(photos, photos, photos);
   const [fullListWidth, setFullListWidth] = useState(0);
   const [carouselContainerRef, listRef] = [useRef(null), useRef(null)];
@@ -64,7 +64,7 @@ const DesktopCarousel = ({ photos }) => {
   }, [listRef, photos]);
 
   return (
-    <section className={styles.gallerySection}>
+    <section className={cn(styles.gallerySection, className)}>
       <div
         className={styles.leftSideToScroll}
         onMouseEnter={handleOnMouseEnterLeft}
@@ -117,6 +117,7 @@ const DesktopCarousel = ({ photos }) => {
 
 DesktopCarousel.propTypes = {
   photos: PropTypes.instanceOf(Array).isRequired,
+  className: PropTypes.string,
 };
 
 export default DesktopCarousel;

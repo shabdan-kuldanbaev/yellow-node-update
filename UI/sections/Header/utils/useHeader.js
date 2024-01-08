@@ -5,6 +5,7 @@ import {
   PAGES_WITH_TRANSPARENT_HEADER,
   CASE_STUDIES_WITH_TRANSPARENT_HEADER,
   PAGES_WITH_GRAY_HEADER,
+  ROUTES,
 } from 'utils/constants';
 
 export const useHeader = ({ introSection }) => {
@@ -14,6 +15,7 @@ export const useHeader = ({ introSection }) => {
   const isPageWithGrayHeader = PAGES_WITH_GRAY_HEADER.includes(currentPage) || PAGES_WITH_GRAY_HEADER.includes(asPath);
   const isCaseStudyWithTransparentHeader = CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(project)
   || CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(asPath);
+
   const headerTheme = [
     CASE_STUDIES.tell,
     CASE_STUDIES.openSense,
@@ -24,9 +26,11 @@ export const useHeader = ({ introSection }) => {
     CASE_STUDIES.carbonSpace,
     CASE_STUDIES.chatSolutions,
     CASE_STUDIES.digitalWallet,
-  ].includes(project)
+    ROUTES.company.path,
+  ].includes(project || asPath)
     ? 'light'
     : 'dark';
+
   const [isPageScrolledDown, setIsPageScrolledDown] = useState(false);
   const [isLogoTextHidden, setIsLogoTextHidden] = useState(false);
   const [isDropMenuOpened, setIsDropMenuOpenedNew] = useState(false);
@@ -34,8 +38,9 @@ export const useHeader = ({ introSection }) => {
   // TODO rework this check
   const isTransparentHeader = isPageWithTransparentHeader || isCaseStudyWithTransparentHeader;
   const logo = !isPageScrolledDown && isTransparentHeader
-    ? project || 'home'
+    ? project || asPath
     : 'default';
+
   const isHeaderColorNeedChange = isPageWithTransparentHeader
     && isDropMenuOpened
     && !isPageScrolledDown;

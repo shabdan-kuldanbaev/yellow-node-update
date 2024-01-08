@@ -4,8 +4,8 @@ import Illustration from 'UI/components/Illustration';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
 import styles from './styles.module.scss';
 
-const MobileCarousel = ({ photos }) => (
-  <section className={styles.gallerySection}>
+const MobileCarousel = ({ photos, className }) => (
+  <section className={cn(styles.gallerySection, className)}>
     <div>
       {photos?.map((photoData, index) => {
         const { image, carouselImageType } = getDocumentFields(
@@ -31,6 +31,7 @@ const MobileCarousel = ({ photos }) => (
 
 MobileCarousel.propTypes = {
   photos: PropTypes.instanceOf(Array).isRequired,
+  className: PropTypes.string,
 };
 
 export default MobileCarousel;

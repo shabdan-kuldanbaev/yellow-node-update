@@ -1,0 +1,25 @@
+.company {
+  .itemsContainer {
+    width: 100%;
+    margin: 0;
+    gap: 16px;
+  }
+
+  .item {
+    margin: 0;
+    padding: 14px 32px;
+    color: $gray900;
+    border: 1px solid $gray200;
+    border-radius: 55px;
+    font-weight: 400;
+
+    &::after {
+      display: none;
+    }
+
+    &.selected {
+      background-color: $yellow500;
+      font-weight: 400;
+    }
+  }
+}

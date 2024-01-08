@@ -270,6 +270,19 @@ export const CASE_STUDIES_TYPES = {
   processWithArrays: 'app-development-process',
 };
 
+export const SECTION_TYPES = {
+  intro: 'case-study-intro',
+  caseProcess: 'case-study-process',
+  images: 'case-study-image',
+  tabs: 'app-development-tabs-section',
+  parallax: 'case-study-parallax',
+  photos: 'photos',
+  review: 'app-development-reviews',
+  appDevelopmentCards: 'app-development-cards',
+  appDevelopmentProcess: 'app-development-process',
+  appDevelopmentSvgList: 'app-development-svg-list',
+};
+
 export const ARTICLE_PREVIEW_TYPES = {
   related: 'related',
   blog: 'blog',
@@ -430,6 +443,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   CASE_STUDIES.hawkin,
   CASE_STUDIES.hyve,
   CASE_STUDIES.paymentGateway,
+  ROUTES.company.path,
 ];
 
 export const PAGES_WITH_GRAY_HEADER = [

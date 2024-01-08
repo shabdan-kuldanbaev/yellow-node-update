@@ -1,0 +1,169 @@
+.company {
+  &.firstSectionView {
+    background-color: $gray50;
+
+    .container {
+      max-width: $wide-content-width;
+    }
+
+    .stepsContainer {
+      @include flex(row, center, flex-start, wrap);
+
+      gap: 32px;
+      margin: 0 auto;
+
+      & > div {
+        margin: 0;
+        flex: 0 0 276px;
+      }
+
+      @include below-tablet {
+        @include flex(row, space-between, center, nowrap);
+
+        padding: 0 16px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+
+    .stepImage {
+      margin-bottom: 24px;
+      width: 276px;
+      height: 276px;
+    }
+
+    .stepNumber {
+      @include fontSize(20px, 150%);
+
+      margin-bottom: 8px;
+      background-color: inherit;
+      border-radius: unset;
+      color: $gray900;
+      font-weight: 700;
+      text-align: center;
+      width: 100%;
+      height: auto;
+    }
+
+    .stepTitle {
+      @include fontSize(16px, 150%);
+
+      color: $gray400;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    @include below-tablet {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $gray50;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .container {
+      max-width: $wide-content-width;
+    }
+
+    .stepsContainer {
+      margin: 0;
+      gap: 32px;
+
+      & > div {
+        margin: 0;
+        flex: 1 1 50%;
+      }
+
+      @include tablet {
+        gap: 24px;
+      }
+    }
+
+    .step-1 {
+      @include flex(column, flex-start, flex-start);
+
+      h2 {
+        @include fontSize(38px, 130%);
+
+        margin: 0;
+      }
+
+      & > p {
+        @include fontSize(16px, 150%);
+
+        color: $gray400;
+
+        &:last-child {
+          display: none;
+        }
+
+        @include tablet {
+          text-align: center;
+        }
+      }
+
+      ul {
+        @include flex(row, flex-start, flex-start, wrap);
+
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+          position: relative;
+          flex: 0 0 50%;
+          margin: 0;
+          padding-left: 15px;
+          box-sizing: border-box;
+
+          p {
+            margin: 0;
+            color: $gray900;
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: $gray900;
+          }
+        }
+      }
+
+      @include tablet {
+        @include flex(column, center, center);
+      }
+    }
+
+    .step-2 {
+      .stepImage {
+        width: 584px;
+        height: 423px;
+
+        @include tablet {
+          width: 464px;
+          height: 336px;
+        }
+
+        @include phone {
+          width: 343px;
+          height: 248px;
+        }
+      }
+    }
+  }
+}
