@@ -11,8 +11,6 @@ import styles from './styles.module.scss';
 const DownloadChecklistForm = dynamic(() => import('UI/components/Forms/DownloadChecklistForm'), { ssr: false });
 const FeedbackForm = dynamic(() => import('UI/components/Forms/FeedbackForm'), { ssr: false });
 
-const pagesWithoutAdditionalInfo = ['homepage'];
-
 const FeedbackSection = (props) => {
   const {
     type,
@@ -52,27 +50,29 @@ const FeedbackSection = (props) => {
 
         default:
           return (
-            <div className={styles.contentWrapper}>
-              <SectionTitle
-                title={title}
-                secondTitle={secondTitle}
-                titleStyle={styles.titleStyle}
-              >
-                <p className={styles.linkText}>
-                  Fill in this form or
-                  <LinkWrapper
-                    className={styles.link}
-                    path={`mailto:${EMAIL_LINK}`}
-                  >
-                    send us an e-mail
-                  </LinkWrapper>
-                </p>
-              </SectionTitle>
+            <div className={styles.container}>
               <FeedbackForm
+                buttonTitle={buttonTitle}
+                className={styles.form}
                 isBudgetSlider={isSliderBudget}
                 type={type}
-                buttonTitle={buttonTitle}
-                withoutAdditionalInfo
+                formHeader={(
+                  <SectionTitle
+                    title={title}
+                    secondTitle={secondTitle}
+                    titleStyle={styles.titleStyle}
+                  >
+                    <p className={styles.linkText}>
+                      Fill in this form or
+                      <LinkWrapper
+                        className={styles.link}
+                        path={`mailto:${EMAIL_LINK}`}
+                      >
+                        send us an e-mail
+                      </LinkWrapper>
+                    </p>
+                  </SectionTitle>
+                )}
               />
             </div>
           );
