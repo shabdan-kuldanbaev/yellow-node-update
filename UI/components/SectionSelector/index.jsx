@@ -68,14 +68,19 @@ const SectionSelector = (props) => {
         type={type}
       />
     );
+  case SECTION_TYPES.photos:
+    return (
+      <PhotoGallery
+        sectionData={data}
+        type={type}
+      />
+    );
   case SECTION_TYPES.appDevelopmentSvgList:
     return <SvgListSection {...props} />;
   case SECTION_TYPES.appDevelopmentProcess:
     return <ProcessSection {...props} />;
   case SECTION_TYPES.appDevelopmentCards:
     return <CardsSection {...props} />;
-  case SECTION_TYPES.photos:
-    return <PhotoGallery sectionData={data} />;
   default:
     return null;
   }
