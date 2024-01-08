@@ -24,6 +24,12 @@
     .card {
       @include flex(column, center, center);
 
+      gap: 16px;
+
+      * {
+        margin: 0;
+      }
+
       h3 {
         @include fontSize(20px, 150%);
 
