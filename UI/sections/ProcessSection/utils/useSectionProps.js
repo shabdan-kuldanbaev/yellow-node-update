@@ -33,7 +33,14 @@ export default ({
     contentModules: cardsList,
     subtitle: secondSubtitle,
     title: secondTitle,
-  } = getDocumentFields(get(contentModules, '[0]', []));
+  } = getDocumentFields(
+    get(contentModules, '[0]', []),
+    [
+      'contentModules',
+      'subtitle',
+      'title',
+    ],
+  );
 
   const ctaLink = getDocumentFields(get(contentModules, '[1]', {}));
 
