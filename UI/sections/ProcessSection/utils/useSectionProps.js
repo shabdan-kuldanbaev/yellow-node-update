@@ -18,7 +18,7 @@ export default ({
     contentModules,
     view,
   } = getDocumentFields(
-    section || data,
+    data || section,
     [
       'title',
       'description',
@@ -27,6 +27,7 @@ export default ({
       'view',
       'fields',
     ],
+    { isNormilized: !!data },
   );
 
   const {
