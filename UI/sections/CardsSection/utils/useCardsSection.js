@@ -129,7 +129,10 @@ export default ({
       'view',
       'images',
     ],
-    { isNormilized: !!data },
+    {
+      isNormilized: (data && !Object.keys(data).includes('fields'))
+      || (section && !Object.keys(section).includes('fields')),
+    },
   );
 
   const {
