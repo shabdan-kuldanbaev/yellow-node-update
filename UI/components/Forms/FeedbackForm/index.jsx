@@ -36,14 +36,17 @@ const FeedbackForm = (props) => {
     withoutAdditionalInfo,
     children,
     isValid,
+    formContainer,
+    formHeader,
   } = useFormProps(props);
 
   return (
-    <div className={styles.formContainer}>
+    <div className={cn(styles.formContainer, formContainer)}>
       <form
         className={cn(styles.form, styles[type], className)}
         onSubmit={submitHandler}
       >
+        {!!formHeader && formHeader}
         <FormAlert />
         <Animated {...REVEAL_ANIMATION_PROPS}>
           <TextField
