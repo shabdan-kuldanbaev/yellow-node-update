@@ -6,10 +6,13 @@
   justify-content: center !important;
 
   .estimationContainer {
-    @include flex(column, center, center);
+    @include flex(column, center, initial);
 
-    width: calc(100% - 40px);
-    top: 0;
+    max-width: 790px;
+    width: 100%;
+    padding: 0 16px;
+    margin: 0 auto;
+    box-sizing: border-box;
 
     & > div > form {
       padding: 0 0 50px;
@@ -17,6 +20,10 @@
       max-width: 1000px;
       width: 100%;
     }
+  }
+
+  .feedbackForm {
+    margin: 0 auto;
   }
 
   .title {
