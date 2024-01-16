@@ -1,10 +1,13 @@
 import cn from 'classnames';
+import dynamic from 'next/dynamic';
 import { InlineWidget } from 'react-calendly';
 import SectionTitle from 'UI/components/SectionTitle';
 import Button from 'UI/components/Button';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import styles from './BookCallIntro.module.scss';
 import useProps from './utils';
+
+const Media = dynamic(() => import('UI/components/Media'));
 
 function BookCallIntro(props) {
   const {
@@ -14,6 +17,7 @@ function BookCallIntro(props) {
     subtitle,
     calendlyEventUrl,
     handleOnCTAClick,
+    widgetImage,
   } = useProps(props);
 
   return (
@@ -38,17 +42,23 @@ function BookCallIntro(props) {
           </div>
 
           <div className={styles.widgetContainer}>
-            <InlineWidget
-              url={calendlyEventUrl}
-              pageSettings={{
-                hideGdprBanner: true,
-                hideEventTypeDetails: true,
-                hideLandingPageDetails: true,
-              }}
-              styles={{
-                width: '100%',
-                height: '100%',
-              }}
+            <div className={styles.widgetFrame}>
+              <InlineWidget
+                url={calendlyEventUrl}
+                pageSettings={{
+                  hideGdprBanner: true,
+                  hideEventTypeDetails: true,
+                  hideLandingPageDetails: true,
+                }}
+                styles={{
+                  width: '100%',
+                  height: '100%',
+                }}
+              />
+            </div>
+            <Media
+              asset={widgetImage}
+              className={styles.widgetImage}
             />
           </div>
         </div>

@@ -9,9 +9,11 @@ export default function useProps({
     title,
     subtitle,
     contentModules,
+    images,
   } = getDocumentFields(
     section,
     [
+      'images',
       'title',
       'subtitle',
       'contentModules',
@@ -31,6 +33,7 @@ export default function useProps({
     subtitle,
     contentModules,
     calendlyEventUrl,
+    widgetImage: images?.[0],
     ...restProps,
   };
 }
