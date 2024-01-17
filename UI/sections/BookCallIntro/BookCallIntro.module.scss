@@ -1,31 +1,44 @@
 @import 'styles/utils/mixins';
 @import 'styles/utils/sizes';
+@import 'styles/utils/theme/animations';
 
 .pageIntroSection {
+  position: relative;
   background: $gray900;
-  padding: 24px 40px 0;
-  min-height: 696px;
+  padding: 60px 32px 212px;
   box-sizing: border-box;
 
+  .arrow {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    transform: translateX(-50%);
+    animation-name: cedar-bounce;
+    animation-timing-function: ease;
+    transform-origin: bottom;
+    animation-duration: 1.3s;
+    animation-iteration-count: infinite;
+  }
+
   .contentWrapper {
-    max-width: $wide-content-width;
     margin: 0 auto;
+    max-width: $wide-content-width;
   }
 
   .pageWrapper {
-    @include flex(row, space-between, initial);
+    @include flex(row, center, center);
 
-    @include below-tablet {
-      @include flex(column-reverse);
+    gap: 24px;
+
+    @include tablet {
+      flex-wrap: wrap-reverse;
     }
   }
 
   .pageTextContainer {
     max-width: 624px;
-
-    @include below-tablet {
-      max-width: 100%;
-    }
   }
 
   .title {
@@ -39,7 +52,7 @@
       color: $gray0;
     }
 
-    @include below-tablet {
+    @include tablet {
       margin: 24px auto;
 
       * {
@@ -52,6 +65,7 @@
     position: relative;
     z-index: 1;
     flex: 0 0 550px;
+    max-width: 550px;
     height: 536px;
 
     &::before {
@@ -61,14 +75,14 @@
       left: 0;
 
       @include phone {
-        width: 230px;
-        height: 230px;
+        width: 300px;
+        height: 300px;
       }
     }
 
     @include phone {
-      flex: 0 0 334px;
-      width: 343px;
+      flex: 0 0 100%;
+      height: 500px;
     }
   }
 
@@ -88,38 +102,56 @@
     overflow: hidden;
 
     @include phone {
-      // width: 300px;
-      // height: 300px;
-
-      width: 221.175px;
-      height: 242.34px;
+      width: 340px;
+      height: 340px;
     }
   }
 
   .widgetImage {
     position: absolute;
     bottom: 84px;
-    right: 28px;
+    right: 20px;
     transform: rotate(6.304deg);
     width: 354px;
     height: 388px;
 
     @include phone {
-      width: 221px;
-      height: 242px;
+      width: 340px;
+      height: 340px;
     }
   }
 
-  .button {
-    & + .button {
-      margin-left: 12px;
+  .actionWrapper {
+    @include flex(row, flex-start, center);
 
-      @include below-tablet {
-        margin: 16px auto 0;
-      }
+    gap: 16px;
+
+    @include tablet {
+      @include flex(column, center, center);
     }
+  }
 
-    @include below-tablet {
+  .linkButton {
+    @include fontSize(16px, 150%);
+
+    display: block;
+    padding: 16px 32px;
+    width: 100%;
+    max-width: 202px;
+    background-color: $yellow500;
+    border: 1px solid $yellow500;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .ctaButton {
+    color: $gray0;
+    background-color: transparent;
+    border: 1px solid $gray0;
+
+    @include tablet {
       display: block;
       margin: 0 auto;
       width: 202px;
@@ -131,6 +163,6 @@
   }
 
   @include below-tablet {
-    padding: 24px 16px 60px;
+    padding: 16px 16px 92px;
   }
 }

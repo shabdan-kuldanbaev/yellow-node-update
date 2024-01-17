@@ -184,6 +184,7 @@ export const iPad = '/outlined/iPad.svg';
 export const alertCircle = '/outlined/alertCircle.svg';
 export const announcement = '/outlined/announcement.svg';
 export const arrowNarrowUp = '/outlined/arrowNarrowUp.svg';
+export const arrowNarrowDown = '/outlined/arrowNarrowDown.svg';
 export const arrowLeft = '/outlined/arrowLeft.svg';
 export const arrowRight = '/outlined/arrowRight.svg';
 export const bell = '/outlined/bell.svg';

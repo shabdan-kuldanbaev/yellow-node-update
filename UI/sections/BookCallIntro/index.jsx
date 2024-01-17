@@ -4,6 +4,9 @@ import { InlineWidget } from 'react-calendly';
 import SectionTitle from 'UI/components/SectionTitle';
 import Button from 'UI/components/Button';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
+import LinkWrapper from 'UI/components/LinkWrapper';
+import Svg from 'UI/components/Svg';
+import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './BookCallIntro.module.scss';
 import useProps from './utils';
 
@@ -33,12 +36,20 @@ function BookCallIntro(props) {
               subtitle={subtitle}
               className={styles.title}
             />
-            <Button
-              className={styles.button}
-              onClick={handleOnCTAClick}
-            >
-              Write a message
-            </Button>
+            <div className={styles.actionWrapper}>
+              <LinkWrapper
+                path={calendlyEventUrl}
+                className={styles.linkButton}
+              >
+                Book a call
+              </LinkWrapper>
+              <Button
+                className={styles.ctaButton}
+                onClick={handleOnCTAClick}
+              >
+                Write a message
+              </Button>
+            </div>
           </div>
 
           <div className={styles.widgetContainer}>
@@ -63,6 +74,10 @@ function BookCallIntro(props) {
           </div>
         </div>
       </div>
+      <Svg
+        type={SVG_IMAGES_TYPES.arrowNarrowDown}
+        className={styles.arrow}
+      />
       <FullScreenEstimation />
     </section>
   );

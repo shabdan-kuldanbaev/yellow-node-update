@@ -141,6 +141,7 @@ export const IMAGES = {
 
 export const SVG_IMAGES_TYPES = {
   arrowRight: 'arrowRight',
+  arrowNarrowDown: 'arrowNarrowDown',
   arrow: 'arrow1',
   bookmarkArrow: 'bookmarkArrow',
   bookmarkIcon: 'bookmarkIcon',
@@ -402,6 +403,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.softwareDevelopmentMinneapolis.path,
   ROUTES.softwareDevelopmentTulsa.path,
   ROUTES.softwareDevelopmentNewOrleans.path,
+  ROUTES.bookCall.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
