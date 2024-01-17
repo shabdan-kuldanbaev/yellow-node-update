@@ -1,7 +1,19 @@
-import { useEffect, useRef, useState } from 'react';
-import { getDocumentFields, getFileUrl, getImage } from 'utils/helper';
+import {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getImage,
+} from 'utils/helper';
 
-export default function useVideoSectionProps({ section, type }) {
+export default function useVideoSectionProps({
+  section,
+  type,
+  handleOnCTAClick,
+}) {
   const {
     title,
     description,
@@ -22,6 +34,7 @@ export default function useVideoSectionProps({ section, type }) {
   );
 
   const { imagesBundles: rawImages } = getDocumentFields(contentModules?.[0], ['imagesBundles']);
+  const { contentModules: ctaLinks } = getDocumentFields(contentModules?.[1], ['contentModules']);
   const imagesBundles = (rawImages || []).map(getImage);
 
   const videoUrl = getFileUrl(rawAssets[0]);
@@ -78,5 +91,7 @@ export default function useVideoSectionProps({ section, type }) {
     previewUrl,
     handlePlayPauseClick,
     handleVideoEnd,
+    ctaLinks,
+    handleOnCTAClick,
   };
 }
