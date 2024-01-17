@@ -20,6 +20,10 @@
     transform-origin: bottom;
     animation-duration: 1.3s;
     animation-iteration-count: infinite;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   .contentWrapper {
