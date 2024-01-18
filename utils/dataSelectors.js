@@ -50,7 +50,7 @@ export const getPortfolioPageProps = async (state, store) => {
     ...data.metaData,
   };
 
-  const link = data.contentModules.find((module) => module.sys.contentType.sys.id === 'link');
+  const link = data.contentModules.find((module) => module?.sys?.contentType?.sys?.id === 'link');
 
   return {
     pageFetchQuery: PAGES.portfolio,

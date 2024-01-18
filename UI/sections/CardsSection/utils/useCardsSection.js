@@ -41,7 +41,7 @@ const REWIND = {
 };
 
 const cardMapper = (withOverlay) => (card) => {
-  if (card.sys.contentType.sys.id === 'article') {
+  if (card?.sys?.contentType?.sys?.id === 'article') {
     const {
       title,
       previewImageUrl,
