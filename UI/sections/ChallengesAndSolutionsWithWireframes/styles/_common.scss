@@ -1,10 +1,11 @@
 .container {
   @include centeredBackgroundImage;
 
+  position: relative;
+  z-index: 1;
   padding: 120px 40px;
   background-color: $gray50;
   overflow: hidden;
-  position: relative;
 
   .titleStyle {
     @include phone {
@@ -23,6 +24,7 @@
     top: 0;
     bottom: 0;
     pointer-events: none;
+    z-index: -1;
 
     img {
       object-fit: cover;
