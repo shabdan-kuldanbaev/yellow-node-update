@@ -45,6 +45,7 @@
         color: $gray400;
 
         @include phone {
+          margin: 8px auto 24px;
           line-height: 1.43;
         }
       }
@@ -105,6 +106,10 @@
           &:hover {
             border: none;
             transform: scale(0.96);
+          }
+
+          @include phone {
+            margin-top: 24px;
           }
         }
       }
