@@ -39,7 +39,7 @@ const FullscreenSubscribe = ({
               <AnimatedInput
                 value={email.value}
                 handleOnChange={handleOnEmailChange}
-                placeholder="Enter your email address"
+                placeholder="Email*"
                 isWithoutLabel
                 type="email"
                 isValidate={email.isValidate}

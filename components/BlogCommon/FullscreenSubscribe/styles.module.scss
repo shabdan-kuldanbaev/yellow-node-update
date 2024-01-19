@@ -11,13 +11,20 @@
 .subscribeBlock {
   @include flex(column, flex-start, center);
 
+  padding: 0 16px;
+  max-width: 790px;
+  width: 100%;
+  box-sizing: border-box;
+
   .subscribe {
     @include flex(column, center, center);
+
+    width: 100%;
 
     .content {
       @include flex(column, center, center);
 
-      width: 510px;
+      width: 100%;
 
       .title {
         text-align: center;
@@ -32,9 +39,10 @@
       }
 
       .subtitle {
-        margin: 30px auto;
+        margin: 16px auto 48px;
         text-align: center;
         line-height: 1.5;
+        color: $gray400;
 
         @include phone {
           line-height: 1.43;
@@ -70,7 +78,6 @@
             font-size: 1.125rem;
             padding: 20px 0 8px;
             border: 0 none;
-            text-align: center;
             border-bottom: solid 0.5px $mountain-mis;
             background-color: transparent;
             outline: none;
@@ -90,7 +97,7 @@
           letter-spacing: 0.5px;
           font-size: 1rem;
           padding: 16px 0;
-          margin-top: 100px;
+          margin-top: 48px;
           border: none;
           transform: scale(1);
           outline: none;
@@ -100,10 +107,6 @@
             transform: scale(0.96);
           }
         }
-      }
-
-      @include phone {
-        width: 85%;
       }
     }
   }
