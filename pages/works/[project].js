@@ -1,4 +1,4 @@
-import { wrapper } from 'redux/store';
+import { reduxStore } from 'redux/store';
 import CaseStudiesContainer from 'containers/CaseStudies';
 import { handleError } from 'utils/error';
 import pageApi from 'redux/apis/page';
@@ -13,10 +13,10 @@ const Project = ({
   />
 );
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ query: { project } }) => {
+export const getServerSideProps = async ({ query: { project } }) => {
   try {
-    await store.dispatch(pageApi.endpoints.fetchPage.initiate(project));
-    const state = store.getState();
+    await reduxStore.dispatch(pageApi.endpoints.fetchPage.initiate(project));
+    const state = reduxStore.getState();
     const { data } = pageApi.endpoints.fetchPage.select(project)(state);
 
     if (!data) {
@@ -37,6 +37,6 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
       message: 'Error in the Project.getInitialProps function',
     });
   }
-});
+};
 
 export default Project;

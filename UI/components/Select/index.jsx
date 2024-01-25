@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { FormControl, InputLabel, Select as MUISelect } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { FormControl, InputLabel, Select as MUISelect } from '@mui/material';
+import { withStyles } from '@mui/styles';
 import { useMenuStyles } from './utils/useMenuStyles';
 import styles from './styles.module.scss';
 

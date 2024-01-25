@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { FieldsWrapper } from 'UI/components/FieldsWrapper';
 import Typography from 'UI/components/Typography';
-import styles from 'CompanyLocation.module.scss';
+import styles from './CompanyLocation.module.scss';
 
 const CompanyLocation = ({
   addresses,

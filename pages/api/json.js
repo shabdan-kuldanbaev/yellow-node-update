@@ -1,5 +1,5 @@
 import Cors from 'cors';
-import { withSentry } from '@sentry/nextjs';
+
 import { processes } from 'utils/processes';
 import { runMiddleware } from 'utils/helper';
 
@@ -11,4 +11,4 @@ const handler = async (req, res) => {
   res.status(200).json(processes);
 };
 
-export default withSentry(handler);
+export default handler;

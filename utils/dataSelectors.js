@@ -1,6 +1,6 @@
 import omitBy from 'lodash/omitBy';
 import isNil from 'lodash/isNil';
-import { wrapper } from 'redux/store';
+import { reduxStore } from 'redux/store';
 import blogApi from 'redux/apis/blog';
 import pageApi from 'redux/apis/page';
 import worksApi from 'redux/apis/works';
@@ -87,12 +87,12 @@ export const getHomePageDataPros = async (state, store) => {
 
 export const getProcessProps = async (state, store) => ({ json: processes });
 
-export const getStaticPropsWrapper = (slug, selectors) => wrapper.getStaticProps((store) => async () => {
+export const getStaticPropsWrapper = (slug, selectors) => async () => {
   try {
-    await store.dispatch(pageApi.endpoints.fetchPage.initiate(slug));
+    await reduxStore.dispatch(pageApi.endpoints.fetchPage.initiate(slug));
 
-    const state = store.getState();
-    const pageData = selectors ? omitBy(await selectors(state, store), isNil) : {};
+    const state = reduxStore.getState();
+    const pageData = selectors ? omitBy(await selectors(state, reduxStore), isNil) : {};
     const { data } = pageApi.endpoints.fetchPage.select(slug)(state);
 
     return {
@@ -110,4 +110,4 @@ export const getStaticPropsWrapper = (slug, selectors) => wrapper.getStaticProps
       message: `Error in the ${slug}.getStaticProps function`,
     });
   }
-});
+};

@@ -1,5 +1,5 @@
 import Cors from 'cors';
-import { withSentry } from '@sentry/nextjs';
+
 import { runMiddleware } from 'utils/helper';
 import subscribeHelper from 'utils/subscribe/subscribeHelper';
 
@@ -11,4 +11,4 @@ const handler = async (req, res) => {
   await subscribeHelper.subscribe(req, res);
 };
 
-export default withSentry(handler);
+export default handler;

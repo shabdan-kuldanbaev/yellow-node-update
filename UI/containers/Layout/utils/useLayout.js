@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import {
   getDataFromLocalStorageWithExpire,

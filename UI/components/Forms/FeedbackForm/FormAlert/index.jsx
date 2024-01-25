@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import FlashOnRoundedIcon from '@material-ui/icons/FlashOnRounded';
+import FlashOnRoundedIcon from '@mui/icons-material/FlashOnRounded';
 import Typography from 'UI/components/Typography';
 import { REVEAL_ANIMATION_PROPS, SVG_IMAGES_TYPES } from 'utils/constants';
 import useAlertProps from './utils/useAlertProps';

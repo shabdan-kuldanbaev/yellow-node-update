@@ -48,6 +48,7 @@ const LinkWrapper = ({
 
   return (
     <Link
+      legacyBehavior
       href={href}
       /* TODO: if you need to instantly open pages via links in the navigation,
       you can remove this code to enable link page generation and loading. However, performance will be degraded

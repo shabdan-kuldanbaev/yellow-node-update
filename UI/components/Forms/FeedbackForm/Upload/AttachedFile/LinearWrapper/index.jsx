@@ -1,5 +1,5 @@
-import { withStyles } from '@material-ui/core/styles';
-import LinearProgress from '@material-ui/core/LinearProgress';
+import { withStyles } from '@mui/styles';
+import LinearProgress from '@mui/material/LinearProgress';
 import { commonSliderStyles } from './utils/data';
 
 export const LinearWrapper = withStyles((theme) => ({

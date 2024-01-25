@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import LinearProgress from '@material-ui/core/LinearProgress';
+import LinearProgress from '@mui/material/LinearProgress';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
 import { selectIsPageReadyToDisplay, selectIsMobile } from 'redux/selectors/layout';

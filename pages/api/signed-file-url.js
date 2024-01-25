@@ -1,6 +1,6 @@
 import Cors from 'cors';
 import axios from 'axios';
-import { withSentry } from '@sentry/nextjs';
+
 import { runMiddleware } from 'utils/helper';
 
 const authToken = process.env.ERP_AUTH_TOKEN || '';
@@ -27,4 +27,4 @@ const handler = async (req, res) => {
   res.status(200).send(JSON.stringify(signed_url));
 };
 
-export default withSentry(handler);
+export default handler;

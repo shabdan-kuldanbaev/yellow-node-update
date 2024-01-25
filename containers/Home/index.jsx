@@ -1,3 +1,5 @@
+'use client';
+
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import HomeIntro from 'UI/sections/HomeIntro';
@@ -6,6 +8,7 @@ import { loadDuck } from 'UI/components/Duck/DuckWrapper/utils/helpers';
 import { PAGES } from 'utils/constants';
 import { useContext, useEffect } from 'react';
 import { AppContext } from 'utils/appContext';
+import { handleError } from 'utils/error';
 
 const SectionSelector = dynamic(() => import('containers/Home/SectionSelector'));
 
@@ -22,6 +25,11 @@ export const Home = ({
   const { contextData: { duck }, setContextData } = useContext(AppContext);
 
   useEffect(() => {
+    handleError({
+      error: { check: true },
+      message: 'check',
+    });
+
     if (duck) {
       return;
     }

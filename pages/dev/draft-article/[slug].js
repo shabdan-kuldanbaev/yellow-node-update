@@ -1,5 +1,5 @@
 import DraftArticle from 'containers/DraftArticle';
-import { wrapper } from 'redux/store';
+import { reduxStore } from 'redux/store';
 import { handleError } from 'utils/error';
 import blogApi from 'redux/apis/blog';
 
@@ -10,11 +10,11 @@ const DraftArticleContainer = ({ introSection, ...rest }) => (
   />
 );
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   try {
     const { query: { slug } } = ctx;
 
-    await store.dispatch(blogApi.endpoints.getDraftArticle.initiate(slug));
+    await reduxStore.dispatch(blogApi.endpoints.getDraftArticle.initiate(slug));
 
     return {
       props: { slug },
@@ -25,6 +25,6 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async (c
       message: 'Error in the getInitialBlogProps function in DraftArticle',
     });
   }
-});
+};
 
 export default DraftArticleContainer;

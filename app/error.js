@@ -1,5 +1,7 @@
+'use client';
+
 import PageNotFound from 'containers/PageNotFound';
-import { wrapper } from 'redux/store';
+import { reduxStore } from 'redux/store';
 import { PAGES } from 'utils/constants';
 import { handleError } from 'utils/error';
 import pageApi from 'redux/apis/page';
@@ -9,7 +11,7 @@ const Error = ({ statusCode, err }) => (statusCode
   : `An error occurred on client ${err}`
 );
 
-Error.getInitialProps = wrapper.getInitialPageProps((store) => async ({
+Error.getInitialProps = async ({
   err,
   res,
   req,
@@ -24,7 +26,7 @@ Error.getInitialProps = wrapper.getInitialPageProps((store) => async ({
   }
 
   if (statusCode === 404) {
-    await store.dispatch(pageApi.endpoints.fetchPage.initiate(PAGES.notFound));
+    await reduxStore.dispatch(pageApi.endpoints.fetchPage.initiate(PAGES.notFound));
   }
 
   if (err) {
@@ -38,6 +40,6 @@ Error.getInitialProps = wrapper.getInitialPageProps((store) => async ({
     statusCode,
     err,
   };
-});
+};
 
 export default Error;

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import Input from 'UI/components/Input';

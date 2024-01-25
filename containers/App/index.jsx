@@ -1,13 +1,14 @@
+'use client';
+
 import {
   useState,
   useRef,
   useEffect,
   useMemo,
 } from 'react';
-import { useRouter } from 'next/router';
-import { ThemeProvider } from '@material-ui/core';
+import { useRouter, useServerInsertedHTML } from 'next/navigation';
+import { ThemeProvider } from '@mui/material';
 import smoothscroll from 'smoothscroll-polyfill';
-import { wrapper } from 'redux/store';
 import { getCookie, setCookie } from 'cookies-next';
 import Layout from 'UI/containers/Layout';
 import { AppContext, PageFetchContext } from 'utils/appContext';
@@ -15,13 +16,39 @@ import { getUserLocation } from 'utils/helper';
 import { customTheme } from 'styles/muiTheme';
 import { leadSourceCookieName, userLocation } from 'utils/constants/cookieNames';
 import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
-import 'animate.css/animate.min.css';
-import 'swiper/css/bundle';
-import 'swiper/scss/scrollbar';
-import 'swiper/scss/pagination';
-import 'styles/index.scss';
 
-function App({ Component, pageProps }) {
+import {
+  ServerStyleSheet,
+  StyleSheetManager,
+} from 'styled-components';
+import { ReduxProvider } from 'redux/provider';
+
+function StyledComponentsRegistry({
+  children,
+}) {
+  // Only create stylesheet once with lazy initial state
+  // x-ref: https://reactjs.org/docs/hooks-reference.html#lazy-initial-state
+  const [styledComponentsStyleSheet] = useState(
+    () => new ServerStyleSheet(),
+  );
+
+  useServerInsertedHTML(() => {
+    const styles = styledComponentsStyleSheet.getStyleElement();
+    styledComponentsStyleSheet.instance.clearTag();
+
+    return <>{styles}</>;
+  });
+
+  if (typeof window !== 'undefined') return <>{children}</>;
+
+  return (
+    <StyleSheetManager sheet={styledComponentsStyleSheet.instance}>
+      {children}
+    </StyleSheetManager>
+  );
+}
+
+const App = ({ children, params }) => {
   const router = useRouter();
 
   const [contextData, setContextData] = useState({
@@ -66,24 +93,24 @@ function App({ Component, pageProps }) {
   }), [contextData, setContextData]);
 
   const PageFetchContextValue = useMemo(() => ({
-    pageFetchQuery: pageProps.pageFetchQuery,
-  }), [pageProps.pageFetchQuery]);
+    pageFetchQuery: params?.pageFetchQuery,
+  }), [params?.pageFetchQuery]);
 
   return (
-    <AppContext.Provider value={AppContextValue}>
-      <PageFetchContext.Provider value={PageFetchContextValue}>
-        <ThemeProvider theme={customTheme}>
-          <Layout introSection={introSection}>
-            <Component
-              theme={theme}
-              introSection={introSection}
-              {...pageProps}
-            />
-          </Layout>
-        </ThemeProvider>
-      </PageFetchContext.Provider>
-    </AppContext.Provider>
+    <StyledComponentsRegistry>
+      <ReduxProvider>
+        <AppContext.Provider value={AppContextValue}>
+          <PageFetchContext.Provider value={PageFetchContextValue}>
+            <ThemeProvider theme={customTheme}>
+              <Layout introSection={introSection}>
+                {children}
+              </Layout>
+            </ThemeProvider>
+          </PageFetchContext.Provider>
+        </AppContext.Provider>
+      </ReduxProvider>
+    </StyledComponentsRegistry>
   );
-}
+};
 
-export default wrapper.withRedux(App);
+export default App;

@@ -23,6 +23,7 @@ export const ToTopButton = () => {
   }, []);
 
   return (
+    // eslint-disable-next-line jsx-a11y/control-has-associated-label
     <div
       className={cn(styles.toTop, { [styles.hidden]: isHidden })}
       onClick={handleOnClick}

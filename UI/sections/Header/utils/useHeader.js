@@ -1,5 +1,5 @@
+import { usePathname, useSearchParams } from 'next/navigation';
 import { useState, useEffect, useCallback } from 'react';
-import { useRouter } from 'next/router';
 import {
   CASE_STUDIES,
   PAGES_WITH_TRANSPARENT_HEADER,
@@ -9,12 +9,13 @@ import {
 } from 'utils/constants';
 
 export const useHeader = ({ introSection }) => {
-  const { asPath, query: { page, project } } = useRouter();
+  const { page, project } = useSearchParams();
+  const asPath = usePathname();
   const currentPage = asPath.split('/')[1] || '';
   const isPageWithTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(project) || PAGES_WITH_TRANSPARENT_HEADER.includes(asPath);
   const isPageWithGrayHeader = PAGES_WITH_GRAY_HEADER.includes(currentPage) || PAGES_WITH_GRAY_HEADER.includes(asPath);
   const isCaseStudyWithTransparentHeader = CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(project)
-  || CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(asPath);
+    || CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(asPath);
 
   const headerTheme = [
     CASE_STUDIES.tell,

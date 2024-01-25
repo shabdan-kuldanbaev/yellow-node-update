@@ -6,7 +6,7 @@ import {
   TYPOGRAPHY_TAGS,
 } from 'UI/components/Typography/utils/useTypography';
 import Select from 'UI/components/Select';
-import { MenuItem } from '@material-ui/core';
+import { MenuItem } from '@mui/material';
 import Button from 'UI/components/Button';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import Animated from 'UI/containers/Animated';

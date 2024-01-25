@@ -1,5 +1,4 @@
 import Cors from 'cors';
-import { withSentry } from '@sentry/nextjs';
 import formidable from 'formidable';
 import { formParser, runMiddleware } from 'utils/helper';
 import { sendFormData } from 'utils/formDataHelper';
@@ -26,4 +25,4 @@ export const config = {
   },
 };
 
-export default withSentry(handler);
+export default handler;
