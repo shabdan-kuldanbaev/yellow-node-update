@@ -1,117 +1,121 @@
 @import 'styles/utils/mixins';
 
-.itemContainer {
+.container {
+  @include flex(column);
+
+  gap: 12px;
   outline: none;
 
-  .link {
+  .mainWrapper {
+    @include flex(row, initial, center);
+
+    gap: 12px;
+  }
+
+  .itemsWrapper {
+    @include flex(row, space-between, center);
+
+    gap: 16px;
+
+    @include below-tablet {
+      @include flex(column, initial, flex-start);
+
+      padding-left: 44px;
+      gap: 8px;
+    }
+  }
+
+  .itemWrapper {
+    @include flex(row, initial, center);
+
+    gap: 4px;
+  }
+
+  .link,
+  .title {
     @include fontSize(16px, 150%);
 
-    display: block;
     margin: 0;
-
-    &.title {
-      font-weight: 700;
-      color: $gray0;
-      transition: color 0.3s ease-in-out;
-    }
-
-    &.titleNotBold {
-      font-weight: 500;
-    }
-
-    .subtitle {
-      font-weight: 400;
-      line-height: 2;
-      color: $gray400;
-      transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-      display: block;
-
-      &:not(:last-child) {
-        margin-bottom: 8px;
-      }
-    }
+    font-weight: 700;
+    color: $gray0;
+    transition: color 0.3s ease-in-out;
 
     &:hover {
-      &.title {
-        color: $yellow500;
-      }
-
-      & > span {
-        color: $yellow500;
-        opacity: 0.7;
-      }
+      color: $yellow500;
     }
   }
 
-  .menuLink {
+  .itemLink {
     @include fontSize(16px, 150%);
 
-    display: block;
-    margin: 12px 0 0;
-
-    .menuText {
-      color: $gray400;
-      outline: none;
-      transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    }
+    color: $gray0;
 
     &:hover {
-      .menuText {
-        color: $yellow500;
-        opacity: 0.7;
-      }
+      color: $yellow500;
     }
   }
 
-  &:nth-child(2) {
-    grid-column: 2/3;
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
 
-    @include phone {
-      grid-row: unset;
-      grid-column: unset;
+  .itemIcon {
+    flex: 0 0 16px;
+    height: 16px;
+
+    path {
+      fill: $gray0;
     }
   }
 
   @include below-tablet {
-    margin-bottom: 16px;
-    width: 100%;
-
-    &:first-child {
-      margin-top: 16px;
-    }
+    margin-top: 16px;
   }
 }
 
 .pageScrolling {
-  &.itemContainer {
-    .link {
-      &.title {
-        color: $gray900;
+  .link,
+  .itemLink,
+  .title {
+    color: $gray900;
 
-        &:hover {
-          color: $yellow500;
-        }
-      }
+    &:hover {
+      color: $yellow500;
+    }
+  }
+
+  .itemIcon {
+    path {
+      fill: $gray900;
     }
   }
 }
 
 .lightTheme {
-  &.itemContainer {
-    .link {
-      &.title {
-        color: $gray900;
-      }
+  .link,
+  .itemLink,
+  .title {
+    color: $gray900;
 
-      .subtitle {
-        color: $gray400;
-      }
-    }
-
-    .menuLink {
-      .menuText {
-        color: $gray400;
-      }
+    &:hover {
+      color: $yellow500;
     }
   }
+
+  .itemIcon {
+    path {
+      fill: $gray900;
+    }
+  }
+}
+
+.about-company .link {
+  font-weight: 500;
+}
+
+.solutions .itemsWrapper {
+  @include flex(column, initial, flex-start);
+
+  padding-left: 44px;
 }

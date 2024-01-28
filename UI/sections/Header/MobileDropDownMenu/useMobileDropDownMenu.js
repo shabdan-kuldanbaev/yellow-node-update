@@ -31,6 +31,7 @@ export const useMobileDropDownMenu = ({
   };
 
   return {
+    slug,
     isLightTheme,
     isPageScrolledDown,
     handleOnSubMenuClick,

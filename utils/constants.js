@@ -95,17 +95,23 @@ export const ANIMATED_TYPE = {
   zoomOut: 'zoomOut',
 };
 
-export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce((acc, [_, { slug, title }]) => {
-  acc[slug] = title;
+export const CATEGORY_TAGS = Object.entries(routes.blog.categories).reduce(
+  (acc, [_, { slug, title }]) => {
+    acc[slug] = title;
 
-  return acc;
-}, {});
+    return acc;
+  },
+  {},
+);
 
-export const CATEGORY_SLUGS = Object.entries(routes.blog.categories).reduce((acc, [key, { slug }]) => {
-  acc[key] = slug;
+export const CATEGORY_SLUGS = Object.entries(routes.blog.categories).reduce(
+  (acc, [key, { slug }]) => {
+    acc[key] = slug;
 
-  return acc;
-}, []);
+    return acc;
+  },
+  [],
+);
 
 export const FEEDBACK_FORM_FIELDS = {
   name: 'name',
@@ -340,11 +346,14 @@ export const CASE_STUDIES = {
   paymentGateway: 'custom-payment-gateway',
 };
 
-export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce((acc, [key, value], index) => {
-  acc[index] = value;
+export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce(
+  (acc, [key, value], index) => {
+    acc[index] = value;
 
-  return acc;
-}, []);
+    return acc;
+  },
+  [],
+);
 
 export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.balzano).path,
@@ -457,12 +466,13 @@ export const PAGES_WITH_GRAY_HEADER = [
   ROUTES.billingSoftwareDevelopment.path,
 ];
 
-export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter((path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path));
+export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter(
+  (path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path),
+);
 
 export const SUB_NAVIGATION_KEYS = {
   services: 'services',
-  expertise: 'expertise',
-  fintech: 'fintech',
+  solutions: 'solutions',
 };
 
 export const SUB_NAVIGATION_ITEMS = {
@@ -472,12 +482,8 @@ export const SUB_NAVIGATION_ITEMS = {
       key: SUB_NAVIGATION_KEYS.services,
     },
     {
-      title: 'Expertise',
-      key: SUB_NAVIGATION_KEYS.expertise,
-    },
-    {
-      title: 'Fintech',
-      key: SUB_NAVIGATION_KEYS.fintech,
+      title: 'Solutions',
+      key: SUB_NAVIGATION_KEYS.solutions,
     },
   ],
 };
@@ -486,168 +492,170 @@ export const SUB_NAVIGATION_LINKS = {
   [NON_INTERACTIVE_LINKS.whatWeDo.slug]: {
     [SUB_NAVIGATION_KEYS.services]: [
       {
-        title: 'Web app development',
-        subtitle: 'Your website will rock the stage',
-        slug: ROUTES.customWebApp.path,
+        title: 'Web App',
+        path: ROUTES.customWebApp.path,
+        icon: 'monitor01Filled',
       },
       {
-        title: 'Mobile app development',
-        subtitle: 'Quality solutions for smartphones and tablets',
-        slug: ROUTES.customMobileApp.path,
+        title: 'Quality Assurance',
+        path: ROUTES.softwareQualityAssuranceServices.path,
+        icon: 'codeFilled',
       },
       {
-        title: 'iOS app development services',
-        subtitle: 'Native apps for iPhones and iPads',
-        slug: ROUTES.iosDevelopmentServices.path,
+        title: 'Penetration Testing',
+        path: ROUTES.penetrationTesting.path,
+        icon: 'bracketsEllipsesFilled',
       },
       {
-        title: 'Android app development services',
-        subtitle: 'Powerful and intuitive Android apps',
-        slug: ROUTES.androidDevelopmentServices.path,
+        title: 'Mobile App',
+        path: ROUTES.customMobileApp.path,
+        icon: 'phoneFilled',
+        items: [
+          {
+            title: 'Android',
+            path: ROUTES.androidDevelopmentServices.path,
+            icon: 'androidStudio1',
+          },
+          {
+            title: 'IOS',
+            path: ROUTES.iosDevelopmentServices.path,
+            icon: 'appleLogo',
+          },
+          {
+            title: 'Cross platform',
+            path: ROUTES.crossPlatformDevelopmentServices.path,
+            icon: 'monitor02',
+          },
+        ],
       },
       {
-        title: 'Cross platform development services',
-        subtitle: 'Lauch your app to all platforms at once',
-        slug: ROUTES.crossPlatformDevelopmentServices.path,
+        title: 'UI/UX Design',
+        path: ROUTES.designServices.path,
+        icon: 'penToolFilled',
       },
       {
-        title: 'UI/UX design services',
-        subtitle: 'Beautiful, smart, efficient, logical',
-        slug: ROUTES.designServices.path,
-      },
-      {
-        title: 'MVP development services',
-        subtitle: 'Minimum viable product for your idea',
-        slug: ROUTES.mvpDevelopment.path,
-      },
-      {
-        title: 'DevOps development services',
-        subtitle: 'Connect your software development and IT teams',
-        slug: ROUTES.devOpsDevelopment.path,
-      },
-      {
-        title: 'Quality assurance services',
-        subtitle: 'Make sure everything works like clockwork',
-        slug: ROUTES.softwareQualityAssuranceServices.path,
-      },
-      {
-        title: 'Penetration testing as a service',
-        subtitle: 'Make your software as safe as possible',
-        slug: ROUTES.penetrationTesting.path,
-      },
-      {
-        title: 'Cloud-based app development services',
-        subtitle: 'No physical space is occupied',
-        slug: ROUTES.cloudDevelopment.path,
-      },
-      {
-        title: 'PWA development services',
-        subtitle: 'Web working as mobile',
-        slug: ROUTES.pwaDevelopmentServices.path,
-      },
-      {
-        title: 'Prototyping services',
-        subtitle: 'Start with a draft',
-        slug: ROUTES.prototypingServices.path,
+        title: 'Artificial Intelligence',
+        path: ROUTES.aiDevelopment.path,
+        icon: 'faceRecognationFilled',
       },
     ],
-    [SUB_NAVIGATION_KEYS.expertise]: [
+    [SUB_NAVIGATION_KEYS.solutions]: [
       {
-        title: 'Project Discovery',
-        subtitle: 'See what your future project will look like',
-        slug: ROUTES.discoveryPhase.path,
+        title: 'Fintech',
+        path: ROUTES.fintechDevelopment.path,
+        icon: 'coinsStackedFilled',
+        items: [
+          {
+            title: 'Banking software development',
+            path: ROUTES.bankingSoftwareDevelopmentCompany.path,
+          },
+          {
+            title: 'Trading Platform',
+            path: ROUTES.tradingSoftwareDevelopment.path,
+          },
+          {
+            title: 'Lending Software',
+            path: ROUTES.lendingSoftwareDevelopment.path,
+          },
+          {
+            title: 'E-wallet App',
+            path: ROUTES.eWalletAppDevelopment.path,
+          },
+          {
+            title: 'Crowdfunding Platform',
+            path: ROUTES.crowdfundingPlatform.path,
+          },
+          {
+            title: 'Billing Solutions',
+            path: ROUTES.billingSoftwareDevelopment.path,
+          },
+          {
+            title: 'Payment Gateway Software',
+            path: ROUTES.paymentGatewayDevelopment.path,
+          },
+        ],
       },
       {
-        title: 'Custom chat app development',
-        subtitle: 'Instant communication tules',
-        slug: ROUTES.customChatApp.path,
+        title: 'Artificial Intelligence',
+        path: ROUTES.aiDevelopment.path,
+        icon: 'faceRecognationFilled',
+        items: [
+          {
+            title: 'ML development',
+            path: ROUTES.mlDevelopment.path,
+          },
+          {
+            title: 'Data Science Development',
+            path: ROUTES.dataScienceDevelopment.path,
+          },
+        ],
       },
       {
-        title: 'ERP development services',
-        subtitle: 'Top-tier solutions for enterprises',
-        slug: ROUTES.erpDevelopment.path,
+        title: 'Expertise',
+        icon: 'starFilled',
+        items: [
+          {
+            title: 'Custom Chat App',
+            path: ROUTES.customChatApp.path,
+          },
+          {
+            title: 'ERP Software',
+            path: ROUTES.erpDevelopment.path,
+          },
+          {
+            title: 'Project Discovery',
+            path: ROUTES.discoveryPhase.path,
+          },
+          {
+            title: 'MVP Development',
+            path: ROUTES.mvpDevelopment.path,
+          },
+        ],
       },
-      {
-        title: 'Machine learning development services',
-        subtitle: 'Artificial intelligence at your service',
-        slug: ROUTES.mlDevelopment.path,
-      },
-      {
-        title: 'AI software development services',
-        subtitle: 'Letting machines think',
-        slug: ROUTES.aiDevelopment.path,
-      },
-      {
-        title: 'Data science development services',
-        subtitle: 'Getting insights to boost your business',
-        slug: ROUTES.dataScienceDevelopment.path,
-      },
-    ],
-    [SUB_NAVIGATION_KEYS.fintech]: [
-      {
-        title: 'Fintech software development services',
-        subtitle: 'Build a successul fintech solution',
-        slug: ROUTES.fintechDevelopment.path,
-      },
-      {
-        title: 'Custom trading platform development',
-        subtitle: 'The way to manage investments',
-        slug: ROUTES.tradingSoftwareDevelopment.path,
-      },
-      {
-        title: 'Lending software development',
-        subtitle: 'Fast and secure lending process',
-        slug: ROUTES.lendingSoftwareDevelopment.path,
-      },
-      {
-        title: 'E-wallet app development',
-        subtitle: 'Having full control over money',
-        slug: ROUTES.eWalletAppDevelopment.path,
-      },
-      {
-        title: 'Banking software development',
-        subtitle: 'Digital banking all the way',
-        slug: ROUTES.bankingSoftwareDevelopmentCompany.path,
-      },
-      {
-        title: 'Crowdfunding platform development',
-        subtitle: 'Make people’s dreams come true',
-        slug: ROUTES.crowdfundingPlatform.path,
-      },
-      {
-        title: 'Billing software development',
-        subtitle: 'Let businesses control their invoices',
-        slug: ROUTES.billingSoftwareDevelopment.path,
-      },
-      {
-        title: 'Payment software gateway development',
-        subtitle: 'Making fast and secure payments',
-        slug: ROUTES.paymentGatewayDevelopment.path,
-      },
+      // {
+      //   title: 'DevOps development services',
+      //   subtitle: 'Connect your software development and IT teams',
+      //   slug: ROUTES.devOpsDevelopment.path,
+      // },
+
+      // {
+      //   title: 'Cloud-based app development services',
+      //   subtitle: 'No physical space is occupied',
+      //   slug: ROUTES.cloudDevelopment.path,
+      // },
+      // {
+      //   title: 'PWA development services',
+      //   subtitle: 'Web working as mobile',
+      //   slug: ROUTES.pwaDevelopmentServices.path,
+      // },
+      // {
+      //   title: 'Prototyping services',
+      //   subtitle: 'Start with a draft',
+      //   slug: ROUTES.prototypingServices.path,
+      // },
     ],
   },
   [NON_INTERACTIVE_LINKS.aboutCompany.slug]: [
     {
       title: 'About us',
-      subtitle: '',
-      slug: ROUTES.company.path,
+      path: ROUTES.company.path,
     },
     {
       title: 'Why us',
-      subtitle: '',
-      slug: ROUTES.whyUs.path,
+      path: ROUTES.whyUs.path,
     },
     {
       title: 'Delivery Quality Standards',
-      subtitle: '',
-      slug: ROUTES.deliveryQualityInYellow.path,
+      path: ROUTES.deliveryQualityInYellow.path,
     },
   ],
 };
 
 export const LINKS_WITH_SUB_NAVIGATION = [NON_INTERACTIVE_LINKS.whatWeDo.slug];
 
-export const LINKS_WITH_SUB_SMALL_NAVIGATION = [NON_INTERACTIVE_LINKS.aboutCompany.slug];
+export const LINKS_WITH_SUB_SMALL_NAVIGATION = [
+  NON_INTERACTIVE_LINKS.aboutCompany.slug,
+];
 
 export const ARTICLE_TABLE_TYPES = {
   simpleTable: 'Simple table',
@@ -710,10 +718,7 @@ export const DEFAULT_TABLET_RESOLUTION = 768;
 export const BIG_TABLET_RESOLUTION = 1024;
 export const FULL_HD_RESOLUTION = 1920;
 
-export const DEV_HOSTS = [
-  'www.yws-dev.xyz',
-  'yws-dev.xyz',
-];
+export const DEV_HOSTS = ['www.yws-dev.xyz', 'yws-dev.xyz'];
 
 export const CUSTOM_DOMAIN = process.env.NEXT_PUBLIC_CUSTOM_DOMAIN;
 

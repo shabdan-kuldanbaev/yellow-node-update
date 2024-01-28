@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import LinkWrapper from 'components/Common/LinkWrapper';
+import Svg from 'UI/components/Svg';
 import Typography from 'UI/components/Typography';
 import styles from './styles.module.scss';
 
@@ -9,51 +10,82 @@ const SubMenuItem = ({
   isLightTheme,
   isPageScrolledDown,
   title,
-  subtitle,
-  subMenuSlug,
-  isTitleNormalWeight,
+  path,
+  icon,
+  items,
+  slug,
 }) => (
   <div
-    className={cn(styles.itemContainer, {
-      [styles.lightTheme]: isLightTheme,
-      [styles.pageScrolling]: isPageScrolledDown,
-    })}
+    className={cn(
+      styles.container,
+      styles[slug],
+      {
+        [styles.lightTheme]: isLightTheme,
+        [styles.pageScrolling]: isPageScrolledDown,
+      },
+    )}
     onClick={handleOnClick}
     role="button"
     tabIndex="0"
   >
-    <LinkWrapper
-      isLocalLink
-      path={subMenuSlug}
-      className={cn(
-        styles.link,
-        styles.title,
-        { [styles.titleNotBold]: isTitleNormalWeight },
+    <div className={styles.mainWrapper}>
+      {icon && (
+        <Svg
+          type={icon}
+          className={styles.icon}
+        />
       )}
-    >
-      {title}
-      {subtitle && (
-        <Typography
-          variant="span"
-          className={styles.subtitle}
+      {path ? (
+        <LinkWrapper
+          isLocalLink
+          path={path}
+          className={styles.link}
         >
-          {subtitle}
-        </Typography>
-      )}
-    </LinkWrapper>
+          {title}
+        </LinkWrapper>
+      )
+        : (
+          <Typography className={styles.title}>
+            {title}
+          </Typography>
+        )}
+    </div>
+    {!!items?.length && (
+      <div className={cn(styles.itemsWrapper)}>
+        {items.map(({
+          path: itemPath,
+          title: itemTitle,
+          icon: itemIcon,
+        }) => (
+          <div className={styles.itemWrapper}>
+            {itemIcon && (
+              <Svg
+                type={itemIcon}
+                className={styles.itemIcon}
+              />
+            )}
+            <LinkWrapper
+              isLocalLink
+              path={itemPath}
+              className={styles.itemLink}
+            >
+              {itemTitle}
+            </LinkWrapper>
+          </div>
+        ))}
+      </div>
+    )}
   </div>
 );
 
 SubMenuItem.defaultProps = {
-  subtitle: '',
-  subMenuSlug: '',
+  path: '',
 };
 
 SubMenuItem.propTypes = {
   handleOnClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
-  subMenuSlug: PropTypes.string,
+  path: PropTypes.string,
 };
 
 export default SubMenuItem;

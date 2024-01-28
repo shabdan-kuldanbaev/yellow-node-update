@@ -75,29 +75,18 @@
   }
 
   .dropDownLinksContainer {
-    max-width: $wide-content-width;
-    margin: 0 auto;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(3, max-content);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 32px 65px;
+    margin: 0 auto;
     padding: 0 40px;
-
-    &.expertise,
-    &.fintech {
-      grid-template-columns: repeat(2, max-content);
-    }
-
-    @include macbook-twelve {
-      grid-template-columns: repeat(2, auto);
-    }
+    gap: 32px;
+    max-width: $wide-content-width;
 
     @include below-tablet {
       display: block;
       margin: 0;
-      width: unset;
-      grid-column-gap: unset;
-      grid-template-columns: unset;
     }
   }
 
