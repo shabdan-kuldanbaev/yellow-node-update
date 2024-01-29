@@ -10,6 +10,24 @@
     @include flex(row, initial, center);
 
     gap: 12px;
+
+    &.marked {
+      .link {
+        position: relative;
+
+        &::after {
+          content: 'TOP';
+          position: absolute;
+          left: 110%;
+          top: 50%;
+          transform: translateY(-50%) rotate(5deg);
+          padding: 2px 4px;
+          background-color: $yellow500;
+          color: $gray900;
+          border-radius: 3px;
+        }
+      }
+    }
   }
 
   .itemsWrapper {

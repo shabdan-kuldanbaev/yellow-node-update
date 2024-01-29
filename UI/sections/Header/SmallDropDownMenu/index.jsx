@@ -26,7 +26,11 @@ const SmallDropDownMenu = (props) => {
     })}
     >
       <div className={cn(styles.container)}>
-        {subNavigationLinks.map(({ title, path }) => (
+        {subNavigationLinks.map(({
+          title,
+          path,
+          marked,
+        }) => (
           <Animated
             type={ANIMATED_TYPE.isFade}
             key={path}
@@ -40,6 +44,7 @@ const SmallDropDownMenu = (props) => {
               title={title}
               path={path}
               slug={slug}
+              marked={marked}
             />
           </Animated>
         ))}

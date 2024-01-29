@@ -9,11 +9,13 @@ const SubMenuItem = ({
   handleOnClick,
   isLightTheme,
   isPageScrolledDown,
+  closeMobileMenu,
   title,
   path,
   icon,
   items,
   slug,
+  marked,
 }) => (
   <div
     className={cn(
@@ -28,7 +30,11 @@ const SubMenuItem = ({
     role="button"
     tabIndex="0"
   >
-    <div className={styles.mainWrapper}>
+    <div className={cn(
+      styles.mainWrapper,
+      { [styles.marked]: marked },
+    )}
+    >
       {icon && (
         <Svg
           type={icon}
@@ -39,6 +45,7 @@ const SubMenuItem = ({
         <LinkWrapper
           isLocalLink
           path={path}
+          onClick={closeMobileMenu}
           className={styles.link}
         >
           {title}
@@ -67,6 +74,7 @@ const SubMenuItem = ({
             <LinkWrapper
               isLocalLink
               path={itemPath}
+              onClick={closeMobileMenu}
               className={styles.itemLink}
             >
               {itemTitle}

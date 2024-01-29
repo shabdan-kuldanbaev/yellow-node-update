@@ -8,7 +8,6 @@ import CircleButton from './CircleButton';
 import Addresses from './Addresses';
 import Company from './Company';
 import MainContentWithExpand from './MainContentWithExpand';
-import Locations from './Locations';
 import styles from './styles.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
@@ -29,7 +28,6 @@ const DefaultFooter = () => {
         <Addresses />
         <MainContent />
         <MainContentWithExpand />
-        <Locations />
       </div>
       <BottomContent />
       <CircleButton onClick={onClick}>

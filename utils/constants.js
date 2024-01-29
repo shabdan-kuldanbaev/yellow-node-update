@@ -537,6 +537,7 @@ export const SUB_NAVIGATION_LINKS = {
         title: 'Artificial Intelligence',
         path: ROUTES.aiDevelopment.path,
         icon: 'faceRecognationFilled',
+        marked: true,
       },
     ],
     [SUB_NAVIGATION_KEYS.solutions]: [

@@ -18,8 +18,7 @@
     grid-template-areas:
       'side fintech services expertise'
       'addresses fintech services expertise'
-      'addresses company services expertise'
-      'location location location location';
+      'addresses company services expertise';
     width: 100%;
     max-width: $wide-content-width;
 
@@ -30,8 +29,7 @@
         'side side'
         'addresses mainContent'
         'addresses mainContent'
-        'company mainContent'
-        'location location';
+        'company mainContent';
     }
   }
 

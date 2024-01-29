@@ -54,6 +54,7 @@ const DropDownMenu = (props) => {
           path,
           icon,
           items,
+          marked,
         }) => (
           <Animated
             type={ANIMATED_TYPE.isFade}
@@ -72,6 +73,7 @@ const DropDownMenu = (props) => {
               icon={icon}
               items={items}
               slug={activeSubMenu}
+              marked={marked}
             />
           </Animated>
         ))}

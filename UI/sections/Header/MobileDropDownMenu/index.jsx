@@ -57,6 +57,7 @@ const MobileDropDownMenu = (props) => {
                 path,
                 icon,
                 items,
+                marked,
               }) => (
                 <SubMenuItem
                   key={`link/${linkTitle}`}
@@ -69,6 +70,7 @@ const MobileDropDownMenu = (props) => {
                   path={path}
                   icon={icon}
                   items={items}
+                  marked={marked}
                 />
               ))}
             </Animated>
