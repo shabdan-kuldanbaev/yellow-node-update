@@ -57,12 +57,11 @@ const DropDownMenu = (props) => {
           marked,
         }) => (
           <Animated
+            key={`${activeSubMenu}/${title}`}
             type={ANIMATED_TYPE.isFade}
-            key={path}
-            open
+            delay={500}
           >
             <SubMenuItem
-              key={`link/${title}`}
               isLightTheme={isLightTheme}
               isPageScrolledDown={isPageScrolledDown}
               closeMobileMenu={closeMobileMenu}

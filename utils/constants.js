@@ -613,27 +613,6 @@ export const SUB_NAVIGATION_LINKS = {
           },
         ],
       },
-      // {
-      //   title: 'DevOps development services',
-      //   subtitle: 'Connect your software development and IT teams',
-      //   slug: ROUTES.devOpsDevelopment.path,
-      // },
-
-      // {
-      //   title: 'Cloud-based app development services',
-      //   subtitle: 'No physical space is occupied',
-      //   slug: ROUTES.cloudDevelopment.path,
-      // },
-      // {
-      //   title: 'PWA development services',
-      //   subtitle: 'Web working as mobile',
-      //   slug: ROUTES.pwaDevelopmentServices.path,
-      // },
-      // {
-      //   title: 'Prototyping services',
-      //   subtitle: 'Start with a draft',
-      //   slug: ROUTES.prototypingServices.path,
-      // },
     ],
   },
   [NON_INTERACTIVE_LINKS.aboutCompany.slug]: [

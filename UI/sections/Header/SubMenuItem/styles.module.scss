@@ -31,7 +31,7 @@
   }
 
   .itemsWrapper {
-    @include flex(row, space-between, center);
+    @include flex(row, flex-start, center);
 
     gap: 16px;
 
@@ -44,7 +44,7 @@
   }
 
   .itemWrapper {
-    @include flex(row, initial, center);
+    @include flex(row, flex-start, center);
 
     gap: 4px;
   }
@@ -79,7 +79,7 @@
   }
 
   .itemIcon {
-    flex: 0 0 16px;
+    width: 16px;
     height: 16px;
 
     path {
