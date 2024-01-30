@@ -1,29 +1,19 @@
 @import 'styles/utils/mixins';
 
 .desktopMenu {
-  transition: margin $default-transition-time;
-  height: 100%;
-
   @include flex(row, center, center);
 
-  @include below-tablet {
-    display: none;
-  }
+  gap: 48px;
+  padding: 0;
+  transition: margin $default-transition-time;
+  height: 100%;
 
   li {
     display: inline-block;
     user-select: none;
     outline: none;
     margin: 0;
-    padding: 0 24px;
-
-    @include tablet {
-      padding: 0 7px;
-    }
-
-    @include horizontal-mobile {
-      padding: 0 7px;
-    }
+    padding: 0;
 
     li > svg {
       display: none;
@@ -32,7 +22,6 @@
     &:last-child {
       position: relative;
       border-radius: $button-border-radius;
-      margin-left: 15px;
       border: 1px solid $gray0;
       color: $gray0;
       transition:
@@ -42,10 +31,7 @@
       opacity: 1 !important;
       transform: translateY(0);
       padding: 0;
-
-      @include below-tablet {
-        margin-left: 20px;
-      }
+      box-sizing: border-box;
 
       span {
         transition: color $default-transition-time;
@@ -56,9 +42,13 @@
       }
 
       a {
-        display: flex;
+        display: block;
         max-width: 153px;
         padding: 16px 32px;
+
+        @include tablet {
+          padding: 12px 24px;
+        }
       }
 
       &:hover {
@@ -93,9 +83,9 @@
   }
 
   .nonClickableItem {
-    height: 100%;
-
     @include flex(row, center, center);
+
+    height: 100%;
 
     & > span {
       cursor: pointer;
@@ -116,6 +106,14 @@
     span {
       color: $gray1000;
     }
+  }
+
+  @include tablet {
+    gap: 16px;
+  }
+
+  @include below-tablet {
+    display: none;
   }
 }
 
@@ -142,7 +140,6 @@
     color: $gray1000;
     position: relative;
     overflow: hidden;
-
     border: 1px solid $gray900;
 
     &:hover {

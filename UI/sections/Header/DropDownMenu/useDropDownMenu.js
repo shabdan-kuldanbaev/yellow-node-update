@@ -31,6 +31,7 @@ export const useDropDownMenu = ({
   };
 
   return {
+    slug,
     isLightTheme,
     isDropMenuOpened,
     isPageScrolledDown,

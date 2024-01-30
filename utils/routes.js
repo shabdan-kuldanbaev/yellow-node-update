@@ -72,7 +72,7 @@ export const routes = {
     },
   },
   portfolio: {
-    title: 'Works',
+    title: 'Portfolio',
     path: rootPortfolioPath,
     getRoute: (category, page = '1') => getPageRoute(
       category,

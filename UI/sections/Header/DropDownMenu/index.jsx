@@ -49,22 +49,29 @@ const DropDownMenu = (props) => {
         ))}
       </div>
       <div className={cn(styles.dropDownLinksContainer, styles[activeSubMenu])}>
-        {subNavigationLinks[activeSubMenu].map(({ title, subtitle, slug }) => (
+        {subNavigationLinks[activeSubMenu].map(({
+          title,
+          path,
+          icon,
+          items,
+          marked,
+        }) => (
           <Animated
+            key={`${activeSubMenu}/${title}`}
             type={ANIMATED_TYPE.isFade}
-            key={slug}
-            open
           >
             <SubMenuItem
-              key={`link/${title}`}
               isLightTheme={isLightTheme}
               isPageScrolledDown={isPageScrolledDown}
               closeMobileMenu={closeMobileMenu}
               handleOnClick={handleOnLinkClick}
               activeSubMenu={activeSubMenu}
-              subtitle={subtitle}
               title={title}
-              subMenuSlug={slug}
+              path={path}
+              icon={icon}
+              items={items}
+              slug={activeSubMenu}
+              marked={marked}
             />
           </Animated>
         ))}

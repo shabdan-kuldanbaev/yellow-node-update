@@ -11,6 +11,7 @@ const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const MobileDropDownMenu = (props) => {
   const {
+    slug,
     isLightTheme,
     isPageScrolledDown,
     handleOnSubMenuClick,
@@ -51,7 +52,13 @@ const MobileDropDownMenu = (props) => {
               type={ANIMATED_TYPE.expandByHeight}
               open={activeSubMenu === key}
             >
-              {subNavigationLinks[key]?.map(({ title: linkTitle, subtitle, slug }) => (
+              {subNavigationLinks[key]?.map(({
+                title: linkTitle,
+                path,
+                icon,
+                items,
+                marked,
+              }) => (
                 <SubMenuItem
                   key={`link/${linkTitle}`}
                   isLightTheme={isLightTheme}
@@ -59,15 +66,21 @@ const MobileDropDownMenu = (props) => {
                   closeMobileMenu={closeMobileMenu}
                   handleOnClick={handleOnLinkClick}
                   activeSubMenu={activeSubMenu}
-                  subtitle={subtitle}
                   title={linkTitle}
-                  subMenuSlug={slug}
+                  path={path}
+                  icon={icon}
+                  items={items}
+                  marked={marked}
                 />
               ))}
             </Animated>
           </>
         ))
-        : subNavigationLinks?.map(({ title: linkTitle, subtitle, slug }) => (
+        : subNavigationLinks?.map(({
+          title: linkTitle,
+          path,
+          icon,
+        }) => (
           <SubMenuItem
             key={`link/${linkTitle}`}
             isLightTheme={isLightTheme}
@@ -75,9 +88,10 @@ const MobileDropDownMenu = (props) => {
             closeMobileMenu={closeMobileMenu}
             handleOnClick={handleOnLinkClick}
             activeSubMenu={activeSubMenu}
-            subtitle={subtitle}
             title={linkTitle}
-            subMenuSlug={slug}
+            path={path}
+            icon={icon}
+            slug={slug}
           />
         ))}
     </div>
