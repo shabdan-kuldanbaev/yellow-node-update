@@ -132,15 +132,20 @@
     transform: translateX(-50%);
     width: 100%;
     height: 900px;
+    object-fit: contain;
+    object-position: top;
+    border-radius: 30px;
 
     @include tablet {
       width: 732px;
       height: 550px;
+      border-radius: 20px;
     }
 
     @include below-tablet {
       width: 465px;
       height: 350px;
+      border-radius: 15px;
     }
 
     @include phone {
