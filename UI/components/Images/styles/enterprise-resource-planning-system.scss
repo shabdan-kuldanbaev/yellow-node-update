@@ -17,11 +17,6 @@
       border-radius: 8px 8px 0 0;
       border-bottom: none;
 
-      img {
-        object-fit: cover;
-        object-position: top;
-      }
-
       @include tablet {
         width: 700px;
         height: 368px;
