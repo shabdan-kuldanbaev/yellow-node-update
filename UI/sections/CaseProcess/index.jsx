@@ -6,6 +6,7 @@ import Typography from 'UI/components/Typography';
 import Svg from 'UI/components/Svg';
 import Animated from 'UI/containers/Animated';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
+import Media from 'UI/components/Media';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -52,11 +53,8 @@ const CaseProcess = (props) => {
               <div className={cn(styles.step, styles[`step-${index + 1}`])}>
                 {image
                 && (
-                  <Illustration
-                    priority
-                    unoptimized
-                    src={image.url}
-                    alt={image.alt}
+                  <Media
+                    asset={image}
                     className={styles.stepImage}
                   />
                 )}

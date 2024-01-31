@@ -1,5 +1,5 @@
 .medical-software-for-musculoskeletal-rehabilitation {
-  padding: 136px 120px 0;
+  padding: 136px 16px 0;
   background-color: $hawkinPrimary;
 
   .introSection {
@@ -134,14 +134,17 @@
     height: 900px;
 
     @include tablet {
+      width: 732px;
       height: 550px;
     }
 
     @include below-tablet {
+      width: 465px;
       height: 350px;
     }
 
     @include phone {
+      width: 343px;
       height: 257px;
     }
   }

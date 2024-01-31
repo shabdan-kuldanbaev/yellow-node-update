@@ -14,10 +14,12 @@
       .stepImage {
         width: 584px;
         height: 420px;
+        border-radius: 30px;
 
         @include below-tablet {
           width: 343px;
           height: 246px;
+          border-radius: 16px;
         }
       }
     }
