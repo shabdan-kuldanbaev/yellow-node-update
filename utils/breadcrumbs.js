@@ -17,8 +17,8 @@ export function getBreadcrumbs(page, {
     breadcrumbs.push({ to: ROUTES.blog.path, title: ROUTES.blog.title });
 
     if (slug && !isNumeric(slug)) {
-      const tag = tagsList.find(({ slug: tagSlug }) => tagSlug === slug);
-      breadcrumbs.push({ to: ROUTES.blog.getRoute(slug).path, title: tag.title });
+      const tag = tagsList?.find(({ slug: tagSlug }) => tagSlug === slug);
+      breadcrumbs.push({ to: ROUTES.blog.getRoute(slug).path, title: tag?.title });
     }
 
     return breadcrumbs;
