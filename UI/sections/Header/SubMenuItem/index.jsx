@@ -64,7 +64,10 @@ const SubMenuItem = ({
           title: itemTitle,
           icon: itemIcon,
         }) => (
-          <div className={styles.itemWrapper}>
+          <div
+            key={itemPath}
+            className={styles.itemWrapper}
+          >
             {itemIcon && (
               <Svg
                 type={itemIcon}

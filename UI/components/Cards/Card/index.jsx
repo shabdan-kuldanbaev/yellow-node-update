@@ -29,7 +29,7 @@ const Card = (props) => {
         className={className}
         noBackground={withoutBackground}
       >
-        {image && (
+        {!!image?.url && (
           <Illustration
             className={styles.image}
             src={image.url}
@@ -78,7 +78,7 @@ Card.propTypes = {
   text: PropTypes.instanceOf(Object),
   children: PropTypes.node,
   className: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.instanceOf(Object),
   withoutBackground: PropTypes.bool,
 };
 
