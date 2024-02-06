@@ -492,6 +492,11 @@ export const SUB_NAVIGATION_LINKS = {
   [NON_INTERACTIVE_LINKS.whatWeDo.slug]: {
     [SUB_NAVIGATION_KEYS.services]: [
       {
+        title: 'Penetration Testing',
+        path: ROUTES.penetrationTesting.path,
+        icon: 'bracketsEllipsesFilled',
+      },
+      {
         title: 'Web App',
         path: ROUTES.customWebApp.path,
         icon: 'monitor01Filled',
@@ -502,9 +507,10 @@ export const SUB_NAVIGATION_LINKS = {
         icon: 'codeFilled',
       },
       {
-        title: 'Penetration Testing',
-        path: ROUTES.penetrationTesting.path,
-        icon: 'bracketsEllipsesFilled',
+        title: 'Artificial Intelligence',
+        path: ROUTES.aiDevelopment.path,
+        icon: 'faceRecognationFilled',
+        marked: true,
       },
       {
         title: 'Mobile App',
@@ -533,12 +539,6 @@ export const SUB_NAVIGATION_LINKS = {
         path: ROUTES.designServices.path,
         icon: 'penToolFilled',
       },
-      {
-        title: 'Artificial Intelligence',
-        path: ROUTES.aiDevelopment.path,
-        icon: 'faceRecognationFilled',
-        marked: true,
-      },
     ],
     [SUB_NAVIGATION_KEYS.solutions]: [
       {
@@ -547,11 +547,11 @@ export const SUB_NAVIGATION_LINKS = {
         icon: 'coinsStackedFilled',
         items: [
           {
-            title: 'Banking software development',
+            title: 'Banking Software',
             path: ROUTES.bankingSoftwareDevelopmentCompany.path,
           },
           {
-            title: 'Trading Platform',
+            title: 'Trading Platforms',
             path: ROUTES.tradingSoftwareDevelopment.path,
           },
           {
@@ -559,11 +559,11 @@ export const SUB_NAVIGATION_LINKS = {
             path: ROUTES.lendingSoftwareDevelopment.path,
           },
           {
-            title: 'E-wallet App',
+            title: 'E-wallet Apps',
             path: ROUTES.eWalletAppDevelopment.path,
           },
           {
-            title: 'Crowdfunding Platform',
+            title: 'Crowdfunding Platforms',
             path: ROUTES.crowdfundingPlatform.path,
           },
           {
@@ -582,11 +582,11 @@ export const SUB_NAVIGATION_LINKS = {
         icon: 'faceRecognationFilled',
         items: [
           {
-            title: 'ML development',
+            title: 'Machine Learning',
             path: ROUTES.mlDevelopment.path,
           },
           {
-            title: 'Data Science Development',
+            title: 'Data Science',
             path: ROUTES.dataScienceDevelopment.path,
           },
         ],
@@ -596,7 +596,7 @@ export const SUB_NAVIGATION_LINKS = {
         icon: 'starFilled',
         items: [
           {
-            title: 'Custom Chat App',
+            title: 'Custom Chats',
             path: ROUTES.customChatApp.path,
           },
           {
@@ -604,11 +604,11 @@ export const SUB_NAVIGATION_LINKS = {
             path: ROUTES.erpDevelopment.path,
           },
           {
-            title: 'Project Discovery',
+            title: 'Discovery Phase',
             path: ROUTES.discoveryPhase.path,
           },
           {
-            title: 'MVP Development',
+            title: 'Minimal Viable Product',
             path: ROUTES.mvpDevelopment.path,
           },
         ],
