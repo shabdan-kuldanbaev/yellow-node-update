@@ -16,11 +16,23 @@
   }
 
   &.firstSectionView {
-    padding: 60px 32px 120px;
+    padding: 0;
+
+    .sectionTitle {
+      display: none;
+    }
+
+    .contentWrapper {
+      max-width: 100%;
+    }
 
     .media {
-      width: 600px;
-      height: 640px;
+      width: 100%;
+      height: auto;
+
+      &-2 {
+        display: none;
+      }
     }
   }
 
@@ -59,13 +71,6 @@
   }
 
   @include tablet {
-    &.firstSectionView {
-      .media {
-        width: 471px;
-        height: 506px;
-      }
-    }
-
     &.secondSectionView {
       .media {
         width: 777px;
@@ -76,7 +81,13 @@
 
   @include below-tablet {
     &.firstSectionView {
-      padding: 60px 32px 120px;
+      .media-1 {
+        display: none;
+      }
+
+      .media-2 {
+        display: block;
+      }
     }
 
     &.secondSectionView {
@@ -90,13 +101,6 @@
   }
 
   @include phone {
-    &.firstSectionView {
-      .media {
-        width: 343px;
-        height: 366px;
-      }
-    }
-
     &.secondSectionView {
       .media {
         width: 343px;
