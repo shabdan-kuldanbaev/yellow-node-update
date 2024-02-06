@@ -41,7 +41,7 @@ const REWIND = {
 };
 
 const cardMapper = (withOverlay) => (card) => {
-  if (card.sys.contentType.sys.id === 'article') {
+  if (card?.sys?.contentType?.sys?.id === 'article') {
     const {
       title,
       previewImageUrl,
@@ -120,7 +120,7 @@ export default ({
     contentModules,
     images: rawImages,
   } = getDocumentFields(
-    section || data,
+    data || section,
     [
       'title',
       'description',
@@ -129,8 +129,12 @@ export default ({
       'view',
       'images',
     ],
-    { isNormilized: !!data },
+    {
+      isNormilized: (data && !Object.keys(data).includes('fields'))
+      || (section && !Object.keys(section).includes('fields')),
+    },
   );
+
   const {
     contentModules: rawCardList,
     withoutBackground,

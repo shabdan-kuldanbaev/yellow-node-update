@@ -22,6 +22,9 @@ const nextConfig = {
     maxInactiveAge: 50 * 1000,
     pagesBufferLength: 5,
   },
+  compiler: {
+    emotion: true,
+  },
   images: {
     domains: ['images.ctfassets.net'],
     loader: 'custom',
@@ -30,6 +33,19 @@ const nextConfig = {
   },
   ...withCDN,
   webpack: (config, { dev }) => {
+    /* eslint-enable */
+
+    // config.module.rules.push({
+    //   test: /node_modules\/@material-ui\/core\/esm\/Popper\/Popper\.js$/,
+    //   use: {
+    //     loader: 'string-replace-loader',
+    //     options: {
+    //       search: 'import PopperJS from \'popper.js\';',
+    //       replace: 'import PopperJS from "../../../../popper.js/dist/esm/popper";',
+    //     },
+    //   },
+    // });
+
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: {
@@ -78,5 +94,10 @@ const nextConfig = {
 
 module.exports = withPlugins([
   [withBundleAnalyzer],
-  // [withSentryConfig],
+  (currentNextConfig) => withSentryConfig(currentNextConfig, {
+    silent: true,
+    authToken: process.env.SENTRY_AUTH_TOKEN,
+    org: 'yellow-systems',
+    project: 'yellow-website-v2',
+  }),
 ], nextConfig);

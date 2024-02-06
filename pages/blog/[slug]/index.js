@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import { getInitialBlogProps } from 'utils/blogUtils';
-import { wrapper } from 'store/store';
+import { store } from 'store/store';
 import BlogContainer from 'UI/views/Blog';
 
 const ArticleContainer = dynamic(() => import('containers/Article'));
@@ -29,6 +29,6 @@ const Article = ({
     />
   ));
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async (ctx) => getInitialBlogProps(store, ctx));
+export const getServerSideProps = async (ctx) => getInitialBlogProps(store, ctx);
 
 export default Article;

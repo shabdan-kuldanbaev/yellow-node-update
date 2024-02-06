@@ -9,6 +9,7 @@ import {
 } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { useFetchPageQuery } from 'store/apis/page';
+import { handleError } from 'utils/error';
 import json from './json/Idea.json';
 import styles from './styles.module.scss';
 

@@ -7,6 +7,7 @@ export default ({
   section,
   data,
   type,
+  ...props
 }) => {
   const [isSmallTabletResolution, setIsSmallTabletResolution] = useState(false);
 
@@ -17,7 +18,7 @@ export default ({
     contentModules,
     view,
   } = getDocumentFields(
-    section || data,
+    data || section,
     [
       'title',
       'description',
@@ -26,14 +27,26 @@ export default ({
       'view',
       'fields',
     ],
-    { isNormilized: !!data },
+    {
+      isNormilized: (data && !Object.keys(data).includes('fields'))
+      || (section && !Object.keys(section).includes('fields')),
+    },
   );
 
   const {
     contentModules: cardsList,
     subtitle: secondSubtitle,
     title: secondTitle,
-  } = getDocumentFields(get(contentModules, '[0]', []));
+  } = getDocumentFields(
+    get(contentModules, '[0]', []),
+    [
+      'contentModules',
+      'subtitle',
+      'title',
+    ],
+  );
+
+  const ctaLink = getDocumentFields(get(contentModules, '[1]', {}));
 
   const renderCards = cardsList?.map((card, index, array) => {
     const {
@@ -75,5 +88,7 @@ export default ({
     isSmallTabletResolution,
     renderCards,
     type,
+    ctaLink,
+    ...props,
   };
 };

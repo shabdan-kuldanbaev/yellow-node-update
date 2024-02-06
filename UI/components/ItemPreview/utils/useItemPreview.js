@@ -17,7 +17,7 @@ export const useItemPreview = ({ data, type }) => {
   const [image] = (images || []).map((file) => getImage(file));
 
   const { slug: link } = getDocumentFields(
-    contentModules?.find((modules) => modules.sys.contentType.sys.id === 'link'),
+    contentModules?.find((modules) => modules?.sys?.contentType?.sys?.id === 'link'),
     ['slug'],
   );
 

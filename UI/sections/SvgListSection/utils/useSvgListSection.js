@@ -4,6 +4,7 @@ import { getSvgSectionProps } from './helpers';
 
 export const useSvgListSection = ({
   section,
+  data,
   handleOnCTAClick,
   type,
   withSelector,
@@ -14,7 +15,7 @@ export const useSvgListSection = ({
     link,
     view,
     iconsGroups,
-  } = useMemo(() => getSvgSectionProps(section), [section]);
+  } = useMemo(() => getSvgSectionProps(section || data), [section, data]);
 
   const [selectedGroupIndex, setSelectedGroupIndex] = useState(null);
 

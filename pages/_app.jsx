@@ -6,7 +6,7 @@ import {
 } from 'react';
 import { useRouter } from 'next/router';
 import smoothscroll from 'smoothscroll-polyfill';
-import { wrapper } from 'store/store';
+import { wrapper } from 'store';
 import { getCookie, setCookie } from 'cookies-next';
 import Layout from 'UI/containers/Layout';
 import { AppContext, PageFetchContext } from 'utils/appContext';

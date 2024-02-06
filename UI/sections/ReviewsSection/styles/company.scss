@@ -1,3 +1,19 @@
-.company-reviews {
+.company {
   background-color: $gray0;
+
+  .callToAction {
+    @include flex(column, center, center);
+
+    padding: 0;
+    min-height: unset;
+    border: none;
+
+    a {
+      margin: 32px auto 0;
+    }
+
+    @include phone {
+      margin-top: 24px;
+    }
+  }
 }

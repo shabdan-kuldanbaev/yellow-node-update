@@ -1,0 +1,52 @@
+.company {
+  &.firstSectionView {
+    .title {
+      max-width: 636px;
+    }
+
+    [data-description] {
+      margin: 0 auto;
+
+      &:last-child {
+        color: $gray900;
+        font-style: italic;
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card {
+      @include flex(column, center, center);
+
+      gap: 16px;
+
+      * {
+        margin: 0;
+      }
+
+      h3 {
+        @include fontSize(20px, 150%);
+
+        margin: 0;
+        font-weight: 700;
+        text-align: center;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    padding: 60px 32px 120px;
+    background-color: $gray50;
+
+    @include phone {
+      padding: 30px 16px 60px;
+    }
+  }
+}

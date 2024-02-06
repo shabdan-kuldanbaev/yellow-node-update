@@ -1,0 +1,64 @@
+.company {
+  .container {
+    max-width: $wide-content-width;
+  }
+
+  .cardContainer {
+    padding: 0;
+    border: none;
+  }
+
+  .cardContent {
+    gap: 24px 32px;
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .contentBlock {
+    flex: 1 1 50%;
+    max-width: 100%;
+
+    & > p:last-of-type {
+      display: none;
+    }
+  }
+
+  .contentBlock:first-child {
+    @include flex(column, center, center);
+
+    gap: 16px;
+
+    h2 {
+      @include fontSize(32px, 130%);
+
+      font-weight: 700;
+      margin: 0;
+    }
+
+    p {
+      color: $gray900;
+      text-align: center;
+    }
+
+    ul {
+      @include flex(column, center, center);
+    }
+  }
+
+  .blockImage {
+    width: 663px;
+    height: 400px;
+
+    @include tablet {
+      width: 506px;
+      height: 314px;
+    }
+
+    @include phone {
+      width: 343px;
+      height: 220px;
+    }
+  }
+}

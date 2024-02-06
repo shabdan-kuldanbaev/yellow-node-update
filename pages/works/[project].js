@@ -1,4 +1,4 @@
-import { wrapper } from 'store/store';
+import { store } from 'store/store';
 import CaseStudiesContainer from 'containers/CaseStudies';
 import { handleError } from 'utils/error';
 import pageApi from 'store/apis/page';
@@ -13,7 +13,7 @@ const Project = ({
   />
 );
 
-export const getServerSideProps = wrapper.getServerSideProps((store) => async ({ query: { project } }) => {
+export const getServerSideProps = async ({ query: { project } }) => {
   try {
     await store.dispatch(pageApi.endpoints.fetchPage.initiate(project));
     const state = store.getState();
@@ -37,6 +37,6 @@ export const getServerSideProps = wrapper.getServerSideProps((store) => async ({
       message: 'Error in the Project.getInitialProps function',
     });
   }
-});
+};
 
 export default Project;

@@ -3,9 +3,12 @@ import cn from 'classnames';
 import { ArcherContainer } from 'react-archer';
 import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
+import CallToAction from 'UI/components/CallToAction';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
+const Animated = dynamic(() => import('UI/containers/Animated'));
 const ProcessCard = dynamic(() => import('UI/components/ProcessCard'));
 
 const ProcessSection = (props) => {
@@ -19,6 +22,8 @@ const ProcessSection = (props) => {
     view,
     renderCards,
     type,
+    ctaLink,
+    handleOnCTAClick,
   } = useSectionProps(props);
 
   if (!cardsList?.length) {
@@ -52,6 +57,19 @@ const ProcessSection = (props) => {
             ))}
           </div>
         </ArcherContainer>
+
+        {ctaLink && (
+          <Animated
+            {...REVEAL_ANIMATION_PROPS}
+            transitionDelay={50}
+          >
+            <CallToAction
+              handleOnClick={handleOnCTAClick}
+              className={styles.callToAction}
+              {...ctaLink}
+            />
+          </Animated>
+        )}
       </div>
     </section>
   );

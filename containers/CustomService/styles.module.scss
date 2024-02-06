@@ -3,7 +3,7 @@
 
 .container {
   margin: 0 auto;
-  padding: calc($new-header-height + 16px) 0 0;
+  padding: $new-header-height 0 0;
   overflow: hidden;
 
   .pageTitle,
@@ -75,7 +75,7 @@
   }
 
   @include phone {
-    padding: calc(#{$header-height} + 40px) 0 0;
+    padding: $header-height 0 0;
     overflow: hidden;
   }
 }

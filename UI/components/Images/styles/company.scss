@@ -1,0 +1,44 @@
+.company {
+  &.firstSectionView {
+    position: relative;
+    margin: 0 auto;
+    height: 780px;
+    overflow: hidden;
+    max-width: $macbook-thirteen;
+
+    .image {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+      width: 100%;
+      height: 780px;
+      overflow: hidden;
+
+      @include tablet {
+        height: 617px;
+      }
+
+      @include below-tablet {
+        height: 454px;
+      }
+
+      @include phone {
+        height: 328px;
+      }
+    }
+
+    @include tablet {
+      height: 617px;
+    }
+
+    @include below-tablet {
+      height: 454px;
+    }
+
+    @include phone {
+      height: 328px;
+    }
+  }
+}

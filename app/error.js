@@ -1,5 +1,7 @@
+'use client';
+
 import PageNotFound from 'containers/PageNotFound';
-import { wrapper } from 'store/store';
+import { store } from 'store/store';
 import { PAGES } from 'utils/constants';
 import { handleError } from 'utils/error';
 import pageApi from 'store/apis/page';
@@ -9,7 +11,7 @@ const Error = ({ statusCode, err }) => (statusCode
   : `An error occurred on client ${err}`
 );
 
-Error.getInitialProps = wrapper.getInitialPageProps((store) => async ({
+Error.getInitialProps = async ({
   err,
   res,
   req,
@@ -38,6 +40,6 @@ Error.getInitialProps = wrapper.getInitialPageProps((store) => async ({
     statusCode,
     err,
   };
-});
+};
 
 export default Error;

@@ -3,27 +3,56 @@
   background-color: $gray0;
 
   .contentWrapper {
-    max-width: 820px;
+    max-width: $wide-content-width;
     margin: 0 auto;
   }
 
-  [data-title],
-  [data-second-title] {
-    @include fontSize(38px, 130%);
+  .titleStyle {
+    margin: 0 0 48px;
 
-    margin: 0 auto;
+    [data-title],
+    [data-second-title] {
+      @include fontSize(38px, 130%);
 
-    @include below-tablet {
-      @include fontSize(24px, 130%);
+      @include below-tablet {
+        @include fontSize(24px, 130%);
+      }
+    }
+
+    [data-title] {
+      margin: 0 0 16px;
+      text-align: left;
+
+      @include tablet {
+        margin: 0 0 8px;
+        text-align: center;
+      }
+    }
+
+    @include tablet {
+      margin: 0 0 24px;
+    }
+  }
+
+  .form {
+    & > button {
+      align-self: flex-start;
+
+      @include tablet {
+        align-self: center;
+      }
     }
   }
 
   .linkText {
     @include fontSize(16px, 150%);
 
+    margin: 0;
     color: $gray400;
-    text-align: center;
-    margin: 16px auto 0;
+
+    @include tablet {
+      text-align: center;
+    }
   }
 
   .link {

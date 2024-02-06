@@ -1,4 +1,8 @@
-import { CASE_STUDIES, SVG_IMAGES_TYPES } from 'utils/constants';
+import {
+  CASE_STUDIES,
+  ROUTES,
+  SVG_IMAGES_TYPES,
+} from 'utils/constants';
 
 export const WHITE_LOGO_TYPE = [
   CASE_STUDIES.fireaway,
@@ -50,8 +54,7 @@ export const BLACK_LOGO_TYPE = [
 ];
 
 export const WHITE_TEXT_LOGO = [
-  'home',
-  'footer',
+  ROUTES.homepage.path,
   CASE_STUDIES.stickerbox,
   CASE_STUDIES.natp,
   CASE_STUDIES.travelTrivia,
@@ -90,6 +93,7 @@ export const WHITE_TEXT_LOGO = [
   CASE_STUDIES.hawkin,
   CASE_STUDIES.hyve,
   CASE_STUDIES.paymentGateway,
+  ROUTES.bookCall.path,
 ];
 
 export const getLogoType = (type) => {

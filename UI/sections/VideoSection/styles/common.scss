@@ -12,6 +12,11 @@
   }
 }
 
+.imagesBundles {
+  position: absolute;
+  pointer-events: none;
+}
+
 .blackSection {
   background: $gray900;
 
