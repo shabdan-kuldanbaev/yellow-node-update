@@ -5,6 +5,7 @@
     @include flex(row-reverse, space-between);
 
     position: relative;
+    margin: 0;
 
     @include tablet {
       @include flex(column, center, center);
@@ -14,6 +15,7 @@
   .descriptionContainer {
     @include flex(column);
 
+    max-width: 585px;
     margin: 0;
 
     @include tablet {
