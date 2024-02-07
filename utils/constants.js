@@ -492,9 +492,10 @@ export const SUB_NAVIGATION_LINKS = {
   [NON_INTERACTIVE_LINKS.whatWeDo.slug]: {
     [SUB_NAVIGATION_KEYS.services]: [
       {
-        title: 'Penetration Testing',
-        path: ROUTES.penetrationTesting.path,
-        icon: 'bracketsEllipsesFilled',
+        title: 'Artificial Intelligence',
+        path: ROUTES.aiDevelopment.path,
+        icon: 'faceRecognationFilled',
+        marked: true,
       },
       {
         title: 'Web App',
@@ -507,10 +508,9 @@ export const SUB_NAVIGATION_LINKS = {
         icon: 'codeFilled',
       },
       {
-        title: 'Artificial Intelligence',
-        path: ROUTES.aiDevelopment.path,
-        icon: 'faceRecognationFilled',
-        marked: true,
+        title: 'Penetration Testing',
+        path: ROUTES.penetrationTesting.path,
+        icon: 'bracketsEllipsesFilled',
       },
       {
         title: 'Mobile App',
