@@ -51,182 +51,59 @@ const blogRoutes = createPageRoutes(rootBlogPath, dynamicBlogPaths);
 const portfolioRoutes = createPageRoutes(rootPortfolioPath, dynamicPortfolioPaths);
 const personRoutes = createPageRoutes(rootPersonPath, dynamicPersonPaths);
 
-export const routes = {
-  fromRoot: (slug) => (slug === 'homepage' ? '' : `/${slug}`),
-  homepage: {
-    title: 'Home',
-    path: '/',
-    dynamicPath: '/',
-    slug: 'homepage',
+export const serviceDevelopmentRoutes = {
+  eWalletAppDevelopment: {
+    title: 'E-Wallet App Development Company',
+    path: '/e-wallet-app-development',
+    dynamicPath: '/e-wallet-app-development',
+    slug: 'e-wallet-app-development',
   },
-  person: {
-    title: 'Person',
-    slug: 'person',
-    getRoute: (slug, page = '1') => getPageRoute(
-      slug,
-      personRoutes,
-      page,
-    ),
-    dynamicPath: {
-      ...dynamicPersonPaths,
-    },
+  bankingSoftwareDevelopmentCompany: {
+    title: 'Banking Software Development Company',
+    path: '/banking-software-development-company',
+    dynamicPath: '/banking-software-development-company',
+    slug: 'banking-software-development-company',
   },
-  portfolio: {
-    title: 'Works',
-    path: rootPortfolioPath,
-    getRoute: (category, page = '1') => getPageRoute(
-      category,
-      portfolioRoutes,
-      page,
-    ),
-    dynamicPath: {
-      ...dynamicPortfolioPaths,
-    },
-    slug: 'works',
-    categories: [
-      {
-        title: 'Online Video',
-        slug: 'online-video',
-      },
-      {
-        title: 'Real-Time Communication',
-        slug: 'real-time-communication',
-      },
-      {
-        title: 'DAM/MAM',
-        slug: 'dam-mam',
-      },
-      {
-        title: 'Computer Vision',
-        slug: 'computer-vision',
-      },
-      {
-        title: 'Content Management',
-        slug: 'content-management',
-      },
-      {
-        title: 'Business Intelligence',
-        slug: 'business-intelligence',
-      },
-      {
-        title: 'BPM/BPA',
-        slug: 'bpm-bpa',
-      },
-      {
-        title: 'CRM',
-        slug: 'crm',
-      },
-      {
-        title: 'eCommerce',
-        slug: 'ecommerce',
-      },
-      {
-        title: 'eLearning',
-        slug: 'elearning',
-      },
-      {
-        title: 'Adtech/Martech',
-        slug: 'adtech-martech',
-      },
-      {
-        title: 'FinTech',
-        slug: 'fintech',
-      },
-      {
-        title: 'IoT',
-        slug: 'iot',
-      },
-    ],
+  pwaDevelopmentServices: {
+    title: 'PWA Development Services',
+    path: '/pwa-development-services',
+    dynamicPath: '/pwa-development-services',
+    slug: 'pwa-development-services',
   },
-  project: {
-    title: 'Project',
-    getRoute: (slug) => ({
-      path: !!slug && `/works/${slug}`,
-      dynamicPath: !!slug && '/works/[project]',
-    }),
-    slug: 'project',
+  fintechDevelopment: {
+    title: 'Fintech Software Development Services',
+    path: '/fintech-software-development-services',
+    dynamicPath: '/fintech-software-development-services',
+    slug: 'fintech-software-development-services',
   },
-  process: {
-    title: 'Process',
-    path: '/process',
-    dynamicPath: '/process',
-    slug: 'process',
+  aiDevelopment: {
+    title: 'AI Software Development Services',
+    path: '/artificial-intelligence-development-services',
+    dynamicPath: '/artificial-intelligence-development-services',
+    slug: 'artificial-intelligence-development-services',
+    description: 'Yellow is an AI software development company that can provide '
+    + 'you with top-notch artificial intelligence application development.',
   },
-  softwareDevelopmentPrice: {
-    title: 'Pricing',
-    path: '/pricing',
-    dynamicPath: '/pricing',
-    slug: 'pricing',
+  dataScienceDevelopment: {
+    title: 'Data Science Development Services',
+    path: '/data-science-development-company',
+    dynamicPath: '/data-science-development-company',
+    slug: 'data-science-development-company',
+    descripition: 'If you are looking for a partner that will help you analyze, process, and structure '
+    + 'your data, data science specialists at Yellow are here for you.',
   },
-  blog: {
-    title: 'Insights',
-    slug: 'blog',
-    path: rootBlogPath,
-    // TODO think a better solution
-    getRoute: (category, page = '1') => getPageRoute(
-      category,
-      blogRoutes,
-      page,
-    ),
-    dynamicPath: {
-      ...dynamicBlogPaths,
-    },
-    categories: [
-      {
-        title: 'Latest',
-        slug: '',
-      },
-      {
-        title: 'AI',
-        slug: 'artificial-intelligence',
-      },
-      {
-        title: 'How we work',
-        slug: 'how-we-work',
-      },
-      {
-        title: 'Software development',
-        slug: 'software-development',
-      },
-      {
-        title: 'Chats',
-        slug: 'software-chat',
-      },
-      {
-        title: 'Fintech',
-        slug: 'fintech',
-      },
-      {
-        title: 'News',
-        slug: 'yellow',
-      },
-    ],
+  tradingSoftwareDevelopment: {
+    title: 'Custom Trading Platform Development Services',
+    path: '/trading-software-development',
+    dynamicPath: '/trading-software-development',
+    slug: 'trading-software-development',
+    description: 'Proficient trading software development services to create robust apps and platforms that boost business performance.',
   },
-  article: {
-    title: 'Article',
-    getRoute: (slug) => ({
-      path: !!slug && `/blog/${slug}`,
-      dynamicPath: !!slug && '/blog/[slug]',
-    }),
-    slug: 'article',
-  },
-  company: {
-    title: 'Company',
-    path: '/company',
-    dynamicPath: '/company',
-    slug: 'company',
-  },
-  whyUs: {
-    title: 'Why Us',
-    path: '/why-us',
-    dynamicPath: '/why-us',
-    slug: 'why-us',
-  },
-  contact: {
-    title: 'Contact Us',
-    path: '/contact',
-    dynamicPath: '/contact',
-    slug: 'contact',
+  prototypingServices: {
+    title: 'Mobile App Prototyping Services',
+    path: '/prototyping-services',
+    dynamicPath: '/prototyping-services',
+    slug: 'prototyping-services',
   },
   softwareQualityAssuranceServices: {
     title: 'Software Development Price',
@@ -353,83 +230,9 @@ export const routes = {
     description: 'Discovery phase of a project is an important part of software development. Learn more about how '
     + 'to run a discovery phase and its benefits to your business.',
   },
-  signatureGenerator: {
-    title: 'Signature Generator',
-    path: '/signature-generator',
-    dynamicPath: '/signature-generator',
-    slug: 'signature-generator',
-  },
-  fintechDevelopment: {
-    title: 'Fintech Software Development Services',
-    path: '/fintech-software-development-services',
-    dynamicPath: '/fintech-software-development-services',
-    slug: 'fintech-software-development-services',
-  },
-  aiDevelopment: {
-    title: 'AI Software Development Services',
-    path: '/artificial-intelligence-development-services',
-    dynamicPath: '/artificial-intelligence-development-services',
-    slug: 'artificial-intelligence-development-services',
-    description: 'Yellow is an AI software development company that can provide '
-    + 'you with top-notch artificial intelligence application development.',
-  },
-  dataScienceDevelopment: {
-    title: 'Data Science Development Services',
-    path: '/data-science-development-company',
-    dynamicPath: '/data-science-development-company',
-    slug: 'data-science-development-company',
-    descripition: 'If you are looking for a partner that will help you analyze, process, and structure '
-    + 'your data, data science specialists at Yellow are here for you.',
-  },
-  tradingSoftwareDevelopment: {
-    title: 'Custom Trading Platform Development Services',
-    path: '/trading-software-development',
-    dynamicPath: '/trading-software-development',
-    slug: 'trading-software-development',
-    description: 'Proficient trading software development services to create robust apps and platforms that boost business performance.',
-  },
-  prototypingServices: {
-    title: 'Mobile App Prototyping Services',
-    path: '/prototyping-services',
-    dynamicPath: '/prototyping-services',
-    slug: 'prototyping-services',
-  },
-  privacyPolicy: {
-    title: 'Yellow Systems Privacy Policy',
-    path: '/privacy-policy',
-    dynamicPath: '/privacy-policy',
-    slug: 'privacy-policy',
-  },
-  termsAndConditions: {
-    title: 'Terms and Conditions',
-    path: '/terms-and-conditions',
-    dynamicPath: '/terms-and-conditions',
-    slug: 'terms-and-conditions',
-  },
-  eWalletAppDevelopment: {
-    title: 'E-Wallet App Development Company',
-    path: '/e-wallet-app-development',
-    dynamicPath: '/e-wallet-app-development',
-    slug: 'e-wallet-app-development',
-  },
-  bankingSoftwareDevelopmentCompany: {
-    title: 'Banking Software Development Company',
-    path: '/banking-software-development-company',
-    dynamicPath: '/banking-software-development-company',
-    slug: 'banking-software-development-company',
-  },
-  deliveryQualityInYellow: {
-    title: 'Yellow’s Delivery Quality Standards',
-    path: '/delivery-quality-in-yellow',
-    dynamicPath: '/delivery-quality-in-yellow',
-    slug: 'delivery-quality-in-yellow',
-  },
-  pwaDevelopmentServices: {
-    title: 'PWA Development Services',
-    path: '/pwa-development-services',
-    dynamicPath: '/pwa-development-services',
-    slug: 'pwa-development-services',
-  },
+};
+
+export const regionalDevelopmentRoutes = {
   softwareDevelopmentColumbus: {
     title: 'Custom Software Development Company in Columbus, Ohio',
     path: '/software-development-columbus',
@@ -490,16 +293,93 @@ export const routes = {
     dynamicPath: '/software-development-new-orleans',
     slug: 'software-development-new-orleans',
   },
+};
+
+export const legalInfoRoutes = {
+  cookiesPolicy: {
+    title: 'Cookies Policy',
+    path: '/cookies-policy',
+    slug: 'cookies-policy',
+  },
+  privacyPolicy: {
+    title: 'Yellow Systems Privacy Policy',
+    path: '/privacy-policy',
+    dynamicPath: '/privacy-policy',
+    slug: 'privacy-policy',
+  },
+  termsAndConditions: {
+    title: 'Terms and Conditions',
+    path: '/terms-and-conditions',
+    dynamicPath: '/terms-and-conditions',
+    slug: 'terms-and-conditions',
+  },
+};
+
+export const aboutRoutes = {
   bookCall: {
     title: '',
     path: '/book-a-call',
     dynamicPath: '/book-a-call',
     slug: 'book-a-call',
   },
-  cookiesPolicy: {
-    title: 'Cookies Policy',
-    path: '/cookies-policy',
-    slug: 'cookies-policy',
+  person: {
+    title: 'Person',
+    slug: 'person',
+    getRoute: (slug, page = '1') => getPageRoute(
+      slug,
+      personRoutes,
+      page,
+    ),
+    dynamicPath: {
+      ...dynamicPersonPaths,
+    },
+  },
+  company: {
+    title: 'Company',
+    path: '/company',
+    dynamicPath: '/company',
+    slug: 'company',
+  },
+  whyUs: {
+    title: 'Why Us',
+    path: '/why-us',
+    dynamicPath: '/why-us',
+    slug: 'why-us',
+  },
+  contact: {
+    title: 'Contact Us',
+    path: '/contact',
+    dynamicPath: '/contact',
+    slug: 'contact',
+  },
+  process: {
+    title: 'Process',
+    path: '/process',
+    dynamicPath: '/process',
+    slug: 'process',
+  },
+
+  // Used as service development routes in data fetching
+  deliveryQualityInYellow: {
+    title: 'Yellow\'s Delivery Quality Standards',
+    path: '/delivery-quality-in-yellow',
+    dynamicPath: '/delivery-quality-in-yellow',
+    slug: 'delivery-quality-in-yellow',
+  },
+  softwareDevelopmentPrice: {
+    title: 'Pricing',
+    path: '/pricing',
+    dynamicPath: '/pricing',
+    slug: 'pricing',
+  },
+};
+
+export const technicalRoutes = {
+  signatureGenerator: {
+    title: 'Signature Generator',
+    path: '/signature-generator',
+    dynamicPath: '/signature-generator',
+    slug: 'signature-generator',
   },
   notFound: {
     title: '404 | Yellow',
@@ -507,4 +387,101 @@ export const routes = {
     dynamicPath: '/not-found',
     slug: 'not-found',
   },
+};
+
+export const blogPagesRoutes = {
+  blog: {
+    title: 'Insights',
+    slug: 'blog',
+    path: rootBlogPath,
+    // TODO think a better solution
+    getRoute: (category, page = '1') => getPageRoute(
+      category,
+      blogRoutes,
+      page,
+    ),
+    dynamicPath: {
+      ...dynamicBlogPaths,
+    },
+    categories: [
+      {
+        title: 'Latest',
+        slug: '',
+      },
+      {
+        title: 'AI',
+        slug: 'artificial-intelligence',
+      },
+      {
+        title: 'How we work',
+        slug: 'how-we-work',
+      },
+      {
+        title: 'Software development',
+        slug: 'software-development',
+      },
+      {
+        title: 'Chats',
+        slug: 'software-chat',
+      },
+      {
+        title: 'Fintech',
+        slug: 'fintech',
+      },
+      {
+        title: 'News',
+        slug: 'yellow',
+      },
+    ],
+  },
+  article: {
+    title: 'Article',
+    getRoute: (slug) => ({
+      path: !!slug && `/blog/${slug}`,
+      dynamicPath: !!slug && '/blog/[slug]',
+    }),
+    slug: 'article',
+  },
+};
+
+export const worksRoutes = {
+  portfolio: {
+    title: 'Works',
+    path: rootPortfolioPath,
+    getRoute: (category, page = '1') => getPageRoute(
+      category,
+      portfolioRoutes,
+      page,
+    ),
+    dynamicPath: {
+      ...dynamicPortfolioPaths,
+    },
+    slug: 'works',
+  },
+  project: {
+    title: 'Project',
+    getRoute: (slug) => ({
+      path: !!slug && `/works/${slug}`,
+      dynamicPath: !!slug && '/works/[project]',
+    }),
+    slug: 'project',
+  },
+};
+
+export const routes = {
+  homepage: {
+    title: 'Home',
+    path: '/',
+    dynamicPath: '/',
+    slug: 'homepage',
+  },
+  ...serviceDevelopmentRoutes,
+  ...regionalDevelopmentRoutes,
+  ...legalInfoRoutes,
+  ...aboutRoutes,
+  ...technicalRoutes,
+  ...blogPagesRoutes,
+  ...worksRoutes,
+
+  fromRoot: (slug) => (slug === 'homepage' ? '' : `/${slug}`),
 };
