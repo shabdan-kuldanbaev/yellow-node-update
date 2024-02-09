@@ -16,16 +16,32 @@
     position: inherit;
     left: unset;
     top: unset;
+    display: block;
     margin: 0 auto;
     transform: unset;
     width: 994px;
-    height: 683px;
+    height: auto;
     box-shadow: 0 14px 54px 0 rgb(0 0 0 / 35%);
   }
 
   .imageContainer {
-    width: auto;
-    height: 604px;
+    width: 100%;
+    height: auto;
+
+    @include tablet {
+      width: 100%;
+      height: auto;
+    }
+
+    @include below-tablet {
+      width: 100%;
+      height: auto;
+    }
+
+    @include phone {
+      width: 100%;
+      height: auto;
+    }
   }
 
   .sectionTitle {
@@ -55,10 +71,6 @@
       width: 777px;
       height: 535px;
     }
-
-    .imageContainer {
-      height: 477px;
-    }
   }
 
   @include below-tablet {
@@ -67,10 +79,6 @@
     .image {
       width: 561px;
       height: 386px;
-    }
-
-    .imageContainer {
-      height: 350px;
     }
 
     .sectionTitle {
@@ -85,10 +93,6 @@
   @include phone {
     .image {
       width: 343px;
-      height: 235px;
-    }
-
-    .imageContainer {
       height: 235px;
     }
   }
