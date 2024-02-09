@@ -6,6 +6,7 @@
 
     position: relative;
     margin: 0;
+    max-width: $default-content-width;
 
     @include tablet {
       @include flex(column, center, center);
