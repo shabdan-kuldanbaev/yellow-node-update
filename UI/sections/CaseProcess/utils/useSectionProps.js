@@ -27,7 +27,7 @@ export default ({ data, type }) => {
       text,
     } = fields;
     const imageBundles = fields.imagesBundles?.map((bundle) => getFileUrl(bundle));
-    const image = getImage(fields.images?.[0]);
+    const image = fields.images?.[0];
 
     return {
       imageBundles,
