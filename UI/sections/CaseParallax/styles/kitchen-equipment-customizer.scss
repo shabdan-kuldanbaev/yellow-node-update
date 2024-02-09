@@ -1,0 +1,13 @@
+.kitchen-equipment-customizer {
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    height: 858px;
+
+    @include below-tablet {
+      height: 540px;
+    }
+  }
+}

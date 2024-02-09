@@ -19,6 +19,9 @@ const SLIDES_PER_VIEW = {
     thirdSectionView: 'auto',
     fourthSectionView: 'auto',
   },
+  [CASE_STUDIES.kitchenEquipment]: {
+    firstSectionView: 'auto',
+  },
 };
 
 const SPACE_BETWEEN = {
@@ -139,12 +142,14 @@ export default ({
     contentModules: rawCardList,
     withoutBackground,
     disableSliderOnMobile,
+    enableSliderOnDesktop,
   } = getDocumentFields(
     get(contentModules, '[0]', []),
     [
       'contentModules',
       'withoutBackground',
       'disableSliderOnMobile',
+      'enableSliderOnDesktop',
     ],
   );
 
@@ -158,8 +163,11 @@ export default ({
   const isTabletResolution = useSelector(selectIsTablet);
   const IsFullResolution = useSelector(selectIsDesktop);
 
-  const withSlider = sectionWithSlider || (!disableSliderOnMobile && (isTabletResolution || isMobileResolution));
-  const isShowNavigation = !(IsFullResolution && cardList?.length <= 3);
+  const withSlider = sectionWithSlider
+  || enableSliderOnDesktop
+  || (!disableSliderOnMobile && (isTabletResolution || isMobileResolution));
+
+  const isShowNavigation = enableSliderOnDesktop || !(IsFullResolution && cardList?.length <= 3);
 
   const swiperProps = {
     modules: [Navigation, Mousewheel],
