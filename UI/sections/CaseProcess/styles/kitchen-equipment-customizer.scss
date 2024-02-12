@@ -1,6 +1,6 @@
 .kitchen-equipment-customizer {
   &.firstSectionView {
-    padding: 120px 0 24px;
+    padding: 120px 0;
     background-color: $kitchenSecondary;
 
     .titleStyle {
@@ -9,22 +9,21 @@
       [data-title] {
         @include fontSize(24px, 130%);
 
-        margin: 0 0 24px;
+        margin: 0 auto;
         padding: 0 16px;
-        text-align: left;
         font-weight: 400;
       }
     }
 
     .container {
-      @include flex(row, flex-end);
+      @include flex(row, center, center);
 
       padding: 0 16px;
       max-width: $wide-content-width;
     }
 
     .stepsContainer {
-      @include flex(row, flex-end, center, wrap);
+      @include flex(row, center, center, wrap);
 
       position: relative;
       right: inherit;
@@ -54,7 +53,89 @@
     }
 
     @include below-tablet {
-      padding: 60px 0 19px;
+      padding: 60px 0;
+    }
+  }
+
+  &.secondSectionView {
+    padding: 60px 16px 120px;
+    background-color: $gray800;
+
+    [data-title] {
+      @include fontSize(24px, 130%);
+
+      margin: 0 auto 8px;
+      max-width: 100%;
+      color: $gray0;
+      font-weight: 400;
+    }
+
+    .stepsContainer {
+      @include flex(row, space-between, initial, wrap);
+
+      margin: 0;
+      gap: 32px;
+
+      & > div {
+        margin: 0;
+
+        &:nth-child(1),
+        &:nth-child(2), {
+          flex: 1 1 48%;
+
+          @include below-tablet {
+            flex: 1 1 100%;
+          }
+        }
+
+        &:not(
+        :nth-child(1),
+        :nth-child(2)), {
+          flex: 1 1 31%;
+
+          @include below-tablet {
+            flex: 1 1 100%;
+          }
+        }
+      }
+
+      @include below-tablet {
+        gap: 16px;
+      }
+    }
+
+    .step {
+      @include flex(column, flex-start, flex-start);
+
+      padding: 32px;
+      gap: 8px;
+      border: 1px solid $gray300;
+      border-radius: 10px;
+      box-sizing: border-box;
+
+      p {
+        margin: 0;
+        color: $gray500;
+
+        @include below-tablet {
+          text-align: center;
+        }
+      }
+
+      @include below-tablet {
+        @include flex(column, center, center);
+      }
+    }
+
+    .stepTitle {
+      @include fontSize(16px, 150%);
+
+      color: $gray0;
+      font-weight: 400;
+    }
+
+    @include below-tablet {
+      padding: 30px 16px 60px;
     }
   }
 }
