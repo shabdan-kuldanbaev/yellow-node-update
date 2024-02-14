@@ -4,7 +4,7 @@ import ScrollIcon from 'components/HomeCommon/ScrollIcon';
 import useAppearingAnimation from 'hooks/useAppearingAnimation';
 import styles from './styles.module.scss';
 
-const AddFooter = ({ theme }) => {
+const AddFooter = () => {
   const [direction, isTopOfPage] = useAppearingAnimation();
 
   return (
@@ -14,7 +14,7 @@ const AddFooter = ({ theme }) => {
       { [styles.notOnTop]: !isTopOfPage },
     )}
     >
-      <ScrollIcon theme={theme} />
+      <ScrollIcon />
     </section>
   );
 };

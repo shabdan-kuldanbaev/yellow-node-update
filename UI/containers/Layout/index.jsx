@@ -35,7 +35,6 @@ Layout.defaultProps = {
 
 Layout.propTypes = {
   children: PropTypes.node,
-  introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default memo(Layout);

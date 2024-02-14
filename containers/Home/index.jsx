@@ -1,35 +1,24 @@
-'use client';
-
-import PropTypes from 'prop-types';
+import { useContext, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import HomeIntro from 'UI/sections/HomeIntro';
 import MetaTags from 'components/Common/MetaTags';
 import { loadDuck } from 'UI/components/Duck/DuckWrapper/utils/helpers';
-import { PAGES } from 'utils/constants';
-import { useContext, useEffect } from 'react';
-import { AppContext } from 'utils/appContext';
-import { handleError } from 'utils/error';
+import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
+import { AppContext, IntroSectionContext } from 'utils/appContext';
+import { getPage } from 'utils/dataFetching/getPage';
+import { rootUrl } from 'utils/helper';
 
 const SectionSelector = dynamic(() => import('containers/Home/SectionSelector'));
 
-export const Home = ({
-  theme,
-  introSection,
-  pageMetadata,
-  pageData,
-  type,
-  ...rest
-}) => {
-  const contentModules = pageData;
+export const Home = async () => {
+  const { contentModules, metaData: pageMetadata } = await getPage(PAGES.homepage);
 
+  const introSection = useContext(IntroSectionContext);
   const { contextData: { duck }, setContextData } = useContext(AppContext);
 
-  useEffect(() => {
-    handleError({
-      error: { check: true },
-      message: 'check',
-    });
+  const blogQuery = { limit: HOMEPAGE_ARTICLES_LIMIT };
 
+  useEffect(() => {
     if (duck) {
       return;
     }
@@ -45,29 +34,19 @@ export const Home = ({
     <>
       <MetaTags
         page={PAGES.homepage}
-        pageMetadata={pageMetadata}
+        pageMetadata={{ ...pageMetadata, url: rootUrl }}
       />
-      <HomeIntro
-        theme={theme}
-        introSection={introSection}
-      />
+      <HomeIntro introSection={introSection} />
       {contentModules?.map((module, i) => (
         <SectionSelector
           key={`section/${i}`}
           section={module}
-          type={type}
-          {...rest}
+          type={PAGES.homepage}
+          blogQuery={blogQuery}
         />
       ))}
     </>
   );
-};
-
-Home.propTypes = {
-  introSection: PropTypes.instanceOf(Object).isRequired,
-  pageMetadata: PropTypes.instanceOf(Object).isRequired,
-  theme: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
 };
 
 export default Home;

@@ -4,16 +4,13 @@ import AddFooter from 'components/HomeCommon/AddFooter';
 import DuckContainer from 'UI/components/Duck/DuckContainer';
 import styles from './styles.module.scss';
 
-const HomeIntro = ({
-  theme,
-  introSection,
-}) => (
+const HomeIntro = ({ introSection }) => (
   <section
     ref={introSection}
     className={styles.intro}
   >
     <DuckContainer />
-    <AddFooter theme={theme} />
+    <AddFooter />
   </section>
 );
 

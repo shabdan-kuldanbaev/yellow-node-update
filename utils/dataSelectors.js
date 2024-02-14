@@ -61,36 +61,10 @@ export const getPortfolioPageProps = async (state, store) => {
   };
 };
 
-export const getHomePageDataPros = async (state, store) => {
-  const blogQuery = { limit: HOMEPAGE_ARTICLES_LIMIT };
-  await store.dispatch(blogApi.endpoints.getArticlesList.initiate(blogQuery));
-
-  const { data } = await getPage(PAGES.homepage);
-
-  const pageMetadata = {
-    ...data.metaData,
-    url: `${rootUrl}`,
-  };
-
-  const components = data.contentModules;
-
-  const projects = findBlock(components, BLOCKS_SLUGS.homepagePreviewProjects);
-
-  return {
-    pageFetchQuery: PAGES.homepage,
-    pageData: components,
-    pageMetadata,
-    projects,
-    blogQuery,
-  };
-};
-
 export const getProcessProps = async (state, store) => ({ json: processes });
 
 export const getStaticPropsWrapper = (slug, selectors) => async () => {
   try {
-    await await getPage(slug);
-
     const state = reduxStore.getState();
     const pageData = selectors ? omitBy(await selectors(state, reduxStore), isNil) : {};
     const { data } = await getPage(slug);

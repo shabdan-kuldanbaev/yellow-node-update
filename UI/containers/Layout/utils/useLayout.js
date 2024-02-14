@@ -12,14 +12,16 @@ import {
   tabletResolutionSet,
 } from 'store/reducers/layout';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
-import { AppContext } from 'utils/appContext';
+import { AppContext, IntroSectionContext } from 'utils/appContext';
 import { routes } from 'utils/routes';
 
-export const useLayout = ({ children, introSection }) => {
+export const useLayout = ({ children }) => {
   const { pathname } = useRouter();
   const isHomePage = pathname === routes.homepage.path;
   const { contextData: { duck } } = useContext(AppContext);
   const isDuckLoading = isHomePage && !duck;
+
+  const introSection = useContext(IntroSectionContext);
 
   const dispatch = useDispatch();
 

@@ -1,6 +1,6 @@
 import Layout from 'UI/containers/Layout';
-import { Provider } from 'react-redux';
-import { AppContext, PageFetchContext } from 'utils/appContext';
+import { Provider as StoreProvider } from 'react-redux';
+import { AppContext, IntroSectionContext, PageFetchContext } from 'utils/appContext';
 
 import useApp from './useApp';
 
@@ -12,16 +12,18 @@ const App = ({ children, params }) => {
   } = useApp(params);
 
   return (
-    <Provider>
+    <StoreProvider>
       <AppContext.Provider value={AppContextValue}>
         {/* TODO: Remove PageFetch context */}
         <PageFetchContext.Provider value={PageFetchContextValue}>
-          <Layout introSection={introSection}>
-            {children}
-          </Layout>
+          <IntroSectionContext.Provider value={introSection}>
+            <Layout>
+              {children}
+            </Layout>
+          </IntroSectionContext.Provider>
         </PageFetchContext.Provider>
       </AppContext.Provider>
-    </Provider>
+    </StoreProvider>
   );
 };
 
