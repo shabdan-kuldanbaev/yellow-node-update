@@ -3,8 +3,8 @@ import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { BLOCKS_SLUGS, PAGES } from 'utils/constants';
 import { findBlock, rootUrl } from 'utils/helper';
 
-export default async ({ type }) => {
-  const { data = {} } = await getPage(type);
+export default async () => {
+  const { data = {} } = await getPage(PAGES.contact);
   const {
     contentModules = [],
     metaData,

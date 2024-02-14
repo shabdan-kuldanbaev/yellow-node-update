@@ -12,12 +12,12 @@ import Contacts from 'UI/components/Contacts';
 import useContactUsProps from './utils/useContactUsProps';
 import styles from './ContactUs.module.scss';
 
-const ContactUs = (props) => {
+const ContactUs = () => {
   const {
     breadcrumbs,
     pageMetadata,
     peoplePhotoSection,
-  } = useContactUsProps(props);
+  } = useContactUsProps();
 
   return (
     <>
