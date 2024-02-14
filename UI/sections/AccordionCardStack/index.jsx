@@ -27,7 +27,7 @@ const AccordionCardStack = (props) => {
       <div className={styles.contentWrapper}>
         {accordionContentModules && (
           <div className={styles.accordion}>
-            {accordionContentModules.map((module, index) => (
+            {accordionContentModules?.map((module, index) => (
               <AppFeaturesItem
                 view={view}
                 type={type}
