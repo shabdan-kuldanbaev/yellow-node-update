@@ -316,6 +316,12 @@ export const legalInfoRoutes = {
 };
 
 export const aboutRoutes = {
+  homepage: {
+    title: 'Home',
+    path: '/',
+    dynamicPath: '/',
+    slug: 'homepage',
+  },
   bookCall: {
     title: '',
     path: '/book-a-call',
@@ -358,8 +364,6 @@ export const aboutRoutes = {
     dynamicPath: '/process',
     slug: 'process',
   },
-
-  // Used as service development routes in data fetching
   deliveryQualityInYellow: {
     title: 'Yellow\'s Delivery Quality Standards',
     path: '/delivery-quality-in-yellow',
@@ -469,12 +473,6 @@ export const worksRoutes = {
 };
 
 export const routes = {
-  homepage: {
-    title: 'Home',
-    path: '/',
-    dynamicPath: '/',
-    slug: 'homepage',
-  },
   ...serviceDevelopmentRoutes,
   ...regionalDevelopmentRoutes,
   ...legalInfoRoutes,

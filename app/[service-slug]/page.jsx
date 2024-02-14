@@ -1,3 +1,4 @@
+import CustomServiceContainer from 'containers/CustomService';
 import {
   aboutRoutes,
   regionalDevelopmentRoutes,
@@ -20,4 +21,6 @@ export async function generateStaticParams() {
 
 export default function Page({ params }) {
   const { 'service-slug': slug } = params;
+
+  return <CustomServiceContainer type={slug} />;
 }
