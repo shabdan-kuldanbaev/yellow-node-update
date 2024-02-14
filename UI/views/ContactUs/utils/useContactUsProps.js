@@ -1,10 +1,10 @@
-import { useFetchPageQuery } from 'store/apis/page';
+import { getPage } from 'utils/dataFetching/getPage';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { BLOCKS_SLUGS, PAGES } from 'utils/constants';
 import { findBlock, rootUrl } from 'utils/helper';
 
-export default ({ type }) => {
-  const { data = {} } = useFetchPageQuery(type);
+export default async ({ type }) => {
+  const { data = {} } = await getPage(type);
   const {
     contentModules = [],
     metaData,

@@ -1,10 +1,10 @@
 import { useCallback, useState } from 'react';
-import { useFetchPageQuery } from 'store/apis/page';
+import { getPage } from 'utils/dataFetching/getPage';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { PAGES } from 'utils/constants';
 
-export default ({ type, ...restProps }) => {
-  const { data = {} } = useFetchPageQuery(type);
+export default async ({ type, ...restProps }) => {
+  const { data = {} } = await getPage(type);
   const { subtitle, pageTitle: title } = data;
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
   const breadcrumbs = getBreadcrumbs(PAGES.portfolio);

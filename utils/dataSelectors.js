@@ -2,7 +2,6 @@ import omitBy from 'lodash/omitBy';
 import isNil from 'lodash/isNil';
 import { store as reduxStore } from 'store/store';
 import blogApi from 'store/apis/blog';
-import pageApi from 'store/apis/page';
 import worksApi from 'store/apis/works';
 import {
   BLOCKS_SLUGS,
@@ -13,11 +12,12 @@ import {
 import { processes } from 'utils/processes';
 import { handleError } from './error';
 import { findBlock, getDocumentFields, rootUrl } from './helper';
+import { getPage } from './dataFetching/getPage';
 
 export const getPortfolioPageProps = async (state, store) => {
   await store.dispatch(worksApi.endpoints.loadTagsAndTypes.initiate());
 
-  const { data } = pageApi.endpoints.fetchPage.select(PAGES.portfolio)(state);
+  const { data } = await getPage(PAGES.portfolio);
 
   const portfolioProjects = findBlock(data.contentModules, BLOCKS_SLUGS.worksPagePreviewProjects);
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
@@ -65,7 +65,7 @@ export const getHomePageDataPros = async (state, store) => {
   const blogQuery = { limit: HOMEPAGE_ARTICLES_LIMIT };
   await store.dispatch(blogApi.endpoints.getArticlesList.initiate(blogQuery));
 
-  const { data } = pageApi.endpoints.fetchPage.select(PAGES.homepage)(state);
+  const { data } = await getPage(PAGES.homepage);
 
   const pageMetadata = {
     ...data.metaData,
@@ -89,11 +89,11 @@ export const getProcessProps = async (state, store) => ({ json: processes });
 
 export const getStaticPropsWrapper = (slug, selectors) => async () => {
   try {
-    await reduxStore.dispatch(pageApi.endpoints.fetchPage.initiate(slug));
+    await await getPage(slug);
 
     const state = reduxStore.getState();
     const pageData = selectors ? omitBy(await selectors(state, reduxStore), isNil) : {};
-    const { data } = pageApi.endpoints.fetchPage.select(slug)(state);
+    const { data } = await getPage(slug);
 
     return {
       props: {

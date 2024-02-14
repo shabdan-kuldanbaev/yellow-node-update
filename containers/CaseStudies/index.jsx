@@ -4,12 +4,12 @@ import MetaTags from 'components/Common/MetaTags';
 import { rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { routes } from 'utils/routes';
-import { useFetchPageQuery } from 'store/apis/page';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
+import { getPage } from 'utils/dataFetching/getPage';
 import styles from './styles.module.scss';
 
-const CaseStudiesContainer = ({ introSection, slug }) => {
-  const { data = {}, isLoading } = useFetchPageQuery(slug);
+const CaseStudiesContainer = async ({ introSection, slug }) => {
+  const { data = {}, isLoading } = await getPage(slug);
 
   if (isLoading) {
     return null;

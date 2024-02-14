@@ -5,17 +5,17 @@ import {
   getFileUrl,
   getOptimizedContentfulImage,
 } from 'utils/helper';
-import { useFetchPageQuery } from 'store/apis/page';
+import { getPage } from 'utils/dataFetching/getPage';
 import {
   CASES_BLACK_ICONS,
   socialNetworks as socials,
 } from './data';
 
-export const useCaseStudiesFooter = ({
+export const useCaseStudiesFooter = async ({
   type,
   pathname,
 }) => {
-  const { data: { contentModules } = {} } = useFetchPageQuery(type);
+  const { data: { contentModules } = {} } = await getPage(type);
 
   const lastContentModule = last(contentModules);
   const {

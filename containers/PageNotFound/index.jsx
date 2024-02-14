@@ -8,20 +8,19 @@ import {
   REVEAL_ANIMATION_PROPS,
 } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
-import { useFetchPageQuery } from 'store/apis/page';
-import { handleError } from 'utils/error';
+import { getPage } from 'utils/dataFetching/getPage';
 import json from './json/Idea.json';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
-const PageNotFound = ({ animation }) => {
+const PageNotFound = async ({ animation }) => {
   const {
     data: {
       metaTitle,
       metaDescription,
     } = {},
-  } = useFetchPageQuery(PAGES.notFound);
+  } = await getPage(PAGES.notFound);
 
   const pageMetadata = {
     metaTitle,

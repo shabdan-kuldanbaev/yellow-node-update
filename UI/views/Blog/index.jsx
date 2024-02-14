@@ -9,7 +9,7 @@ import PageHeader from 'UI/components/PageHeader';
 import FullLayout from 'components/Layout/FullLayout';
 import FullscreenSearch from 'components/BlogCommon/FullscreenSearch';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
-import { useFetchPageQuery } from 'store/apis/page';
+import { getPage } from 'utils/dataFetching/getPage';
 import { useGetArticlesListQuery } from 'store/apis/blog';
 import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
 import { rootUrl } from 'utils/helper';
@@ -22,7 +22,7 @@ import styles from './BlogContainer.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
 
-const BlogContainer = ({
+const BlogContainer = async ({
   tagsList,
   introSection,
   currentPage,
@@ -31,7 +31,7 @@ const BlogContainer = ({
 }) => {
   const [subscribe, { isLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
-  const { data: { metaData } = {} } = useFetchPageQuery(PAGES.blog);
+  const { data: { metaData } = {} } = await getPage(PAGES.blog);
   const { data = {} } = useGetArticlesListQuery(query);
   const { items: articles, total: totalArticles } = data;
 

@@ -25,7 +25,7 @@ export const useNav = ({
     }
   };
 
-  const closeDropDownMenu = () => setDesktopMenu(false);
+  const closeDropDownMenu = useCallback(() => setDesktopMenu(false), [setDesktopMenu]);
 
   const closeSmallDropDownMenu = useCallback(() => setIsSmallDropMenuOpened(false), []);
 

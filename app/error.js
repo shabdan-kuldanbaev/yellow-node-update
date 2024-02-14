@@ -1,10 +1,9 @@
 'use client';
 
 import PageNotFound from 'containers/PageNotFound';
-import { store } from 'store/store';
 import { PAGES } from 'utils/constants';
 import { handleError } from 'utils/error';
-import pageApi from 'store/apis/page';
+import { getPage } from 'utils/dataFetching/getPage';
 
 const Error = ({ statusCode, err }) => (statusCode
   ? statusCode === 404 && <PageNotFound />
@@ -26,7 +25,7 @@ Error.getInitialProps = async ({
   }
 
   if (statusCode === 404) {
-    await store.dispatch(pageApi.endpoints.fetchPage.initiate(PAGES.notFound));
+    await getPage(PAGES.notFound);
   }
 
   if (err) {

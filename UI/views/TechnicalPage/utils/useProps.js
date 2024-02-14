@@ -1,12 +1,12 @@
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { useFetchPageQuery } from 'store/apis/page';
+import { getPage } from 'utils/dataFetching/getPage';
 
-export default function useProps({
+export default async function useProps({
   type,
   ...rest
 }) {
-  const { data = {}, isLoading } = useFetchPageQuery(type);
+  const { data = {} } = await getPage(type);
   const { contentModules = [], metaData } = data;
 
   const textModule = contentModules[0] || {};

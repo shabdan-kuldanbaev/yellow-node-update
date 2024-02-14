@@ -3,18 +3,18 @@ import PageHeader from 'UI/components/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
-import { useFetchPageQuery } from 'store/apis/page';
+import { getPage } from 'utils/dataFetching/getPage';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import styles from './styles.module.scss';
 
 const WhyUsCommon = dynamic(() => import('UI/containers/WhyUsCommon').then((module) => module.WhyUsCommon));
 
-const WhyUs = ({
+const WhyUs = async ({
   metaData,
   type,
   introSection,
 }) => {
-  const { data = {} } = useFetchPageQuery(type);
+  const { data = {} } = await getPage(type);
   const { contentModules } = data;
 
   const breadcrumbs = getBreadcrumbs(type);

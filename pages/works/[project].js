@@ -1,7 +1,7 @@
 import { store } from 'store/store';
 import CaseStudiesContainer from 'containers/CaseStudies';
 import { handleError } from 'utils/error';
-import pageApi from 'store/apis/page';
+import { getPage } from 'utils/dataFetching/getPage';
 
 const Project = ({
   introSection,
@@ -15,9 +15,8 @@ const Project = ({
 
 export const getServerSideProps = async ({ query: { project } }) => {
   try {
-    await store.dispatch(pageApi.endpoints.fetchPage.initiate(project));
     const state = store.getState();
-    const { data } = pageApi.endpoints.fetchPage.select(project)(state);
+    const { data } = await getPage(project)(state);
 
     if (!data) {
       return {

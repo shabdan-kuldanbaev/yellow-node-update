@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'UI/components/PageHeader';
 import SectionSelector from 'UI/components/SectionSelector';
-import { useFetchPageQuery } from 'redux/apis/page';
+import { getPage } from 'utils/dataFetching/getPage';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
@@ -11,9 +11,9 @@ import styles from './styles.module.scss';
 
 const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'), { ssr: false });
 
-const CompanyContainer = (props) => {
+const CompanyContainer = async (props) => {
   const { type, introSection } = props;
-  const { data = {} } = useFetchPageQuery(type);
+  const { data = {} } = await getPage(type);
   const {
     contentModules,
     metaData,

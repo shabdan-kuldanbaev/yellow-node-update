@@ -4,12 +4,12 @@ import cn from 'classnames';
 import { getSignatureProps } from 'containers/Signature/utils/helpers';
 import SignatureGenerate from 'containers/Signature/SignatureGenerate';
 import SignatureGenerated from 'containers/Signature/SignatureGenerated';
-import { useFetchPageQuery } from 'store/apis/page';
+import { getPage } from 'utils/dataFetching/getPage';
 import { PAGES } from 'utils/constants';
 import styles from './styles.module.scss';
 
-const SignatureGenerator = () => {
-  const { data: main } = useFetchPageQuery(PAGES.signatureGenerator);
+const SignatureGenerator = async () => {
+  const { data: main } = await getPage(PAGES.signatureGenerator);
 
   const formRef = useRef(null);
   const signatureContainer = useRef(null);
