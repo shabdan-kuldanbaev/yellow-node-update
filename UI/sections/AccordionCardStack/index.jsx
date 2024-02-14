@@ -35,6 +35,7 @@ const AccordionCardStack = (props) => {
                 currentIndex={index}
                 activeIndex={activeIndex}
                 handleOnClick={handleOnAccordionClick}
+                className={styles.accordionItem}
               />
             ))}
           </div>

@@ -15,6 +15,10 @@
     }
   }
 
+  .accordionItem {
+    margin-bottom: 8px;
+  }
+
   @include below-tablet {
     padding: 60px 16px;
   }

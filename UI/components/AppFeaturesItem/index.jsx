@@ -21,6 +21,7 @@ const AppFeaturesItem = (props) => {
     handleOnClick,
     imagesUrl,
     customIcon,
+    className,
   } = useAppFeaturesItem(props);
 
   return (
@@ -34,6 +35,7 @@ const AppFeaturesItem = (props) => {
           styles.sectionItem,
           styles[type],
           styles[view],
+          className,
           {
             [styles.sectionActiveItem]: currentIndex === activeIndex,
           },

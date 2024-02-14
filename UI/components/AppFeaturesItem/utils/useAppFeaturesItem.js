@@ -7,6 +7,7 @@ export const useAppFeaturesItem = ({
   currentIndex,
   activeIndex,
   handleOnClick,
+  className,
 }) => {
   const {
     title,
@@ -32,5 +33,6 @@ export const useAppFeaturesItem = ({
     currentIndex,
     handleOnClick,
     customIcon,
+    className,
   };
 };
