@@ -12,7 +12,7 @@ export const useAppFeaturesItem = ({
     title,
     text,
     imagesBundles,
-    contentList: customIcon,
+    contentList: [customIcon],
   } = getDocumentFields(data, [
     'title',
     'text',

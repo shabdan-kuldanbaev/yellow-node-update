@@ -147,6 +147,7 @@ export const IMAGES = {
 
 export const SVG_IMAGES_TYPES = {
   arrowRight: 'arrowRight',
+  arrowLeft: 'arrowLeft',
   arrowNarrowDown: 'arrowNarrowDown',
   arrow: 'arrow1',
   bookmarkArrow: 'bookmarkArrow',
@@ -215,6 +216,7 @@ export const APP_DEVELOPMENT_TYPES = {
   feedback: 'feedback',
   parallax: 'case-study-parallax',
   softwarePriceForm: 'software-price-form',
+  accordionCardStack: 'accordion-card-stack',
 };
 
 export const WHY_US_TYPE = {
