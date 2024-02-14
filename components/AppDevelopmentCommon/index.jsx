@@ -27,6 +27,7 @@ const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
 const SoftwarePriceSection = dynamic(() => import('UI/sections/SoftwarePriceSection'));
 const BookCallIntro = dynamic(() => import('UI/sections/BookCallIntro'));
 const VideoSection = dynamic(() => import('UI/sections/VideoSection'));
+const AccordionCardStack = dynamic(() => import('UI/sections/AccordionCardStack'));
 
 export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   const {
@@ -185,6 +186,9 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
 
   case APP_DEVELOPMENT_TYPES.softwarePriceForm:
     return <SoftwarePriceSection {...props} />;
+
+  case APP_DEVELOPMENT_TYPES.accordionCardStack:
+    return <AccordionCardStack {...props} />;
 
   case 'book-call-intro':
     return (
