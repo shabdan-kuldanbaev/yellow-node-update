@@ -13,7 +13,7 @@ export const useAppFeaturesItem = ({
     title,
     text,
     imagesBundles,
-    contentList: [customIcon],
+    contentList,
   } = getDocumentFields(data, [
     'title',
     'text',
@@ -32,7 +32,7 @@ export const useAppFeaturesItem = ({
     activeIndex,
     currentIndex,
     handleOnClick,
-    customIcon,
+    customIcon: contentList?.[0],
     className,
   };
 };
