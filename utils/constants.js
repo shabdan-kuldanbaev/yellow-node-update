@@ -37,6 +37,7 @@ export const ACCESS_TO_CONTENTFUL_BLOG_PREVIEW = {
   isPreview: true,
 };
 
+// TODO: Replace with relative route.[route-name].slug to keep code suggestions
 export const PAGES = Object.entries(routes).reduce((acc, [key, { slug }]) => {
   acc[key] = slug;
 
