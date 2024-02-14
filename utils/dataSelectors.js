@@ -1,15 +1,12 @@
 import omitBy from 'lodash/omitBy';
 import isNil from 'lodash/isNil';
 import { store as reduxStore } from 'store/store';
-import blogApi from 'store/apis/blog';
 import worksApi from 'store/apis/works';
 import {
   BLOCKS_SLUGS,
   DEFAULT_WORKS_LIMIT,
-  HOMEPAGE_ARTICLES_LIMIT,
   PAGES,
 } from 'utils/constants';
-import { processes } from 'utils/processes';
 import { handleError } from './error';
 import { findBlock, getDocumentFields, rootUrl } from './helper';
 import { getPage } from './dataFetching/getPage';
@@ -60,8 +57,6 @@ export const getPortfolioPageProps = async (state, store) => {
     initialWorksList,
   };
 };
-
-export const getProcessProps = async (state, store) => ({ json: processes });
 
 export const getStaticPropsWrapper = (slug, selectors) => async () => {
   try {

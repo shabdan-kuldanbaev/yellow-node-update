@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'UI/components/PageHeader';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
@@ -7,16 +6,15 @@ import { PAGES, ROUTES } from 'utils/constants';
 import { useProcess } from './utils/useProcess';
 import styles from './styles.module.scss';
 
-const ProcessContainer = (props) => {
+const ProcessContainer = () => {
   const {
     json,
     breadcrumbs,
     pageMetadata,
-    introSection,
     isFullscreenEstimation,
     openFullscreenEstimation,
     closeFullscreenEstimation,
-  } = useProcess(props);
+  } = useProcess();
 
   return (
     <>
@@ -44,11 +42,6 @@ const ProcessContainer = (props) => {
       />
     </>
   );
-};
-
-ProcessContainer.propTypes = {
-  introSection: PropTypes.instanceOf(Object).isRequired,
-  json: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default ProcessContainer;

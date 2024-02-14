@@ -3,8 +3,9 @@ import { rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { getPage } from 'utils/dataFetching/getPage';
 import { PAGES } from 'utils/constants';
+import { processes } from 'utils/processes';
 
-export const useProcess = async ({ introSection, json }) => {
+export const useProcess = async () => {
   const { data: { metaData } = {} } = await getPage(PAGES.process);
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
@@ -18,10 +19,9 @@ export const useProcess = async ({ introSection, json }) => {
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
   return {
-    json,
+    json: processes,
     breadcrumbs,
     pageMetadata,
-    introSection,
     isFullscreenEstimation,
     openFullscreenEstimation,
     closeFullscreenEstimation,
