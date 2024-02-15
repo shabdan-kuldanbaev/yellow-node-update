@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
 import CaseStudiesCommon from 'components/CaseStudiesCommon';
 import MetaTags from 'components/Common/MetaTags';
@@ -6,10 +7,13 @@ import { PAGES } from 'utils/constants';
 import { routes } from 'utils/routes';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { getPage } from 'utils/dataFetching/getPage';
+import { IntroSectionContext } from 'utils/appContext';
 import styles from './styles.module.scss';
 
-const CaseStudiesContainer = async ({ introSection, slug }) => {
+const CaseStudiesContainer = async ({ slug }) => {
   const { data = {}, isLoading } = await getPage(slug);
+
+  const introSection = useContext(IntroSectionContext);
 
   if (isLoading) {
     return null;
@@ -34,19 +38,17 @@ const CaseStudiesContainer = async ({ introSection, slug }) => {
     ogImage,
   };
 
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! DONT FORGET TO USE IT DURING RESOLVING MERGE CONFLICT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   const breadcrumbs = getBreadcrumbs(PAGES.project, {
     slug,
     title: pageTitle,
   });
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! DONT FORGET TO USE IT DURING RESOLVING MERGE CONFLICT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   return (
     <>
       <MetaTags
         page={PAGES.portfolio}
         pageMetadata={projectMetadata}
-        breadcrumbs={breadcrumbs} // !!! AND HERE !!!
+        breadcrumbs={breadcrumbs}
       />
       <main className={styles.main}>
         {contentModules?.map(({ fields, sys }) => (
@@ -60,10 +62,6 @@ const CaseStudiesContainer = async ({ introSection, slug }) => {
       </main>
     </>
   );
-};
-
-CaseStudiesContainer.propTypes = {
-  introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default CaseStudiesContainer;

@@ -4,7 +4,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useLoadTagsAndTypesQuery } from 'store/apis/works';
+import { getWorkTagsAndTypes } from 'utils/dataFetching/getWorkTagsAndTypes';
 
 export default ({
   filters,
@@ -15,11 +15,10 @@ export default ({
 
   const [openedFilter, setOpenedFilter] = useState(null);
 
-  const { data = {} } = useLoadTagsAndTypesQuery();
   const {
     types = [],
     tags = [],
-  } = data;
+  } = getWorkTagsAndTypes();
 
   const getFilterOpenToggleHandler = (name) => ({ target }) => {
     const { current: [filterListRef1, fitlerListRef2] } = (filtersListRefs || {});
