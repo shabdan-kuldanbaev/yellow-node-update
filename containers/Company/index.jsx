@@ -7,7 +7,7 @@ import { getPage } from 'utils/dataFetching/getPage';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { IntroSectionContext } from 'utils/appContext';
+import { IntroSectionContext, PageFetchContext } from 'utils/appContext';
 import styles from './styles.module.scss';
 
 const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'), { ssr: false });
@@ -18,6 +18,9 @@ const CompanyContainer = async () => {
     contentModules,
     metaData,
   } = data;
+
+  const { setPageFetchQuery } = useContext(PageFetchContext);
+  setPageFetchQuery(PAGES.company);
 
   const introSection = useContext(IntroSectionContext);
 

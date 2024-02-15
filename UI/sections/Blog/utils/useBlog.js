@@ -1,9 +1,9 @@
-import blogApi from 'store/apis/blog';
 import { Mousewheel, Navigation } from 'swiper';
+import { getArticlesList } from 'utils/dataFetching/getArticlesList';
 import { getDocumentFields } from 'utils/helper';
 
-export const useBlog = ({ sectionData, blogQuery }) => {
-  const { data = {} } = blogApi.useGetArticlesListQuery(blogQuery);
+export const useBlog = async ({ sectionData, blogQuery }) => {
+  const { data = {} } = await getArticlesList(blogQuery);
   const { items: articles = [] } = data;
 
   const { title, description } = getDocumentFields(sectionData, ['title', 'description']);

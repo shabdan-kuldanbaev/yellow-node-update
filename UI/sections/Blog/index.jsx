@@ -11,13 +11,13 @@ import styles from './styles.module.scss';
 const Animated = dynamic(() => import('UI/containers/Animated'));
 const BlogCard = dynamic(() => import('UI/components/Cards/BlogCard'), { ssr: false });
 
-const Blog = (props) => {
+const Blog = async (props) => {
   const {
     title,
     description,
     articles,
     swiperProps,
-  } = useBlog(props);
+  } = await useBlog(props);
 
   return (
     <section className={styles.blog}>

@@ -11,7 +11,7 @@ import { getUserLocation } from 'utils/helper';
 import { leadSourceCookieName, userLocation } from 'utils/constants/cookieNames';
 import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
 
-export default function useApp(params) {
+export default function useApp() {
   const router = useRouter();
 
   const [contextData, setContextData] = useState({
@@ -19,6 +19,8 @@ export default function useApp(params) {
     isFirstHomepageVisit: false,
     duck: null,
   });
+
+  const [pageFetchQuery, setPageFetchQuery] = useState('');
 
   const introSection = useRef(null);
 
@@ -55,11 +57,13 @@ export default function useApp(params) {
   }), [contextData, setContextData]);
 
   const PageFetchContextValue = useMemo(() => ({
-    pageFetchQuery: params?.pageFetchQuery,
-  }), [params?.pageFetchQuery]);
+    pageFetchQuery,
+    setPageFetchQuery,
+  }), [pageFetchQuery, setPageFetchQuery]);
 
   return {
     introSection,
     AppContextValue,
+    PageFetchContextValue,
   };
 }

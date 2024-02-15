@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import CustomServiceContainer from 'containers/CustomService';
+import { PageFetchContext } from 'utils/appContext';
 import {
   aboutRoutes,
   regionalDevelopmentRoutes,
@@ -21,6 +23,9 @@ export async function generateStaticParams() {
 
 export default function Page({ params }) {
   const { 'service-slug': slug } = params;
+
+  const { setPageFetchQuery } = useContext(PageFetchContext);
+  setPageFetchQuery(slug);
 
   return <CustomServiceContainer type={slug} />;
 }
