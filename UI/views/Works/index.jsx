@@ -76,9 +76,9 @@ const WorksView = (props) => {
 };
 
 WorksView.propTypes = {
-  introSection: PropTypes.instanceOf(Object).isRequired,
   pageMetadata: PropTypes.instanceOf(Object).isRequired,
   works: PropTypes.instanceOf(Array).isRequired,
+  initialWorksList: PropTypes.instanceOf(Array).isRequired,
   link: PropTypes.instanceOf(Object).isRequired,
   subtitle: PropTypes.string.isRequired,
 };
