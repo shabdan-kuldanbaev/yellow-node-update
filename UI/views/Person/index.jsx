@@ -1,12 +1,12 @@
 import dynamic from 'next/dynamic';
 import MetaTags from 'components/Common/MetaTags';
 import Breadcrumbs from 'UI/components/Breadcrumbs';
-import { useGetArticlesRelatedToPersonQuery } from 'store/apis/blog';
 import { useFetchPersonQuery } from 'store/apis/person';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { PAGES } from 'utils/constants';
 import { getDocumentFields, getFileUrl, rootUrl } from 'utils/helper';
 import { routes } from 'utils/routes';
+import { getPersonRelatedArticles } from 'utils/dataFetching/getPersonRelatedArticles';
 import styles from './styles.module.scss';
 
 const PersonIntro = dynamic(() => import('UI/sections/PersonIntro'));
@@ -20,7 +20,7 @@ const PersonContainer = ({
   query,
 }) => {
   const { data: person = {} } = useFetchPersonQuery(query.slug);
-  const { data: articlesData } = useGetArticlesRelatedToPersonQuery(query);
+  const { data: articlesData } = getPersonRelatedArticles(query);
 
   const {
     fullName,

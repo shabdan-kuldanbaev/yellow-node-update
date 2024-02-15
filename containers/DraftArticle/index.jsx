@@ -5,10 +5,10 @@ import Article from 'components/BlogCommon/Article';
 import FullLayout from 'components/Layout/FullLayout';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
 import FAQ from 'UI/containers/FAQ';
-import { useGetDraftArticleQuery } from 'store/apis/blog';
+import { getDraftArticle } from 'utils/dataFetching/getDraftArticle';
 
 const DraftArticle = ({ introSection, slug }) => {
-  const { data: currentArticle } = useGetDraftArticleQuery(slug);
+  const currentArticle = getDraftArticle(slug);
 
   const {
     slug: articleSlug,

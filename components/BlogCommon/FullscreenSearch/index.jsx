@@ -8,7 +8,7 @@ import {
 import PropTypes from 'prop-types';
 import debounce from 'lodash/debounce';
 import ModalWindow from 'components/Common/ModalWindow';
-import { useGetSearchResultQuery } from 'store/apis/blog';
+import { getArticleSearchResult } from 'utils/dataFetching/getArticleSearchResult';
 import SearchResult from './SearchResult';
 import styles from './styles.module.scss';
 
@@ -17,7 +17,7 @@ const FullscreenSearch = ({ isFullscreenSearch, closeFullscreenSearch }) => {
 
   const [inputValue, setInputValue] = useState('');
   const [searchTerm, setSearchTerm] = useState(inputValue);
-  const { data: articles = [], isFetching } = useGetSearchResultQuery(searchTerm);
+  const { data: articles = [], isFetching } = getArticleSearchResult(searchTerm);
 
   const delayedQuery = useMemo(
     () => debounce((value) => setSearchTerm(value), 1000),

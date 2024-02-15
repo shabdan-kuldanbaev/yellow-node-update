@@ -15,42 +15,6 @@ import baseApi, { BASEQUERY_TYPES } from '.';
 
 const blogApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
-    getArticlesList: builder.query({
-      extraOptions: {
-        client: blogClient,
-        type: BASEQUERY_TYPES.graphql,
-      },
-      query({
-        slug,
-        skip,
-        limit,
-        isTag = false,
-        order = '[publishedAt_DESC]',
-      }) {
-        return isTag
-          ? GRAPHQL_QUERY.loadPreviewArticlesByTags({
-            limit,
-            skip,
-            order,
-            where: { slug },
-          }) : GRAPHQL_QUERY.loadPreviewArticles({
-            skip,
-            limit,
-            order,
-          });
-      },
-      transformResponse(response, _, { isTag }) {
-        return {
-          items: isTag
-            ? getGraphqlResultArticlesByTags(response)
-            : getGraphqlResultArticles(response),
-          total: isTag
-            ? getGraphqlResultTotalArticlesCountByTags(response)
-            : getGraphqlResultTotalArticlesCount(response),
-        };
-      },
-    }),
-
     getArticlesRelatedToPerson: builder.query({
       extraOptions: {
         client: blogClient,
@@ -196,15 +160,5 @@ const blogApi = baseApi.injectEndpoints({
     }),
   }),
 });
-
-export const {
-  useGetArticlesListQuery,
-  useGetTagsQuery,
-  useGetArticleQuery,
-  useGetSearchResultQuery,
-  useGetDraftArticleQuery,
-  useGetRelatedArticlesQuery,
-  useGetArticlesRelatedToPersonQuery,
-} = blogApi;
 
 export default blogApi;
