@@ -1,27 +1,22 @@
-import dynamic from 'next/dynamic';
 import MetaTags from 'components/Common/MetaTags';
 import Breadcrumbs from 'UI/components/Breadcrumbs';
-import { useFetchPersonQuery } from 'store/apis/person';
+import PersonIntro from 'UI/sections/PersonIntro';
+import PersonBlog from 'UI/sections/Blog/PersonBlog';
+import FeedbackSection from 'UI/sections/FeedbackSection';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { PAGES } from 'utils/constants';
+import { ARTICLES_NUMBER_PER_PERSON_PAGE, PAGES } from 'utils/constants';
 import { getDocumentFields, getFileUrl, rootUrl } from 'utils/helper';
 import { routes } from 'utils/routes';
-import { getPersonRelatedArticles } from 'utils/dataFetching/getPersonRelatedArticles';
 import styles from './styles.module.scss';
-
-const PersonIntro = dynamic(() => import('UI/sections/PersonIntro'));
-const PersonBlog = dynamic(() => import('UI/sections/Blog/PersonBlog'));
-const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'));
 
 const PersonContainer = ({
   currentPage,
-  articlesNumberPerPage,
   introSection,
   query,
+  person,
+  articlesData,
+  articlesNumberPerPage = ARTICLES_NUMBER_PER_PERSON_PAGE,
 }) => {
-  const { data: person = {} } = useFetchPersonQuery(query.slug);
-  const { data: articlesData } = getPersonRelatedArticles(query);
-
   const {
     fullName,
     metaTitle,
