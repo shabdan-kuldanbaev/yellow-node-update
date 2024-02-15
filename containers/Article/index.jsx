@@ -1,5 +1,5 @@
+import { useContext } from 'react';
 import dynamic from 'next/dynamic';
-import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import PageHeader from 'UI/components/PageHeader';
@@ -9,30 +9,28 @@ import SubscribeBlock from 'components/Common/SubscribeBlock';
 import FullLayout from 'components/Layout/FullLayout';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
-import PageNotFound from 'containers/PageNotFound';
-import { useGetArticleQuery } from 'store/apis/blog';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import usePageClusters from 'hooks/usePageClusters';
+import { IntroSectionContext } from 'utils/appContext';
 import { getArticleProps } from './utils/propsHelper';
 
 const FAQ = dynamic(() => import('UI/containers/FAQ'));
 
-const ArticleContainer = ({
-  introSection,
-  query,
-}) => {
+const ArticleContainer = ({ data }) => {
   const [subscribe, { isLoading: isSubscribeLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
-  const { data = {}, isError, isLoading } = useGetArticleQuery(query);
+  const introSection = useContext(IntroSectionContext);
+
   const {
     article,
     next: olderArticle,
     prev: newerArticle,
     related,
   } = data;
+
   const pageClusters = usePageClusters();
 
   const {
@@ -40,14 +38,6 @@ const ArticleContainer = ({
     pathname,
     asPath,
   } = useRouter();
-
-  if (isError) {
-    return <PageNotFound />;
-  }
-
-  if (isLoading) {
-    return null;
-  }
 
   // const { slug: prevArticleSlug } = olderArticle;
   // const { slug: nextArticleSlug } = newerArticle;
@@ -162,10 +152,6 @@ const ArticleContainer = ({
       </FullLayout>
     </>
   );
-};
-
-ArticleContainer.propTypes = {
-  introSection: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default ArticleContainer;

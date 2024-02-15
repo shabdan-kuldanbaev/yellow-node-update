@@ -399,11 +399,19 @@ export const blogPagesRoutes = {
     slug: 'blog',
     path: rootBlogPath,
     // TODO think a better solution
-    getRoute: (category, page = '1') => getPageRoute(
-      category,
-      blogRoutes,
-      page,
-    ),
+    getRoute: (tag, page = 1) => {
+      const params = new URLSearchParams();
+
+      if (tag) {
+        params.set('category', tag);
+      }
+
+      if (page > 1) {
+        params.set('page', page);
+      }
+
+      return { path: `/blog?${params.toString()}` };
+    },
     dynamicPath: {
       ...dynamicBlogPaths,
     },

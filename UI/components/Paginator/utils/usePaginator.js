@@ -1,4 +1,4 @@
-import Router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { ROUTES } from 'utils/constants';
 
 export const usePaginator = ({
@@ -8,7 +8,7 @@ export const usePaginator = ({
   className,
 }) => {
   let [previous, next] = ['', ''];
-  const { query: { slug: category } } = useRouter();
+  const { query: { slug: category }, push: navigateTo } = useRouter();
 
   if (currentPage > 3) previous = pagesCounter > 4 ? 'start' : '';
 
@@ -18,10 +18,7 @@ export const usePaginator = ({
     const { path, dynamicPath } = ROUTES[pageSlug].getRoute(currentCategory, nextPage);
 
     window.scrollTo(0, 0);
-    Router.push(
-      { pathname: dynamicPath },
-      { pathname: path },
-    );
+    navigateTo(path);
   };
 
   const handleOnPreviousClick = () => pushRouter(category, 1);

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { ROUTES } from 'utils/constants';
+import LinkWrapper from 'UI/components/LinkWrapper';
 import styles from './styles.module.scss';
 
 export const TagsBlock = ({ tags }) => {
@@ -14,13 +15,13 @@ export const TagsBlock = ({ tags }) => {
       </span>
       <div className={styles.tagsList}>
         {tags.map(({ title, slug }) => (
-          <a
+          <LinkWrapper
             key={title}
-            href={ROUTES.blog.getRoute(slug).path}
+            path={ROUTES.blog.getRoute(slug).path}
             className={styles.tag}
           >
             {title}
-          </a>
+          </LinkWrapper>
         ))}
       </div>
     </div>

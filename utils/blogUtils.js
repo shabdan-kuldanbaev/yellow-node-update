@@ -1,9 +1,8 @@
 import blogApi from 'store/apis/blog';
 import { isNumeric } from 'utils/helper';
 import { handleError } from 'utils/error';
-import { ARTICLES_NUMBER_PER_PAGE, PAGES } from 'utils/constants';
+import { ARTICLES_NUMBER_PER_PAGE } from 'utils/constants';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
-import { getPage } from './dataFetching/getPage';
 
 export const checkIfSlugIsTag = (tags, slug) => !!tags.find(({ slug: tagSlug }) => slug === tagSlug);
 
@@ -52,7 +51,6 @@ export const getInitialBlogProps = async (store, ctx) => {
       Object.assign(query, { skip, limit });
 
       actions.push(store.dispatch(blogApi.endpoints.getArticlesList.initiate(query)));
-      await getPage(PAGES.blog);
 
       Object.assign(props, {
         currentPage: page || 1,

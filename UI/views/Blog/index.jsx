@@ -1,5 +1,5 @@
+import { useContext } from 'react';
 import dynamic from 'next/dynamic';
-import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import Paginator from 'UI/components/Paginator';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
@@ -10,30 +10,30 @@ import FullLayout from 'components/Layout/FullLayout';
 import FullscreenSearch from 'components/BlogCommon/FullscreenSearch';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
 import { getPage } from 'utils/dataFetching/getPage';
-import { useGetArticlesListQuery } from 'store/apis/blog';
 import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
 import { rootUrl } from 'utils/helper';
-import { PAGES, ROUTES, SVG_IMAGES_TYPES } from 'utils/constants';
+import {
+  ARTICLES_NUMBER_PER_PAGE, PAGES, ROUTES, SVG_IMAGES_TYPES,
+} from 'utils/constants';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import useToggle from 'hooks/useToggle';
-import { categoriesMetaData } from './utils/data';
-import { findCategoryBySlug, findTagBySlug } from './utils/blogContainerHelper';
+import { IntroSectionContext } from 'utils/appContext';
+import { findTagBySlug } from './utils/blogContainerHelper';
 import styles from './BlogContainer.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
 
 const BlogContainer = async ({
-  tagsList,
-  introSection,
+  articles,
+  totalArticles,
   currentPage,
-  articlesNumberPerPage,
-  query,
+  tagsList,
 }) => {
   const [subscribe, { isLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
+  const introSection = useContext(IntroSectionContext);
+
   const { data: { metaData } = {} } = await getPage(PAGES.blog);
-  const { data = {} } = useGetArticlesListQuery(query);
-  const { items: articles, total: totalArticles } = data;
 
   const [isFullscreenSearch, toggleFullscreenSearch] = useToggle(false);
   const [isFullscreenSubscribe, toggleFullscreenSubscribe] = useToggle(false);
@@ -44,9 +44,8 @@ const BlogContainer = async ({
   } = useRouter();
 
   const tag = findTagBySlug(tagsList, slug);
-  const category = findCategoryBySlug(categoriesMetaData, slug);
 
-  const pagesCounter = Math.ceil(totalArticles / articlesNumberPerPage);
+  const pagesCounter = Math.ceil(totalArticles / ARTICLES_NUMBER_PER_PAGE);
   const breadcrumbs = getBreadcrumbs(PAGES.blog, { slug, tagsList });
   const pageMetadata = {
     ...metaData,
@@ -54,23 +53,11 @@ const BlogContainer = async ({
     pageNumber: currentPage,
   };
 
-  if (tag || category) {
+  if (tag || currentPage > 1) {
     pageMetadata.metaRobots = 'noindex,follow';
   }
 
   let pageTitle = '';
-
-  if (category) {
-    const {
-      metaTitle: categoryMetaTitle,
-      metaDescription: categoryMetaDescription,
-      pageTitle: categoryTitle,
-    } = category;
-
-    pageMetadata.metaTitle = categoryMetaTitle;
-    pageMetadata.metaDescription = categoryMetaDescription;
-    pageTitle = categoryTitle;
-  }
 
   if (tag) {
     const {
@@ -144,12 +131,6 @@ const BlogContainer = async ({
       />
     </>
   );
-};
-
-BlogContainer.propTypes = {
-  introSection: PropTypes.instanceOf(Object).isRequired,
-  currentPage: PropTypes.number.isRequired,
-  articlesNumberPerPage: PropTypes.number.isRequired,
 };
 
 export default BlogContainer;
