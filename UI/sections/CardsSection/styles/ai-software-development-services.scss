@@ -19,6 +19,10 @@
   &.secondSectionView {
     background-color: $gray900;
 
+    .title {
+      display: none;
+    }
+
     .cardList {
       @include flex(row, space-between, flex-start, wrap);
 
@@ -42,9 +46,13 @@
       width: 100%;
 
       h3 {
-        @include fontSize(30px, 150%);
+        @include fontSize(56px, 120%);
 
         color: $yellow500;
+
+        @include below-tablet {
+          @include fontSize(48px, 130%);
+        }
       }
 
       p {
@@ -81,6 +89,10 @@
       background-color: transparent;
       border: none;
       width: 100%;
+
+      h3 {
+        text-align: center;
+      }
     }
 
     .callToAction {

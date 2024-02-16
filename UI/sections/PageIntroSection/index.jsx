@@ -60,7 +60,7 @@ const PageIntroSection = (props) => {
                 </Typography>
               ))}
             </Animated>
-            {links.length > 0 && (
+            {links?.length > 0 && (
               <div className={styles.buttonWrapper}>
                 {links?.map((link, index) => (
                   <Animated
