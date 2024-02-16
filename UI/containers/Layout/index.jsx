@@ -14,16 +14,21 @@ const Layout = (props) => {
     children,
     introSection,
     isDuckLoading,
+    withoutIndexing,
   } = useLayout(props);
 
   return (
     <>
       {isDuckLoading && <LoadingScreen />}
-      <CookiesNotification />
-      <Header introSection={introSection} />
-      {children}
-      <Footer />
-      <GAnalytic />
+      {withoutIndexing ? children : (
+        <>
+          <CookiesNotification />
+          <Header introSection={introSection} />
+          {children}
+          <Footer />
+          <GAnalytic />
+        </>
+      )}
       {/* <VideoAsk /> */}
     </>
   );

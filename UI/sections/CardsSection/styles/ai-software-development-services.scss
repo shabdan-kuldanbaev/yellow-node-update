@@ -1,0 +1,103 @@
+.ai-software-development-services {
+  &.firstSectionView {
+    background-color: $gray0;
+
+    .title h2 {
+      max-width: 550px;
+    }
+
+    .card {
+      border: none;
+    }
+
+    .callToAction {
+      background-color: $gray50;
+      border: none;
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $gray900;
+
+    .title {
+      display: none;
+    }
+
+    .cardList {
+      @include flex(row, space-between, flex-start, wrap);
+
+      margin: 0;
+      gap: 24px;
+
+      & > div {
+        flex: 0 0 15%;
+        margin: 0;
+
+        @include below-tablet {
+          flex: 0 0 45%;
+        }
+      }
+    }
+
+    .card {
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      width: 100%;
+
+      h3 {
+        @include fontSize(56px, 120%);
+
+        color: $yellow500;
+
+        @include below-tablet {
+          @include fontSize(48px, 130%);
+        }
+      }
+
+      p {
+        color: $gray400;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .title {
+      max-width: 550px;
+    }
+
+    .cardList {
+      @include flex(row, space-between, flex-start, wrap);
+
+      margin: 0;
+      gap: 32px;
+
+      & > div {
+        flex: 0 0 45%;
+        margin: 0;
+      }
+
+      @include below-tablet {
+        gap: 24px;
+      }
+    }
+
+    .card {
+      @include flex(column, center, center);
+
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      width: 100%;
+
+      h3 {
+        text-align: center;
+      }
+    }
+
+    .callToAction {
+      background-color: $gray50;
+      border: none;
+    }
+  }
+}

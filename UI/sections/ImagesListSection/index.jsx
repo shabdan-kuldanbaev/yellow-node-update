@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
 import Illustration from 'UI/components/Illustration';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import Media from 'UI/components/Media';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -39,10 +40,9 @@ const ImagesListSection = (props) => {
               {...REVEAL_ANIMATION_PROPS}
               transitionDelay={50 * index}
             >
-              <Illustration
+              <Media
                 className={cn(styles.image, styles[`image-${index + 1}`])}
-                src={image.url}
-                alt={image.alt}
+                asset={image}
               />
             </Animated>
           ))}

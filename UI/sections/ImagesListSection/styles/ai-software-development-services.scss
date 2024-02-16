@@ -1,0 +1,18 @@
+.ai-software-development-services {
+  background-color: $gray50;
+
+  .imagesList {
+    @include flex(row, center, initial, wrap);
+
+    gap: 32px;
+  }
+
+  .image {
+    width: 378px;
+    aspect-ratio: 378/208;
+
+    @include phone {
+      width: 300px;
+    }
+  }
+}
