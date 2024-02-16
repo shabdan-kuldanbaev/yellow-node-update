@@ -41,6 +41,7 @@ export const WHITE_LOGO_TYPE = [
   CASE_STUDIES.hawkin,
   CASE_STUDIES.hyve,
   CASE_STUDIES.paymentGateway,
+  ROUTES.aiSoftwareDevelopmentServices.path,
 ];
 
 export const BLACK_LOGO_TYPE = [
@@ -96,6 +97,7 @@ export const WHITE_TEXT_LOGO = [
   ROUTES.bookCall.path,
   ROUTES.customWebApp.path,
   ROUTES.fintechDevelopment.path,
+  ROUTES.aiSoftwareDevelopmentServices.slug,
 ];
 
 export const getLogoType = (type) => {

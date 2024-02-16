@@ -658,6 +658,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.crowdfundingPlatform,
   PAGES.paymentGatewayDevelopment,
   PAGES.billingSoftwareDevelopment,
+  PAGES.aiSoftwareDevelopmentServices,
 ];
 
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
@@ -719,4 +720,8 @@ export const VALUABLE_ARTICLE_CATEGORIES_SLUGS = [
   'software-development',
   'software-chat',
   'marketing',
+];
+
+export const PAGES_WITHOUT_INDEXING = [
+  ROUTES.aiSoftwareDevelopmentServices.path,
 ];
