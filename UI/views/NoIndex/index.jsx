@@ -6,6 +6,7 @@ import SimpleHeader from 'UI/sections/SimpleHeader';
 import { useFetchPageQuery } from 'redux/apis/page';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
+import LoadingScreen from 'UI/components/LoadingScreen';
 import { isDarkTheme } from './helper';
 import styles from './styles.module.scss';
 
@@ -17,7 +18,7 @@ const AppDevelopmentCommon = dynamic(
 );
 
 const NoIndexPageContainer = ({ introSection, slug, title }) => {
-  const { data = {} } = useFetchPageQuery(slug);
+  const { data = {}, isLoading } = useFetchPageQuery(slug);
 
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
@@ -36,32 +37,36 @@ const NoIndexPageContainer = ({ introSection, slug, title }) => {
   const dark = isDarkTheme(slug);
 
   return (
-    <>
-      <Head>
-        <title>{title}</title>
-        <meta
-          name="robots"
-          content="noindex,nofollow"
-        />
-      </Head>
-      <main className={classNames({ [styles.dark]: dark })}>
-        <SimpleHeader
-          breadcrumbs={breadcrumbs}
-          dark={dark}
-          type={slug}
-        />
-        {pageContent?.map(({ key, ...rest }) => (
-          <AppDevelopmentCommon
-            key={key}
-            {...rest}
+    isLoading
+      ? <LoadingScreen />
+      : (
+        <>
+          <Head>
+            <title>{title}</title>
+            <meta
+              name="robots"
+              content="noindex,nofollow"
+            />
+          </Head>
+          <main className={classNames({ [styles.dark]: dark })}>
+            <SimpleHeader
+              breadcrumbs={breadcrumbs}
+              dark={dark}
+              type={slug}
+            />
+            {pageContent?.map(({ key, ...rest }) => (
+              <AppDevelopmentCommon
+                key={key}
+                {...rest}
+              />
+            ))}
+          </main>
+          <FullScreenEstimation
+            isFullscreenEstimation={isFullscreenEstimation}
+            closeFullscreenEstimation={closeFullscreenEstimation}
           />
-        ))}
-      </main>
-      <FullScreenEstimation
-        isFullscreenEstimation={isFullscreenEstimation}
-        closeFullscreenEstimation={closeFullscreenEstimation}
-      />
-    </>
+        </>
+      )
   );
 };
 
