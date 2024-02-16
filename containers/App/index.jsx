@@ -1,3 +1,5 @@
+'use client';
+
 import Layout from 'UI/containers/Layout';
 import { ReduxProvider } from 'store/provider';
 import { AppContext, IntroSectionContext, PageFetchContext } from 'utils/appContext';

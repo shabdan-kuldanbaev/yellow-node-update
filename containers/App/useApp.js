@@ -1,10 +1,12 @@
+'use client';
+
 import {
   useEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { getCookie, setCookie } from 'cookies-next';
 import smoothscroll from 'smoothscroll-polyfill';
 import { getUserLocation } from 'utils/helper';

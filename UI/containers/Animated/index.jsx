@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable react/destructuring-assignment */
 import dynamic from 'next/dynamic';
 import { ANIMATED_TYPE } from 'utils/constants';

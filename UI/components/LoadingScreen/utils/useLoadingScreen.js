@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef, useEffect } from 'react';
 import { firstPageLoaded } from 'store/reducers/layout';
 import { useDispatch, useSelector } from 'react-redux';

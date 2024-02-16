@@ -39,10 +39,12 @@ const CaseStudiesFooter = (props) => {
             className={styles.more}
             isLocalLink
           >
-            <Typography className={styles.textIndent}>
-              {buttonTitle}
-            </Typography>
-            <Svg type={SVG_IMAGES_TYPES.arrow} />
+            <>
+              <Typography className={styles.textIndent}>
+                {buttonTitle}
+              </Typography>
+              <Svg type={SVG_IMAGES_TYPES.arrow} />
+            </>
           </LinkWrapper>
         </div>
       )}

@@ -19,14 +19,16 @@ const Logo = (props) => {
       path={ROUTES.homepage.path}
       className={styles.linkWrapper}
     >
-      <Svg
-        type={svgLogoType}
-        className={styles.logoImage}
-      />
-      <Svg
-        type={svgTextLogoType}
-        className={styles.logoText}
-      />
+      <>
+        <Svg
+          type={svgLogoType}
+          className={styles.logoImage}
+        />
+        <Svg
+          type={svgTextLogoType}
+          className={styles.logoText}
+        />
+      </>
     </LinkWrapper>
   );
 };

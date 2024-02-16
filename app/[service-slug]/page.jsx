@@ -1,11 +1,10 @@
-import { useContext } from 'react';
 import CustomServiceContainer from 'containers/CustomService';
-import { PageFetchContext } from 'utils/appContext';
 import {
   aboutRoutes,
   regionalDevelopmentRoutes,
   serviceDevelopmentRoutes,
 } from 'utils/routes';
+import { getPage } from 'utils/dataFetching/getPage';
 
 export async function generateStaticParams() {
   const routes = [
@@ -21,11 +20,16 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Page({ params }) {
+export default async function Page({ params }) {
   const { 'service-slug': slug } = params;
 
-  const { setPageFetchQuery } = useContext(PageFetchContext);
-  setPageFetchQuery(slug);
+  const { data = {}, metaData } = await getPage(slug);
 
-  return <CustomServiceContainer type={slug} />;
+  return (
+    <CustomServiceContainer
+      type={slug}
+      data={data}
+      metaData={metaData}
+    />
+  );
 }

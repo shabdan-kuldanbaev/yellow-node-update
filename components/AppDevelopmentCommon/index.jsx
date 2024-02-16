@@ -32,7 +32,7 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   const {
     type,
     section,
-    handleOnCTAClick,
+    handleOnCTAClick = () => {},
   } = props;
 
   if (!section.fields) {
@@ -200,12 +200,6 @@ export const AppDevelopmentCommon = ({ introSection, ...props }) => {
   default:
     return null;
   }
-};
-
-AppDevelopmentCommon.defaultProps = {
-  handleOnCTAClick: () => {
-  },
-  introSection: null,
 };
 
 AppDevelopmentCommon.propTypes = {

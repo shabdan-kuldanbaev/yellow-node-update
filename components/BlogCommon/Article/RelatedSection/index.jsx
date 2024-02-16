@@ -22,11 +22,13 @@ const RelatedSection = ({ articles }) => (
           isLocalLink
           path={ROUTES.blog.path}
         >
-          See all posts
-          <Svg
-            type={SVG_IMAGES_TYPES.nearbyArrow}
-            className={styles.svgContainer}
-          />
+          <>
+            See all posts
+            <Svg
+              type={SVG_IMAGES_TYPES.nearbyArrow}
+              className={styles.svgContainer}
+            />
+          </>
         </LinkWrapper>
       </div>
     </div>

@@ -15,14 +15,16 @@ export const Author = ({
       path={`/person/${slug}`}
       className={styles.author}
     >
-      <div
-        style={{ backgroundImage: `url(${avatarImage})` }}
-        className={styles.avatar}
-      />
-      <div className={styles.authorInfo}>
-        <p>{fullName}</p>
-        <span>{position}</span>
-      </div>
+      <>
+        <div
+          style={{ backgroundImage: `url(${avatarImage})` }}
+          className={styles.avatar}
+        />
+        <div className={styles.authorInfo}>
+          <p>{fullName}</p>
+          <span>{position}</span>
+        </div>
+      </>
     </LinkWrapper>
   ) : (
     <div className={styles.author}>

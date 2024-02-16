@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { SUB_NAVIGATION_ITEMS, SUB_NAVIGATION_LINKS } from 'utils/constants';
 

@@ -30,20 +30,22 @@ const LinkList = (props) => {
             className={styles.linkContainer}
           >
             <LinkWrapper path={url}>
-              <Svg
-                type={svgType}
-                className={styles.linkSvg}
-              />
-              <Typography
-                variant="p"
-                className={styles.linkTitle}
-              >
-                {linkTitle}
-              </Typography>
-              <Svg
-                type={SVG_IMAGES_TYPES.arrowRight}
-                className={styles.arrow}
-              />
+              <>
+                <Svg
+                  type={svgType}
+                  className={styles.linkSvg}
+                />
+                <Typography
+                  variant="p"
+                  className={styles.linkTitle}
+                >
+                  {linkTitle}
+                </Typography>
+                <Svg
+                  type={SVG_IMAGES_TYPES.arrowRight}
+                  className={styles.arrow}
+                />
+              </>
             </LinkWrapper>
           </div>
         ))}

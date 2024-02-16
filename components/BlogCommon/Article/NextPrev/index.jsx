@@ -21,11 +21,13 @@ const NextPrev = ({ isNewer, slug }) => {
         path={path}
         dynamicRouting={dynamicPath}
       >
-        <span>{isNewer ? 'next post' : 'previous post'}</span>
-        <Svg
-          type={SVG_IMAGES_TYPES.nearbyArrow}
-          className={styles.arrow}
-        />
+        <>
+          <span>{isNewer ? 'next post' : 'previous post'}</span>
+          <Svg
+            type={SVG_IMAGES_TYPES.nearbyArrow}
+            className={styles.arrow}
+          />
+        </>
       </LinkWrapper>
     </div>
   );
