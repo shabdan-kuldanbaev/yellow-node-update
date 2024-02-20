@@ -5,6 +5,7 @@ import { Figures } from 'UI/components/Figures';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
+import { getDocumentFields } from 'utils/helper';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -62,22 +63,31 @@ const PageIntroSection = (props) => {
             </Animated>
             {links?.length > 0 && (
               <div className={styles.buttonWrapper}>
-                {links?.map((link, index) => (
-                  <Animated
-                    key={`${link.url}-${link.buttonTitle}`}
-                    {...REVEAL_ANIMATION_PROPS}
-                  >
+                {links?.map((link, index) => {
+                  const {
+                    url,
+                    buttonTitle,
+                  } = getDocumentFields(link, [
+                    'buttonTitle',
+                    'url',
+                  ]);
 
-                    <Button
-                      onClick={link.url ? null : handleOnCTAClick}
-                      className={cn(styles.button, styles[`button-${index + 1}`])}
-                      href={link.url}
-                      data-button
+                  return (
+                    <Animated
+                      key={`${link.url}-${link.buttonTitle}`}
+                      {...REVEAL_ANIMATION_PROPS}
                     >
-                      {link.buttonTitle}
-                    </Button>
-                  </Animated>
-                ))}
+                      <Button
+                        onClick={url ? null : handleOnCTAClick}
+                        className={cn(styles.button, styles[`button-${index + 1}`])}
+                        href={url}
+                        data-button
+                      >
+                        {buttonTitle}
+                      </Button>
+                    </Animated>
+                  );
+                })}
               </div>
             )}
           </div>

@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import SectionTitle from 'UI/components/SectionTitle';
-import Illustration from 'UI/components/Illustration';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import Media from 'UI/components/Media';
 import useParallaxProps from './utils/useParallaxProps';
 import styles from './styles.module.scss';
 
@@ -14,7 +14,7 @@ const CaseParallax = (props) => {
     type,
     view,
     sectionTitles,
-    bundleImages,
+    imagesBundles,
     contentList,
     className,
     parallaxProps,
@@ -46,11 +46,10 @@ const CaseParallax = (props) => {
           )}
       </SectionTitle>
       <div {...parallaxProps}>
-        {bundleImages?.map((src, index) => (
-          <Illustration
+        {imagesBundles?.map((image, index) => (
+          <Media
             key={index}
-            lazyBoundary="2000px"
-            src={src}
+            asset={image}
             className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
           />
         ))}

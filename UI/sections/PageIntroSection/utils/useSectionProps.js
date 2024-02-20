@@ -38,21 +38,14 @@ export default ({
     return linkType === 'scroll-block';
   });
 
-  const links = contentModules?.map((module) => {
+  const links = contentModules?.filter((module) => {
     const {
       type: linkType,
-      url,
-      buttonTitle,
     } = getDocumentFields(module, [
       'type',
-      'url',
-      'buttonTitle',
     ]);
 
-    return linkType === 'button' && {
-      buttonTitle,
-      url,
-    };
+    return linkType === 'button';
   });
 
   return {
