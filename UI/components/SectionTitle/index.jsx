@@ -9,12 +9,12 @@ import styles from './styles.module.scss';
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const SectionTitle = ({
-  type,
+  type = 'default',
   titleStyle,
   title,
-  titleVariant,
+  titleVariant = 'h2',
   secondTitle,
-  secondTitleVariant,
+  secondTitleVariant = 'h3',
   subtitle,
   secondSubtitle,
   description,
@@ -140,20 +140,6 @@ const SectionTitle = ({
       {children}
     </div>
   );
-};
-
-SectionTitle.defaultProps = {
-  type: 'default',
-  titleStyle: '',
-  subtitle: '',
-  description: null,
-  className: null,
-  title: null,
-  secondTitle: '',
-  secondSubtitle: '',
-  secondDescription: '',
-  titleVariant: 'h2',
-  secondTitleVariant: 'h3',
 };
 
 SectionTitle.propTypes = {

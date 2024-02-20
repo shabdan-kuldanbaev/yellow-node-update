@@ -10,11 +10,11 @@ import styles from './styles.module.scss';
 
 export const ArticlesList = ({
   articles,
-  isSearch,
-  isBlogPage,
-  currentPage,
-  handleOnCloseModalWindow,
   toggleFullscreenSubscribe,
+  currentPage,
+  isSearch = false,
+  isBlogPage = false,
+  handleOnCloseModalWindow = () => {},
 }) => {
   const isMobileResolution = useSelector(selectIsMobile);
 
@@ -59,12 +59,6 @@ export const ArticlesList = ({
       })}
     </div>
   );
-};
-
-ArticlesList.defaultProps = {
-  isSearch: false,
-  isBlogPage: false,
-  handleOnCloseModalWindow: () => {},
 };
 
 ArticlesList.propTypes = {

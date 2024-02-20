@@ -9,7 +9,7 @@ import styles from './styles.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
 
-const SideContent = ({ socialMedia: socialMediaList }) => {
+const SideContent = ({ socialMedia: socialMediaList = socialMedia }) => {
   const pathname = usePathname();
 
   return (
@@ -47,10 +47,6 @@ const SideContent = ({ socialMedia: socialMediaList }) => {
       </div>
     </div>
   );
-};
-
-SideContent.defaultProps = {
-  socialMedia,
 };
 
 SideContent.propTypes = {

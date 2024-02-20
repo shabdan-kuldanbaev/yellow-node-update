@@ -5,7 +5,6 @@ import Typography from 'UI/components/Typography';
 import { ANIMATED_TYPE, SVG_IMAGES_TYPES } from 'utils/constants';
 import { FieldsWrapper } from 'UI/components/FieldsWrapper';
 import useProps from './utils/useProps';
-import { mainContent } from '../utils/data';
 import styles from './styles.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
@@ -63,10 +62,6 @@ const MainContentWithExpand = (props) => {
       ))}
     </div>
   );
-};
-
-MainContentWithExpand.defaultProps = {
-  mainContent,
 };
 
 MainContentWithExpand.propTypes = {

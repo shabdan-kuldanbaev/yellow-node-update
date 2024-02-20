@@ -54,10 +54,6 @@ const Portfolio = (props) => {
   );
 };
 
-Portfolio.defaultProps = {
-  sectionData: {},
-};
-
 Portfolio.propTypes = {
   sectionData: PropTypes.instanceOf(Object),
 };

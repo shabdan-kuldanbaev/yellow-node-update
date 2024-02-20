@@ -81,10 +81,6 @@ const CaseFeaturesSection = (props) => {
   );
 };
 
-CaseFeaturesSection.defaultProps = {
-  type: '',
-};
-
 CaseFeaturesSection.propTypes = {
   type: PropTypes.string,
   data: PropTypes.instanceOf(Object).isRequired,

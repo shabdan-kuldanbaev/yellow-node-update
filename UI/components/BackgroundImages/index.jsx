@@ -26,10 +26,6 @@ const BackgroundImages = (props) => {
   );
 };
 
-BackgroundImages.defaultProps = {
-  type: '',
-};
-
 BackgroundImages.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,

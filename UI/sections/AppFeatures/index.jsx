@@ -66,10 +66,6 @@ const AppFeatures = (props) => {
   );
 };
 
-AppFeatures.defaultProps = {
-  isPromoImage: false,
-};
-
 AppFeatures.propTypes = {
   section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,

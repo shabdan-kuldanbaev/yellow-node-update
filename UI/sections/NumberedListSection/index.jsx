@@ -17,7 +17,7 @@ const NumberedListSection = (props) => {
     view,
     title,
     description,
-    handleOnCTAClick,
+    handleOnCTAClick = () => {},
     noCardBackground,
     linkData,
   } = useCheckListSection(props);
@@ -66,10 +66,6 @@ const NumberedListSection = (props) => {
       </div>
     </section>
   );
-};
-
-NumberedListSection.defaultProps = {
-  handleOnCTAClick: () => {},
 };
 
 NumberedListSection.propTypes = {

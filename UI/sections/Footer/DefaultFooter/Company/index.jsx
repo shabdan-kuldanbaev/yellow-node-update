@@ -4,7 +4,7 @@ import { FieldsWrapper } from 'UI/components/FieldsWrapper';
 import { companyLinks } from '../utils/data';
 import styles from './styles.module.scss';
 
-const Company = ({ data }) => (
+const Company = ({ data = companyLinks }) => (
   <div className={styles.container}>
     <Typography
       variant="span"
@@ -26,10 +26,6 @@ const Company = ({ data }) => (
     ))}
   </div>
 );
-
-Company.defaultProps = {
-  data: companyLinks,
-};
 
 Company.propTypes = {
   data: PropTypes.instanceOf(Array),

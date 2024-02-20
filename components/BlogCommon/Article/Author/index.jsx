@@ -4,10 +4,10 @@ import styles from './styles.module.scss';
 
 export const Author = ({
   author: {
-    avatarImage,
-    fullName,
-    position,
-    slug,
+    avatarImage = '',
+    fullName = '',
+    position = '',
+    slug = '',
   },
 }) => (avatarImage && fullName && position) && (
   slug ? (
@@ -39,14 +39,6 @@ export const Author = ({
     </div>
   )
 );
-
-Author.defaultProps = {
-  author: {
-    avatarImage: '',
-    fullName: '',
-    position: '',
-  },
-};
 
 Author.propTypes = {
   author: PropTypes.shape({

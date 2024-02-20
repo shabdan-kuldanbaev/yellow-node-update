@@ -6,7 +6,10 @@ import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
-const Process = ({ processes, handleOnCTAClick }) => (
+const Process = ({
+  processes = [],
+  handleOnCTAClick = () => {},
+}) => (
   <section className={styles.sectionProcess}>
     <div className={styles.contentWrapper}>
       {processes?.map(({
@@ -60,11 +63,6 @@ const Process = ({ processes, handleOnCTAClick }) => (
     </div>
   </section>
 );
-
-Process.defaultProps = {
-  processes: [],
-  handleOnCTAClick: () => {},
-};
 
 Process.propTypes = {
   processes: PropTypes.instanceOf(Array),

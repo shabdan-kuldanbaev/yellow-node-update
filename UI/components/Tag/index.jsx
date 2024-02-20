@@ -36,13 +36,6 @@ const Tag = (props) => {
   );
 };
 
-Tag.defaultProps = {
-  selected: false,
-  disabled: false,
-  isSecondary: false,
-  className: '',
-};
-
 Tag.propTypes = {
   displayName: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,

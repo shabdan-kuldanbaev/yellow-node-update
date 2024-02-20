@@ -7,7 +7,10 @@ import styles from './styles.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
 
-const NextPrev = ({ isNewer, slug }) => {
+const NextPrev = ({
+  isNewer = false,
+  slug = '',
+}) => {
   const { path, dynamicPath } = ROUTES.article.getRoute(slug);
 
   return slug && (
@@ -31,11 +34,6 @@ const NextPrev = ({ isNewer, slug }) => {
       </LinkWrapper>
     </div>
   );
-};
-
-NextPrev.defaultProps = {
-  isNewer: false,
-  slug: '',
 };
 
 NextPrev.propTypes = {

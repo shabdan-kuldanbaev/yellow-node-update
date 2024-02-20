@@ -26,13 +26,6 @@ const Illustration = memo((props) => {
   );
 });
 
-Illustration.defaultProps = {
-  layout: 'fill',
-  alt: '',
-  transparent: false,
-  apiParams: {},
-};
-
 Illustration.propTypes = {
   transparent: PropTypes.bool,
   // For more props check https://nextjs.org/docs/api-reference/next/legacy/image

@@ -48,10 +48,6 @@ const Paginator = (props) => {
   );
 };
 
-Paginator.defaultProps = {
-  className: '',
-};
-
 Paginator.propTypes = {
   pagesCounter: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,

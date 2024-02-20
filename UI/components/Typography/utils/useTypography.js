@@ -26,11 +26,11 @@ export const TYPOGRAPHY_SIZE = {
 };
 
 export const useTypography = ({
-  variant,
+  variant = TYPOGRAPHY_TAGS.p,
   isBold,
   className,
   children,
-  size,
+  size = TYPOGRAPHY_SIZE.paragrapgh16,
   mobileSize,
   onClick,
   tabIndex,

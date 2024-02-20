@@ -18,7 +18,7 @@ export default (props) => {
     handleOnBlurEmail,
     style,
     value,
-    type,
+    type = 'text',
     placeholder,
     ...rest
   } = props;

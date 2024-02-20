@@ -83,11 +83,6 @@ const SvgListSection = (props) => {
   );
 };
 
-SvgListSection.defaultProps = {
-  handleOnCTAClick: () => {},
-  withSelector: false,
-};
-
 SvgListSection.propTypes = {
   section: PropTypes.instanceOf(Object).isRequired,
   handleOnCTAClick: PropTypes.func,

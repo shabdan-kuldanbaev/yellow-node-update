@@ -14,10 +14,6 @@ const HomeIntro = ({ introSection }) => (
   </section>
 );
 
-HomeIntro.defaultProps = {
-  theme: 'dark',
-};
-
 HomeIntro.propTypes = {
   theme: PropTypes.string,
   introSection: PropTypes.instanceOf(Object).isRequired,

@@ -45,10 +45,6 @@ const SpecialChallengesAndSolutions = (props) => {
   );
 };
 
-SpecialChallengesAndSolutions.defaultProps = {
-  type: '',
-};
-
 SpecialChallengesAndSolutions.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,

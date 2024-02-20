@@ -129,11 +129,6 @@ const FeedbackForm = (props) => {
   );
 };
 
-FeedbackForm.defaultProps = {
-  isBudgetSlider: false,
-  type: '',
-};
-
 FeedbackForm.propTypes = {
   isBudgetSlider: PropTypes.bool,
   type: PropTypes.string,

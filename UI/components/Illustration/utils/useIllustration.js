@@ -5,12 +5,13 @@ import styles from '../styles.module.scss';
 export default ({
   src,
   isStatic,
-  className: classnames,
-  lazyBoundary = '700px',
-  apiParams,
-  transparent,
-  placeholder: placeholderProp,
   priority,
+  className: classnames,
+  placeholder: placeholderProp,
+  lazyBoundary = '700px',
+  apiParams = {},
+  transparent = false,
+  alt = '',
   ...rest
 }) => {
   const loader = isStatic
@@ -35,6 +36,7 @@ export default ({
     className,
     lazyBoundary,
     priority,
+    alt,
     ...lazyProps,
     ...rest,
   };

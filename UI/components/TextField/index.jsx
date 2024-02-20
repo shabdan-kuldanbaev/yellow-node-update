@@ -26,11 +26,6 @@ const TextField = (props) => {
   );
 };
 
-TextField.defaultProps = {
-  type: 'text',
-  errorMessage: 'Fill empty field',
-};
-
 TextField.propTypes = {
   register: PropTypes.func,
   onChange: PropTypes.func,

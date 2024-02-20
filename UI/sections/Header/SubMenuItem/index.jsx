@@ -9,8 +9,8 @@ const SubMenuItem = ({
   isLightTheme,
   isPageScrolledDown,
   title,
-  subtitle,
-  subMenuSlug,
+  subtitle = '',
+  subMenuSlug = '',
   isTitleNormalWeight,
 }) => (
   <div
@@ -43,11 +43,6 @@ const SubMenuItem = ({
     </LinkWrapper>
   </div>
 );
-
-SubMenuItem.defaultProps = {
-  subtitle: '',
-  subMenuSlug: '',
-};
 
 SubMenuItem.propTypes = {
   handleOnClick: PropTypes.func.isRequired,

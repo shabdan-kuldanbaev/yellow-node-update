@@ -9,7 +9,10 @@ import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
-export const NavigationByTitles = ({ articleBodyRef, articleSlug }) => {
+export const NavigationByTitles = ({
+  articleBodyRef = null,
+  articleSlug = '',
+}) => {
   const [subtitles, setSubtitles] = useState([]);
   const [isNavigationOpened, setIsNavigationOpened] = useState(false);
 
@@ -94,11 +97,6 @@ export const NavigationByTitles = ({ articleBodyRef, articleSlug }) => {
       </Animated>
     </div>
   );
-};
-
-NavigationByTitles.defaultProps = {
-  articleBodyRef: null,
-  articleSlug: '',
 };
 
 NavigationByTitles.propTypes = {

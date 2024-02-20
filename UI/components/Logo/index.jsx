@@ -33,10 +33,6 @@ const Logo = (props) => {
   );
 };
 
-Logo.defaultProps = {
-  type: 'default',
-};
-
 Logo.propTypes = {
   type: PropTypes.string,
 };

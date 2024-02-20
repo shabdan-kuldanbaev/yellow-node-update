@@ -4,13 +4,13 @@ import ButtonMore from 'components/Common/ButtonMore';
 import styles from './styles.module.scss';
 
 const CallToAction = ({
-  title,
-  subtitle,
-  buttonTitle,
-  href,
   type,
-  handleOnClick,
-  className,
+  title = '',
+  subtitle = '',
+  buttonTitle,
+  href = '',
+  className = '',
+  handleOnClick = () => {},
 }) => (
   <div className={cn(styles[type], { [className]: className })}>
     <h3 className={styles.h3}>
@@ -29,14 +29,6 @@ const CallToAction = ({
     />
   </div>
 );
-
-CallToAction.defaultProps = {
-  href: '',
-  handleOnClick: () => {},
-  className: '',
-  title: '',
-  subtitle: '',
-};
 
 CallToAction.propTypes = {
   title: PropTypes.string,

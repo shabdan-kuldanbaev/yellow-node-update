@@ -13,11 +13,11 @@ export default (props) => {
   const {
     page,
     view,
-    title: titleProp,
-    data,
+    data = {},
     buttonTitle: buttonTitleProp,
     className,
     slug: slugProp,
+    title: titleProp = '',
     ...rest
   } = props;
 

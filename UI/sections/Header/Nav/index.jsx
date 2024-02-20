@@ -13,10 +13,10 @@ const SmallDropDownMenu = dynamic(() => import('UI/sections/Header/SmallDropDown
 
 const Nav = (props) => {
   const {
-    theme,
+    theme = 'dark',
     navRef,
     isPageScrolling,
-    links,
+    links = NAV_LINKS,
     isHeader,
     handleOnClick,
     isSmallDropMenuOpened,
@@ -80,12 +80,6 @@ const Nav = (props) => {
       })}
     </ul>
   );
-};
-
-Nav.defaultProps = {
-  theme: 'dark',
-  navLinks: NAV_LINKS,
-  isHeader: false,
 };
 
 Nav.propTypes = {

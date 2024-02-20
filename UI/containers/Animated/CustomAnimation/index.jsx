@@ -3,12 +3,12 @@ import { useIntersectionItem } from 'hooks/useIntersectionItem';
 
 export const CustomAnimation = ({
   children,
-  translateX,
-  translateY,
-  opasityDuration,
-  transformDuration,
-  transitionDelay,
-  percentIntersection,
+  translateX = '0',
+  translateY = '10px',
+  opasityDuration = 0.05,
+  transformDuration = 0.1,
+  transitionDelay = 500,
+  percentIntersection = 0.2,
 }) => {
   const [intersectRef, isIntersected] = useIntersectionItem(percentIntersection);
   const delayInSeconds = transitionDelay / 1000;
@@ -34,15 +34,6 @@ export const CustomAnimation = ({
       {children}
     </div>
   );
-};
-
-CustomAnimation.defaultProps = {
-  translateX: '0',
-  translateY: '10px',
-  opasityDuration: 0.05,
-  transformDuration: 0.1,
-  transitionDelay: 500,
-  percentIntersection: 0.2,
 };
 
 CustomAnimation.propTypes = {

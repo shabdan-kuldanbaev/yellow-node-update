@@ -62,10 +62,6 @@ const ReviewsSection = (props) => {
   );
 };
 
-ReviewsSection.defaultProps = {
-  handleOnCTAClick: () => {},
-};
-
 ReviewsSection.propTypes = {
   section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,

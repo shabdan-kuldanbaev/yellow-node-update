@@ -5,7 +5,7 @@ import { FieldsWrapper } from 'UI/components/FieldsWrapper';
 import { mainContent } from '../utils/data';
 import styles from './styles.module.scss';
 
-const MainContent = ({ mainContent: footerLinksData }) => footerLinksData?.map(({
+const MainContent = ({ mainContent: footerLinksData = mainContent }) => footerLinksData?.map(({
   title,
   links,
   type,
@@ -37,10 +37,6 @@ const MainContent = ({ mainContent: footerLinksData }) => footerLinksData?.map((
     ))}
   </div>
 ));
-
-MainContent.defaultProps = {
-  mainContent,
-};
 
 MainContent.propTypes = {
   mainContent: PropTypes.instanceOf(Array),

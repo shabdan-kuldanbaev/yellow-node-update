@@ -97,11 +97,6 @@ export const WhyUsCommon = ({ introSection, ...props }) => {
   }
 };
 
-WhyUsCommon.defaultProps = {
-  handleOnCTAClick: () => {
-  },
-};
-
 WhyUsCommon.propTypes = {
   section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,

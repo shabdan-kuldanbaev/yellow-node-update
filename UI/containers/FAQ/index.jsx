@@ -7,7 +7,10 @@ import styles from './styles.module.scss';
 
 const CollapseItem = dynamic(() => import('UI/components/CollapseItem'));
 
-const FAQ = ({ faqList, isArticalPage }) => (
+const FAQ = ({
+  isArticalPage,
+  faqList = [],
+}) => (
   <>
     <Head>
       {/* Somehow microdata doesnt work with next/script so use this instead */}
@@ -28,11 +31,6 @@ const FAQ = ({ faqList, isArticalPage }) => (
     </div>
   </>
 );
-
-FAQ.defaultProps = {
-  faqList: [],
-  isArticalPage: false,
-};
 
 FAQ.propTypes = {
   faqList: PropTypes.instanceOf(Array),

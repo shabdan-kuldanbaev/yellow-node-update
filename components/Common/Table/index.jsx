@@ -8,7 +8,7 @@ import styles from './styles.module.scss';
 
 const Table = ({
   tableData,
-  type,
+  type = ARTICLE_TABLE_TYPES.simpleTable,
 }) => {
   const isMobileResolution = useSelector(selectIsMobile);
 
@@ -38,10 +38,6 @@ const Table = ({
         type={type}
       />
     );
-};
-
-Table.defaultProps = {
-  type: ARTICLE_TABLE_TYPES.simpleTable,
 };
 
 Table.propTypes = {

@@ -3,7 +3,7 @@ import { getDocumentFields, getFileUrl } from 'utils/helper';
 import Work from './Work';
 import styles from './styles.module.scss';
 
-const Works = ({ refs, works }) => (
+const Works = ({ refs, works = [] }) => (
   <div className={styles.worksContainer}>
     {works?.map((work, index) => {
       const {
@@ -32,10 +32,6 @@ const Works = ({ refs, works }) => (
     })}
   </div>
 );
-
-Works.defaultProps = {
-  works: [],
-};
 
 Works.propTypes = {
   refs: PropTypes.instanceOf(Object).isRequired,

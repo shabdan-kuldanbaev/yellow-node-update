@@ -11,7 +11,7 @@ import styles from './styles.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
 
-const SelectionBlock = ({ toggleFullscreenSearch }) => {
+const SelectionBlock = ({ toggleFullscreenSearch = () => null }) => {
   const isMobileCategoties = useSelector(selectIsMobileCategotiesOpened);
 
   useEffect(() => {
@@ -33,10 +33,6 @@ const SelectionBlock = ({ toggleFullscreenSearch }) => {
       </div>
     </div>
   );
-};
-
-SelectionBlock.defaultProps = {
-  toggleFullscreenSearch: () => null,
 };
 
 SelectionBlock.propTypes = {

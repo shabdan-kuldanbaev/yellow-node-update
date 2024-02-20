@@ -42,13 +42,6 @@ const PageHeader = ({
   </>
 );
 
-PageHeader.defaultProps = {
-  title: '',
-  breadcrumbs: null,
-  titleStyles: '',
-  breadcrumbsStyles: '',
-};
-
 PageHeader.propTypes = {
   title: PropTypes.string,
   type: PropTypes.string,

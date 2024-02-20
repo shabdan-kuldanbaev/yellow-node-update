@@ -38,10 +38,6 @@ const IntroText = ({ className }) => {
   );
 };
 
-IntroText.defaultProps = {
-  className: '',
-};
-
 IntroText.propTypes = {
   className: PropTypes.string,
 };

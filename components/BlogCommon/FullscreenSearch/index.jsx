@@ -12,7 +12,10 @@ import { getArticleSearchResult } from 'utils/dataFetching/getArticleSearchResul
 import SearchResult from './SearchResult';
 import styles from './styles.module.scss';
 
-const FullscreenSearch = ({ isFullscreenSearch, closeFullscreenSearch }) => {
+const FullscreenSearch = ({
+  closeFullscreenSearch,
+  isFullscreenSearch = false,
+}) => {
   const inputRef = useRef(null);
 
   const [inputValue, setInputValue] = useState('');
@@ -71,10 +74,6 @@ const FullscreenSearch = ({ isFullscreenSearch, closeFullscreenSearch }) => {
       </div>
     </ModalWindow>
   );
-};
-
-FullscreenSearch.defaultProps = {
-  isFullscreenSearch: false,
 };
 
 FullscreenSearch.propTypes = {

@@ -10,12 +10,12 @@ import styles from './ArticleLink.module.scss';
 export const ArticleLink = ({
   data,
   new: isNew,
-  type,
-  title,
-  buttonTitle,
-  slug,
-  url,
-  className,
+  type = '',
+  title = '',
+  buttonTitle = '',
+  slug = '',
+  url = '',
+  className = '',
 }) => {
   switch (type) {
   case LINK_TYPE.bookmark:
@@ -54,15 +54,6 @@ export const ArticleLink = ({
       />
     );
   }
-};
-
-ArticleLink.defaultProps = {
-  type: '',
-  title: '',
-  buttonTitle: '',
-  slug: '',
-  url: '',
-  className: '',
 };
 
 ArticleLink.propType = {

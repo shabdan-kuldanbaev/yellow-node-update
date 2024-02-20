@@ -26,7 +26,7 @@ const Illustration = dynamic(() => import('UI/components/Illustration'));
 
 // TODO move it to the common folder
 // TODO create constants for cases
-const ContentfulParser = ({ document }) => {
+const ContentfulParser = ({ document = null }) => {
   const options = {
     renderMark: {
       [MARKS.CODE]: (node) => <sub>{node}</sub>,
@@ -194,10 +194,6 @@ const ContentfulParser = ({ document }) => {
   return document
     ? documentToReactComponents(document, options)
     : '';
-};
-
-ContentfulParser.defaultProps = {
-  document: null,
 };
 
 ContentfulParser.propTypes = {

@@ -14,7 +14,6 @@ const ScrollBlock = dynamic(() => import('./content/ScrollBlock'));
 const CallToAction = (props) => {
   const {
     titles,
-    subtitle,
     buttonTitle,
     type,
     images,
@@ -27,6 +26,7 @@ const CallToAction = (props) => {
     setShow,
     classNames,
     scrollTop,
+    subtitle = '',
   } = useProps(props);
 
   return (
@@ -108,14 +108,6 @@ const CallToAction = (props) => {
       })()}
     </div>
   );
-};
-
-CallToAction.defaultProps = {
-  href: '',
-  className: null,
-  title: '',
-  subtitle: '',
-  data: {},
 };
 
 CallToAction.propTypes = {

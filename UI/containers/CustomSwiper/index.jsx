@@ -38,11 +38,6 @@ const CustomSwiper = (props) => {
   );
 };
 
-SwiperNavigation.defaultProps = {
-  isShowNavigation: false,
-  navigationClassName: null,
-};
-
 SwiperNavigation.propTypes = {
   isShowNavigation: PropTypes.bool,
   navigationClassName: PropTypes.string,

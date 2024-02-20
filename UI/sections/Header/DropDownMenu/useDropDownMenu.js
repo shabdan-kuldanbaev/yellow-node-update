@@ -12,8 +12,8 @@ export const useDropDownMenu = ({
   isDropMenuOpened,
   isPageScrolledDown,
   slug,
-  closeMobileMenu,
-  closeDropDownMenu,
+  closeMobileMenu = () => {},
+  closeDropDownMenu = () => {},
 }) => {
   const [activeSubMenu, setActiveSubMenu] = useState(SUB_NAVIGATION_KEYS.services);
 

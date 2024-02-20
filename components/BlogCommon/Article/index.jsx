@@ -20,15 +20,15 @@ const OldArticle = dynamic(() => import('components/BlogCommon/Article/OldArticl
 
 const Article = ({
   introSection,
-  slug,
-  title,
-  oldBody,
-  body,
-  introduction,
+  author,
   headImage,
   maxScrollPosition,
-  author,
-  publishedAt,
+  body = null,
+  slug = '',
+  title = '',
+  oldBody = '',
+  introduction = '',
+  publishedAt = '',
 }) => {
   const articleBodyRef = useRef(null);
 
@@ -97,15 +97,6 @@ const Article = ({
       </div>
     </section>
   );
-};
-
-Article.defaultProps = {
-  oldBody: '',
-  body: null,
-  slug: '',
-  title: '',
-  introduction: '',
-  publishedAt: '',
 };
 
 Article.propTypes = {

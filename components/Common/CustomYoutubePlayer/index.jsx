@@ -16,10 +16,6 @@ export const CustomYoutubePlayer = ({ src, className }) => (
   </div>
 );
 
-CustomYoutubePlayer.defaultProps = {
-  className: '',
-};
-
 CustomYoutubePlayer.propTypes = {
   src: PropTypes.string.isRequired,
   className: PropTypes.string,

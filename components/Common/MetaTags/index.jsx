@@ -8,10 +8,10 @@ import { defaultMetadata } from './utils/data';
 
 const MetaTags = ({
   page,
-  pageMetadata,
-  children,
-  breadcrumbs,
   microData,
+  pageMetadata = {},
+  children = null,
+  breadcrumbs = [],
   isArticle,
 }) => {
   const {
@@ -90,14 +90,6 @@ const MetaTags = ({
       />
     </Head>
   );
-};
-
-MetaTags.defaultProps = {
-  children: null,
-  pageMetadata: {},
-  articleData: {},
-  breadcrumbs: [],
-  isArticle: false,
 };
 
 MetaTags.propTypes = {

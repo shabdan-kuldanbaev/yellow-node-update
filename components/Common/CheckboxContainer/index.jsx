@@ -5,8 +5,8 @@ import styles from './styles.module.scss';
 const CheckboxContainer = ({
   text,
   isThereLink,
-  linkText,
-  handleOnChange,
+  linkText = '',
+  handleOnChange = null,
 }) => {
   const handleOnChangeCheckbox = (e) => handleOnChange(e);
 
@@ -34,12 +34,6 @@ const CheckboxContainer = ({
       <span className={styles.checkmark} />
     </label>
   );
-};
-
-CheckboxContainer.defaultProps = {
-  isThereLink: false,
-  linkText: '',
-  handleOnChange: null,
 };
 
 CheckboxContainer.propTypes = {

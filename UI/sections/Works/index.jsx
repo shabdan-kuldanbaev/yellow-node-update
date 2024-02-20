@@ -12,7 +12,7 @@ const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Works = (props) => {
   const {
-    works,
+    works = [],
     hasHiddenItems,
     filters,
     hendleMoreClick,
@@ -49,10 +49,6 @@ const Works = (props) => {
       )}
     </>
   );
-};
-
-Works.defaultProps = {
-  works: [],
 };
 
 Works.propTypes = {

@@ -57,10 +57,6 @@ const ModalWindow = ({
   );
 };
 
-ModalWindow.defaultProps = {
-  className: '',
-};
-
 ModalWindow.propTypes = {
   isModalWindow: PropTypes.bool.isRequired,
   closeModalWindow: PropTypes.func.isRequired,

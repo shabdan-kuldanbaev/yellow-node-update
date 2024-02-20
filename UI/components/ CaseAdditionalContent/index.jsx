@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 
 const CaseAdditionalContent = ({
   type,
-  data,
+  data = null,
   view,
 }) => (
   <div className={cn(
@@ -51,10 +51,6 @@ const CaseAdditionalContent = ({
     ))}
   </div>
 );
-
-CaseAdditionalContent.defaultProps = {
-  data: null,
-};
 
 CaseAdditionalContent.propTypes = {
   type: PropTypes.string.isRequired,

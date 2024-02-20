@@ -23,11 +23,6 @@ const SelectorElement = ({
   </button>
 );
 
-SelectorElement.defaultProps = {
-  selected: null,
-  className: '',
-};
-
 SelectorElement.propTypes = {
   displayName: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,

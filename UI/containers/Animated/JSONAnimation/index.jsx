@@ -50,10 +50,6 @@ export const JSONAnimation = ({ jsonFile, className }) => {
   );
 };
 
-JSONAnimation.defaultProps = {
-  className: '',
-};
-
 JSONAnimation.propTypes = {
   jsonFile: PropTypes.instanceOf(Object).isRequired,
   className: PropTypes.string,

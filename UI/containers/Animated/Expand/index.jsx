@@ -7,10 +7,6 @@ export const ExpandWrapper = ({ children, open }) => (
   </Expand>
 );
 
-ExpandWrapper.defaultProps = {
-  open: false,
-};
-
 ExpandWrapper.propTypes = {
   children: PropTypes.node.isRequired,
   open: PropTypes.bool,

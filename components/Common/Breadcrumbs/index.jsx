@@ -8,7 +8,10 @@ import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
-const Breadcrumbs = ({ breadcrumbs, breadcrumbsStyles }) => (breadcrumbs
+const Breadcrumbs = ({
+  breadcrumbs,
+  breadcrumbsStyles = '',
+}) => (breadcrumbs
   ? (
     <div
       aria-label="breadcrumbs"
@@ -56,10 +59,6 @@ const Breadcrumbs = ({ breadcrumbs, breadcrumbsStyles }) => (breadcrumbs
       </Animated>
     </div>
   ) : null);
-
-Breadcrumbs.defaultProps = {
-  breadcrumbsStyles: '',
-};
 
 Breadcrumbs.propTypes = {
   breadcrumbs: PropTypes.instanceOf(Array).isRequired,

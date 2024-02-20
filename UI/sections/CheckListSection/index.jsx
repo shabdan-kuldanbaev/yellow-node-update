@@ -18,7 +18,7 @@ const CheckListSection = (props) => {
     title,
     description,
     link,
-    handleOnCTAClick,
+    handleOnCTAClick = () => {},
     noCardBackground,
   } = useCheckListSection(props);
 
@@ -65,10 +65,6 @@ const CheckListSection = (props) => {
       </div>
     </section>
   );
-};
-
-CheckListSection.defaultProps = {
-  handleOnCTAClick: () => {},
 };
 
 CheckListSection.propTypes = {

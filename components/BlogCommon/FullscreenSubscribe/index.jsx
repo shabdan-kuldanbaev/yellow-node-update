@@ -7,12 +7,12 @@ import { withValidateEmail } from 'hocs/withValidateEmail';
 import styles from './styles.module.scss';
 
 const FullscreenSubscribe = ({
-  isFullscreenSubscribe,
   closeFullscreenSubscribe,
   email,
   handleOnEmailChange,
   handleOnBlurEmail,
-  handleOnSubmit,
+  handleOnSubmit = () => {},
+  isFullscreenSubscribe = false,
 }) => {
   const [_, { data: { message } = {} }] = useSubscribeMutation({
     fixedCacheKey: SUBSCRIPTION_CASH_KEY,
@@ -57,11 +57,6 @@ const FullscreenSubscribe = ({
       </div>
     </ModalWindow>
   );
-};
-
-FullscreenSubscribe.defaultProps = {
-  isFullscreenSubscribe: false,
-  handleOnSubmit: () => {},
 };
 
 FullscreenSubscribe.propTypes = {

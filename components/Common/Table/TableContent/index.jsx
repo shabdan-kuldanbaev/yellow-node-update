@@ -6,7 +6,10 @@ import SimpleTableBody from '../SimpleTableBody';
 import SimpleTableHead from '../SimpleTableHead';
 import styles from './styles.module.scss';
 
-export const TableContent = ({ tableData, type }) => {
+export const TableContent = ({
+  tableData,
+  type = ARTICLE_TABLE_TYPES.simpleTable,
+}) => {
   switch (type) {
   case ARTICLE_TABLE_TYPES.simpleTable:
     return (
@@ -60,10 +63,6 @@ export const TableContent = ({ tableData, type }) => {
   default:
     return null;
   }
-};
-
-TableContent.defaultProps = {
-  type: ARTICLE_TABLE_TYPES.simpleTable,
 };
 
 TableContent.propTypes = {

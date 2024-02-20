@@ -10,7 +10,7 @@ import styles from './styles.module.scss';
 const MobileMenu = (props) => {
   const {
     isLightTheme,
-    links,
+    links = NAV_LINKS,
     isMobileMenuOpened,
     setMobileMenuState,
     isPageScrolledDown,
@@ -52,10 +52,6 @@ const MobileMenu = (props) => {
       />
     </>
   );
-};
-
-MobileMenu.defaultProps = {
-  navLinks: NAV_LINKS,
 };
 
 MobileMenu.propTypes = {

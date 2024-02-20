@@ -12,7 +12,10 @@ import styles from './styles.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
 
-export const ShareThumbnails = ({ url, title }) => {
+export const ShareThumbnails = ({
+  url,
+  title = '',
+}) => {
   const { asPath } = useRouter();
 
   const trackSocialShareClick = ({ target }) => {
@@ -54,10 +57,6 @@ export const ShareThumbnails = ({ url, title }) => {
       </FacebookShareButton>
     </div>
   );
-};
-
-ShareThumbnails.defaultProps = {
-  title: '',
 };
 
 ShareThumbnails.propTypes = {

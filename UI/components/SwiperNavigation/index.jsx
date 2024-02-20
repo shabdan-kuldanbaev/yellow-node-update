@@ -22,10 +22,6 @@ export const SwiperNavigation = ({
   </div>
 );
 
-SwiperNavigation.defaultProps = {
-  className: null,
-};
-
 SwiperNavigation.propTypes = {
   className: PropTypes.string,
 };

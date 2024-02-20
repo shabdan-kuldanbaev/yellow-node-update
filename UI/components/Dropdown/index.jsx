@@ -13,7 +13,7 @@ const Dropdown = ({
   options,
   selected,
   setSelected,
-  placeholder,
+  placeholder = 'Choose one',
 }) => {
   const [isActive, setIsActive] = useState(false);
   const ref = useRef(null);
@@ -66,10 +66,6 @@ const Dropdown = ({
       </div>
     </div>
   );
-};
-
-Dropdown.defaultProps = {
-  placeholder: 'Choose one',
 };
 
 Dropdown.propTypes = {

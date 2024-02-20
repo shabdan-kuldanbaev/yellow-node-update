@@ -12,7 +12,11 @@ import styles from './styles.module.scss';
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const CollapseItem = (props) => {
-  const { isAnswerOpened, handleOnQuestionClick, faq } = useCollapseItem(props);
+  const {
+    isAnswerOpened,
+    handleOnQuestionClick,
+    faq = {},
+  } = useCollapseItem(props);
 
   if (isEmpty(faq)) {
     return null;
@@ -54,10 +58,6 @@ const CollapseItem = (props) => {
       </div>
     </div>
   );
-};
-
-CollapseItem.defaultProps = {
-  faq: {},
 };
 
 CollapseItem.propTypes = {

@@ -12,11 +12,11 @@ const MobileDropDownMenu = dynamic(() => import('UI/sections/Header/MobileDropDo
 
 export const NavItem = (props) => {
   const {
-    path,
+    path = '',
     slug,
     title,
     closeMenu,
-    dynamicPath,
+    dynamicPath = '',
     isLightTheme,
     isSubMenuExpanded,
     isPageScrolledDown,
@@ -90,12 +90,6 @@ export const NavItem = (props) => {
       )}
     </li>
   );
-};
-
-NavItem.defaultProps = {
-  isPageScrolledDown: false,
-  path: '',
-  dynamicPath: '',
 };
 
 NavItem.propTypes = {

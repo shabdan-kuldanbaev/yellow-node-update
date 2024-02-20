@@ -11,7 +11,7 @@ const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const Images = (props) => {
   const {
-    type,
+    type = 'imageContainer',
     view,
     images,
   } = useImages(props);
@@ -49,12 +49,6 @@ const Images = (props) => {
       </div>
     </Animated>
   );
-};
-
-Images.defaultProps = {
-  type: 'imageContainer',
-  view: '',
-  isMobileResolution: false,
 };
 
 Images.propTypes = {

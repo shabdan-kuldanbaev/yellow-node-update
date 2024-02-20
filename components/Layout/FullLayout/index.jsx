@@ -10,8 +10,8 @@ const FullLayout = ({
   disableBottomPadding,
   disableOverflowHiding,
   backgroundColor,
-  introSection,
   className,
+  introSection = null,
 }) => {
   const layoutStyles = cn(
     className,
@@ -34,16 +34,6 @@ const FullLayout = ({
       {children}
     </div>
   );
-};
-
-FullLayout.defaultProps = {
-  children: {},
-  disableMaxWidth: false,
-  disableTopPadding: false,
-  disableSidePadding: false,
-  disableBottomPadding: false,
-  backgroundColor: '',
-  introSection: null,
 };
 
 FullLayout.propTypes = {

@@ -10,7 +10,7 @@ import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
-const GalleryCard = ({ images, photoCaption }) => {
+const GalleryCard = ({ images, photoCaption = '' }) => {
   const imageRef = useRef(null); // TODO replace imageRef with something for the garrely row key
   const rowsCount = Math.ceil(images.length / ARTICLE_PHOTO_GALLERY_IMAGES_PER_LINE);
 
@@ -72,10 +72,6 @@ const GalleryCard = ({ images, photoCaption }) => {
       )}
     </div>
   );
-};
-
-GalleryCard.defaultProps = {
-  photoCaption: '',
 };
 
 GalleryCard.propTypes = {

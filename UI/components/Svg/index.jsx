@@ -42,11 +42,6 @@ const Svg = ({
     : null);
 };
 
-Svg.defaultProps = {
-  className: '',
-  handleOnClick: undefined,
-};
-
 Svg.propTypes = {
   type: PropTypes.string.isRequired,
   className: PropTypes.string,

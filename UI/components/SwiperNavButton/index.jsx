@@ -38,11 +38,6 @@ const SwiperNavButton = (props) => {
   );
 };
 
-SwiperNavButton.defaultProps = {
-  className: '',
-  text: '',
-};
-
 SwiperNavButton.propTypes = {
   type: PropTypes.oneOf(['next', 'prev']).isRequired,
   text: PropTypes.string,

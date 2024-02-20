@@ -15,7 +15,7 @@ export const Comment = ({
     position,
   },
   animatioProps,
-  infoRef,
+  infoRef = null,
 }) => (
   <div className={styles.commentWrapper}>
     <Animated {...animatioProps}>
@@ -64,10 +64,6 @@ export const Comment = ({
     </Animated>
   </div>
 );
-
-Comment.defaultProps = {
-  infoRef: null,
-};
 
 Comment.propTypes = {
   comment: PropTypes.instanceOf(Object).isRequired,

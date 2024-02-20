@@ -18,7 +18,7 @@ const SvgGroup = (props) => {
     title,
     className,
     hideTitle,
-    isSwiperEnabled,
+    isSwiperEnabled = true,
     swiperParams,
   } = useSvgGroup(props);
 
@@ -55,12 +55,6 @@ const SvgGroup = (props) => {
       </Animated>
     </div>
   );
-};
-
-SvgGroup.defaultProps = {
-  className: '',
-  isSwiperEnabled: true,
-  hideTitle: false,
 };
 
 SvgGroup.propTypes = {

@@ -5,9 +5,11 @@ import Illustration from 'UI/components/Illustration';
 import { CUSTOM_DOMAIN } from 'utils/constants';
 import styles from './styles.module.scss';
 
+const defaultDeviceFrame = '/images/common/devices/iPhone.png';
+
 const FigmaPrototype = ({
   src,
-  deviceFrameSrc,
+  deviceFrameSrc = defaultDeviceFrame,
   className,
 }) => {
   const url = useMemo(() => {
@@ -37,11 +39,6 @@ const FigmaPrototype = ({
       />
     </div>
   );
-};
-
-FigmaPrototype.defaultProps = {
-  className: null,
-  deviceFrameSrc: '/images/common/devices/iPhone.png',
 };
 
 FigmaPrototype.propTypes = {

@@ -102,10 +102,6 @@ const PageIntroSection = (props) => {
   );
 };
 
-PageIntroSection.defaultProps = {
-  introSection: null,
-};
-
 PageIntroSection.propTypes = {
   section: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string.isRequired,

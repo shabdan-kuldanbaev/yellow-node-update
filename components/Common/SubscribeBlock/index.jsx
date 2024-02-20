@@ -65,10 +65,6 @@ const SubscribeBlock = ({
   ));
 };
 
-SubscribeBlock.defaultProps = {
-  isBlog: false,
-};
-
 SubscribeBlock.propTypes = {
   isBlog: PropTypes.bool,
   email: PropTypes.instanceOf(Object).isRequired,

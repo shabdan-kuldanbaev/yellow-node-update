@@ -13,12 +13,12 @@ export const ArticlePreview = ({
   title,
   image,
   tags,
-  introduction,
-  date,
+  introduction = '',
+  date = '',
   type,
-  index,
-  isSearch,
-  handleOnCloseModalWindow,
+  index = 1,
+  isSearch = false,
+  handleOnCloseModalWindow = () => {},
 }) => {
   const { path } = ROUTES.article.getRoute(slug);
   const articleLinkProps = { path };
@@ -99,14 +99,6 @@ export const ArticlePreview = ({
       </CardContainer>
     </article>
   );
-};
-
-ArticlePreview.defaultProps = {
-  introduction: '',
-  date: '',
-  isSearch: false,
-  index: 1,
-  handleOnCloseModalWindow: () => {},
 };
 
 ArticlePreview.propTypes = {

@@ -25,11 +25,6 @@ const Typography = (props) => {
   );
 };
 
-Typography.defaultProps = {
-  variant: TYPOGRAPHY_TAGS.p,
-  size: TYPOGRAPHY_SIZE.paragrapgh16,
-};
-
 Typography.propTypes = {
   children: PropTypes.node.isRequired,
   isBold: PropTypes.bool,

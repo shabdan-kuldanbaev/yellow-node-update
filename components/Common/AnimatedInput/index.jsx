@@ -15,14 +15,14 @@ const AnimatedInput = ({
   value,
   handleOnChange,
   placeholder,
-  type,
-  handleOnBlurEmail,
   isWithoutLabel,
-  isRequired,
-  isValidate,
-  isAttached,
-  isTextArea,
-  style,
+  handleOnBlurEmail = null,
+  type = '',
+  isRequired = false,
+  isValidate = false,
+  isAttached = false,
+  isTextArea = false,
+  style = '',
 }) => {
   const { asPath } = useRouter();
   const inputRef = useRef();
@@ -123,17 +123,6 @@ const AnimatedInput = ({
     </OutsideClickHandler>
   );
 };
-
-AnimatedInput.defaultProps = {
-  isWithoutLabel: false,
-  handleOnBlurEmail: null,
-  type: '',
-  isRequired: false,
-  isAttached: false,
-  isTextArea: false,
-  style: '',
-};
-
 AnimatedInput.propTypes = {
   value: PropTypes.string.isRequired,
   handleOnChange: PropTypes.func.isRequired,

@@ -3,7 +3,7 @@ import { routes } from 'utils/routes';
 
 export default ({
   work,
-  position,
+  position = 0,
 }) => {
   const {
     title,

@@ -32,10 +32,6 @@ const TextSection = ({ sectionData, type }) => {
   );
 };
 
-TextSection.defaultProps = {
-  type: null,
-};
-
 TextSection.propTypes = {
   sectionData: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,

@@ -31,10 +31,6 @@ const Layout = (props) => {
   );
 };
 
-Layout.defaultProps = {
-  children: null,
-};
-
 Layout.propTypes = {
   children: PropTypes.node,
 };

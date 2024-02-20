@@ -4,15 +4,15 @@ import LinkWrapper from 'UI/components/LinkWrapper';
 import styles from './styles.module.scss';
 
 const ButtonMore = ({
-  href,
-  dynamicRouting,
   title,
-  buttonStyle,
-  handleOnClick,
-  buttonRef,
-  isDisabled,
-  disabledButtonStyle,
-  type,
+  href = '',
+  dynamicRouting = '',
+  buttonStyle = null,
+  handleOnClick = null,
+  buttonRef = null,
+  isDisabled = false,
+  disabledButtonStyle = null,
+  type = '',
   ...rest
 }) => (!href.length ? (
   <div
@@ -47,17 +47,6 @@ const ButtonMore = ({
     </div>
   </LinkWrapper>
 ));
-
-ButtonMore.defaultProps = {
-  href: '',
-  dynamicRouting: '',
-  buttonStyle: null,
-  type: '',
-  buttonRef: null,
-  handleOnClick: null,
-  isDisabled: false,
-  disabledButtonStyle: null,
-};
 
 ButtonMore.propTypes = {
   href: PropTypes.string,

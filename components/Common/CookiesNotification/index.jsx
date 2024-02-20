@@ -17,7 +17,7 @@ import styles from './styles.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
 
-const CookiesNotification = ({ text }) => {
+const CookiesNotification = ({ text = notificationData.text }) => {
   const [storage, setStorage] = useState(null);
   const [isHidden, setHidden] = useStorage({
     storage,
@@ -81,10 +81,6 @@ const CookiesNotification = ({ text }) => {
       </div>
     </div>
   );
-};
-
-CookiesNotification.defaultProps = {
-  text: notificationData.text,
 };
 
 CookiesNotification.propTypes = {

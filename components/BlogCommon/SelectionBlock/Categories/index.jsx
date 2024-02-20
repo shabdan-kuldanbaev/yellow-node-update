@@ -6,7 +6,7 @@ import { ROUTES } from 'utils/constants';
 import { isNumeric, setOverflowForBody } from 'utils/helper';
 import styles from './styles.module.scss';
 
-const Categories = ({ isMobileCategoties }) => {
+const Categories = ({ isMobileCategoties = false }) => {
   const { asPath, query: { slug: currentCategory }, push: routerPush } = useRouter();
 
   const categories = ROUTES.blog.categories.map(({ title, slug }) => ({ displayName: title, slug }));
@@ -33,10 +33,6 @@ const Categories = ({ isMobileCategoties }) => {
       />
     </div>
   );
-};
-
-Categories.defaultProps = {
-  isMobileCategoties: false,
 };
 
 Categories.propTypes = {

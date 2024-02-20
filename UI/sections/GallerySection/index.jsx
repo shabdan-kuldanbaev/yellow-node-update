@@ -18,7 +18,7 @@ const GallerySection = (props) => {
     title,
     description,
     slides,
-    handleOnCTAClick,
+    handleOnCTAClick = () => {},
     ctaData,
   } = useGallerySection(props);
 
@@ -55,10 +55,6 @@ const GallerySection = (props) => {
       )}
     </section>
   );
-};
-
-GallerySection.defaultProps = {
-  handleOnCTAClick: () => {},
 };
 
 GallerySection.propTypes = {

@@ -6,9 +6,9 @@ import 'react-medium-image-zoom/dist/styles.css';
 
 const ImageZoom = ({
   children,
-  overlayBgColorEnd,
-  transitionDuration,
-  zoomMargin,
+  overlayBgColorEnd = 'rgba(255, 255, 255, 0.985)',
+  transitionDuration = 300,
+  zoomMargin = 200,
 }) => {
   const isMobileResolution = useSelector(selectIsMobile);
   const isTabletResolutions = useSelector(selectIsTablet);
@@ -22,12 +22,6 @@ const ImageZoom = ({
       {children}
     </Zoom>
   );
-};
-
-ImageZoom.defaultProps = {
-  overlayBgColorEnd: 'rgba(255, 255, 255, 0.985)',
-  transitionDuration: 300,
-  zoomMargin: 200,
 };
 
 ImageZoom.propTypes = {

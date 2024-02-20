@@ -46,16 +46,6 @@ const Input = (props) => {
   );
 };
 
-Input.defaultProps = {
-  isWithoutLabel: false,
-  handleOnBlurEmail: null,
-  isRequired: false,
-  isAttached: false,
-  isTextArea: false,
-  style: '',
-  type: 'text',
-};
-
 Input.propTypes = {
   value: PropTypes.string.isRequired,
   handleOnChange: PropTypes.func.isRequired,

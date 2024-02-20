@@ -3,7 +3,7 @@ import { ROUTES } from 'utils/constants';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import styles from './styles.module.scss';
 
-export const TagsBlock = ({ tags }) => {
+export const TagsBlock = ({ tags = [] }) => {
   if (!tags) {
     return null;
   }
@@ -26,10 +26,6 @@ export const TagsBlock = ({ tags }) => {
       </div>
     </div>
   );
-};
-
-TagsBlock.defaultProps = {
-  tags: [],
 };
 
 TagsBlock.propTypes = {

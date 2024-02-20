@@ -10,7 +10,7 @@ const ParallaxWrapper = ({
   className,
   elementRef,
   position,
-  speed,
+  speed = 0,
   isHomepageIntro,
 }) => {
   const isMobileResolution = useSelector(selectIsMobile);
@@ -78,15 +78,6 @@ const ParallaxWrapper = ({
       </div>
     );
   }
-};
-
-ParallaxWrapper.defaultProps = {
-  className: null,
-  elementRef: null,
-  position: '',
-  speed: 0,
-  isHomepageIntro: false,
-  children: null,
 };
 
 ParallaxWrapper.propTypes = {

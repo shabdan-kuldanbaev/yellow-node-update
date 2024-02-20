@@ -14,7 +14,7 @@ import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
-const PageNotFound = async ({ animation }) => {
+const PageNotFound = async ({ animation = json }) => {
   const {
     data: {
       metaTitle,
@@ -66,10 +66,6 @@ const PageNotFound = async ({ animation }) => {
       )}
     </>
   );
-};
-
-PageNotFound.defaultProps = {
-  animation: json,
 };
 
 PageNotFound.propTypes = {

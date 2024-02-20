@@ -19,10 +19,6 @@ const AddFooter = () => {
   );
 };
 
-AddFooter.defaultProps = {
-  theme: 'dark',
-};
-
 AddFooter.propTypes = {
   theme: PropTypes.string,
 };

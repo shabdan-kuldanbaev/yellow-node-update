@@ -73,11 +73,6 @@ const DropDownMenu = (props) => {
   );
 };
 
-DropDownMenu.defaultProps = {
-  closeMobileMenu: () => {},
-  closeDropDownMenu: () => {},
-};
-
 DropDownMenu.propTypes = {
   isDropMenuOpened: PropTypes.bool.isRequired,
   isPageScrolledDown: PropTypes.bool.isRequired,

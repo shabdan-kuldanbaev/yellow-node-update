@@ -52,10 +52,6 @@ const Work = (props) => {
   );
 };
 
-Work.defaultProps = {
-  position: 0,
-};
-
 Work.propTypes = {
   work: PropTypes.instanceOf(Object).isRequired,
   position: PropTypes.number,

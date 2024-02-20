@@ -6,12 +6,12 @@ import { selectIsMobileResolutions } from 'store/selectors/layout';
 import cn from 'classnames';
 
 const ParallaxWrapper = ({
-  children,
-  className,
-  elementRef,
-  position,
-  speed,
-  isHomepageIntro,
+  children = null,
+  className = null,
+  elementRef = null,
+  position = '',
+  speed = 0,
+  isHomepageIntro = false,
 }) => {
   const isMobileResolution = useSelector(selectIsMobileResolutions);
   const containerRef = useRef(null);
@@ -78,15 +78,6 @@ const ParallaxWrapper = ({
       </div>
     );
   }
-};
-
-ParallaxWrapper.defaultProps = {
-  className: null,
-  elementRef: null,
-  position: '',
-  speed: 0,
-  isHomepageIntro: false,
-  children: null,
 };
 
 ParallaxWrapper.propTypes = {

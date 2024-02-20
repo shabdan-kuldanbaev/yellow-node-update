@@ -59,10 +59,6 @@ const ChallengesAndSolutionsWithWireframes = (props) => {
   );
 };
 
-ChallengesAndSolutions.defaultProps = {
-  type: '',
-};
-
 ChallengesAndSolutions.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,

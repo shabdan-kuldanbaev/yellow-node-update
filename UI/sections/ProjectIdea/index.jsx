@@ -111,11 +111,6 @@ const ProjectIdea = (props) => {
   );
 };
 
-ProjectIdea.defaultProps = {
-  type: '',
-  isMobileResolution: false,
-};
-
 ProjectIdea.propTypes = {
   type: PropTypes.string,
   data: PropTypes.instanceOf(Object).isRequired,

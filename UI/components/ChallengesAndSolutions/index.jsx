@@ -164,12 +164,6 @@ const ChallengesAndSolutions = (props) => {
   );
 };
 
-ChallengesAndSolutions.defaultProps = {
-  type: '',
-  isSpecial: false,
-  view: '',
-};
-
 ChallengesAndSolutions.propTypes = {
   data: PropTypes.instanceOf(Object).isRequired,
   type: PropTypes.string,

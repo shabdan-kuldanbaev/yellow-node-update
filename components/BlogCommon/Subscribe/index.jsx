@@ -95,10 +95,6 @@ const Subscribe = ({
   );
 };
 
-Subscribe.defaultProps = {
-  isMobileResolution: false,
-};
-
 Subscribe.propTypes = {
   isMobileResolution: PropTypes.bool,
   email: PropTypes.instanceOf(Object).isRequired,

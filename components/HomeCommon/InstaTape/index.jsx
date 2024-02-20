@@ -1,7 +1,7 @@
 import { instaPhotos } from './utils/data';
 import styles from './styles.module.scss';
 
-const InstaTape = ({ instaPhotos: photos }) => (
+const InstaTape = ({ instaPhotos: photos = instaPhotos }) => (
   <div className={styles.instaTape}>
     {photos && photos.map((photo) => (
       <div
@@ -16,9 +16,5 @@ const InstaTape = ({ instaPhotos: photos }) => (
     ))}
   </div>
 );
-
-InstaTape.defaultProps = {
-  instaPhotos,
-};
 
 export default InstaTape;
