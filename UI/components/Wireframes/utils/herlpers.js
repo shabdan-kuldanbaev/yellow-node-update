@@ -86,6 +86,9 @@ export const IMAGE_SIZES = {
   'medical-software-for-musculoskeletal-rehabilitation': {
     default: 600,
   },
+  'ai-software-development-services': {
+    firstSectionView: 208,
+  },
 };
 
 export const MOBILE_IMAGE_SIZES = {
@@ -143,5 +146,8 @@ export const MOBILE_IMAGE_SIZES = {
   },
   'medical-software-for-musculoskeletal-rehabilitation': {
     default: 320,
+  },
+  'ai-software-development-services': {
+    firstSectionView: 188,
   },
 };

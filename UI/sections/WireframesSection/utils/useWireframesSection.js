@@ -1,16 +1,22 @@
 import get from 'lodash/get';
 import cn from 'classnames';
-import { getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
+import { getDocumentFields, getFileUrl, getOptimizedContentfulImage } from 'utils/helper';
 import styles from '../styles.module.scss';
 
-export const useWireframesSection = ({ data, type }) => {
+export const useWireframesSection = ({ section, data, type }) => {
   const {
     title,
     subtitle,
     description,
     images,
     view,
-  } = data;
+  } = getDocumentFields(data || section, [
+    'title',
+    'subtitle',
+    'description',
+    'images',
+    'view',
+  ], { isNormilized: data });
 
   const sectionBackgroundImage = getOptimizedContentfulImage(
     getFileUrl(get(data, 'background', {})),
