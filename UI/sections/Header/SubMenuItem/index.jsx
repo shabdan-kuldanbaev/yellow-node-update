@@ -31,15 +31,17 @@ const SubMenuItem = ({
         { [styles.titleNotBold]: isTitleNormalWeight },
       )}
     >
-      {title}
-      {subtitle && (
-        <Typography
-          variant="span"
-          className={styles.subtitle}
-        >
-          {subtitle}
-        </Typography>
-      )}
+      <>
+        {title}
+        {subtitle && (
+          <Typography
+            variant="span"
+            className={styles.subtitle}
+          >
+            {subtitle}
+          </Typography>
+        )}
+      </>
     </LinkWrapper>
   </div>
 );

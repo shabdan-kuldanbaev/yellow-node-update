@@ -12,6 +12,7 @@ export default ({
   apiParams = {},
   transparent = false,
   alt = '',
+  layout = 'fill',
   ...rest
 }) => {
   const loader = isStatic
@@ -37,6 +38,7 @@ export default ({
     lazyBoundary,
     priority,
     alt,
+    layout,
     ...lazyProps,
     ...rest,
   };
