@@ -215,6 +215,7 @@ export const APP_DEVELOPMENT_TYPES = {
   feedback: 'feedback',
   parallax: 'case-study-parallax',
   softwarePriceForm: 'software-price-form',
+  wireframes: 'case-study-wireframe',
 };
 
 export const WHY_US_TYPE = {
