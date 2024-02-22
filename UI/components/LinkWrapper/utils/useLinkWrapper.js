@@ -25,7 +25,7 @@ export default (props) => {
   const target = !isLocalLink ? '_blank' : undefined;
   const rel = (isSocialLink || isLocalLink) ? undefined : 'noopener noreferrer nofollow';
 
-  const handleOnClick = (e) => {
+  const handleOnClick = onClick && ((e) => {
     if (!isEmpty(googleAnalyticProps)) {
       const {
         category,
@@ -41,8 +41,8 @@ export default (props) => {
       );
     }
 
-    onClick && onClick(e);
-  };
+    onClick(e);
+  });
 
   return {
     className,
