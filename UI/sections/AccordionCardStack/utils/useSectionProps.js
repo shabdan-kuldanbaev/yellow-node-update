@@ -32,7 +32,7 @@ export default ({
     ],
   );
 
-  const cardStackData = contentModules && useMemo(() => getDocumentFields(
+  const cardStackData = contentModules && getDocumentFields(
     contentModules[activeIndex],
     ['contentModules'],
   ).contentModules?.map((cardData) => {
@@ -57,10 +57,7 @@ export default ({
       description: bio,
       contentList: skills,
     };
-  }), [
-    activeIndex,
-    contentModules,
-  ]);
+  });
 
   return {
     type,
