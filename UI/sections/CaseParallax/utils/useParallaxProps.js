@@ -27,7 +27,6 @@ export default ({ data, type }) => {
     imagesBundles,
   } = getDocumentFields(subContent, ['contentList', 'imagesBundles']);
   const className = cn(styles.parallaxSection, styles[type], styles[view]);
-  const bundleImages = imagesBundles?.map((img) => getFileUrl(img));
 
   const parallaxProps = {
     className: styles.parallaxImage,
@@ -41,7 +40,7 @@ export default ({ data, type }) => {
     view,
     contentList,
     className,
-    bundleImages,
+    imagesBundles,
     sectionTitles,
     parallaxProps,
     ...rest,

@@ -5,3 +5,5 @@ Disallow: /dev/
 
 Host: https://yellow.systems/
 Sitemap: https://yellow.systems/sitemap.xml
+
+Disallow: /ai-software-development-services

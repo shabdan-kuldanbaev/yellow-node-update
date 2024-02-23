@@ -5,6 +5,7 @@ import { Figures } from 'UI/components/Figures';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import Illustration from 'UI/components/Illustration';
 import { TYPOGRAPHY_SIZE } from 'UI/components/Typography/utils/useTypography';
+import { getDocumentFields } from 'utils/helper';
 import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
@@ -19,11 +20,11 @@ const PageIntroSection = (props) => {
     title,
     description,
     image,
-    buttonTitle,
     figuresData,
     introSection,
     handleOnCTAClick,
     scrollBlock,
+    links,
   } = useSectionProps(props);
 
   // TODO: use rich text instead of splitting
@@ -60,18 +61,34 @@ const PageIntroSection = (props) => {
                 </Typography>
               ))}
             </Animated>
-            {buttonTitle && (
-              <Animated {...REVEAL_ANIMATION_PROPS}>
-                <div className={styles.buttonWrapper}>
-                  <Button
-                    onClick={handleOnCTAClick}
-                    className={styles.button}
-                    data-button
-                  >
-                    {buttonTitle}
-                  </Button>
-                </div>
-              </Animated>
+            {links?.length > 0 && (
+              <div className={styles.buttonWrapper}>
+                {links?.map((link, index) => {
+                  const {
+                    url,
+                    buttonTitle,
+                  } = getDocumentFields(link, [
+                    'buttonTitle',
+                    'url',
+                  ]);
+
+                  return (
+                    <Animated
+                      key={`${link.url}-${link.buttonTitle}`}
+                      {...REVEAL_ANIMATION_PROPS}
+                    >
+                      <Button
+                        onClick={url ? null : handleOnCTAClick}
+                        className={cn(styles.button, styles[`button-${index + 1}`])}
+                        href={url}
+                        data-button
+                      >
+                        {buttonTitle}
+                      </Button>
+                    </Animated>
+                  );
+                })}
+              </div>
             )}
           </div>
           <Animated {...REVEAL_ANIMATION_PROPS}>

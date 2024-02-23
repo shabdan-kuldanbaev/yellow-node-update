@@ -217,6 +217,7 @@ export const APP_DEVELOPMENT_TYPES = {
   parallax: 'case-study-parallax',
   softwarePriceForm: 'software-price-form',
   accordionCardStack: 'accordion-card-stack',
+  wireframes: 'case-study-wireframe',
 };
 
 export const WHY_US_TYPE = {
@@ -660,6 +661,7 @@ export const PAGES_WITH_DARK_BREADCRUMBS = [
   PAGES.crowdfundingPlatform,
   PAGES.paymentGatewayDevelopment,
   PAGES.billingSoftwareDevelopment,
+  PAGES.aiSoftwareDevelopmentServices,
 ];
 
 export const DEFAULT_WORK_TYPE = { slug: 'all', displayName: 'All' };
@@ -721,4 +723,8 @@ export const VALUABLE_ARTICLE_CATEGORIES_SLUGS = [
   'software-development',
   'software-chat',
   'marketing',
+];
+
+export const PAGES_WITHOUT_INDEXING = [
+  ROUTES.aiSoftwareDevelopmentServices.path,
 ];

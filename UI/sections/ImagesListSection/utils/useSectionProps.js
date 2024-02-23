@@ -23,14 +23,15 @@ export default ({
     ],
   ), [section]);
 
-  const { images: rawImages } = getDocumentFields(get(contentModules, '[0]', {}));
-
-  const images = rawImages?.map((image) => getImage(image));
-
   const {
+    images,
     subtitle: secondSubtitle,
     title: secondTitle,
-  } = getDocumentFields(get(contentModules, '[0]', []));
+  } = getDocumentFields(get(contentModules, '[0]', {}), [
+    'images',
+    'title',
+    'subtitle',
+  ]);
 
   return {
     title,

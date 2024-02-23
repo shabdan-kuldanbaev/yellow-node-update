@@ -490,6 +490,12 @@ export const routes = {
     dynamicPath: '/software-development-new-orleans',
     slug: 'software-development-new-orleans',
   },
+  aiSoftwareDevelopmentServices: {
+    title: 'AI Software development services',
+    path: '/ai-software-development-services',
+    dynamicPath: '/ai-software-development-services',
+    slug: 'ai-software-development-services',
+  },
   bookCall: {
     title: '',
     path: '/book-a-call',
