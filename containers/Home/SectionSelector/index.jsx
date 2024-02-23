@@ -10,6 +10,7 @@ const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr
 const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'), { ssr: false });
 const Blog = dynamic(() => import('UI/sections/Blog'));
 const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'), { ssr: false });
+const AccordionCardStack = dynamic(() => import('UI/sections/AccordionCardStack'));
 
 const SectionSelector = ({
   section,
@@ -90,6 +91,14 @@ const SectionSelector = ({
     return (
       <FeedbackSection
         section={section}
+        type={type}
+      />
+    );
+
+  case HOMEPAGE_SECTION_TYPES.accordionCardStack:
+    return (
+      <AccordionCardStack
+        data={section}
         type={type}
       />
     );

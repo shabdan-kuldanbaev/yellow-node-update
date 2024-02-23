@@ -247,6 +247,7 @@ export const HOMEPAGE_SECTION_TYPES = {
   blog: 'blog',
   photos: 'photos',
   feedback: 'feedback',
+  accordionCardStack: 'accordion-card-stack',
 };
 
 export const DEFAULT_DATE_FORMAT = 'MMMM D, YYYY';

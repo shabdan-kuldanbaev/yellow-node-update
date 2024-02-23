@@ -12,7 +12,7 @@ const AccordionCardStack = (props) => {
     title,
     description,
     cardStackData,
-    accordionContentModules,
+    contentModules,
     activeIndex,
     handleOnAccordionClick,
   } = useSectionProps(props);
@@ -25,9 +25,9 @@ const AccordionCardStack = (props) => {
         className={styles.sectionTitle}
       />
       <div className={styles.contentWrapper}>
-        {accordionContentModules && (
+        {contentModules && (
           <div className={styles.accordion}>
-            {accordionContentModules?.map((module, index) => (
+            {contentModules?.map((module, index) => (
               <AppFeaturesItem
                 view={view}
                 type={type}
@@ -46,7 +46,6 @@ const AccordionCardStack = (props) => {
           slug={type}
         />
       </div>
-
     </section>
   );
 };

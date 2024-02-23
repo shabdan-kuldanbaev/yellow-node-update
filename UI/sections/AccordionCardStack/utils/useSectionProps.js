@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { getDocumentFields } from 'utils/helper';
 
 export default ({
   section,
   data,
   type,
+  ...rest
 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -31,21 +32,10 @@ export default ({
     ],
   );
 
-  const {
-    contentModules: cardContentModules,
-  } = getDocumentFields(
-    contentModules[1],
+  const cardStackData = contentModules && useMemo(() => getDocumentFields(
+    contentModules[activeIndex],
     ['contentModules'],
-  );
-
-  const {
-    contentModules: accordionContentModules,
-  } = getDocumentFields(
-    contentModules[0],
-    ['contentModules'],
-  );
-
-  const cardStackData = cardContentModules?.map((cardData) => {
+  ).contentModules?.map((cardData) => {
     const {
       avatar,
       bio,
@@ -67,7 +57,10 @@ export default ({
       description: bio,
       contentList: skills,
     };
-  });
+  }), [
+    activeIndex,
+    contentModules,
+  ]);
 
   return {
     type,
@@ -75,7 +68,7 @@ export default ({
     title,
     description,
     cardStackData,
-    accordionContentModules,
+    contentModules,
     handleOnAccordionClick,
     activeIndex,
   };
