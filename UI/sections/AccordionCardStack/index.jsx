@@ -29,6 +29,7 @@ const AccordionCardStack = (props) => {
           <div className={styles.accordion}>
             {contentModules?.map((module, index) => (
               <AppFeaturesItem
+                key={module.sys.id}
                 view={view}
                 type={type}
                 data={module}
@@ -44,6 +45,7 @@ const AccordionCardStack = (props) => {
           data={cardStackData}
           view={view}
           slug={type}
+          activeIndex={activeIndex}
         />
       </div>
     </section>

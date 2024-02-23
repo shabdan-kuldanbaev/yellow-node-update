@@ -16,6 +16,7 @@ const setter = (currentIndex, length, isMobile) => (index) => ({
 
 export default ({
   data,
+  activeIndex,
   ...rest
 }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -47,7 +48,12 @@ export default ({
     currentIndex,
     setSprings,
     data,
+    activeIndex,
   ]);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [data]);
 
   return {
     data,
