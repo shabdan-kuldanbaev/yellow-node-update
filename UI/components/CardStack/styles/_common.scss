@@ -3,16 +3,15 @@
   padding-right: 32px;
   max-width: 481px;
   width: 100%;
+  height: 575px;
 
   .cardStack {
     position: relative;
-    aspect-ratio: 1;
     width: 100%;
+    height: 100%;
 
     @include tablet {
       margin: 0 auto;
-      aspect-ratio: unset;
-      min-height: 481px;
     }
   }
 
@@ -232,11 +231,9 @@
     }
   }
 
-  @include tablet {
-  }
-
   @include below-tablet {
     padding-right: 0;
     padding-bottom: 56px;
+    height: 728px;
   }
 }
