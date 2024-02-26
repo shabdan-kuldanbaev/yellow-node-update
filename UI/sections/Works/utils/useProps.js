@@ -3,9 +3,9 @@ import { DEFAULT_WORKS_LIMIT } from 'utils/constants';
 import { getLimitedList } from 'utils/helper';
 import { filterWorks } from '.';
 
-export default ({ works, initialWorksList }) => {
+export default ({ works, ...rest }) => {
   const [filteredWorks, setFilteredWorks] = useState(works);
-  const [worksDisplay, setWorksDisplay] = useState(initialWorksList);
+  const [worksDisplay, setWorksDisplay] = useState(works.slice(0, DEFAULT_WORKS_LIMIT));
   const [filters, setFilters] = useState({
     selectedTags: [],
     selectedTypes: [],
@@ -35,5 +35,6 @@ export default ({ works, initialWorksList }) => {
     works: worksDisplay,
     handleFiltersChange,
     hendleMoreClick,
+    ...rest,
   };
 };

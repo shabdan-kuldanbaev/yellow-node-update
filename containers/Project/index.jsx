@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import get from 'lodash/get';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { selectProject } from 'redux/selectors/portfolio';
 import Project from 'components/ProjectCommon';
 import MetaTags from 'components/Common/MetaTags';

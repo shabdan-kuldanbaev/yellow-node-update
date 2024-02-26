@@ -8,7 +8,7 @@ export default async function Page({ params, searchParams }) {
   const { slug } = params;
   const { page } = searchParams;
 
-  const person = getPerson(slug);
+  const { data: person } = getPerson(slug);
 
   if (!person) {
     notFound();

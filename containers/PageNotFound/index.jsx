@@ -17,8 +17,10 @@ const Animated = dynamic(() => import('UI/containers/Animated'));
 const PageNotFound = async ({ animation = json }) => {
   const {
     data: {
-      metaTitle,
-      metaDescription,
+      metaData: {
+        metaTitle,
+        metaDescription,
+      },
     } = {},
   } = await getPage(PAGES.notFound);
 

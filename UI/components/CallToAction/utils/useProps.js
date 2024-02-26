@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter, useSearchParams } from 'next/navigation';
 import cn from 'classnames';
 import {
   getDocumentFields,
@@ -45,7 +45,8 @@ export default (props) => {
 
   const [show, setShow] = useState(false);
 
-  const { query: { slug } } = useRouter();
+  const searchParams = useSearchParams();
+  const slug = searchParams.get('slug');
 
   const images = (imagesBundle || []).map(getImage);
 

@@ -12,7 +12,7 @@ const checkIfSlugIsTag = (tags, slug) => !!tags.find(({ slug: tagSlug }) => slug
 export default async function Page({ searchParams }) {
   const { page = 1, category = '' } = searchParams;
 
-  const tagList = await getBlogTags();
+  const { data: tagList } = await getBlogTags();
   const isTag = checkIfSlugIsTag(tagList, category);
 
   if (category && !isTag) {
@@ -26,7 +26,7 @@ export default async function Page({ searchParams }) {
     limit: page === 0 ? ARTICLES_NUMBER_PER_PAGE - 1 : ARTICLES_NUMBER_PER_PAGE,
   };
 
-  const { items: articles, total } = await getArticlesList(query);
+  const { data: { items: articles, total } } = await getArticlesList(query);
 
   const { setPageFetchQuery } = useContext(PageFetchContext);
   setPageFetchQuery(routes.blog.slug);

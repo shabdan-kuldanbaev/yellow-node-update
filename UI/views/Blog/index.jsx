@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import Paginator from 'UI/components/Paginator';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import ArticlesList from 'components/BlogCommon/ArticlesList';

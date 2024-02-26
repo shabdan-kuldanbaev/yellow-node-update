@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const { 'service-slug': slug } = params;
 
-  const { data = {}, metaData } = await getPage(slug);
+  const { data: { metaData, ...data } = {} } = await getPage(slug);
 
   return (
     <CustomServiceContainer

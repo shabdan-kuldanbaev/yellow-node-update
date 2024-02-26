@@ -1,20 +1,28 @@
-import { useContext } from 'react';
-import WorksView from 'pages/works';
-import { PageFetchContext } from 'utils/appContext';
+import WorksView from 'UI/views/Works';
 import { BLOCKS_SLUGS, DEFAULT_WORKS_LIMIT } from 'utils/constants';
 import { getPage } from 'utils/dataFetching/getPage';
+import { getWorkTagsAndTypes } from 'utils/dataFetching/getWorkTagsAndTypes';
 import { findBlock, getDocumentFields, rootUrl } from 'utils/helper';
 import { routes } from 'utils/routes';
 
 export default async function Page() {
   const { data } = await getPage(routes.portfolio.slug);
 
+  const {
+    data: {
+      types = [],
+      tags = [],
+    },
+  } = await getWorkTagsAndTypes();
+
+  const { pageTitle: title, subtitle } = data;
+
   const portfolioProjects = findBlock(data.contentModules, BLOCKS_SLUGS.worksPagePreviewProjects);
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
   const works = contentModules.map((module) => {
     const {
-      types,
-      tags,
+      types: workTypes = [],
+      tags: workTags = [],
       ...rest
     } = getDocumentFields(module, [
       'title',
@@ -27,14 +35,11 @@ export default async function Page() {
     ]);
 
     return {
-      types: types?.map((type) => getDocumentFields(type, ['slug', 'displayName'])) ?? [],
-      tags: tags?.map((tag) => getDocumentFields(tag, ['slug', 'title'])) ?? [],
+      types: workTypes.map((type) => getDocumentFields(type, ['slug', 'displayName'])) ?? [],
+      tags: workTags.map((tag) => getDocumentFields(tag, ['slug', 'title'])) ?? [],
       ...rest,
     };
   });
-
-  const { setPageFetchQuery } = useContext(PageFetchContext);
-  setPageFetchQuery(routes.portfolio.slug);
 
   const initialWorksList = works.slice(0, DEFAULT_WORKS_LIMIT);
 
@@ -51,6 +56,10 @@ export default async function Page() {
       initialWorksList={initialWorksList}
       link={link}
       pageMetadata={pageMetadata}
+      title={title}
+      subtitle={subtitle}
+      types={types}
+      tags={tags}
     />
   );
 }

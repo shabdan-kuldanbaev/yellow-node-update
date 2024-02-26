@@ -1,3 +1,5 @@
+'use client';
+
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import FullLayout from 'components/Layout/FullLayout';
@@ -23,6 +25,8 @@ const WorksView = (props) => {
     initialWorksList,
     link,
     isFullscreenEstimation,
+    tags,
+    types,
     openFullscreenEstimation,
     closeFullscreenEstimation,
   } = useProps(props);
@@ -54,6 +58,8 @@ const WorksView = (props) => {
         <Works
           works={works}
           initialWorksList={initialWorksList}
+          tags={tags}
+          types={types}
         />
 
         {link && (
@@ -80,6 +86,7 @@ WorksView.propTypes = {
   works: PropTypes.instanceOf(Array).isRequired,
   initialWorksList: PropTypes.instanceOf(Array).isRequired,
   link: PropTypes.instanceOf(Object).isRequired,
+  title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
 };
 

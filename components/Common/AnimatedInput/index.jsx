@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import OutsideClickHandler from 'react-outside-click-handler';
 import cn from 'classnames';
 import autosize from 'autosize';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 

@@ -1,5 +1,5 @@
 import { useEffect, memo } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import PropTypes from 'prop-types';
 import TypeSelector from 'components/TypeSelector';
 import { ROUTES } from 'utils/constants';

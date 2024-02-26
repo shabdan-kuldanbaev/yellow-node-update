@@ -5,7 +5,7 @@ import {
   TwitterShareButton,
   LinkedinShareButton,
 } from 'react-share';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import gaHelper from 'utils/ga';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';

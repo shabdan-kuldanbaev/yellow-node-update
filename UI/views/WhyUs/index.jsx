@@ -14,7 +14,7 @@ const WhyUsCommon = dynamic(() => import('UI/containers/WhyUsCommon').then((modu
 
 const WhyUs = async () => {
   const type = routes.whyUs.slug;
-  const { data = {}, metaData } = await getPage(type);
+  const { data: { metaData, ...data } = {} } = await getPage(type);
   const { contentModules } = data;
 
   const { setPageFetchQuery } = useContext(PageFetchContext);

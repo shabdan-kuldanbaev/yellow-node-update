@@ -38,6 +38,7 @@ export default function WorksFilters(props) {
         >
           {types.map((type) => (
             <Checkbox
+              key={type.slug}
               id={`type/${type.slug}`}
               checked={filters.selectedTypes.includes(type)}
               onChange={getOptionToggleHandler({ filterType: 'selectedTypes', option: type })}

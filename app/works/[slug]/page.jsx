@@ -15,7 +15,7 @@ export default async function Page({ params }) {
   const { setPageFetchQuery } = useContext(PageFetchContext);
   setPageFetchQuery(slug);
 
-  const pageData = getPage(slug);
+  const { data: pageData } = getPage(slug);
 
   if (!pageData) {
     notFound();

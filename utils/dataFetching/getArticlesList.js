@@ -7,6 +7,7 @@ import {
   getGraphqlResultTotalArticlesCount,
   getGraphqlResultTotalArticlesCountByTags,
 } from 'utils/contentful/helper';
+import { handleError } from 'utils/error';
 
 export const getArticlesList = cache(async ({
   slug,
@@ -27,14 +28,22 @@ export const getArticlesList = cache(async ({
       order,
     });
 
-  const response = blogClient.graphql(request);
+  try {
+    const response = await blogClient.graphql(request);
 
-  return {
-    items: isTag
-      ? getGraphqlResultArticlesByTags(response)
-      : getGraphqlResultArticles(response),
-    total: isTag
-      ? getGraphqlResultTotalArticlesCountByTags(response)
-      : getGraphqlResultTotalArticlesCount(response),
-  };
+    return {
+      data: {
+        items: isTag
+          ? getGraphqlResultArticlesByTags(response)
+          : getGraphqlResultArticles(response),
+        total: isTag
+          ? getGraphqlResultTotalArticlesCountByTags(response)
+          : getGraphqlResultTotalArticlesCount(response),
+      },
+    };
+  } catch (e) {
+    handleError(e);
+
+    return { error: e.message };
+  }
 });

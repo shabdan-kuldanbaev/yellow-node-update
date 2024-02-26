@@ -1,23 +1,32 @@
 import { cache } from 'react';
 import { blogClient } from 'utils/contentful/client';
+import { handleError } from 'utils/error';
 
 export const getPersonRelatedArticles = cache(async ({
   id,
   skip,
   limit,
 }) => {
-  const res = await blogClient.getEntries({
-    contentType: 'article',
-    additionalQueryParams: {
-      links_to_entry: id,
-      order: '-fields.publishedAt',
-      skip,
-      limit,
-    },
-  });
+  try {
+    const res = await blogClient.getEntries({
+      contentType: 'article',
+      additionalQueryParams: {
+        links_to_entry: id,
+        order: '-fields.publishedAt',
+        skip,
+        limit,
+      },
+    });
 
-  return {
-    items: res.items,
-    total: res.total,
-  };
+    return {
+      data: {
+        items: res.items,
+        total: res.total,
+      },
+    };
+  } catch (e) {
+    handleError(e);
+
+    return { error: e.message };
+  }
 });

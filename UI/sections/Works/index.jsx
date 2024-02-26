@@ -15,6 +15,8 @@ const Works = (props) => {
     works = [],
     hasHiddenItems,
     filters,
+    tags,
+    types,
     hendleMoreClick,
     handleFiltersChange,
   } = useProps(props);
@@ -24,6 +26,8 @@ const Works = (props) => {
       <WorksFilters
         filters={filters}
         onFiltersChange={handleFiltersChange}
+        tags={tags}
+        types={types}
       />
 
       <div className={styles.worksContainer}>
