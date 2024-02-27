@@ -14,7 +14,7 @@ import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import usePageClusters from 'hooks/usePageClusters';
-import { IntroSectionContext } from 'utils/appContext';
+import { IntroSectionContext, PageClustersContext } from 'utils/appContext';
 import { getArticleProps } from './utils/propsHelper';
 
 const FAQ = dynamic(() => import('UI/containers/FAQ'));
@@ -26,10 +26,14 @@ const ArticleContainer = ({ data }) => {
 
   const {
     article,
+    clusters,
     next: olderArticle,
     prev: newerArticle,
     related,
   } = data;
+
+  const { setPageClusters } = useContext(PageClustersContext);
+  setPageClusters(clusters || []);
 
   const pageClusters = usePageClusters();
 

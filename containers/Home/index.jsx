@@ -6,13 +6,10 @@ import MetaTags from 'components/Common/MetaTags';
 import { loadDuck } from 'UI/components/Duck/DuckWrapper/utils/helpers';
 import SectionSelector from 'containers/Home/SectionSelector';
 import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
-import { AppContext, IntroSectionContext, PageFetchContext } from 'utils/appContext';
+import { AppContext, IntroSectionContext } from 'utils/appContext';
 import { rootUrl } from 'utils/helper';
 
 export const Home = ({ contentModules, metaData: pageMetadata }) => {
-  const { setPageFetchQuery } = useContext(PageFetchContext);
-  setPageFetchQuery(PAGES.homepage);
-
   const introSection = useContext(IntroSectionContext);
   const { contextData: { duck }, setContextData } = useContext(AppContext);
 

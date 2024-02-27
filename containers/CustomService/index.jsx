@@ -9,19 +9,19 @@ import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES_WITH_DARK_BREADCRUMBS } from 'utils/constants';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { IntroSectionContext, PageFetchContext } from 'utils/appContext';
+import { IntroSectionContext, PageClustersContext } from 'utils/appContext';
 import styles from './styles.module.scss';
 
 const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'), { ssr: false });
 const AppDevelopmentCommon = dynamic(() => import('components/AppDevelopmentCommon').then((module) => module.AppDevelopmentCommon));
 
 const CustomServiceContainer = async ({ type, data = {}, metaData }) => {
-  const { contentModules } = data;
+  const { contentModules, clusters } = data;
 
   const introSection = useContext(IntroSectionContext);
 
-  const { setPageFetchQuery } = useContext(PageFetchContext);
-  setPageFetchQuery(type);
+  const { setPageClusters } = useContext(PageClustersContext);
+  setPageClusters(clusters || []);
 
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 

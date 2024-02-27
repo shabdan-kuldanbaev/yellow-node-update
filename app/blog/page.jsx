@@ -1,11 +1,8 @@
-import { useContext } from 'react';
 import { notFound } from 'next/navigation';
 import BlogContainer from 'UI/views/Blog';
-import { PageFetchContext } from 'utils/appContext';
 import { ARTICLES_NUMBER_PER_PAGE } from 'utils/constants';
 import { getArticlesList } from 'utils/dataFetching/getArticlesList';
 import { getBlogTags } from 'utils/dataFetching/getBlogTags';
-import { routes } from 'utils/routes';
 
 const checkIfSlugIsTag = (tags, slug) => !!tags.find(({ slug: tagSlug }) => slug === tagSlug);
 
@@ -27,9 +24,6 @@ export default async function Page({ searchParams }) {
   };
 
   const { data: { items: articles, total } } = await getArticlesList(query);
-
-  const { setPageFetchQuery } = useContext(PageFetchContext);
-  setPageFetchQuery(routes.blog.slug);
 
   return (
     <BlogContainer

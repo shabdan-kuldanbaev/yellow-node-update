@@ -6,7 +6,7 @@ import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
 import { getPage } from 'utils/dataFetching/getPage';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { IntroSectionContext, PageFetchContext } from 'utils/appContext';
+import { IntroSectionContext } from 'utils/appContext';
 import { routes } from 'utils/routes';
 import styles from './styles.module.scss';
 
@@ -16,9 +16,6 @@ const WhyUs = async () => {
   const type = routes.whyUs.slug;
   const { data: { metaData, ...data } = {} } = await getPage(type);
   const { contentModules } = data;
-
-  const { setPageFetchQuery } = useContext(PageFetchContext);
-  setPageFetchQuery(type);
 
   const introSection = useContext(IntroSectionContext);
 

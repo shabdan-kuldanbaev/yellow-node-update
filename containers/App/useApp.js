@@ -22,7 +22,7 @@ export default function useApp() {
     duck: null,
   });
 
-  const [pageFetchQuery, setPageFetchQuery] = useState('');
+  const [pageClusters, setPageClusters] = useState([]);
 
   const introSection = useRef(null);
 
@@ -58,14 +58,14 @@ export default function useApp() {
     setContextData,
   }), [contextData, setContextData]);
 
-  const PageFetchContextValue = useMemo(() => ({
-    pageFetchQuery,
-    setPageFetchQuery,
-  }), [pageFetchQuery, setPageFetchQuery]);
+  const PageClustersContextValue = useMemo(() => ({
+    pageClusters,
+    setPageClusters,
+  }), [pageClusters, setPageClusters]);
 
   return {
     introSection,
     AppContextValue,
-    PageFetchContextValue,
+    PageClustersContextValue,
   };
 }

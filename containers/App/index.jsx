@@ -2,27 +2,31 @@
 
 import Layout from 'UI/containers/Layout';
 import { ReduxProvider } from 'store/provider';
-import { AppContext, IntroSectionContext, PageFetchContext } from 'utils/appContext';
+import {
+  AppContext,
+  IntroSectionContext,
+  PageClustersContext,
+} from 'utils/appContext';
 import useApp from './useApp';
 
 const App = ({ children, params }) => {
   const {
     introSection,
     AppContextValue,
-    PageFetchContextValue,
+    PageClustersContextValue,
   } = useApp(params);
 
   return (
     <ReduxProvider>
       <AppContext.Provider value={AppContextValue}>
         {/* TODO: Remove PageFetch context */}
-        <PageFetchContext.Provider value={PageFetchContextValue}>
+        <PageClustersContext.Provider value={PageClustersContextValue}>
           <IntroSectionContext.Provider value={introSection}>
             <Layout>
               {children}
             </Layout>
           </IntroSectionContext.Provider>
-        </PageFetchContext.Provider>
+        </PageClustersContext.Provider>
       </AppContext.Provider>
     </ReduxProvider>
   );
