@@ -1,0 +1,25 @@
+.generative-ai {
+  .contentContainer {
+    display: block;
+    margin: 0 auto;
+    max-width: $default-content-width;
+  }
+
+  .titleStyle {
+    [data-title] {
+      @include fontSize(24px, 150%);
+
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    [data-description] {
+      margin: 0;
+      text-align: left;
+    }
+  }
+
+  .descriptionContainer {
+    display: none;
+  }
+}
