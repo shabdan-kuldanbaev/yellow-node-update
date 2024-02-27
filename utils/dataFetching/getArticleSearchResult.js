@@ -7,7 +7,7 @@ import { getGraphqlResultArticles, getGraphqlResultArticlesByTags } from 'utils/
 
 export const getArticleSearchResult = cache(async (value) => {
   if (!value) {
-    return { data: [] };
+    return { error: 'Search param missing' };
   }
 
   try {
@@ -30,7 +30,7 @@ export const getArticleSearchResult = cache(async (value) => {
     ]);
 
     const result = uniqWith(
-      [...getGraphqlResultArticlesByTags(byTagRaw.data), ...getGraphqlResultArticles(byText.data)],
+      [...getGraphqlResultArticlesByTags(byTagRaw), ...getGraphqlResultArticles(byText)],
       ((article1, article2) => article1.slug === article2.slug),
     ).sort((a, b) => Date.parse(a) - Date.parse(b));
 

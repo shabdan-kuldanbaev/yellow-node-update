@@ -1,3 +1,5 @@
+'use client';
+
 import {
   useState,
   useEffect,
@@ -20,11 +22,25 @@ const FullscreenSearch = ({
 
   const [inputValue, setInputValue] = useState('');
   const [searchTerm, setSearchTerm] = useState(inputValue);
-  const { data: articles = [], isFetching } = getArticleSearchResult(searchTerm);
+  const [articles, setArticles] = useState([]);
+  const [isFetching, setFetching] = useState(false);
 
   const delayedQuery = useMemo(
-    () => debounce((value) => setSearchTerm(value), 1000),
-    [],
+    () => debounce(async (value) => {
+      setSearchTerm(value);
+      setFetching(true);
+
+      const { data: articlesRes, error } = await getArticleSearchResult(searchTerm);
+
+      setFetching(false);
+
+      if (!articlesRes) {
+        return;
+      }
+
+      setArticles(articlesRes);
+    }, 1000),
+    [searchTerm],
   );
 
   const handleOnChangeInput = ({ target: { value } }) => {
