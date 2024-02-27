@@ -1,0 +1,239 @@
+.container {
+  position: relative;
+  padding-right: 32px;
+  max-width: 481px;
+  width: 100%;
+  height: 575px;
+
+  .cardStack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    @include tablet {
+      margin: 0 auto;
+    }
+  }
+
+  .card {
+    @include flex(column, flex-start, flex-start);
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 24px;
+    gap: 16px;
+    width: 100%;
+    height: 100%;
+    background-color: $gray0;
+    border-radius: 5px;
+    border: 1px solid $gray100;
+    box-sizing: border-box;
+
+    @include below-tablet {
+      @include flex(column, flex-start, center);
+    }
+  }
+
+  .cardImage {
+    width: 220px;
+    height: 220px;
+  }
+
+  .cardHeader {
+    @include flex(row, flex-start, center);
+
+    gap: 8px;
+
+    @include below-tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .cardTitle {
+    @include fontSize(20px, 150%);
+
+    position: relative;
+    margin: 0;
+    padding-right: 8px;
+    font-weight: 700;
+    border-right: 1px solid $gray400;
+
+    @include below-tablet {
+      padding: 0;
+      border: none;
+      text-align: center;
+    }
+  }
+
+  .cardSubtitle {
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+    font-weight: 400;
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+
+  .cardContent {
+    @include flex(column);
+
+    gap: 16px;
+  }
+
+  .cardDescription {
+    @include fontSize(16px, 150%);
+
+    margin: 0;
+    color: $gray400;
+    font-weight: 400;
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+
+  .contentList {
+    @include flex(row, flex-start, flex-start, wrap);
+
+    gap: 12px;
+
+    @include below-tablet {
+      justify-content: center;
+    }
+  }
+
+  .contentItem {
+    @include fontSize(12px, 150%);
+
+    padding: 12px 24px;
+    border-radius: 200px;
+    background: $gray100;
+  }
+
+  .controls {
+    @include flex(row, space-between, center);
+
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    gap: 12px;
+
+    &.isMobile {
+      display: none;
+    }
+  }
+
+  .control {
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    width: 40px;
+    aspect-ratio: 1;
+    background-color: transparent;
+    border: 1px solid $gray200;
+    border-radius: 5px;
+    outline: none;
+    transition: ease-in-out 0.1s;
+
+    svg {
+      transition: ease-in-out 0.1s;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: $gray200;
+
+      svg {
+        fill: $gray200;
+      }
+
+      &:active {
+        color: $gray200;
+        transform: unset;
+
+        svg {
+          fill: $gray200;
+        }
+      }
+    }
+
+    &:active {
+      color: $yellow500;
+      transform: scale(0.9);
+
+      svg {
+        fill: $yellow500;
+      }
+    }
+  }
+
+  .navigationContainer {
+    @include flex(row, space-between, center);
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    width: 100%;
+
+    &.isMobile {
+      display: flex;
+    }
+  }
+
+  .navigationButton {
+    @include flex(row, space-between, center);
+    @include fontSize(16px, 150%);
+
+    cursor: pointer;
+    padding: 0;
+    gap: 8px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: ease-in-out 0.1s;
+
+    svg {
+      transition: ease-in-out 0.1s;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: $gray200;
+
+      svg {
+        fill: $gray200;
+      }
+
+      &:active {
+        color: $gray200;
+        transform: unset;
+
+        svg {
+          fill: $gray200;
+        }
+      }
+    }
+
+    &:active {
+      color: $yellow500;
+      transform: scale(0.9);
+
+      svg {
+        fill: $yellow500;
+      }
+    }
+  }
+
+  @include below-tablet {
+    padding-right: 0;
+    padding-bottom: 56px;
+    height: 728px;
+  }
+}
