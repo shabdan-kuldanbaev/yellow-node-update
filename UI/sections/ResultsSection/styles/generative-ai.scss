@@ -1,0 +1,87 @@
+.generative-ai {
+  &.firstSectionView {
+    background: $generativeAiGradient;
+
+    .sectionTitle {
+      display: none;
+    }
+
+    .media {
+      position: relative;
+      aspect-ratio: 994/646;
+      width: 994px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 1%;
+        left: 1%;
+        transform: rotate(-6deg);
+        width: 100%;
+        height: 100%;
+        background-color: rgba($color: $gray0, $alpha: 40%);
+        border-radius: 20px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    .sectionTitle {
+      [data-title] {
+        margin-bottom: 12px;
+      }
+
+      [data-description] {
+        position: relative;
+        margin: 0;
+        padding-left: 10px;
+        color: $gray500;
+
+        &::before {
+          @include circle($gray500, 4px);
+
+          content: '';
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+      }
+
+      & > div:last-child {
+        @include flex(column, center, center);
+      }
+    }
+
+    .media {
+      z-index: 10;
+      aspect-ratio: 994/646;
+      width: 994px;
+    }
+
+    .imageBundle {
+      position: absolute;
+
+      &-1 {
+        top: -15%;
+        right: -50%;
+        aspect-ratio: 1;
+        width: 1300px;
+
+        @include below-tablet {
+          width: 650px;
+        }
+      }
+
+      &-2 {
+        bottom: -20%;
+        right: -40%;
+        aspect-ratio: 1;
+        width: 900px;
+
+        @include below-tablet {
+          width: 450px;
+        }
+      }
+    }
+  }
+}
