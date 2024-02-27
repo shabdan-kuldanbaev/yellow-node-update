@@ -1,4 +1,6 @@
-import { useContext } from 'react';
+'use client';
+
+import { useContext, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useParams, usePathname } from 'next/navigation';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
@@ -34,7 +36,10 @@ const ArticleContainer = ({ data }) => {
   } = data;
 
   const { setPageClusters } = useContext(PageClustersContext);
-  setPageClusters(clusters || []);
+
+  useEffect(() => {
+    setPageClusters(clusters || []);
+  }, [clusters, setPageClusters]);
 
   const pageClusters = usePageClusters();
 

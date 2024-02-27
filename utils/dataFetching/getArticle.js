@@ -11,7 +11,14 @@ export const getArticle = cache(async (slug) => {
     };
   }
 
-  const article = (await blogClient.getEntries({ contentType: 'article', query: { slug } })).data.items[0];
+  const res = await blogClient.getEntries({ contentType: 'article', query: { slug } });
+  const article = res.items[0];
+
+  if (!article) {
+    return {
+      error: 'Article not found',
+    };
+  }
 
   const {
     publishedAt,
