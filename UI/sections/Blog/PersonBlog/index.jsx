@@ -12,10 +12,15 @@ const PersonPageBlog = (props) => {
     articlesList,
     currentPage,
     pagesCounter,
+    sectionRef,
+    handlePageChange,
   } = useThreeCardsInRow(props);
 
   return (
-    <section className={styles.section}>
+    <section
+      className={styles.section}
+      ref={sectionRef}
+    >
       <SectionTitle
         title={title}
         description={description}
@@ -31,6 +36,7 @@ const PersonPageBlog = (props) => {
             pagesCounter={pagesCounter}
             currentPage={currentPage}
             pageSlug={ROUTES.person.slug}
+            onPageChange={handlePageChange}
           />
         )}
       </div>

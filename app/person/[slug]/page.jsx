@@ -6,9 +6,9 @@ import { getPersonRelatedArticles } from 'utils/dataFetching/getPersonRelatedArt
 
 export default async function Page({ params, searchParams }) {
   const { slug } = params;
-  const { page } = searchParams;
+  const { page = 1 } = searchParams;
 
-  const { data: person } = getPerson(slug);
+  const { data: person } = await getPerson(slug);
 
   if (!person) {
     notFound();
@@ -17,16 +17,18 @@ export default async function Page({ params, searchParams }) {
   const query = {
     id: person.id,
     skip: ((page === 1) ? 0 : (page - 1) * ARTICLES_NUMBER_PER_PAGE - 1),
-    limit: page === 0 ? ARTICLES_NUMBER_PER_PAGE - 1 : ARTICLES_NUMBER_PER_PAGE,
+    limit: ARTICLES_NUMBER_PER_PAGE,
   };
 
-  const { data: articlesData } = getPersonRelatedArticles(query);
+  const { data: articlesData } = await getPersonRelatedArticles(query);
+  console.log('🚀 ~ Page ~ articlesData:', articlesData);
 
   return (
     <PersonContainer
       slug={slug}
       articlesData={articlesData}
       currentPage={page}
+      person={person}
     />
   );
 }

@@ -1,4 +1,7 @@
+import { useRef } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 import { getDocumentFields, getFileUrl } from 'utils/helper';
+import { routes } from 'utils/routes';
 
 export default ({
   title = '',
@@ -37,11 +40,25 @@ export default ({
 
   const pagesCounter = Math.ceil(total / articlesNumberPerPage);
 
+  const { push: navigateTo } = useRouter();
+  const { slug } = useParams();
+
+  const sectionRef = useRef(null);
+
+  const handlePageChange = (page) => {
+    const { path } = routes.person.getRoute(slug, page);
+
+    navigateTo(path, { scroll: false });
+    window.scrollTo(0, sectionRef.current.offsetTop - 100);
+  };
+
   return {
     title,
     description,
     articlesList,
     currentPage,
     pagesCounter,
+    sectionRef,
+    handlePageChange,
   };
 };

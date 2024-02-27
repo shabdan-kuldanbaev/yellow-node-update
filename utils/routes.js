@@ -326,18 +326,6 @@ export const aboutRoutes = {
     dynamicPath: '/book-a-call',
     slug: 'book-a-call',
   },
-  person: {
-    title: 'Person',
-    slug: 'person',
-    getRoute: (slug, page = '1') => getPageRoute(
-      slug,
-      personRoutes,
-      page,
-    ),
-    dynamicPath: {
-      ...dynamicPersonPaths,
-    },
-  },
   company: {
     title: 'Company',
     path: '/company',
@@ -451,6 +439,22 @@ export const blogPagesRoutes = {
       dynamicPath: !!slug && '/blog/[slug]',
     }),
     slug: 'article',
+  },
+  person: {
+    title: 'Person',
+    slug: 'person',
+    getRoute: (person, page = 1) => {
+      const params = new URLSearchParams();
+
+      if (page > 1) {
+        params.set('page', page);
+      }
+
+      return { path: `/person/${person}?${params.toString()}` };
+    },
+    dynamicPath: {
+      ...dynamicPersonPaths,
+    },
   },
 };
 

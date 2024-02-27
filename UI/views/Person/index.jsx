@@ -1,3 +1,6 @@
+'use client';
+
+import { useContext } from 'react';
 import MetaTags from 'components/Common/MetaTags';
 import Breadcrumbs from 'UI/components/Breadcrumbs';
 import PersonIntro from 'UI/sections/PersonIntro';
@@ -7,11 +10,11 @@ import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { ARTICLES_NUMBER_PER_PERSON_PAGE, PAGES } from 'utils/constants';
 import { getDocumentFields, getFileUrl, rootUrl } from 'utils/helper';
 import { routes } from 'utils/routes';
+import { IntroSectionContext } from 'utils/appContext';
 import styles from './styles.module.scss';
 
 const PersonContainer = ({
   currentPage,
-  introSection,
   query,
   person,
   articlesData,
@@ -25,6 +28,8 @@ const PersonContainer = ({
     socialLinks,
     bio,
   } = person;
+
+  const introSection = useContext(IntroSectionContext);
 
   const personMetadata = {
     metaTitle,

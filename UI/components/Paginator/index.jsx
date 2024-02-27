@@ -17,14 +17,16 @@ const Paginator = (props) => {
 
   return (
     <div className={cn(styles.paginationWrapper, className)}>
-      <span
-        className={styles.paginationPrev}
-        onClick={handleOnPreviousClick}
-        role="button"
-        tabIndex="0"
-      >
-        {previous}
-      </span>
+      {previous && (
+        <span
+          className={styles.paginationPrev}
+          onClick={handleOnPreviousClick}
+          role="button"
+          tabIndex="0"
+        >
+          {previous}
+        </span>
+      )}
       <ReactPaginate
         pageCount={pagesCounter}
         pageRangeDisplayed={4}

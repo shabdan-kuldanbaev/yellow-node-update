@@ -2,7 +2,12 @@
 
 import { useContext } from 'react';
 import dynamic from 'next/dynamic';
-import { useParams, usePathname } from 'next/navigation';
+import {
+  useRouter,
+  useParams,
+  usePathname,
+  useSearchParams,
+} from 'next/navigation';
 import Paginator from 'UI/components/Paginator';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import ArticlesList from 'components/BlogCommon/ArticlesList';
@@ -22,6 +27,7 @@ import {
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import useToggle from 'hooks/useToggle';
 import { IntroSectionContext } from 'utils/appContext';
+import { routes } from 'utils/routes';
 import { findTagBySlug } from './utils/blogContainerHelper';
 import styles from './BlogContainer.module.scss';
 
@@ -79,6 +85,16 @@ const BlogContainer = ({
     subscribe({ email, pathname });
   };
 
+  const { push: navigateTo } = useRouter();
+  const category = useSearchParams().get('category');
+
+  const handlePageChange = (page) => {
+    const { path } = routes.blog.getRoute(category, page);
+
+    window.scrollTo(0, 0);
+    navigateTo(path);
+  };
+
   return (
     <>
       <MetaTags
@@ -117,6 +133,7 @@ const BlogContainer = ({
             pagesCounter={pagesCounter}
             currentPage={currentPage}
             pageSlug={ROUTES.blog.slug}
+            onPageChange={handlePageChange}
           />
         )}
       </FullLayout>
