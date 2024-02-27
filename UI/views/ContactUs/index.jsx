@@ -1,3 +1,5 @@
+'use client';
+
 import MetaTags from 'components/Common/MetaTags';
 import { PAGES } from 'utils/constants';
 import FullLayout from 'components/Layout/FullLayout';
@@ -12,12 +14,12 @@ import Contacts from 'UI/components/Contacts';
 import useContactUsProps from './utils/useContactUsProps';
 import styles from './ContactUs.module.scss';
 
-const ContactUs = () => {
+const ContactUs = (props) => {
   const {
     breadcrumbs,
     pageMetadata,
     peoplePhotoSection,
-  } = useContactUsProps();
+  } = useContactUsProps(props);
 
   return (
     <>

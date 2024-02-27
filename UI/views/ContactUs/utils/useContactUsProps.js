@@ -1,10 +1,8 @@
-import { getPage } from 'utils/dataFetching/getPage';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { BLOCKS_SLUGS, PAGES } from 'utils/constants';
 import { findBlock, rootUrl } from 'utils/helper';
 
-export default async () => {
-  const { data = {} } = await getPage(PAGES.contact);
+export default ({ data }) => {
   const {
     contentModules = [],
     metaData,
