@@ -1,6 +1,6 @@
 import { cache } from 'react';
 import { blogClient } from 'utils/contentful/client';
-import { handleError } from 'utils/error';
+import { handleApiError } from 'utils/error';
 
 export const getPersonRelatedArticles = cache(async ({
   id,
@@ -25,7 +25,7 @@ export const getPersonRelatedArticles = cache(async ({
       },
     };
   } catch (e) {
-    handleError(e);
+    handleApiError(e);
 
     return { error: e.message };
   }

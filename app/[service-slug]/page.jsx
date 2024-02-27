@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import CustomServiceContainer from 'containers/CustomService';
 import {
   aboutRoutes,
@@ -23,12 +24,20 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const { 'service-slug': slug } = params;
 
-  const { data: { metaData, ...data } = {} } = await getPage(slug);
+  const x = await getPage(slug);
+
+  const { data } = x;
+
+  if (!data) {
+    notFound();
+  }
+
+  const { metaData, ...restData } = data;
 
   return (
     <CustomServiceContainer
       type={slug}
-      data={data}
+      data={restData}
       metaData={metaData}
     />
   );

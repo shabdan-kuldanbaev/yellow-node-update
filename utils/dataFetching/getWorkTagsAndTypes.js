@@ -2,7 +2,7 @@ import { cache } from 'react';
 import { contentfulClient } from 'utils/contentful/client';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 import { getGraphqlResultTags, getGraphqlResultWorkTypes } from 'utils/contentful/helper';
-import { handleError } from 'utils/error';
+import { handleApiError } from 'utils/error';
 
 export const getWorkTagsAndTypes = cache(async () => {
   try {
@@ -20,7 +20,7 @@ export const getWorkTagsAndTypes = cache(async () => {
       },
     };
   } catch (e) {
-    handleError(e);
+    handleApiError(e);
 
     return { error: e.message };
   }

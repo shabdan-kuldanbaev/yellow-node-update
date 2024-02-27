@@ -1,6 +1,6 @@
 import { cache } from 'react';
 import { blogPreviewClient } from 'utils/contentful/client';
-import { handleError } from 'utils/error';
+import { handleApiError } from 'utils/error';
 
 export const getDraftArticle = cache(async (slug) => {
   if (!slug) {
@@ -14,7 +14,7 @@ export const getDraftArticle = cache(async (slug) => {
 
     return { data: article };
   } catch (e) {
-    handleError(e);
+    handleApiError(e);
 
     return { error: e.message };
   }

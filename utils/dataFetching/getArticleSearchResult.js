@@ -4,7 +4,6 @@ import { SEARCH_ARTICLES_LIMIT } from 'utils/constants';
 import { blogClient } from 'utils/contentful/client';
 import { GRAPHQL_QUERY } from 'utils/contentful/graphqlQuery';
 import { getGraphqlResultArticles, getGraphqlResultArticlesByTags } from 'utils/contentful/helper';
-import { handleError } from 'utils/error';
 
 export const getArticleSearchResult = cache(async (value) => {
   if (!value) {
@@ -37,8 +36,6 @@ export const getArticleSearchResult = cache(async (value) => {
 
     return { data: result };
   } catch (e) {
-    handleError(e);
-
     return { error: e.message };
   }
 });

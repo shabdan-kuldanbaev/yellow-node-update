@@ -7,7 +7,7 @@ import {
   getGraphqlResultTotalArticlesCount,
   getGraphqlResultTotalArticlesCountByTags,
 } from 'utils/contentful/helper';
-import { handleError } from 'utils/error';
+import { handleApiError } from 'utils/error';
 
 export const getArticlesList = cache(async ({
   slug,
@@ -42,7 +42,7 @@ export const getArticlesList = cache(async ({
       },
     };
   } catch (e) {
-    handleError(e);
+    handleApiError(e);
 
     return { error: e.message };
   }

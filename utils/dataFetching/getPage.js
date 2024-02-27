@@ -1,12 +1,12 @@
 import { cache } from 'react';
 import { contentfulClient } from 'utils/contentful/client';
-import { handleError } from 'utils/error';
+import { handleApiError } from 'utils/error';
 import { getFileUrl } from 'utils/helper';
 
 export const getPage = cache(async (slug) => {
   if (!slug || typeof slug !== 'string') {
     return {
-      data: {},
+      error: 'Wrong slug',
     };
   }
 
@@ -33,7 +33,7 @@ export const getPage = cache(async (slug) => {
       },
     };
   } catch (e) {
-    handleError(e);
+    handleApiError(e);
 
     return { error: e.message };
   }

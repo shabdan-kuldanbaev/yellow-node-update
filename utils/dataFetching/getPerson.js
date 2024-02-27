@@ -1,6 +1,6 @@
 import { cache } from 'react';
 import { blogClient } from 'utils/contentful/client';
-import { handleError } from 'utils/error';
+import { handleApiError } from 'utils/error';
 
 export const getPerson = cache(async (slug) => {
   try {
@@ -18,7 +18,7 @@ export const getPerson = cache(async (slug) => {
       },
     };
   } catch (e) {
-    handleError(e);
+    handleApiError(e);
 
     return { error: e.message };
   }

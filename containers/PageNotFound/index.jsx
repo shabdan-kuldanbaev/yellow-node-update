@@ -1,3 +1,5 @@
+'use client';
+
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
 import MetaTags from 'components/Common/MetaTags';
@@ -8,21 +10,13 @@ import {
   REVEAL_ANIMATION_PROPS,
 } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
-import { getPage } from 'utils/dataFetching/getPage';
 import json from './json/Idea.json';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
-const PageNotFound = async ({ animation = json }) => {
-  const {
-    data: {
-      metaData: {
-        metaTitle,
-        metaDescription,
-      },
-    } = {},
-  } = await getPage(PAGES.notFound);
+const PageNotFound = ({ metaData, animation = json }) => {
+  const { metaTitle, metaDescription } = metaData;
 
   const pageMetadata = {
     metaTitle,
