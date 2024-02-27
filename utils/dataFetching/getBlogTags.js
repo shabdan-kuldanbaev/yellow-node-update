@@ -8,7 +8,7 @@ export const getBlogTags = cache(async () => {
   const req = GRAPHQL_QUERY.loadTag({});
 
   try {
-    const res = blogClient.graphql(req);
+    const res = await blogClient.graphql(req);
 
     return { data: getGraphqlResultTags(res) };
   } catch (e) {
