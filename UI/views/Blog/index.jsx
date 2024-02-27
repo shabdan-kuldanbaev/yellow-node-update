@@ -1,3 +1,5 @@
+'use client';
+
 import { useContext } from 'react';
 import dynamic from 'next/dynamic';
 import { useParams, usePathname } from 'next/navigation';
@@ -9,7 +11,6 @@ import PageHeader from 'UI/components/PageHeader';
 import FullLayout from 'components/Layout/FullLayout';
 import FullscreenSearch from 'components/BlogCommon/FullscreenSearch';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
-import { getPage } from 'utils/dataFetching/getPage';
 import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
 import { rootUrl } from 'utils/helper';
 import {
@@ -26,17 +27,16 @@ import styles from './BlogContainer.module.scss';
 
 const Svg = dynamic(() => import('UI/components/Svg'));
 
-const BlogContainer = async ({
+const BlogContainer = ({
   articles,
   totalArticles,
   currentPage,
   tagsList,
+  metaData,
 }) => {
   const [subscribe, { isLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
   const introSection = useContext(IntroSectionContext);
-
-  const { data: { metaData } = {} } = await getPage(PAGES.blog);
 
   const [isFullscreenSearch, toggleFullscreenSearch] = useToggle(false);
   const [isFullscreenSubscribe, toggleFullscreenSubscribe] = useToggle(false);
