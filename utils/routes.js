@@ -298,19 +298,17 @@ export const regionalDevelopmentRoutes = {
 export const legalInfoRoutes = {
   cookiesPolicy: {
     title: 'Cookies Policy',
-    path: '/cookies-policy',
+    path: '/legal/cookies-policy',
     slug: 'cookies-policy',
   },
   privacyPolicy: {
     title: 'Yellow Systems Privacy Policy',
-    path: '/privacy-policy',
-    dynamicPath: '/privacy-policy',
+    path: '/legal/privacy-policy',
     slug: 'privacy-policy',
   },
   termsAndConditions: {
     title: 'Terms and Conditions',
-    path: '/terms-and-conditions',
-    dynamicPath: '/terms-and-conditions',
+    path: '/legal/terms-and-conditions',
     slug: 'terms-and-conditions',
   },
 };

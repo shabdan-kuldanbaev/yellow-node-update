@@ -1,13 +1,16 @@
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { getPage } from 'utils/dataFetching/getPage';
 
-export default async function useProps({
+export default function useProps({
   type,
+  data,
   ...rest
 }) {
-  const { data = {} } = await getPage(type);
-  const { contentModules = [], metaData } = data;
+  const {
+    contentModules = [],
+    metaData,
+    pageTitle,
+  } = data;
 
   const textModule = contentModules[0] || {};
 
@@ -28,6 +31,7 @@ export default async function useProps({
     pageMetadata,
     text,
     type,
+    title: pageTitle,
     ...rest,
   };
 }

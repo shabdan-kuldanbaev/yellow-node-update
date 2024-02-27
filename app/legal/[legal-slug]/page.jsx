@@ -1,21 +1,22 @@
 import TechnicalPageContainer from 'UI/views/TechnicalPage';
+import { getPage } from 'utils/dataFetching/getPage';
 import { legalInfoRoutes } from 'utils/routes';
 
 export async function generateStaticParams() {
-  return legalInfoRoutes.map((route) => ({
+  return Object.values(legalInfoRoutes).map((route) => ({
     'legal-slug': route.slug,
   }));
 }
 
-export default function Page({ params }) {
+export default async function Page({ params }) {
   const { 'legal-slug': slug } = params;
 
-  const { title } = Object.values(legalInfoRoutes).find((route) => route.slug === slug);
+  const { data = {} } = await getPage(slug);
 
   return (
     <TechnicalPageContainer
       type={slug}
-      title={title}
+      data={data}
     />
   );
 }

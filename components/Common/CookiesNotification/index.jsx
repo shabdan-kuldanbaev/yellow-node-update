@@ -11,7 +11,7 @@ import cn from 'classnames';
 import LinkWrapper from 'UI/components/LinkWrapper';
 import Button from 'UI/components/Button';
 import useStorage from 'hooks/useStorage';
-import { PAGES } from 'utils/constants';
+import { routes } from 'utils/routes';
 import { notificationData } from './utils/data';
 import styles from './styles.module.scss';
 
@@ -61,7 +61,7 @@ const CookiesNotification = ({ text = notificationData.text }) => {
         <p>
           {text}
           <LinkWrapper
-            path={PAGES.cookiesPolicy}
+            path={routes.cookiesPolicy.path}
             className={styles.link}
           >
             Cookies Policy

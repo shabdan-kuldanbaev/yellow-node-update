@@ -1,6 +1,6 @@
 import LinkWrapper from 'UI/components/LinkWrapper';
-import { PAGES } from 'utils/constants';
 import Typography from 'UI/components/Typography';
+import { routes } from 'utils/routes';
 import styles from './styles.module.scss';
 
 const BottomContent = () => (
@@ -12,8 +12,8 @@ const BottomContent = () => (
       © All right reserved. Yellow 2024
     </Typography>
     <div className={styles.links}>
-      <LinkWrapper path={PAGES.privacyPolicy}>Privacy Policy</LinkWrapper>
-      <LinkWrapper path={PAGES.termsAndConditions}>Terms & Privacy</LinkWrapper>
+      <LinkWrapper path={routes.privacyPolicy.path}>Privacy Policy</LinkWrapper>
+      <LinkWrapper path={routes.termsAndConditions.path}>Terms & Privacy</LinkWrapper>
     </div>
   </div>
 );

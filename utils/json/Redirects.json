@@ -31,5 +31,8 @@
   "/works/racefully": "/works",
   "/works/speakfree": "/works",
   "/cross-platform-vs-native": "/blog/cross-platform-vs-native",
-  "/e-wallet-app-development-company": "/e-wallet-app-development"
+  "/e-wallet-app-development-company": "/e-wallet-app-development",
+  "/terms-and-conditions": "/legal/terms-and-conditions",
+  "/privacy-policy": "/legal/privacy-policy",
+  "/cookies-policy": "/legal/cookies-policy"
 }

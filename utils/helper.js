@@ -65,41 +65,6 @@ export const setOverflowForBody = (isHidden) => {
   document.body.style.overflow = isHidden ? 'hidden' : 'initial';
 };
 
-export const getMainLinksForSitemap = (updatedAt) => [
-  { path: '/', updatedAt },
-  { path: `/${PAGES.portfolio}`, updatedAt },
-  { path: `/${PAGES.process}`, updatedAt },
-  { path: `/${PAGES.company}`, updatedAt },
-  { path: `/${PAGES.whyUs}`, updatedAt },
-  { path: `/${PAGES.contact}`, updatedAt },
-  { path: `/${PAGES.blog}`, updatedAt },
-  { path: `/${PAGES.customChatApp}`, updatedAt },
-  { path: `/${PAGES.customMobileApp}`, updatedAt },
-  { path: `/${PAGES.customWebApp}`, updatedAt },
-  { path: `/${PAGES.crowdfundingPlatform}`, updatedAt },
-  { path: `/${PAGES.erpDevelopment}`, updatedAt },
-  { path: `/${PAGES.designServices}`, updatedAt },
-  { path: `/${PAGES.iosDevelopmentServices}`, updatedAt },
-  { path: `/${PAGES.mlDevelopment}`, updatedAt },
-  { path: `/${PAGES.cloudDevelopment}`, updatedAt },
-  { path: `/${PAGES.androidDevelopmentServices}`, updatedAt },
-  { path: `/${PAGES.mvpDevelopment}`, updatedAt },
-  { path: `/${PAGES.lendingSoftwareDevelopment}`, updatedAt },
-  { path: `/${PAGES.paymentGatewayDevelopment}`, updatedAt },
-  { path: `/${PAGES.billingSoftwareDevelopment}`, updatedAt },
-  { path: `/${PAGES.fintechDevelopment}`, updatedAt },
-  { path: `/${PAGES.softwareQualityAssuranceServices}`, updatedAt },
-  { path: `/${PAGES.devOpsDevelopment}`, updatedAt },
-  { path: `/${PAGES.aiDevelopment}`, updatedAt },
-  { path: `/${PAGES.privacyPolicy}`, updatedAt },
-  { path: `/${PAGES.termsAndConditions}`, updatedAt },
-  { path: `/${PAGES.discoveryPhase}`, updatedAt },
-  { path: `/${PAGES.crossPlatformDevelopmentServices}`, updatedAt },
-  { path: `/${PAGES.dataScienceDevelopment}`, updatedAt },
-  { path: `/${PAGES.prototypingServices}`, updatedAt },
-  { path: `/${PAGES.tradingSoftwareDevelopment}`, updatedAt },
-];
-
 export const rootUrl = process.env.NODE_ENV === 'development'
   ? process.env.NEXT_PUBLIC_DEV_URL
   : process.env.NEXT_PUBLIC_PROD_URL;
