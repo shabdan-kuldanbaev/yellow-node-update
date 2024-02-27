@@ -1,9 +1,10 @@
+'use client';
+
 import { useContext, useState } from 'react';
 import dynamic from 'next/dynamic';
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'UI/components/PageHeader';
 import SectionSelector from 'UI/components/SectionSelector';
-import { getPage } from 'utils/dataFetching/getPage';
 import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
@@ -12,8 +13,7 @@ import styles from './styles.module.scss';
 
 const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'), { ssr: false });
 
-const CompanyContainer = async () => {
-  const { data = {} } = await getPage(PAGES.company);
+const CompanyContainer = ({ data }) => {
   const {
     contentModules,
     metaData,
