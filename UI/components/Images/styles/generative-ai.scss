@@ -1,0 +1,9 @@
+.generative-ai {
+  &.firstSectionView {
+    .image {
+      @include phone {
+        width: 994px;
+      }
+    }
+  }
+}
