@@ -6,8 +6,6 @@ const authToken = process.env.ERP_AUTH_TOKEN || '';
 
 const cors = Cors({ methods: ['POST'] });
 
-export const config = { api: { bodyParser: true } };
-
 const handler = async (req, res) => {
   await runMiddleware(req, res, cors);
 

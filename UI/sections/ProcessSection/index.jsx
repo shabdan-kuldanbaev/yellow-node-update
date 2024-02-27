@@ -1,3 +1,5 @@
+'use client';
+
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import { ArcherContainer } from 'react-archer';

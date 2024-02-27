@@ -1,3 +1,5 @@
+'use client';
+
 import PropTypes from 'prop-types';
 import useProps from './utils/useProps';
 import styles from './styles.module.scss';

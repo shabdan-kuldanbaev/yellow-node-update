@@ -1,3 +1,5 @@
+'use client';
+
 import PropTypes from 'prop-types';
 import { Swiper } from 'swiper/react';
 import { Navigation } from 'swiper';

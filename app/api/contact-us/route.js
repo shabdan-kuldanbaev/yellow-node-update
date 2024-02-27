@@ -20,10 +20,4 @@ const handler = async (req, res) => {
   await sendDataPipedrive(req, res);
 };
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
-
 export default handler;

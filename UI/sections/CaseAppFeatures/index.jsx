@@ -1,3 +1,5 @@
+'use client';
+
 import dynamic from 'next/dynamic';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
