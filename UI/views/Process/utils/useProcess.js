@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { getPage } from 'utils/dataFetching/getPage';
 import { PAGES } from 'utils/constants';
 import { processes } from 'utils/processes';
 
-export const useProcess = async () => {
-  const { data: { metaData } = {} } = await getPage(PAGES.process);
+export const useProcess = ({ metaData }) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 
   const breadcrumbs = getBreadcrumbs(PAGES.process);

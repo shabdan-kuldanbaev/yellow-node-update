@@ -1,3 +1,5 @@
+'use client';
+
 import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'UI/components/PageHeader';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
@@ -6,7 +8,7 @@ import { PAGES, ROUTES } from 'utils/constants';
 import { useProcess } from './utils/useProcess';
 import styles from './styles.module.scss';
 
-const ProcessContainer = () => {
+const ProcessContainer = (props) => {
   const {
     json,
     breadcrumbs,
@@ -14,7 +16,7 @@ const ProcessContainer = () => {
     isFullscreenEstimation,
     openFullscreenEstimation,
     closeFullscreenEstimation,
-  } = useProcess();
+  } = useProcess(props);
 
   return (
     <>
