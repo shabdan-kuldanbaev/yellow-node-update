@@ -1,10 +1,11 @@
+'use client';
+
 import { useContext } from 'react';
 import dynamic from 'next/dynamic';
 import PageHeader from 'UI/components/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
 import { getDocumentFields, rootUrl } from 'utils/helper';
 import { PAGES } from 'utils/constants';
-import { getPage } from 'utils/dataFetching/getPage';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { IntroSectionContext } from 'utils/appContext';
 import { routes } from 'utils/routes';
@@ -12,9 +13,8 @@ import styles from './styles.module.scss';
 
 const WhyUsCommon = dynamic(() => import('UI/containers/WhyUsCommon').then((module) => module.WhyUsCommon));
 
-const WhyUs = async () => {
+const WhyUs = ({ data, metaData }) => {
   const type = routes.whyUs.slug;
-  const { data: { metaData, ...data } = {} } = await getPage(type);
   const { contentModules } = data;
 
   const introSection = useContext(IntroSectionContext);
