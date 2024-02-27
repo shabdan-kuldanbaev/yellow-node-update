@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import usePageClusters from 'hooks/usePageClusters';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
@@ -18,14 +18,14 @@ const useProps = ({ onSubscriptionFinished, ...props }) => {
     getValues,
   } = useForm({ reValidateMode: 'onBlur' });
 
-  const { query } = useRouter();
+  const pathname = usePathname();
 
   const isSubscribed = data?.isSubscribed;
 
   const handleButtonClick = handleSubmit((values) => {
     subscribe({
       ...values,
-      pathname: query,
+      pathname,
       pageClusters,
     });
 

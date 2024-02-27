@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import Paginator from 'UI/components/Paginator';
 import SelectionBlock from 'components/BlogCommon/SelectionBlock';
 import ArticlesList from 'components/BlogCommon/ArticlesList';
@@ -13,7 +13,10 @@ import { getPage } from 'utils/dataFetching/getPage';
 import FullscreenSubscribe from 'components/BlogCommon/FullscreenSubscribe';
 import { rootUrl } from 'utils/helper';
 import {
-  ARTICLES_NUMBER_PER_PAGE, PAGES, ROUTES, SVG_IMAGES_TYPES,
+  ARTICLES_NUMBER_PER_PAGE,
+  PAGES,
+  ROUTES,
+  SVG_IMAGES_TYPES,
 } from 'utils/constants';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import useToggle from 'hooks/useToggle';
@@ -38,10 +41,8 @@ const BlogContainer = async ({
   const [isFullscreenSearch, toggleFullscreenSearch] = useToggle(false);
   const [isFullscreenSubscribe, toggleFullscreenSubscribe] = useToggle(false);
 
-  const {
-    pathname,
-    query: { slug },
-  } = useRouter();
+  const pathname = usePathname();
+  const { slug } = useParams();
 
   const tag = findTagBySlug(tagsList, slug);
 

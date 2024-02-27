@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import PageHeader from 'UI/components/PageHeader';
 import MetaTags from 'components/Common/MetaTags';
@@ -15,6 +15,7 @@ import { rootUrl } from 'utils/helper';
 import { getBreadcrumbs } from 'utils/breadcrumbs';
 import usePageClusters from 'hooks/usePageClusters';
 import { IntroSectionContext, PageClustersContext } from 'utils/appContext';
+import { routes } from 'utils/routes';
 import { getArticleProps } from './utils/propsHelper';
 
 const FAQ = dynamic(() => import('UI/containers/FAQ'));
@@ -37,11 +38,8 @@ const ArticleContainer = ({ data }) => {
 
   const pageClusters = usePageClusters();
 
-  const {
-    query: { slug },
-    pathname,
-    asPath,
-  } = useRouter();
+  const pathname = usePathname();
+  const { slug } = useParams();
 
   // const { slug: prevArticleSlug } = olderArticle;
   // const { slug: nextArticleSlug } = newerArticle;
@@ -70,7 +68,7 @@ const ArticleContainer = ({ data }) => {
     keyWords: tagsList.map((tag) => tag.title),
     categoryTag,
     slug: articleSlug,
-    url: `${rootUrl}${asPath}`,
+    url: `${rootUrl}${pathname}`,
   };
 
   const articleData = {
@@ -122,7 +120,7 @@ const ArticleContainer = ({ data }) => {
           publishedAt={publishedAt}
         />
         <ShareThumbnails
-          url={`${rootUrl}/blog/${slug}`}
+          url={`${rootUrl}${routes.article.getRoute(slug).path}`}
           title={title}
         />
         <FullLayout

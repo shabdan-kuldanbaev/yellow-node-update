@@ -1,6 +1,6 @@
 'use client';
 
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
@@ -15,13 +15,16 @@ import styles from './styles.module.scss';
 const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'), { ssr: false });
 const AppDevelopmentCommon = dynamic(() => import('components/AppDevelopmentCommon').then((module) => module.AppDevelopmentCommon));
 
-const CustomServiceContainer = async ({ type, data = {}, metaData }) => {
+const CustomServiceContainer = ({ type, data = {}, metaData }) => {
   const { contentModules, clusters } = data;
 
   const introSection = useContext(IntroSectionContext);
 
   const { setPageClusters } = useContext(PageClustersContext);
-  setPageClusters(clusters || []);
+
+  useEffect(() => {
+    setPageClusters(clusters || []);
+  }, [setPageClusters, clusters]);
 
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
 

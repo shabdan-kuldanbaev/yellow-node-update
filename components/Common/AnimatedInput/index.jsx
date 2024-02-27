@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import OutsideClickHandler from 'react-outside-click-handler';
 import cn from 'classnames';
 import autosize from 'autosize';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { ROUTES } from 'utils/constants';
 import styles from './styles.module.scss';
 
@@ -24,7 +24,7 @@ const AnimatedInput = ({
   isTextArea = false,
   style = '',
 }) => {
-  const { asPath } = useRouter();
+  const asPath = usePathname();
   const inputRef = useRef();
   const [isInputActived, setActive] = useState(false);
   const [isInputFocus, setFocus] = useState(false);

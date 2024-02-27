@@ -1,7 +1,7 @@
 'use client';
 
 import { useContext, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useDispatch } from 'react-redux';
 import {
   getDataFromLocalStorageWithExpire,
@@ -18,7 +18,7 @@ import { AppContext, IntroSectionContext } from 'utils/appContext';
 import { routes } from 'utils/routes';
 
 export const useLayout = ({ children }) => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   const isHomePage = pathname === routes.homepage.path;
   const { contextData: { duck } } = useContext(AppContext);
   const isDuckLoading = isHomePage && !duck;

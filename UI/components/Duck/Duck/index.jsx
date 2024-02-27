@@ -89,7 +89,6 @@ const Duck = ({ sloganRef, duck }) => {
   };
 
   // TODO a little late
-  // const { asPath } = useRouter();
   // const currentPage = asPath.split('/')[1] || '';
   // const isHomePage = currentPage === '';
   // const meshes = [];

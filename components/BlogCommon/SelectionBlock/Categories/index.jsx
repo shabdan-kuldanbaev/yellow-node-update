@@ -1,5 +1,5 @@
 import { useEffect, memo } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import PropTypes from 'prop-types';
 import TypeSelector from 'components/TypeSelector';
 import { ROUTES } from 'utils/constants';
@@ -7,7 +7,9 @@ import { isNumeric, setOverflowForBody } from 'utils/helper';
 import styles from './styles.module.scss';
 
 const Categories = ({ isMobileCategoties = false }) => {
-  const { asPath, query: { slug: currentCategory }, push: routerPush } = useRouter();
+  const { push: navigateTo } = useRouter();
+
+  const currentCategory = useSearchParams().get('category');
 
   const categories = ROUTES.blog.categories.map(({ title, slug }) => ({ displayName: title, slug }));
   const selectedCategory = (!currentCategory || isNumeric(currentCategory))
@@ -21,7 +23,7 @@ const Categories = ({ isMobileCategoties = false }) => {
   const goToCategory = ({ slug }) => {
     const { path } = ROUTES.blog.getRoute(slug);
 
-    routerPush(path);
+    navigateTo(path);
   };
 
   return (

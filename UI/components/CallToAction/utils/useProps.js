@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import cn from 'classnames';
 import {
   getDocumentFields,

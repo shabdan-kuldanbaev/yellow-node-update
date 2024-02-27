@@ -5,7 +5,7 @@ import {
   TwitterShareButton,
   LinkedinShareButton,
 } from 'react-share';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import gaHelper from 'utils/ga';
 import { SVG_IMAGES_TYPES } from 'utils/constants';
 import styles from './styles.module.scss';
@@ -16,13 +16,13 @@ export const ShareThumbnails = ({
   url,
   title = '',
 }) => {
-  const { asPath } = useRouter();
+  const pathname = usePathname();
 
   const trackSocialShareClick = ({ target }) => {
     gaHelper.trackEvent(
       'Click social go to share',
       target.getAttribute('data-socialname'),
-      asPath,
+      pathname,
     );
   };
 

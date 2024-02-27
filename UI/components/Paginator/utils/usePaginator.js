@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { ROUTES } from 'utils/constants';
 
 export const usePaginator = ({
@@ -8,14 +8,16 @@ export const usePaginator = ({
   className,
 }) => {
   let [previous, next] = ['', ''];
-  const { query: { slug: category }, push: navigateTo } = useRouter();
+  const { push: navigateTo } = useRouter();
+
+  const category = useSearchParams().get('category');
 
   if (currentPage > 3) previous = pagesCounter > 4 ? 'start' : '';
 
   if (currentPage <= (pagesCounter - 3)) next = pagesCounter > 5 ? 'next' : '';
 
   const pushRouter = (currentCategory, nextPage) => {
-    const { path, dynamicPath } = ROUTES[pageSlug].getRoute(currentCategory, nextPage);
+    const { path } = ROUTES[pageSlug].getRoute(currentCategory, nextPage);
 
     window.scrollTo(0, 0);
     navigateTo(path);

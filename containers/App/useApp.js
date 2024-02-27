@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { getCookie, setCookie } from 'cookies-next';
 import smoothscroll from 'smoothscroll-polyfill';
 import { getUserLocation } from 'utils/helper';
@@ -14,7 +14,7 @@ import { leadSourceCookieName, userLocation } from 'utils/constants/cookieNames'
 import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
 
 export default function useApp() {
-  const router = useRouter();
+  const pathname = usePathname();
 
   const [contextData, setContextData] = useState({
     isHomepageVisit: false,
@@ -48,10 +48,10 @@ export default function useApp() {
       return;
     }
 
-    const trafficData = getGaMetrics({ path: router.asPath.slice(1) });
+    const trafficData = getGaMetrics({ path: pathname.slice(1) });
 
     setCookie(leadSourceCookieName, JSON.stringify(trafficData));
-  }, [router]);
+  }, [pathname]);
 
   const AppContextValue = useMemo(() => ({
     contextData,

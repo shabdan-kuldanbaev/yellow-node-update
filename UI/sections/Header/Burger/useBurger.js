@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 export const useBurger = ({
   isLightTheme,
@@ -6,7 +6,7 @@ export const useBurger = ({
   handleOnClick,
   isPageScrolledDown,
 }) => {
-  const { asPath } = useRouter();
+  const asPath = usePathname();
 
   return {
     asPath,

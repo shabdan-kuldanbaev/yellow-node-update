@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
 import usePageClusters from 'hooks/usePageClusters';
@@ -9,8 +9,7 @@ const useProps = ({
   isOpen,
   ...props
 }) => {
-  const { query } = useRouter();
-  const { slug } = query;
+  const pathname = usePathname();
 
   const pageClusters = usePageClusters();
 
@@ -38,7 +37,7 @@ const useProps = ({
       data: { isSubscribed: isSubscribedResult } = {},
     } = await subscribe({
       ...values,
-      pathname: query,
+      pathname,
       pageClusters,
     });
 
@@ -47,7 +46,7 @@ const useProps = ({
     }
   });
 
-  const buttonId = `${slug}/get-book-subscribed`;
+  const buttonId = `${pathname}/get-book-subscribed`;
 
   const isButtonDisabled = !getValues().name
   || !getValues().email
