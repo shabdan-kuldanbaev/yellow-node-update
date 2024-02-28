@@ -78,7 +78,7 @@
       content: '';
       position: absolute;
       left: 20%;
-      top: 15%;
+      top: 10%;
       width: 880px;
       height: 556px;
       border-radius: 20px;
@@ -87,6 +87,33 @@
 
       @include tablet {
         display: none;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      aspect-ratio: 928/604;
+      width: 928px;
+      border: 3px solid $gray0;
+      border-radius: 20px;
+      box-sizing: border-box;
+
+      @include tablet {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 733px;
+      }
+
+      @include below-tablet {
+        width: 538px;
+      }
+
+      @include phone {
+        width: 343px;
       }
     }
 
@@ -104,25 +131,28 @@
   }
 
   .image {
-    left: 0;
-    top: 0;
+    left: 24px;
+    top: 24px;
     transform: unset;
-    aspect-ratio: 928/604;
-    width: 928px;
+    aspect-ratio: 880/556;
+    width: 880px;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 20px;
 
     @include tablet {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 730px;
+      width: 695px;
     }
 
     @include below-tablet {
-      width: 532px;
+      width: 510px;
     }
 
     @include phone {
-      width: 334px;
+      width: 323px;
     }
   }
 
