@@ -1,0 +1,27 @@
+.ai-documentation-processing {
+  &.firstSectionView {
+    .background {
+      top: unset;
+      left: 50%;
+      bottom: -40%;
+      transform: translateX(-50%);
+      aspect-ratio: 1;
+      width: 1200px;
+    }
+  }
+
+  &.secondSectionView {
+    background: $generativeAiGradient;
+
+    [data-title] {
+      @include fontSize(24px, 150%);
+
+      color: $gray0;
+    }
+
+    [data-description] {
+      color: $gray0;
+      opacity: 0.8;
+    }
+  }
+}

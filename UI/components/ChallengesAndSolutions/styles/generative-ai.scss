@@ -1,0 +1,63 @@
+.ai-documentation-processing {
+  &.firstSectionView,
+  &.secondSectionView {
+    @include flex(row, initial, initial, wrap);
+
+    margin: 0 auto 48px;
+    gap: 16px;
+    max-width: $default-content-width;
+
+    .sectionImage {
+      display: none;
+    }
+
+    .contentContainer {
+      @include flex(column, initial, flex-start);
+
+      margin: 0;
+      padding: 24px;
+      flex: 1 1 49%;
+      gap: 8px;
+      background-color: $gray50;
+      border-radius: 20px;
+      box-sizing: border-box;
+
+      .title {
+        @include fontSize(16px, 150%);
+
+        margin: 0;
+        text-align: left;
+      }
+
+      p {
+        color: $gray500;
+        text-align: left;
+      }
+
+      @include below-tablet {
+        flex: 0 0 100%;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @include flex(row, initial, initial, wrap);
+
+    margin: 0 auto 48px;
+    gap: 16px;
+    max-width: $default-content-width;
+
+    .contentContainer {
+      background-color: rgba($color: $gray0, $alpha: 10%);
+
+      .title {
+        color: $gray0;
+      }
+
+      p {
+        color: $gray0;
+        opacity: 0.8;
+      }
+    }
+  }
+}

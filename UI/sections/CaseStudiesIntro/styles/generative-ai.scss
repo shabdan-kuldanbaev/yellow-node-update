@@ -1,0 +1,178 @@
+.ai-documentation-processing {
+  padding: 136px 32px 120px;
+  background-color: $gray0;
+
+  .introSection {
+    margin: 0 auto;
+  }
+
+  .sectionTitle {
+    [data-title] {
+      @include fontSize(34px, 120%);
+
+      & > span {
+        display: block;
+        margin: 0;
+
+        &:first-child {
+          color: $generativeAiAccent;
+        }
+      }
+
+      @include below-tablet {
+        @include fontSize(26px, 120%);
+      }
+    }
+
+    [data-subtitle] {
+      @include fontSize(16px, 150%);
+
+      margin: 0;
+      color: $gray500;
+      font-weight: 400;
+    }
+  }
+
+  .introText {
+    margin-top: 32px;
+  }
+
+  .introList {
+    @include flex(column, flex-start, flex-start);
+
+    gap: 12px;
+
+    @include tablet {
+      @include flex(row, center, flex-start, wrap);
+    }
+  }
+
+  .listItem {
+    @include flex(row, flex-start, center);
+
+    position: relative;
+    padding-left: 10px;
+    gap: 4px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 100%;
+      background-color: $generativeAiAccent;
+      border-radius: 3px;
+    }
+
+    * {
+      margin: 0;
+    }
+  }
+
+  .imageContainer {
+    height: 604px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 20%;
+      top: 10%;
+      width: 880px;
+      height: 556px;
+      border-radius: 20px;
+      background: rgba($color: $gray0, $alpha: 40%);
+      transform: rotate(-5deg);
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      aspect-ratio: 928/604;
+      width: 928px;
+      border: 3px solid $gray0;
+      border-radius: 20px;
+      box-sizing: border-box;
+
+      @include tablet {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 733px;
+      }
+
+      @include below-tablet {
+        width: 538px;
+      }
+
+      @include phone {
+        width: 343px;
+      }
+    }
+
+    @include tablet {
+      height: 474px;
+    }
+
+    @include below-tablet {
+      height: 344px;
+    }
+
+    @include phone {
+      height: 223px;
+    }
+  }
+
+  .image {
+    left: 24px;
+    top: 24px;
+    transform: unset;
+    aspect-ratio: 880/556;
+    width: 880px;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 20px;
+
+    @include tablet {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 695px;
+    }
+
+    @include below-tablet {
+      width: 510px;
+    }
+
+    @include phone {
+      width: 323px;
+    }
+  }
+
+  .bundleImage-1 {
+    position: absolute;
+    left: 10%;
+    top: 0;
+    width: 1500px;
+    height: 1500px;
+  }
+
+  .bundleImage-2 {
+    position: absolute;
+    right: -10%;
+    bottom: -20%;
+    width: 800px;
+    height: 800px;
+  }
+
+  @include tablet {
+    padding: 88px 16px 60px;
+  }
+}
