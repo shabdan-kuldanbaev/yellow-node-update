@@ -3,14 +3,13 @@ import BlogContainer from 'UI/views/Blog';
 import { ARTICLES_NUMBER_PER_PAGE } from 'utils/constants';
 import { getArticlesList } from 'utils/dataFetching/getArticlesList';
 import { getBlogTags } from 'utils/dataFetching/getBlogTags';
-import { getPage } from 'utils/dataFetching/getPage';
-import { routes } from 'utils/routes';
+import { generateBlogMicrodata } from 'utils/metadata/blog';
+
+export { generateBlogMetadata as generateMetadata } from 'utils/metadata/blog';
 
 const checkIfSlugIsTag = (tags, slug) => !!tags.find(({ slug: tagSlug }) => slug === tagSlug);
 
 export default async function Page({ searchParams }) {
-  const { data: { metaData } } = await getPage(routes.blog.slug);
-
   const { page = 1, category = '' } = searchParams;
 
   const { data: tagList } = await getBlogTags();
@@ -29,13 +28,20 @@ export default async function Page({ searchParams }) {
 
   const { data: { items: articles, total } } = await getArticlesList(query);
 
+  const { breadcrumbs, microdata } = generateBlogMicrodata({ tagsList: tagList, category });
+
   return (
     <BlogContainer
       articles={articles}
       totalArticles={total}
       currentPage={page}
       tagsList={tagList}
-      metaData={metaData}
-    />
+      breadcrumbs={breadcrumbs}
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata, null, 2) }}
+      />
+    </BlogContainer>
   );
 }
