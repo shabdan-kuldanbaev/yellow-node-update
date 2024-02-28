@@ -75,7 +75,6 @@ const MetaTags = ({
           content={keyWord}
         />
       ))}
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
       <meta name="google-site-verification" content="Ou5rI476W6QK1BYTyVkJaDjTwbCFy7jdbEO5etMIi0k" />
       <link rel="shortcut icon" href={getPathWithCdn('/yellow_logo.ico')} />
       <link rel="apple-touch-icon" sizes="180x180" href={getPathWithCdn('/apple-touch-icon.png')} />

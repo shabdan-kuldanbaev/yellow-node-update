@@ -1,4 +1,8 @@
-import { getDocumentFields, getFileUrl, getImage } from 'utils/helper';
+import {
+  getDocumentFields,
+  getFileUrl,
+  getImage,
+} from 'utils/helper';
 
 function getAuthorProps({ author } = {}) {
   const authorFields = getDocumentFields(

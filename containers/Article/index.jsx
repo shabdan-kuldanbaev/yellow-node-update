@@ -3,26 +3,21 @@
 import { useContext, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useParams, usePathname } from 'next/navigation';
-import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer';
 import PageHeader from 'UI/components/PageHeader';
-import MetaTags from 'components/Common/MetaTags';
 import Article from 'components/BlogCommon/Article';
 import SubscribeBlock from 'components/Common/SubscribeBlock';
 import FullLayout from 'components/Layout/FullLayout';
 import { ShareThumbnails } from 'components/BlogCommon/Article/ShareThumbnails';
 import { TagsBlock } from 'components/BlogCommon/Article/TagsBlock';
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
-import { PAGES } from 'utils/constants';
 import { rootUrl } from 'utils/helper';
-import { getBreadcrumbs } from 'utils/breadcrumbs';
 import usePageClusters from 'hooks/usePageClusters';
 import { IntroSectionContext, PageClustersContext } from 'utils/appContext';
 import { routes } from 'utils/routes';
-import { getArticleProps } from './utils/propsHelper';
 
 const FAQ = dynamic(() => import('UI/containers/FAQ'));
 
-const ArticleContainer = ({ data }) => {
+const ArticleContainer = ({ data, children, breadcrumbs }) => {
   const [subscribe, { isLoading: isSubscribeLoading }] = useSubscribeMutation({ fixedCacheKey: SUBSCRIPTION_CASH_KEY });
 
   const introSection = useContext(IntroSectionContext);
@@ -58,34 +53,11 @@ const ArticleContainer = ({ data }) => {
     publishedAt,
     updatedAt,
     tagsList,
-    categoryTag = '',
     metaTitle,
-    metaDescription,
     headImage,
     author,
     faqList,
-  } = getArticleProps({ article });
-  const articleMetadata = {
-    metaTitle: metaTitle || (title && `${title} | Yellow`),
-    metaDescription: metaDescription || (title && `Read our new article about ${title}.`),
-    publishedAt,
-    image: headImage.url,
-    keyWords: tagsList.map((tag) => tag.title),
-    categoryTag,
-    slug: articleSlug,
-    url: `${rootUrl}${pathname}`,
-  };
-
-  const articleData = {
-    metaTitle,
-    title,
-    publishedAt,
-    updatedAt,
-    headImage: headImage.url,
-    articleBody: oldBody || documentToPlainTextString(body),
-    author,
-  };
-  const breadcrumbs = getBreadcrumbs(PAGES.article, { title, slug: articleSlug });
+  } = article;
 
   const handleOnFormSubmit = (email) => {
     if (isSubscribeLoading) {
@@ -101,13 +73,7 @@ const ArticleContainer = ({ data }) => {
 
   return (
     <>
-      <MetaTags
-        page={PAGES.article}
-        isArticle
-        pageMetadata={articleMetadata}
-        breadcrumbs={breadcrumbs}
-        microData={articleData}
-      />
+      {children}
       <FullLayout>
         <PageHeader
           breadcrumbs={breadcrumbs}
