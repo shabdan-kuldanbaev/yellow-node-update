@@ -1,2 +1,5 @@
-export const PAGE_WITH_TRANSPERENT_IMAGE_BUNDLES = ['stickerbox'];
-export const PAGE_WITH_TRANSPERENT_IMAGE = ['stickerbox'];
+import { CASE_STUDIES } from 'utils/constants';
+
+export const disabledSlider = (type) => ![
+  CASE_STUDIES.generativeAi,
+].includes(type);

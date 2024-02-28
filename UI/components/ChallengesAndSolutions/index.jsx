@@ -6,9 +6,9 @@ import ChallengesSlider from 'UI/components/ChallengesSlider';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import Illustration from 'UI/components/Illustration';
 import Typography from 'UI/components/Typography';
+import Media from 'UI/components/Media';
 import { useChallengesAndSolutions } from './utils/useChallengesAndSolutions';
 import styles from './styles.module.scss';
-import Media from '../Media';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
 
@@ -22,6 +22,7 @@ const ChallengesAndSolutions = (props) => {
     content,
     componentType,
     images,
+    isSliderDisabled,
   } = useChallengesAndSolutions(props);
 
   if (!content) {
@@ -32,7 +33,7 @@ const ChallengesAndSolutions = (props) => {
     <div className={cn(styles[type], styles[view])}>
       <ChallengesSlider
         isMobileResolution={isMobileResolution}
-        isSlider={isSlider}
+        isSlider={isSlider && isSliderDisabled}
         componentType={componentType}
         type={type}
       >
