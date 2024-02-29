@@ -1,9 +1,9 @@
 import PageNotFound from 'containers/PageNotFound';
-import { getPage } from 'utils/dataFetching/getPage';
+import { getPageMetadataGenerator } from 'utils/metadata/page';
 import { routes } from 'utils/routes';
 
-export default async function Page() {
-  const { data: { metaData } = {} } = await getPage(routes.notFound.slug);
+export const generateMetadata = getPageMetadataGenerator({ page: routes.notFound.slug });
 
-  return <PageNotFound metaData={metaData} />;
+export default async function Page() {
+  return <PageNotFound />;
 }
