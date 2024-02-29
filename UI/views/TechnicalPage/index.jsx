@@ -2,7 +2,6 @@
 
 import PropTypes from 'prop-types';
 import dynamic from 'next/dynamic';
-import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'UI/components/PageHeader';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import FullLayout from 'components/Layout/FullLayout';
@@ -14,21 +13,16 @@ const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const TechnicalPageContainer = (props) => {
   const {
-    type,
-    pageMetadata,
     breadcrumbs,
     title,
     updatedAt,
     text,
+    children,
   } = useProps(props);
 
   return (
     <>
-      <MetaTags
-        page={type}
-        pageMetadata={pageMetadata}
-        breadcrumbs={breadcrumbs}
-      />
+      {children}
       <FullLayout className={styles.container}>
         <PageHeader
           title={title}
