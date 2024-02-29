@@ -52,6 +52,7 @@ export const BLACK_LOGO_TYPE = [
   CASE_STUDIES.carbonSpace,
   CASE_STUDIES.chatSolutions,
   CASE_STUDIES.digitalWallet,
+  CASE_STUDIES.generativeAi,
 ];
 
 export const WHITE_TEXT_LOGO = [

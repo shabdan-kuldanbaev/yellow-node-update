@@ -348,6 +348,7 @@ export const CASE_STUDIES = {
   hawkin: 'medical-software-for-musculoskeletal-rehabilitation',
   hyve: 'restaurant-asset-management-tool',
   paymentGateway: 'custom-payment-gateway',
+  generativeAi: 'ai-documentation-processing',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce(

@@ -1,0 +1,9 @@
+.ai-documentation-processing {
+  &.firstSectionView {
+    .image {
+      @include phone {
+        width: 994px;
+      }
+    }
+  }
+}

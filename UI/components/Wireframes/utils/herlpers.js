@@ -89,6 +89,9 @@ export const IMAGE_SIZES = {
   'ai-software-development-services': {
     firstSectionView: 208,
   },
+  'ai-documentation-processing': {
+    firstSectionView: 522,
+  },
 };
 
 export const MOBILE_IMAGE_SIZES = {
@@ -149,5 +152,8 @@ export const MOBILE_IMAGE_SIZES = {
   },
   'ai-software-development-services': {
     firstSectionView: 188,
+  },
+  'ai-documentation-processing': {
+    firstSectionView: 206,
   },
 };

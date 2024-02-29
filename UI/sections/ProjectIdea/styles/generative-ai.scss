@@ -1,0 +1,28 @@
+.ai-documentation-processing {
+  .contentContainer {
+    display: block;
+    margin: 0 auto;
+    max-width: $default-content-width;
+  }
+
+  .titleStyle {
+    [data-title] {
+      @include fontSize(24px, 150%);
+
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    [data-description] {
+      @include fontSize(16px, 150%);
+
+      margin: 0;
+      color: $gray500;
+      text-align: left;
+    }
+  }
+
+  .descriptionContainer {
+    display: none;
+  }
+}
