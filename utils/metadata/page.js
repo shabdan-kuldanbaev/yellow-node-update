@@ -21,7 +21,7 @@ export const getPageMetadataGenerator = ({ page }) => async function generateMet
     ogImage: imageUrl,
   } = metaData;
 
-  const title = metaTitle || pageTitle;
+  const title = metaTitle || `${pageTitle} | Yellow`;
   const description = metaDescription || subtitle;
 
   return {
