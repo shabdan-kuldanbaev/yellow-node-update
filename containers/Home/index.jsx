@@ -2,18 +2,18 @@
 
 import { useContext, useEffect } from 'react';
 import HomeIntro from 'UI/sections/HomeIntro';
-import MetaTags from 'components/Common/MetaTags';
 import { loadDuck } from 'UI/components/Duck/DuckWrapper/utils/helpers';
 import SectionSelector from 'containers/Home/SectionSelector';
-import { HOMEPAGE_ARTICLES_LIMIT, PAGES } from 'utils/constants';
 import { AppContext, IntroSectionContext } from 'utils/appContext';
-import { rootUrl } from 'utils/helper';
+import { routes } from 'utils/routes';
 
-export const Home = ({ contentModules, metaData: pageMetadata }) => {
+export const Home = ({
+  contentModules,
+  articles,
+  children,
+}) => {
   const introSection = useContext(IntroSectionContext);
   const { contextData: { duck }, setContextData } = useContext(AppContext);
-
-  const blogQuery = { limit: HOMEPAGE_ARTICLES_LIMIT };
 
   useEffect(() => {
     if (duck) {
@@ -29,17 +29,14 @@ export const Home = ({ contentModules, metaData: pageMetadata }) => {
 
   return (
     <>
-      <MetaTags
-        page={PAGES.homepage}
-        pageMetadata={{ ...pageMetadata, url: rootUrl }}
-      />
+      {children}
       <HomeIntro introSection={introSection} />
       {contentModules?.map((module, i) => (
         <SectionSelector
           key={`section/${i}`}
           section={module}
-          type={PAGES.homepage}
-          blogQuery={blogQuery}
+          type={routes.homepage.slug}
+          articles={articles}
         />
       ))}
     </>

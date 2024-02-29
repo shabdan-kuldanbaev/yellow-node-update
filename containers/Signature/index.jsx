@@ -1,6 +1,5 @@
 'use client';
 
-import Head from 'next/head';
 import { useRef, useState } from 'react';
 import cn from 'classnames';
 import { getSignatureProps } from 'containers/Signature/utils/helpers';
@@ -27,35 +26,26 @@ const SignatureGenerator = async ({ data: main }) => {
   const isTitleChanged = currentSignatureTitle === signatureGeneratedTitle;
 
   return (
-    <>
-      <Head>
-        <meta
-          name="robots"
-          content="noindex,follow"
+    <div className={cn(styles.signature, { [styles.signatureWithGenerated]: isTitleChanged })}>
+      <h2 className={styles.signatureTitle}>
+        {currentSignatureTitle}
+      </h2>
+      {isTitleChanged ? (
+        <SignatureGenerated
+          titledList={titledList}
+          signatureContainer={signatureContainer}
+          formRef={formRef}
+          images={images}
         />
-        <title>Signature generator</title>
-      </Head>
-      <div className={cn(styles.signature, { [styles.signatureWithGenerated]: isTitleChanged })}>
-        <h2 className={styles.signatureTitle}>
-          {currentSignatureTitle}
-        </h2>
-        {isTitleChanged ? (
-          <SignatureGenerated
-            titledList={titledList}
-            signatureContainer={signatureContainer}
-            formRef={formRef}
-            images={images}
-          />
-        ) : (
-          <SignatureGenerate
-            formRef={formRef}
-            setCurrentSignatureTitle={setCurrentSignatureTitle}
-            signatureGeneratedTitle={signatureGeneratedTitle}
-            inputsList={inputsList}
-          />
-        )}
-      </div>
-    </>
+      ) : (
+        <SignatureGenerate
+          formRef={formRef}
+          setCurrentSignatureTitle={setCurrentSignatureTitle}
+          signatureGeneratedTitle={signatureGeneratedTitle}
+          inputsList={inputsList}
+        />
+      )}
+    </div>
   );
 };
 

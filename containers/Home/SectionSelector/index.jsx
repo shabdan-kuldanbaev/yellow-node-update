@@ -1,15 +1,13 @@
-import dynamic from 'next/dynamic';
+import Portfolio from 'UI/sections/Portfolio';
+import TextSection from 'UI/sections/TextSection';
+import CardsSection from 'UI/sections/CardsSection';
+import FeedbackSection from 'UI/sections/FeedbackSection';
+import SvgListSection from 'UI/sections/SvgListSection';
+import ReviewsSection from 'UI/sections/ReviewsSection';
+import Blog from 'UI/sections/Blog';
+import PhotoGallery from 'components/Common/PhotoGallery';
 import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
-
-const Portfolio = dynamic(() => import('UI/sections/Portfolio'), { ssr: false });
-const TextSection = dynamic(() => import('UI/sections/TextSection'), { ssr: false });
-const CardsSection = dynamic(() => import('UI/sections/CardsSection'));
-const FeedbackSection = dynamic(() => import('UI/sections/FeedbackSection'), { ssr: false });
-const SvgListSection = dynamic(() => import('UI/sections/SvgListSection'), { ssr: false });
-const ReviewsSection = dynamic(() => import('UI/sections/ReviewsSection'), { ssr: false });
-const Blog = dynamic(() => import('UI/sections/Blog'));
-const PhotoGallery = dynamic(() => import('components/Common/PhotoGallery'), { ssr: false });
 
 const SectionSelector = ({
   section,

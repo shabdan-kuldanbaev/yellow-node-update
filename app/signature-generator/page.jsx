@@ -3,6 +3,7 @@ import { getPage } from 'utils/dataFetching/getPage';
 import { routes } from 'utils/routes';
 
 export const metadata = {
+  title: 'Signature generator',
   robots: {
     index: false,
     follow: false,

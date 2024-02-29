@@ -2,10 +2,7 @@ import { Mousewheel, Navigation } from 'swiper';
 import { getArticlesList } from 'utils/dataFetching/getArticlesList';
 import { getDocumentFields } from 'utils/helper';
 
-export const useBlog = async ({ sectionData, blogQuery }) => {
-  const { data = {} } = await getArticlesList(blogQuery);
-  const { items: articles = [] } = data;
-
+export const useBlog = ({ sectionData, articles }) => {
   const { title, description } = getDocumentFields(sectionData, ['title', 'description']);
 
   const swiperProps = {

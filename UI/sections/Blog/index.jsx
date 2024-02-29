@@ -9,15 +9,15 @@ import { useBlog } from './utils/useBlog';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
-const BlogCard = dynamic(() => import('UI/components/Cards/BlogCard'), { ssr: false });
+const BlogCard = dynamic(() => import('UI/components/Cards/BlogCard'));
 
-const Blog = async (props) => {
+const Blog = (props) => {
   const {
     title,
     description,
     articles,
     swiperProps,
-  } = await useBlog(props);
+  } = useBlog(props);
 
   return (
     <section className={styles.blog}>
