@@ -6,6 +6,9 @@ import {
   serviceDevelopmentRoutes,
 } from 'utils/routes';
 import { getPage } from 'utils/dataFetching/getPage';
+import { generatePageMicrodata } from 'utils/metadata/page';
+
+export { generateServicePageMetadata as generateMetadata } from 'utils/metadata/servicePage';
 
 export async function generateStaticParams() {
   const routes = [
@@ -24,21 +27,26 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
   const { 'service-slug': slug } = params;
 
-  const x = await getPage(slug);
-
-  const { data } = x;
+  const { data } = await getPage(slug);
 
   if (!data) {
     notFound();
   }
 
-  const { metaData, ...restData } = data;
+  const { ...restData } = data;
+
+  const { microdata, breadcrumbs } = generatePageMicrodata(slug);
 
   return (
     <CustomServiceContainer
       type={slug}
       data={restData}
-      metaData={metaData}
-    />
+      breadcrumbs={breadcrumbs}
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata, null, 2) }}
+      />
+    </CustomServiceContainer>
   );
 }
