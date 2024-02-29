@@ -23,6 +23,10 @@
         box-sizing: border-box;
         border-radius: 24px;
         height: auto;
+
+        @include below-tablet {
+          border-radius: 10px;
+        }
       }
 
       &::before {
@@ -41,7 +45,11 @@
       .media {
         aspect-ratio: 946/598;
         width: 100%;
-        border-radius: 24px;
+        border-radius: 20px;
+
+        @include below-tablet {
+          border-radius: 6px;
+        }
       }
     }
   }
@@ -92,8 +100,12 @@
         width: 105%;
         border: 3px solid $gray0;
         box-sizing: border-box;
-        border-radius: 24px;
+        border-radius: 20px;
         height: auto;
+
+        @include below-tablet {
+          border-radius: 10px;
+        }
       }
     }
 
@@ -103,6 +115,10 @@
       z-index: 10;
       margin: 32px;
       border-radius: 24px;
+
+      @include below-tablet {
+        border-radius: 6px;
+      }
     }
 
     .imageBundle {
