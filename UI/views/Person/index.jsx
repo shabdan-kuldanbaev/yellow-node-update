@@ -1,69 +1,26 @@
 'use client';
 
 import { useContext } from 'react';
-import MetaTags from 'components/Common/MetaTags';
 import Breadcrumbs from 'UI/components/Breadcrumbs';
 import PersonIntro from 'UI/sections/PersonIntro';
 import PersonBlog from 'UI/sections/Blog/PersonBlog';
 import FeedbackSection from 'UI/sections/FeedbackSection';
-import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { ARTICLES_NUMBER_PER_PERSON_PAGE, PAGES } from 'utils/constants';
-import { getDocumentFields, getFileUrl, rootUrl } from 'utils/helper';
-import { routes } from 'utils/routes';
+import { ARTICLES_NUMBER_PER_PERSON_PAGE } from 'utils/constants';
 import { IntroSectionContext } from 'utils/appContext';
 import styles from './styles.module.scss';
 
 const PersonContainer = ({
-  currentPage,
-  query,
   person,
   articlesData,
-  articlesNumberPerPage = ARTICLES_NUMBER_PER_PERSON_PAGE,
+  currentPage,
+  breadcrumbs,
+  children,
 }) => {
-  const {
-    fullName,
-    metaTitle,
-    metaDescription,
-    position,
-    socialLinks,
-    bio,
-  } = person;
-
   const introSection = useContext(IntroSectionContext);
-
-  const personMetadata = {
-    metaTitle,
-    metaDescription,
-    url: `${rootUrl}${routes.person.getRoute(query?.slug).path}`,
-    pageNumber: currentPage,
-  };
-
-  const breadcrumbs = getBreadcrumbs(PAGES.person, {
-    slug: query?.slug,
-    title: fullName,
-  });
-
-  const additionalMicrodata = {
-    name: fullName,
-    url: `${rootUrl}${routes.person.getRoute(query?.slug).path}`,
-    image: getFileUrl(person?.avatar),
-    sameAs: socialLinks.map((link) => {
-      const { url } = getDocumentFields(link, ['url']);
-
-      return url;
-    }),
-    jobTitle: position,
-    description: bio,
-  };
 
   return (
     <>
-      <MetaTags
-        page={PAGES.person}
-        pageMetadata={personMetadata}
-        breadcrumbs={breadcrumbs}
-        microData={additionalMicrodata}
-      />
+      {children}
       <main className={styles.pageMain}>
         <div className={styles.container}>
           <Breadcrumbs
@@ -77,7 +34,7 @@ const PersonContainer = ({
         />
         <PersonBlog
           title="Latest blog posts"
-          articlesNumberPerPage={articlesNumberPerPage}
+          articlesNumberPerPage={ARTICLES_NUMBER_PER_PERSON_PAGE}
           currentPage={currentPage}
           {...articlesData}
         />
