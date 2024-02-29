@@ -1,11 +1,12 @@
-import { useCallback, useContext, useState } from 'react';
-import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { PAGES } from 'utils/constants';
+import {
+  useCallback,
+  useContext,
+  useState,
+} from 'react';
 import { IntroSectionContext } from 'utils/appContext';
 
 export default ({ ...restProps }) => {
   const [isFullscreenEstimation, setIsFullscreenEstimation] = useState(false);
-  const breadcrumbs = getBreadcrumbs(PAGES.portfolio);
 
   const introSection = useContext(IntroSectionContext);
 
@@ -13,7 +14,6 @@ export default ({ ...restProps }) => {
   const closeFullscreenEstimation = useCallback(() => setIsFullscreenEstimation(false), []);
 
   return {
-    breadcrumbs,
     isFullscreenEstimation,
     introSection,
     openFullscreenEstimation,

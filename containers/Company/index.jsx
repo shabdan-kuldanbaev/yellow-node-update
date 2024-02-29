@@ -2,22 +2,20 @@
 
 import { useContext, useState } from 'react';
 import dynamic from 'next/dynamic';
-import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'UI/components/PageHeader';
 import SectionSelector from 'UI/components/SectionSelector';
 import { PAGES } from 'utils/constants';
-import { rootUrl } from 'utils/helper';
-import { getBreadcrumbs } from 'utils/breadcrumbs';
 import { IntroSectionContext } from 'utils/appContext';
 import styles from './styles.module.scss';
 
 const FullScreenEstimation = dynamic(() => import('components/Common/FullScreenEstimation'), { ssr: false });
 
-const CompanyContainer = ({ data }) => {
-  const {
-    contentModules,
-    metaData,
-  } = data;
+const CompanyContainer = ({
+  data,
+  breadcrumbs,
+  children,
+}) => {
+  const { contentModules } = data;
 
   const introSection = useContext(IntroSectionContext);
 
@@ -26,19 +24,9 @@ const CompanyContainer = ({ data }) => {
   const openFullscreenEstimation = () => setIsFullscreenEstimation(true);
   const closeFullscreenEstimation = () => setIsFullscreenEstimation(false);
 
-  const breadcrumbs = getBreadcrumbs(PAGES.company);
-  const pageMetadata = {
-    ...metaData,
-    url: `${rootUrl}/company`,
-  };
-
   return (
     <>
-      <MetaTags
-        page={PAGES.company}
-        pageMetadata={pageMetadata}
-        breadcrumbs={breadcrumbs}
-      />
+      {children}
       <main className={styles.main}>
         <PageHeader
           breadcrumbsTheme="dark"

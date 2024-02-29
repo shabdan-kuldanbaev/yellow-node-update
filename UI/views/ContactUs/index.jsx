@@ -1,7 +1,5 @@
 'use client';
 
-import MetaTags from 'components/Common/MetaTags';
-import { PAGES } from 'utils/constants';
 import FullLayout from 'components/Layout/FullLayout';
 import ImageSection from 'UI/sections/ImageSection';
 import CompanyPlacementWithMap from 'UI/sections/CompanyPlacementWithMap';
@@ -17,17 +15,13 @@ import styles from './ContactUs.module.scss';
 const ContactUs = (props) => {
   const {
     breadcrumbs,
-    pageMetadata,
     peoplePhotoSection,
+    children,
   } = useContactUsProps(props);
 
   return (
     <>
-      <MetaTags
-        page={PAGES.contact}
-        pageMetadata={pageMetadata}
-        breadcrumbs={breadcrumbs}
-      />
+      {children}
       <FullLayout disableOverflowHiding>
         <PageHeader
           breadcrumbs={breadcrumbs}

@@ -1,9 +1,18 @@
 import ProcessContainer from 'UI/views/Process';
-import { getPage } from 'utils/dataFetching/getPage';
+import { generatePageMicrodata, getPageMetadataGenerator } from 'utils/metadata/page';
 import { routes } from 'utils/routes';
 
-export default async function Page() {
-  const { data: { metaData } = {} } = await getPage(routes.process.slug);
+export const generateMetadata = getPageMetadataGenerator({ page: routes.process.slug });
 
-  return <ProcessContainer metaData={metaData} />;
+export default async function Page() {
+  const { microdata, breadcrumbs } = generatePageMicrodata(routes.process.slug);
+
+  return (
+    <ProcessContainer breadcrumbs={breadcrumbs}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(microdata, null, 2) }}
+      />
+    </ProcessContainer>
+  );
 }

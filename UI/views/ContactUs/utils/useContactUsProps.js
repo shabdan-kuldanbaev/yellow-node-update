@@ -1,24 +1,13 @@
-import { getBreadcrumbs } from 'utils/breadcrumbs';
-import { BLOCKS_SLUGS, PAGES } from 'utils/constants';
-import { findBlock, rootUrl } from 'utils/helper';
+import { BLOCKS_SLUGS } from 'utils/constants';
+import { findBlock } from 'utils/helper';
 
-export default ({ data }) => {
-  const {
-    contentModules = [],
-    metaData,
-  } = data;
-  const pageMetadata = {
-    ...metaData,
-    url: `${rootUrl}/contact`,
-  };
-
-  const breadcrumbs = getBreadcrumbs(PAGES.contact);
+export default ({ data, ...rest }) => {
+  const { contentModules = [] } = data;
 
   const peoplePhotoSection = findBlock(contentModules, BLOCKS_SLUGS.contactPageCompanyPhoto);
 
   return {
     peoplePhotoSection,
-    pageMetadata,
-    breadcrumbs,
+    ...rest,
   };
 };

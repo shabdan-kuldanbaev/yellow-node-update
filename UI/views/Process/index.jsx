@@ -1,30 +1,25 @@
 'use client';
 
-import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'UI/components/PageHeader';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
 import Process from 'UI/components/ProcessList';
-import { PAGES, ROUTES } from 'utils/constants';
+import { ROUTES } from 'utils/constants';
 import { useProcess } from './utils/useProcess';
 import styles from './styles.module.scss';
 
 const ProcessContainer = (props) => {
   const {
     json,
-    breadcrumbs,
-    pageMetadata,
     isFullscreenEstimation,
+    breadcrumbs,
+    children,
     openFullscreenEstimation,
     closeFullscreenEstimation,
   } = useProcess(props);
 
   return (
     <>
-      <MetaTags
-        page={PAGES.process}
-        pageMetadata={pageMetadata}
-        breadcrumbs={breadcrumbs}
-      />
+      {children}
       <main className={styles.main}>
         <PageHeader
           title={ROUTES.process.title}

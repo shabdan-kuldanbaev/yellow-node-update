@@ -4,9 +4,8 @@ import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import FullLayout from 'components/Layout/FullLayout';
 import FullScreenEstimation from 'components/Common/FullScreenEstimation';
-import MetaTags from 'components/Common/MetaTags';
 import PageHeader from 'UI/components/PageHeader';
-import { PAGES, REVEAL_ANIMATION_PROPS } from 'utils/constants';
+import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import CallToAction from 'UI/components/CallToAction';
 import Works from 'UI/sections/Works';
 import useProps from './utils/useProps';
@@ -19,7 +18,6 @@ const WorksView = (props) => {
     title,
     subtitle,
     breadcrumbs,
-    pageMetadata,
     introSection,
     works,
     initialWorksList,
@@ -27,17 +25,14 @@ const WorksView = (props) => {
     isFullscreenEstimation,
     tags,
     types,
+    children,
     openFullscreenEstimation,
     closeFullscreenEstimation,
   } = useProps(props);
 
   return (
     <>
-      <MetaTags
-        page={PAGES.portfolio}
-        breadcrumbs={breadcrumbs}
-        pageMetadata={pageMetadata}
-      />
+      {children}
       <FullLayout
         introSection={introSection}
         className={styles.view}
