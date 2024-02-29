@@ -1,5 +1,13 @@
 .ai-documentation-processing {
   &.firstSectionView {
+    [data-title] {
+      @include fontSize(24px, 150%);
+    }
+
+    [data-description] {
+      color: $gray500;
+    }
+
     .background {
       top: unset;
       left: 50%;

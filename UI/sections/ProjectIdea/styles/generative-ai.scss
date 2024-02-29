@@ -14,7 +14,10 @@
     }
 
     [data-description] {
+      @include fontSize(16px, 150%);
+
       margin: 0;
+      color: $gray500;
       text-align: left;
     }
   }
