@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { Suspense, memo } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import CookiesNotification from 'components/Common/CookiesNotification';
@@ -22,9 +22,13 @@ const Layout = (props) => {
     <>
       {isDuckLoading && <LoadingScreen />}
       <CookiesNotification />
-      <Header introSection={introSection} />
+      <Suspense>
+        <Header introSection={introSection} />
+      </Suspense>
       {children}
-      <Footer />
+      <Suspense>
+        <Footer />
+      </Suspense>
       <GAnalytic />
       {/* <VideoAsk /> */}
     </>

@@ -24,8 +24,8 @@ export default async function Page() {
   const { contentModules } = getDocumentFields(portfolioProjects, ['contentModules']);
   const works = contentModules.map((module) => {
     const {
-      types: workTypes = [],
-      tags: workTags = [],
+      types: workTypes,
+      tags: workTags,
       ...rest
     } = getDocumentFields(module, [
       'title',
@@ -38,8 +38,8 @@ export default async function Page() {
     ]);
 
     return {
-      types: workTypes.map((type) => getDocumentFields(type, ['slug', 'displayName'])) ?? [],
-      tags: workTags.map((tag) => getDocumentFields(tag, ['slug', 'title'])) ?? [],
+      types: (workTypes || []).map((type) => getDocumentFields(type, ['slug', 'displayName'])) ?? [],
+      tags: (workTags || []).map((tag) => getDocumentFields(tag, ['slug', 'title'])) ?? [],
       ...rest,
     };
   });
