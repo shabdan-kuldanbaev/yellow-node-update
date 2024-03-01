@@ -34,6 +34,7 @@ export const getPageMetadataGenerator = ({ page }) => async function generateMet
     openGraph: {
       type: 'website',
       images: [{ url: imageUrl }],
+      url: page,
     },
   };
 };

@@ -1,5 +1,4 @@
 import Script from 'next/script';
-import Head from 'next/head';
 import App from 'containers/App';
 
 import 'animate.css/animate.min.css';
@@ -8,12 +7,30 @@ import 'swiper/scss/scrollbar';
 import 'swiper/scss/pagination';
 import 'styles/index.scss';
 
+export const metadata = {
+  title: 'Software Development for Startups | Yellow',
+  description: '✔ We provide software development services for startups and businesses. ✔ Reach out for a free consultation!',
+  manifest: '/manifest.json',
+  icons: {
+    icon: '/yellow_logo.ico',
+    apple: '/apple-touch-icon.png',
+    shortcut: '/yellow_logo.ico',
+    other: {
+      rel: 'mask-icon',
+      url: '/safari-pinned-tab.svg',
+    },
+  },
+  other: {
+    'google-site-verification': 'Ou5rI476W6QK1BYTyVkJaDjTwbCFy7jdbEO5etMIi0k',
+  },
+};
+
 const RootLayout = ({ children }) => {
   const { GTM_ID, CRISP_WEBSITE_ID } = process.env;
 
   return (
     <html lang="en">
-      <Head>
+      <head>
         <link
           rel="preconnect"
           href="https://fonts.googleapis.com"
@@ -27,8 +44,7 @@ const RootLayout = ({ children }) => {
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Roboto:wght@400;700;900&display=swap"
           rel="stylesheet"
         />
-
-      </Head>
+      </head>
 
       <Script
         id="gtm-script"
