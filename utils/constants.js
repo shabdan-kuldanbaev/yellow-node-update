@@ -595,6 +595,10 @@ export const SUB_NAVIGATION_LINKS = {
             title: 'Data Science',
             path: ROUTES.dataScienceDevelopment.path,
           },
+          {
+            title: 'Generative AI',
+            path: ROUTES.generativeAiDevelopment.path,
+          },
         ],
       },
       {
