@@ -496,6 +496,11 @@ export const routes = {
     dynamicPath: '/ai-software-development-services',
     slug: 'ai-software-development-services',
   },
+  generativeAiDevelopment: {
+    title: 'Generative AI Development',
+    path: '/generative-AI-services',
+    slug: 'generative-AI-services',
+  },
   bookCall: {
     title: '',
     path: '/book-a-call',
