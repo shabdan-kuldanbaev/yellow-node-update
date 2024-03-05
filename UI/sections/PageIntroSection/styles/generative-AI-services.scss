@@ -9,5 +9,9 @@
 
   .pageImage {
     max-width: 584px;
+
+    @include below-tablet {
+      padding-top: 450px;
+    }
   }
 }

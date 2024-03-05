@@ -1,0 +1,77 @@
+.generative-AI-services {
+  &.firstSectionView {
+    @extend .greySection;
+
+    .title {
+      max-width: 690px;
+    }
+
+    .callToAction h3 {
+      max-width: 515px;
+    }
+  }
+
+  &.secondSectionView {
+    @extend .blackSection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @include flex(column, flex-start, center);
+
+      background: none;
+      border: none;
+
+      picture {
+        width: 276px;
+        height: 276px;
+        margin-bottom: 24px;
+      }
+
+      * {
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    .callToAction {
+      background: none;
+
+      button {
+        color: $gray900;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      @extend .cardWithVerticalLine;
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+
+    .title {
+      max-width: 625px;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+  }
+}

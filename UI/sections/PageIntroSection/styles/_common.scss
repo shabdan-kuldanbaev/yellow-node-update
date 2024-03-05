@@ -37,7 +37,7 @@
   }
 
   @include below-tablet {
-    @include flex(column-reverse);
+    @include flex(column-reverse, flex-start, center);
   }
 }
 
