@@ -449,6 +449,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.softwareDevelopmentMinneapolis.path,
   ROUTES.softwareDevelopmentTulsa.path,
   ROUTES.softwareDevelopmentNewOrleans.path,
+  ROUTES.generativeAiDevelopment.path,
   ROUTES.whyUs.path,
   ROUTES.bookCall.path,
   CASE_STUDIES.openSense,
@@ -593,6 +594,10 @@ export const SUB_NAVIGATION_LINKS = {
           {
             title: 'Data Science',
             path: ROUTES.dataScienceDevelopment.path,
+          },
+          {
+            title: 'Generative AI',
+            path: ROUTES.generativeAiDevelopment.path,
           },
         ],
       },
