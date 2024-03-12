@@ -1,0 +1,54 @@
+.ai-mobile-cooking-app {
+  background-color: $tasteMatchMashroom;
+
+  [data-title] {
+    @include fontSize(32px, 120%);
+
+    font-weight: 800;
+  }
+
+  .container {
+    max-width: $wide-content-width;
+  }
+
+  .stepsContainer {
+    @include flex(row, center, flex-start, wrap);
+
+    margin: 0;
+    gap: 32px;
+
+    & > div {
+      width: 100%;
+      flex: 1 1 30%;
+      margin: 0;
+    }
+
+    @include below-tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .step {
+    padding: 48px 16px;
+    height: auto;
+    background-color: $gray0;
+    border: 5px solid $gray900;
+    border-radius: 40px;
+    box-shadow: 8px 8px 0 0 $gray900;
+
+    p {
+      margin: 8px 0 0;
+      color: $gray500;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    & > p:last-of-type {
+      display: none;
+    }
+
+    @include below-tablet {
+      padding: 32px 16px;
+    }
+  }
+}
