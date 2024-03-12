@@ -1,16 +1,16 @@
 .ai-mobile-cooking-app {
+  [data-title] {
+    @include fontSize(32px, 120%);
+
+    font-weight: 800;
+
+    @include below-tablet {
+      @include fontSize(24px, 150%);
+    }
+  }
+
   &.firstSectionView {
     background-color: $tasteMatchMashroom;
-
-    [data-title] {
-      @include fontSize(32px, 120%);
-
-      font-weight: 800;
-
-      @include below-tablet {
-        @include fontSize(24px, 150%);
-      }
-    }
 
     .container {
       max-width: $wide-content-width;
@@ -50,6 +50,80 @@
 
       & > p:last-of-type {
         display: none;
+      }
+
+      @include below-tablet {
+        padding: 32px 16px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $tasteMatchPepper;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .container {
+      max-width: $wide-content-width;
+    }
+
+    .stepsContainer {
+      margin: 0;
+      gap: 32px;
+
+      & > div {
+        margin: 0;
+      }
+    }
+
+    .step-1 > .stepTitle {
+      @include fontSize(32px, 120%);
+
+      font-weight: 800;
+      text-align: left;
+
+      @include tablet {
+        text-align: center;
+      }
+
+      @include below-tablet {
+        @include fontSize(24px, 150%);
+      }
+    }
+
+    .step-2 {
+      @include flex(column, flex-start, flex-start);
+
+      padding: 48px;
+      background-color: $gray0;
+      border: 5px solid $gray900;
+      border-radius: 40px;
+      box-shadow: 8px 8px 0 0 $gray900;
+      box-sizing: border-box;
+
+      .stepTitle {
+        @include fontSize(24px, 150%);
+
+        font-weight: 800;
+        text-align: left;
+
+        @include below-tablet {
+          @include fontSize(20px, 150%);
+        }
+      }
+
+      b {
+        color: $gray900;
+      }
+
+      p {
+        color: $gray500;
+
+        &:last-of-type {
+          margin: 0;
+        }
       }
 
       @include below-tablet {
