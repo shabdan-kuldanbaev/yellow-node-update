@@ -36,8 +36,6 @@
     }
 
     .card {
-      @include flex(row, flex-start, flex-start);
-
       padding: 48px;
       gap: 32px;
       background-color: $gray0;
@@ -46,7 +44,19 @@
       border-radius: 40px;
       box-shadow: 8px 8px 0 0 $gray900;
 
+      & > div > div {
+        display: grid;
+        grid-template-rows: repeat(4, auto);
+        grid-template-columns: repeat(6, auto);
+        gap: 16px;
+
+        @include tablet {
+          @include flex(column);
+        }
+      }
+
       picture {
+        margin: 0 auto;
         aspect-ratio: 230/280;
         width: 230px;
       }
@@ -57,22 +67,24 @@
         margin: 0;
         color: $gray900;
         font-weight: 800;
+        text-align: center;
       }
 
       h4 {
-        @include fontSize(16px, 130%);
-
-        margin: 0;
-        color: $gray500;
-        font-weight: 400;
-      }
-
-      h5 {
         @include fontSize(18px, 130%);
 
         margin: 8px 0;
         color: $gray900;
         font-weight: 800;
+      }
+
+      h5 {
+        @include fontSize(16px, 130%);
+
+        margin: 0;
+        color: $gray500;
+        font-weight: 400;
+        text-align: center;
       }
 
       p {
@@ -81,17 +93,95 @@
       }
 
       @include below-tablet {
-        @include flex(column, center, center);
-
         padding: 32px 16px;
       }
     }
 
-    .card-2 picture {
-      order: 2;
+    .card-1 {
+      [grid-area='asset'] {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-row-end: 3;
+        grid-column-end: 3;
+      }
 
-      @include below-tablet {
-        order: unset;
+      [grid-area='name'] {
+        grid-row-start: 3;
+        grid-column-start: 1;
+        grid-row-end: 4;
+        grid-column-end: 3;
+      }
+
+      [grid-area='about'] {
+        grid-row-start: 1;
+        grid-column-start: 3;
+        grid-row-end: 2;
+        grid-column-end: 7;
+      }
+
+      [grid-area='goals'] {
+        grid-row-start: 2;
+        grid-column-start: 3;
+        grid-row-end: 4;
+        grid-column-end: 5;
+      }
+
+      [grid-area='challenges'] {
+        grid-row-start: 2;
+        grid-column-start: 5;
+        grid-row-end: 4;
+        grid-column-end: 7;
+      }
+
+      [grid-area='expectations'] {
+        grid-row-start: 4;
+        grid-column-start: 3;
+        grid-row-end: 5;
+        grid-column-end: 7;
+      }
+    }
+
+    .card-2 {
+      [grid-area='asset'] {
+        grid-row-start: 1;
+        grid-column-start: 5;
+        grid-row-end: 3;
+        grid-column-end: 7;
+      }
+
+      [grid-area='name'] {
+        grid-row-start: 3;
+        grid-column-start: 5;
+        grid-row-end: 4;
+        grid-column-end: 7;
+      }
+
+      [grid-area='about'] {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-row-end: 2;
+        grid-column-end: 5;
+      }
+
+      [grid-area='goals'] {
+        grid-row-start: 2;
+        grid-column-start: 1;
+        grid-row-end: 4;
+        grid-column-end: 3;
+      }
+
+      [grid-area='challenges'] {
+        grid-row-start: 2;
+        grid-column-start: 3;
+        grid-row-end: 4;
+        grid-column-end: 5;
+      }
+
+      [grid-area='expectations'] {
+        grid-row-start: 4;
+        grid-column-start: 1;
+        grid-row-end: 5;
+        grid-column-end: 5;
       }
     }
   }
