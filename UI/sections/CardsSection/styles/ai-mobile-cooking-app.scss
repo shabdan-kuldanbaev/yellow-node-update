@@ -117,6 +117,10 @@
         grid-column-start: 3;
         grid-row-end: 2;
         grid-column-end: 7;
+
+        h4 {
+          margin: 0 0 8px;
+        }
       }
 
       [grid-area='goals'] {
@@ -161,6 +165,10 @@
         grid-column-start: 1;
         grid-row-end: 2;
         grid-column-end: 5;
+
+        h4 {
+          margin: 0 0 8px;
+        }
       }
 
       [grid-area='goals'] {
