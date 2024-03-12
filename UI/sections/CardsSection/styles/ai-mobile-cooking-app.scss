@@ -14,6 +14,89 @@
   }
 
   &.firstSectionView {
+    background-color: $tasteMatchMashroom;
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @include flex(column);
+
+      margin: 0;
+      gap: 32px;
+
+      & > div {
+        margin: 0;
+      }
+    }
+
+    .card {
+      @include flex(row, flex-start, flex-start);
+
+      padding: 48px;
+      gap: 32px;
+      background-color: $gray0;
+      box-sizing: border-box;
+      border: 5px solid $gray900;
+      border-radius: 40px;
+      box-shadow: 8px 8px 0 0 $gray900;
+
+      picture {
+        aspect-ratio: 230/280;
+        width: 230px;
+      }
+
+      h3 {
+        @include fontSize(24px, 130%);
+
+        margin: 0;
+        color: $gray900;
+        font-weight: 800;
+      }
+
+      h4 {
+        @include fontSize(16px, 130%);
+
+        margin: 0;
+        color: $gray500;
+        font-weight: 400;
+      }
+
+      h5 {
+        @include fontSize(18px, 130%);
+
+        margin: 8px 0;
+        color: $gray900;
+        font-weight: 800;
+      }
+
+      p {
+        margin: 0;
+        color: $gray500;
+      }
+
+      @include below-tablet {
+        @include flex(column, center, center);
+
+        padding: 32px 16px;
+      }
+    }
+
+    .card-2 picture {
+      order: 2;
+
+      @include below-tablet {
+        order: unset;
+      }
+    }
+  }
+
+  &.secondSectionView {
     background-color: $tasteMatchEgg;
 
     :global(.swiper) {
