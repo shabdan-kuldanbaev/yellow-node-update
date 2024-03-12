@@ -5,6 +5,8 @@
   grid-auto-flow: row;
 
   .title {
+    @include fontSize(30px, 130%);
+
     color: $gray900;
   }
 
