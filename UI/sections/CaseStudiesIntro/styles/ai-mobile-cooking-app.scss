@@ -1,0 +1,137 @@
+.ai-mobile-cooking-app {
+  padding: 148px 16px 120px;
+  background-color: $tasteMatchEgg;
+
+  .introSection {
+    @include flex(row-reverse, space-between,center);
+
+    margin: 0 auto;
+    gap: 24px 32px;
+
+    @include tablet {
+      @include flex(column, initial, center);
+    }
+  }
+
+  .contentWrapper {
+    @include flex(column, flex-start, flex-start);
+
+    margin: 0;
+    max-width: 474px;
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  [data-title] {
+    @include fontSize(34px, 120%);
+
+    margin-bottom: 8px;
+    text-align: left;
+
+    @include tablet {
+      @include fontSize(24px, 120%);
+
+      text-align: center;
+    }
+  }
+
+  [data-subtitle] {
+    @include fontSize(16px, 150%);
+
+    color: $gray900;
+    font-weight: 400;
+    opacity: 0.7;
+    text-align: left;
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  .introText {
+    margin-top: 32px;
+
+    @include below-tablet {
+      margin-top: 24px;
+    }
+  }
+
+  .introList {
+    @include flex(column, flex-start, flex-start);
+
+    gap: 12px;
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .listItem {
+    @include flex(row, initial, center);
+
+    position: relative;
+    padding-left: 10px;
+    gap: 4px;
+
+    span {
+      opacity: 0.7;
+    }
+
+    p {
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 2px solid $tasteMatchCayenne;
+      height: 100%;
+      box-sizing: border-box;
+      border-radius: 30px;
+    }
+  }
+
+  .logo {
+    width: 51px;
+    height: 51px;
+  }
+
+  .imageContainer {
+    flex: 0 0 500px;
+    width: 100%;
+    height: auto;
+
+    &::before {
+      @include circle(rgba(255, 255, 255, 0.2), 500px);
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .image {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    margin: 0 auto;
+    width: 268px;
+    height: auto;
+    transform: unset;
+    aspect-ratio: 268/580;
+    background-color: $gray900;
+    border: 6px solid $gray900;
+    border-radius: 30px;
+    box-shadow: 6px 6px 0 0 rgba(23 23 23 / 100%);
+  }
+
+  @include below-tablet {
+    padding: 88px 16px 60px;
+  }
+}
