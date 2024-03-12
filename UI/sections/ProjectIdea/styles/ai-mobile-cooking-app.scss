@@ -9,12 +9,23 @@
     }
   }
 
+  .title {
+    @include fontSize(30px, 130%);
+
+    color: $gray900;
+    font-weight: 800;
+
+    @include below-tablet {
+      @include fontSize(24px, 150%);
+    }
+  }
+
+  .description {
+    color: $gray500;
+  }
+
   .descriptionContainer {
     margin: 0;
     max-width: 485px;
-
-    .title {
-      @include fontSize(32px, 120%);
-    }
   }
 }

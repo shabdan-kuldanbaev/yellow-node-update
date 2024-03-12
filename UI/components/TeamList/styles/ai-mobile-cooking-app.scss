@@ -8,6 +8,11 @@
     @include fontSize(30px, 130%);
 
     color: $gray900;
+    font-weight: 800;
+
+    @include below-tablet {
+      @include fontSize(24px, 150%);
+    }
   }
 
   .teamItem {

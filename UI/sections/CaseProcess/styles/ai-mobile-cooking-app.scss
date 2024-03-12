@@ -1,54 +1,60 @@
 .ai-mobile-cooking-app {
-  background-color: $tasteMatchMashroom;
+  &.firstSectionView {
+    background-color: $tasteMatchMashroom;
 
-  [data-title] {
-    @include fontSize(32px, 120%);
+    [data-title] {
+      @include fontSize(32px, 120%);
 
-    font-weight: 800;
-  }
+      font-weight: 800;
 
-  .container {
-    max-width: $wide-content-width;
-  }
+      @include below-tablet {
+        @include fontSize(24px, 150%);
+      }
+    }
 
-  .stepsContainer {
-    @include flex(row, center, flex-start, wrap);
+    .container {
+      max-width: $wide-content-width;
+    }
 
-    margin: 0;
-    gap: 32px;
+    .stepsContainer {
+      @include flex(row, center, flex-start, wrap);
 
-    & > div {
-      width: 100%;
-      flex: 1 1 30%;
       margin: 0;
+      gap: 32px;
+
+      & > div {
+        width: 100%;
+        flex: 1 1 30%;
+        margin: 0;
+      }
+
+      @include below-tablet {
+        @include flex(column, center, center);
+      }
     }
 
-    @include below-tablet {
-      @include flex(column, center, center);
-    }
-  }
+    .step {
+      padding: 48px 16px;
+      height: auto;
+      background-color: $gray0;
+      border: 5px solid $gray900;
+      border-radius: 40px;
+      box-shadow: 8px 8px 0 0 $gray900;
 
-  .step {
-    padding: 48px 16px;
-    height: auto;
-    background-color: $gray0;
-    border: 5px solid $gray900;
-    border-radius: 40px;
-    box-shadow: 8px 8px 0 0 $gray900;
+      p {
+        margin: 8px 0 0;
+        color: $gray500;
+        text-align: center;
+        white-space: nowrap;
+      }
 
-    p {
-      margin: 8px 0 0;
-      color: $gray500;
-      text-align: center;
-      white-space: nowrap;
-    }
+      & > p:last-of-type {
+        display: none;
+      }
 
-    & > p:last-of-type {
-      display: none;
-    }
-
-    @include below-tablet {
-      padding: 32px 16px;
+      @include below-tablet {
+        padding: 32px 16px;
+      }
     }
   }
 }

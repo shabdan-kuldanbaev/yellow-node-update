@@ -26,6 +26,10 @@
     position: relative;
     padding-left: 56px;
 
+    p {
+      color: $gray500;
+    }
+
     &::before {
       @include flex(row, center, center);
       @include fontSize(24px, 150%);
