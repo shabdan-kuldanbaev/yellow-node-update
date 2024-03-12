@@ -1,0 +1,85 @@
+.ai-mobile-cooking-app {
+  .contentContainer {
+    gap: 32px;
+
+    &:not(:last-child) {
+      margin-bottom: 48px;
+    }
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      gap: 24px;
+
+      &:nth-of-type(2n) {
+        .infoContainer {
+          order: initial;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  .infoContainer {
+    margin: 0;
+
+    .title {
+      @include fontSize(24px, 130%);
+
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    p {
+      color: $gray500;
+    }
+
+    @include tablet {
+      .title,
+      p {
+        text-align: center;
+      }
+    }
+  }
+
+  .images {
+    position: relative;
+    max-width: 460px;
+    width: 460px;
+
+    &::before {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &-1::before {
+      @include circle($tasteMatchMashroom, 460px);
+    }
+
+    &-2::before {
+      @include circle($tasteMatchEgg, 460px);
+    }
+
+    &-3::before {
+      @include circle($tasteMatchMint, 460px);
+    }
+
+    &-4::before {
+      @include circle($tasteMatchPepper, 460px);
+    }
+
+    &-5::before {
+      @include circle($tasteMatchCayenne, 460px);
+    }
+  }
+
+  .image {
+    margin: 0 auto;
+    aspect-ratio: 268/580;
+    width: 268px;
+  }
+}
