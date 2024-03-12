@@ -32,7 +32,7 @@
 
     &::before {
       @include flex(row, center, center);
-      @include fontSize(24px, 150%);
+      @include fontSize(20px, 150%);
 
       content: '';
       position: absolute;
@@ -45,8 +45,9 @@
       border: 2px solid $gray900;
       box-shadow: 2px 2px 0 0 $gray900;
       box-sizing: border-box;
-      font-weight: 700;
       text-shadow: 1px 2px $gray900;
+      font-weight: 900;
+      -webkit-text-stroke: 2px $gray900;
     }
 
     &-1::before {
