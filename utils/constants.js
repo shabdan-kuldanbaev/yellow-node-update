@@ -395,7 +395,6 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.erp).path,
   ROUTES.project.getRoute(CASE_STUDIES.hyve).path,
   ROUTES.project.getRoute(CASE_STUDIES.paymentGateway).path,
-  ROUTES.project.getRoute(CASE_STUDIES.tasteMatch).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.whyUs.path,
@@ -462,7 +461,6 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   CASE_STUDIES.hawkin,
   CASE_STUDIES.hyve,
   CASE_STUDIES.paymentGateway,
-  CASE_STUDIES.tasteMatch,
   ROUTES.company.path,
 ];
 

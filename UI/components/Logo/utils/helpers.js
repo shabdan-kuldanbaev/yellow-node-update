@@ -41,7 +41,6 @@ export const WHITE_LOGO_TYPE = [
   CASE_STUDIES.hawkin,
   CASE_STUDIES.hyve,
   CASE_STUDIES.paymentGateway,
-  CASE_STUDIES.tasteMatch,
   ROUTES.aiSoftwareDevelopmentServices.path,
 ];
 
@@ -54,6 +53,7 @@ export const BLACK_LOGO_TYPE = [
   CASE_STUDIES.chatSolutions,
   CASE_STUDIES.digitalWallet,
   CASE_STUDIES.generativeAi,
+  CASE_STUDIES.tasteMatch,
 ];
 
 export const WHITE_TEXT_LOGO = [
@@ -96,7 +96,6 @@ export const WHITE_TEXT_LOGO = [
   CASE_STUDIES.hawkin,
   CASE_STUDIES.hyve,
   CASE_STUDIES.paymentGateway,
-  CASE_STUDIES.tasteMatch,
   ROUTES.bookCall.path,
   ROUTES.customWebApp.slug,
   ROUTES.fintechDevelopment.slug,
