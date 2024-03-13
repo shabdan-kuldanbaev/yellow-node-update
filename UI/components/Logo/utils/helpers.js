@@ -53,6 +53,7 @@ export const BLACK_LOGO_TYPE = [
   CASE_STUDIES.chatSolutions,
   CASE_STUDIES.digitalWallet,
   CASE_STUDIES.generativeAi,
+  CASE_STUDIES.tasteMatch,
 ];
 
 export const WHITE_TEXT_LOGO = [
@@ -96,8 +97,8 @@ export const WHITE_TEXT_LOGO = [
   CASE_STUDIES.hyve,
   CASE_STUDIES.paymentGateway,
   ROUTES.bookCall.path,
-  ROUTES.customWebApp.path,
-  ROUTES.fintechDevelopment.path,
+  ROUTES.customWebApp.slug,
+  ROUTES.fintechDevelopment.slug,
   ROUTES.aiSoftwareDevelopmentServices.slug,
 ];
 

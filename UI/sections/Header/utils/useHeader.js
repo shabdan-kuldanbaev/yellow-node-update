@@ -27,6 +27,7 @@ export const useHeader = ({ introSection }) => {
     CASE_STUDIES.chatSolutions,
     CASE_STUDIES.digitalWallet,
     CASE_STUDIES.generativeAi,
+    CASE_STUDIES.tasteMatch,
     ROUTES.company.path,
   ].includes(project || asPath)
     ? 'light'

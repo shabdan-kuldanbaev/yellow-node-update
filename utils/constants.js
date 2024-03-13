@@ -349,6 +349,7 @@ export const CASE_STUDIES = {
   hyve: 'restaurant-asset-management-tool',
   paymentGateway: 'custom-payment-gateway',
   generativeAi: 'ai-documentation-processing',
+  tasteMatch: 'ai-mobile-cooking-app',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce(

@@ -15,6 +15,7 @@ import {
   rootUrl,
 } from 'utils/helper';
 import cn from 'classnames';
+import Media from 'UI/components/Media';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
@@ -132,9 +133,36 @@ const ContentfulParser = ({ document }) => {
 
           return <EmbedArticleCard data={data} />;
         }
+        case 'text': {
+          const data = get(node, 'data.target', {});
+          const {
+            text,
+            id: entryId,
+          } = getDocumentFields(
+            data,
+            ['text', 'id'],
+          );
+
+          return (
+            // eslint-disable-next-line react/no-unknown-property
+            <div grid-area={entryId}>
+              <ContentfulParser document={text} />
+            </div>
+          );
+        }
         default:
           return null;
         }
+      },
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const data = get(node, 'data.target', {});
+
+        return (
+          // eslint-disable-next-line react/no-unknown-property
+          <div grid-area="asset">
+            <Media asset={data} />
+          </div>
+        );
       },
       [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
       [BLOCKS.QUOTE]: (node, children) => (

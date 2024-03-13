@@ -1,0 +1,21 @@
+.ai-mobile-cooking-app {
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+  grid-column-gap: 211px;
+  grid-auto-flow: row;
+
+  .title {
+    @include fontSize(30px, 130%);
+
+    color: $gray900;
+    font-weight: 800;
+
+    @include below-tablet {
+      @include fontSize(24px, 150%);
+    }
+  }
+
+  .teamItem {
+    color: $gray500;
+  }
+}
