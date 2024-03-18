@@ -351,7 +351,7 @@ export const routes = {
     dynamicPath: '/discovery-phase-services',
     slug: 'discovery-phase-services',
     description: 'Discovery phase of a project is an important part of software development. Learn more about how '
-    + 'to run a discovery phase and its benefits to your business.',
+      + 'to run a discovery phase and its benefits to your business.',
   },
   signatureGenerator: {
     title: 'Signature Generator',
@@ -371,7 +371,7 @@ export const routes = {
     dynamicPath: '/artificial-intelligence-development-services',
     slug: 'artificial-intelligence-development-services',
     description: 'Yellow is an AI software development company that can provide '
-    + 'you with top-notch artificial intelligence application development.',
+      + 'you with top-notch artificial intelligence application development.',
   },
   dataScienceDevelopment: {
     title: 'Data Science Development Services',
@@ -379,7 +379,7 @@ export const routes = {
     dynamicPath: '/data-science-development-company',
     slug: 'data-science-development-company',
     descripition: 'If you are looking for a partner that will help you analyze, process, and structure '
-    + 'your data, data science specialists at Yellow are here for you.',
+      + 'your data, data science specialists at Yellow are here for you.',
   },
   tradingSoftwareDevelopment: {
     title: 'Custom Trading Platform Development Services',
@@ -500,6 +500,11 @@ export const routes = {
     title: 'Generative AI Development',
     path: '/generative-AI-services',
     slug: 'generative-AI-services',
+  },
+  aiChatbotDevelopmentServices: {
+    title: 'AI Chatbot Development Services',
+    path: '/ai-chatbot-development-services',
+    slug: 'ai-chatbot-development-services',
   },
   bookCall: {
     title: '',
