@@ -1,0 +1,98 @@
+.ai-chatbot-development-services {
+  &.firstSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @include flex(row, space-between);
+
+      margin: 0;
+
+      & > div {
+        flex: 0 0 31%;
+        margin: 0;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $gray50;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $gray50;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(3, auto);
+    }
+
+    .card {
+      @include flex(row);
+
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+  &.fourthSectionView {
+    background-color: $gray900;
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      background-color: transparent;
+      border-color: $gray600;
+
+      h3 {
+        color: $gray0;
+      }
+    }
+
+    [data-swiper-button] {
+      color: $gray0;
+
+      &:disabled,
+      * {
+        color: $gray50;
+        fill: $gray0;
+      }
+
+      svg {
+        fill: $gray0;
+      }
+    }
+  }
+
+  &.fifthSectionView {
+    background-color: $gray50;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      grid-template-columns: repeat(3, auto);
+    }
+  }
+
+  &.sixthSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+  }
+}

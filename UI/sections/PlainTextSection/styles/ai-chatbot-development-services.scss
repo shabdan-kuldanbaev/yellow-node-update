@@ -1,0 +1,24 @@
+.ai-chatbot-development-services {
+  background-color: $gray900;
+
+  [data-title] {
+    color: $gray0;
+  }
+
+  [data-description] {
+    @include fontSize(20px, 150%);
+
+    margin-top: 48px;
+    padding: 40px;
+    max-width: $default-content-width;
+    color: $gray0;
+    border: 2px solid $yellow500;
+    font-weight: 700;
+    box-sizing: border-box;
+
+    @include below-tablet {
+      margin-top: 24px;
+      padding: 32px;
+    }
+  }
+}
