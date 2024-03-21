@@ -419,6 +419,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.softwareDevelopmentTulsa.path,
   ROUTES.softwareDevelopmentNewOrleans.path,
   ROUTES.bookCall.path,
+  ROUTES.deepLearing.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
@@ -451,6 +452,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.softwareDevelopmentTulsa.path,
   ROUTES.softwareDevelopmentNewOrleans.path,
   ROUTES.generativeAiDevelopment.path,
+  ROUTES.deepLearing.path,
   ROUTES.whyUs.path,
   ROUTES.bookCall.path,
   CASE_STUDIES.openSense,
@@ -599,6 +601,10 @@ export const SUB_NAVIGATION_LINKS = {
           {
             title: 'Generative AI',
             path: ROUTES.generativeAiDevelopment.path,
+          },
+          {
+            title: 'Deep Learning',
+            path: ROUTES.deepLearing.path,
           },
         ],
       },

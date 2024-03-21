@@ -1,0 +1,14 @@
+.deep-learning {
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageTextContainer {
+    max-width: 580px;
+    margin-right: 76px;
+
+    @include tablet {
+      margin: auto;
+    }
+  }
+}
