@@ -7,7 +7,7 @@ import SectionTitle from 'UI/components/SectionTitle';
 import CardContainer from 'UI/containers/CardContainer';
 import { REVEAL_ANIMATION_PROPS } from 'utils/constants';
 import CallToAction from 'UI/components/CallToAction';
-import { getSliderProps } from './utils/sliderHelper';
+import useSectionProps from './utils/useSectionProps';
 import styles from './styles.module.scss';
 
 const Animated = dynamic(() => import('UI/containers/Animated'));
@@ -19,11 +19,7 @@ SwiperCore.use([
   Mousewheel,
 ]);
 
-const SliderSection = ({
-  sectionData,
-  type,
-  handleOnCTAClick,
-}) => {
+const SliderSection = (props) => {
   const {
     title,
     subtitle,
@@ -31,7 +27,10 @@ const SliderSection = ({
     slides,
     params,
     ctaLink,
-  } = getSliderProps(sectionData);
+    type,
+    handleOnCTAClick,
+    disabledOnDesktop,
+  } = useSectionProps(props);
 
   if (!slides || !slides.length) {
     return null;
@@ -47,30 +46,47 @@ const SliderSection = ({
           titleStyle={styles.titleStyle}
         />
         <CardContainer className={styles.sliderList}>
-          <Animated
-            {...REVEAL_ANIMATION_PROPS}
-            transitionDelay={50}
-          >
-            <Swiper
-              {...params}
-              scrollbar={{ draggable: true }}
-            >
-              {slides.map(({ slideTitle, slideDescription, text }) => (
-                <SwiperSlide
-                  className={styles.item}
-                  key={`slides/${slideTitle}`}
+          {disabledOnDesktop
+            ? slides.map(({ slideTitle, slideDescription, text }) => (
+              <div
+                className={styles.item}
+                key={`slides/${slideTitle}`}
+              >
+                <h3 className={styles.slideTitle}>
+                  {slideTitle}
+                </h3>
+                <p className={styles.slideSubtitle}>
+                  {slideDescription}
+                </p>
+                {text && <ContentfulParser document={text} />}
+              </div>
+            ))
+            : (
+              <Animated
+                {...REVEAL_ANIMATION_PROPS}
+                transitionDelay={50}
+              >
+                <Swiper
+                  {...params}
+                  scrollbar={{ draggable: true }}
                 >
-                  <h3 className={styles.slideTitle}>
-                    {slideTitle}
-                  </h3>
-                  <p className={styles.slideSubtitle}>
-                    {slideDescription}
-                  </p>
-                  {text && <ContentfulParser document={text} />}
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </Animated>
+                  {slides.map(({ slideTitle, slideDescription, text }) => (
+                    <SwiperSlide
+                      className={styles.item}
+                      key={`slides/${slideTitle}`}
+                    >
+                      <h3 className={styles.slideTitle}>
+                        {slideTitle}
+                      </h3>
+                      <p className={styles.slideSubtitle}>
+                        {slideDescription}
+                      </p>
+                      {text && <ContentfulParser document={text} />}
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </Animated>
+            )}
         </CardContainer>
 
         {ctaLink && (
