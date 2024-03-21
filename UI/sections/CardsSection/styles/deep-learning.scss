@@ -1,0 +1,74 @@
+.deep-learning {
+  &.firstSectionView {
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+      @include flex(row, space-between,stretch, wrap);
+
+      & > * {
+        flex: 1 1 25%;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    @extend .blackSection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      background: none;
+      border-color: $gray600;
+    }
+  }
+
+  &.thirdSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+      @include flex(row, center,stretch, wrap);
+
+      & > * {
+        flex: 0 1 30%;
+      }
+    }
+
+    .card {
+      @extend .cardWithFullSizeImage;
+      @include flex(column, flex-start, flex-start);
+
+      border: none;
+      padding: 0;
+      align-items: center;
+
+      picture {
+        width: 276px;
+        height: 276px;
+        margin: 0 auto 24px;
+      }
+
+      * {
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+  }
+}
