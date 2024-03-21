@@ -38,6 +38,7 @@
     .card {
       @include flex(row);
 
+      padding: 0;
       background-color: transparent;
       border: none;
     }
