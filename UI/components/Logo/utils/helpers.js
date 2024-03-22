@@ -97,9 +97,10 @@ export const WHITE_TEXT_LOGO = [
   CASE_STUDIES.hyve,
   CASE_STUDIES.paymentGateway,
   ROUTES.bookCall.path,
-  ROUTES.customWebApp.slug,
-  ROUTES.fintechDevelopment.slug,
-  ROUTES.aiSoftwareDevelopmentServices.slug,
+  ROUTES.customWebApp.path,
+  ROUTES.fintechDevelopment.path,
+  ROUTES.aiSoftwareDevelopmentServices.path,
+  ROUTES.aiChatbotDevelopmentServices.path,
 ];
 
 export const getLogoType = (type) => {
