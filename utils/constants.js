@@ -605,6 +605,10 @@ export const SUB_NAVIGATION_LINKS = {
             path: ROUTES.generativeAiDevelopment.path,
           },
           {
+            title: 'AI Chatbot',
+            path: ROUTES.aiChatbotDevelopmentServices.path,
+          },
+          {
             title: 'Deep Learning',
             path: ROUTES.deepLearning.path,
           },
