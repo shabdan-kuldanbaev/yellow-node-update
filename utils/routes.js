@@ -501,7 +501,7 @@ export const routes = {
     path: '/generative-AI-services',
     slug: 'generative-AI-services',
   },
-  deepLearing: {
+  deepLearning: {
     title: 'Deep Learning',
     path: '/deep-learning',
     slug: 'deep-learning',

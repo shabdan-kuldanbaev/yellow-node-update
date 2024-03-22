@@ -420,7 +420,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.softwareDevelopmentNewOrleans.path,
   ROUTES.aiChatbotDevelopmentServices.path,
   ROUTES.bookCall.path,
-  ROUTES.deepLearing.path,
+  ROUTES.deepLearning.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
@@ -453,7 +453,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.softwareDevelopmentTulsa.path,
   ROUTES.softwareDevelopmentNewOrleans.path,
   ROUTES.generativeAiDevelopment.path,
-  ROUTES.deepLearing.path,
+  ROUTES.deepLearning.path,
   ROUTES.aiChatbotDevelopmentServices.path,
   ROUTES.whyUs.path,
   ROUTES.bookCall.path,
@@ -606,7 +606,7 @@ export const SUB_NAVIGATION_LINKS = {
           },
           {
             title: 'Deep Learning',
-            path: ROUTES.deepLearing.path,
+            path: ROUTES.deepLearning.path,
           },
         ],
       },
