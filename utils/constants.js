@@ -418,6 +418,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.softwareDevelopmentMinneapolis.path,
   ROUTES.softwareDevelopmentTulsa.path,
   ROUTES.softwareDevelopmentNewOrleans.path,
+  ROUTES.aiChatbotDevelopmentServices.path,
   ROUTES.bookCall.path,
 ];
 
@@ -451,6 +452,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.softwareDevelopmentTulsa.path,
   ROUTES.softwareDevelopmentNewOrleans.path,
   ROUTES.generativeAiDevelopment.path,
+  ROUTES.aiChatbotDevelopmentServices.path,
   ROUTES.whyUs.path,
   ROUTES.bookCall.path,
   CASE_STUDIES.openSense,

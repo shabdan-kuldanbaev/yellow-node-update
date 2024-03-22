@@ -1,0 +1,22 @@
+.ai-chatbot-development-services {
+  background-color: $gray0;
+
+  .contentWrapper {
+    max-width: $wide-content-width;
+  }
+
+  .sliderList {
+    @include flex(row, space-between, initial, wrap);
+
+    gap: 32px;
+    background-color: $gray50;
+
+    & > div {
+      flex: 0 0 47%;
+    }
+
+    @include tablet {
+      display: block;
+    }
+  }
+}
