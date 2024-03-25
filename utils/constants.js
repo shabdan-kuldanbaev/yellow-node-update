@@ -421,6 +421,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.aiChatbotDevelopmentServices.path,
   ROUTES.bookCall.path,
   ROUTES.deepLearning.path,
+  ROUTES.aiConsulting.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
@@ -455,6 +456,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.generativeAiDevelopment.path,
   ROUTES.deepLearning.path,
   ROUTES.aiChatbotDevelopmentServices.path,
+  ROUTES.aiConsulting.path,
   ROUTES.whyUs.path,
   ROUTES.bookCall.path,
   CASE_STUDIES.openSense,
@@ -611,6 +613,10 @@ export const SUB_NAVIGATION_LINKS = {
           {
             title: 'Deep Learning',
             path: ROUTES.deepLearning.path,
+          },
+          {
+            title: 'AI Consulting',
+            path: ROUTES.aiConsulting.path,
           },
         ],
       },
