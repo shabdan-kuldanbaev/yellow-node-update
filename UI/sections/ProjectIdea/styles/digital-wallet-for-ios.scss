@@ -90,10 +90,6 @@
         }
       }
 
-      & > *:first-child {
-        display: none;
-      }
-
       @include tablet {
         width: auto;
         display: block;
