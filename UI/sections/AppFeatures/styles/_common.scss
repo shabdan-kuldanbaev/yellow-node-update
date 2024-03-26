@@ -6,9 +6,14 @@
     margin: 0 0 16px;
     text-align: left;
     max-width: 800px;
+
+    @include tablet {
+      text-align: center;
+    }
   }
 
-  [data-description] {
+  [data-description],
+  [data-subtitle] {
     @include fontSize(16px, 150%);
 
     margin: 0;
