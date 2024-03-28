@@ -37,6 +37,12 @@ export const ACCESS_TO_CONTENTFUL_BLOG_PREVIEW = {
   isPreview: true,
 };
 
+export const ACCESS_TO_CONTENTFUL_FALLBACK = {
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_FALLBACK_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_FALLBACK_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_FALLBACK_TOKEN,
+};
+
 export const PAGES = Object.entries(routes).reduce((acc, [key, { slug }]) => {
   acc[key] = slug;
 
