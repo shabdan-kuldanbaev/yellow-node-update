@@ -1,0 +1,43 @@
+.ai-staff-augmentation-services {
+  padding: 120px 16px;
+  background-color: $gray0;
+
+  .container {
+    @include flex(row, space-between);
+
+    margin: 0 auto;
+    gap: 32px;
+    max-width: $wide-content-width;
+
+    @include below-tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .sectionContainer {
+    max-width: 687px;
+  }
+
+  [data-title],
+  [data-description] {
+    text-align: left;
+
+    @include below-tablet {
+      text-align: center;
+    }
+  }
+
+  .imageContainer {
+    max-width: 481px;
+    width: 100%;
+  }
+
+  .image {
+    aspect-ratio: 481/449;
+    width: 100%;
+  }
+
+  @include below-tablet {
+    padding: 60px 16px;
+  }
+}
