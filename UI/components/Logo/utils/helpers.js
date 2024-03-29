@@ -101,6 +101,7 @@ export const WHITE_TEXT_LOGO = [
   ROUTES.fintechDevelopment.path,
   ROUTES.aiSoftwareDevelopmentServices.path,
   ROUTES.aiChatbotDevelopmentServices.path,
+  ROUTES.aiStaffAugmentationServices.path,
 ];
 
 export const getLogoType = (type) => {

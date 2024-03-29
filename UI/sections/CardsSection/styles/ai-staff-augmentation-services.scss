@@ -1,0 +1,76 @@
+.ai-staff-augmentation-services {
+  .contentWrapper {
+    max-width: $wide-content-width;
+  }
+
+  &.firstSectionView {
+    .cardList {
+      @include flex(row, space-between, initial, wrap);
+
+      margin: 0;
+      gap: 32px;
+
+      & > div {
+        flex: 1 1 378px;
+        margin: 0;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    background-color: $gray900;
+
+    [data-title] {
+      color: $gray0;
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      background-color: transparent;
+      border-color: $gray600;
+
+      h3 {
+        color: $gray0;
+      }
+    }
+
+    [data-swiper-button] {
+      color: $gray0;
+
+      &:disabled,
+      * {
+        color: $gray50;
+        fill: $gray0;
+      }
+
+      svg {
+        fill: $gray0;
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    [data-description] {
+      max-width: 755px;
+    }
+  }
+
+  &.fourthSectionView {
+    background-color: $gray50;
+
+    .cardList {
+      @include flex(row, space-between, initial, wrap);
+
+      margin: 0;
+      gap: 32px;
+
+      & > div {
+        flex: 1 1 378px;
+        margin: 0;
+      }
+    }
+  }
+}
