@@ -37,6 +37,12 @@ export const ACCESS_TO_CONTENTFUL_BLOG_PREVIEW = {
   isPreview: true,
 };
 
+export const ACCESS_TO_CONTENTFUL_FALLBACK = {
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_FALLBACK_SPACE,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_FALLBACK_ENV,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_FALLBACK_TOKEN,
+};
+
 export const PAGES = Object.entries(routes).reduce((acc, [key, { slug }]) => {
   acc[key] = slug;
 
@@ -422,6 +428,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.aiStaffAugmentationServices.path,
   ROUTES.bookCall.path,
   ROUTES.deepLearning.path,
+  ROUTES.aiConsulting.path,
 ];
 
 export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
@@ -457,6 +464,7 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.deepLearning.path,
   ROUTES.aiChatbotDevelopmentServices.path,
   ROUTES.aiStaffAugmentationServices.path,
+  ROUTES.aiConsulting.path,
   ROUTES.whyUs.path,
   ROUTES.bookCall.path,
   CASE_STUDIES.openSense,
@@ -617,6 +625,10 @@ export const SUB_NAVIGATION_LINKS = {
           {
             title: 'AI Staff Augmentation',
             path: ROUTES.aiStaffAugmentationServices.path,
+          },
+          {
+            title: 'AI Consulting',
+            path: ROUTES.aiConsulting.path,
           },
         ],
       },

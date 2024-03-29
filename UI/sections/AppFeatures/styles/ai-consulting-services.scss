@@ -1,0 +1,27 @@
+.ai-consulting-services {
+  @include appFeaturesContainer;
+
+  background-color: $gray0;
+
+  .container {
+    @include flex(row, space-between);
+
+    margin: 0 auto;
+    gap: 32px;
+    max-width: $wide-content-width;
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .imageContainer {
+    max-width: 481px;
+    width: 100%;
+  }
+
+  .image {
+    aspect-ratio: 481/449;
+    width: 100%;
+  }
+}

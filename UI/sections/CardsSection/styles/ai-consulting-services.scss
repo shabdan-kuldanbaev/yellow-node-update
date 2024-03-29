@@ -1,0 +1,66 @@
+.ai-consulting-services {
+  &.firstSectionView {
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+  }
+
+  &.secondSectionView {
+    @extend .blackSection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+      @include flex(row, center,stretch, wrap);
+
+      & > * {
+        flex: 1 1 30%;
+      }
+    }
+
+    .card {
+      background: none;
+      border: 1px solid rgb(84 84 84 / 100%);
+    }
+  }
+
+  &.thirdSectionView {
+    @extend .greySection;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+      @include flex(row, center,stretch, wrap);
+
+      & > * {
+        flex: 1 1 30%;
+      }
+    }
+  }
+
+  &.fourthSectionView {
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      @include flex(row);
+    }
+  }
+}

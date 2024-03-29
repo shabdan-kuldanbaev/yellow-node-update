@@ -516,6 +516,11 @@ export const routes = {
     path: '/ai-staff-augmentation-services',
     slug: 'ai-staff-augmentation-services',
   },
+  aiConsulting: {
+    title: 'AI Consulting Services',
+    path: '/ai-consulting-services',
+    slug: 'ai-consulting-services',
+  },
   bookCall: {
     title: '',
     path: '/book-a-call',
