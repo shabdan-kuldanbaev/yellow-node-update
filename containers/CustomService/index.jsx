@@ -45,7 +45,7 @@ const CustomServiceContainer = ({
   return (
     <>
       {children}
-      <div className={cn(styles.container, styles[type])}>
+      <main className={cn(styles.container, styles[type])}>
         <PageHeader
           breadcrumbs={breadcrumbs}
           titleStyles={styles.pageTitle}
@@ -65,7 +65,7 @@ const CustomServiceContainer = ({
             />
           );
         })}
-      </div>
+      </main>
       <FullScreenEstimation
         isFullscreenEstimation={isFullscreenEstimation}
         closeFullscreenEstimation={closeFullscreenEstimation}

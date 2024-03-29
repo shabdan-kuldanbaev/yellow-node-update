@@ -1,0 +1,26 @@
+.ai-staff-augmentation-services {
+  background-color: $gray50;
+
+  [data-description] {
+    max-width: 751px;
+  }
+
+  .contentWrapper {
+    max-width: $wide-content-width;
+  }
+
+  .sliderList {
+    @include flex(row, space-between, initial, wrap);
+
+    gap: 32px;
+    background-color: $gray0;
+
+    & > div {
+      flex: 0 0 47%;
+    }
+
+    @include tablet {
+      display: block;
+    }
+  }
+}

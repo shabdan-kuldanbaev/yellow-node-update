@@ -13,9 +13,10 @@ export const Figures = (props) => {
     text,
     type,
     figures,
+    figuresData,
   } = useFiguresProps(props);
 
-  if (!figures?.length) return null;
+  if (!figuresData) return null;
 
   return (
     <div className={styles[type]}>
@@ -45,6 +46,6 @@ export const Figures = (props) => {
 };
 
 Figures.propTypes = {
-  figuresData: PropTypes.instanceOf(Object).isRequired,
+  figuresData: PropTypes.instanceOf(Object),
   type: PropTypes.string.isRequired,
 };

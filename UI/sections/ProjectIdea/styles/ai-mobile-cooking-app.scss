@@ -1,0 +1,31 @@
+.ai-mobile-cooking-app {
+  .contentContainer {
+    @include flex(row-reverse, space-between, center);
+
+    gap: 32px;
+
+    @include tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .title {
+    @include fontSize(30px, 130%);
+
+    color: $gray900;
+    font-weight: 800;
+
+    @include below-tablet {
+      @include fontSize(24px, 150%);
+    }
+  }
+
+  .description {
+    color: $gray500;
+  }
+
+  .descriptionContainer {
+    margin: 0;
+    max-width: 485px;
+  }
+}

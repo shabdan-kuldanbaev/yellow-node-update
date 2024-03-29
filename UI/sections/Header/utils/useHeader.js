@@ -1,5 +1,3 @@
-'use client';
-
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useState, useEffect, useCallback } from 'react';
 import {
@@ -29,6 +27,8 @@ export const useHeader = ({ introSection }) => {
     CASE_STUDIES.carbonSpace,
     CASE_STUDIES.chatSolutions,
     CASE_STUDIES.digitalWallet,
+    CASE_STUDIES.generativeAi,
+    CASE_STUDIES.tasteMatch,
     ROUTES.company.path,
   ].includes(project || asPath)
     ? 'light'

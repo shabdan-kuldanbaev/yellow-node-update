@@ -4,37 +4,34 @@
 
   .titleStyle {
     & > div:last-child {
-      @include flex(column, center, flex-start);
+      @include flex(row, space-between, initial, wrap);
+
+      gap: 32px;
+
+      @include below-tablet {
+        gap: 16px;
+      }
     }
   }
 
   [data-title] {
     @include fontSize(24px, 130%);
 
-    margin: 0 0 8px;
+    margin: 0 auto 48px;
     color: $gray0;
     font-weight: 400;
-    text-align: left;
   }
 
   [data-description] {
-    position: relative;
+    flex: 1 1 310px;
     margin: 0;
-    padding-left: 25px;
-    color: $gray500;
-    text-align: left;
-
-    &::before {
-      content: '';
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 5px;
-      height: 5px;
-      background-color: $gray500;
-      border-radius: 50%;
-    }
+    padding: 32px;
+    height: auto;
+    color: $gray0;
+    text-align: center;
+    border: 1px solid $gray500;
+    border-radius: 10px;
+    box-sizing: border-box;
   }
 
   @include below-tablet {

@@ -1,0 +1,18 @@
+.ai-consulting-services {
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageTextContainer {
+    max-width: 584px;
+    margin-right: 32px;
+
+    p + p {
+      margin-top: 25px;
+    }
+
+    @include tablet {
+      margin: auto;
+    }
+  }
+}

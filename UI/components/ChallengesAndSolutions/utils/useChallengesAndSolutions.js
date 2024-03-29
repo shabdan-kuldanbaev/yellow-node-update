@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectIsMobile } from 'store/selectors/layout';
 import { CASE_STUDIES_TYPES } from 'utils/constants';
 import { getDocumentFields, getImage } from 'utils/helper';
+import { disabledSlider } from './helpers';
 
 export const useChallengesAndSolutions = ({
   data,
@@ -18,6 +19,7 @@ export const useChallengesAndSolutions = ({
   const isMobileResolution = useSelector(selectIsMobile);
 
   const isSlider = [CASE_STUDIES_TYPES.challengesSlider, CASE_STUDIES_TYPES.challengesSpecialSlider].includes(data.type);
+  const isSliderDisabled = disabledSlider(type);
 
   const images = (rawImages || []).map((rawImage) => getImage(rawImage));
 
@@ -53,5 +55,6 @@ export const useChallengesAndSolutions = ({
     content,
     componentType,
     images,
+    isSliderDisabled,
   };
 };

@@ -1,6 +1,6 @@
 import { createApi } from '@reduxjs/toolkit/dist/query/react';
 import { HYDRATE } from 'next-redux-wrapper';
-import { contentfulClient } from 'utils/contentful/client';
+import { contentfulClient, fallbackClient } from 'utils/contentful/client';
 
 export const BASEQUERY_TYPES = {
   graphql: 'graphql',
@@ -16,6 +16,16 @@ async function baseQuery(args, _, {
 
     return { data: result };
   } catch (e) {
+    if (type === BASEQUERY_TYPES.getEntries && e.message === '404') {
+      try {
+        const result = await fallbackClient[type](args);
+
+        return { data: result };
+      } catch (err) {
+        return { error: err.meesage };
+      }
+    }
+
     return { error: e.meesage };
   }
 }

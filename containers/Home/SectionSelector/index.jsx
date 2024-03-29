@@ -6,6 +6,7 @@ import SvgListSection from 'UI/sections/SvgListSection';
 import ReviewsSection from 'UI/sections/ReviewsSection';
 import Blog from 'UI/sections/Blog';
 import PhotoGallery from 'components/Common/PhotoGallery';
+import AccordionCardStack from 'UI/sections/AccordionCardStack';
 import { getDocumentFields } from 'utils/helper';
 import { HOMEPAGE_SECTION_TYPES } from 'utils/constants';
 
@@ -88,6 +89,14 @@ const SectionSelector = ({
     return (
       <FeedbackSection
         section={section}
+        type={type}
+      />
+    );
+
+  case HOMEPAGE_SECTION_TYPES.accordionCardStack:
+    return (
+      <AccordionCardStack
+        data={section}
         type={type}
       />
     );

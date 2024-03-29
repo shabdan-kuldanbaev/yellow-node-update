@@ -3,6 +3,17 @@ import { getPage } from 'utils/dataFetching/getPage';
 import { rootUrl } from 'utils/helper';
 import { getPageMicrodata } from 'utils/microdata';
 
+const robotsRules = {
+  none: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+};
+
 export const getPageMetadataGenerator = ({ page }) => async function generateMetadata() {
   const { data } = await getPage(page);
 
@@ -19,10 +30,13 @@ export const getPageMetadataGenerator = ({ page }) => async function generateMet
     metaTitle,
     metaDescription,
     ogImage: imageUrl,
+    metaRobots,
   } = metaData;
 
   const title = metaTitle || `${pageTitle} | Yellow`;
   const description = metaDescription || subtitle;
+
+  const robots = robotsRules[metaRobots];
 
   return {
     metadataBase: new URL(rootUrl),
@@ -36,6 +50,7 @@ export const getPageMetadataGenerator = ({ page }) => async function generateMet
       images: [{ url: imageUrl }],
       url: page,
     },
+    robots,
   };
 };
 

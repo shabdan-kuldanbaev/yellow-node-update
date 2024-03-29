@@ -10,6 +10,10 @@ import { generatePageMicrodata } from 'utils/metadata/page';
 
 export { generateServicePageMetadata as generateMetadata } from 'utils/metadata/servicePage';
 
+const excludedRoutes = [
+  serviceDevelopmentRoutes.aiSoftwareDevelopmentServices,
+];
+
 export async function generateStaticParams() {
   const routes = [
     ...Object.values(serviceDevelopmentRoutes),
@@ -17,7 +21,7 @@ export async function generateStaticParams() {
     aboutRoutes.bookCall,
     aboutRoutes.deliveryQualityInYellow,
     aboutRoutes.softwareDevelopmentPrice,
-  ];
+  ].filter((route) => !excludedRoutes.includes(route));
 
   return routes.map((route) => ({
     'service-slug': route.slug,

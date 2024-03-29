@@ -71,12 +71,15 @@
     z-index: 2;
     top: -30px;
     left: 50%;
-    width: 372px;
+    width: 363px;
     height: 751px;
     transform: translateX(-50%);
+    border-radius: 65px;
+    object-fit: cover;
 
     @include tablet {
-      width: 320px;
+      top: -40px;
+      width: 314px;
       height: 645px;
     }
   }
@@ -121,12 +124,6 @@
 
     .imageContainer {
       height: 615px;
-    }
-
-    .image {
-      top: -40px;
-      width: 320px;
-      height: 645px;
     }
 
     .introText {

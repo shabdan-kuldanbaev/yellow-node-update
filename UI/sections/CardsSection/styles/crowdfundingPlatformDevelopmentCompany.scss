@@ -79,6 +79,8 @@
   }
 
   &.thirdSectionView {
+    background-color: $gray50;
+
     [data-title],
     [data-description] {
       max-width: 680px;
@@ -136,7 +138,7 @@
       min-height: 450px;
 
       * {
-        align-self: center;
+        align-items: center;
         text-align: center;
         margin: 0;
       }
@@ -227,6 +229,79 @@
 
     @include phone {
       padding-bottom: 30px;
+    }
+  }
+
+  &.seventhSectionView {
+    background-color: $gray0;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @extend .threeColumnsCards;
+    }
+
+    .card {
+      @include flex(column, center, center);
+
+      padding: 24px;
+      gap: 24px;
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      picture {
+        aspect-ratio: 1;
+        width: 276px;
+      }
+
+      h4 {
+        @include fontSize(20px, 150%);
+
+        color: $gray900;
+        text-align: center;
+      }
+
+      h5 {
+        @include fontSize(16px, 150%);
+
+        color: $gray900;
+        font-weight: 400;
+        text-align: center;
+      }
+
+      p {
+        @include fontSize(16px, 150%);
+
+        margin: 8px 0;
+        color: $gray400;
+        font-weight: 400;
+        text-align: center;
+      }
+
+      ul {
+        @include flex(row, center, center, wrap);
+
+        gap: 12px;
+        list-style-type: none;
+
+        li {
+          padding: 12px 24px;
+          background-color: $gray100;
+          border-radius: 200px;
+
+          & > p {
+            @include fontSize(12px, 150%);
+
+            margin: 0;
+            color: $gray900;
+          }
+        }
+      }
     }
   }
 }

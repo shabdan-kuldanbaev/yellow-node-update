@@ -1,0 +1,38 @@
+.ai-mobile-cooking-app {
+  background-color: $gray50;
+
+  [data-title] {
+    @include fontSize(32px, 130%);
+
+    font-weight: 800;
+
+    @include below-tablet {
+      @include fontSize(24px, 150%);
+    }
+  }
+
+  [data-description] {
+    color: $gray500;
+  }
+
+  .contentWrapper {
+    position: relative;
+
+    &::before {
+      @include circle($tasteMatchMint, 500px);
+
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .media {
+    aspect-ratio: 268/580;
+    width: 268px;
+    background-color: $gray0;
+    border: 6px solid $gray900;
+    border-radius: 30px;
+    box-shadow: 6px 6px 0 0 $gray900;
+  }
+}

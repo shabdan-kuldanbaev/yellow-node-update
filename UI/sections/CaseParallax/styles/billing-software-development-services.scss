@@ -1,5 +1,13 @@
 .billing-software-development-services {
-  @include phone {
-    background-size: 200%;
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    height: 700px;
+
+    @include below-tablet {
+      height: 500px;
+    }
   }
 }

@@ -1,0 +1,47 @@
+.ai-mobile-cooking-app {
+  gap: 32px;
+
+  .container {
+    max-width: unset;
+  }
+
+  .title {
+    @include fontSize(20px, 130%);
+
+    font-weight: 800;
+    white-space: nowrap;
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  .listContainer {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .listItem {
+    @include fontSize(16px, 150%);
+
+    position: relative;
+    padding-left: 24px;
+    color: $gray500;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      height: 12px;
+      background-color: $tasteMatchEgg;
+      border: 2px solid $gray900;
+      border-radius: 50%;
+      box-shadow: 1px 1px 0 0 $gray900;
+      box-sizing: border-box;
+    }
+  }
+}

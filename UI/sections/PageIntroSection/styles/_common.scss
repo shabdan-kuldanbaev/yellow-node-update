@@ -37,7 +37,7 @@
   }
 
   @include below-tablet {
-    @include flex(column-reverse);
+    @include flex(column-reverse, flex-start, center);
   }
 }
 
@@ -50,9 +50,13 @@
 }
 
 .pageTitle {
+  @include fontSize(46px, 120%);
+
   margin: 0 0 16px;
 
   @include below-tablet {
+    @include fontSize(24px, 150%);
+
     text-align: center;
   }
 }

@@ -1,0 +1,25 @@
+.section {
+  padding: 120px 16px;
+  background-color: $gray50;
+
+  .contentWrapper {
+    @include flex(row, space-between, flex-start);
+
+    margin: 0 auto;
+    max-width: $wide-content-width;
+
+    @include tablet {
+      @include flex(column, center, center);
+
+      gap: 24px;
+    }
+  }
+
+  .accordionItem {
+    margin-bottom: 8px;
+  }
+
+  @include below-tablet {
+    padding: 60px 16px;
+  }
+}

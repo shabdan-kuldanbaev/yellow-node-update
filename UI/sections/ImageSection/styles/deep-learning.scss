@@ -1,0 +1,48 @@
+.deep-learning {
+  .imageSection {
+    flex-direction: row-reverse;
+    margin: 0 auto;
+
+    @include tablet {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .titleStyle {
+    * {
+      text-align: left;
+
+      @include tablet {
+        text-align: center;
+      }
+    }
+  }
+
+  .image {
+    background-size: contain;
+
+    @include tablet {
+      max-width: 480px;
+      padding-top: 52%;
+      margin: 0 auto;
+    }
+  }
+
+  .experienceContent p {
+    @include fontSize(16px);
+
+    margin: 0;
+  }
+
+  .experienceContent ul {
+    margin-left: 0;
+
+    @include tablet {
+      @include flex(column, flex-start, center);
+    }
+  }
+
+  .experienceContent li::marker {
+    color: $yellow400;
+  }
+}

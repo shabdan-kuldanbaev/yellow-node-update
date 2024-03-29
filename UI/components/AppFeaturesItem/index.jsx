@@ -21,6 +21,7 @@ const AppFeaturesItem = (props) => {
     handleOnClick,
     imagesUrl,
     customIcon,
+    className,
   } = useAppFeaturesItem(props);
 
   return (
@@ -34,6 +35,7 @@ const AppFeaturesItem = (props) => {
           styles.sectionItem,
           styles[type],
           styles[view],
+          className,
           {
             [styles.sectionActiveItem]: currentIndex === activeIndex,
           },
@@ -44,6 +46,12 @@ const AppFeaturesItem = (props) => {
           className={styles.wrapperTitle}
           onClick={handleOnClick(currentIndex)}
         >
+          {customIcon && (
+            <Svg
+              type={customIcon}
+              className={styles.icon}
+            />
+          )}
           <p className={styles.title}>
             {title}
           </p>
@@ -56,7 +64,7 @@ const AppFeaturesItem = (props) => {
             />
           ))}
           <Svg
-            type={customIcon || 'chevronDown'}
+            type="chevronDown"
             className={styles.expandIcon}
           />
         </div>
@@ -64,7 +72,7 @@ const AppFeaturesItem = (props) => {
           open={currentIndex === activeIndex}
           type={ANIMATED_TYPE.expandByHeight}
         >
-          <div className={styles.description}>
+          <div className={cn(styles.description, { [styles.withIcon]: customIcon })}>
             <ContentfulParser document={text} />
           </div>
         </Animated>

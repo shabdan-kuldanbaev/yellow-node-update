@@ -4,6 +4,7 @@ import { SOCIAL_MEDIA } from 'utils/constants/contacts';
 export const mainContent = [
   {
     title: 'Services',
+    type: 'services',
     links: [
       {
         subtitle: 'Web development',
@@ -71,10 +72,10 @@ export const mainContent = [
         type: 'navigation',
       },
     ],
-    type: 'services',
   },
   {
     title: 'Fintech',
+    type: 'fintech',
     links: [
       {
         subtitle: 'Fintech software development',
@@ -106,30 +107,20 @@ export const mainContent = [
         path: ROUTES.crowdfundingPlatform.path,
         type: 'navigation',
       },
-      {
-        subtitle: 'Billing software development',
-        path: ROUTES.billingSoftwareDevelopment.path,
-        type: 'navigation',
-      },
-      {
-        subtitle: 'Payment software gateway development',
-        path: ROUTES.paymentGatewayDevelopment.path,
-        type: 'navigation',
-      },
     ],
-    type: 'fintech',
   },
   {
     title: 'Expertise',
+    type: 'expertise',
     links: [
-      {
-        subtitle: 'Discovery phase',
-        path: ROUTES.discoveryPhase.path,
-        type: 'navigation',
-      },
       {
         subtitle: 'Chat development',
         path: ROUTES.customChatApp.path,
+        type: 'navigation',
+      },
+      {
+        subtitle: 'Mobile development',
+        path: ROUTES.customMobileApp.path,
         type: 'navigation',
       },
       {
@@ -152,17 +143,16 @@ export const mainContent = [
         path: ROUTES.dataScienceDevelopment.path,
         type: 'navigation',
       },
+      {
+        subtitle: 'Discovery phase',
+        path: ROUTES.discoveryPhase.path,
+        type: 'navigation',
+      },
     ],
-    type: 'expertise',
   },
 ];
 
 export const companyLinks = [
-  {
-    subtitle: ROUTES.deliveryQualityInYellow.title,
-    path: ROUTES.deliveryQualityInYellow.path,
-    type: 'navigation',
-  },
   {
     subtitle: ROUTES.portfolio.title,
     path: ROUTES.portfolio.path,

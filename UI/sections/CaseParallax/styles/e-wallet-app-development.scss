@@ -4,6 +4,8 @@
   }
 
   .parallaxImage {
+    height: 800px;
+
     @include below-tablet {
       height: 310px;
     }

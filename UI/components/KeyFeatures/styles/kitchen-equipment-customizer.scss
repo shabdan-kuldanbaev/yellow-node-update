@@ -1,0 +1,81 @@
+.kitchen-equipment-customizer {
+  @include flex(column, center, flex-start);
+
+  position: static;
+  padding: 40px;
+  gap: 20px;
+  max-width: 378px;
+  width: 100%;
+  border: 1px solid $gray300;
+  border-radius: 10px;
+  box-sizing: border-box;
+  perspective: unset;
+
+  .contentContainer {
+    .title {
+      @include fontSize(16px, 150%);
+
+      margin: 0 0 8px;
+      font-weight: 400;
+
+      @include tablet {
+        text-align: center;
+      }
+    }
+
+    p {
+      @include fontSize(16px, 150%);
+
+      margin: 0;
+
+      @include tablet {
+        text-align: center;
+      }
+    }
+
+    ul {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      li {
+        margin: 0;
+        color: $gray400;
+      }
+
+      @include tablet {
+        @include flex(column, center, center);
+      }
+    }
+  }
+
+  .featureContainer {
+    margin: 0;
+
+    &:not(:last-of-type) {
+      margin-bottom: 0;
+    }
+  }
+
+  .containerBackground {
+    position: static;
+    top: unset;
+    left: unset;
+    right: unset;
+    bottom: unset;
+    transform: unset;
+    background-color: inherit;
+    border-radius: 0;
+
+    @include phone {
+      left: unset;
+    }
+  }
+
+  .checkMark {
+    display: none;
+  }
+
+  @include tablet {
+    @include flex(column, center, center);
+  }
+}

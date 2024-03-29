@@ -4,13 +4,10 @@
   }
 
   .parallaxImage {
-    background-color: $crowdfundingSecondary;
-    background-size: 175%;
-    background-position: 38% 45%;
+    height: 700px;
 
     @include below-tablet {
-      height: 375px;
-      background-size: 390%;
+      height: 500px;
     }
   }
 }

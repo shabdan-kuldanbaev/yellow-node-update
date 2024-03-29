@@ -38,11 +38,15 @@ export default ({
     return linkType === 'scroll-block';
   });
 
-  const { buttonTitle } = getDocumentFields(contentModules?.find((module) => {
-    const { type: linkType } = getDocumentFields(module, ['type']);
+  const links = contentModules?.filter((module) => {
+    const {
+      type: linkType,
+    } = getDocumentFields(module, [
+      'type',
+    ]);
 
     return linkType === 'button';
-  }), ['buttonTitle']);
+  });
 
   return {
     type,
@@ -50,9 +54,9 @@ export default ({
     title,
     description,
     image,
-    buttonTitle,
     figuresData,
     handleOnCTAClick,
     scrollBlock,
+    links,
   };
 };

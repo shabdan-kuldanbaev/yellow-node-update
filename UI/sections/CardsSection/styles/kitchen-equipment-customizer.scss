@@ -1,0 +1,70 @@
+.kitchen-equipment-customizer {
+  &.firstSectionView {
+    background-color: $kitchenSecondary;
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .card {
+      @include flex(row, flex-start, flex-start);
+
+      gap: 24px;
+      box-sizing: border-box;
+      background-color: $kitchenSecondary;
+      border-color: $gray300;
+
+      picture {
+        flex-shrink: 0;
+        flex-grow: 1;
+        width: 320px;
+        height: auto;
+        border-radius: 8px;
+        aspect-ratio: 320/422;
+        overflow: hidden;
+
+        img {
+          object-fit: cover;
+          object-position: top;
+        }
+
+        @include below-tablet {
+          aspect-ratio: 1;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      h3 {
+        @include fontSize(24px, 130%);
+
+        margin: 0;
+        color: $gray900;
+        font-weight: 400;
+      }
+
+      h4 {
+        @include fontSize(16px, 130%);
+
+        margin: 8px 0;
+        color: $gray900;
+        font-weight: 400;
+      }
+
+      p {
+        margin: 0;
+        color: $gray400;
+      }
+
+      @include below-tablet {
+        @include flex(column, center, center);
+
+        padding: 24px 16px;
+
+        * {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.ai-chatbot-development-services {
+  padding: 32px 16px 120px;
+  background-color: $gray900;
+
+  .pageTitle {
+    color: $gray0;
+  }
+
+  .pageSubtitle {
+    white-space: pre-wrap;
+  }
+
+  .pageImage {
+    max-width: 504px;
+    padding-top: 484px;
+
+    @include below-tablet {
+      padding-top: 328px;
+    }
+  }
+
+  .buttonWrapper {
+    @include flex(row, flex-start, center, wrap);
+
+    margin-top: 32px;
+    gap: 12px;
+
+    @include below-tablet {
+      @include flex(column, center, center);
+    }
+  }
+
+  .button {
+    margin: 0;
+    text-decoration: underline;
+
+    &-2 {
+      color: $yellow500;
+      border-color: $yellow500;
+      background-color: transparent;
+    }
+  }
+
+  @include below-tablet {
+    padding: 16px 16px 60px;
+  }
+}

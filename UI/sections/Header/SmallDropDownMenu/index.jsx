@@ -10,6 +10,7 @@ const Animated = dynamic(() => import('UI/containers/Animated'));
 
 const SmallDropDownMenu = (props) => {
   const {
+    slug,
     isLightTheme,
     isPageScrolledDown,
     isDropMenuOpened,
@@ -25,22 +26,25 @@ const SmallDropDownMenu = (props) => {
     })}
     >
       <div className={cn(styles.container)}>
-        {subNavigationLinks.map(({ title, subtitle, slug }) => (
+        {subNavigationLinks.map(({
+          title,
+          path,
+          marked,
+        }) => (
           <Animated
             type={ANIMATED_TYPE.isFade}
-            key={slug}
+            key={path}
             open
           >
             <SubMenuItem
               key={`link/${title}`}
               isLightTheme={isLightTheme}
               isPageScrolledDown={isPageScrolledDown}
-              isTitleNormalWeight
-              closeMobileMenu={() => {}}
               handleOnClick={handleOnLinkClick}
-              subtitle={subtitle}
               title={title}
-              subMenuSlug={slug}
+              path={path}
+              slug={slug}
+              marked={marked}
             />
           </Animated>
         ))}

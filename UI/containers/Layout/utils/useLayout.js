@@ -16,10 +16,12 @@ import {
 import { SUBSCRIPTION_CASH_KEY, useSubscribeMutation } from 'store/apis/dataSending';
 import { AppContext, IntroSectionContext } from 'utils/appContext';
 import { routes } from 'utils/routes';
+import { PAGES_WITHOUT_INDEXING } from 'utils/constants';
 
 export const useLayout = ({ children }) => {
   const pathname = usePathname();
   const isHomePage = pathname === routes.homepage.path;
+  const withoutIndexing = PAGES_WITHOUT_INDEXING.includes(pathname);
   const { contextData: { duck } } = useContext(AppContext);
   const isDuckLoading = isHomePage && !duck;
 
@@ -56,5 +58,6 @@ export const useLayout = ({ children }) => {
     children,
     introSection,
     isDuckLoading,
+    withoutIndexing,
   };
 };

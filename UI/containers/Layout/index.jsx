@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, memo } from 'react';
+import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import CookiesNotification from 'components/Common/CookiesNotification';
@@ -16,6 +16,7 @@ const Layout = (props) => {
     children,
     introSection,
     isDuckLoading,
+    withoutIndexing,
   } = useLayout(props);
 
   return (
@@ -30,7 +31,6 @@ const Layout = (props) => {
         <Footer />
       </Suspense>
       <GAnalytic />
-      {/* <VideoAsk /> */}
     </>
   );
 };
@@ -39,4 +39,4 @@ Layout.propTypes = {
   children: PropTypes.node,
 };
 
-export default memo(Layout);
+export default Layout;

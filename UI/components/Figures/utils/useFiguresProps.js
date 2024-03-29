@@ -13,5 +13,6 @@ export default ({ type, figuresData }) => {
     text,
     type,
     figures,
+    figuresData,
   };
 };

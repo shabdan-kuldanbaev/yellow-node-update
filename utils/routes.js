@@ -228,7 +228,38 @@ export const serviceDevelopmentRoutes = {
     dynamicPath: '/discovery-phase-services',
     slug: 'discovery-phase-services',
     description: 'Discovery phase of a project is an important part of software development. Learn more about how '
-    + 'to run a discovery phase and its benefits to your business.',
+      + 'to run a discovery phase and its benefits to your business.',
+  },
+  aiSoftwareDevelopmentServices: {
+    title: 'AI Software development services',
+    path: '/ai-software-development-services',
+    dynamicPath: '/ai-software-development-services',
+    slug: 'ai-software-development-services',
+  },
+  generativeAiDevelopment: {
+    title: 'Generative AI Development',
+    path: '/generative-AI-services',
+    slug: 'generative-AI-services',
+  },
+  deepLearning: {
+    title: 'Deep Learning',
+    path: '/deep-learning',
+    slug: 'deep-learning',
+  },
+  aiChatbotDevelopmentServices: {
+    title: 'AI Chatbot Development Services',
+    path: '/ai-chatbot-development-services',
+    slug: 'ai-chatbot-development-services',
+  },
+  aiStaffAugmentationServices: {
+    title: 'AI Staff Augmentation Services',
+    path: '/ai-staff-augmentation-services',
+    slug: 'ai-staff-augmentation-services',
+  },
+  aiConsulting: {
+    title: 'AI Consulting Services',
+    path: '/ai-consulting-services',
+    slug: 'ai-consulting-services',
   },
 };
 

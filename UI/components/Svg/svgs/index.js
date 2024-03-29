@@ -528,6 +528,7 @@ export const uiUx = '/illustration/ui&ux.svg';
 export const webDevelopmentIllustration = '/illustration/webDevelopmentIllustration.svg';
 export const appstore = '/illustration/appstore.svg';
 export const blackFillAppstore = '/illustration/blackFillAppstore.svg';
+export const appleLogo = '/company/apple.svg';
 
 /* Processes */
 export const processLaunch = '/processes/Launch-1.svg';

@@ -1,0 +1,150 @@
+.ai-documentation-processing {
+  &.firstSectionView {
+    background: $generativeAiGradient;
+    position: relative;
+
+    .sectionTitle {
+      display: none;
+    }
+
+    .contentWrapper {
+      position: relative;
+      max-width: 946px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        aspect-ratio: 994/646;
+        width: 105%;
+        border: 3px solid $gray0;
+        box-sizing: border-box;
+        border-radius: 24px;
+        height: auto;
+
+        @include below-tablet {
+          border-radius: 10px;
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 1%;
+        left: 1%;
+        transform: rotate(-6deg);
+        width: 100%;
+        height: 100%;
+        background: rgba($color: $gray0, $alpha: 40%);
+        border-radius: 24px;
+        z-index: -1;
+      }
+
+      .media {
+        aspect-ratio: 946/598;
+        width: 100%;
+        border-radius: 20px;
+
+        @include below-tablet {
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+
+  &.secondSectionView {
+    padding-left: 32px;
+    padding-right: 32px;
+
+    .sectionTitle {
+      [data-title] {
+        margin-bottom: 12px;
+      }
+
+      [data-description] {
+        position: relative;
+        margin: 0;
+        padding-left: 10px;
+        color: $gray500;
+
+        &::before {
+          @include circle($gray500, 4px);
+
+          content: '';
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+      }
+
+      & > div:last-child {
+        @include flex(column, center, center);
+      }
+    }
+
+    .contentWrapper {
+      @include flex(row, center, center);
+
+      position: relative;
+      max-width: 994px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        aspect-ratio: 994/646;
+        width: 105%;
+        border: 3px solid $gray0;
+        box-sizing: border-box;
+        border-radius: 20px;
+        height: auto;
+
+        @include below-tablet {
+          border-radius: 10px;
+        }
+      }
+    }
+
+    .media {
+      aspect-ratio: 946/598;
+      width: 100%;
+      z-index: 10;
+      margin: 32px;
+      border-radius: 24px;
+
+      @include below-tablet {
+        border-radius: 6px;
+      }
+    }
+
+    .imageBundle {
+      position: absolute;
+
+      &-1 {
+        top: -15%;
+        right: -50%;
+        aspect-ratio: 1;
+        width: 1300px;
+
+        @include below-tablet {
+          width: 650px;
+        }
+      }
+
+      &-2 {
+        bottom: -20%;
+        right: -40%;
+        aspect-ratio: 1;
+        width: 900px;
+
+        @include below-tablet {
+          width: 450px;
+        }
+      }
+    }
+  }
+}
