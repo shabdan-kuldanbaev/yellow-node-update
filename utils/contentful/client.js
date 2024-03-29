@@ -5,6 +5,7 @@ import {
   ACCESS_TO_CONTENTFUL_PREVIEW,
   ACCESS_TO_CONTENTFUL_BLOG,
   ACCESS_TO_CONTENTFUL_BLOG_PREVIEW,
+  ACCESS_TO_CONTENTFUL_FALLBACK,
 } from 'utils/constants';
 import { handleError } from 'utils/error';
 
@@ -139,3 +140,5 @@ export const contentfulClient = new ContentfulClient(ACCESS_TO_CONTENTFUL);
 export const contentfulPreviewClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_PREVIEW);
 export const blogClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_BLOG);
 export const blogPreviewClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_BLOG_PREVIEW);
+
+export const fallbackClient = new ContentfulClient(ACCESS_TO_CONTENTFUL_FALLBACK);
