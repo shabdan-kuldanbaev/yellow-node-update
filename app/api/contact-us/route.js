@@ -1,21 +1,21 @@
-import Cors from 'cors';
-import { runMiddleware } from 'utils/helper';
+import { NextResponse } from 'next/server';
 import { sendFormData } from 'utils/formDataHelper';
 import { sendDataPipedrive } from 'utils/pipedrive/pipedriveHelper';
 import { sendAutoReplyEmail } from 'utils/contactUs';
 
-const cors = Cors({ methods: ['POST'] });
+export async function POST(request) {
+  try {
+    const body = await request.json();
+    console.log(body);
 
-const handler = async (req, res) => {
-  await runMiddleware(req, res, cors);
-  await runMiddleware(req, res, req.formData());
+    await sendAutoReplyEmail(body.email);
+    await sendFormData(request, body);
+    const newPersonPipedrive = await sendDataPipedrive(request, body);
 
-  // eslint-disable-next-line
-  console.log(req.body);
+    return NextResponse.json({ success: true, newPersonPipedrive });
+  } catch (error) {
+    console.error(error);
 
-  await sendAutoReplyEmail(req.body.email);
-  await sendFormData(req, res);
-  await sendDataPipedrive(req, res);
-};
-
-export default handler;
+    return NextResponse.json('error', { status: 500 });
+  }
+}

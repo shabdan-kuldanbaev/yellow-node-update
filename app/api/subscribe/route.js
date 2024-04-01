@@ -1,13 +1,28 @@
-import Cors from 'cors';
-import { runMiddleware } from 'utils/helper';
+import { NextResponse } from 'next/server';
+import { handleApiError } from 'utils/error';
 import subscribeHelper from 'utils/subscribe/subscribeHelper';
 
-const cors = Cors({ methods: ['POST'] });
-
 const handler = async (req, res) => {
-  await runMiddleware(req, res, cors);
-
   await subscribeHelper.subscribe(req, res);
 };
 
 export default handler;
+
+export async function POST(request) {
+  const body = await request.json();
+
+  console.log(body);
+
+  try {
+    const res = await subscribeHelper.subscribe(body);
+
+    return NextResponse.json({ message: res.message }, { status: res.status });
+  } catch (error) {
+    handleApiError({
+      error,
+      message: 'Error in the subscribe function',
+    });
+
+    return NextResponse.json(error.message, { status: error.status });
+  }
+}
