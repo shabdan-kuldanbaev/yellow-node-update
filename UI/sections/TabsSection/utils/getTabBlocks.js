@@ -39,7 +39,7 @@ export default (data = []) => data?.map((tabSection) => {
     };
   });
 
-  const link = get(contentModules, '[2]');
+  const link = contentModules?.find((item) => item.sys.contentType.sys.id === 'link');
 
   return {
     tabTitle,

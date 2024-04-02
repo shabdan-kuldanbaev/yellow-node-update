@@ -1,0 +1,174 @@
+.ai-based-travel-planner {
+  &.firstSectionView {
+    padding: 0;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .container {
+      max-width: 100%;
+    }
+
+    .stepsContainer {
+      margin: 0;
+
+      & > div {
+        flex: 1 1 50%;
+        margin: 0;
+      }
+
+      @include tablet {
+        @include flex(column);
+      }
+    }
+
+    .stepImage {
+      aspect-ratio: 720/699;
+      width: 100%;
+      height: 100%;
+    }
+
+    .step-2 {
+      aspect-ratio: 720/699;
+
+      .stepTitle {
+        @include fontSize(28px, 130%);
+
+        margin-bottom: 8px;
+      }
+
+      ul {
+        @include flex(column, center, center);
+
+        margin: 0;
+
+        li,
+        p {
+          @include fontSize(16px, 150%);
+
+          margin: 0;
+          color: $gray500;
+        }
+      }
+
+      @include tablet {
+        aspect-ratio: unset;
+        padding: 60px 16px;
+      }
+    }
+  }
+
+  &.secondSectionView {
+    padding: 0;
+
+    .titleStyle {
+      display: none;
+    }
+
+    .container {
+      max-width: 100%;
+    }
+
+    .stepsContainer {
+      margin: 0;
+
+      & > div {
+        flex: 1 1 50%;
+        margin: 0;
+      }
+
+      @include tablet {
+        @include flex(column);
+      }
+    }
+
+    .stepImage {
+      aspect-ratio: 720/699;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .step-1 {
+      aspect-ratio: 720/699;
+      background-color: $travelBlack;
+
+      * {
+        margin: 0;
+        max-width: 480px;
+        width: 100%;
+        text-align: left;
+      }
+
+      h3 {
+        @include fontSize(28px, 130%);
+
+        color: $gray0;
+        margin-bottom: 48px;
+      }
+
+      h4 {
+        @include fontSize(22px, 130%);
+
+        color: $gray0;
+        margin-bottom: 8px;
+      }
+
+      p {
+        color: $gray500;
+
+        &:not(:last-child) {
+          margin-bottom: 24px;
+        }
+      }
+
+      @include tablet {
+        aspect-ratio: unset;
+        padding: 60px 16px;
+
+        * {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.thirdSectionView {
+    background-color: $travelBlack;
+
+    [data-title] {
+      @include fontSize(28px, 130%);
+
+      color: $gray0;
+    }
+
+    [data-description] {
+      color: $gray500;
+    }
+
+    .container {
+      max-width: $wide-content-width;
+    }
+
+    .stepsContainer {
+      @include flex(row, center, initial, wrap);
+
+      margin: 0;
+      gap: 16px;
+
+      & > div {
+        max-width: 592px;
+        flex: 0 0 100%;
+        margin: 0;
+      }
+    }
+
+    .step {
+      padding: 32px;
+      background-color: $travelGray;
+      border-radius: 30px;
+      box-sizing: border-box;
+    }
+  }
+}

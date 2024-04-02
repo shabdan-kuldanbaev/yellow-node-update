@@ -20,6 +20,7 @@ const CasePrototype = dynamic(() => import('UI/sections/CasePrototype'));
 const CaseFeedback = dynamic(() => import('UI/sections/CaseFeedback'));
 const CardsSection = dynamic(() => import('UI/sections/CardsSection'));
 const ProcessSection = dynamic(() => import('UI/sections/ProcessSection'));
+const TabsSection = dynamic(() => import('UI/sections/TabsSection'));
 
 const CaseStudiesCommon = (props) => {
   switch (props.data.type) {
@@ -61,6 +62,8 @@ const CaseStudiesCommon = (props) => {
     return <CasePrototype {...props} />;
   case CASE_STUDIES_TYPES.cards:
     return <CardsSection {...props} />;
+  case CASE_STUDIES_TYPES.tabs:
+    return <TabsSection {...props} />;
   case CASE_STUDIES_TYPES.cardsWithOverlay:
     return (
       <CardsSection

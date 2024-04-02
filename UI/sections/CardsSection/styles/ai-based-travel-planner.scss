@@ -1,0 +1,82 @@
+.ai-based-travel-planner {
+  &.firstSectionView {
+    background-color: $travelBlack;
+
+    [data-title] {
+      @include fontSize(28px, 130%);
+
+      color: $gray0;
+
+      @include below-tablet {
+        @include fontSize(24px, 130%);
+      }
+    }
+
+    .contentWrapper {
+      max-width: $wide-content-width;
+    }
+
+    .cardList {
+      @include flex(row, center, initial, wrap);
+
+      margin: 0;
+      gap: 24px;
+
+      & > div {
+        flex: 0 0 380px;
+        margin: 0;
+      }
+    }
+
+    .card {
+      @include flex(column-reverse, center, center);
+
+      padding: 0;
+      background-color: transparent;
+      border: none;
+
+      picture {
+        margin-top: 24px;
+        aspect-ratio: 330/714;
+        width: 330px;
+        height: auto;
+
+        @include below-tablet {
+          width: 280px;
+        }
+      }
+
+      h3 {
+        @include fontSize(22px, 150%);
+
+        margin-bottom: 8px;
+        width: 100%;
+        color: $gray0;
+        text-align: center;
+      }
+
+      p {
+        @include fontSize(16px, 150%);
+
+        margin: 0;
+        color: $gray500;
+        text-align: center;
+      }
+    }
+
+    [data-swiper-button] {
+      color: $gray0;
+
+      &:disabled,
+      * {
+        pointer-events: none;
+        color: $gray50;
+        fill: $gray50;
+      }
+
+      svg {
+        fill: $gray0;
+      }
+    }
+  }
+}

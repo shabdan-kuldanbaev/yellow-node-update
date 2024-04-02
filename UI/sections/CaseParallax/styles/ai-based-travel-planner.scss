@@ -1,0 +1,13 @@
+.ai-based-travel-planner {
+  .titleStyle {
+    display: none;
+  }
+
+  .parallaxImage {
+    height: 780px;
+
+    @include below-tablet {
+      height: 700px;
+    }
+  }
+}

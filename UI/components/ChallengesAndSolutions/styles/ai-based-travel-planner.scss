@@ -1,0 +1,23 @@
+.ai-based-travel-planner {
+  &.firstSectionView {
+    .infoContainer {
+      max-width: 584px;
+    }
+
+    .image {
+      aspect-ratio: 330/714;
+      width: 330px;
+      height: auto;
+    }
+
+    .title {
+      @include fontSize(22px, 150%);
+
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: $gray500;
+    }
+  }
+}

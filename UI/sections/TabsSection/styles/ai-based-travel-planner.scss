@@ -1,0 +1,74 @@
+.ai-based-travel-planner {
+  background-color: $gray0;
+
+  [data-title] {
+    @include fontSize(28px, 130%);
+
+    @include below-tablet {
+      @include fontSize(24px, 130%);
+    }
+  }
+
+  [data-description] {
+    color: $gray500;
+  }
+
+  .container {
+    max-width: $wide-content-width;
+  }
+
+  .cardContainer {
+    padding: 0;
+    border: none;
+  }
+
+  .cardContent {
+    @include flex(row, space-between, initial, wrap);
+
+    gap: 16px;
+
+    &-1 {
+      .contentBlock {
+        flex: 1 1 227px;
+      }
+    }
+
+    &-2 {
+      .contentBlock {
+        flex: 1 1 389px;
+      }
+    }
+
+    @include below-tablet {
+      @include flex(column);
+
+      .contentBlock {
+        flex: unset;
+      }
+    }
+  }
+
+  .contentBlock {
+    @include flex(column, center, center);
+
+    padding: 24px;
+    gap: 8px;
+    max-width: unset;
+    background-color: $travelGray;
+    border-radius: 30px;
+    box-sizing: border-box;
+
+    * {
+      margin: 0;
+      text-align: center;
+    }
+
+    h4 {
+      @include fontSize(16px, 150%);
+    }
+  }
+
+  :global(.swiper-wrapper) {
+    @include flex(row, center, center);
+  }
+}
