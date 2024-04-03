@@ -7,6 +7,7 @@ export default ({
   section,
   type,
   handleOnCTAClick,
+  data,
 }) => {
   const {
     title,
@@ -14,13 +15,17 @@ export default ({
     description,
     contentModules,
   } = getDocumentFields(
-    section,
+    section || data,
     [
       'title',
       'description',
       'contentModules',
       'view',
     ],
+    {
+      isNormilized: (data && !Object.keys(data).includes('fields'))
+      || (section && !Object.keys(section).includes('fields')),
+    },
   );
 
   const [activeTab, setActiveTab] = useState(0);

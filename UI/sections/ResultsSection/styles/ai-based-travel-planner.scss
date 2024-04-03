@@ -1,0 +1,29 @@
+.ai-based-travel-planner {
+  background-color: $travelGray;
+
+  [data-title] {
+    @include fontSize(28px, 130%);
+
+    @include below-tablet {
+      @include fontSize(24px, 130%);
+    }
+  }
+
+  [data-description] {
+    color: $gray500;
+  }
+
+  .media {
+    position: relative;
+    width: 330px;
+    aspect-ratio: 330/714;
+
+    &::before {
+      @include circle($travelBlue, 483px);
+
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

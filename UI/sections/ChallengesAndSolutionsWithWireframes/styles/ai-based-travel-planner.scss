@@ -1,0 +1,9 @@
+.ai-based-travel-planner {
+  &.firstSectionView {
+    background-color: $travelGray;
+
+    .titleStyle {
+      display: none;
+    }
+  }
+}
