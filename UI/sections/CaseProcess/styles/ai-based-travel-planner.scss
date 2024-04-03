@@ -165,10 +165,26 @@
     }
 
     .step {
+      @include flex(column);
+
       padding: 32px;
       background-color: $travelGray;
       border-radius: 30px;
       box-sizing: border-box;
+
+      h3 {
+        text-align: left;
+      }
+
+      b {
+        color: $gray900;
+        font-weight: 400;
+      }
+
+      p {
+        margin: 0;
+        color: $gray500;
+      }
     }
   }
 }
