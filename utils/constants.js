@@ -286,6 +286,7 @@ export const CASE_STUDIES_TYPES = {
   cardsWithOverlay: 'cards-with-overlay',
   cards: 'cards',
   processWithArrays: 'app-development-process',
+  tabs: 'app-development-tabs-section',
 };
 
 export const SECTION_TYPES = {
@@ -357,6 +358,7 @@ export const CASE_STUDIES = {
   paymentGateway: 'custom-payment-gateway',
   generativeAi: 'ai-documentation-processing',
   tasteMatch: 'ai-mobile-cooking-app',
+  aiBasedTravelPlanner: 'ai-based-travel-planner',
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce(
@@ -402,6 +404,7 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.project.getRoute(CASE_STUDIES.erp).path,
   ROUTES.project.getRoute(CASE_STUDIES.hyve).path,
   ROUTES.project.getRoute(CASE_STUDIES.paymentGateway).path,
+  ROUTES.project.getRoute(CASE_STUDIES.aiBasedTravelPlanner).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.whyUs.path,

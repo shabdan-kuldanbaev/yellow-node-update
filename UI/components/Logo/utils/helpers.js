@@ -41,6 +41,7 @@ export const WHITE_LOGO_TYPE = [
   CASE_STUDIES.hawkin,
   CASE_STUDIES.hyve,
   CASE_STUDIES.paymentGateway,
+  CASE_STUDIES.aiBasedTravelPlanner,
   ROUTES.aiSoftwareDevelopmentServices.path,
 ];
 
@@ -96,6 +97,7 @@ export const WHITE_TEXT_LOGO = [
   CASE_STUDIES.hawkin,
   CASE_STUDIES.hyve,
   CASE_STUDIES.paymentGateway,
+  CASE_STUDIES.aiBasedTravelPlanner,
   ROUTES.bookCall.path,
   ROUTES.customWebApp.path,
   ROUTES.fintechDevelopment.path,

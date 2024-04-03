@@ -1,0 +1,27 @@
+.ai-based-travel-planner {
+  .contentContainer {
+    margin: 0 auto;
+  }
+
+  .descriptionContainer {
+    margin: 0;
+    width: $default-content-width;
+    max-width: 100%;
+  }
+
+  .title {
+    @include fontSize(28px, 130%);
+
+    margin: 0 0 8px;
+    text-align: left;
+
+    @include below-tablet {
+      @include fontSize(24px, 130%);
+    }
+  }
+
+  p {
+    color: $gray500;
+    text-align: left;
+  }
+}

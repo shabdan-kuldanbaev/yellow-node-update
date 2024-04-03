@@ -61,8 +61,8 @@ const TabsSection = (props) => {
               )}
             >
               <Animated {...REVEAL_ANIMATION_PROPS}>
-                <div className={styles.cardContent}>
-                  {tabsHaveContentInBlocks ? content.map(({
+                <div className={cn(styles.cardContent, styles[`cardContent-${index + 1}`])}>
+                  {tabsHaveContentInBlocks ? content?.map(({
                     text: blockText,
                     imageUrl,
                     prototypeUrl,

@@ -1,0 +1,127 @@
+.ai-based-travel-planner {
+  padding: 148px 16px 0;
+  background-color: $travelBlue;
+
+  [data-title] {
+    @include fontSize(40px, 120%);
+
+    color: $gray0;
+
+    @include below-tablet {
+      @include fontSize(32px, 120%);
+    }
+  }
+
+  [data-description] {
+    max-width: 100%;
+    color: $gray0;
+    opacity: 0.7;
+    text-align: center;
+  }
+
+  .sectionTitle {
+    @include flex(column, center, center);
+
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .introSection {
+    @include flex(column, center, center);
+
+    margin: 0 auto;
+  }
+
+  .contentWrapper {
+    @include flex(column, center, center);
+
+    gap: 32px;
+    width: 100%;
+  }
+
+  .introList {
+    @include flex(row, center, center, wrap);
+
+    row-gap: 4px;
+    column-gap: 24px;
+  }
+
+  .listItem {
+    @include flex(row);
+
+    position: relative;
+    gap: 8px;
+
+    * {
+      @include fontSize(16px, 150%);
+
+      margin: 0;
+      padding: 0;
+      color: $gray0;
+      white-space: nowrap;
+    }
+
+    span {
+      opacity: 0.7;
+    }
+
+    &:not(:last-child) {
+      padding-right: 24px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 24px;
+        background-color: $gray0;
+        border-radius: 15px;
+
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .imageContainer {
+    margin-top: 80px;
+    width: 820px;
+    height: 522px;
+
+    @include below-tablet {
+      margin-top: 32px;
+      width: 457px;
+      height: 332px;
+    }
+  }
+
+  .image {
+    aspect-ratio: 820/714;
+    width: 820px;
+    height: 714px;
+    transform: unset;
+    top: 0;
+    left: 0;
+
+    @include below-tablet {
+      width: 457px;
+      height: 398px;
+    }
+  }
+
+  .bundleImage-1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50, -50%);
+    width: 1676px;
+    height: 1048px;
+  }
+
+  @include below-tablet {
+    padding: 108px 16px 0;
+  }
+}

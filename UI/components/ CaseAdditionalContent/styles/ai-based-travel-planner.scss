@@ -1,0 +1,28 @@
+.ai-based-travel-planner {
+  @include flex(column);
+
+  column-gap: 60px;
+  row-gap: 16px;
+
+  .container {
+    max-width: unset;
+
+    .title {
+      @include fontSize(16px, 150%);
+
+      color: $gray900;
+      text-align: left;
+    }
+
+    .listItem {
+      @include fontSize(16px, 150%);
+
+      color: $gray500;
+      text-align: left;
+    }
+
+    .listContainer {
+      @include flex(column);
+    }
+  }
+}
