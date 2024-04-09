@@ -22,11 +22,11 @@ async function baseQuery(args, _, {
 
         return { data: result };
       } catch (err) {
-        return { error: err.meesage };
+        return { error: err.message };
       }
     }
 
-    return { error: e.meesage };
+    return { error: e.message };
   }
 }
 

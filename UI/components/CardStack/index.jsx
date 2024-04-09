@@ -123,12 +123,6 @@ const CardStack = (props) => {
   );
 };
 
-CardStack.defaultProps = {
-  data: [],
-  slug: '',
-  view: '',
-};
-
 CardStack.propTypes = {
   data: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
   slug: PropTypes.string,
