@@ -47,6 +47,7 @@ export default function VideoSection(props) {
             <div className={styles.actionContainer}>
               {ctaLinks?.map((link, index) => (
                 <CallToAction
+                  key={`cta_${index + 1}`}
                   className={cn(styles.callToAction, styles[`callToAction-${index + 1}`])}
                   data={link}
                   handleOnClick={handleOnCTAClick}

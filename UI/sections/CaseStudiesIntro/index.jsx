@@ -92,13 +92,13 @@ const CaseStudiesIntro = (props) => {
                   type={ANIMATED_TYPE.zoomOut}
                   className={cn(styles.bundleAnimated, styles[`bundleAnimated-${index + 1}`])}
                   delay={200 * (index + 1)}
+                  key={`intro-images-bundles/${image.url}`}
                 >
                   <Media
                     priority
                     transparent
                     className={cn(styles.bundleImage, styles[`bundleImage-${index + 1}`])}
                     asset={image}
-                    key={`intro-images-bundles/${image.url}`}
                   />
                 </Animated>
               ) : (

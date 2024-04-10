@@ -87,6 +87,7 @@ export const ArticlePreview = ({
                 .filter(({ slug: tagSlug }) => (isSearch || VALUABLE_ARTICLE_CATEGORIES_SLUGS.includes(tagSlug)))
                 .map(({ slug: tagSlug }) => (
                   <LinkWrapper
+                    key={`tag_key_${tagSlug}`}
                     path={routes.blog.getRoute(tagSlug).path}
                     className={styles.tag}
                   >

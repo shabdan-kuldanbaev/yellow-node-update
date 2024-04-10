@@ -4,7 +4,6 @@ import dynamic from 'next/dynamic';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import ChallengesSlider from 'UI/components/ChallengesSlider';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
-import Illustration from 'UI/components/Illustration';
 import Typography from 'UI/components/Typography';
 import Media from 'UI/components/Media';
 import { useChallengesAndSolutions } from './utils/useChallengesAndSolutions';
@@ -74,12 +73,10 @@ const ChallengesAndSolutions = (props) => {
                 { [styles.centrefy]: asset },
               )}
             >
-              {subImage.url && (
-                <Illustration
-                  transparent
+              {subImage && (
+                <Media
+                  asset={subImage}
                   className={styles.subImage}
-                  src={subImage.url}
-                  alt={subImage.alt}
                 />
               )}
               {asset && subtitle && (
@@ -114,10 +111,11 @@ const ChallengesAndSolutions = (props) => {
                   <ContentfulParser document={text} />
                 </Animated>
               )}
-              {!!contentList.length && (
+              {!!contentList?.length && (
                 <ul className={styles.listContainer}>
                   {contentList?.map((item, contentIndex) => (
                     <Animated
+                      key={`animation_key_${contentIndex + 1}`}
                       delay={50 + 10 * contentIndex}
                       {...ANIMATION_CASE_STUDY_PROPS}
                     >
@@ -129,7 +127,7 @@ const ChallengesAndSolutions = (props) => {
                 </ul>
               )}
             </div>
-            {(asset || !!imagesBundles.length) && (
+            {(asset || !!imagesBundles?.length) && (
               <Animated {...ANIMATION_CASE_STUDY_PROPS}>
                 <div className={cn(styles.images, styles[`images-${index + 1}`])}>
                   {asset && (
@@ -139,11 +137,10 @@ const ChallengesAndSolutions = (props) => {
                     />
                   )}
                   {imagesBundles?.map((imageBundle, imagesBundlesIndex) => (
-                    <Illustration
+                    <Media
                       transparent
+                      asset={imageBundle}
                       className={cn(styles.imageBundle, styles[`imageBundle-${imagesBundlesIndex + 1}`])}
-                      src={imageBundle.url}
-                      alt={imageBundle.alt}
                       key={`bundles-images/${imageBundle.url}`}
                     />
                   ))}
@@ -154,10 +151,10 @@ const ChallengesAndSolutions = (props) => {
         ))}
       </ChallengesSlider>
 
-      {!!images.length && images.map((image) => (
-        <Illustration
-          src={image.url}
-          key={image.url}
+      {images?.length && images.map((image, index) => (
+        <Media
+          key={`sectionImage_${index + 1}`}
+          asset={image}
           className={styles.sectionImage}
         />
       ))}

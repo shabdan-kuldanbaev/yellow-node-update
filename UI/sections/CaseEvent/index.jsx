@@ -58,6 +58,7 @@ const CaseEvent = (props) => {
           <div className={styles.links}>
             {linksList.map(({ linkTitle, url }) => (
               <LinkWrapper
+                key={url}
                 path={url}
                 className={styles.link}
               >

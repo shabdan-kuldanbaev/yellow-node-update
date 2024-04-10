@@ -38,6 +38,7 @@ const AppFeatures = (props) => {
           <SectionTitle {...titleProps} />
           {itemsData.map((document, index) => (
             <AppFeaturesItem
+              key={`feature_${index + 1}`}
               view={view}
               type={type}
               data={document}

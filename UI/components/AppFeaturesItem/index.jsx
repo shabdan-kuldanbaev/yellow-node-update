@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
-import Illustration from 'UI/components/Illustration';
+import Media from 'UI/components/Media';
 import Svg from 'UI/components/Svg';
 import ContentfulParser from 'components/BlogCommon/Article/ContentfulParser';
 import { ANIMATED_TYPE, REVEAL_ANIMATION_PROPS } from 'utils/constants';
@@ -19,7 +19,7 @@ const AppFeaturesItem = (props) => {
     activeIndex,
     currentIndex,
     handleOnClick,
-    imagesUrl,
+    imagesBundles,
     customIcon,
     className,
   } = useAppFeaturesItem(props);
@@ -55,12 +55,11 @@ const AppFeaturesItem = (props) => {
           <p className={styles.title}>
             {title}
           </p>
-          {imagesUrl.map((imageUrl) => (
-            <Illustration
+          {imagesBundles?.map((imageUrl, index) => (
+            <Media
+              key={`media_key_${index}`}
               className={styles.imageBundle}
-              src={imageUrl}
-              alt=""
-              key={`bundles-images/${imageUrl}`}
+              asset={imageUrl}
             />
           ))}
           <Svg

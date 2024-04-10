@@ -1,6 +1,5 @@
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
-import PropTypes from 'prop-types';
 import Illustration from 'UI/components/Illustration';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
 import { useWireframes } from './utils/useWireframes';
@@ -61,12 +60,6 @@ const Wireframe = (props) => {
       </div>
     </Animated>
   ));
-};
-
-Wireframe.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.instanceOf(Object)).isRequired,
-  type: PropTypes.string.isRequired,
-  view: PropTypes.string,
 };
 
 export default Wireframe;

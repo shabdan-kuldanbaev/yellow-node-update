@@ -11,8 +11,6 @@ export default handler;
 export async function POST(request) {
   const body = await request.json();
 
-  console.log(body);
-
   try {
     const res = await subscribeHelper.subscribe(body);
 

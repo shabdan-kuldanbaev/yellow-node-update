@@ -8,10 +8,16 @@ const SimpleTableBody = ({ tableData }) => {
 
   return (
     <tbody>
-      {tableData.map((row) => (
-        <tr className={styles.tableRow}>
-          {row.map((cell) => (
-            <td className={styles.tableHeader}>
+      {tableData.map((row, rowIndex) => (
+        <tr
+          key={`row_key_${rowIndex + 1}`}
+          className={styles.tableRow}
+        >
+          {row.map((cell, cellIndex) => (
+            <td
+              key={`cell_key_${cellIndex + 1}`}
+              className={styles.tableHeader}
+            >
               {cell}
             </td>
           ))}

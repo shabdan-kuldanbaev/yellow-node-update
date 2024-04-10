@@ -6,7 +6,6 @@ const authToken = process.env.ERP_AUTH_TOKEN || '';
 
 export async function POST(request) {
   const body = await request.json();
-  console.log(body);
 
   try {
     const {

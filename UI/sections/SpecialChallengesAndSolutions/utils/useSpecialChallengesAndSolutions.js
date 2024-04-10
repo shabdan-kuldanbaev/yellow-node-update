@@ -1,4 +1,4 @@
-import { getBackgroundStyle, checkBackgroundImageDisplaying } from './challengesHelper';
+import { getBackgroundStyle } from './challengesHelper';
 
 export const useSpecialChallengesAndSolutions = ({ data, type }) => {
   const {
@@ -7,7 +7,6 @@ export const useSpecialChallengesAndSolutions = ({ data, type }) => {
     description,
   } = data;
   const sectionBackgroundImage = getBackgroundStyle(type, data);
-  const displayBackgroundImage = checkBackgroundImageDisplaying(type);
 
   return {
     data,
@@ -16,6 +15,5 @@ export const useSpecialChallengesAndSolutions = ({ data, type }) => {
     subtitle,
     description,
     sectionBackgroundImage,
-    displayBackgroundImage,
   };
 };

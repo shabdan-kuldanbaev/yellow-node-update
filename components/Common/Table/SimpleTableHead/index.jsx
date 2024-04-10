@@ -9,8 +9,9 @@ const SimpleTableHead = ({ tableHeader }) => {
   return (
     <thead>
       <tr className={styles.tableRow}>
-        {tableHeader && tableHeader.map((cell) => (
+        {tableHeader && tableHeader.map((cell, index) => (
           <th
+            key={`cell_key_${index + 1}`}
             className={styles.tableHeader}
             scope="col"
           >

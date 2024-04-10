@@ -22,8 +22,7 @@ const Header = (props) => {
     isLogoTextHidden,
     isHeaderColorNeedChange,
     introSection,
-    isPageWithTransparentHeader,
-    isCaseStudyWithTransparentHeader,
+    isTransparentHeader,
     isMobileMenuOpened,
     isPageScrolledDown,
     isPageScrolling,
@@ -33,7 +32,7 @@ const Header = (props) => {
     asPath,
     page,
     isMobile,
-    isPageWithGrayHeader,
+    isGrayHeader,
     setDesktopMenu,
     isDropMenuOpened,
   } = useHeader(props);
@@ -45,10 +44,10 @@ const Header = (props) => {
   return (
     <header className={cn(styles.headerContainer, {
       [styles.pageScrolling]: isPageScrolledDown,
-      [styles.notHome]: !isPageWithTransparentHeader && !isCaseStudyWithTransparentHeader,
+      [styles.notHome]: !isTransparentHeader,
       [styles.deleteTextOfLogo]: isLogoTextHidden,
       [styles.openedDropDown]: isHeaderColorNeedChange,
-      [styles.grayHeader]: isPageWithGrayHeader,
+      [styles.grayHeader]: isGrayHeader,
     })}
     >
       <div className={styles.logo}>
@@ -64,8 +63,8 @@ const Header = (props) => {
         />
       ) : (
         <MobileMenu
-          isLightTheme={!isPageWithTransparentHeader && !isCaseStudyWithTransparentHeader}
-          isMobileMenuOpened={!!isMobileMenuOpened}
+          isLightTheme={!isTransparentHeader}
+          isMobileMenuOpened={isMobileMenuOpened}
           setMobileMenuState={setMobileMenu(!isMobileMenuOpened)}
           isPageScrolledDown={isPageScrolledDown}
         />

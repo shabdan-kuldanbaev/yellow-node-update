@@ -47,11 +47,17 @@ export const TableContent = ({
             <tr className={styles.tableRow}>
               {row.map((cell, index) => (index === 0
                 ? (
-                  <th className={styles.tableVerticalHeader}>
+                  <th
+                    key={`row_key_${index + 1}`}
+                    className={styles.tableVerticalHeader}
+                  >
                     {cell}
                   </th>
                 ) : (
-                  <td className={styles.tableHeader}>
+                  <td
+                    key={`row_key_${index + 1}`}
+                    className={styles.tableHeader}
+                  >
                     {cell}
                   </td>
                 )))}

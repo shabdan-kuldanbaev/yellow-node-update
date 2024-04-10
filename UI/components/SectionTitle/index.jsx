@@ -51,6 +51,7 @@ const SectionTitle = ({
               ? title
               : titleSegments.map((segment) => (
                 <Typography
+                  key={segment}
                   data-title
                   isBold
                   size={TYPOGRAPHY_SIZE.headline38}

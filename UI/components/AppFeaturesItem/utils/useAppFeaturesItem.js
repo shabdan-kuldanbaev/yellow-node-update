@@ -21,14 +21,12 @@ export const useAppFeaturesItem = ({
     'contentList',
   ]);
 
-  const imagesUrl = imagesBundles?.map((imagesBundle) => getFileUrl(imagesBundle)) || [];
-
   return {
     type,
     view,
     title,
     text,
-    imagesUrl,
+    imagesBundles,
     activeIndex,
     currentIndex,
     handleOnClick,

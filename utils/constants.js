@@ -362,7 +362,7 @@ export const CASE_STUDIES = {
 };
 
 export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce(
-  (acc, [key, value], index) => {
+  (acc, [_, value], index) => {
     acc[index] = value;
 
     return acc;
@@ -371,40 +371,9 @@ export const CASE_STUDIES_SLUGS = Object.entries(CASE_STUDIES).reduce(
 );
 
 export const PAGES_WITH_DARK_HEADER = [
-  ROUTES.project.getRoute(CASE_STUDIES.balzano).path,
-  ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,
-  ROUTES.project.getRoute(CASE_STUDIES.dindon).path,
-  ROUTES.project.getRoute(CASE_STUDIES.stickerbox).path,
-  ROUTES.project.getRoute(CASE_STUDIES.sevenPmThursday).path,
-  ROUTES.project.getRoute(CASE_STUDIES.fairy).path,
-  ROUTES.project.getRoute(CASE_STUDIES.natp).path,
-  ROUTES.project.getRoute(CASE_STUDIES.driveFocus).path,
-  ROUTES.project.getRoute(CASE_STUDIES.cashChat).path,
-  ROUTES.project.getRoute(CASE_STUDIES.travelTrivia).path,
-  ROUTES.project.getRoute(CASE_STUDIES.meatEater).path,
-  ROUTES.project.getRoute(CASE_STUDIES.fireaway).path,
-  ROUTES.project.getRoute(CASE_STUDIES.fusionMarkets).path,
-  ROUTES.project.getRoute(CASE_STUDIES.blackBird).path,
-  ROUTES.project.getRoute(CASE_STUDIES.mobileFintechApp).path,
-  ROUTES.project.getRoute(CASE_STUDIES.goodPsychics).path,
-  ROUTES.project.getRoute(CASE_STUDIES.mlInRealEstate).path,
-  ROUTES.project.getRoute(CASE_STUDIES.cinnabar).path,
-  ROUTES.project.getRoute(CASE_STUDIES.mobileBankApplication).path,
-  ROUTES.project.getRoute(CASE_STUDIES.hotelDataCloud).path,
-  ROUTES.project.getRoute(CASE_STUDIES.ubiChat).path,
-  ROUTES.project.getRoute(CASE_STUDIES.writerChromeExtension).path,
-  ROUTES.project.getRoute(CASE_STUDIES.telemojo).path,
-  ROUTES.project.getRoute(CASE_STUDIES.smartcenter).path,
-  ROUTES.project.getRoute(CASE_STUDIES.cedar).path,
-  ROUTES.project.getRoute(CASE_STUDIES.mobileBudgetingApp).path,
-  ROUTES.project.getRoute(CASE_STUDIES.forexTradingPlatform).path,
-  ROUTES.project.getRoute(CASE_STUDIES.kitchenEquipment).path,
-  ROUTES.project.getRoute(CASE_STUDIES.radioPlato).path,
-  ROUTES.project.getRoute(CASE_STUDIES.clairvoyantServices).path,
-  ROUTES.project.getRoute(CASE_STUDIES.erp).path,
-  ROUTES.project.getRoute(CASE_STUDIES.hyve).path,
-  ROUTES.project.getRoute(CASE_STUDIES.paymentGateway).path,
-  ROUTES.project.getRoute(CASE_STUDIES.aiBasedTravelPlanner).path,
+  // ROUTES.project.getRoute(CASE_STUDIES.balzano).path,
+  // ROUTES.project.getRoute(CASE_STUDIES.fernwayer).path,
+  // ROUTES.project.getRoute(CASE_STUDIES.dindon).path,
   ROUTES.customWebApp.path,
   ROUTES.homepage.path,
   ROUTES.whyUs.path,
@@ -435,8 +404,6 @@ export const PAGES_WITH_DARK_HEADER = [
   ROUTES.deepLearning.path,
   ROUTES.aiConsulting.path,
 ];
-
-export const CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER = [];
 
 export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.homepage.path,
@@ -472,15 +439,62 @@ export const PAGES_WITH_TRANSPARENT_HEADER = [
   ROUTES.aiConsulting.path,
   ROUTES.whyUs.path,
   ROUTES.bookCall.path,
+  ROUTES.company.path,
+  CASE_STUDIES.hyve,
+  CASE_STUDIES.paymentGateway,
+  CASE_STUDIES.hawkin,
+  CASE_STUDIES.clairvoyantServices,
   CASE_STUDIES.openSense,
   CASE_STUDIES.chatSolutions,
   CASE_STUDIES.kitchenEquipment,
   CASE_STUDIES.radioPlato,
+  CASE_STUDIES.fernwayer,
+  CASE_STUDIES.dindon,
+  CASE_STUDIES.balzano,
+  CASE_STUDIES.stickerbox,
+  CASE_STUDIES.sevenPmThursday,
+  CASE_STUDIES.fairy,
+  CASE_STUDIES.natp,
+  CASE_STUDIES.driveFocus,
+  CASE_STUDIES.cashChat,
+  CASE_STUDIES.travelTrivia,
+  CASE_STUDIES.meatEater,
+  CASE_STUDIES.fireaway,
+  CASE_STUDIES.fusionMarkets,
+  CASE_STUDIES.blackBird,
+  CASE_STUDIES.mobileFintechApp,
+  CASE_STUDIES.goodPsychics,
+  CASE_STUDIES.mlInRealEstate,
+  CASE_STUDIES.cinnabar,
+  CASE_STUDIES.mobileBankApplication,
+  CASE_STUDIES.hotelDataCloud,
+  CASE_STUDIES.ubiChat,
+  CASE_STUDIES.writerChromeExtension,
+  CASE_STUDIES.telemojo,
+  CASE_STUDIES.smartcenter,
+  CASE_STUDIES.cedar,
+  CASE_STUDIES.mobileBudgetingApp,
+  CASE_STUDIES.forexTradingPlatform,
+  CASE_STUDIES.kitchenEquipment,
+  CASE_STUDIES.radioPlato,
   CASE_STUDIES.clairvoyantServices,
-  CASE_STUDIES.hawkin,
+  CASE_STUDIES.erp,
   CASE_STUDIES.hyve,
   CASE_STUDIES.paymentGateway,
-  ROUTES.company.path,
+  CASE_STUDIES.aiBasedTravelPlanner,
+  CASE_STUDIES.generativeAi,
+  CASE_STUDIES.tasteMatch,
+  CASE_STUDIES.digitalWallet,
+  CASE_STUDIES.crowdfundingPlatform,
+  CASE_STUDIES.carbonSpace,
+  CASE_STUDIES.p2pLoans,
+  CASE_STUDIES.metapix,
+  CASE_STUDIES.humankind,
+  CASE_STUDIES.bionorica,
+  CASE_STUDIES.separateUs,
+  CASE_STUDIES.beautonomy,
+  CASE_STUDIES.tell,
+  CASE_STUDIES.famlicious,
 ];
 
 export const PAGES_WITH_GRAY_HEADER = [
@@ -491,10 +505,6 @@ export const PAGES_WITH_GRAY_HEADER = [
   ROUTES.paymentGatewayDevelopment.path,
   ROUTES.billingSoftwareDevelopment.path,
 ];
-
-export const CASE_STUDIES_WITH_TRANSPARENT_HEADER = CASE_STUDIES_SLUGS.filter(
-  (path) => !CASE_STUDIES_PAGES_WITH_DEFAULT_HEADER.includes(path),
-);
 
 export const SUB_NAVIGATION_KEYS = {
   services: 'services',

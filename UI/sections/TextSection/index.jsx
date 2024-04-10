@@ -23,10 +23,15 @@ const TextSection = ({ sectionData, type }) => {
         description={description}
         className={styles.titleStyle}
       />
-      {contentModules?.map((document) => {
+      {contentModules?.map((document, index) => {
         const { text } = getDocumentFields(document);
 
-        return <ContentfulParser document={text} />;
+        return (
+          <ContentfulParser
+            key={`document_${index + 1}`}
+            document={text}
+          />
+        );
       })}
     </div>
   );

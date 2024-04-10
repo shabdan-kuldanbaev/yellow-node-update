@@ -1,21 +1,23 @@
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useState, useEffect, useCallback } from 'react';
+import { useParams, usePathname } from 'next/navigation';
+import {
+  useState,
+  useEffect,
+  useCallback,
+} from 'react';
 import {
   CASE_STUDIES,
   PAGES_WITH_TRANSPARENT_HEADER,
-  CASE_STUDIES_WITH_TRANSPARENT_HEADER,
   PAGES_WITH_GRAY_HEADER,
   ROUTES,
 } from 'utils/constants';
 
 export const useHeader = ({ introSection }) => {
-  const { page, project } = useSearchParams();
+  const { 'service-slug': page, slug: project } = useParams();
   const asPath = usePathname();
+
   const currentPage = asPath.split('/')[1] || '';
-  const isPageWithTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(project) || PAGES_WITH_TRANSPARENT_HEADER.includes(asPath);
-  const isPageWithGrayHeader = PAGES_WITH_GRAY_HEADER.includes(currentPage) || PAGES_WITH_GRAY_HEADER.includes(asPath);
-  const isCaseStudyWithTransparentHeader = CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(project)
-    || CASE_STUDIES_WITH_TRANSPARENT_HEADER.includes(asPath);
+  const isTransparentHeader = PAGES_WITH_TRANSPARENT_HEADER.includes(project) || PAGES_WITH_TRANSPARENT_HEADER.includes(asPath);
+  const isGrayHeader = PAGES_WITH_GRAY_HEADER.includes(currentPage) || PAGES_WITH_GRAY_HEADER.includes(asPath);
 
   const headerTheme = [
     CASE_STUDIES.tell,
@@ -39,12 +41,11 @@ export const useHeader = ({ introSection }) => {
   const [isDropMenuOpened, setIsDropMenuOpenedNew] = useState(false);
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
   // TODO rework this check
-  const isTransparentHeader = isPageWithTransparentHeader || isCaseStudyWithTransparentHeader;
   const logo = !isPageScrolledDown && isTransparentHeader
     ? project || asPath
     : 'default';
 
-  const isHeaderColorNeedChange = isPageWithTransparentHeader
+  const isHeaderColorNeedChange = isTransparentHeader
     && isDropMenuOpened
     && !isPageScrolledDown;
   const navTheme = isHeaderColorNeedChange
@@ -60,14 +61,9 @@ export const useHeader = ({ introSection }) => {
       if (introSection && introSection.current) {
         const intro = introSection.current.getBoundingClientRect();
 
-        if (isPageWithTransparentHeader) {
+        if (isTransparentHeader) {
           setIsPageScrolledDown(intro.top < -200);
           setIsLogoTextHidden(intro.top < -200);
-        }
-
-        if (isCaseStudyWithTransparentHeader) {
-          setIsPageScrolledDown(intro.top < -170);
-          setIsLogoTextHidden(intro.top < -220);
         }
 
         if (!isTransparentHeader) {
@@ -83,8 +79,6 @@ export const useHeader = ({ introSection }) => {
   }, [
     currentPage,
     introSection,
-    isPageWithTransparentHeader,
-    isCaseStudyWithTransparentHeader,
     isTransparentHeader,
   ]);
 
@@ -103,11 +97,10 @@ export const useHeader = ({ introSection }) => {
   const isPageScrolling = (isPageScrolledDown || (!!currentPage && (currentPage !== '' && !isTransparentHeader)));
 
   return {
+    isTransparentHeader,
     isLogoTextHidden,
     isHeaderColorNeedChange,
     introSection,
-    isPageWithTransparentHeader,
-    isCaseStudyWithTransparentHeader,
     isMobileMenuOpened,
     isPageScrolledDown,
     isPageScrolling,
@@ -117,7 +110,7 @@ export const useHeader = ({ introSection }) => {
     asPath,
     page,
     isMobile,
-    isPageWithGrayHeader,
+    isGrayHeader,
     setDesktopMenu,
     isDropMenuOpened,
   };

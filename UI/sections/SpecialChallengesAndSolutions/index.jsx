@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import SectionTitle from 'UI/components/SectionTitle';
 import ChallengesAndSolutions from 'UI/components/ChallengesAndSolutions';
-import BackgroundImages from 'UI/components/BackgroundImages';
 import { useSpecialChallengesAndSolutions } from './utils/useSpecialChallengesAndSolutions';
 import styles from './styles.module.scss';
 
@@ -14,7 +13,6 @@ const SpecialChallengesAndSolutions = (props) => {
     subtitle,
     description,
     sectionBackgroundImage,
-    displayBackgroundImage,
   } = useSpecialChallengesAndSolutions(props);
 
   return (
@@ -35,12 +33,6 @@ const SpecialChallengesAndSolutions = (props) => {
         view={data.view}
         isSpecial
       />
-      {displayBackgroundImage && (
-        <BackgroundImages
-          data={data}
-          type={type}
-        />
-      )}
     </section>
   );
 };

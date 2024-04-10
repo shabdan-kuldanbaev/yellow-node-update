@@ -35,6 +35,7 @@ const CallToAction = (props) => {
     <div className={classNames}>
       {images.map(({ url, alt }, i) => (
         <Illustration
+          key={url}
           src={url}
           alt={alt}
           className={cn(styles.image, styles[`image-${i}`])}

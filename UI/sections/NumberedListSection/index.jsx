@@ -34,7 +34,7 @@ const NumberedListSection = (props) => {
           description={description}
         />
         <div className={styles.checkList}>
-          {list.map((text, index) => (
+          {list?.map((text, index) => (
             <Animated
               {...REVEAL_ANIMATION_PROPS}
               key={`numbered-list/${index}`}

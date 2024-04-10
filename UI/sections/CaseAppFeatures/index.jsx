@@ -66,7 +66,10 @@ const CaseAppFeatures = (props) => {
         </div>
         <div className={styles.imageContainer}>
           {activeIndex !== -1 ? imagesData?.map((image, i) => (
-            <Animated {...REVEAL_ANIMATION_PROPS}>
+            <Animated
+              {...REVEAL_ANIMATION_PROPS}
+              key={`image_${i + 1}`}
+            >
               <Illustration
                 src={image}
                 className={cn(styles.image, {

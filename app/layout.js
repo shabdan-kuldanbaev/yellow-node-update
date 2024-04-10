@@ -25,7 +25,8 @@ export const metadata = {
   },
 };
 
-const RootLayout = ({ children }) => {
+const RootLayout = (props) => {
+  const { children } = props;
   const { GTM_ID, CRISP_WEBSITE_ID } = process.env;
 
   return (

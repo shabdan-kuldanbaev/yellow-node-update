@@ -2,10 +2,6 @@ import get from 'lodash/get';
 import { getFileUrl } from 'utils/helper';
 import { CASE_STUDIES } from 'utils/constants';
 
-export function checkBackgroundImageDisplaying(pageSlug) {
-  return ![CASE_STUDIES.fernwayer].includes(pageSlug);
-}
-
 export const getBackgroundStyle = (type, data) => {
   switch (type) {
   case CASE_STUDIES.fernwayer:

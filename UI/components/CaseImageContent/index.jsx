@@ -1,7 +1,6 @@
 import cn from 'classnames';
-import PropTypes from 'prop-types';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
-import Illustration from 'UI/components/Illustration';
+import Media from 'UI/components/Media';
 import Animated from 'UI/containers/Animated';
 import Typography from 'UI/components/Typography';
 import styles from './styles.module.scss';
@@ -12,14 +11,13 @@ const CaseImageContent = ({
   type,
   view,
 }) => (
-  (image.url || textContent) && (
+  (image || textContent) && (
     <Animated {...ANIMATION_CASE_STUDY_PROPS}>
       <div className={cn(styles.blockContainer, styles[type], styles[view])}>
         {image && (
-          <Illustration
+          <Media
+            asset={image}
             className={styles.image}
-            src={image.url}
-            alt={image.alt}
           />
         )}
         <div className={styles.container}>
@@ -67,11 +65,5 @@ const CaseImageContent = ({
     </Animated>
   )
 );
-
-CaseImageContent.propTypes = {
-  type: PropTypes.string,
-  textContent: PropTypes.instanceOf(Object),
-  image: PropTypes.string,
-};
 
 export default CaseImageContent;

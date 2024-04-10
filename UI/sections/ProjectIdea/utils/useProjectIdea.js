@@ -1,9 +1,6 @@
 import get from 'lodash/get';
 import { ANIMATION_CASE_STUDY_PROPS } from 'components/CaseStudiesCommon/utils/data';
-import {
-  getDocumentFields,
-  getImage,
-} from 'utils/helper';
+import { getDocumentFields } from 'utils/helper';
 
 export const useProjectIdea = ({ type, data }) => {
   const {
@@ -51,7 +48,6 @@ export const useProjectIdea = ({ type, data }) => {
     ]),
   );
   const textContent = imageContent?.contentModules?.map((con) => getDocumentFields(con, ['title', 'contentList', 'description']));
-  const image = getImage(imageContent?.images?.[0]);
 
   return {
     type,
@@ -65,10 +61,10 @@ export const useProjectIdea = ({ type, data }) => {
     delayedAnimation,
     featuresProps,
     teamListProps,
-    image,
+    image: imageContent?.images?.[0],
     textContent,
     view,
-    background: getImage(background),
+    background,
     images,
   };
 };

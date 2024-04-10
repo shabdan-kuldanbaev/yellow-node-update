@@ -116,6 +116,7 @@ const CaseProcess = (props) => {
               className={cn(styles.image, styles[`image-${index + 1}`])}
               alt={image.alt}
               src={image.url}
+              key={`image_${index + 1}`}
             />
           ))}
         </div>

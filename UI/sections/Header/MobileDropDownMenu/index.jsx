@@ -31,6 +31,7 @@ const MobileDropDownMenu = (props) => {
         }) => (
           <>
             <div
+              key={`subMenuItemContainer_${key}`}
               className={cn(styles.subMenuItemContainer, {
                 [styles.openedDropDown]: activeSubMenu === key,
               })}

@@ -36,7 +36,7 @@ export default function WorksFilters(props) {
           className={styles.filterItems}
           ref={filtersListRefs.current[0]}
         >
-          {types.map((type) => (
+          {types?.map((type) => (
             <Checkbox
               key={type.slug}
               id={`type/${type.slug}`}
@@ -69,6 +69,7 @@ export default function WorksFilters(props) {
         >
           {tags.map((tag) => (
             <Checkbox
+              key={`tag/${tag.slug}`}
               id={`tag/${tag.slug}`}
               checked={filters.selectedTags.includes(tag)}
               onChange={getOptionToggleHandler({ filterType: 'selectedTags', option: tag })}

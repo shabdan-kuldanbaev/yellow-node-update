@@ -24,9 +24,9 @@ const LinkList = (props) => {
           linkTitle,
           svgType,
           url,
-        }) => (
+        }, index) => (
           <div
-            key={linkTitle}
+            key={`linkTitle_${index + 1}`}
             className={styles.linkContainer}
           >
             <LinkWrapper path={url}>

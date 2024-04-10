@@ -6,7 +6,6 @@ import { sendAutoReplyEmail } from 'utils/contactUs';
 export async function POST(request) {
   try {
     const body = await request.json();
-    console.log(body);
 
     await sendAutoReplyEmail(body.email);
     await sendFormData(request, body);
