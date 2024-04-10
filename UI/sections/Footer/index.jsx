@@ -1,3 +1,5 @@
+'use client';
+
 import dynamic from 'next/dynamic';
 import { CASE_STUDIES_SLUGS } from 'utils/constants';
 import { usePathname, useParams } from 'next/navigation';
