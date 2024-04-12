@@ -14,8 +14,6 @@ const App = ({ children }) => {
     introSection,
     AppContextValue,
     PageClustersContextValue,
-    slug,
-    pathname,
   } = useApp();
 
   return (
@@ -24,10 +22,7 @@ const App = ({ children }) => {
         {/* TODO: Remove PageFetch context */}
         <PageClustersContext.Provider value={PageClustersContextValue}>
           <IntroSectionContext.Provider value={introSection}>
-            <Layout
-              slug={slug}
-              pathname={pathname}
-            >
+            <Layout>
               {children}
             </Layout>
           </IntroSectionContext.Provider>

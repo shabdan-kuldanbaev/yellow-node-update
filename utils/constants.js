@@ -776,7 +776,3 @@ export const VALUABLE_ARTICLE_CATEGORIES_SLUGS = [
   'software-chat',
   'marketing',
 ];
-
-export const PAGES_WITHOUT_INDEXING = [
-  ROUTES.aiSoftwareDevelopmentServices.path,
-];
