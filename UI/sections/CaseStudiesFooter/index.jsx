@@ -1,3 +1,5 @@
+'use client';
+
 import PropTypes from 'prop-types';
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
@@ -11,7 +13,7 @@ import styles from './styles.module.scss';
 const SectionTitle = dynamic(() => import('UI/components/SectionTitle'));
 const Svg = dynamic(() => import('UI/components/Svg'));
 
-const CaseStudiesFooter = async (props) => {
+const CaseStudiesFooter = (props) => {
   const {
     type,
     title,
@@ -20,7 +22,7 @@ const CaseStudiesFooter = async (props) => {
     pathname,
     footerStyle,
     socialNetworks,
-  } = await useCaseStudiesFooter(props);
+  } = useCaseStudiesFooter(props);
 
   return (
     <footer
@@ -39,12 +41,10 @@ const CaseStudiesFooter = async (props) => {
             className={styles.more}
             isLocalLink
           >
-            <>
-              <Typography className={styles.textIndent}>
-                {buttonTitle}
-              </Typography>
-              <Svg type={SVG_IMAGES_TYPES.arrow} />
-            </>
+            <Typography className={styles.textIndent}>
+              {buttonTitle}
+            </Typography>
+            <Svg type={SVG_IMAGES_TYPES.arrow} />
           </LinkWrapper>
         </div>
       )}

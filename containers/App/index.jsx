@@ -9,12 +9,14 @@ import {
 } from 'utils/appContext';
 import useApp from './useApp';
 
-const App = ({ children, params }) => {
+const App = ({ children }) => {
   const {
     introSection,
     AppContextValue,
     PageClustersContextValue,
-  } = useApp(params);
+    slug,
+    pathname,
+  } = useApp();
 
   return (
     <ReduxProvider>
@@ -22,7 +24,10 @@ const App = ({ children, params }) => {
         {/* TODO: Remove PageFetch context */}
         <PageClustersContext.Provider value={PageClustersContextValue}>
           <IntroSectionContext.Provider value={introSection}>
-            <Layout>
+            <Layout
+              slug={slug}
+              pathname={pathname}
+            >
               {children}
             </Layout>
           </IntroSectionContext.Provider>

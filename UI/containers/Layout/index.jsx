@@ -16,7 +16,6 @@ const Layout = (props) => {
     children,
     introSection,
     isDuckLoading,
-    withoutIndexing,
   } = useLayout(props);
 
   return (

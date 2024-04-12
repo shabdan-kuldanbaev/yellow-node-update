@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from 'react';
-import { usePathname } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import { getCookie, setCookie } from 'cookies-next';
 import smoothscroll from 'smoothscroll-polyfill';
 import { getUserLocation } from 'utils/helper';
@@ -15,6 +15,7 @@ import getGaMetrics from 'utils/gaMetrics/getGaMetrics';
 
 export default function useApp() {
   const pathname = usePathname();
+  const { slug } = useParams();
 
   const [contextData, setContextData] = useState({
     isHomepageVisit: false,
@@ -67,5 +68,7 @@ export default function useApp() {
     introSection,
     AppContextValue,
     PageClustersContextValue,
+    slug,
+    pathname,
   };
 }
