@@ -1,15 +1,11 @@
 'use client';
 
-import { Suspense } from 'react';
-import dynamic from 'next/dynamic';
 import PropTypes from 'prop-types';
 import CookiesNotification from 'components/Common/CookiesNotification';
 import GAnalytic from 'components/Layout/GAnalytic';
 import Header from 'UI/sections/Header';
+import Footer from 'UI/sections/Footer';
 import { useLayout } from './utils/useLayout';
-
-const Footer = dynamic(() => import('UI/sections/Footer'));
-const LoadingScreen = dynamic(() => import('UI/components/LoadingScreen'));
 
 const Layout = (props) => {
   const {
@@ -20,15 +16,11 @@ const Layout = (props) => {
 
   return (
     <>
-      {isDuckLoading && <LoadingScreen />}
+      {isDuckLoading}
       <CookiesNotification />
-      <Suspense>
-        <Header introSection={introSection} />
-      </Suspense>
+      <Header introSection={introSection} />
       {children}
-      <Suspense>
-        <Footer />
-      </Suspense>
+      <Footer />
       <GAnalytic />
     </>
   );

@@ -1,11 +1,12 @@
 'use client';
 
-import { useContext, useEffect } from 'react';
-import HomeIntro from 'UI/sections/HomeIntro';
+import { Suspense, useContext, useEffect } from 'react';
 import { loadDuck } from 'UI/components/Duck/DuckWrapper/utils/helpers';
 import SectionSelector from 'containers/Home/SectionSelector';
 import { AppContext, IntroSectionContext } from 'utils/appContext';
 import { routes } from 'utils/routes';
+import HomeIntro from 'UI/sections/HomeIntro';
+import LoadingScreen from 'UI/components/LoadingScreen';
 
 export const Home = ({
   contentModules,
@@ -26,6 +27,8 @@ export const Home = ({
       setContextData((prev) => ({ ...prev, duck: duckLoaded }));
     })();
   }, [duck, setContextData]);
+
+  if (!duck) return <LoadingScreen />;
 
   return (
     <>

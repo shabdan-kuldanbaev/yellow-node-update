@@ -1,3 +1,5 @@
+'use client';
+
 import Lottie from 'react-lottie-light';
 import { useLoadingScreen } from './utils/useLoadingScreen';
 import styles from './styles.module.scss';

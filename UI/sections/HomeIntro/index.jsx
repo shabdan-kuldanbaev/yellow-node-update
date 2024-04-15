@@ -1,3 +1,5 @@
+'use client';
+
 import { memo } from 'react';
 import PropTypes from 'prop-types';
 import AddFooter from 'components/HomeCommon/AddFooter';

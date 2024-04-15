@@ -1,3 +1,5 @@
+'use client';
+
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import IntroText from 'components/HomeCommon/IntroText';
