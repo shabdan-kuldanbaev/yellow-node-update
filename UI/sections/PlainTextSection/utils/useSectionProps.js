@@ -1,3 +1,5 @@
+'use client';
+
 import get from 'lodash/get';
 import { useCallback, useState } from 'react';
 import { getDocumentFields } from 'utils/helper';
@@ -24,13 +26,15 @@ export default ({
     ],
   );
   const [isSeeMore, setIsSeeMore] = useState(false);
-  const { text, hasSeeMoreButton } = getDocumentFields(get(contentModules, '[0]', []), ['text', 'hasSeeMoreButton']);
+  const {
+    text,
+    hasSeeMoreButton,
+    contentModules: figures,
+  } = getDocumentFields(get(contentModules, '[0]', []), ['text', 'hasSeeMoreButton', 'contentModules']);
 
   const figuresData = get(contentModules, '[0]', {});
   const ctaLink = get(contentModules, '[1]', {});
-  const onClickMoreButton = useCallback(() => {
-    setIsSeeMore(!isSeeMore);
-  }, [isSeeMore]);
+  const onClickMoreButton = () => setIsSeeMore(true);
 
   return {
     title,
@@ -42,7 +46,7 @@ export default ({
     hasSeeMoreButton,
     onClickMoreButton,
     isSeeMore,
-    figuresData: Object.keys(figuresData).length ? figuresData : null,
+    figuresData: figures && figuresData,
     ctaLink,
     ...props,
   };

@@ -93,7 +93,16 @@
     }
 
     .seeMoreButton {
+      display: none;
       background-color: transparent;
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    @include below-tablet {
+      .seeMoreButton {
+        display: block;
+      }
     }
   }
 }
