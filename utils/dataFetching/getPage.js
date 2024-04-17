@@ -1,5 +1,5 @@
 import { cache } from 'react';
-import { contentfulClient } from 'utils/contentful/client';
+import { contentfulClient, fallbackClient } from 'utils/contentful/client';
 import { handleApiError } from 'utils/error';
 import { getFileUrl } from 'utils/helper';
 
@@ -18,7 +18,6 @@ export const getPage = cache(async (slug) => {
       },
 
     });
-
     const data = response.items[0].fields;
 
     return {
@@ -33,9 +32,33 @@ export const getPage = cache(async (slug) => {
       },
     };
   } catch (e) {
-    handleApiError(e);
+    if (e.message === '404') {
+      try {
+        const fallbackResponse = await fallbackClient.getEntries({
+          contentType: 'page',
+          additionalQueryParams: {
+            'fields.slug': slug,
+          },
 
-    return { error: e.message };
+        });
+
+        const fallbackData = fallbackResponse.items[0].fields;
+
+        return {
+          data: {
+            ...fallbackData,
+            metaData: {
+              metaTitle: fallbackData.metaTitle || '',
+              metaDescription: fallbackData.metaDescription || '',
+              metaRobots: fallbackData.metaRobots || '',
+              ogImage: getFileUrl(fallbackData.ogImage),
+            },
+          },
+        };
+      } catch (fallbackError) {
+        return { error: fallbackError.message };
+      }
+    }
   }
 });
 
@@ -69,8 +92,31 @@ export const getPageWithoutCache = async (slug) => {
       },
     };
   } catch (e) {
-    handleApiError(e);
+    if (e.message === '404') {
+      try {
+        const fallbackResponse = await fallbackClient.getEntries({
+          contentType: 'page',
+          additionalQueryParams: {
+            'fields.slug': slug,
+          },
 
-    return { error: e.message };
+        });
+        const fallbackData = fallbackResponse.items[0].fields;
+
+        return {
+          data: {
+            ...fallbackData,
+            metaData: {
+              metaTitle: fallbackData.metaTitle || '',
+              metaDescription: fallbackData.metaDescription || '',
+              metaRobots: fallbackData.metaRobots || '',
+              ogImage: getFileUrl(fallbackData.ogImage),
+            },
+          },
+        };
+      } catch (fallbackError) {
+        return { error: fallbackError.message };
+      }
+    }
   }
 };
