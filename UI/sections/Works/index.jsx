@@ -17,7 +17,7 @@ const Works = (props) => {
     filters,
     tags,
     types,
-    hendleMoreClick,
+    handleMoreClick,
     handleFiltersChange,
   } = useProps(props);
 
@@ -41,15 +41,16 @@ const Works = (props) => {
       </div>
 
       {hasHiddenItems && (
-        <Animated {...REVEAL_ANIMATION_PROPS}>
-          <Button
-            className={styles.showMoreButton}
-            onClick={hendleMoreClick}
-            secondary
-          >
-            Load more
-          </Button>
-        </Animated>
+        <div className={styles.bottomContainer}>
+          <Animated {...REVEAL_ANIMATION_PROPS}>
+            <Button
+              secondary
+              onClick={handleMoreClick}
+            >
+              Load more
+            </Button>
+          </Animated>
+        </div>
       )}
     </>
   );

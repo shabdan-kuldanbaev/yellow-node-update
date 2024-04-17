@@ -24,7 +24,7 @@ export default ({ works, ...rest }) => {
     setWorksDisplay(newWorksDisplay);
   }
 
-  function hendleMoreClick() {
+  function handleMoreClick() {
     const newWorksDisplay = getLimitedList(filteredWorks, { limit: worksDisplay.length + DEFAULT_WORKS_LIMIT });
     setWorksDisplay(newWorksDisplay);
   }
@@ -34,7 +34,7 @@ export default ({ works, ...rest }) => {
     hasHiddenItems,
     works: worksDisplay,
     handleFiltersChange,
-    hendleMoreClick,
+    handleMoreClick,
     ...rest,
   };
 };
