@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import axios from 'axios';
-import { getCookie, setCookie } from 'cookies-next';
 import { leadSourceCookieName, userLocation } from 'utils/constants/cookieNames';
+import { cookies } from 'next/headers';
 import { handleError } from '../error';
 
 dotenv.config('./env');
@@ -144,7 +144,7 @@ const getCurrentLeadSourceOption = async ({
   }
 };
 
-export async function sendDataPipedrive(req, res) {
+export async function sendDataPipedrive(fields) {
   try {
     const {
       name,
@@ -153,12 +153,13 @@ export async function sendDataPipedrive(req, res) {
       description,
       clientId,
       attachments: reqAttachments,
-    } = req.body;
-
+    } = fields;
     const attachments = Array.isArray(reqAttachments) ? reqAttachments : [reqAttachments || ''];
 
-    const leadSource = JSON.parse(getCookie(leadSourceCookieName, { req, res }));
-    const clientLocation = JSON.parse(getCookie(userLocation, { req, res }));
+    const cookieStore = cookies();
+
+    const leadSource = cookieStore.get(leadSourceCookieName);
+    const clientLocation = cookieStore.get(userLocation);
 
     const {
       countryField,
@@ -208,13 +209,13 @@ export async function sendDataPipedrive(req, res) {
       });
     }
 
-    res.status(200).send(JSON.stringify({ newPersonPipedrive }));
+    return newPersonPipedrive;
   } catch (error) {
     console.error('PD error: ', error);
     handleError({
       error,
       message: 'Error in the sendDataPipedrive function',
     });
-    res.status(500).json({ error: error.message });
+    throw new Error('Error in sendDataPipedrive');
   }
 }
