@@ -16,10 +16,6 @@ html {
     margin: 0;
     padding: 0;
 
-    & > div > section {
-      background-color: $black;
-    }
-
     [data-rmiz-overlay] {
       [data-rmiz-modal-content] {
         & > * {

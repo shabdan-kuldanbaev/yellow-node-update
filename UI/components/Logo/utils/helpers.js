@@ -104,6 +104,14 @@ export const WHITE_TEXT_LOGO = [
   ROUTES.aiSoftwareDevelopmentServices.path,
   ROUTES.aiChatbotDevelopmentServices.path,
   ROUTES.aiStaffAugmentationServices.path,
+  ROUTES.aiDevelopment.path,
+  ROUTES.softwareQualityAssuranceServices.path,
+  ROUTES.mlDevelopment.path,
+  ROUTES.dataScienceDevelopment.path,
+  ROUTES.generativeAiDevelopment.path,
+  ROUTES.aiConsulting.path,
+  ROUTES.erpDevelopment.path,
+  ROUTES.mvpDevelopment.path,
 ];
 
 export const getLogoType = (type) => {
